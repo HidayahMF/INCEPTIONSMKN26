@@ -1,0 +1,1 @@
+:root { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; --primary:#0092FF; --primary-dark:#006CDC; --soft-blue:#4CBAF5; --light-blue:#D7F1FF; --background:#EAF5FA; --accent:#FFB700; --ink:#0B1324; --muted:#5B6B8C; --surface:#FFFFFF; --radius:18px; color:var(--ink); background:var(--surface); }
