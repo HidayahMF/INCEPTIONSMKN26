@@ -1,4 +1,6 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
+dotenv.config({ path: fileURLToPath(new URL('../.env', import.meta.url)) });
 import { getAdminClient } from '../src/lib/supabase.js';
 
 const accounts = [
@@ -17,10 +19,20 @@ const passwordFor = (identifier) => process.env[`DEMO_PASSWORD_${identifier.repl
 const emailFor = (identifier) => `${identifier.toLowerCase().replaceAll(/[^a-z0-9]/g, '')}@${process.env.DEMO_AUTH_DOMAIN || 'demo.invalid'}`;
 
 async function provision() {
+  const missingPasswords = accounts
+    .map((account) => `DEMO_PASSWORD_${account.identifier.replaceAll('-', '_')}`)
+    .filter((name) => !process.env[name] || process.env[name].length < 12);
+  if (missingPasswords.length) {
+    throw new Error(`Missing strong password env: ${missingPasswords.join(', ')}`);
+  }
+  const passwordNames = accounts.map((account) => `DEMO_PASSWORD_${account.identifier.replaceAll('-', '_')}`);
+  const passwords = passwordNames.map((name) => process.env[name]);
+  if (new Set(passwords).size !== passwords.length) {
+    throw new Error('Demo password env values must be unique per account.');
+  }
   const admin = getAdminClient();
   for (const account of accounts) {
     const password = passwordFor(account.identifier);
-    if (!password || password.length < 12) throw new Error(`Missing strong password env for ${account.identifier}`);
     const email = emailFor(account.identifier);
     const { data: existing } = await admin.from('auth_identity_mappings').select('user_id').eq('login_identifier', account.identifier).maybeSingle();
     let userId = existing?.user_id;

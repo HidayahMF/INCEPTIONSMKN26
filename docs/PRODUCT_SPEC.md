@@ -54,6 +54,8 @@ Frontend React + TypeScript + Vite; backend Express **JavaScript**, Supabase Pos
 - Public information belongs in a curated public knowledge base; private profile, CV, achievement proof, grades and claim evidence must be stored and authorized separately.
 - Server-side RBAC must support multiple independent capabilities: a teacher may also be BK, head of department or MPK advisor, while a student may be class representative. Role assignments need class/department/academic-year scope and expiry.
 - Do not expose sensitive information in shared public repositories or public demo videos.
+- The official school site `https://smkn26jkt.sch.id/` is the primary public-information source for the current import dataset. Imported records retain source URL and retrieval date, enter `DRAFT`, and require editor approval before public display or RAG retrieval. Legacy site layouts/assets are not copied without permission.
+- The new website must operate using its own database, backend, storage, and knowledge base. The legacy school site is migration provenance only and must never be a runtime dependency.
 
 ## Open questions
 [ ] Confirm actual primary domain/deployment and existing codebase.

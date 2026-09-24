@@ -41,3 +41,9 @@ Status: USER-PROVIDED STYLE-GUIDE SCREENSHOT confirms the listed color/font valu
 - [ ] All implemented pages reference approved tokens and reusable components.
 - [ ] Desktop/mobile visual comparison against Figma screenshots completed.
 - [ ] Hover/focus/disabled/loading/error/empty states built where applicable.
+
+## Styling implementation
+Tailwind CSS v4 is installed through `@tailwindcss/vite`. The CSS-first `@theme` block in `frontend/src/styles/tokens.css` maps the approved Inter and SMKN 26 color tokens to Tailwind utilities. Existing semantic CSS classes remain during incremental migration and must continue to use the same tokens. Figma/team frames remain the visual source of truth; legacy school-site layouts and unlicensed assets are not copied.
+
+## Landing implementation note
+The requested Figma frame `43:207` and child frames were not available through the current agent's Figma access; the fetch returned only the generic Figma page and no exportable node data. The landing page therefore implements the verified information architecture and token language from this document, with explicit local asset slots rather than unlicensed substitutes. Pixel-level comparison, exact Figma spacing, and original image/icon export remain pending designer asset access.

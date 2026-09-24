@@ -15,6 +15,8 @@ Status: approved stack; infrastructure is a target architecture, not a deployed 
 ## Request/data flow
 Browser -> Vite SPA deployed on Vercel -> `/api/*` -> Express JavaScript handler deployed as serverless function -> PostgreSQL, private Supabase Storage, Gemini, Midtrans Sandbox. Never import server secrets into `frontend/`.
 
+The new website is independent of the legacy school website at runtime. `smkn26jkt.sch.id` may be used by an administrator during initial migration verification only. It is not a frontend/API fetch target, iframe, runtime asset host, chatbot retrieval source, or Gemini context source. Imported source URLs remain audit metadata and are not emitted as public citation links.
+
 ## Proposed monorepo layout
 ```
 frontend/src/{app,routes,layouts,components,features,services,styles}/
