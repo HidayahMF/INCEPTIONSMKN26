@@ -12,6 +12,7 @@ import { authorize } from './middleware/authorize.js';
 import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './modules/content/content.service.js';
 import { createPdfSource, createTextSource, listKnowledge, publicPathForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
 import { answerFromGemini } from './modules/knowledge/gemini.service.js';
+import { learningRouter } from './modules/learning/learning.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
 app.use(helmet());
@@ -63,6 +64,7 @@ app.get('/api/me', authenticate, async (req, res, next) => {
 app.get('/api/me/permissions', authenticate, async (req, res, next) => {
   try { const me = await getMe(req.auth.userId); return res.json({ data: { roles: me.roles }, error: null }); } catch (error) { return next(error); }
 });
+app.use('/api', learningRouter);
 app.get('/api/public/pages', async (req, res, next) => { try { return res.json({ data: await listPublishedPages(req.query.section), error: null }); } catch (error) { return next(error); } });
 app.get('/api/public/pages/:slug', async (req, res, next) => { try { const pages = await listPublishedPages(); const page = pages.find((item) => item.slug === req.params.slug); if (!page) return res.status(404).json({ data: null, error: { message: 'Konten tidak ditemukan.' } }); return res.json({ data: page, error: null }); } catch (error) { return next(error); } });
 app.get('/api/admin/pages', authenticate, authorize('content:manage'), async (_req, res, next) => { try { return res.json({ data: await listPagesForEditor(), error: null }); } catch (error) { return next(error); } });
@@ -91,5 +93,6 @@ app.post('/api/chat', chatLimiter, (req,res)=>{
 app.use((error,_req,res,_next)=>{
   console.error('API error:', error?.message);
   if (error?.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ data: null, error: { message: `Ukuran PDF melebihi batas ${process.env.VERCEL ? '4' : '10'} MB.` } });
+  if (error?.status) return res.status(error.status).json({ data: null, error: { message: error.message } });
   res.status(500).json({data:null,error:{message:'Terjadi kesalahan server.'}});
 });

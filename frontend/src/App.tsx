@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent, type ChangeEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { PublicNavbar } from "./components/public/PublicNavbar";
 import { HeroSection } from "./components/public/HeroSection";
 import { ShortcutMenu } from "./components/public/ShortcutMenu";
@@ -7,20 +7,15 @@ import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
 import { PartnerLogos } from "./components/public/PartnerLogos";
 import { TourPage } from "./pages/TourPage";
 import { LapanganTourPage } from "./pages/LapanganTourPage";
+import { AuthProvider } from "./features/auth/AuthProvider";
+import { LoginPage } from "./pages/LoginPage";
+import { DashboardPage } from "./pages/DashboardPage";
+import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
+import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
+import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
+import { usePathname } from "./routes/compat";
+import { api } from "./lib/api";
 
-type Profile = {
-  user_id: string;
-  school_identifier: string;
-  display_name: string;
-  account_type: string;
-};
-type Role = {
-  id: string;
-  role_code: string;
-  scope_type: string;
-  scope_id: string | null;
-};
-type Me = { profile: Profile; roles: Role[] };
 type Page = {
   id: string;
   slug: string;
@@ -43,24 +38,6 @@ const publicLinks = [
   { path: "/news", label: "Berita" },
   { path: "/contact", label: "Kontak" },
 ];
-const devAccounts = [
-  { identifier: "DEMO-ADMIN", label: "Admin" },
-  { identifier: "DEMO-GURU", label: "Guru" },
-  { identifier: "DEMO-BK", label: "Guru BK" },
-  { identifier: "DEMO-KAJUR", label: "Ketua Jurusan" },
-  { identifier: "DEMO-SISWA", label: "Siswa" },
-  { identifier: "DEMO-KELAS", label: "Ketua Kelas" },
-  { identifier: "DEMO-MPK", label: "Pengurus MPK" },
-  { identifier: "DEMO-KANTIN", label: "Pedagang Kantin" },
-  { identifier: "DEMO-KOPERASI", label: "Koperasi" },
-];
-
-async function api<T>(url: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(url, { ...options, credentials: "include" });
-  const body = await response.json();
-  if (!response.ok) throw new Error(body.error?.message || "Permintaan gagal.");
-  return body.data as T;
-}
 
 function Header() {
   return (
@@ -290,333 +267,8 @@ function Home() {
   );
 }
 
-function DeveloperQuickLogin({ onLogin }: { onLogin: () => void }) {
-  const [busy, setBusy] = useState("");
-  const [error, setError] = useState("");
-  async function selectAccount(identifier: string) {
-    setBusy(identifier);
-    setError("");
-    try {
-      await api("/api/dev/login-as", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier }),
-      });
-      onLogin();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Quick login gagal.");
-      setBusy("");
-    }
-  }
-  return (
-    <section className="dev-login">
-      <h2>Developer Quick Login</h2>
-      <p className="note">
-        Pilih akun demo untuk langsung masuk ke dashboard sesuai role.
-      </p>
-      <div className="dev-account-grid">
-        {devAccounts.map((account) => (
-          <button
-            className="button outline"
-            key={account.identifier}
-            onClick={() => selectAccount(account.identifier)}
-            disabled={Boolean(busy)}
-          >
-            {busy === account.identifier ? "Memuat..." : account.label}
-            <small>{account.identifier}</small>
-          </button>
-        ))}
-      </div>
-      {error && <p className="form-error">{error}</p>}
-    </section>
-  );
-}
-function Login() {
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [busy, setBusy] = useState(false);
-  async function submit(event: FormEvent) {
-    event.preventDefault();
-    setBusy(true);
-    setError("");
-    try {
-      await api("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier, password }),
-      });
-      window.location.href = "/dashboard";
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Login gagal.");
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <main className="auth-page">
-      <section className="auth-card">
-        <a className="logo" href="/">
-          SMK NEGERI 26 JAKARTA
-        </a>
-        <h1>Masuk ke Portal</h1>
-        <p className="lead">
-          Gunakan NIS, NIP, atau identifier demo yang diberikan administrator.
-        </p>
-        <form onSubmit={submit}>
-          <label htmlFor="identifier">NIS / NIP / Identifier</label>
-          <input
-            id="identifier"
-            value={identifier}
-            onChange={(e) => setIdentifier(e.target.value)}
-            required
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button className="button" disabled={busy}>
-            {busy ? "Memeriksa..." : "Masuk"}
-          </button>
-          {error && <p className="form-error">{error}</p>}
-        </form>
-        {import.meta.env.DEV && (
-          <DeveloperQuickLogin
-            onLogin={() => {
-              window.location.href = "/dashboard";
-            }}
-          />
-        )}
-        <a href="/" className="back-link">
-          Kembali ke website publik
-        </a>
-      </section>
-    </main>
-  );
-}
-
-function Dashboard({ me }: { me: Me }) {
-  const roles =
-    me.roles.map((role) => role.role_code).join(", ") ||
-    "Belum ada role tambahan";
-  return (
-    <main className="portal-page">
-      <header className="container portal-header">
-        <div>
-          <a className="logo" href="/">
-            SMK NEGERI 26 JAKARTA
-          </a>
-          <p className="note">Portal internal</p>
-        </div>
-        <button
-          className="button outline"
-          onClick={async () => {
-            await api("/api/auth/logout", { method: "POST" });
-            window.location.href = "/";
-          }}
-        >
-          Keluar
-        </button>
-      </header>
-      <section className="container portal-content">
-        <div className="pill">{me.profile.account_type}</div>
-        <h1>Selamat datang, {me.profile.display_name}</h1>
-        <p className="lead">
-          Identifier sekolah: {me.profile.school_identifier}
-        </p>
-        <article className="card">
-          <h2>Akses Anda</h2>
-          <p>{roles}</p>
-          <p className="note">
-            Permission diverifikasi backend berdasarkan assignment aktif.
-          </p>
-        </article>
-      </section>
-    </main>
-  );
-}
-
-type KnowledgeItem = {
-  id: string;
-  status: string;
-  source_type: string;
-  knowledge_sources?: { title?: string };
-};
-function AdminKnowledge() {
-  const [items, setItems] = useState<KnowledgeItem[]>([]);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [status, setStatus] = useState("");
-  async function reload() {
-    try {
-      setItems(await api<KnowledgeItem[]>("/api/admin/knowledge"));
-    } catch {
-      setStatus("Akses ditolak atau sesi berakhir.");
-    }
-  }
-  useEffect(() => {
-    reload();
-  }, []);
-  async function addText(event: FormEvent) {
-    event.preventDefault();
-    setStatus("");
-    try {
-      await api("/api/admin/knowledge/text", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, body }),
-      });
-      setTitle("");
-      setBody("");
-      setStatus("Sumber disimpan sebagai DRAFT.");
-      await reload();
-    } catch (e) {
-      setStatus(e instanceof Error ? e.message : "Gagal menyimpan sumber.");
-    }
-  }
-  async function upload(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    const form = new FormData();
-    form.append("title", file.name);
-    form.append("file", file);
-    try {
-      await api("/api/admin/knowledge/pdf", { method: "POST", body: form });
-      setStatus("PDF diproses sebagai DRAFT.");
-      await reload();
-    } catch (e) {
-      setStatus(e instanceof Error ? e.message : "Gagal memproses PDF.");
-    }
-  }
-  async function changeStatus(id: string, nextStatus: string) {
-    try {
-      await api(`/api/admin/knowledge/${id}/status`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: nextStatus }),
-      });
-      await reload();
-    } catch (e) {
-      setStatus(e instanceof Error ? e.message : "Status gagal diubah.");
-    }
-  }
-  return (
-    <main className="portal-page">
-      <header className="container portal-header">
-        <a className="logo" href="/dashboard">
-          SMK NEGERI 26 JAKARTA
-        </a>
-        <a className="back-link" href="/">
-          Website publik
-        </a>
-      </header>
-      <section className="container portal-content">
-        <div className="pill">CONTENT EDITOR</div>
-        <h1>Knowledge Base</h1>
-        <p className="lead">
-          Tambahkan sumber resmi, tinjau status, lalu setujui sebelum tersedia
-          untuk chatbot publik.
-        </p>
-        <article className="card admin-form">
-          <h2>Tambah informasi teks</h2>
-          <form onSubmit={addText}>
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Judul sumber"
-              required
-            />
-            <textarea
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              placeholder="Isi resmi yang sudah diverifikasi"
-              required
-            />
-            <button className="button">Simpan sebagai draft</button>
-          </form>
-          <label className="upload-label">
-            Unggah PDF draft
-            <input type="file" accept="application/pdf" onChange={upload} />
-          </label>
-          {status && <p className="note">{status}</p>}
-        </article>
-        <article className="card">
-          <h2>Sumber tersimpan</h2>
-          {items.length ? (
-            <div className="knowledge-list">
-              {items.map((item) => (
-                <div className="knowledge-row" key={item.id}>
-                  <span>
-                    <strong>
-                      {item.knowledge_sources?.title || "Sumber tanpa judul"}
-                    </strong>
-                    <small>
-                      {item.source_type} · {item.status}
-                    </small>
-                  </span>
-                  {item.status === "APPROVED" ? (
-                    <button
-                      className="button outline"
-                      onClick={() => changeStatus(item.id, "DRAFT")}
-                    >
-                      Tarik publikasi
-                    </button>
-                  ) : (
-                    <button
-                      className="button"
-                      onClick={() => changeStatus(item.id, "APPROVED")}
-                    >
-                      Setujui
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <EmptyState message="Belum ada sumber knowledge base." />
-          )}
-        </article>
-      </section>
-    </main>
-  );
-}
-
-export function App() {
+export function LegacyApp() {
   const path = window.location.pathname;
-  const [me, setMe] = useState<Me | null>(null);
-  const [loading, setLoading] = useState(
-    path === "/dashboard" || path === "/admin/knowledge",
-  );
-  useEffect(() => {
-    if (loading)
-      api<Me>("/api/me")
-        .then(setMe)
-        .catch(() => {
-          window.location.href = "/login";
-        })
-        .finally(() => setLoading(false));
-  }, [loading]);
-  if (path === "/login") return <Login />;
-  if (path === "/dashboard")
-    return loading ? (
-      <main className="auth-page">
-        <p>Memulihkan sesi...</p>
-      </main>
-    ) : me ? (
-      <Dashboard me={me} />
-    ) : null;
-  if (path === "/admin/knowledge")
-    return loading ? (
-      <main className="auth-page">
-        <p>Memulihkan sesi...</p>
-      </main>
-    ) : me ? (
-      <AdminKnowledge />
-    ) : null;
   if (path === "/") return <Home />;
   if (path === "/tour") return <TourPage />;
   if (path === "/tour/lapangan") return <LapanganTourPage />;
@@ -674,4 +326,18 @@ export function App() {
   };
   const detail = details[path] || details["/information"];
   return <PublicPage section={detail[0]} title={detail[1]} intro={detail[2]} />;
+}
+
+export function App() {
+  const path = usePathname();
+  if (path === "/") return <LegacyApp />;
+  if (path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/majors", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <LegacyApp />;
+  if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
+  return <AuthProvider>
+    {path === "/login" && <LoginPage />}
+    {path === "/dashboard" && <DashboardPage />}
+    {path === "/dashboard/learning" && <LearningRecommendationPage />}
+    {path === "/dashboard/grades" && <TeacherGradesPage />}
+    {path === "/admin/knowledge" && <AdminKnowledgePage />}
+  </AuthProvider>;
 }

@@ -10,6 +10,7 @@ Status: schema proposal, not applied migration. Implement via reviewed SQL migra
 
 ## Internal features
 - Academics: `subjects`, `learning_topics`, `assessments`, `student_topic_scores`, `learning_resources`, `practice_attempts`.
+- Phase 1 academic slice uses `subjects`, `learning_topics`, `teacher_subject_assignments`, `assessments`, `student_scores`, and `learning_resources` from migration `202609270003_academic_learning.sql`. Academic tables have RLS enabled; server-side service-role queries still enforce student ownership and teacher assignment scope. `student_scores` is unique per assessment/student and approved resources are the only resources returned to students.
 - Portfolio/PKL: `student_portfolios`, `achievement_submissions`, `achievement_reviews`, `cv_files`, `pkl_vacancies`, `pkl_applications` (unique vacancy/student), `application_exports` (audit).
 - Lost and found: `found_items`, `item_custody_events`, `item_claims`, `item_handover_events`.
 - Canteen/co-op: `merchants`, `products`, `inventory`, `pickup_slots`, `orders`, `order_items`, `payment_attempts`, `payment_events` (unique provider event/transaction), `reviews`.

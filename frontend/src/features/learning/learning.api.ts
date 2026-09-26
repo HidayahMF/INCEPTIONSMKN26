@@ -1,0 +1,10 @@
+import { api } from '../../lib/api';
+import type { Assignment, LearningSummary, StudentRow, Topic } from './learning.types';
+export const getLearningSummary = () => api<LearningSummary>('/api/student/learning');
+export const getAssignments = () => api<Assignment[]>('/api/teacher/learning/assignments');
+export const getAssignmentStudents = (id: string) => api<{ assignment: Assignment; students: StudentRow[] }>(`/api/teacher/learning/assignments/${id}/students`);
+export const getAssignmentTopics = (id: string) => api<Topic[]>(`/api/teacher/learning/assignments/${id}/topics`);
+export const getAssignmentAssessments = (id: string) => api<{ id: string; topic_id: string; title: string; assessment_date: string; minimum_score: number; max_score: number; student_scores: { student_id: string; score: number }[] }[]>(`/api/teacher/learning/assignments/${id}/assessments`);
+export const createAssessment = (body: Record<string, unknown>) => api<{ id: string }>('/api/teacher/learning/assessments', { method: 'POST', body: JSON.stringify(body) });
+export const saveScores = (id: string, scores: { studentId: string; score: number }[]) => api(`/api/teacher/learning/assessments/${id}/scores`, { method: 'POST', body: JSON.stringify({ scores }) });
+export const generatePractice = (topicId: string) => api<{ topic: Topic; generated: boolean; explanation: string; questions: string[] }>(`/api/student/learning/topics/${topicId}/practice`, { method: 'POST' });

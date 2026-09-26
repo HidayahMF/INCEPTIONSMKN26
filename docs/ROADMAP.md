@@ -30,8 +30,10 @@ Full demo run, responsive/accessibility and security checks, GitHub README, prop
 | Gemini RAG | PLANNED | — |
 | Panorama | PLANNED | — |
 | Auth/RBAC | BLOCKED — onboarding decision | — |
-| Learning recommendations | PLANNED | — |
+| Learning recommendations | VERIFIED | Supabase-backed teacher/student browser E2E, score update, permission denial, 10 backend tests, 12 Playwright tests, frontend/backend checks, build, and serverless import pass. |
 | Portfolio/PKL/achievements | PLANNED | — |
 | Lost & found | PLANNED | — |
 | MPK aspirations | PLANNED | — |
 | Canteen/co-op sandbox | PLANNED | — |
+
+Learning recommendation scope in this phase includes the private portal refactor, deterministic topic-level recommendation service, teacher assignment/assessment/score APIs, approved resources, optional Gemini practice assistance, migration `202609270003_academic_learning.sql`, and synthetic seed command. Phase 1 is VERIFIED after the migration/data were exercised against the configured Supabase project and the complete teacher/student flow passed in Playwright.

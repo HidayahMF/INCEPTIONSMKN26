@@ -7,6 +7,20 @@
     max-width: 100vw;
     overflow-x: hidden;
   }
+  .login-form-panel,
+  .login-form-inner,
+  .login-form {
+    width: calc(100vw - 88px) !important;
+    max-width: calc(100vw - 88px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .login-form input,
+  .login-form button,
+  .login-form-inner > div {
+    max-width: calc(100vw - 88px) !important;
+    box-sizing: border-box !important;
+  }
   .overflow-hidden.bg-gradient-to-b .relative.mt-20 > div.flex > article {
     min-width: 100%;
   }
