@@ -65,6 +65,8 @@ https://inceptionsmkn26.vercel.app/api/health
 
 `frontend/vercel.json` sends `/api/*` to the API project and maps the SPA routes to `index.html`. Static files, including `/assets/panorama/*`, remain static assets.
 
+The frontend Vercel config intentionally does not use `cleanUrls`. With `cleanUrls: true`, Vercel can normalize `/index.html` to `/index`, which prevents the SPA rewrite target from resolving correctly for direct routes such as `/tour`. The browser URL remains `/tour`; Vite loads `index.html` internally and React renders from `window.location.pathname`.
+
 ## Production Domain
 
 Do not submit an automatic deployment URL containing a personal owner slug or random deployment hash, such as:

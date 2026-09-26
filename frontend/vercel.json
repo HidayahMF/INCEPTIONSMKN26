@@ -1,61 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "https://inceptionsmkn-26-backend.vercel.app/api/$1"
-    },
-    {
-      "source": "/tour",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/profile",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/majors",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/programs",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/news",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/blud",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/achievements",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/information",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/login",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/dashboard",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/admin/knowledge",
-      "destination": "/index.html"
     },
     {
       "source": "/(.*)",
