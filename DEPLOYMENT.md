@@ -2,8 +2,8 @@
 
 The repository is prepared for two Vercel projects using the same GitHub repository:
 
-- Frontend: `inceptionsmkn26`, root directory `frontend`
-- API: `inceptionsmkn26-api`, root directory `backend`
+- Frontend: `inceptionsmkn-26`, root directory `frontend`
+- API: `inceptionsmkn-26-backend`, root directory `backend`
 
 The browser continues to call relative `/api/...` endpoints. The frontend Vercel project rewrites those requests to the API project.
 
@@ -11,7 +11,7 @@ The browser continues to call relative `/api/...` endpoints. The frontend Vercel
 
 1. Push the repository to `HidayahMF/INCEPTIONSMKN26`.
 2. In Vercel, select **Add New Project** and import the repository.
-3. Set project name to `inceptionsmkn26-api`.
+3. Set project name to `inceptionsmkn-26-backend`.
 4. Set **Root Directory** to `backend`.
 5. Set framework preset to **Other**.
 6. Add these backend environment variables:
@@ -36,7 +36,7 @@ Do not add backend secrets to the frontend project and do not use `VITE_` for ba
 Deploy and test:
 
 ```text
-https://inceptionsmkn26-api.vercel.app/api/health
+https://inceptionsmkn-26-backend.vercel.app/api/health
 ```
 
 Expected response includes `{ "data": { "status": "ok" } }`.
@@ -46,7 +46,7 @@ If Vercel assigns a different API domain, update the API destination in `fronten
 ## 2. Frontend Project
 
 1. Select **Add New Project** again and import the same repository.
-2. Set project name to `inceptionsmkn26`.
+2. Set project name to `inceptionsmkn-26` (or `inception-smkn26` if unavailable).
 3. Set **Root Directory** to `frontend`.
 4. Set framework preset to **Vite**.
 5. Build command: `npm run build`.
@@ -63,7 +63,33 @@ https://inceptionsmkn26.vercel.app/login
 https://inceptionsmkn26.vercel.app/api/health
 ```
 
-`frontend/vercel.json` sends `/api/*` to the API project before the SPA fallback. Other routes fall back to `index.html`, so direct refreshes such as `/tour` do not return a Vercel 404.
+`frontend/vercel.json` sends `/api/*` to the API project and maps the SPA routes to `index.html`. Static files, including `/assets/panorama/*`, remain static assets.
+
+## Production Domain
+
+Do not submit an automatic deployment URL containing a personal owner slug or random deployment hash, such as:
+
+```text
+inceptionsmkn-26-49tbpetms-hidayah-muhammad-fadillahs-projects.vercel.app
+```
+
+Preferred public URL:
+
+```text
+https://inceptionsmkn-26.vercel.app
+```
+
+If unavailable, use a clean alternative only if Vercel confirms it is available, for example `inception-smkn26.vercel.app` or `smkn26-inception.vercel.app`. Do not guess a domain or use a preview URL.
+
+Set it manually in Vercel: open the frontend project, go to **Settings → Domains**, check the production domain, and use **Add Domain** only if a clean `.vercel.app` alias is available. Assign the selected domain to **Production**.
+
+The backend environment must use the final frontend domain:
+
+```text
+FRONTEND_ORIGIN=https://inceptionsmkn-26.vercel.app
+```
+
+If a different clean domain is selected, update `FRONTEND_ORIGIN` in the backend Vercel project. No source-code change is required for a Vercel domain alias.
 
 ## 3. Local Development
 
