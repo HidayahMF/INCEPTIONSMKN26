@@ -66,3 +66,19 @@ Imported from Figma MCP context and `download_assets`; temporary MCP URLs are no
 
 - `70:1045` is a text node, not an SVG asset. A designer must provide an approved exported SVG only if the Anima SVG is required as a standalone asset; no manual SVG was generated.
 - The requested Anima names `rectangle-89.png` through `rectangle-89-5.png` map to the verified child image nodes above. Their semantic files are used instead of preserving Anima filenames.
+
+## Partner audit - node 130:940
+
+Latest Figma MCP metadata identifies the visible partner order and source layers.
+
+| Section | Figma Node ID | Layer | Identity | File Lokal | Format | Dimensi | Status |
+|---|---|---|---|---|---|---|---|
+| Partners | I130:940;129:813 | Logo Place/Azzko | AZKO | `partners/partner-azko.png` | PNG | source asset verified | Existing and verified |
+| Partners | I130:940;129:811 | Logo Place/PLN | PLN | `partners/partner-pln.png` | PNG | source asset verified | Existing and verified |
+| Partners | I130:940;129:814 | Logo Place/Toyota | Toyota | `partners/partner-toyota.jpeg` | JPEG | source asset verified | Existing and verified |
+| Partners | I130:940;129:815 | Logo Place/WIKA | WIKA | `partners/partner-wika.png` | PNG | source asset verified | Existing and verified |
+| Partners | I130:940;129:812 | Logo Place/Panasonic | Panasonic | `partners/partner-panasonic.png` | PNG | source asset verified | Existing and verified |
+
+Final visible order: AZKO -> PLN -> Toyota -> WIKA -> Panasonic. Figma frame `130:940` is `1272 x 140`; each visible logo place is approximately `235.47 x 117.74`, with approximately `23.54px` horizontal gap. Latest audit screenshot: `artifacts/figma-partners-audit-latest.png`.
+
+Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-logo-03.png` -> `partner-pln.png`, `partner-logo-06.jpeg` -> `partner-toyota.jpeg`, `partner-logo-02.png` -> `partner-wika.png`, and `partner-logo-01.png` -> `partner-panasonic.png`. Explicitly listed unused legacy root exports and old visual audit artifacts were removed after reference checks.

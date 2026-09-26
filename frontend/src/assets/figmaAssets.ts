@@ -36,16 +36,11 @@ export const figmaAssets = {
     carouselLeft: "/assets/figma/advantages/advantage-carousel-left.svg",
     carouselRight: "/assets/figma/advantages/advantage-carousel-right.svg",
   },
-  partners: [
-    ...Array.from({ length: 5 }, (_, index) =>
-      `/assets/figma/partners/partner-logo-${String(index + 1).padStart(2, "0")}.png`,
-    ),
-    "/assets/figma/partners/partner-logo-06.jpeg",
-    "/assets/figma/partners/partner-logo-07.jpeg",
-    ...Array.from({ length: 11 }, (_, index) =>
-      `/assets/figma/partners/partner-logo-${String(index + 8).padStart(2, "0")}.png`,
-    ),
-    "/assets/figma/partners/partner-logo-19.png",
-    "/assets/figma/partners/partner-logo-20.png",
-  ],
+  partners: {
+    azko: "/assets/figma/partners/partner-azko.png",
+    pln: "/assets/figma/partners/partner-pln.png",
+    toyota: "/assets/figma/partners/partner-toyota.jpeg",
+    wika: "/assets/figma/partners/partner-wika.png",
+    panasonic: "/assets/figma/partners/partner-panasonic.png",
+  },
 } as const;
