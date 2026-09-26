@@ -41,13 +41,10 @@ export function TourPage() {
           ))}
         </div>
         <div className="mt-5 flex items-center gap-2 text-sm text-muted">
-          <span className="size-2 rounded-full bg-primary" />
           Lapangan 1 → Lapangan 2 → Lapangan 3
         </div>
         <p className="mt-8 text-xs text-muted">
-          Prototype virtual tour menggunakan panorama Lapangan. File saat ini
-          berupa foto wide-angle, belum tervalidasi sebagai panorama spherical
-          360° equirectangular.
+          Jelajahi area SMKN 26 Jakarta secara interaktif.
         </p>
       </main>
     </div>

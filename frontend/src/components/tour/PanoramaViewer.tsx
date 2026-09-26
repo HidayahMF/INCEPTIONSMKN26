@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Viewer } from "@photo-sphere-viewer/core";
 import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
+import { VisibleRangePlugin } from "@photo-sphere-viewer/visible-range-plugin";
 import "@photo-sphere-viewer/core/index.css";
 import "@photo-sphere-viewer/markers-plugin/index.css";
 import type { TourScene } from "../../data/tourScenes";
@@ -19,9 +20,20 @@ export function PanoramaViewer({ scene, onNavigate }: PanoramaViewerProps) {
     const viewer = new Viewer({
       container: containerRef.current,
       panorama: scene.panorama,
+      panoData: (image) => ({
+        fullWidth: image.width,
+        fullHeight: Math.round(image.width / 2),
+        croppedWidth: image.width,
+        croppedHeight: image.height,
+        croppedX: 0,
+        croppedY: Math.round((Math.round(image.width / 2) - image.height) / 2),
+      }),
       defaultZoomLvl: 0,
       navbar: ["zoom", "fullscreen"],
-      plugins: [[MarkersPlugin, { markers: [] }]],
+      plugins: [
+        [MarkersPlugin, { markers: [] }],
+        [VisibleRangePlugin, { usePanoData: true }],
+      ],
     });
     viewerRef.current = viewer;
     markersRef.current = viewer.getPlugin<MarkersPlugin>(MarkersPlugin);
@@ -62,7 +74,7 @@ export function PanoramaViewer({ scene, onNavigate }: PanoramaViewerProps) {
     <div className="relative overflow-hidden rounded-3xl bg-ink shadow-xl">
       <div
         ref={containerRef}
-        className="h-[min(62vw,680px)] min-h-[360px] w-full"
+        className="h-[clamp(420px,65vh,720px)] min-h-[420px] w-full"
       />
       {error && (
         <div className="absolute inset-0 grid place-items-center bg-ink/80 p-6 text-center text-white">
