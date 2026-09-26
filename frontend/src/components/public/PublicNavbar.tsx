@@ -2,6 +2,7 @@ import { figmaAssets } from "../../assets/figmaAssets";
 
 const links = [
   { label: "Beranda", href: "/" },
+  { label: "Tour", href: "/tour" },
   { label: "Tentang kami", href: "/profile", dropdown: true },
   { label: "Jurusan", href: "/majors", dropdown: true },
   { label: "BLUD", href: "/blud", dropdown: true },
@@ -11,7 +12,7 @@ const links = [
 
 export function PublicNavbar() {
   return (
-    <header className="absolute left-1/2 top-5 z-40 flex h-20 w-[calc(100%-32px)] max-w-[1272px] -translate-x-1/2 items-center justify-between rounded-full bg-white px-6 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+    <header className="absolute left-4 right-4 top-5 z-40 flex h-20 w-auto max-w-none translate-x-0 items-center justify-between overflow-hidden rounded-full bg-white px-4 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:px-6 md:left-1/2 md:right-auto md:w-[calc(100%_-_32px)] md:max-w-[1272px] md:-translate-x-1/2">
       <a
         className="flex items-center gap-2 p-1"
         href="/"

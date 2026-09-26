@@ -1,83 +1,69 @@
 import { useEffect, useRef, useState } from "react";
 import { Viewer } from "@photo-sphere-viewer/core";
-import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
 import { VisibleRangePlugin } from "@photo-sphere-viewer/visible-range-plugin";
 import "@photo-sphere-viewer/core/index.css";
-import "@photo-sphere-viewer/markers-plugin/index.css";
-import type { TourScene } from "../../data/tourScenes";
 
 type PanoramaViewerProps = {
-  scene: TourScene;
-  onNavigate: (sceneId: string) => void;
+  panorama: string;
 };
-export function PanoramaViewer({ scene, onNavigate }: PanoramaViewerProps) {
+
+export function PanoramaViewer({ panorama }: PanoramaViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<Viewer | null>(null);
-  const markersRef = useRef<MarkersPlugin | null>(null);
+  const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
+
   useEffect(() => {
     if (!containerRef.current) return;
-    const viewer = new Viewer({
-      container: containerRef.current,
-      panorama: scene.panorama,
-      panoData: (image) => ({
-        fullWidth: image.width,
-        fullHeight: Math.round(image.width / 2),
-        croppedWidth: image.width,
-        croppedHeight: image.height,
-        croppedX: 0,
-        croppedY: Math.round((Math.round(image.width / 2) - image.height) / 2),
-      }),
-      defaultZoomLvl: 0,
-      navbar: ["zoom", "fullscreen"],
-      plugins: [
-        [MarkersPlugin, { markers: [] }],
-        [VisibleRangePlugin, { usePanoData: true }],
-      ],
-    });
-    viewerRef.current = viewer;
-    markersRef.current = viewer.getPlugin<MarkersPlugin>(MarkersPlugin);
+    let disposed = false;
+    const image = new Image();
+    image.onload = () => {
+      if (disposed || !containerRef.current) return;
+      const fullHeight = Math.round(image.naturalWidth / 2);
+      const viewer = new Viewer({
+        container: containerRef.current,
+        panorama,
+        panoData: {
+          fullWidth: image.naturalWidth,
+          fullHeight,
+          croppedWidth: image.naturalWidth,
+          croppedHeight: image.naturalHeight,
+          croppedX: 0,
+          croppedY: Math.round((fullHeight - image.naturalHeight) / 2),
+        },
+        defaultZoomLvl: 0,
+        navbar: ["zoom", "fullscreen"],
+        plugins: [[VisibleRangePlugin, { usePanoData: true }]],
+      });
+      viewerRef.current = viewer;
+      const handleReady = () => setReady(true);
+      const handleError = () => setError("Panorama gagal dimuat.");
+      viewer.addEventListener("ready", handleReady);
+      viewer.addEventListener("panorama-error", handleError);
+      viewer.addEventListener("panorama-loaded", handleReady);
+    };
+    image.onerror = () => setError("Panorama gagal dimuat.");
+    image.src = panorama;
     return () => {
-      viewer.destroy();
+      disposed = true;
+      viewerRef.current?.destroy();
       viewerRef.current = null;
-      markersRef.current = null;
     };
-  }, []);
-  useEffect(() => {
-    const viewer = viewerRef.current;
-    const markers = markersRef.current;
-    if (!viewer || !markers) return;
-    markers.clearMarkers();
-    scene.hotspots.forEach((hotspot) =>
-      markers.addMarker({
-        id: hotspot.id,
-        position: { yaw: hotspot.yaw, pitch: hotspot.pitch },
-        html: `<button type="button" class="tour-hotspot" aria-label="${hotspot.label}">→</button>`,
-        tooltip: hotspot.label,
-        anchor: "center center",
-        size: { width: 48, height: 48 },
-        data: { targetSceneId: hotspot.targetSceneId },
-      }),
-    );
-    const handleSelect = (event: any) => {
-      if (event.marker?.data?.targetSceneId) {
-        onNavigate(event.marker.data.targetSceneId);
-      }
-    };
-    markers.addEventListener("select-marker", handleSelect);
-    viewer
-      .setPanorama(scene.panorama, { transition: true })
-      .catch(() => setError("Panorama gagal dimuat."));
-    return () => markers.removeEventListener("select-marker", handleSelect);
-  }, [scene, onNavigate]);
+  }, [panorama]);
+
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-ink shadow-xl">
+    <div className="relative block w-full min-w-0 max-w-full overflow-hidden rounded-3xl border-2 border-light-blue bg-white p-2 shadow-[0_4px_16px_rgba(15,23,42,.12)]">
       <div
         ref={containerRef}
-        className="h-[clamp(420px,65vh,720px)] min-h-[420px] w-full"
+        className={`relative block h-[clamp(420px,68vh,720px)] min-h-[420px] w-full min-w-0 max-w-full overflow-hidden rounded-[18px] ${ready ? "opacity-100" : "opacity-0"}`}
+      />
+      <img
+        className={`absolute bottom-2 left-2 right-2 top-2 h-auto w-auto max-w-none rounded-[18px] object-cover transition-opacity ${ready ? "pointer-events-none opacity-0" : "opacity-100"}`}
+        src={panorama}
+        alt="Panorama area lapangan SMKN 26 Jakarta"
       />
       {error && (
-        <div className="absolute inset-0 grid place-items-center bg-ink/80 p-6 text-center text-white">
+        <div className="absolute inset-x-0 bottom-0 bg-ink/75 px-4 py-3 text-center text-sm text-white">
           <p>{error}</p>
         </div>
       )}

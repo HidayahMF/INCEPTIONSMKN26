@@ -1,52 +1,77 @@
-import { useState } from "react";
+import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
-import { PanoramaViewer } from "../components/tour/PanoramaViewer";
-import { tourScenes } from "../data/tourScenes";
+import { tourLocations } from "../data/tourLocations";
 
 export function TourPage() {
-  const [currentSceneId, setCurrentSceneId] = useState(tourScenes[0].id);
-  const scene =
-    tourScenes.find((item) => item.id === currentSceneId) ?? tourScenes[0];
   return (
-    <div className="min-h-screen bg-school-bg pb-16">
+    <div className="min-h-screen overflow-hidden bg-white text-ink">
       <PublicNavbar />
-      <main className="mx-auto w-[calc(100%-32px)] max-w-[1272px] pt-36">
-        <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-soft-blue shadow-sm">
-          Virtual Tour
-        </span>
-        <h1 className="mt-5 text-4xl font-bold text-ink md:text-5xl">
-          Jelajahi SMKN 26 Jakarta
-        </h1>
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <h2 className="text-2xl font-bold text-primary-dark">
-              {scene.name}
-            </h2>
-            <p className="text-sm text-muted">{scene.description}</p>
+      <main>
+        <section className="relative overflow-hidden bg-white px-4 pb-24 pt-40 sm:px-6 md:pb-28 md:pt-44">
+          <div className="relative z-10 mx-auto w-full max-w-[1272px] text-center">
+            <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+              Jelajahi Sekolah
+            </span>
+            <h1 className="mx-auto mt-7 max-w-4xl text-[38px] font-bold leading-[1.15] tracking-[-0.03em] text-ink sm:text-5xl md:text-[56px]">
+              <span className="text-primary-dark">Virtual Tour</span> SMKN 26
+              Jakarta
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-7 text-muted md:text-lg md:leading-[30px]">
+              Kenali lingkungan SMKN 26 Jakarta lebih dekat melalui pengalaman
+              visual yang interaktif.
+            </p>
           </div>
-          <p className="text-sm text-muted">Drag untuk melihat sekeliling</p>
-        </div>
-        <div className="mt-6">
-          <PanoramaViewer scene={scene} onNavigate={setCurrentSceneId} />
-        </div>
-        <div className="mt-5 flex flex-wrap gap-3">
-          {tourScenes.map((item) => (
-            <button
-              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${item.id === scene.id ? "bg-primary-dark text-white" : "bg-white text-primary-dark hover:bg-light-blue"}`}
-              onClick={() => setCurrentSceneId(item.id)}
-              key={item.id}
+        </section>
+
+        <section className="relative mx-auto w-full max-w-[1272px] min-w-0 px-4 pb-28 md:pb-40">
+          {tourLocations.map((location, index) => (
+            <article
+              className="grid w-full min-w-0 items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:gap-20"
+              key={location.id}
             >
-              {item.name}
-            </button>
+              <div className="relative order-2 min-w-0 max-w-full md:order-1 md:py-8">
+                <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+                  Virtual Tour
+                </span>
+                <span className="mt-6 block text-sm font-bold tracking-[0.16em] text-primary">
+                  0{index + 1} / LOKASI
+                </span>
+                <h2 className="mt-5 max-w-lg text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
+                  {location.name}
+                </h2>
+                <p className="mt-4 max-w-lg text-base font-medium leading-7 text-muted md:text-lg md:leading-[30px]">
+                  {location.description}
+                </p>
+                <a
+                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(15,23,42,.12)] transition hover:-translate-y-0.5 hover:shadow-lg"
+                  href={location.href}
+                >
+                  Jelajahi Virtual Tour
+                  <span aria-hidden="true" className="text-xl leading-none">
+                    →
+                  </span>
+                </a>
+              </div>
+              <div className="relative order-1 min-w-0 max-w-full md:order-2">
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-8 -top-8 -z-0 size-[260px] rounded-full bg-gradient-to-br from-primary-dark/25 via-primary/10 to-transparent md:-right-12 md:-top-12 md:size-[360px]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute -bottom-7 -left-7 z-0 size-24 rounded-full border-2 border-primary/30 md:-bottom-10 md:-left-10 md:size-32"
+                />
+                <img
+                  className="relative z-10 block aspect-[4/3] w-full max-w-full rounded-3xl border-2 border-white object-cover shadow-[0_4px_16px_rgba(15,23,42,.12)] md:aspect-[16/10]"
+                  src={location.image}
+                  alt={location.name}
+                />
+              </div>
+            </article>
           ))}
-        </div>
-        <div className="mt-5 flex items-center gap-2 text-sm text-muted">
-          Lapangan 1 → Lapangan 2 → Lapangan 3
-        </div>
-        <p className="mt-8 text-xs text-muted">
-          Jelajahi area SMKN 26 Jakarta secara interaktif.
-        </p>
+        </section>
       </main>
+      <PublicFooter />
     </div>
   );
 }

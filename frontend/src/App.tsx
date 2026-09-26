@@ -6,6 +6,7 @@ import { SchoolOverview } from "./components/public/SchoolOverview";
 import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
 import { PartnerLogos } from "./components/public/PartnerLogos";
 import { TourPage } from "./pages/TourPage";
+import { LapanganTourPage } from "./pages/LapanganTourPage";
 
 type Profile = {
   user_id: string;
@@ -618,6 +619,7 @@ export function App() {
     ) : null;
   if (path === "/") return <Home />;
   if (path === "/tour") return <TourPage />;
+  if (path === "/tour/lapangan") return <LapanganTourPage />;
   const details: Record<string, [string, string, string]> = {
     "/profile": [
       "profile",
@@ -633,11 +635,6 @@ export function App() {
       "majors",
       "Jurusan",
       "Informasi kompetensi keahlian dan perjalanan belajar akan ditampilkan setelah disetujui.",
-    ],
-    "/tour": [
-      "tour",
-      "School Tour 360°",
-      "Panorama dan fallback aksesibel akan ditampilkan setelah aset dan izin publikasi tersedia.",
     ],
     "/partners": [
       "partners",
