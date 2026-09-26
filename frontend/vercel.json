@@ -56,6 +56,10 @@
     {
       "source": "/admin/knowledge",
       "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
