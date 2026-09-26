@@ -2,15 +2,34 @@
 
 @theme {
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --color-primary: #0092FF;
-  --color-primary-dark: #006CDC;
-  --color-soft-blue: #4CBAF5;
-  --color-light-blue: #D7F1FF;
-  --color-school-bg: #EAF5FA;
-  --color-accent: #FFB700;
-  --color-ink: #0B1324;
-  --color-muted: #5B6B8C;
-  --color-surface: #FFFFFF;
+  --color-primary: #0092ff;
+  --color-primary-dark: #006cdc;
+  --color-soft-blue: #4cbaf5;
+  --color-light-blue: #d7f1ff;
+  --color-school-bg: #eaf5fa;
+  --color-accent: #ffb700;
+  --color-ink: #0b1324;
+  --color-muted: #5b6b8c;
+  --color-surface: #ffffff;
 }
 
-:root { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; --primary:#0092FF; --primary-dark:#006CDC; --soft-blue:#4CBAF5; --light-blue:#D7F1FF; --background:#EAF5FA; --accent:#FFB700; --ink:#0B1324; --muted:#5B6B8C; --surface:#FFFFFF; --radius:18px; color:var(--ink); background:var(--surface); }
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  --primary: #0092ff;
+  --primary-dark: #006cdc;
+  --soft-blue: #4cbaf5;
+  --light-blue: #d7f1ff;
+  --background: #eaf5fa;
+  --accent: #ffb700;
+  --ink: #0b1324;
+  --muted: #5b6b8c;
+  --surface: #ffffff;
+  --radius: 18px;
+  color: var(--ink);
+  background: var(--surface);
+}

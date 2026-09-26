@@ -26,7 +26,8 @@ export const figmaAssets = {
   },
   advantages: {
     education: "/assets/figma/advantages/advantage-education.png",
-    secondaryEducationIcon: "/assets/figma/advantages/icon-book-education-secondary.svg",
+    secondaryEducationIcon:
+      "/assets/figma/advantages/icon-book-education-secondary.svg",
     industry: "/assets/figma/advantages/advantage-industry.png",
     blud: "/assets/figma/advantages/advantage-blud.png",
     lsp: "/assets/figma/advantages/advantage-lsp.png",
@@ -39,7 +40,7 @@ export const figmaAssets = {
   partners: {
     azko: "/assets/figma/partners/partner-azko.png",
     pln: "/assets/figma/partners/partner-pln.png",
-    toyota: "/assets/figma/partners/partner-toyota.jpeg",
+    toyota: "/assets/figma/partners/partner-toyota.png",
     wika: "/assets/figma/partners/partner-wika.png",
     panasonic: "/assets/figma/partners/partner-panasonic.png",
   },

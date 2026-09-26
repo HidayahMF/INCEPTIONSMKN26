@@ -1,2 +1,31 @@
-@media(max-width:639px){html,body{overflow-x:hidden}.overflow-hidden.bg-gradient-to-b .relative.mt-20>div.flex>article{min-width:100%}}
-.carousel img{user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+@media (max-width: 639px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  .overflow-hidden.bg-gradient-to-b .relative.mt-20 > div.flex > article {
+    min-width: 100%;
+  }
+}
+.carousel img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+.tour-hotspot {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 2px solid white;
+  background: var(--primary);
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.2);
+  cursor: pointer;
+}
+.tour-hotspot:hover {
+  background: var(--primary-dark);
+  transform: scale(1.08);
+}

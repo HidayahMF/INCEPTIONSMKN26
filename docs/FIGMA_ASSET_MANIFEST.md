@@ -73,12 +73,12 @@ Latest Figma MCP metadata identifies the visible partner order and source layers
 
 | Section | Figma Node ID | Layer | Identity | File Lokal | Format | Dimensi | Status |
 |---|---|---|---|---|---|---|---|
-| Partners | I130:940;129:813 | Logo Place/Azzko | AZKO | `partners/partner-azko.png` | PNG | source asset verified | Existing and verified |
-| Partners | I130:940;129:811 | Logo Place/PLN | PLN | `partners/partner-pln.png` | PNG | source asset verified | Existing and verified |
-| Partners | I130:940;129:814 | Logo Place/Toyota | Toyota | `partners/partner-toyota.jpeg` | JPEG | source asset verified | Existing and verified |
-| Partners | I130:940;129:815 | Logo Place/WIKA | WIKA | `partners/partner-wika.png` | PNG | source asset verified | Existing and verified |
-| Partners | I130:940;129:812 | Logo Place/Panasonic | Panasonic | `partners/partner-panasonic.png` | PNG | source asset verified | Existing and verified |
+| Partners | I130:940;129:813 | Logo Place/Azzko | AZKO | `partners/partner-azko.png` | PNG | 446x95 -> 446x95 | Content bounds filled source canvas; normalized with 6px safety padding | Existing and verified |
+| Partners | I130:940;129:811 | Logo Place/PLN | PLN | `partners/partner-pln.png` | PNG | 320x320 -> 218x315 | Content bounds detected and trimmed with 6px safety padding | Existing and verified |
+| Partners | I130:940;129:814 | Logo Place/Toyota | Toyota | `partners/partner-toyota.png` | PNG | 480x270 -> 480x90 | JPEG canvas converted to PNG and trimmed with 6px safety padding | Imported and verified |
+| Partners | I130:940;129:815 | Logo Place/WIKA | WIKA | `partners/partner-wika.png` | PNG | 480x326 -> 480x326 | Content bounds filled source canvas; normalized with 6px safety padding | Existing and verified |
+| Partners | I130:940;129:812 | Logo Place/Panasonic | Panasonic | `partners/partner-panasonic.png` | PNG | 300x300 -> 300x56 | Content bounds detected and trimmed with 6px safety padding | Existing and verified |
 
 Final visible order: AZKO -> PLN -> Toyota -> WIKA -> Panasonic. Figma frame `130:940` is `1272 x 140`; each visible logo place is approximately `235.47 x 117.74`, with approximately `23.54px` horizontal gap. Latest audit screenshot: `artifacts/figma-partners-audit-latest.png`.
 
-Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-logo-03.png` -> `partner-pln.png`, `partner-logo-06.jpeg` -> `partner-toyota.jpeg`, `partner-logo-02.png` -> `partner-wika.png`, and `partner-logo-01.png` -> `partner-panasonic.png`. Explicitly listed unused legacy root exports and old visual audit artifacts were removed after reference checks.
+Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-logo-03.png` -> `partner-pln.png`, `partner-logo-06.jpeg` -> `partner-toyota.png`, `partner-logo-02.png` -> `partner-wika.png`, and `partner-logo-01.png` -> `partner-panasonic.png`. Original files were backed up outside the repository during normalization. Explicitly listed unused legacy root exports and old visual audit artifacts were removed after reference checks.

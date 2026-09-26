@@ -1,41 +1,680 @@
-import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
-import { PublicNavbar } from './components/public/PublicNavbar';
-import { HeroSection } from './components/public/HeroSection';
-import { ShortcutMenu } from './components/public/ShortcutMenu';
-import { SchoolOverview } from './components/public/SchoolOverview';
-import { SchoolAdvantages } from './components/public/SchoolAdvantages';
-import { PartnerLogos } from './components/public/PartnerLogos';
+import { useEffect, useState, type FormEvent, type ChangeEvent } from "react";
+import { PublicNavbar } from "./components/public/PublicNavbar";
+import { HeroSection } from "./components/public/HeroSection";
+import { ShortcutMenu } from "./components/public/ShortcutMenu";
+import { SchoolOverview } from "./components/public/SchoolOverview";
+import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
+import { PartnerLogos } from "./components/public/PartnerLogos";
+import { TourPage } from "./pages/TourPage";
 
-type Profile = { user_id: string; school_identifier: string; display_name: string; account_type: string };
-type Role = { id: string; role_code: string; scope_type: string; scope_id: string | null };
+type Profile = {
+  user_id: string;
+  school_identifier: string;
+  display_name: string;
+  account_type: string;
+};
+type Role = {
+  id: string;
+  role_code: string;
+  scope_type: string;
+  scope_id: string | null;
+};
 type Me = { profile: Profile; roles: Role[] };
-type Page = { id: string; slug: string; section: string; title: string; summary: string; body: string; metadata: Record<string, unknown> };
-type ChatResponse = { answer: string; status: string; sources: { title: string; url?: string | null; page?: string | null }[] };
+type Page = {
+  id: string;
+  slug: string;
+  section: string;
+  title: string;
+  summary: string;
+  body: string;
+  metadata: Record<string, unknown>;
+};
+type ChatResponse = {
+  answer: string;
+  status: string;
+  sources: { title: string; url?: string | null; page?: string | null }[];
+};
 
-const publicLinks = [{ path: '/profile', label: 'Profil' }, { path: '/majors', label: 'Jurusan' }, { path: '/programs', label: 'Program' }, { path: '/news', label: 'Berita' }, { path: '/contact', label: 'Kontak' }];
-const devAccounts = [{ identifier: 'DEMO-ADMIN', label: 'Admin' }, { identifier: 'DEMO-GURU', label: 'Guru' }, { identifier: 'DEMO-BK', label: 'Guru BK' }, { identifier: 'DEMO-KAJUR', label: 'Ketua Jurusan' }, { identifier: 'DEMO-SISWA', label: 'Siswa' }, { identifier: 'DEMO-KELAS', label: 'Ketua Kelas' }, { identifier: 'DEMO-MPK', label: 'Pengurus MPK' }, { identifier: 'DEMO-KANTIN', label: 'Pedagang Kantin' }, { identifier: 'DEMO-KOPERASI', label: 'Koperasi' }];
+const publicLinks = [
+  { path: "/profile", label: "Profil" },
+  { path: "/majors", label: "Jurusan" },
+  { path: "/programs", label: "Program" },
+  { path: "/news", label: "Berita" },
+  { path: "/contact", label: "Kontak" },
+];
+const devAccounts = [
+  { identifier: "DEMO-ADMIN", label: "Admin" },
+  { identifier: "DEMO-GURU", label: "Guru" },
+  { identifier: "DEMO-BK", label: "Guru BK" },
+  { identifier: "DEMO-KAJUR", label: "Ketua Jurusan" },
+  { identifier: "DEMO-SISWA", label: "Siswa" },
+  { identifier: "DEMO-KELAS", label: "Ketua Kelas" },
+  { identifier: "DEMO-MPK", label: "Pengurus MPK" },
+  { identifier: "DEMO-KANTIN", label: "Pedagang Kantin" },
+  { identifier: "DEMO-KOPERASI", label: "Koperasi" },
+];
 
-async function api<T>(url: string, options?: RequestInit): Promise<T> { const response = await fetch(url, { ...options, credentials: 'include' }); const body = await response.json(); if (!response.ok) throw new Error(body.error?.message || 'Permintaan gagal.'); return body.data as T; }
-
-function Header() { return <header className="container nav mx-auto"><a className="logo" href="/">SMK NEGERI 26 JAKARTA</a><nav className="links" aria-label="Navigasi utama">{publicLinks.map((link) => <a className="transition-colors hover:text-primary" key={link.path} href={link.path}>{link.label}</a>)}</nav><a className="button transition-colors hover:bg-primary-dark" href="/login">Masuk Portal</a></header>; }
-function Footer() { return <footer><div className="container"><strong>SMK Negeri 26 Jakarta</strong><p className="note">Informasi resmi sekolah akan ditampilkan setelah diverifikasi dan dipublikasikan.</p></div></footer>; }
-function EmptyState({ message = 'Konten resmi belum tersedia.' }: { message?: string }) { return <div className="empty-state"><strong>Belum ada informasi</strong><p>{message}</p></div>; }
-
-function ChatWidget() { const [open, setOpen] = useState(false); const [question, setQuestion] = useState(''); const [messages, setMessages] = useState<ChatResponse[]>([]); const [busy, setBusy] = useState(false); const [error, setError] = useState(''); useEffect(() => { const openChat = () => setOpen(true); window.addEventListener('open-chat', openChat); return () => window.removeEventListener('open-chat', openChat); }, []);
-  async function ask(event: FormEvent) { event.preventDefault(); if (!question.trim() || busy) return; const current = question.trim(); setQuestion(''); setBusy(true); setError(''); try { setMessages((items) => [...items, { answer: `Pertanyaan: ${current}`, status: 'question', sources: [] }]); const result = await api<ChatResponse>('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: current }) }); setMessages((items) => [...items, result]); } catch (e) { setError(e instanceof Error ? e.message : 'Chatbot tidak tersedia.'); } finally { setBusy(false); } }
-  return <>{open && <aside className="chat" aria-label="Chatbot informasi sekolah"><div className="chat-title"><strong>Asisten Informasi Sekolah</strong><button onClick={() => setOpen(false)} aria-label="Tutup">×</button></div><div className="chat-history">{!messages.length && <p className="note">Tanyakan informasi yang sudah dipublikasikan secara resmi.</p>}{messages.map((message, index) => <div className={message.status === 'question' ? 'chat-message question' : 'chat-message'} key={`${message.status}-${index}`}><p>{message.answer}</p>{message.sources.length > 0 && <ul>{message.sources.map((source, sourceIndex) => <li key={`${source.title}-${sourceIndex}`}>{source.url ? <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : source.title}{source.page ? `, ${source.page}` : ''}</li>)}</ul>}</div>)}</div>{error && <p className="form-error">{error}</p>}<form onSubmit={ask}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Tulis pertanyaan" aria-label="Pertanyaan" /><button className="button" disabled={busy}>{busy ? '...' : 'Kirim'}</button></form></aside>}</>;
+async function api<T>(url: string, options?: RequestInit): Promise<T> {
+  const response = await fetch(url, { ...options, credentials: "include" });
+  const body = await response.json();
+  if (!response.ok) throw new Error(body.error?.message || "Permintaan gagal.");
+  return body.data as T;
 }
 
-function PublicPage({ section, title, intro }: { section: string; title: string; intro: string }) { const [pages, setPages] = useState<Page[]>([]); const [error, setError] = useState(''); useEffect(() => { api<Page[]>(`/api/public/pages?section=${section}`).then(setPages).catch((e) => setError(e instanceof Error ? e.message : 'Konten gagal dimuat.')); }, [section]); return <><Header /><main><section className="page-hero"><div className="container"><div className="pill">SMK Negeri 26 Jakarta</div><h1>{title}</h1><p className="lead">{intro}</p></div></section><section className="section container">{error ? <div className="error-state">{error}</div> : pages.length ? <div className="content-grid">{pages.map((page) => <article className="card content-card" key={page.id}><h2>{page.title}</h2>{page.summary && <p className="lead">{page.summary}</p>}<div className="rich-text">{page.body}</div></article>)}</div> : <EmptyState message="Admin dapat menambahkan konten melalui dashboard knowledge base dan memublikasikannya setelah verifikasi." />}</section></main><Footer /><ChatWidget /></>; }
+function Header() {
+  return (
+    <header className="container nav mx-auto">
+      <a className="logo" href="/">
+        SMK NEGERI 26 JAKARTA
+      </a>
+      <nav className="links" aria-label="Navigasi utama">
+        {publicLinks.map((link) => (
+          <a
+            className="transition-colors hover:text-primary"
+            key={link.path}
+            href={link.path}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <a
+        className="button transition-colors hover:bg-primary-dark"
+        href="/login"
+      >
+        Masuk Portal
+      </a>
+    </header>
+  );
+}
+function Footer() {
+  return (
+    <footer>
+      <div className="container">
+        <strong>SMK Negeri 26 Jakarta</strong>
+        <p className="note">
+          Informasi resmi sekolah akan ditampilkan setelah diverifikasi dan
+          dipublikasikan.
+        </p>
+      </div>
+    </footer>
+  );
+}
+function EmptyState({
+  message = "Konten resmi belum tersedia.",
+}: {
+  message?: string;
+}) {
+  return (
+    <div className="empty-state">
+      <strong>Belum ada informasi</strong>
+      <p>{message}</p>
+    </div>
+  );
+}
 
-function Home() { const [pages, setPages] = useState<Page[]>([]); const [loading, setLoading] = useState(true); useEffect(() => { api<Page[]>('/api/public/pages?section=home').then(setPages).catch(() => setPages([])).finally(() => setLoading(false)); }, []); const askAi = () => window.dispatchEvent(new Event('open-chat')); return <div className="min-h-screen bg-white"><PublicNavbar /><main><HeroSection onAskAi={askAi} /><ShortcutMenu onAskAi={askAi} /><SchoolOverview pages={pages} loading={loading} /><SchoolAdvantages /><PartnerLogos /></main><ChatWidget /></div>; }
+function ChatWidget() {
+  const [open, setOpen] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [messages, setMessages] = useState<ChatResponse[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    const openChat = () => setOpen(true);
+    window.addEventListener("open-chat", openChat);
+    return () => window.removeEventListener("open-chat", openChat);
+  }, []);
+  async function ask(event: FormEvent) {
+    event.preventDefault();
+    if (!question.trim() || busy) return;
+    const current = question.trim();
+    setQuestion("");
+    setBusy(true);
+    setError("");
+    try {
+      setMessages((items) => [
+        ...items,
+        { answer: `Pertanyaan: ${current}`, status: "question", sources: [] },
+      ]);
+      const result = await api<ChatResponse>("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: current }),
+      });
+      setMessages((items) => [...items, result]);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Chatbot tidak tersedia.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <>
+      {open && (
+        <aside className="chat" aria-label="Chatbot informasi sekolah">
+          <div className="chat-title">
+            <strong>Asisten Informasi Sekolah</strong>
+            <button onClick={() => setOpen(false)} aria-label="Tutup">
+              ×
+            </button>
+          </div>
+          <div className="chat-history">
+            {!messages.length && (
+              <p className="note">
+                Tanyakan informasi yang sudah dipublikasikan secara resmi.
+              </p>
+            )}
+            {messages.map((message, index) => (
+              <div
+                className={
+                  message.status === "question"
+                    ? "chat-message question"
+                    : "chat-message"
+                }
+                key={`${message.status}-${index}`}
+              >
+                <p>{message.answer}</p>
+                {message.sources.length > 0 && (
+                  <ul>
+                    {message.sources.map((source, sourceIndex) => (
+                      <li key={`${source.title}-${sourceIndex}`}>
+                        {source.url ? (
+                          <a href={source.url} target="_blank" rel="noreferrer">
+                            {source.title}
+                          </a>
+                        ) : (
+                          source.title
+                        )}
+                        {source.page ? `, ${source.page}` : ""}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+          {error && <p className="form-error">{error}</p>}
+          <form onSubmit={ask}>
+            <input
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
+              placeholder="Tulis pertanyaan"
+              aria-label="Pertanyaan"
+            />
+            <button className="button" disabled={busy}>
+              {busy ? "..." : "Kirim"}
+            </button>
+          </form>
+        </aside>
+      )}
+    </>
+  );
+}
 
-function DeveloperQuickLogin({ onLogin }: { onLogin: () => void }) { const [busy, setBusy] = useState(''); const [error, setError] = useState(''); async function selectAccount(identifier: string) { setBusy(identifier); setError(''); try { await api('/api/dev/login-as', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier }) }); onLogin(); } catch (e) { setError(e instanceof Error ? e.message : 'Quick login gagal.'); setBusy(''); } } return <section className="dev-login"><h2>Developer Quick Login</h2><p className="note">Pilih akun demo untuk langsung masuk ke dashboard sesuai role.</p><div className="dev-account-grid">{devAccounts.map((account) => <button className="button outline" key={account.identifier} onClick={() => selectAccount(account.identifier)} disabled={Boolean(busy)}>{busy === account.identifier ? 'Memuat...' : account.label}<small>{account.identifier}</small></button>)}</div>{error && <p className="form-error">{error}</p>}</section>; }
-function Login() { const [identifier, setIdentifier] = useState(''); const [password, setPassword] = useState(''); const [error, setError] = useState(''); const [busy, setBusy] = useState(false); async function submit(event: FormEvent) { event.preventDefault(); setBusy(true); setError(''); try { await api('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier, password }) }); window.location.href = '/dashboard'; } catch (e) { setError(e instanceof Error ? e.message : 'Login gagal.'); } finally { setBusy(false); } } return <main className="auth-page"><section className="auth-card"><a className="logo" href="/">SMK NEGERI 26 JAKARTA</a><h1>Masuk ke Portal</h1><p className="lead">Gunakan NIS, NIP, atau identifier demo yang diberikan administrator.</p><form onSubmit={submit}><label htmlFor="identifier">NIS / NIP / Identifier</label><input id="identifier" value={identifier} onChange={(e) => setIdentifier(e.target.value)} required /><label htmlFor="password">Password</label><input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><button className="button" disabled={busy}>{busy ? 'Memeriksa...' : 'Masuk'}</button>{error && <p className="form-error">{error}</p>}</form>{import.meta.env.DEV && <DeveloperQuickLogin onLogin={() => { window.location.href = '/dashboard'; }} />}<a href="/" className="back-link">Kembali ke website publik</a></section></main>; }
+function PublicPage({
+  section,
+  title,
+  intro,
+}: {
+  section: string;
+  title: string;
+  intro: string;
+}) {
+  const [pages, setPages] = useState<Page[]>([]);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    api<Page[]>(`/api/public/pages?section=${section}`)
+      .then(setPages)
+      .catch((e) =>
+        setError(e instanceof Error ? e.message : "Konten gagal dimuat."),
+      );
+  }, [section]);
+  return (
+    <>
+      <Header />
+      <main>
+        <section className="page-hero">
+          <div className="container">
+            <div className="pill">SMK Negeri 26 Jakarta</div>
+            <h1>{title}</h1>
+            <p className="lead">{intro}</p>
+          </div>
+        </section>
+        <section className="section container">
+          {error ? (
+            <div className="error-state">{error}</div>
+          ) : pages.length ? (
+            <div className="content-grid">
+              {pages.map((page) => (
+                <article className="card content-card" key={page.id}>
+                  <h2>{page.title}</h2>
+                  {page.summary && <p className="lead">{page.summary}</p>}
+                  <div className="rich-text">{page.body}</div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <EmptyState message="Admin dapat menambahkan konten melalui dashboard knowledge base dan memublikasikannya setelah verifikasi." />
+          )}
+        </section>
+      </main>
+      <Footer />
+      <ChatWidget />
+    </>
+  );
+}
 
-function Dashboard({ me }: { me: Me }) { const roles = me.roles.map((role) => role.role_code).join(', ') || 'Belum ada role tambahan'; return <main className="portal-page"><header className="container portal-header"><div><a className="logo" href="/">SMK NEGERI 26 JAKARTA</a><p className="note">Portal internal</p></div><button className="button outline" onClick={async () => { await api('/api/auth/logout', { method: 'POST' }); window.location.href = '/'; }}>Keluar</button></header><section className="container portal-content"><div className="pill">{me.profile.account_type}</div><h1>Selamat datang, {me.profile.display_name}</h1><p className="lead">Identifier sekolah: {me.profile.school_identifier}</p><article className="card"><h2>Akses Anda</h2><p>{roles}</p><p className="note">Permission diverifikasi backend berdasarkan assignment aktif.</p></article></section></main>; }
+function Home() {
+  const [pages, setPages] = useState<Page[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    api<Page[]>("/api/public/pages?section=home")
+      .then(setPages)
+      .catch(() => setPages([]))
+      .finally(() => setLoading(false));
+  }, []);
+  const askAi = () => window.dispatchEvent(new Event("open-chat"));
+  return (
+    <div className="min-h-screen bg-white">
+      <PublicNavbar />
+      <main>
+        <HeroSection onAskAi={askAi} />
+        <ShortcutMenu onAskAi={askAi} />
+        <SchoolOverview pages={pages} loading={loading} />
+        <SchoolAdvantages />
+        <PartnerLogos />
+      </main>
+      <ChatWidget />
+    </div>
+  );
+}
 
-type KnowledgeItem = { id: string; status: string; source_type: string; knowledge_sources?: { title?: string } };
-function AdminKnowledge() { const [items, setItems] = useState<KnowledgeItem[]>([]); const [title, setTitle] = useState(''); const [body, setBody] = useState(''); const [status, setStatus] = useState(''); async function reload() { try { setItems(await api<KnowledgeItem[]>('/api/admin/knowledge')); } catch { setStatus('Akses ditolak atau sesi berakhir.'); } } useEffect(() => { reload(); }, []); async function addText(event: FormEvent) { event.preventDefault(); setStatus(''); try { await api('/api/admin/knowledge/text', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, body }) }); setTitle(''); setBody(''); setStatus('Sumber disimpan sebagai DRAFT.'); await reload(); } catch (e) { setStatus(e instanceof Error ? e.message : 'Gagal menyimpan sumber.'); } } async function upload(event: ChangeEvent<HTMLInputElement>) { const file = event.target.files?.[0]; if (!file) return; const form = new FormData(); form.append('title', file.name); form.append('file', file); try { await api('/api/admin/knowledge/pdf', { method: 'POST', body: form }); setStatus('PDF diproses sebagai DRAFT.'); await reload(); } catch (e) { setStatus(e instanceof Error ? e.message : 'Gagal memproses PDF.'); } } async function changeStatus(id: string, nextStatus: string) { try { await api(`/api/admin/knowledge/${id}/status`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status: nextStatus }) }); await reload(); } catch (e) { setStatus(e instanceof Error ? e.message : 'Status gagal diubah.'); } } return <main className="portal-page"><header className="container portal-header"><a className="logo" href="/dashboard">SMK NEGERI 26 JAKARTA</a><a className="back-link" href="/">Website publik</a></header><section className="container portal-content"><div className="pill">CONTENT EDITOR</div><h1>Knowledge Base</h1><p className="lead">Tambahkan sumber resmi, tinjau status, lalu setujui sebelum tersedia untuk chatbot publik.</p><article className="card admin-form"><h2>Tambah informasi teks</h2><form onSubmit={addText}><input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Judul sumber" required /><textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Isi resmi yang sudah diverifikasi" required /><button className="button">Simpan sebagai draft</button></form><label className="upload-label">Unggah PDF draft<input type="file" accept="application/pdf" onChange={upload} /></label>{status && <p className="note">{status}</p>}</article><article className="card"><h2>Sumber tersimpan</h2>{items.length ? <div className="knowledge-list">{items.map((item) => <div className="knowledge-row" key={item.id}><span><strong>{item.knowledge_sources?.title || 'Sumber tanpa judul'}</strong><small>{item.source_type} · {item.status}</small></span>{item.status === 'APPROVED' ? <button className="button outline" onClick={() => changeStatus(item.id, 'DRAFT')}>Tarik publikasi</button> : <button className="button" onClick={() => changeStatus(item.id, 'APPROVED')}>Setujui</button>}</div>)}</div> : <EmptyState message="Belum ada sumber knowledge base." />}</article></section></main>; }
+function DeveloperQuickLogin({ onLogin }: { onLogin: () => void }) {
+  const [busy, setBusy] = useState("");
+  const [error, setError] = useState("");
+  async function selectAccount(identifier: string) {
+    setBusy(identifier);
+    setError("");
+    try {
+      await api("/api/dev/login-as", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier }),
+      });
+      onLogin();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Quick login gagal.");
+      setBusy("");
+    }
+  }
+  return (
+    <section className="dev-login">
+      <h2>Developer Quick Login</h2>
+      <p className="note">
+        Pilih akun demo untuk langsung masuk ke dashboard sesuai role.
+      </p>
+      <div className="dev-account-grid">
+        {devAccounts.map((account) => (
+          <button
+            className="button outline"
+            key={account.identifier}
+            onClick={() => selectAccount(account.identifier)}
+            disabled={Boolean(busy)}
+          >
+            {busy === account.identifier ? "Memuat..." : account.label}
+            <small>{account.identifier}</small>
+          </button>
+        ))}
+      </div>
+      {error && <p className="form-error">{error}</p>}
+    </section>
+  );
+}
+function Login() {
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  async function submit(event: FormEvent) {
+    event.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      await api("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier, password }),
+      });
+      window.location.href = "/dashboard";
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Login gagal.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <main className="auth-page">
+      <section className="auth-card">
+        <a className="logo" href="/">
+          SMK NEGERI 26 JAKARTA
+        </a>
+        <h1>Masuk ke Portal</h1>
+        <p className="lead">
+          Gunakan NIS, NIP, atau identifier demo yang diberikan administrator.
+        </p>
+        <form onSubmit={submit}>
+          <label htmlFor="identifier">NIS / NIP / Identifier</label>
+          <input
+            id="identifier"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            required
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button className="button" disabled={busy}>
+            {busy ? "Memeriksa..." : "Masuk"}
+          </button>
+          {error && <p className="form-error">{error}</p>}
+        </form>
+        {import.meta.env.DEV && (
+          <DeveloperQuickLogin
+            onLogin={() => {
+              window.location.href = "/dashboard";
+            }}
+          />
+        )}
+        <a href="/" className="back-link">
+          Kembali ke website publik
+        </a>
+      </section>
+    </main>
+  );
+}
 
-export function App() { const path = window.location.pathname; const [me, setMe] = useState<Me | null>(null); const [loading, setLoading] = useState(path === '/dashboard' || path === '/admin/knowledge'); useEffect(() => { if (loading) api<Me>('/api/me').then(setMe).catch(() => { window.location.href = '/login'; }).finally(() => setLoading(false)); }, [loading]); if (path === '/login') return <Login />; if (path === '/dashboard') return loading ? <main className="auth-page"><p>Memulihkan sesi...</p></main> : me ? <Dashboard me={me} /> : null; if (path === '/admin/knowledge') return loading ? <main className="auth-page"><p>Memulihkan sesi...</p></main> : me ? <AdminKnowledge /> : null; if (path === '/') return <Home />; const details: Record<string, [string, string, string]> = { '/profile': ['profile', 'Profil Sekolah', 'Profil, visi, misi, sejarah, struktur organisasi, dan unit kerja akan ditampilkan dari konten terverifikasi.'], '/organization': ['organization', 'Struktur Organisasi', 'Struktur organisasi dan unit kerja akan ditampilkan dari sumber resmi.'], '/majors': ['majors', 'Jurusan', 'Informasi kompetensi keahlian dan perjalanan belajar akan ditampilkan setelah disetujui.'], '/tour': ['tour', 'School Tour 360°', 'Panorama dan fallback aksesibel akan ditampilkan setelah aset dan izin publikasi tersedia.'], '/partners': ['partners', 'Mitra Industri', 'Mitra industri akan ditampilkan setelah data dan hak publikasi dikonfirmasi.'], '/blud': ['blud', 'BLUD', 'Informasi unit BLUD terverifikasi akan ditampilkan setelah tersedia.'], '/programs': ['programs', 'Program Sekolah', 'LSP, OSIS/MPK, ekstrakurikuler, BKK, dan BLUD akan ditampilkan dari sumber resmi.'], '/achievements': ['achievements', 'Prestasi', 'Prestasi sekolah yang telah diverifikasi akan tersedia di halaman ini.'], '/news': ['news', 'Berita', 'Berita sekolah yang telah diverifikasi akan tersedia di halaman ini.'], '/information': ['information', 'Portal Informasi', 'Informasi publik sekolah yang telah diverifikasi.'], '/contact': ['contact', 'Kontak dan Lokasi', 'Alamat, kontak, dan lokasi resmi sekolah akan ditampilkan setelah dikonfirmasi.'] }; const detail = details[path] || details['/information']; return <PublicPage section={detail[0]} title={detail[1]} intro={detail[2]} />; }
+function Dashboard({ me }: { me: Me }) {
+  const roles =
+    me.roles.map((role) => role.role_code).join(", ") ||
+    "Belum ada role tambahan";
+  return (
+    <main className="portal-page">
+      <header className="container portal-header">
+        <div>
+          <a className="logo" href="/">
+            SMK NEGERI 26 JAKARTA
+          </a>
+          <p className="note">Portal internal</p>
+        </div>
+        <button
+          className="button outline"
+          onClick={async () => {
+            await api("/api/auth/logout", { method: "POST" });
+            window.location.href = "/";
+          }}
+        >
+          Keluar
+        </button>
+      </header>
+      <section className="container portal-content">
+        <div className="pill">{me.profile.account_type}</div>
+        <h1>Selamat datang, {me.profile.display_name}</h1>
+        <p className="lead">
+          Identifier sekolah: {me.profile.school_identifier}
+        </p>
+        <article className="card">
+          <h2>Akses Anda</h2>
+          <p>{roles}</p>
+          <p className="note">
+            Permission diverifikasi backend berdasarkan assignment aktif.
+          </p>
+        </article>
+      </section>
+    </main>
+  );
+}
+
+type KnowledgeItem = {
+  id: string;
+  status: string;
+  source_type: string;
+  knowledge_sources?: { title?: string };
+};
+function AdminKnowledge() {
+  const [items, setItems] = useState<KnowledgeItem[]>([]);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [status, setStatus] = useState("");
+  async function reload() {
+    try {
+      setItems(await api<KnowledgeItem[]>("/api/admin/knowledge"));
+    } catch {
+      setStatus("Akses ditolak atau sesi berakhir.");
+    }
+  }
+  useEffect(() => {
+    reload();
+  }, []);
+  async function addText(event: FormEvent) {
+    event.preventDefault();
+    setStatus("");
+    try {
+      await api("/api/admin/knowledge/text", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, body }),
+      });
+      setTitle("");
+      setBody("");
+      setStatus("Sumber disimpan sebagai DRAFT.");
+      await reload();
+    } catch (e) {
+      setStatus(e instanceof Error ? e.message : "Gagal menyimpan sumber.");
+    }
+  }
+  async function upload(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const form = new FormData();
+    form.append("title", file.name);
+    form.append("file", file);
+    try {
+      await api("/api/admin/knowledge/pdf", { method: "POST", body: form });
+      setStatus("PDF diproses sebagai DRAFT.");
+      await reload();
+    } catch (e) {
+      setStatus(e instanceof Error ? e.message : "Gagal memproses PDF.");
+    }
+  }
+  async function changeStatus(id: string, nextStatus: string) {
+    try {
+      await api(`/api/admin/knowledge/${id}/status`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: nextStatus }),
+      });
+      await reload();
+    } catch (e) {
+      setStatus(e instanceof Error ? e.message : "Status gagal diubah.");
+    }
+  }
+  return (
+    <main className="portal-page">
+      <header className="container portal-header">
+        <a className="logo" href="/dashboard">
+          SMK NEGERI 26 JAKARTA
+        </a>
+        <a className="back-link" href="/">
+          Website publik
+        </a>
+      </header>
+      <section className="container portal-content">
+        <div className="pill">CONTENT EDITOR</div>
+        <h1>Knowledge Base</h1>
+        <p className="lead">
+          Tambahkan sumber resmi, tinjau status, lalu setujui sebelum tersedia
+          untuk chatbot publik.
+        </p>
+        <article className="card admin-form">
+          <h2>Tambah informasi teks</h2>
+          <form onSubmit={addText}>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Judul sumber"
+              required
+            />
+            <textarea
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              placeholder="Isi resmi yang sudah diverifikasi"
+              required
+            />
+            <button className="button">Simpan sebagai draft</button>
+          </form>
+          <label className="upload-label">
+            Unggah PDF draft
+            <input type="file" accept="application/pdf" onChange={upload} />
+          </label>
+          {status && <p className="note">{status}</p>}
+        </article>
+        <article className="card">
+          <h2>Sumber tersimpan</h2>
+          {items.length ? (
+            <div className="knowledge-list">
+              {items.map((item) => (
+                <div className="knowledge-row" key={item.id}>
+                  <span>
+                    <strong>
+                      {item.knowledge_sources?.title || "Sumber tanpa judul"}
+                    </strong>
+                    <small>
+                      {item.source_type} · {item.status}
+                    </small>
+                  </span>
+                  {item.status === "APPROVED" ? (
+                    <button
+                      className="button outline"
+                      onClick={() => changeStatus(item.id, "DRAFT")}
+                    >
+                      Tarik publikasi
+                    </button>
+                  ) : (
+                    <button
+                      className="button"
+                      onClick={() => changeStatus(item.id, "APPROVED")}
+                    >
+                      Setujui
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <EmptyState message="Belum ada sumber knowledge base." />
+          )}
+        </article>
+      </section>
+    </main>
+  );
+}
+
+export function App() {
+  const path = window.location.pathname;
+  const [me, setMe] = useState<Me | null>(null);
+  const [loading, setLoading] = useState(
+    path === "/dashboard" || path === "/admin/knowledge",
+  );
+  useEffect(() => {
+    if (loading)
+      api<Me>("/api/me")
+        .then(setMe)
+        .catch(() => {
+          window.location.href = "/login";
+        })
+        .finally(() => setLoading(false));
+  }, [loading]);
+  if (path === "/login") return <Login />;
+  if (path === "/dashboard")
+    return loading ? (
+      <main className="auth-page">
+        <p>Memulihkan sesi...</p>
+      </main>
+    ) : me ? (
+      <Dashboard me={me} />
+    ) : null;
+  if (path === "/admin/knowledge")
+    return loading ? (
+      <main className="auth-page">
+        <p>Memulihkan sesi...</p>
+      </main>
+    ) : me ? (
+      <AdminKnowledge />
+    ) : null;
+  if (path === "/") return <Home />;
+  if (path === "/tour") return <TourPage />;
+  const details: Record<string, [string, string, string]> = {
+    "/profile": [
+      "profile",
+      "Profil Sekolah",
+      "Profil, visi, misi, sejarah, struktur organisasi, dan unit kerja akan ditampilkan dari konten terverifikasi.",
+    ],
+    "/organization": [
+      "organization",
+      "Struktur Organisasi",
+      "Struktur organisasi dan unit kerja akan ditampilkan dari sumber resmi.",
+    ],
+    "/majors": [
+      "majors",
+      "Jurusan",
+      "Informasi kompetensi keahlian dan perjalanan belajar akan ditampilkan setelah disetujui.",
+    ],
+    "/tour": [
+      "tour",
+      "School Tour 360°",
+      "Panorama dan fallback aksesibel akan ditampilkan setelah aset dan izin publikasi tersedia.",
+    ],
+    "/partners": [
+      "partners",
+      "Mitra Industri",
+      "Mitra industri akan ditampilkan setelah data dan hak publikasi dikonfirmasi.",
+    ],
+    "/blud": [
+      "blud",
+      "BLUD",
+      "Informasi unit BLUD terverifikasi akan ditampilkan setelah tersedia.",
+    ],
+    "/programs": [
+      "programs",
+      "Program Sekolah",
+      "LSP, OSIS/MPK, ekstrakurikuler, BKK, dan BLUD akan ditampilkan dari sumber resmi.",
+    ],
+    "/achievements": [
+      "achievements",
+      "Prestasi",
+      "Prestasi sekolah yang telah diverifikasi akan tersedia di halaman ini.",
+    ],
+    "/news": [
+      "news",
+      "Berita",
+      "Berita sekolah yang telah diverifikasi akan tersedia di halaman ini.",
+    ],
+    "/information": [
+      "information",
+      "Portal Informasi",
+      "Informasi publik sekolah yang telah diverifikasi.",
+    ],
+    "/contact": [
+      "contact",
+      "Kontak dan Lokasi",
+      "Alamat, kontak, dan lokasi resmi sekolah akan ditampilkan setelah dikonfirmasi.",
+    ],
+  };
+  const detail = details[path] || details["/information"];
+  return <PublicPage section={detail[0]} title={detail[1]} intro={detail[2]} />;
+}
