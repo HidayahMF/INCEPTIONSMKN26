@@ -1,5 +1,4 @@
 import { getAdminClient } from '../../lib/supabase.js';
-import { PDFParse } from 'pdf-parse';
 
 const MAX_PDF_BYTES = 10 * 1024 * 1024;
 const allowedMime = 'application/pdf';
@@ -16,7 +15,9 @@ export async function createTextSource({ title, body, sourceUrl, sourcePage, use
 }
 export async function createPdfSource(file, { title, sourceUrl, userId }) {
   validatePdf(file); if (!title?.trim()) throw new Error('Judul sumber wajib diisi.');
-  const parser = new PDFParse({ data: file.buffer }); let parsed;
+  const worker = await import('pdf-parse/worker');
+  const pdf = await import('pdf-parse');
+  const parser = new pdf.PDFParse({ data: new Uint8Array(file.buffer), CanvasFactory: worker.CanvasFactory }); let parsed;
   try { parsed = await parser.getText(); } finally { await parser.destroy(); }
   if (!parsed?.text?.trim()) throw new Error('PDF tidak memiliki teks yang dapat diproses.');
   const client = getAdminClient(); const source = await client.from('knowledge_sources').insert({ title: title.trim(), source_url: sourceUrl?.trim() || null }).select().single(); if (source.error) throw source.error;
