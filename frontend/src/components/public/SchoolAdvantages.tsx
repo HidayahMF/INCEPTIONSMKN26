@@ -62,9 +62,9 @@ export function SchoolAdvantages() {
   return <section className="relative mt-[88px] h-[645px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
     <div className="absolute left-1/2 top-10 -translate-x-1/2"><span className="whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">Keunggulan SMK Negeri 26 Jakarta</span></div>
     <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">Apa yang Membuat SMKN 26 Berbeda?</h2>
-    <div className="absolute left-4 top-[181px] flex h-[400px] w-[calc(100%-32px)] items-center md:left-1/2 md:w-[calc(100%-96px)] md:max-w-[1272px] md:-translate-x-1/2">
-      <button className="absolute -left-2 z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(-1)} disabled={translate >= bounds.max} aria-label="Keunggulan sebelumnya"><img className="size-6" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselLeft} alt="" /></button>
-      <div ref={viewportRef} className={`carousel absolute inset-0 overflow-hidden touch-none select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={cancelDrag}>
+    <div className="absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
+      <button className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(-1)} disabled={translate >= bounds.max} aria-label="Keunggulan sebelumnya"><img className="size-6" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselLeft} alt="" /></button>
+      <div ref={viewportRef} className={`carousel h-[400px] min-w-0 overflow-hidden touch-none select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={cancelDrag}>
         <div ref={trackRef} className="flex w-max gap-6 transition-transform duration-300 ease-out" style={{ transform: `translate3d(${translate}px, 0, 0)`, transitionDuration: dragging ? '0ms' : undefined }}>
           {advantages.map(([title, body, image]) => <article className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition hover:-translate-y-1 hover:shadow-2xl" key={title}>
             <img className="pointer-events-none absolute inset-x-0 top-0 h-[200px] w-full select-none object-cover transition duration-300 group-hover:scale-105" draggable={false} onDragStart={(event) => event.preventDefault()} src={image} alt="" />
@@ -74,7 +74,7 @@ export function SchoolAdvantages() {
           </article>)}
         </div>
       </div>
-      <button className="absolute -right-2 z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(1)} disabled={translate <= bounds.min} aria-label="Keunggulan berikutnya"><img className="size-6 rotate-180" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselRight} alt="" /></button>
+      <button className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(1)} disabled={translate <= bounds.min} aria-label="Keunggulan berikutnya"><img className="size-6 rotate-180" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselRight} alt="" /></button>
     </div>
   </section>;
 }
