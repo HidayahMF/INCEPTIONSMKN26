@@ -7,7 +7,17 @@ export function TourPage() {
     <div className="min-h-screen overflow-hidden bg-white text-ink">
       <PublicNavbar />
       <main>
-        <section className="relative overflow-hidden bg-white px-4 pb-24 pt-40 sm:px-6 md:pb-28 md:pt-44">
+        <section className="relative isolate flex min-h-[clamp(460px,62vh,640px)] items-center overflow-hidden bg-white px-4 py-24 sm:px-6 md:py-28">
+          <img
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.72]"
+            src="/assets/figma/hero/hero-background.png"
+            alt=""
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,.08)_0%,rgba(255,255,255,.18)_25%,rgba(255,255,255,.55)_60%,rgba(255,255,255,.92)_85%,#fff_100%)]"
+          />
           <div className="relative z-10 mx-auto w-full max-w-[1272px] text-center">
             <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
               Jelajahi Sekolah
