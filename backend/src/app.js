@@ -13,12 +13,14 @@ import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './
 import { createPdfSource, createTextSource, listKnowledge, publicPathForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
 import { answerFromGemini } from './modules/knowledge/gemini.service.js';
 export const app = express();
+if (process.env.VERCEL) app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({ origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173', credentials: true }));
 app.use(express.json({limit:'16kb'}));
 app.use(cookieParser());
 app.get('/api/health', (_req,res)=>res.json({data:{status:'ok'},error:null}));
-const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024, files: 1 } });
+const uploadLimit = process.env.VERCEL ? 4 * 1024 * 1024 : 10 * 1024 * 1024;
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: uploadLimit, files: 1 } });
 const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 10, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak percobaan login. Coba lagi nanti.' } } });
 const cookieOptions = (maxAge) => ({ httpOnly: true, secure: process.env.COOKIE_SECURE === 'true', sameSite: process.env.COOKIE_SAME_SITE || 'lax', path: '/', maxAge });
 function setSessionCookies(res, session) {
@@ -86,4 +88,8 @@ app.post('/api/chat', chatLimiter, (req,res)=>{
     return answerFromGemini(message, matches).then((answer) => res.json({ data: { answer, sources, status: 'answered' }, error: null })).catch(() => res.status(503).json({ data: null, error: { message: 'Layanan AI sedang tidak tersedia. Coba lagi nanti.' } }));
   }).catch(() => res.status(503).json({ data: null, error: { message: 'Pencarian sumber sekolah gagal sementara.' } }));
 });
-app.use((error,_req,res,_next)=>{console.error('API error:',error?.message);res.status(500).json({data:null,error:{message:'Terjadi kesalahan server.'}})});
+app.use((error,_req,res,_next)=>{
+  console.error('API error:', error?.message);
+  if (error?.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ data: null, error: { message: `Ukuran PDF melebihi batas ${process.env.VERCEL ? '4' : '10'} MB.` } });
+  res.status(500).json({data:null,error:{message:'Terjadi kesalahan server.'}});
+});
