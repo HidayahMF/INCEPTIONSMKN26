@@ -1,1 +1,2 @@
 @media(max-width:639px){html,body{overflow-x:hidden}.overflow-hidden.bg-gradient-to-b .relative.mt-20>div.flex>article{min-width:100%}}
+.carousel img{user-select:none;-webkit-user-select:none;-webkit-user-drag:none}

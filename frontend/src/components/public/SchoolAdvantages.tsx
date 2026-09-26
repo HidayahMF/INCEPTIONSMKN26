@@ -1,4 +1,4 @@
-import { useRef, useState, type PointerEvent } from 'react';
+import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { figmaAssets } from '../../assets/figmaAssets';
 
 const advantages = [
@@ -10,13 +10,71 @@ const advantages = [
   ['Sertifikasi Kompetensi', 'Mengembangkan kompetensi siswa melalui skema sertifikasi yang relevan dengan bidang keahlian.', figmaAssets.advantages.lsp],
 ] as const;
 
+const CARD_STEP = 324;
+
 export function SchoolAdvantages() {
-  const [active, setActive] = useState(0);
-  const [drag, setDrag] = useState(0);
-  const start = useRef<number | null>(null);
-  const move = (direction: number) => setActive((current) => Math.max(0, Math.min(advantages.length - 3, current + direction)));
-  const down = (event: PointerEvent<HTMLDivElement>) => { start.current = event.clientX; event.currentTarget.setPointerCapture(event.pointerId); };
-  const moving = (event: PointerEvent<HTMLDivElement>) => { if (start.current !== null) setDrag(event.clientX - start.current); };
-  const up = (event: PointerEvent<HTMLDivElement>) => { if (start.current !== null && Math.abs(event.clientX - start.current) > 40) move(event.clientX < start.current ? 1 : -1); start.current = null; setDrag(0); if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId); };
-  return <section className="relative mt-[88px] h-[645px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white"><div className="absolute left-1/2 top-10 -translate-x-1/2"><span className="whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">Keunggulan SMK Negeri 26 Jakarta</span></div><h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">Apa yang Membuat SMKN 26 Berbeda?</h2><div className="absolute left-1/2 top-[181px] flex h-[400px] w-[calc(100%-32px)] max-w-[1272px] cursor-grab touch-none select-none overflow-hidden active:cursor-grabbing" onPointerDown={down} onPointerMove={moving} onPointerUp={up} onPointerCancel={() => { start.current = null; setDrag(0); }}><div className="flex gap-6 transition-transform duration-300 ease-out" style={{ transform: `translateX(calc(-${active * 324}px + ${drag}px))`, transitionDuration: drag ? '0ms' : undefined }}>{advantages.map(([title, body, image]) => <article className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition hover:-translate-y-1 hover:shadow-2xl" key={title}><img className="absolute inset-x-0 top-0 h-[200px] w-full object-cover transition duration-300 group-hover:scale-105" src={image} alt="" /><span className="absolute left-3 top-[156px] grid size-[54px] place-items-center rounded-full bg-gradient-to-r from-primary-dark to-primary"><img className="size-[34px]" src={figmaAssets.advantages.secondaryEducationIcon} alt="" /></span><h3 className="relative text-2xl font-semibold leading-tight text-primary-dark">{title}</h3><p className="relative mt-1 text-xs leading-[18px]">{body}</p><a className="relative mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-primary transition hover:text-primary-dark" href="/information">Baca selengkapnya <img className="size-5" src={figmaAssets.icons.arrowRight} alt="" /></a></article>)}</div></div><button className="absolute left-[50px] top-[358px] z-20 grid size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110" onPointerDown={(event) => event.stopPropagation()} onClick={() => move(-1)} aria-label="Keunggulan sebelumnya"><img className="size-6" src={figmaAssets.advantages.carouselLeft} alt="" /></button><button className="absolute right-[50px] top-[358px] z-20 grid size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110" onPointerDown={(event) => event.stopPropagation()} onClick={() => move(1)} aria-label="Keunggulan berikutnya"><img className="size-6 rotate-180" src={figmaAssets.advantages.carouselRight} alt="" /></button></section>;
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pointerStart = useRef<number | null>(null);
+  const translateStart = useRef(0);
+  const [translate, setTranslate] = useState(0);
+  const [bounds, setBounds] = useState({ min: 0, max: 0 });
+  const [dragging, setDragging] = useState(false);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track) return;
+    const measure = () => {
+      const maxTranslate = Math.min(0, viewport.clientWidth - track.scrollWidth);
+      setBounds({ min: maxTranslate, max: 0 });
+      setTranslate((current) => Math.max(maxTranslate, Math.min(0, current)));
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(viewport);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
+
+  const clamp = (value: number) => Math.max(bounds.min, Math.min(bounds.max, value));
+  const move = (direction: number) => setTranslate((current) => clamp(current - direction * CARD_STEP));
+  const startDrag = (event: PointerEvent<HTMLDivElement>) => {
+    pointerStart.current = event.clientX;
+    translateStart.current = translate;
+    setDragging(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const drag = (event: PointerEvent<HTMLDivElement>) => {
+    if (pointerStart.current === null) return;
+    setTranslate(clamp(translateStart.current + event.clientX - pointerStart.current));
+  };
+  const endDrag = (event: PointerEvent<HTMLDivElement>) => {
+    if (pointerStart.current !== null && Math.abs(event.clientX - pointerStart.current) > 40) {
+      setTranslate((current) => clamp(Math.round(current / CARD_STEP) * CARD_STEP));
+    }
+    pointerStart.current = null;
+    setDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+  };
+  const cancelDrag = () => { pointerStart.current = null; setDragging(false); };
+
+  return <section className="relative mt-[88px] h-[645px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
+    <div className="absolute left-1/2 top-10 -translate-x-1/2"><span className="whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">Keunggulan SMK Negeri 26 Jakarta</span></div>
+    <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">Apa yang Membuat SMKN 26 Berbeda?</h2>
+    <div className="absolute left-4 top-[181px] flex h-[400px] w-[calc(100%-32px)] items-center md:left-1/2 md:w-[calc(100%-96px)] md:max-w-[1272px] md:-translate-x-1/2">
+      <button className="absolute -left-2 z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(-1)} disabled={translate >= bounds.max} aria-label="Keunggulan sebelumnya"><img className="size-6" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselLeft} alt="" /></button>
+      <div ref={viewportRef} className={`carousel absolute inset-0 overflow-hidden touch-none select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={cancelDrag}>
+        <div ref={trackRef} className="flex w-max gap-6 transition-transform duration-300 ease-out" style={{ transform: `translate3d(${translate}px, 0, 0)`, transitionDuration: dragging ? '0ms' : undefined }}>
+          {advantages.map(([title, body, image]) => <article className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition hover:-translate-y-1 hover:shadow-2xl" key={title}>
+            <img className="pointer-events-none absolute inset-x-0 top-0 h-[200px] w-full select-none object-cover transition duration-300 group-hover:scale-105" draggable={false} onDragStart={(event) => event.preventDefault()} src={image} alt="" />
+            <span className="absolute left-3 top-[156px] grid size-[54px] place-items-center rounded-full bg-gradient-to-r from-primary-dark to-primary"><img className="pointer-events-none size-[34px] select-none" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.secondaryEducationIcon} alt="" /></span>
+            <h3 className="relative text-2xl font-semibold leading-tight text-primary-dark">{title}</h3><p className="relative mt-1 text-xs leading-[18px]">{body}</p>
+            <a className="relative mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-primary transition hover:text-primary-dark" href="/information">Baca selengkapnya <img className="pointer-events-none size-5 select-none" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.icons.arrowRight} alt="" /></a>
+          </article>)}
+        </div>
+      </div>
+      <button className="absolute -right-2 z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid" onClick={() => move(1)} disabled={translate <= bounds.min} aria-label="Keunggulan berikutnya"><img className="size-6 rotate-180" draggable={false} onDragStart={(event) => event.preventDefault()} src={figmaAssets.advantages.carouselRight} alt="" /></button>
+    </div>
+  </section>;
 }
