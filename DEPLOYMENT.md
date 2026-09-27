@@ -1,9 +1,11 @@
 # Vercel Deployment
 
-The repository is prepared for two Vercel projects using the same GitHub repository:
+The repository uses Vercel Git Integration with two Vercel projects connected to the same GitHub repository:
 
 - Frontend: `inceptionsmkn-26`, root directory `frontend`
 - API: `inceptionsmkn-26-backend`, root directory `backend`
+
+Pushes to `main` are deployed by Vercel automatically. There is no GitHub Actions Vercel CLI workflow and no Vercel token stored in GitHub.
 
 The browser continues to call relative `/api/...` endpoints. The frontend Vercel project rewrites those requests to the API project.
 
