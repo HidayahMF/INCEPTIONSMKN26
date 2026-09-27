@@ -182,7 +182,7 @@ export function SchoolAdvantages() {
                 </a>
               </article>
             ))}
-       </div></div>
+        </div>
         </div>
         <button
           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"
@@ -198,7 +198,7 @@ export function SchoolAdvantages() {
             alt=""
           />
         </button>
-      </div>
+       </div></div>
     </section>
   );
 }
