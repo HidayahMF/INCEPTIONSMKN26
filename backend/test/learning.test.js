@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { recommendation } from '../src/modules/learning/learning.service.js';
+import { createPracticePrompt } from '../src/modules/knowledge/gemini.service.js';
+import { recommendation, proficiencyBandForStatus } from '../src/modules/learning/learning.service.js';
 import { rolePermissions } from '../src/middleware/authorize.js';
 
 const topic = { id: 'topic-1', name: 'Persamaan Linear' };
@@ -40,4 +41,18 @@ test('student recommendation formula changes when the same assessment score is u
   assert.equal(stronger.averageScore, 85);
   assert.equal(stronger.gap, 0);
   assert.equal(stronger.status, 'MASTERED');
+});
+
+test('proficiency band mapping is explicit for every recommendation status', () => {
+  assert.equal(proficiencyBandForStatus('NEEDS_ATTENTION'), 'needs review');
+  assert.equal(proficiencyBandForStatus('ON_TRACK'), 'on track');
+  assert.equal(proficiencyBandForStatus('MASTERED'), 'mastered');
+  assert.equal(proficiencyBandForStatus('NOT_ENOUGH_DATA'), 'not enough data');
+});
+
+test('practice prompt contains only approved topic context and no student fields', () => {
+  const prompt = createPracticePrompt({ subjects: { name: 'Matematika' }, name: 'Persamaan Linear', description: 'Materi aljabar.' }, 'needs review');
+  assert.match(prompt, /Mata pelajaran: Matematika/);
+  assert.match(prompt, /Topik: Persamaan Linear/);
+  assert.doesNotMatch(prompt, /Siswa Demo|DEMO-SISWA|student-uuid|NIS-123|KELAS-123|Guru Demo|nilai-raw/i);
 });

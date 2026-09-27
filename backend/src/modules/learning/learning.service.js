@@ -69,6 +69,13 @@ export function recommendation(topic, subject, scoreRows, assessmentRows, resour
   return { topicId: topic.id, topicName: topic.name, subjectName: subject.name, averageScore, targetScore, gap, assessmentCount: evidence.length, status, approvedResources: resources.filter((resource) => resource.topic_id === topic.id && resource.is_approved) };
 }
 
+export function proficiencyBandForStatus(status) {
+  if (status === 'NEEDS_ATTENTION') return 'needs review';
+  if (status === 'ON_TRACK') return 'on track';
+  if (status === 'MASTERED') return 'mastered';
+  return 'not enough data';
+}
+
 export async function getStudentLearningSummary(userId) {
   const client = getAdminClient();
   const { data: memberships, error: membershipError } = await client.from('class_memberships').select('class_id,academic_year_id').eq('student_id', userId);
@@ -193,6 +200,6 @@ export async function createPracticePrompt(userId, topicId) {
   const topic = await getTopic(topicId);
   const summary = await getStudentLearningSummary(userId);
   const item = summary.weakTopics.find((weakTopic) => weakTopic.topicId === topicId) || summary.subjects.flatMap((subject) => subject.topics).find((candidate) => candidate.topicId === topicId);
-  const band = item?.status === 'NEEDS_ATTENTION' ? 'needs review' : item?.status === 'MASTERED' ? 'mastered' : 'not enough data';
+  const band = proficiencyBandForStatus(item?.status);
   return { topic, proficiencyBand: band };
 }

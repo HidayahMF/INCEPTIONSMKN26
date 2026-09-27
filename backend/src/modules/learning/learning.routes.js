@@ -12,10 +12,11 @@ import {
   getTeacherAssignments,
   upsertAssessmentScores,
 } from './learning.service.js';
-import { practiceFromGemini } from '../knowledge/gemini.service.js';
+import { GeminiError, practiceFromGemini } from '../knowledge/gemini.service.js';
 
 export const learningRouter = Router();
-learningRouter.use(authenticate);
+learningRouter.use('/student', authenticate);
+learningRouter.use('/teacher', authenticate);
 
 function studentOnly(handler) {
   return handle((req) => {
@@ -40,7 +41,13 @@ learningRouter.get('/student/learning/subjects/:subjectId', studentOnly((req) =>
 learningRouter.post('/student/learning/topics/:topicId/practice', studentOnly(async (req) => {
   const context = await createPracticePrompt(req.auth.userId, req.params.topicId);
   if (!process.env.GEMINI_API_KEY) return { ...context, generated: false, explanation: 'Latihan AI belum dikonfigurasi. Gunakan sumber belajar yang disetujui untuk mempelajari topik ini.', questions: [] };
-  const generated = await practiceFromGemini(context.topic, context.proficiencyBand);
+  let generated;
+  try {
+    generated = await practiceFromGemini(context.topic, context.proficiencyBand);
+  } catch (error) {
+    if (error instanceof GeminiError) throw new LearningError(503, 'Latihan AI sedang tidak tersedia. Coba lagi beberapa saat.');
+    throw error;
+  }
   return { ...context, generated: true, ...generated };
 }));
 

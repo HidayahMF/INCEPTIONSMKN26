@@ -36,7 +36,7 @@ app.post('/api/auth/login', loginLimiter, async (req, res, next) => {
     return res.json({ data: { profile: result.profile }, error: null });
   } catch (error) { return next(error); }
 });
-const devQuickLoginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak percobaan quick login.' } } });
+const devQuickLoginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: process.env.NODE_ENV === 'test' ? 1000 : 30, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak percobaan quick login.' } } });
 const chatLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak pertanyaan. Coba lagi nanti.' } } });
 app.post('/api/dev/login-as', devQuickLoginLimiter, async (req, res, next) => {
   if (!isDevQuickLoginEnabled() || !isLocalQuickLoginRequest(req)) return res.status(404).json({ data: null, error: { message: 'Not found.' } });

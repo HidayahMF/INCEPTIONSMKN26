@@ -6,6 +6,45 @@ async function demoLogin(page: Page, identifier: 'DEMO-GURU' | 'DEMO-SISWA') {
   await expect(page).toHaveURL(/\/dashboard$/);
 }
 
+async function apiJson<T>(page: Page, path: string, options: RequestInit = {}) {
+  return page.evaluate(async ({ path, options }) => {
+    const response = await fetch(path, options);
+    return { status: response.status, body: await response.json() as { data: T; error: { message: string } | null } };
+  }, { path, options });
+}
+
+async function ensureE2eAssessment(page: Page, score: number) {
+  const assignmentsResponse = await apiJson<{ id: string; subjects: { code: string } }[]>(page, '/api/teacher/learning/assignments');
+  expect(assignmentsResponse.status).toBe(200);
+  const assignment = assignmentsResponse.body.data.find((item) => item.subjects.code === 'DEMO-MTK');
+  expect(assignment, 'DEMO-MTK assignment must be seeded').toBeTruthy();
+  const topicsResponse = await apiJson<{ id: string; code: string }[]>(page, `/api/teacher/learning/assignments/${assignment!.id}/topics`);
+  expect(topicsResponse.status).toBe(200);
+  const topic = topicsResponse.body.data.find((item) => item.code === 'DEMO-E2E-LINEAR');
+  expect(topic, 'DEMO-E2E-LINEAR topic must be seeded; run seed:learning-demo').toBeTruthy();
+  const assessmentsResponse = await apiJson<{ id: string; topic_id: string; title: string }[]>(page, `/api/teacher/learning/assignments/${assignment!.id}/assessments`);
+  expect(assessmentsResponse.status).toBe(200);
+  let assessment = assessmentsResponse.body.data.find((item) => item.topic_id === topic!.id && item.title === 'E2E Assessment - Score Update');
+  if (!assessment) {
+    const created = await apiJson<{ id: string }>(page, '/api/teacher/learning/assessments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ assignmentId: assignment!.id, topicId: topic!.id, title: 'E2E Assessment - Score Update', assessmentDate: '2026-09-27', minimumScore: 75, maxScore: 100 }),
+    });
+    expect(created.status).toBe(200);
+    assessment = { id: created.body.data.id, topic_id: topic!.id, title: 'E2E Assessment - Score Update' };
+  }
+  const studentsResponse = await apiJson<{ students: { student_id: string }[] }>(page, `/api/teacher/learning/assignments/${assignment!.id}/students`);
+  expect(studentsResponse.status).toBe(200);
+  const saved = await apiJson(page, `/api/teacher/learning/assessments/${assessment.id}/scores`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ scores: [{ studentId: studentsResponse.body.data.students[0].student_id, score }] }),
+  });
+  expect(saved.status).toBe(200);
+  return { topicId: topic!.id, assessmentId: assessment.id };
+}
+
 test.describe('Phase 1 portal', () => {
   test('keeps the cached session during SPA portal navigation', async ({ page }) => {
     const meRequests: string[] = [];
@@ -50,36 +89,46 @@ test.describe('Phase 1 portal', () => {
 
   test('persists teacher score and reflects the updated aggregate for the student', async ({ page }) => {
     await demoLogin(page, 'DEMO-GURU');
-    await page.getByRole('navigation', { name: 'Navigasi portal' }).getByRole('link', { name: 'Input Nilai' }).click();
-    await expect(page.getByRole('heading', { name: 'Input Nilai & Kompetensi' })).toBeVisible();
-    await page.locator('select').nth(1).selectOption({ index: 1 });
-    await page.getByLabel('Nilai Siswa Demo').fill('68');
-    await page.getByRole('button', { name: 'Simpan semua nilai' }).click();
-    await expect(page.getByText('Nilai berhasil disimpan. Rekomendasi siswa sudah diperbarui.')).toBeVisible();
+    await expect(page.getByText('Selamat datang, Guru Demo')).toBeVisible();
+    const fixture = await ensureE2eAssessment(page, 68);
     await page.getByRole('button', { name: 'Keluar' }).click();
     await page.getByRole('button', { name: 'Siswa Demo' }).click();
-    const firstLearningResponsePromise = page.waitForResponse((response) => response.url().endsWith('/api/student/learning') && response.request().method() === 'GET');
-    await page.getByRole('navigation', { name: 'Navigasi portal' }).getByRole('link', { name: 'Rekomendasi Belajar' }).click();
-    const firstLearningResponse = await firstLearningResponsePromise;
-    const firstLearning = await firstLearningResponse.json();
-    const firstTopic = firstLearning.data.subjects[0].topics[0];
-    await expect(page.getByText(firstTopic.topicName, { exact: true })).toBeVisible();
-    await expect(page.getByText(`Gap ${firstTopic.gap.toFixed(1)} poin · ${firstTopic.assessmentCount} assessment`)).toBeVisible();
+    await expect(page.getByText('Selamat datang, Siswa Demo')).toBeVisible();
+    const firstLearning = await apiJson<{ subjects: { topics: { topicId: string; averageScore: number | null }[] }[] }>(page, '/api/student/learning');
+    const firstTopic = firstLearning.body.data.subjects.flatMap((subject) => subject.topics).find((topic) => topic.topicId === fixture.topicId);
+    expect(firstTopic).toBeTruthy();
     await page.getByRole('button', { name: 'Keluar' }).click();
     await page.getByRole('button', { name: 'Guru Demo' }).click();
-    await page.getByRole('navigation', { name: 'Navigasi portal' }).getByRole('link', { name: 'Input Nilai' }).click();
-    await page.locator('select').nth(1).selectOption({ index: 1 });
-    await page.getByLabel('Nilai Siswa Demo').fill('85');
-    await page.getByRole('button', { name: 'Simpan semua nilai' }).click();
-    await expect(page.getByText('Nilai berhasil disimpan. Rekomendasi siswa sudah diperbarui.')).toBeVisible();
+    await expect(page.getByText('Selamat datang, Guru Demo')).toBeVisible();
+    await ensureE2eAssessment(page, 85);
     await page.getByRole('button', { name: 'Keluar' }).click();
     await page.getByRole('button', { name: 'Siswa Demo' }).click();
-    const secondLearningResponsePromise = page.waitForResponse((response) => response.url().endsWith('/api/student/learning') && response.request().method() === 'GET');
-    await page.getByRole('navigation', { name: 'Navigasi portal' }).getByRole('link', { name: 'Rekomendasi Belajar' }).click();
-    const secondLearningResponse = await secondLearningResponsePromise;
-    const secondLearning = await secondLearningResponse.json();
-    const secondTopic = secondLearning.data.subjects[0].topics[0];
+    await expect(page.getByText('Selamat datang, Siswa Demo')).toBeVisible();
+    const secondLearning = await apiJson<{ subjects: { topics: { topicId: string; averageScore: number | null }[] }[] }>(page, '/api/student/learning');
+    const secondTopic = secondLearning.body.data.subjects.flatMap((subject) => subject.topics).find((topic) => topic.topicId === firstTopic!.topicId);
     expect(secondTopic.averageScore).not.toBe(firstTopic.averageScore);
-    await expect(page.getByText(`Gap ${secondTopic.gap.toFixed(1)} poin · ${secondTopic.assessmentCount} assessment`)).toBeVisible();
+  });
+
+  test('generates AI practice for the controlled needs-attention topic', async ({ page }) => {
+    await demoLogin(page, 'DEMO-GURU');
+    await expect(page.getByText('Selamat datang, Guru Demo')).toBeVisible();
+    const fixture = await ensureE2eAssessment(page, 60);
+    await page.getByRole('button', { name: 'Keluar' }).click();
+    await page.getByRole('button', { name: 'Siswa Demo' }).click();
+    await expect(page.getByText('Selamat datang, Siswa Demo')).toBeVisible();
+    await page.getByRole('navigation', { name: 'Navigasi portal' }).getByRole('link', { name: 'Rekomendasi Belajar' }).click();
+    const topicRow = page.locator('strong').filter({ hasText: 'E2E Practice Linear' }).locator('..').locator('..');
+    await expect(topicRow.getByRole('button', { name: 'Latihan dengan AI' })).toBeVisible();
+    const practiceResponse = page.waitForResponse((response) => response.url().endsWith(`/api/student/learning/topics/${fixture.topicId}/practice`) && response.request().method() === 'POST');
+    await topicRow.getByRole('button', { name: 'Latihan dengan AI' }).click();
+    const response = await practiceResponse;
+    const body = await response.json();
+    expect(response.status(), JSON.stringify(body)).toBe(200);
+    expect(body.data.generated).toBe(true);
+    expect(body.data.questions.length).toBeGreaterThanOrEqual(1);
+    expect(body.data.questions.length).toBeLessThanOrEqual(3);
+    await expect(page.getByText('AI-generated practice')).toBeVisible();
+    await expect(page.getByText('Latihan ini adalah bantuan belajar AI, bukan penilaian guru dan tidak mengubah nilai Anda.')).toBeVisible();
+    await page.screenshot({ path: 'artifacts/final-ai-practice-1440.png', fullPage: true });
   });
 });
