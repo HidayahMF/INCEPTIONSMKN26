@@ -44,15 +44,17 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
             </p>
           </div>
           <div className="absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
-            <div className="absolute right-0 size-[365px] rounded-full bg-gradient-to-br from-primary-dark to-transparent" />
-            <div className="absolute right-[18px] top-[18px] size-[330px] rounded-full border-2 border-white" />
-            <div className="absolute left-[148px] top-[7px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
-            <div className="absolute left-0 top-[267px] size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
-            <img
-              className="absolute left-0 top-[67px] h-[233px] w-[420px] rounded-[18px] border-2 border-white object-cover shadow-lg"
-              src={figmaAssets.school.overviewPhoto}
-              alt="Gedung SMK Negeri 26 Jakarta"
-            />
+            <div className="absolute right-0 z-0 size-[365px] rounded-full bg-gradient-to-br from-primary-dark to-transparent" />
+            <div className="absolute right-[18px] top-[18px] z-0 size-[330px] rounded-full border-2 border-white" />
+            <div className="absolute left-[148px] top-[7px] z-0 size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
+            <div className="absolute left-0 top-[267px] z-0 size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
+            <div className="absolute left-0 top-[67px] z-10 h-[233px] w-[420px] overflow-hidden rounded-[18px] border-2 border-white shadow-[0_4px_16px_rgba(15,23,42,0.08)]">
+              <img
+                className="block h-full w-full object-cover opacity-100"
+                src={figmaAssets.school.overviewPhoto}
+                alt="Gedung SMK Negeri 26 Jakarta"
+              />
+            </div>
           </div>
           <div className="absolute left-0 top-[180px] flex h-[90px] w-[680px] max-w-full items-center justify-between rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-white shadow-lg">
             {shownStats.map(([value, label], index) => (

@@ -22,7 +22,7 @@ export const figmaAssets = {
     aiChat: "/assets/figma/shortcuts/shortcut-ai-chat.png",
   },
   school: {
-    overviewPhoto: "/assets/figma/school/school-overview-photo.png",
+    overviewPhoto: "/assets/figma/school/school-overview-photo-clean.png",
   },
   advantages: {
     education: "/assets/figma/advantages/advantage-education.png",
