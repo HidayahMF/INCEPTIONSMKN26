@@ -44,4 +44,18 @@ export const figmaAssets = {
     wika: "/assets/figma/partners/partner-wika.png",
     panasonic: "/assets/figma/partners/partner-panasonic.png",
   },
+  majors: {
+    kgs: "/assets/figma/majors/major-kgs.png",
+    tek: "/assets/figma/majors/major-tek.png",
+    titl: "/assets/figma/majors/major-titl.png",
+    tflm: "/assets/figma/majors/major-tflm.png",
+    tkr: "/assets/figma/majors/major-tkr.png",
+    sija: "/assets/figma/majors/major-sija.png",
+    educationIcon: "/assets/figma/majors/icon-major-education.svg",
+    arrowRight: "/assets/figma/majors/icon-arrow-right.svg",
+    pointerLeft: "/assets/figma/majors/popover-pointer-left.svg",
+    pointerRight: "/assets/figma/majors/popover-pointer-right.svg",
+    backgroundShape: "/assets/figma/majors/major-background-shape.svg",
+    badgeIcon: "/assets/figma/majors/icon-section-badge.svg",
+  },
 } as const;

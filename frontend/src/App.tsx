@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { PublicNavbar } from "./components/public/PublicNavbar";
 import { HeroSection } from "./components/public/HeroSection";
 import { ShortcutMenu } from "./components/public/ShortcutMenu";
@@ -15,6 +15,12 @@ import { LearningRecommendationPage } from "./features/learning/pages/LearningRe
 import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
 import { usePathname } from "./routes/compat";
 import { api } from "./lib/api";
+import { FloatingChatbot } from "./components/public/FloatingChatbot";
+import { PublicChatProvider } from "./features/chat/ChatProvider";
+import { PublicChatRoom } from "./features/chat/PublicChatRoom";
+import { AOSInitializer } from "./components/public/AOSInitializer";
+import { SchoolMajors } from "./components/public/SchoolMajors";
+import { MajorsPage } from "./pages/MajorsPage";
 
 type Page = {
   id: string;
@@ -25,12 +31,6 @@ type Page = {
   body: string;
   metadata: Record<string, unknown>;
 };
-type ChatResponse = {
-  answer: string;
-  status: string;
-  sources: { title: string; url?: string | null; page?: string | null }[];
-};
-
 const publicLinks = [
   { path: "/profile", label: "Profil" },
   { path: "/majors", label: "Jurusan" },
@@ -91,104 +91,6 @@ function EmptyState({
   );
 }
 
-function ChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState<ChatResponse[]>([]);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    const openChat = () => setOpen(true);
-    window.addEventListener("open-chat", openChat);
-    return () => window.removeEventListener("open-chat", openChat);
-  }, []);
-  async function ask(event: FormEvent) {
-    event.preventDefault();
-    if (!question.trim() || busy) return;
-    const current = question.trim();
-    setQuestion("");
-    setBusy(true);
-    setError("");
-    try {
-      setMessages((items) => [
-        ...items,
-        { answer: `Pertanyaan: ${current}`, status: "question", sources: [] },
-      ]);
-      const result = await api<ChatResponse>("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: current }),
-      });
-      setMessages((items) => [...items, result]);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Chatbot tidak tersedia.");
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <>
-      {open && (
-        <aside className="chat" aria-label="Chatbot informasi sekolah">
-          <div className="chat-title">
-            <strong>Asisten Informasi Sekolah</strong>
-            <button onClick={() => setOpen(false)} aria-label="Tutup">
-              ×
-            </button>
-          </div>
-          <div className="chat-history">
-            {!messages.length && (
-              <p className="note">
-                Tanyakan informasi yang sudah dipublikasikan secara resmi.
-              </p>
-            )}
-            {messages.map((message, index) => (
-              <div
-                className={
-                  message.status === "question"
-                    ? "chat-message question"
-                    : "chat-message"
-                }
-                key={`${message.status}-${index}`}
-              >
-                <p>{message.answer}</p>
-                {message.sources.length > 0 && (
-                  <ul>
-                    {message.sources.map((source, sourceIndex) => (
-                      <li key={`${source.title}-${sourceIndex}`}>
-                        {source.url ? (
-                          <a href={source.url} target="_blank" rel="noreferrer">
-                            {source.title}
-                          </a>
-                        ) : (
-                          source.title
-                        )}
-                        {source.page ? `, ${source.page}` : ""}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-          {error && <p className="form-error">{error}</p>}
-          <form onSubmit={ask}>
-            <input
-              value={question}
-              onChange={(event) => setQuestion(event.target.value)}
-              placeholder="Tulis pertanyaan"
-              aria-label="Pertanyaan"
-            />
-            <button className="button" disabled={busy}>
-              {busy ? "..." : "Kirim"}
-            </button>
-          </form>
-        </aside>
-      )}
-    </>
-  );
-}
-
 function PublicPage({
   section,
   title,
@@ -237,7 +139,6 @@ function PublicPage({
         </section>
       </main>
       <Footer />
-      <ChatWidget />
     </>
   );
 }
@@ -261,10 +162,14 @@ function Home() {
         <SchoolOverview pages={pages} loading={loading} />
         <SchoolAdvantages />
         <PartnerLogos />
+        <SchoolMajors />
       </main>
-      <ChatWidget />
     </div>
   );
+}
+
+function PublicExperience({ children }: { children: ReactNode }) {
+  return <PublicChatProvider><AOSInitializer />{children}<FloatingChatbot /><PublicChatRoom /></PublicChatProvider>;
 }
 
 export function LegacyApp() {
@@ -330,8 +235,8 @@ export function LegacyApp() {
 
 export function App() {
   const path = usePathname();
-  if (path === "/") return <LegacyApp />;
-  if (path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/majors", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <LegacyApp />;
+  if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
+  if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}
