@@ -106,10 +106,10 @@ export function SchoolAdvantages() {
           Keunggulan SMK Negeri 26 Jakarta
         </span>
       </div>
-      <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
+       <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
         Apa yang Membuat SMKN 26 Berbeda?
       </h2>
-      <div className="absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
+       <div data-aos="fade-up" data-aos-delay="100" className="absolute inset-0"><div className="absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
@@ -145,13 +145,15 @@ export function SchoolAdvantages() {
                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
                 key={title}
               >
-                <img
-                  className="pointer-events-none absolute inset-x-0 top-0 h-[200px] w-full select-none object-cover transition duration-300 group-hover:scale-105"
-                  draggable={false}
-                  onDragStart={(event) => event.preventDefault()}
-                  src={image}
-                  alt=""
-                />
+                <div className="absolute inset-x-0 top-0 h-[200px] overflow-hidden rounded-t-3xl">
+                  <img
+                    className="pointer-events-none block h-full w-full scale-[1.7] select-none object-cover object-center transition duration-300 group-hover:scale-[1.75]"
+                    draggable={false}
+                    onDragStart={(event) => event.preventDefault()}
+                    src={image}
+                    alt=""
+                  />
+                  </div>
                 <span className="absolute left-3 top-[156px] grid size-[54px] place-items-center rounded-full bg-gradient-to-r from-primary-dark to-primary">
                   <img
                     className="pointer-events-none size-[34px] select-none"
@@ -180,7 +182,7 @@ export function SchoolAdvantages() {
                 </a>
               </article>
             ))}
-          </div>
+       </div></div>
         </div>
         <button
           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"

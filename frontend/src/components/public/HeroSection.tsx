@@ -29,19 +29,19 @@ export function HeroSection({ onAskAi }: HeroSectionProps) {
         <div className="absolute inset-x-0 -top-7 z-[2] h-[214px] bg-gradient-to-b from-white to-transparent" />
       </div>
       <div className="absolute left-1/2 top-[140px] z-10 flex w-[calc(100%-32px)] max-w-[1200px] -translate-x-1/2 flex-col items-center text-center">
-        <span className="flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
+         <span data-aos="fade-down" className="flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
           <span className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
           SMK Negeri 26 Jakarta
         </span>
-        <h1 className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
+        <h1 data-aos="fade-up" data-aos-delay="80" className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
           Belajar, Bekerja,{" "}
           <span className="text-primary-dark">Membangun!</span>
         </h1>
-        <p className="w-full max-w-[681px] text-sm font-medium leading-6 drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:text-xl md:leading-[30px]">
+        <p data-aos="fade-up" data-aos-delay="140" className="w-full max-w-[681px] text-sm font-medium leading-6 drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:text-xl md:leading-[30px]">
           Membentuk generasi yang kompeten, berkarakter, dan siap memasuki dunia
           kerja untuk masa depan yang lebih baik.
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+         <div data-aos="fade-up" data-aos-delay="200" className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <a
             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-white"
             href="/profile"

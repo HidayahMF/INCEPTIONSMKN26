@@ -11,10 +11,10 @@ export function PartnerLogos() {
   return (
     <section className="h-[306px] overflow-hidden bg-white pt-[78px]">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px]">
-        <h2 className="text-center text-4xl font-bold text-primary-dark">
+        <h2 data-aos="fade-up" className="text-center text-4xl font-bold text-primary-dark">
           100+ Mitra Industri yang Berkolaborasi Bersama
         </h2>
-        <div className="mt-[42px] flex h-[118px] gap-6 overflow-hidden">
+        <div data-aos="fade-up" data-aos-delay="100" className="mt-[42px] flex h-[118px] gap-6 overflow-hidden">
           {orderedPartners.map((partner) => (
             <div
               className="flex h-[118px] min-w-[235px] items-center justify-center rounded-2xl border border-[#eaf5fa] bg-white p-4 shadow-sm"
