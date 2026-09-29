@@ -58,4 +58,54 @@ export const figmaAssets = {
     backgroundShape: "/assets/figma/majors/major-background-shape.svg",
     badgeIcon: "/assets/figma/majors/icon-section-badge.svg",
   },
+  videoProfile: {
+    background: "/assets/figma/video-profile/video-profile-raw-02.jpg",
+    playIdle: "/assets/figma/video-profile/video-profile-svg-01.svg",
+    playActive: "/assets/figma/video-profile/video-profile-svg-02.svg",
+  },
+  programs: {
+    panels: [
+      "/assets/figma/programs/programs-raw-01.png",
+      "/assets/figma/programs/programs-raw-02.png",
+      "/assets/figma/programs/programs-raw-03.png",
+    ],
+    cards: [
+      "/assets/figma/programs/programs-raw-04.png",
+      "/assets/figma/programs/programs-raw-05.png",
+      "/assets/figma/programs/programs-raw-06.png",
+    ],
+  },
+  blud: {
+    icons: [
+      "/assets/figma/blud/blud-svg-02.svg",
+      "/assets/figma/blud/blud-TEK-icon.svg",
+      "/assets/figma/blud/blud-TITL-icon.svg",
+      "/assets/figma/blud/blud-TFLM-icon.svg",
+      "/assets/figma/blud/blud-TKR-icon.svg",
+      "/assets/figma/blud/blud-SIJA-icon.svg",
+    ],
+    shapes: [
+      "/assets/figma/blud/blud-KGS-shape.svg",
+      null,
+      null,
+      null,
+      "/assets/figma/blud/blud-TKR-shape.svg",
+      "/assets/figma/blud/blud-SIJA-shape.svg",
+    ],
+  },
+  achievements: [
+    "/assets/figma/achievements/achievements-raw-01.png",
+    "/assets/figma/achievements/achievements-raw-02.png",
+    "/assets/figma/achievements/achievements-raw-03.png",
+    "/assets/figma/achievements/achievements-raw-04.png",
+    "/assets/figma/achievements/achievements-raw-05.png",
+  ],
+  news: [
+    "/assets/figma/news/news-raw-01.png",
+    "/assets/figma/news/news-raw-02.png",
+    "/assets/figma/news/news-raw-03.png",
+    "/assets/figma/news/news-raw-04.png",
+    "/assets/figma/news/news-raw-05.png",
+  ],
+  aiCta: "/assets/figma/ai-cta/ai-cta-raw-01.png",
 } as const;

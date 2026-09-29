@@ -23,15 +23,15 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
     .slice(0, 5);
   const shownStats = stats.length ? stats : fallbackStats;
   return (
-    <section className="mt-[60px] h-[400px] bg-white">
+    <section className="school-overview mt-[60px] h-[400px] bg-white">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px]">
-         <div data-aos="fade-up" className="flex justify-center">
+          <div className="flex justify-center">
           <span className="rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
             Mengenal SMK Negeri 26 Jakarta
           </span>
         </div>
         <div className="relative h-[337px]">
-           <div data-aos="fade-right" className="absolute left-0 top-[23px] max-w-[680px]">
+           <div className="absolute left-0 top-[23px] max-w-[680px]">
             <h2 className="text-3xl font-bold leading-[54px] text-ink">
               Lebih dari Sekadar{" "}
               <span className="text-primary-dark">Sekolah Vokasi</span>
@@ -43,7 +43,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
                   "SMKN 26 Jakarta merupakan sekolah menengah kejuruan yang mempersiapkan siswa untuk belajar, berkarya, dan berkembang sesuai kompetensi serta kebutuhan dunia kerja."}
             </p>
           </div>
-           <div data-aos="fade-left" className="absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
+           <div className="absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
             <div className="absolute right-0 z-0 size-[365px] rounded-full bg-gradient-to-br from-primary-dark to-transparent" />
             <div className="absolute right-[18px] top-[18px] z-0 size-[330px] rounded-full border-2 border-white" />
             <div className="absolute left-[148px] top-[7px] z-0 size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
@@ -56,7 +56,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
               />
             </div>
           </div>
-           <div data-aos="fade-up" data-aos-delay="120" className="absolute left-0 top-[180px] flex h-[90px] w-[680px] max-w-full items-center justify-between rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-white shadow-lg">
+           <div className="absolute left-0 top-[180px] flex h-[90px] w-[680px] max-w-full items-center justify-between rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-white shadow-lg">
             {shownStats.map(([value, label], index) => (
               <div
                 className="flex min-w-0 items-center gap-2 sm:gap-4"

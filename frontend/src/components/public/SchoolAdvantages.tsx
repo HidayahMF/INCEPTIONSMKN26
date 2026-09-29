@@ -109,7 +109,7 @@ export function SchoolAdvantages() {
        <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
         Apa yang Membuat SMKN 26 Berbeda?
       </h2>
-       <div data-aos="fade-up" data-aos-delay="100" className="absolute inset-0"><div className="absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
+         <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}

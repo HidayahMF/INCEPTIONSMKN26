@@ -3,12 +3,12 @@ import { figmaAssets } from "../../assets/figmaAssets";
 import { majors, type Major } from "../../data/majors";
 
 const defaultSlots = [
-  { left: 8, top: 64, width: 323, height: 461 },
-  { left: 160, top: 39, width: 339, height: 485 },
-  { left: 349, top: 7, width: 361, height: 517 },
-  { left: 561, top: 7, width: 363, height: 518 },
-  { left: 758, top: 24, width: 349, height: 501 },
-  { left: 933, top: 40, width: 335, height: 485 },
+  { x: 8, y: 64, width: 323, height: 461 },
+  { x: 160, y: 39, width: 339, height: 485 },
+  { x: 349, y: 7, width: 361, height: 517 },
+  { x: 561, y: 7, width: 363, height: 518 },
+  { x: 758, y: 24, width: 349, height: 501 },
+  { x: 933, y: 40, width: 335, height: 485 },
 ];
 
 function MajorCard({ major }: { major: Major }) {
@@ -40,9 +40,9 @@ export function SchoolMajors({ page = false }: { page?: boolean }) {
   return <section className={`school-majors ${page ? "school-majors-page" : ""}`} role="region" aria-labelledby="school-majors-title" aria-label="Jurusan / Program Keahlian">
     <div className="school-majors-header"><span className="school-majors-badge"><img src={figmaAssets.majors.badgeIcon} alt="" />Jurusan / Program Keahlian</span><h2 id="school-majors-title">Temukan Bidang yang <span>Sesuai dengan Minatmu</span></h2><p>Kenali enam program keahlian di SMKN 26 Jakarta dan temukan bidang yang dapat menjadi langkah awal untuk mengembangkan keterampilan, pengalaman, dan masa depanmu.</p></div>
     <div className="relative"><div className="major-stage-wrap"><img className="major-stage-background" src={figmaAssets.majors.backgroundShape} alt="" /><div className="major-stage" ref={stageRef}>
-      {majors.map((major, index) => { const slot = defaultSlots[index]; const isSelected = selected === major.id; const compositeLeft = slot.left + (isSelected ? major.hoverShiftX : 0); return <div className={`major-unit ${isSelected ? "is-active" : ""} ${major.hoverSide}`} key={major.id} style={{ left: compositeLeft, top: slot.top, width: isSelected && major.hoverSide === "left" ? 524 : slot.width, height: slot.height }} onMouseEnter={() => setActive(major.id)} onMouseLeave={() => { if (!pinned) setActive(null); }}>
-        <button type="button" className="major-person" style={{ left: isSelected ? major.hoverStudentX : 0, right: "auto", width: slot.width }} aria-label={`Lihat ${major.name}`} aria-expanded={isSelected} aria-controls={`major-card-${major.id}`} onFocus={() => setActive(major.id)} onBlur={() => { if (!pinned) setActive(null); }} onClick={(event) => { event.stopPropagation(); toggle(major); }}><span className="major-person-media" style={{ position: "absolute", left: 0, bottom: 0, width: "100%", height: "100%", overflow: "hidden", aspectRatio: major.figmaCrop.aspect }}><img className="major-person-image" style={{ position: "absolute", maxWidth: "none", width: major.figmaCrop.width, height: major.figmaCrop.height, left: major.figmaCrop.left, top: major.figmaCrop.top, objectFit: "fill" }} src={major.image} alt="" /></span></button>
-        {isSelected && <div id={`major-card-${major.id}`} className="major-card-layer" style={{ top: -slot.top, left: 0 }}><MajorCard major={major} /></div>}
+       {majors.map((major, index) => { const slot = defaultSlots[index]; const isSelected = selected === major.id; const geometry = isSelected && major.hover ? major.hover : slot; const image = isSelected && major.hover?.image ? major.hover.image : major.figmaCrop; return <div className={`major-unit ${isSelected ? "is-active" : ""} ${major.hoverSide}`} key={major.id} style={{ left: geometry.x, top: geometry.y, width: geometry.width, height: geometry.height }} onMouseEnter={() => setActive(major.id)} onMouseLeave={() => { if (!pinned) setActive(null); }}>
+         <button type="button" className="major-person" aria-label={`Lihat ${major.name}`} aria-expanded={isSelected} aria-controls={`major-card-${major.id}`} onFocus={() => setActive(major.id)} onBlur={() => { if (!pinned) setActive(null); }} onClick={(event) => { event.stopPropagation(); toggle(major); }}><span className="major-person-media" style={{ position: "absolute", left: 0, bottom: 0, width: "100%", height: "100%", overflow: "hidden", aspectRatio: major.figmaCrop.aspect }}><img className="major-person-image" style={{ position: "absolute", maxWidth: "none", width: image.width, height: image.height, left: image.left, top: image.top, objectFit: "fill" }} src={major.image} alt="" /></span></button>
+        {isSelected && major.hover && <div id={`major-card-${major.id}`} className="major-card-layer" style={{ top: -geometry.y, left: 0 }}><MajorCard major={major} /></div>}
       </div>; })}
       <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-0 z-[15] hidden h-[139px] w-full bg-[linear-gradient(to_bottom,transparent_0%,rgba(255,255,255,.38)_48%,#fff_100%)] md:block" />
     </div></div></div>

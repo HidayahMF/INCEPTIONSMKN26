@@ -21,6 +21,8 @@ import { PublicChatRoom } from "./features/chat/PublicChatRoom";
 import { AOSInitializer } from "./components/public/AOSInitializer";
 import { SchoolMajors } from "./components/public/SchoolMajors";
 import { MajorsPage } from "./pages/MajorsPage";
+import { HomepageSections } from "./components/public/HomepageSections";
+import { PublicFooter } from "./components/public/PublicFooter";
 
 type Page = {
   id: string;
@@ -163,7 +165,9 @@ function Home() {
         <SchoolAdvantages />
         <PartnerLogos />
         <SchoolMajors />
+        <HomepageSections onAskAi={askAi} />
       </main>
+      <PublicFooter />
     </div>
   );
 }
