@@ -2,10 +2,10 @@ import { figmaAssets } from "../../assets/figmaAssets";
 
 const links = [
   { label: "Beranda", href: "/" },
-  { label: "Tour", href: "/tour" },
   { label: "Tentang kami", href: "/profile", dropdown: true },
   { label: "Jurusan", href: "/majors", dropdown: true },
   { label: "BLUD", href: "/blud", dropdown: true },
+  { label: "Program", href: "/programs" },
   { label: "Prestasi", href: "/achievements" },
   { label: "Portal Informasi", href: "/information", dropdown: true },
 ];

@@ -1,9 +1,9 @@
 import { useState, type FormEvent } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
 
-type HeroSectionProps = { onAskAi: () => void };
+type HeroSectionProps = { onAskAi?: () => void };
 
-export function HeroSection({ onAskAi }: HeroSectionProps) {
+export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
   const [query, setQuery] = useState("");
   function submitSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,7 +35,7 @@ export function HeroSection({ onAskAi }: HeroSectionProps) {
         </span>
         <h1 data-aos="fade-up" data-aos-delay="80" className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
           Belajar, Bekerja,{" "}
-          <span className="text-primary-dark">Membangun!</span>
+          <span className="hero-gradient-text">Membangun!</span>
         </h1>
         <p data-aos="fade-up" data-aos-delay="140" className="w-full max-w-[681px] text-sm font-medium leading-6 drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:text-xl md:leading-[30px]">
           Membentuk generasi yang kompeten, berkarakter, dan siap memasuki dunia
@@ -49,13 +49,13 @@ export function HeroSection({ onAskAi }: HeroSectionProps) {
             Jelajahi SMKN 26{" "}
             <img className="size-5" src={figmaAssets.icons.arrowRight} alt="" />
           </a>
-          <button
+          <a
             className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-primary shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-primary"
-            onClick={onAskAi}
+            href="#video-profile"
           >
             <img className="size-5" src={figmaAssets.icons.playVideo} alt="" />
             Tonton Video Profile
-          </button>
+          </a>
         </div>
       </div>
       <form

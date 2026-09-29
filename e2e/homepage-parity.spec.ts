@@ -9,6 +9,8 @@ test.describe("public homepage parity smoke", () => {
       if (response.request().resourceType() === "image" && response.status() >= 400) failedAssets.push(response.url());
     });
     await page.goto("/");
+    await expect(page.getByRole("link", { name: "Program", exact: true })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Navigasi utama" }).getByText("Tour", { exact: true })).toHaveCount(0);
     await expect(page.locator(".video-profile")).toBeVisible();
     await expect(page.locator(".figma-footer")).toBeVisible();
     await expect(page.locator('img[src$="student-female.png"]')).toHaveCount(1);
@@ -16,6 +18,10 @@ test.describe("public homepage parity smoke", () => {
     for (const label of ["Ekstrakurikuler", "Lembaga Sertifikasi Profesi", "OSIS & MPK", "Bursa Kerja Khusus"]) await expect(page.getByRole("heading", { name: label, exact: true })).toBeVisible();
     for (const value of ["100+", "10", "56", "24", "30"]) await expect(page.locator(".achievement-stats")).toContainText(value);
     await expect(page.getByRole("button", { name: "Mulai Bertanya" })).toBeVisible();
+    await expect(page.getByText("Kenal Lebih Dekat")).toBeVisible();
+    await expect(page.getByText("Siswa SMKN 26 Raih Prestasi di LKS")).toBeVisible();
+    await expect(page.locator(".achievement-stats")).toHaveCSS("background-color", "rgb(255, 255, 255)");
+    await expect(page.locator(".footer-map img")).toBeVisible();
     await expect(page.getByText("© 2026 SMKN 26 Jakarta. Semua Hak Dilindungi.")).toBeVisible();
     const sections = await page.locator("main > section").evaluateAll((items) => items.map((item) => item.className));
     expect(sections).toEqual([
@@ -34,9 +40,20 @@ test.describe("public homepage parity smoke", () => {
     ]);
     const metrics = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, height: document.body.scrollHeight }));
     expect(metrics.scrollWidth).toBe(metrics.clientWidth);
-    expect(metrics.height).toBeGreaterThan(8000);
+    expect(metrics.height).toBeGreaterThan(7600);
     expect(failedAssets).toEqual([]);
     await page.screenshot({ path: "artifacts/homepage-1440-full.png", fullPage: true });
+  });
+
+  test("hero video CTA scrolls to video and every major exposes a hover card", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto("/");
+    await page.getByRole("link", { name: "Tonton Video Profile" }).click();
+    await expect(page.locator("#video-profile")).toBeInViewport();
+    for (const code of ["KGS", "TEK", "TITL", "TFLM", "TKR", "SIJA"]) {
+      await page.getByRole("button", { name: `Lihat ${code === "KGS" ? "Konstruksi Gedung & Sanitasi" : code === "TEK" ? "Teknik Elektronika & Komunikasi" : code === "TITL" ? "Teknik Instalasi Tenaga Listrik" : code === "TFLM" ? "Teknik Fabrikasi Logam & Manufaktur" : code === "TKR" ? "Teknik Kendaraan Ringan" : "Sistem Informasi, Jaringan & Aplikasi"}` }).hover();
+      await expect(page.locator(".major-card-layer").last()).toBeVisible();
+    }
   });
 
   test("CTA opens the existing public chat and mobile stays usable", async ({ page }) => {

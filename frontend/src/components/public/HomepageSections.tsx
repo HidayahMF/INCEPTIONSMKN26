@@ -17,7 +17,13 @@ const achievementCards = [
   ["Tim Pramuka", "Juara Umum 3 Putra | Juara 2 Tari Tradisional Putra - Kwartir JakTim"],
   ["Tim Voli", "Juara 2 Galaxy Cup 2025 - Tingkat Wilayah"],
 ] as const;
-const newsCards = ["Berita dan informasi sekolah", "Prestasi siswa SMKN 26 Jakarta", "Kegiatan terbaru SMKN 26 Jakarta", "Kemitraan sekolah", "Karya warga sekolah"];
+const newsCards = [
+  ["Kegiatan", "Workshop Pengembangan Soft Skill Siswa", "28 September 2026"],
+  ["Prestasi", "Siswa SMKN 26 Raih Prestasi di LKS", "20 September 2026"],
+  ["Kegiatan Sekolah", "Workshop Pengembangan Soft Skill Siswa", "18 September 2026"],
+  ["Kemitraan & Kerja Sama", "Kolaborasi SMKN 26 dengan Dunia Industri", "12 September 2026"],
+  ["Karya & Inovasi", "SMKN 26 Hadirkan Karya Inovatif Berbasis Teknologi", "09 September 2026"],
+] as const;
 
 export function HomepageSections({ onAskAi }: Props) {
   return <>
@@ -32,7 +38,7 @@ export function HomepageSections({ onAskAi }: Props) {
 
 function VideoProfileSection() {
   const [playing, setPlaying] = useState(false);
-  return <section className="video-profile" aria-labelledby="video-profile-title"><div className="video-profile-overlay" /><div className="video-profile-content"><button className={`video-play ${playing ? "is-playing" : ""}`} type="button" aria-label="Putar video profil" onClick={() => setPlaying(true)}><img src={playing ? figmaAssets.videoProfile.playActive : figmaAssets.videoProfile.playIdle} alt="" /></button><h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2><p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p></div></section>;
+  return <section id="video-profile" className="video-profile" aria-labelledby="video-profile-title"><div className="video-profile-overlay" /><div className="video-profile-content"><button className={`video-play ${playing ? "is-playing" : ""}`} type="button" aria-label="Putar video profil" onClick={() => setPlaying(true)}><img src={playing ? figmaAssets.videoProfile.playActive : figmaAssets.videoProfile.playIdle} alt="" /></button><h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2><p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p></div></section>;
 }
 
 function ProgramsSection() {
@@ -47,13 +53,13 @@ function BludSection() {
 }
 
 function AchievementsSection() {
-  return <section className="homepage-section achievements-section" aria-labelledby="achievements-title"><div className="section-intro"><span className="section-badge">Prestasi SMK Negeri 26 Jakarta</span><h2 id="achievements-title">Karya dan Prestasi Siswa</h2><p>Berbagai pencapaian siswa menjadi bagian dari perjalanan SMK Negeri 26 Jakarta dalam mengembangkan talenta dan potensi generasi muda.</p></div><div className="achievement-carousel"><button type="button" aria-label="Prestasi sebelumnya">←</button><div className="achievement-track">{figmaAssets.achievements.map((src, index) => <article className="achievement-card" key={src}><img src={src} alt="" /><div><span>Prestasi</span><h3>{achievementCards[index][0]}</h3><p>{achievementCards[index][1]}</p></div></article>)}</div><button type="button" aria-label="Prestasi berikutnya">→</button></div><div className="achievement-stats"><div><strong>100<span>+</span></strong><p>Prestasi</p></div><div><strong>10</strong><p>Tingkat Internasional</p></div><div><strong>56</strong><p>Tingkat Nasional</p></div><div><strong>24</strong><p>Tingkat Provinsi</p></div><div><strong>30</strong><p>Tingkat Kota</p></div></div></section>;
+  return <section className="homepage-section achievements-section" aria-labelledby="achievements-title"><div className="section-intro"><span className="section-badge">Prestasi SMK Negeri 26 Jakarta</span><h2 id="achievements-title">Karya dan Prestasi Siswa</h2><p>Berbagai pencapaian siswa menjadi bagian dari perjalanan SMK Negeri 26 Jakarta dalam mengembangkan talenta dan potensi generasi muda.</p></div><div className="achievement-carousel"><button type="button" aria-label="Prestasi sebelumnya">←</button><div className="achievement-track">{figmaAssets.achievements.slice(0, 5).map((src, index) => <article className="achievement-card" key={src}><img src={src} alt="" /><div><span>Prestasi</span><h3>{achievementCards[index][0]}</h3><p>{achievementCards[index][1]}</p><a href="/achievements">Lihat Detail <span aria-hidden="true">→</span></a></div></article>)}</div><button type="button" aria-label="Prestasi berikutnya">→</button></div><div className="achievement-stats">{[["100+", "Prestasi"], ["10", "Tingkat Internasional"], ["56", "Tingkat Nasional"], ["24", "Tingkat Provinsi"], ["30", "Tingkat Kota"]].map(([value, label]) => <div key={label}><span className="stat-icon" aria-hidden="true">✦</span><strong>{value}</strong><p>{label}</p></div>)}</div></section>;
 }
 
 function NewsSection() {
-  return <section className="homepage-section news-section" aria-labelledby="news-title"><div className="section-intro"><span className="section-badge">Berita SMK Negeri 26 Jakarta</span><h2 id="news-title">Berita &amp; Informasi Terkini<br /><span>SMK Negeri 26 Jakarta</span></h2></div><div className="news-viewport"><div className="news-track">{figmaAssets.news.map((src, index) => <article className="news-card" key={src}><img src={src} alt="" /><div><span>Berita</span><h3>{newsCards[index]}</h3><p>Informasi terbaru SMK Negeri 26 Jakarta.</p></div></article>)}</div></div><div className="news-controls"><button type="button" aria-label="Berita sebelumnya">←</button><button type="button" aria-label="Berita berikutnya">→</button></div></section>;
+  return <section className="homepage-section news-section" aria-labelledby="news-title"><div className="section-intro"><span className="section-badge">Berita SMK Negeri 26 Jakarta</span><h2 id="news-title">Berita &amp; Informasi Terkini<br /><span>SMK Negeri 26 Jakarta</span></h2></div><div className="news-viewport"><div className="news-track">{figmaAssets.news.map((src, index) => <article className="news-card" key={src}><img src={src} alt="" /><div><span>{newsCards[index][0]}</span><h3>{newsCards[index][1]}</h3><time>{newsCards[index][2]}</time></div></article>)}</div></div><div className="news-controls"><button type="button" aria-label="Berita sebelumnya">←</button><button type="button" aria-label="Berita berikutnya">→</button></div></section>;
 }
 
 function AiCtaSection({ onAskAi }: Props) {
-  return <section className="ai-cta" aria-labelledby="ai-cta-title"><div className="ai-cta-copy"><span className="section-badge">Pembangunan.AI</span><h2 id="ai-cta-title">Punya Pertanyaan tentang<br />SMK Negeri 26 Jakarta?</h2><p>Temukan informasi tentang jurusan, program sekolah, fasilitas, pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama Pembangunan.AI</p><button type="button" onClick={onAskAi}>Mulai Bertanya <span>→</span></button></div><img className="ai-cta-art" src={figmaAssets.aiCta} alt="Ilustrasi Pembangunan.AI" /></section>;
+  return <section className="ai-cta" aria-labelledby="ai-cta-title"><div className="ai-cta-copy"><h2 id="ai-cta-title">Punya Pertanyaan tentang<br />SMK Negeri 26 Jakarta?</h2><p>Temukan informasi tentang jurusan, program sekolah, fasilitas, pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama <strong>Pembangunan.AI</strong>.</p><button type="button" onClick={onAskAi}>Mulai Bertanya <span>→</span></button></div><span className="ai-circle ai-circle-small" /><span className="ai-circle ai-circle-large" /><img className="ai-cta-art" src={figmaAssets.aiCta} alt="Ilustrasi Pembangunan.AI" /></section>;
 }

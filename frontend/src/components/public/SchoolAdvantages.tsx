@@ -41,7 +41,7 @@ export function SchoolAdvantages() {
   const trackRef = useRef<HTMLDivElement>(null);
   const pointerStart = useRef<number | null>(null);
   const translateStart = useRef(0);
-  const [translate, setTranslate] = useState(0);
+  const [translate, setTranslate] = useState(-170);
   const [bounds, setBounds] = useState({ min: 0, max: 0 });
   const [dragging, setDragging] = useState(false);
 
@@ -55,7 +55,7 @@ export function SchoolAdvantages() {
         viewport.clientWidth - track.scrollWidth,
       );
       setBounds({ min: maxTranslate, max: 0 });
-      setTranslate((current) => Math.max(maxTranslate, Math.min(0, current)));
+       setTranslate((current) => Math.max(maxTranslate, Math.min(0, current === 0 ? -170 : current)));
     };
     measure();
     const observer = new ResizeObserver(measure);
@@ -102,12 +102,12 @@ export function SchoolAdvantages() {
   return (
     <section className="relative mt-[88px] h-[645px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
       <div className="absolute left-1/2 top-10 -translate-x-1/2">
-        <span className="whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
-          Keunggulan SMK Negeri 26 Jakarta
+        <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
+           <img src={figmaAssets.majors.badgeIcon} alt="" />Keunggulan SMK Negeri 26 Jakarta
         </span>
       </div>
        <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
-        Apa yang Membuat SMKN 26 Berbeda?
+         Apa yang Membuat SMK Negeri 26 Jakarta Berbeda?
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
