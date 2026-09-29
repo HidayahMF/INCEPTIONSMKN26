@@ -8,7 +8,7 @@ const advantages = [
     figmaAssets.advantages.education,
   ],
   [
-    "Terhubung dengan Dunia Industri",
+    "Pembelajaran Berbasis Industri",
     "Membangun pengalaman belajar melalui kolaborasi dengan mitra industri.",
     figmaAssets.advantages.industry,
   ],

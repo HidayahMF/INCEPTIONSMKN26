@@ -4,10 +4,10 @@ type OverviewPage = { title: string; summary: string; body: string };
 type SchoolOverviewProps = { pages: OverviewPage[]; loading: boolean };
 const fallbackStats = [
   ["6", "Jurusan"],
-  ["1750", "Siswa Aktif"],
+  ["1750+", "Siswa Aktif"],
   ["80", "Pendidik"],
   ["50", "Mitra Industri"],
-  ["24", "Ekstrakurikuler"],
+  ["24", "Ekstrakulikuler"],
 ];
 
 export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
@@ -39,8 +39,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
             <p className="mt-1 max-w-[620px] text-lg font-medium leading-[30px] text-muted">
               {loading
                 ? "Memuat informasi sekolah..."
-                : pages.find((page) => page.title.includes("Visi"))?.summary ||
-                  "SMKN 26 Jakarta merupakan sekolah menengah kejuruan yang mempersiapkan siswa untuk belajar, berkarya, dan berkembang sesuai kompetensi serta kebutuhan dunia kerja."}
+                : "SMK Negeri 26 Jakarta merupakan sekolah menengah kejuruan yang mempersiapkan siswa untuk belajar, berkarya, dan berkembang sesuai kompetensi serta kebutuhan dunia kerja."}
             </p>
           </div>
             <div className="absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
@@ -72,7 +71,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
                   </span>
                 </div>
                 {index < shownStats.length - 1 && (
-                  <span className="h-[86px] w-px shrink-0 bg-white" />
+                  <span className="h-[86px] w-px shrink-0 border-l border-dashed border-white" />
                 )}
               </div>
             ))}

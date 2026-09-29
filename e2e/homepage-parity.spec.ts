@@ -13,10 +13,14 @@ test.describe("public homepage parity smoke", () => {
     await expect(page.getByRole("navigation", { name: "Navigasi utama" }).getByText("Tour", { exact: true })).toHaveCount(0);
     await expect(page.locator(".video-profile")).toBeVisible();
     await expect(page.locator(".figma-footer")).toBeVisible();
-    await expect(page.locator('img[src$="student-female.png"]')).toHaveCount(1);
-    await expect(page.locator('img[src$="student-male.png"]')).toHaveCount(1);
+    await expect(page.locator('.hero-student-female')).toHaveAttribute('src', /student-male\.png$/);
+    await expect(page.locator('img[src$="student-male.png"]')).toHaveCount(2);
     for (const label of ["Ekstrakurikuler", "Lembaga Sertifikasi Profesi", "OSIS & MPK", "Bursa Kerja Khusus"]) await expect(page.getByRole("heading", { name: label, exact: true })).toBeVisible();
     for (const value of ["100+", "10", "56", "24", "30"]) await expect(page.locator(".achievement-stats")).toContainText(value);
+    await expect(page.locator('.achievement-card img').nth(0)).toHaveAttribute('src', /achievements-raw-08\.png$/);
+    await expect(page.locator('.achievement-card img').nth(1)).toHaveAttribute('src', /achievements-raw-02\.png$/);
+    await expect(page.locator('.news-card').nth(1).locator('img')).toHaveAttribute('src', /news-raw-02\.png$/);
+    await expect(page.locator('.ai-cta-badge')).toHaveText('Tanya Pembangunan.AI');
     await expect(page.getByRole("button", { name: "Mulai Bertanya" })).toBeVisible();
     await expect(page.getByText("Kenal Lebih Dekat")).toBeVisible();
     await expect(page.getByText("Siswa SMKN 26 Raih Prestasi di LKS")).toBeVisible();
@@ -87,6 +91,7 @@ test.describe("public homepage parity smoke", () => {
     await expect(page.locator(".footer-brand")).not.toContainText("⌖");
     await expect(page.locator(".footer-columns .footer-column-stack")).toHaveCount(2);
     await expect(page.locator(".footer-map img")).toBeVisible();
+    await expect(page.locator('.footer-subscribe input')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
     await expect(page.getByText("© 2026 SMKN 26 Jakarta. Semua Hak Dilindungi.")).toBeVisible();
   });
 
