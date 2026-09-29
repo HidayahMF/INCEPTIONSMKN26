@@ -19,8 +19,12 @@ test.describe("public homepage parity smoke", () => {
     for (const value of ["100+", "10", "56", "24", "30"]) await expect(page.locator(".achievement-stats")).toContainText(value);
     await expect(page.locator('.achievement-card img').nth(0)).toHaveAttribute('src', /achievements-raw-08\.png$/);
     await expect(page.locator('.achievement-card img').nth(1)).toHaveAttribute('src', /achievements-raw-02\.png$/);
-    await expect(page.locator('.news-card').nth(1).locator('img')).toHaveAttribute('src', /news-raw-02\.png$/);
+    await expect(page.locator('.news-card').nth(1).locator('img')).toHaveAttribute('src', /news-raw-04\.png$/);
+    await expect(page.locator('.news-card').nth(2).locator('img')).toHaveAttribute('src', /news-raw-06\.png$/);
     await expect(page.locator('.ai-cta-badge')).toHaveText('Tanya Pembangunan.AI');
+    await expect(page.locator('.program-card').first().locator('a img')).toHaveAttribute('src', /programs-svg-01\.svg$/);
+    await expect(page.locator('.video-play-circle img')).toHaveAttribute('src', /video-profile-svg-01\.svg$/);
+    await expect(page.locator('.footer-brand-lockup strong')).toHaveCSS('font-style', 'normal');
     await expect(page.getByRole("button", { name: "Mulai Bertanya" })).toBeVisible();
     await expect(page.getByText("Kenal Lebih Dekat")).toBeVisible();
     await expect(page.getByText("Siswa SMKN 26 Raih Prestasi di LKS")).toBeVisible();

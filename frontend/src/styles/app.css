@@ -155,6 +155,28 @@ body.chat-room-open {
 .blud-card .blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
 .blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
 
+/* Last verified parity overrides. */
+.section-intro h2 { font-weight: 700; }
+.video-play { filter: drop-shadow(0 4.8px 9.6px rgba(15,23,42,.08)); }
+.video-play::before { position: absolute; left: 12px; top: 10px; width: 98.4px; height: 98.4px; border: 2.187px solid #e2e8f0; border-radius: 999px; background: #fff; content: ""; }
+.video-play-circle { position: relative; z-index: 1; display: grid; width: 52.48px; height: 52.48px; place-items: center; }
+.video-play-circle img { width: 52.48px; height: 52.48px; object-fit: contain; }
+.news-section { position: relative; padding-top: 0; }
+.news-viewport { position: absolute; top: 195.02px; left: 50%; width: 1272px; height: 300px; max-width: 100%; margin: 0; transform: translateX(-50%); }
+.news-controls { top: 314.02px; }
+.ai-cta-copy { position: absolute; top: 103px; left: 106px; width: 586px; padding: 0; }
+.ai-cta-copy h2 { font-weight: 700; }
+.ai-cta > .ai-cta-badge { position: absolute; top: 40px; left: 50%; z-index: 2; margin: 0; transform: translateX(-50%); }
+.figma-footer .footer-brand-lockup strong { font-style: normal; font-weight: 700; }
+@media (min-width: 768px) {
+  .footer-newsletter { display: block; height: 44px; }
+  .footer-newsletter h2 { position: absolute; left: -20px; top: 0; }
+  .footer-subscribe { position: absolute; left: 336px; top: 0; }
+  .figma-footer .footer-brand-lockup strong { font-style: normal; font-weight: 700; }
+  .program-card > a img { transform: rotate(180deg); }
+  .blud-card .blud-shape { right: -74px; bottom: -20px; left: auto; width: 150px; height: 240px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
+  .blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -42px; opacity: .9; }
+}
 /* Keep the footer crest in its original Figma colors. */
 .figma-footer .footer-brand-lockup > img { filter: none; }
 
@@ -314,7 +336,3 @@ body.chat-room-open {
   .floating-chatbot { width: 72px; height: 72px; }
   .footer-newsletter { display: block; }.footer-subscribe { width: 100%; margin-top: 20px; }.footer-top-social { position: static; margin-top: 16px; }.footer-grid { display: block; }.footer-columns { grid-template-columns: repeat(2, 1fr); margin-top: 32px; }.footer-brand { max-width: none; }.footer-map { margin-top: 28px; }.footer-map img { max-width: 100%; }.ai-cta { height: 560px; }.ai-cta-copy { width: 100%; padding: 0 24px; }.ai-cta-copy h2 { font-size: 30px; line-height: 42px; }.ai-cta-art { right: -44px; top: 250px; width: 320px; height: 320px; }.achievement-stats { width: 100%; height: auto; grid-template-columns: 1fr 1fr; }.achievement-stats > div:not(:last-child)::after { display: none; }.achievement-stats > div { grid-template-columns: 56px 1fr; }.stat-icon { width: 56px; height: 56px; }.program-slider { padding: 0; }.program-panel-track img { width: 100vw; }.blud-intro { text-align: center; }.blud-cta { position: static; display: inline-flex; margin-top: 16px; }.school-overview { height: auto !important; padding-bottom: 28px; }.school-overview .relative { height: 520px; }.school-overview .absolute.left-0.top-\[180px\] { top: 390px; width: 100%; }
 }
-
-/* Final BLUD hover state must win over the legacy base declaration. */
-.blud-card .blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
-.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }

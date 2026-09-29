@@ -19,15 +19,20 @@ const achievementCards = [
 ] as const;
 const newsCards = [
   { category: "Kegiatan", title: "Workshop Pengembangan Soft Skill Siswa", date: "28 September 2026", image: "/assets/figma/news/news-raw-01.png" },
-  { category: "Prestasi", title: "Siswa SMKN 26 Raih Prestasi di LKS", date: "20 September 2026", image: "/assets/figma/news/news-raw-02.png" },
-  { category: "Kegiatan Sekolah", title: "Workshop Pengembangan Soft Skill Siswa", date: "18 September 2026", image: "/assets/figma/news/news-raw-03.png" },
-  { category: "Kemitraan & Kerja Sama", title: "Kolaborasi SMKN 26 dengan Dunia Industri", date: "12 September 2026", image: "/assets/figma/news/news-raw-04.png" },
-  { category: "Karya & Inovasi", title: "SMKN 26 Hadirkan Karya Inovatif Berbasis Teknologi", date: "09 September 2026", image: "/assets/figma/news/news-raw-05.png" },
+  { category: "Prestasi", title: "Siswa SMKN 26 Raih Prestasi di LKS", date: "20 September 2026", image: "/assets/figma/news/news-raw-04.png" },
+  { category: "Kegiatan Sekolah", title: "Workshop Pengembangan Soft Skill Siswa", date: "18 September 2026", image: "/assets/figma/news/news-raw-06.png" },
+  { category: "Kemitraan & Kerja Sama", title: "Kolaborasi SMKN 26 dengan Dunia Industri", date: "12 September 2026", image: "/assets/figma/news/news-raw-08.png" },
+  { category: "Karya & Inovasi", title: "SMKN 26 Hadirkan Karya Inovatif Berbasis Teknologi", date: "09 September 2026", image: "/assets/figma/news/news-raw-10.png" },
 ] as const;
 const programRightCards = [
   ["Lembaga Sertifikasi Profesi", "Validasi kompetensi, siapkan diri untuk dunia kerja.", "/assets/figma/programs/programs-raw-07.png"],
   ["OSIS & MPK", "Tempat belajar memimpin, berkolaborasi, dan berkontribusi.", "/assets/figma/programs/programs-raw-10.png"],
   ["Bursa Kerja Khusus", "Menghubungkan kompetensi siswa dengan peluang kerja.", "/assets/figma/programs/programs-raw-02.png"],
+] as const;
+const programPanels = [
+  "/assets/figma/programs/programs-raw-04.png",
+  "/assets/figma/programs/programs-raw-06.png",
+  "/assets/figma/programs/programs-raw-03.png",
 ] as const;
 
 export function HomepageSections({ onAskAi }: Props) {
@@ -43,13 +48,13 @@ export function HomepageSections({ onAskAi }: Props) {
 
 function VideoProfileSection() {
   const [playing, setPlaying] = useState(false);
-  return <section id="video-profile" className="video-profile" aria-labelledby="video-profile-title"><div className="video-profile-overlay" /><div className="video-profile-content"><button className={`video-play ${playing ? "is-playing" : ""}`} type="button" aria-label="Putar video profil" onClick={() => setPlaying(true)}><img src={playing ? figmaAssets.videoProfile.playActive : figmaAssets.videoProfile.playIdle} alt="" /></button><h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2><p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p></div></section>;
+  return <section id="video-profile" className="video-profile" aria-labelledby="video-profile-title"><div className="video-profile-overlay" /><div className="video-profile-content"><button className={`video-play ${playing ? "is-playing" : ""}`} type="button" aria-label="Putar video profil" onClick={() => setPlaying(true)}><span className="video-play-circle"><img src={playing ? figmaAssets.videoProfile.playActive : figmaAssets.videoProfile.playIdle} alt="" /></span></button><h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2><p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p></div></section>;
 }
 
 function ProgramsSection() {
   const [slide, setSlide] = useState(false);
   useEffect(() => { const timer = window.setTimeout(() => setSlide(true), 800); return () => window.clearTimeout(timer); }, []);
-  return <section className="homepage-section programs-section" aria-labelledby="programs-title"><div className="section-intro"><span className="section-badge">Program SMK Negeri 26 Jakarta</span><h2 id="programs-title">Berkembang di Dalam dan <span>di Luar Kelas</span></h2><p>Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman, kepemimpinan, dan potensi melalui berbagai program sekolah.</p></div><div className="program-grid"><article className="program-slider program-feature-card"><div className={`program-panel-track ${slide ? "is-shifted" : ""}`}>{figmaAssets.programs.panels.map((src, index) => <img key={src} src={src} alt={`Panel ekstrakurikuler ${index + 1}`} />)}</div><div className="program-feature-copy"><h3>Ekstrakurikuler</h3><p>Temukan ruang untuk berkembang sesuai minat dan bakatmu.</p><a href="/programs">Jelajahi Esktrakurikuler <span>→</span></a></div></article><div className="program-cards">{programRightCards.map(([title, description, image]) => <article className="program-card" key={title}><img src={image} alt="" /><div><span>Program</span><h3>{title}</h3><p>{description}</p></div><a href="/programs" aria-label={`Lihat ${title}`}><img src={figmaAssets.icons.arrowRight} alt="" /></a></article>)}</div></div></section>;
+  return <section className="homepage-section programs-section" aria-labelledby="programs-title"><div className="section-intro"><span className="section-badge">Program SMK Negeri 26 Jakarta</span><h2 id="programs-title">Berkembang di Dalam dan <span>di Luar Kelas</span></h2><p>Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman, kepemimpinan, dan potensi melalui berbagai program sekolah.</p></div><div className="program-grid"><article className="program-slider program-feature-card"><div className={`program-panel-track ${slide ? "is-shifted" : ""}`}>{programPanels.map((src, index) => <img key={src} src={src} alt={`Panel ekstrakurikuler ${index + 1}`} />)}</div><div className="program-feature-copy"><h3>Ekstrakurikuler</h3><p>Temukan ruang untuk berkembang sesuai minat dan bakatmu.</p><a href="/programs">Jelajahi Esktrakurikuler <span>→</span></a></div></article><div className="program-cards">{programRightCards.map(([title, description, image]) => <article className="program-card" key={title}><img src={image} alt="" /><div><span>Program</span><h3>{title}</h3><p>{description}</p></div><a href="/programs" aria-label={`Lihat ${title}`}><img src="/assets/figma/programs/programs-svg-01.svg" alt="" /></a></article>)}</div></div></section>;
 }
 
 function BludSection() {
@@ -65,5 +70,5 @@ function NewsSection() {
 }
 
 function AiCtaSection({ onAskAi }: Props) {
-  return <section className="ai-cta" aria-labelledby="ai-cta-title"><div className="ai-cta-copy"><span className="ai-cta-badge">Tanya Pembangunan.AI</span><h2 id="ai-cta-title">Punya Pertanyaan tentang<br /><span>SMK Negeri 26 Jakarta?</span></h2><p>Temukan informasi tentang jurusan, program sekolah, fasilitas, pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama <strong>Pembangunan.AI</strong>.</p><button type="button" onClick={onAskAi}>Mulai Bertanya <span>→</span></button></div><span className="ai-circle ai-circle-small" /><span className="ai-circle ai-circle-large" /><div className="ai-cta-art" aria-label="Ilustrasi Pembangunan.AI"><img className="ai-cta-layer ai-cta-fill" src={figmaAssets.aiCtaLayers.fill} alt="" /><img className="ai-cta-layer ai-cta-ring" src={figmaAssets.aiCtaLayers.ring} alt="" /><img className="ai-cta-layer ai-cta-outline" src={figmaAssets.aiCtaLayers.outline} alt="" /><img className="ai-cta-bot" src={figmaAssets.aiCtaLayers.bot} alt="" /></div></section>;
+  return <section className="ai-cta" aria-labelledby="ai-cta-title"><span className="ai-cta-badge">Tanya Pembangunan.AI</span><div className="ai-cta-copy"><h2 id="ai-cta-title">Punya Pertanyaan tentang<br /><span>SMK Negeri 26 Jakarta?</span></h2><p>Temukan informasi tentang jurusan, program sekolah, fasilitas, pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama <strong>Pembangunan.AI</strong>.</p><button type="button" onClick={onAskAi}>Mulai Bertanya <span>→</span></button></div><span className="ai-circle ai-circle-small" /><span className="ai-circle ai-circle-large" /><div className="ai-cta-art" aria-label="Ilustrasi Pembangunan.AI"><img className="ai-cta-layer ai-cta-fill" src={figmaAssets.aiCtaLayers.fill} alt="" /><img className="ai-cta-layer ai-cta-ring" src={figmaAssets.aiCtaLayers.ring} alt="" /><img className="ai-cta-layer ai-cta-outline" src={figmaAssets.aiCtaLayers.outline} alt="" /><img className="ai-cta-bot" src={figmaAssets.aiCtaLayers.bot} alt="" /></div></section>;
 }
