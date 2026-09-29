@@ -55,9 +55,13 @@ test.describe("public homepage parity smoke", () => {
       await expect(page.locator(".major-card-layer").last()).toBeVisible();
     }
     const visualWidth = await page.locator(".major-unit").first().locator(".major-person-visual").evaluate((element) => element.getBoundingClientRect().width);
-    expect(visualWidth).toBeGreaterThan(100);
+    const hitboxWidth = await page.locator(".major-unit").first().locator(".major-person-hitbox").evaluate((element) => element.getBoundingClientRect().width);
+    expect(visualWidth).toBeGreaterThan(hitboxWidth);
+    expect(visualWidth).toBeGreaterThan(300);
     await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).hover();
     await expect(page.locator(".major-unit.is-active")).toHaveCSS("left", "728px");
+    await expect(page.locator(".major-unit.is-active .major-person-visual")).toHaveCSS("opacity", "1");
+    await expect(page.locator(".major-unit.is-dimmed .major-person-visual").first()).toHaveCSS("opacity", "0.25");
   });
 
   test("achievement, BLUD, AI, and footer states expose their Figma layers", async ({ page }) => {
@@ -67,6 +71,8 @@ test.describe("public homepage parity smoke", () => {
     await expect(achievement.locator(".achievement-card-content")).toHaveCSS("opacity", "0");
     await achievement.hover();
     await expect(achievement.locator("a", { hasText: "Lihat Detail" })).toBeVisible();
+    await achievement.focus();
+    await expect(achievement.locator(".achievement-card-content")).toHaveCSS("opacity", "1");
     const blud = page.locator(".blud-card").first();
     await expect(blud.locator(".blud-shape")).toHaveCSS("opacity", "0");
     await blud.hover();
@@ -75,6 +81,11 @@ test.describe("public homepage parity smoke", () => {
     await expect(page.locator(".ai-cta-art .ai-cta-bot")).toHaveCSS("width", "285px");
     await expect(page.locator(".footer-top-social a")).toHaveCount(3);
     await expect(page.locator(".footer-brand a img")).toHaveCount(2);
+    await expect(page.locator(".footer-brand-lockup strong")).toHaveText("SMK NEGERI 26JAKARTA");
+    await expect(page.locator(".footer-brand")).not.toContainText("☎");
+    await expect(page.locator(".footer-brand")).not.toContainText("✉");
+    await expect(page.locator(".footer-brand")).not.toContainText("⌖");
+    await expect(page.locator(".footer-columns .footer-column-stack")).toHaveCount(2);
     await expect(page.locator(".footer-map img")).toBeVisible();
     await expect(page.getByText("© 2026 SMKN 26 Jakarta. Semua Hak Dilindungi.")).toBeVisible();
   });
