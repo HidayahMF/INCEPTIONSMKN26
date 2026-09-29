@@ -198,3 +198,44 @@ Reuse current `PublicNavbar`, `HeroSection`, `ShortcutMenu`, `SchoolOverview`, `
 - `BLOCKED_BY_FIGMA_PERMISSION`: exact paint values, typography styles, raw asset URLs, component variants, reactions, and per-model crop transforms requiring `get_design_context` or Editor-only inspection.
 
 The previously modified local asset manifest could not be reconstructed from Git objects after it was overwritten. The final manifest preserves the complete tracked `HEAD` manifest content and merges this audit's additions; no tracked asset entry was intentionally removed. The unrecoverable pre-existing working-tree-only delta is disclosed rather than silently represented as recovered.
+
+## Final extraction update
+
+- Access: `hidayah.muhammad22@smk.belajar.id`, Figma Starter team, `View` seat. `get_design_context` now works for the tested section and returned exact code/assets; prototype reaction metadata remains partly unavailable from the API.
+- Reference exports added under `docs/figma-reference/` for Video, Program, BLUD, Prestasi, News, AI CTA, Footer, and floating chatbot. These are documentation-only images.
+- Raw Figma images recovered into `frontend/public/assets/figma/video-profile/`, `programs/`, `achievements/`, `news/`, `ai-cta/`, `footer/`, and `chatbot/`. Existing Jurusan images were hash-verified exact matches and were not duplicated.
+- 134 newly downloaded non-empty Figma files are present across the audited section folders: raw PNG/JPEG fills plus SVG vector assets. Eight new section reference exports were added; the existing `home-full.png` was retained.
+- Typography recovered: Figma uses Inter with `Regular`, `Medium`, `Semi_Bold`, `Bold`, `Extra_Bold`, and `Italic` styles. Representative recovered values include 24px bold Jurusan hover titles, 14px semibold CTA labels, 12px regular Jurusan descriptions at 18px line-height, and 17px/13.6px card text patterns.
+- Recovered shared colors/effects include `#006CDC`, `#0092FF`, `#4CBAF5`, `#0B1324`, `#5B6B8C`, `#EAF5FA`, `#F6FBFF`, white card surfaces, 24px card radii, translucent white borders, and `0px 4px 8px rgba(15,23,42,0.08)` card/button shadow. Do not treat this list as exhaustive for every node.
+
+### Jurusan per-model geometry matrix
+
+`VERIFIED_FROM_FIGMA` from node `208:1126` design context. Stage origin is the `205:815` component at section-relative `(84,251)`. Default image slots use `overflow:hidden`; source images are absolutely positioned with percentage crop transforms.
+
+| Major | Figma node | Default X | Default Y | Default W | Default H | Image Width % | Image Height % | Image Left % | Image Top % | Hover X | Hover Y | Hover W | Hover H | Card Side | Card Position | Transition |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|
+| KGS | `I205:815;205:710` / source `205:507` | 8 | 64 | 323 | 461 | 99.6 | 123.82 | 0.2 | -23.78 | 0 | 42 | 523 | 471 | right | x=238,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+| TEK | `I205:815;205:713` / source `I205:713;205:509` | 160 | 39 | 339 | 485 | 96.19 | 118.18 | 1.91 | -18.18 | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | exact hover variant not returned | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+| TITL | `I205:815;205:714` / source `205:511` | 349 | 7 | 361 | 517 | 95.67 | 117.54 | 2.17 | -17.54 | 0 | 33.91 | 524 | 468 | left | x=0,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+| TFLM | `I205:815;205:715` / source `I205:715;205:513` | 561 | 7 | 363 | 518 | 102.39 | 125.79 | -0.48 | -14.86 | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | BLOCKED_BY_FIGMA_PERMISSION | exact hover variant not returned | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+| TKR | `I205:815;205:712` / source `205:515` | 758 | 24 | 349 | 501 | 94.6 | 116.23 | 2.7 | -16.23 | 224 | 34.91 | 524 | 469 | right | x=0,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+| SIJA | `I205:815;205:711` / source `205:517` | 933 | 40 | 335 | 485 | 86.93 default / 98.41 hover | 106.81 default / 106.83 hover | 6.53 default / 0.23 hover | -6.81 default / -6.83 hover | 0 | 21 | 524 | 503 | left | x=0,y=21,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
+
+Hover card styling recovered for KGS/TITL/TKR/SIJA: white surface, `1px #EAF5FA` border, 24px radius, 20px padding, 28px outer gap, 54px gradient icon, 24px gradient title, 12px dark body, 14px semibold blue gradient CTA, 20px arrow, and a side pointer. TEK/TFLM hover destinations remain `BLOCKED_BY_FIGMA_PERMISSION`.
+
+### Prototype reaction matrix
+
+| Component | Source Node | Trigger | Destination | Transition | Easing | Duration | Changed Properties |
+|---|---|---|---|---|---|---:|---|
+| Jurusan KGS | `205:541` | ON_HOVER | `205:568` variant | CHANGE_TO / Smart Animate | EASE_OUT | ~0.3s | crop, wrapper geometry, card appearance, z-order; exact all-property diff not exposed |
+| Jurusan TITL | `205:545` | ON_HOVER | `205:613` variant | CHANGE_TO / Smart Animate | EASE_OUT | ~0.3s | crop, wrapper geometry, card appearance, z-order |
+| Jurusan TKR | `205:549` | ON_HOVER | `205:658` variant | CHANGE_TO / Smart Animate | EASE_OUT | ~0.3s | crop, wrapper geometry, card appearance, z-order |
+| Jurusan SIJA | `205:551` | ON_HOVER | `205:688` variant | CHANGE_TO / Smart Animate | EASE_OUT | ~0.3s | crop, wrapper geometry, card appearance, z-order |
+| Buttons/cards/search/navbar | component variants | ON_HOVER | CHANGE_TO variant | Smart Animate | EASE_OUT | ~0.3s | exact per-property diffs remain unavailable for non-Jurusan instances |
+| Partner marquee | `130:940` | AFTER_TIMEOUT ~0.001s | `130:897` | Smart Animate | LINEAR | 10s | repeated track translation of 2590.253px |
+| Video play | `237:678` | AFTER_TIMEOUT ~0.001s | `235:661` | Smart Animate | EASE_OUT | 1s | exact visual diff requires destination child export |
+| Program slider | `I246:1137;242:1043` | AFTER_TIMEOUT 0.8s | `242:995` | Smart Animate | SLOW | ~1.458421s | panel positions shift `0,556,1112` to `-556,0,556` |
+
+### Unresolved items
+
+Exact source-to-layer names for the newly downloaded raw image batches, complete footer column copy, all per-property hover diffs, exact Video destination artwork diff, BLUD card image mapping, and TEK/TFLM hover variants remain `BLOCKED_BY_FIGMA_PERMISSION` or require child-node inspection. The downloaded raw files are preserved and listed in the asset manifest; OpenCode must not infer their semantic order without checking the corresponding Figma child node.

@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="253" height="100.92" viewBox="0 0 253 100.92" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Shape" clip-path="url(#clip0_0_99)">
+<circle id="Ellipse 13" cx="128.252" cy="119.842" r="110.03" fill="url(#paint0_linear_0_99)"/>
+<circle id="Ellipse 14" cx="128.252" cy="122.82" r="106.702" stroke="white" stroke-width="0.700831"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_99" x1="18.2217" y1="119.842" x2="238.283" y2="119.842" gradientUnits="userSpaceOnUse">
+<stop stop-color="#006CDC"/>
+<stop offset="1" stop-color="#0092FF"/>
+</linearGradient>
+<clipPath id="clip0_0_99">
+<rect width="253" height="100.92" fill="white"/>
+</clipPath>
+</defs>
+</svg>
