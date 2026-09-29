@@ -7,7 +7,7 @@ This is a Figma-to-production implementation contract for the `Beranda` homepage
 ## 2. Target viewport
 
 - Figma canvas: `1440px` wide.
-- Homepage root `43:172`: `1440 x 8152`.
+- Homepage root `43:172`: `1440 x 8095` (current Figma contract; prior `8152` target is stale).
 - Coordinates below are Figma canvas coordinates with the root origin at `(0, 0)`.
 
 ## 3. Source links
@@ -60,7 +60,7 @@ Missing from the current `Home`: Video Profil, Program SMK, BLUD SMK, Prestasi S
 
 ## 8. Exact desktop geometry
 
-| Section / node | x | y | width | height |
+ | Section / node | x | y | width | height |
 |---|---:|---:|---:|---:|
 | Hero `49:722` | 0 | 0 | 1440 | 880 |
 | Quick Access `250:985` | 132 | 807 | 1192 | 149 |
@@ -73,8 +73,8 @@ Missing from the current `Home`: Video Profil, Program SMK, BLUD SMK, Prestasi S
 | BLUD `246:1477` | 84 | 4890 | 1272 | 629 |
 | Prestasi `270:2717` | 103 | 5607 | 1272 | 654.983 |
 | Berita `279:1210` | 29 | 6349.983 | 1382 | 495.017 |
-| AI CTA `286:1952` | 84 | 6996 | 1272 | 442 |
-| Footer `286:1470` | 0 | 7526 | 1440 | 626 |
+ | AI CTA `286:1952` | 0 | 6933 | 1437 | 536 |
+ | Footer `286:1470` | 0 | 7469 | 1440 | 626 |
 
 Important child geometry:
 
@@ -280,7 +280,7 @@ Default cards are 400x200, 24px radius, 2px `#EAF5FA` border, 18px padding, 54px
 | Topic | Authoritative contract |
 |---|---|
 | Section order | Navbar, Hero, Quick Access, Mengenal SMK, Keunggulan, Mitra, Jurusan, Video, Program, BLUD, Prestasi, Berita, AI CTA, Footer, floating chatbot |
-| Desktop bounds | Use the exact table in §8 at 1440px; homepage is 1440x8152 |
+| Desktop bounds | Use the exact current-Figma table in §8 at 1440px; homepage is 1440x8095 |
 | Assets | Use `docs/FIGMA_ASSET_MANIFEST.md`; no raw batch ordering guesses |
 | Jurusan defaults | Six rows in §12; source PNGs are exact hash matches in `figma/majors/` |
 | Jurusan hovers | KGS/TITL/TKR/SIJA rows in §12 use exact recovered geometry; TEK and TFLM retain verified default geometry with no geometry-changing hover |

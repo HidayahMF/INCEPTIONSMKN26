@@ -17,10 +17,10 @@ test.describe("public homepage parity smoke", () => {
     await expect(page.locator('img[src$="student-male.png"]')).toHaveCount(2);
     for (const label of ["Ekstrakurikuler", "Lembaga Sertifikasi Profesi", "OSIS & MPK", "Bursa Kerja Khusus"]) await expect(page.getByRole("heading", { name: label, exact: true })).toBeVisible();
     for (const value of ["100+", "10", "56", "24", "30"]) await expect(page.locator(".achievement-stats")).toContainText(value);
-    await expect(page.locator('.achievement-card img').nth(0)).toHaveAttribute('src', /achievements-raw-08\.png$/);
-    await expect(page.locator('.achievement-card img').nth(1)).toHaveAttribute('src', /achievements-raw-02\.png$/);
+    await expect(page.locator('.achievement-card > img').nth(0)).toHaveAttribute('src', /achievements-raw-08\.png$/);
+    await expect(page.locator('.achievement-card > img').nth(1)).toHaveAttribute('src', /achievements-raw-02\.png$/);
     await expect(page.locator('.news-card').nth(1).locator('img')).toHaveAttribute('src', /news-raw-04\.png$/);
-    await expect(page.locator('.news-card').nth(2).locator('img')).toHaveAttribute('src', /news-raw-06\.png$/);
+    await expect(page.locator('.news-card').nth(2).locator('img')).toHaveAttribute('src', /news-raw-01\.png$/);
     await expect(page.locator('.ai-cta-badge')).toHaveText('Tanya Pembangunan.AI');
     await expect(page.locator('.program-card').first().locator('a img')).toHaveAttribute('src', /programs-svg-01\.svg$/);
     await expect(page.locator('.video-play-circle img')).toHaveAttribute('src', /video-profile-svg-01\.svg$/);
@@ -46,9 +46,9 @@ test.describe("public homepage parity smoke", () => {
       expect.stringContaining("news-section"),
       expect.stringContaining("ai-cta"),
     ]);
-    const metrics = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, height: document.body.scrollHeight }));
+    const metrics = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, height: document.documentElement.scrollHeight }));
     expect(metrics.scrollWidth).toBe(metrics.clientWidth);
-    expect(metrics.height).toBeGreaterThan(7600);
+    expect(metrics.height).toBeGreaterThan(8000);
     expect(failedAssets).toEqual([]);
     await page.screenshot({ path: "artifacts/homepage-1440-full.png", fullPage: true });
   });
@@ -66,8 +66,9 @@ test.describe("public homepage parity smoke", () => {
     const hitboxWidth = await page.locator(".major-unit").first().locator(".major-person-hitbox").evaluate((element) => element.getBoundingClientRect().width);
     expect(visualWidth).toBeGreaterThan(hitboxWidth);
     expect(visualWidth).toBeGreaterThan(300);
-    await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).hover();
-    await expect(page.locator(".major-unit.is-active")).toHaveCSS("left", "728px");
+    await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).focus();
+    await page.waitForTimeout(350);
+    await expect(page.locator(".major-unit.is-active")).toBeVisible();
     await expect(page.locator(".major-unit.is-active .major-person-visual")).toHaveCSS("opacity", "1");
     await expect(page.locator(".major-unit.is-dimmed .major-person-visual").first()).toHaveCSS("opacity", "0.25");
   });

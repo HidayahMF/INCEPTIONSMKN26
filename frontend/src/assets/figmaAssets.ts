@@ -61,7 +61,8 @@ export const figmaAssets = {
   videoProfile: {
     background: "/assets/figma/video-profile/video-profile-raw-02.jpg",
     playIdle: "/assets/figma/video-profile/video-profile-svg-01.svg",
-    playActive: "/assets/figma/video-profile/video-profile-svg-02.svg",
+    ringDefault: "/assets/figma/video-profile/video-profile-svg-03.svg",
+    ringActive: "/assets/figma/video-profile/video-profile-svg-08.svg",
   },
   programs: {
     panels: [

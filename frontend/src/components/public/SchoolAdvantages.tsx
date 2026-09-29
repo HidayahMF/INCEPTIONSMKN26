@@ -111,7 +111,7 @@ export function SchoolAdvantages() {
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
-          className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
           disabled={translate >= bounds.max}
           aria-label="Keunggulan sebelumnya"
@@ -142,12 +142,12 @@ export function SchoolAdvantages() {
           >
             {advantages.map(([title, body, image]) => (
               <article
-                className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink shadow-lg transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(15,23,42,.08)]"
                 key={title}
               >
                 <div className="absolute inset-x-0 top-0 h-[200px] overflow-hidden rounded-t-3xl">
                   <img
-                    className="pointer-events-none block h-full w-full scale-[1.7] select-none object-cover object-center transition duration-300 group-hover:scale-[1.75]"
+                     className="pointer-events-none block h-full w-full scale-[1.7] select-none object-cover object-center"
                     draggable={false}
                     onDragStart={(event) => event.preventDefault()}
                     src={image}
@@ -185,7 +185,7 @@ export function SchoolAdvantages() {
         </div>
         </div>
         <button
-          className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(1)}
           disabled={translate <= bounds.min}
           aria-label="Keunggulan berikutnya"
