@@ -85,7 +85,7 @@ Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-l
 
 ## Homepage parity audit additions
 
-The following findings come from Figma View metadata for file `YpgHMnWSwcq2oBKDbOJrnX`, root `43:172`, and are marked `VERIFIED_FROM_FIGMA`. Exact raw asset export for the new sections remains `BLOCKED_BY_FIGMA_PERMISSION` because the authenticated account has View access and `get_design_context`/asset export requires Editor access.
+The following findings come from Figma metadata/design contexts for file `YpgHMnWSwcq2oBKDbOJrnX`, root `43:172`, and are marked `VERIFIED_FROM_FIGMA`. The authenticated account is a View seat, but targeted `get_design_context` works. Exact assets already downloaded are marked `IMPORTED_AND_VERIFIED`; only semantic roles not exposed by a child context remain `UNRESOLVED`.
 
 | Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Already Existing / Newly Imported | Notes |
 |---|---|---|---|---|---|---|---|
@@ -95,14 +95,14 @@ The following findings come from Figma View metadata for file `YpgHMnWSwcq2oBKDb
 | `113:686` | Keunggulan SMK | Composite frame | 1440 x 645 | `frontend/public/assets/figma/advantages/` | Keunggulan | EXISTING | Existing artwork family. |
 | `208:1127` | Mitra Industri | Logo track | 1272 x 218 | `frontend/public/assets/figma/partners/` | Mitra Industri | EXISTING | Two repeated logo copies are visible in metadata; see parity report. |
 | `208:1126` | Jurusan SMK | Six model lineup | 1440 x 793 | `frontend/public/assets/figma/majors/` | Jurusan | EXISTING | Six local major images; CSS crop/zoom required. |
-| `242:695` | Video profil | Composite frame | 1447 x 700 | MISSING | Video Profil | BLOCKED_BY_FIGMA_PERMISSION | Background/play source asset not exportable from current access. |
-| `246:1219` | Program SMK | Composite frame | 1184 x 673 | MISSING | Program | BLOCKED_BY_FIGMA_PERMISSION | Slider/card artwork source mapping unavailable. |
-| `246:1477` | BLUD SMK | Composite frame | 1272 x 629 | MISSING | BLUD | BLOCKED_BY_FIGMA_PERMISSION | Six unit image sources unavailable. |
-| `270:2717` | Prestasi SMK | Composite frame | 1272 x 654.983 | MISSING | Prestasi | BLOCKED_BY_FIGMA_PERMISSION | Five achievement image sources unavailable. |
-| `279:1210` | Berita SMK | Composite frame | 1382 x 495.017 | MISSING | News | BLOCKED_BY_FIGMA_PERMISSION | Five news image sources unavailable. |
-| `286:1952` | Frame 36411 / Bot | Composite frame | 1272 x 442 | MISSING | Pembangunan.AI CTA | BLOCKED_BY_FIGMA_PERMISSION | Bot artwork source unavailable. |
-| `286:1470` | Footer | Footer instance | 1440 x 626 | MISSING | Footer | BLOCKED_BY_FIGMA_PERMISSION | Footer logo/mark sources unavailable. |
-| `293:1975` | Chat bot Ai | Floating instance | 120 x 120 | MISSING | Floating chatbot | BLOCKED_BY_FIGMA_PERMISSION | Exact illustration source unavailable. |
+| `242:695` | Video profil | Composite frame | 1447 x 700 | local video-profile batch | Video Profil | IMPORTED_AND_VERIFIED | Raw source files are local; play-state geometry is in the parity report. |
+| `246:1219` | Program SMK | Composite frame | 1184 x 673 | local programs batch | Program | IMPORTED_AND_VERIFIED | Six visible context image sources are mapped in the parity report. |
+| `246:1477` | BLUD SMK | Composite frame | 1272 x 629 | local blud batch | BLUD | IMPORTED_AND_VERIFIED | Six card icon/shape pairs are mapped below. |
+| `270:2717` | Prestasi SMK | Composite frame | 1272 x 654.983 | local achievements batch | Prestasi | IMPORTED_AND_VERIFIED | Five card images are semantically mapped below. |
+| `279:1210` | Berita SMK | Composite frame | 1382 x 495.017 | local news batch | News | IMPORTED_AND_VERIFIED | Five card images are semantically mapped below. |
+| `286:1952` | Frame 36411 / Bot | Composite frame | 1272 x 442 | local ai-cta batch | Pembangunan.AI CTA | IMPORTED_AND_VERIFIED | Exact raw artwork is local; no runtime screenshot is used. |
+| `286:1470` | Footer | Footer instance | 1440 x 626 | local footer batch + existing branding | Footer | IMPORTED_AND_VERIFIED | Logo, mail, social, WhatsApp, marker, and secondary image are mapped below. |
+| `293:1975` | Chat bot Ai | Floating instance | 120 x 120 | local chatbot batch | Floating chatbot | IMPORTED_AND_VERIFIED | Exact raw illustration batch is local. |
 
 ### Asset status rules
 
@@ -113,6 +113,32 @@ The following findings come from Figma View metadata for file `YpgHMnWSwcq2oBKDb
 - No new exact Figma assets were imported in this continuation.
 
 ## Final extraction imports
+
+## Targeted semantic mappings
+
+| Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| `246:1219` / slider context | Program panel 1 | PNG | Figma context source `4bf29.png` | `frontend/public/assets/figma/programs/programs-raw-01.png` | Program | IMPORTED_AND_VERIFIED | First slider panel; preserve as the left/default panel. |
+| `246:1219` / slider context | Program panel 2 | PNG | Figma context source `bc691.png` | `frontend/public/assets/figma/programs/programs-raw-02.png` | Program | IMPORTED_AND_VERIFIED | Second slider panel; source order, not visual guessing. |
+| `246:1219` / slider context | Program panel 3 | PNG | Figma context source `40d06.png` | `frontend/public/assets/figma/programs/programs-raw-03.png` | Program | IMPORTED_AND_VERIFIED | Third slider panel. |
+| `246:1219` / card context | Program artwork | PNG | Figma context source `54bad.png` | `frontend/public/assets/figma/programs/programs-raw-04.png` | Program | IMPORTED_AND_VERIFIED | Large/right card artwork. |
+| `246:1219` / card context | Program artwork | PNG | Figma context source `1d769.png` | `frontend/public/assets/figma/programs/programs-raw-05.png` | Program | IMPORTED_AND_VERIFIED | Supporting/right card artwork. |
+| `246:1219` / card context | Program artwork | PNG | Figma context source `0bbd9.png` | `frontend/public/assets/figma/programs/programs-raw-06.png` | Program | IMPORTED_AND_VERIFIED | Supporting/right card artwork. |
+| `246:1379` | KGStudio / Building | SVG | `05a5c.svg` | `frontend/public/assets/figma/blud/blud-KGS-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Icon for KGStudio. Shape source `69756.svg` is `blud-KGS-shape.svg`. |
+| `246:1386` | UPTECHNO / processor | SVG | `66658.svg` | `frontend/public/assets/figma/blud/blud-TEK-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `04174.svg`; use the matching existing shape batch entry. |
+| `246:1393` | E-MAN / electric bolt | SVG | `79d12.svg` | `frontend/public/assets/figma/blud/blud-TITL-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `29cdd.svg`; use the matching existing shape batch entry. |
+| `246:1400` | Manufaktur26 / machine | SVG | `95397.svg` | `frontend/public/assets/figma/blud/blud-TFLM-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `8a7ef.svg`; use the matching existing shape batch entry. |
+| `246:1401` | Garage26 / wheel | SVG | `fb769.svg` | existing `frontend/public/assets/figma/blud/` matching icon | BLUD | VERIFIED | Shape source `9ea58.svg`; local semantic shape is `blud-TKR-shape.svg`. |
+| `246:1402` | GADIZ VOKASI / computer | SVG | `76ef9.svg` | `frontend/public/assets/figma/blud/blud-SIJA-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `2e132.svg`; local shape is `blud-SIJA-shape.svg`. |
+| `266:2170`, `266:2177`, `266:2183`, `I266:2374`, `266:2380` | Card Prestasi 1-5 | PNG | `29ece.png`, `217f1.png`, `a4e8d.png`, `e188b.png`, `b5468.png` | `frontend/public/assets/figma/achievements/achievements-raw-01.png` through `-05.png` | Prestasi | IMPORTED_AND_VERIFIED | Exact source order for the five visible cards. |
+| `277:1121` variants | Pengumuman, Prestasi, Kegiatan, Kemitraan, Karya | PNG | `3af12.png`, `bce98.png`, `271da.png`, `868e3.png`, `102a1.png` | `frontend/public/assets/figma/news/news-raw-01.png` through `-05.png` | News | IMPORTED_AND_VERIFIED | Exact variant mapping; dates/titles are in the parity report. |
+| `279:1380` / `I279:1380;22:18773` | SMK Negeri 26 Jakarta logo | PNG | `d0def.png` | existing branding logo under `frontend/public/assets/figma/branding/` | Footer | VERIFIED | Exact logo is reused; no duplicate retained. |
+| `279:1297` | material-symbols:mail-rounded | SVG | `6368f.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Email icon. |
+| `279:1391` / mask | basil:whatsapp-solid | SVG | `15274.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | WhatsApp mask. |
+| `279:1394` | mdi:address-marker | SVG | `23a21.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Address icon. |
+| `286:1470` | Instagram/social control | SVG | `4fd12.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Social icon source exposed by context. |
+
+The physical `footer-svg-*` and supporting raw filenames remain unchanged; where multiple files share the same generic batch naming, the exact source filename and role above are authoritative. `UNRESOLVED` applies only to raw supporting fills whose child semantic role is not exposed, never to a required visible card image.
 
 The following exact raw fills were downloaded from `download_assets`. They are not section screenshots and are stored as production-ready source assets. Where a raw fill matched an existing local file by SHA-256, the duplicate was removed and the existing path is retained.
 
