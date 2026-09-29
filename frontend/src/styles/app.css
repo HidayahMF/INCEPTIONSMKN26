@@ -316,7 +316,6 @@ body.chat-room-open {
   .achievements-section { margin-top: 88px; padding-top: 0; }
   .news-section { padding-top: 0; }
   .ai-cta { margin-top: 151px; }
-  .ai-cta-copy { padding-left: 106px; }
   .ai-cta-badge { display: inline-flex; margin-bottom: 18px; border-radius: 999px; background: #f6fbff; color: #4cbaf5; font-size: 14px; font-weight: 600; padding: 5px 12px; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
   .figma-footer { box-sizing: border-box; height: 626px; min-height: 626px; overflow: hidden; padding-top: 48px; }
   .footer-subscribe input { background: #fff; }
@@ -330,6 +329,22 @@ body.chat-room-open {
     width: 72px;
     height: 72px;
   }
+}
+
+@media (min-width: 768px) {
+  .ai-cta-copy { position: absolute; top: 103px; left: 23.5px; width: 586px; padding: 0; }
+  .ai-cta-art { left: 775px; right: auto; top: 78px; width: 418px; height: 418px; }
+  .ai-circle-small { left: 1169px; right: auto; top: 137px; width: 61px; height: 61px; }
+  .ai-circle-large { left: 686px; top: 374px; width: 92px; height: 92px; }
+  .video-profile { background: none; }
+  .video-profile::before { position: absolute; inset: 0; width: 125.51%; height: 130.05%; left: -22.41%; top: -15%; background: url('/assets/figma/video-profile/video-profile-raw-02.jpg') center / 100% 100% no-repeat; content: ""; opacity: .8; }
+  .video-profile-overlay { background: linear-gradient(90deg, #006cdc 0%, #0092ff 100%); opacity: .63; }
+  .figma-footer .footer-brand-lockup > img { width: 77.745px; height: 84.224px; }
+  .figma-footer .footer-brand-lockup strong { font-size: 31.48px; line-height: 36.728px; font-weight: 700; font-style: normal; }
+  .figma-footer .footer-brand-lockup em { font-size: 12.96px; line-height: 22.676px; font-style: italic; }
+  .figma-footer .footer-column h3,
+  .figma-footer .footer-map h3 { font-size: 20px; font-weight: 700; }
+  .figma-footer .footer-bottom { font-size: 14px; line-height: 24px; }
 }
 
 @media (max-width: 767px) {
