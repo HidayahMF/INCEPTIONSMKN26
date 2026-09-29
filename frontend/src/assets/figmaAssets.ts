@@ -85,12 +85,12 @@ export const figmaAssets = {
       "/assets/figma/blud/blud-SIJA-icon.svg",
     ],
     shapes: [
-      "/assets/figma/blud/blud-KGS-shape.svg",
-      null,
-      null,
-      null,
-      "/assets/figma/blud/blud-TKR-shape.svg",
-      "/assets/figma/blud/blud-SIJA-shape.svg",
+      "/assets/figma/blud/blud-svg-01.svg",
+      "/assets/figma/blud/blud-svg-03.svg",
+      "/assets/figma/blud/blud-svg-05.svg",
+      "/assets/figma/blud/blud-svg-07.svg",
+      "/assets/figma/blud/blud-svg-09.svg",
+      "/assets/figma/blud/blud-svg-11.svg",
     ],
   },
   achievements: [
@@ -108,4 +108,10 @@ export const figmaAssets = {
     "/assets/figma/news/news-raw-05.png",
   ],
   aiCta: "/assets/figma/ai-cta/ai-cta-raw-01.png",
+  aiCtaLayers: {
+    fill: "/assets/figma/ai-cta/ai-cta-svg-07.svg",
+    ring: "/assets/figma/ai-cta/ai-cta-svg-02.svg",
+    outline: "/assets/figma/ai-cta/ai-cta-svg-10.svg",
+    bot: "/assets/figma/ai-cta/ai-cta-raw-02.png",
+  },
 } as const;

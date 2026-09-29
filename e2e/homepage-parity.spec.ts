@@ -54,6 +54,29 @@ test.describe("public homepage parity smoke", () => {
       await page.getByRole("button", { name: `Lihat ${code === "KGS" ? "Konstruksi Gedung & Sanitasi" : code === "TEK" ? "Teknik Elektronika & Komunikasi" : code === "TITL" ? "Teknik Instalasi Tenaga Listrik" : code === "TFLM" ? "Teknik Fabrikasi Logam & Manufaktur" : code === "TKR" ? "Teknik Kendaraan Ringan" : "Sistem Informasi, Jaringan & Aplikasi"}` }).hover();
       await expect(page.locator(".major-card-layer").last()).toBeVisible();
     }
+    const visualWidth = await page.locator(".major-unit").first().locator(".major-person-visual").evaluate((element) => element.getBoundingClientRect().width);
+    expect(visualWidth).toBeGreaterThan(100);
+    await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).hover();
+    await expect(page.locator(".major-unit.is-active")).toHaveCSS("left", "728px");
+  });
+
+  test("achievement, BLUD, AI, and footer states expose their Figma layers", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto("/");
+    const achievement = page.locator(".achievement-card").first();
+    await expect(achievement.locator(".achievement-card-content")).toHaveCSS("opacity", "0");
+    await achievement.hover();
+    await expect(achievement.locator("a", { hasText: "Lihat Detail" })).toBeVisible();
+    const blud = page.locator(".blud-card").first();
+    await expect(blud.locator(".blud-shape")).toHaveCSS("opacity", "0");
+    await blud.hover();
+    await expect(blud.locator(".blud-shape")).toHaveCSS("opacity", "0.9");
+    await expect(page.locator(".ai-cta-art .ai-cta-layer")).toHaveCount(3);
+    await expect(page.locator(".ai-cta-art .ai-cta-bot")).toHaveCSS("width", "285px");
+    await expect(page.locator(".footer-top-social a")).toHaveCount(3);
+    await expect(page.locator(".footer-brand a img")).toHaveCount(2);
+    await expect(page.locator(".footer-map img")).toBeVisible();
+    await expect(page.getByText("© 2026 SMKN 26 Jakarta. Semua Hak Dilindungi.")).toBeVisible();
   });
 
   test("CTA opens the existing public chat and mobile stays usable", async ({ page }) => {

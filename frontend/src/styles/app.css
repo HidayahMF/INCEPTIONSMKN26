@@ -151,6 +151,45 @@ body.chat-room-open {
   object-fit: contain;
 }
 
+/* Keep BLUD decoration hidden until the card enters its Figma hover state. */
+.blud-card .blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
+.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
+
+/* Final Figma state overrides. */
+.major-person-visual { position: absolute; overflow: hidden; pointer-events: none; }
+.major-person-media { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.major-person-image { position: absolute; max-width: none; object-fit: fill; pointer-events: none; }
+.major-person-hitbox { position: absolute; inset: 0 35%; z-index: 25; width: 30%; height: 100%; border: 0; background: transparent; cursor: pointer; pointer-events: auto; padding: 0; }
+.major-person-hitbox:focus-visible { outline: 3px solid #0092ff; outline-offset: 4px; border-radius: 28px; }
+.major-unit.is-dimmed .major-person-visual { opacity: .25; }
+.major-unit.is-active .major-person-visual { opacity: 1; }
+.major-card-layer { pointer-events: none; }
+.major-card-layer .major-popover a { pointer-events: auto; }
+.major-unit.right .major-card-layer,.major-unit.left .major-card-layer { left: 0; }
+.blud-card { transform: none; transition: border-color .3s ease-out, box-shadow .3s ease-out; }
+.blud-card:hover,.blud-card:focus-visible { border-color: #0092ff; box-shadow: 0 8px 24px rgba(0,108,220,.18); }
+.blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
+.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
+.achievement-card::after { opacity: 0; transition: opacity .3s ease-out; }
+.achievement-card > div { opacity: 0; transform: translateY(14px); transition: opacity .3s ease-out, transform .3s ease-out; }
+.achievement-card:hover::after,.achievement-card:focus-within::after { opacity: 1; }
+.achievement-card-content { pointer-events: none; opacity: 0; transform: translateY(12px); transition: opacity .3s ease-out, transform .3s ease-out; }
+.achievement-card:hover .achievement-card-content,.achievement-card:focus-within .achievement-card-content { pointer-events: auto; opacity: 1; transform: translateY(0); }
+.stat-icon img { width: 32px; height: 32px; object-fit: contain; }
+.ai-cta-art { position: absolute; right: 79px; top: -23px; width: 418px; height: 418px; }
+.ai-cta-layer,.ai-cta-bot { position: absolute; object-fit: contain; }
+.ai-cta-fill,.ai-cta-ring { left: 26px; top: 27px; width: 365px; height: 365px; }
+.ai-cta-outline { inset: 0; width: 418px; height: 417px; }
+.ai-cta-bot { left: 66px; top: 64px; width: 285px; height: 285px; }
+.footer-brand img { filter: none; }
+.footer-brand-lockup { display: flex; align-items: center; gap: 10px; }
+.footer-brand-lockup > img { width: 64px; height: 64px; object-fit: contain; }
+.footer-brand-lockup strong { display: block; font-size: 16px; line-height: 18px; }
+.footer-brand-lockup em { display: block; margin-top: 5px; font-size: 11px; font-style: italic; }
+.footer-brand a,.footer-brand address { display: flex; align-items: flex-start; gap: 8px; }
+.footer-brand a img,.footer-brand address img { width: 18px; height: 18px; flex: 0 0 auto; object-fit: contain; }
+.footer-column-stack { display: grid; align-content: start; gap: 26px; }
+
 .partner-viewport { height: 140px; overflow: hidden; }
 .school-overview > div { width: min(1272px, calc(100% - 32px)); }
 .advantages-carousel { box-sizing: border-box; }
@@ -245,3 +284,7 @@ body.chat-room-open {
   .floating-chatbot { width: 72px; height: 72px; }
   .footer-newsletter { display: block; }.footer-subscribe { width: 100%; margin-top: 20px; }.footer-top-social { position: static; margin-top: 16px; }.footer-grid { display: block; }.footer-columns { grid-template-columns: repeat(2, 1fr); margin-top: 32px; }.footer-brand { max-width: none; }.footer-map { margin-top: 28px; }.footer-map img { max-width: 100%; }.ai-cta { height: 560px; }.ai-cta-copy { width: 100%; padding: 0 24px; }.ai-cta-copy h2 { font-size: 30px; line-height: 42px; }.ai-cta-art { right: -44px; top: 250px; width: 320px; height: 320px; }.achievement-stats { width: 100%; height: auto; grid-template-columns: 1fr 1fr; }.achievement-stats > div:not(:last-child)::after { display: none; }.achievement-stats > div { grid-template-columns: 56px 1fr; }.stat-icon { width: 56px; height: 56px; }.program-slider { padding: 0; }.program-panel-track img { width: 100vw; }.blud-intro { text-align: center; }.blud-cta { position: static; display: inline-flex; margin-top: 16px; }.school-overview { height: auto !important; padding-bottom: 28px; }.school-overview .relative { height: 520px; }.school-overview .absolute.left-0.top-\[180px\] { top: 390px; width: 100%; }
 }
+
+/* Final BLUD hover state must win over the legacy base declaration. */
+.blud-card .blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
+.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
