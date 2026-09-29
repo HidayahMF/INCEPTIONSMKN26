@@ -9,7 +9,7 @@ export function PartnerLogos() {
     { name: "Panasonic", src: figmaAssets.partners.panasonic },
   ];
   return (
-    <section className="mt-[88px] h-[218px] overflow-hidden bg-white pt-[78px]">
+    <section className="mt-[88px] h-[218px] overflow-hidden bg-white">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px]">
            <h2 className="text-center text-4xl font-bold text-primary-dark">
           100+ Mitra Industri yang Berkolaborasi Bersama

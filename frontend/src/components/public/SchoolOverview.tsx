@@ -32,7 +32,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
         </div>
         <div className="relative h-[337px]">
            <div className="absolute left-0 top-[23px] max-w-[680px]">
-            <h2 className="text-3xl font-bold leading-[54px] text-ink">
+            <h2 className="text-[36px] font-bold leading-[54px] text-ink">
               Lebih dari Sekadar{" "}
               <span className="text-primary-dark">Sekolah Vokasi</span>
             </h2>

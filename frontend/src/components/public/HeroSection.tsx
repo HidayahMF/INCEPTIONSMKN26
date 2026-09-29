@@ -93,7 +93,7 @@ export function HeroSection({ onAskAi }: HeroSectionProps) {
         <div className="absolute left-[24%] top-[4.5%] z-10 h-[92.2%] w-[27%] overflow-hidden">
           <img
             className="absolute left-0 top-0 h-full w-auto max-w-none"
-            src={figmaAssets.hero.studentMale}
+            src={figmaAssets.hero.studentFemale}
             alt=""
           />
         </div>
