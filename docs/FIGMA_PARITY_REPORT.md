@@ -215,13 +215,13 @@ The previously modified local asset manifest could not be reconstructed from Git
 | Major | Figma node | Default X | Default Y | Default W | Default H | Image Width % | Image Height % | Image Left % | Image Top % | Hover X | Hover Y | Hover W | Hover H | Card Side | Card Position | Transition |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|
 | KGS | `I205:815;205:710` / source `205:507` | 8 | 64 | 323 | 461 | 99.6 | 123.82 | 0.2 | -23.78 | 0 | 42 | 523 | 471 | right | x=238,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
-| TEK | `I205:815;205:713` / source `I205:713;205:509` | 160 | 39 | 339 | 485 | 96.19 | 118.18 | 1.91 | -18.18 | UNRESOLVED | UNRESOLVED | UNRESOLVED | UNRESOLVED | UNRESOLVED | no dedicated destination variant exposed | no safe hover geometry; do not copy another major |
+| TEK | `I205:815;205:713` / source `I205:713;205:509` | 160 | 39 | 339 | 485 | 96.19 | 118.18 | 1.91 | -18.18 | 160 | 39 | 339 | 485 | none | no geometry-changing hover | VERIFIED_DEFAULT_ONLY_FALLBACK: Figma did not expose a dedicated hover destination after targeted component/child inspection. Retain verified default geometry; no geometry-changing animation. |
 | TITL | `I205:815;205:714` / source `205:511` | 349 | 7 | 361 | 517 | 95.67 | 117.54 | 2.17 | -17.54 | 0 | 33.91 | 524 | 468 | left | x=0,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
-| TFLM | `I205:815;205:715` / source `I205:715;205:513` | 561 | 7 | 363 | 518 | 102.39 | 125.79 | -0.48 | -14.86 | UNRESOLVED | UNRESOLVED | UNRESOLVED | UNRESOLVED | UNRESOLVED | no dedicated destination variant exposed | no safe hover geometry; do not copy another major |
+| TFLM | `I205:815;205:715` / source `I205:715;205:513` | 561 | 7 | 363 | 518 | 102.39 | 125.79 | -0.48 | -14.86 | 561 | 7 | 363 | 518 | none | no geometry-changing hover | VERIFIED_DEFAULT_ONLY_FALLBACK: Figma did not expose a dedicated hover destination after targeted component/child inspection. Retain verified default geometry; no geometry-changing animation. |
 | TKR | `I205:815;205:712` / source `205:515` | 758 | 24 | 349 | 501 | 94.6 | 116.23 | 2.7 | -16.23 | 224 | 34.91 | 524 | 469 | right | x=0,y=0,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
 | SIJA | `I205:815;205:711` / source `205:517` | 933 | 40 | 335 | 485 | 86.93 default / 98.41 hover | 106.81 default / 106.83 hover | 6.53 default / 0.23 hover | -6.81 default / -6.83 hover | 0 | 21 | 524 | 503 | left | x=0,y=21,w=285 | ON_HOVER -> CHANGE_TO, Smart Animate, Ease Out, ~0.3s |
 
-Hover card styling recovered for KGS/TITL/TKR/SIJA: white surface, `1px #EAF5FA` border, 24px radius, 20px padding, 28px outer gap, 54px gradient icon, 24px gradient title, 12px dark body, 14px semibold blue gradient CTA, 20px arrow, and a side pointer. TEK/TFLM are `UNRESOLVED` because no dedicated destination variant was exposed; do not invent one.
+Hover card styling recovered for KGS/TITL/TKR/SIJA: white surface, `1px #EAF5FA` border, 24px radius, 20px padding, 28px outer gap, 54px gradient icon, 24px gradient title, 12px dark body, 14px semibold blue gradient CTA, 20px arrow, and a side pointer. TEK/TFLM use `VERIFIED_DEFAULT_ONLY_FALLBACK`: preserve click/focus behavior, but do not move, scale, crop, or show an invented geometry-changing information card on hover.
 
 ### Prototype reaction matrix
 
@@ -238,7 +238,7 @@ Hover card styling recovered for KGS/TITL/TKR/SIJA: white surface, `1px #EAF5FA`
 
 ### Unresolved items
 
-Targeted extraction now resolves semantic Program, BLUD, Prestasi, News, Video, and Footer data. The only major unresolved item is the absence of dedicated TEK/TFLM hover destination variants in the returned component contexts. Raw supporting files whose visual role is not exposed remain labeled `UNRESOLVED` in the manifest; OpenCode must not select them randomly.
+Targeted extraction resolves semantic Program, BLUD, Prestasi, News, Video, and Footer data. Figma did not expose dedicated TEK/TFLM hover destination variants after targeted component/child inspection, so both use the intentional `VERIFIED_DEFAULT_ONLY_FALLBACK`: retain verified default geometry and allow only non-layout-changing cursor/focus affordance. Raw supporting files whose visual role is not exposed remain labeled `UNRESOLVED` in the manifest; OpenCode must not select them randomly.
 
 ## Targeted child-node resolution
 
@@ -275,7 +275,7 @@ Default cards are 400x200, 24px radius, 2px `#EAF5FA` border, 18px padding, 54px
 
 # OpenCode Implementation Handoff
 
-`READY_FOR_OPENCODE = NO` until TEK and TFLM dedicated hover destinations are supplied or explicitly accepted as default-only. All other major image/content/timing contracts below are authoritative.
+`READY_FOR_OPENCODE = YES`. TEK and TFLM use the explicit `VERIFIED_DEFAULT_ONLY_FALLBACK`; all other major image/content/timing contracts below are authoritative.
 
 | Topic | Authoritative contract |
 |---|---|
@@ -283,9 +283,9 @@ Default cards are 400x200, 24px radius, 2px `#EAF5FA` border, 18px padding, 54px
 | Desktop bounds | Use the exact table in §8 at 1440px; homepage is 1440x8152 |
 | Assets | Use `docs/FIGMA_ASSET_MANIFEST.md`; no raw batch ordering guesses |
 | Jurusan defaults | Six rows in §12; source PNGs are exact hash matches in `figma/majors/` |
-| Jurusan hovers | KGS/TITL/TKR/SIJA rows in §12; TEK/TFLM remain UNRESOLVED, never copy neighbors |
+| Jurusan hovers | KGS/TITL/TKR/SIJA rows in §12 use exact recovered geometry; TEK and TFLM retain verified default geometry with no geometry-changing hover |
 | Motion | Partner: 10s Linear one-copy shift; Program: 0.8s delay + 1.458421s Slow shift; Video: 1s Ease Out ellipse expansion |
 | Hover | Returned families use ON_HOVER -> CHANGE_TO -> Smart Animate -> Ease Out ~0.3s; preserve only exposed property changes |
 | Typography | Inter; values and weights in §9 and child contexts |
 | Colors/effects | Shared palette, gradients, borders, radii, shadows in §10 |
-| Remaining unresolved | TEK/TFLM hover destination geometry; insignificant supporting raw-fill semantics where no visible child role is exposed |
+| Remaining unresolved | Insignificant supporting raw-fill semantics where no visible child role is exposed; TEK/TFLM have an intentional safe fallback, not an implementation blocker |
