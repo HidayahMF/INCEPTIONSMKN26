@@ -82,3 +82,32 @@ Latest Figma MCP metadata identifies the visible partner order and source layers
 Final visible order: AZKO -> PLN -> Toyota -> WIKA -> Panasonic. Figma frame `130:940` is `1272 x 140`; each visible logo place is approximately `235.47 x 117.74`, with approximately `23.54px` horizontal gap. Latest audit screenshot: `artifacts/figma-partners-audit-latest.png`.
 
 Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-logo-03.png` -> `partner-pln.png`, `partner-logo-06.jpeg` -> `partner-toyota.png`, `partner-logo-02.png` -> `partner-wika.png`, and `partner-logo-01.png` -> `partner-panasonic.png`. Original files were backed up outside the repository during normalization. Explicitly listed unused legacy root exports and old visual audit artifacts were removed after reference checks.
+
+## Homepage parity audit additions
+
+The following findings come from Figma View metadata for file `YpgHMnWSwcq2oBKDbOJrnX`, root `43:172`, and are marked `VERIFIED_FROM_FIGMA`. Exact raw asset export for the new sections remains `BLOCKED_BY_FIGMA_PERMISSION` because the authenticated account has View access and `get_design_context`/asset export requires Editor access.
+
+| Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Already Existing / Newly Imported | Notes |
+|---|---|---|---|---|---|---|---|
+| `49:722` | Hero Section | Composite frame | 1440 x 880 | Existing hero asset family | Hero | EXISTING | Exact child source mapping remains Editor-only. |
+| `250:985` | Quick Access | Composite frame | 1192 x 149 | `frontend/public/assets/figma/shortcuts/` | Quick Access | EXISTING | Four local shortcut assets are present. |
+| `84:1200` | Mengenal SMK | Composite frame | 1272 x 400 | `frontend/public/assets/figma/school/` | Mengenal SMK | EXISTING | Existing overview images; exact source correlation pending. |
+| `113:686` | Keunggulan SMK | Composite frame | 1440 x 645 | `frontend/public/assets/figma/advantages/` | Keunggulan | EXISTING | Existing artwork family. |
+| `208:1127` | Mitra Industri | Logo track | 1272 x 218 | `frontend/public/assets/figma/partners/` | Mitra Industri | EXISTING | Two repeated logo copies are visible in metadata; see parity report. |
+| `208:1126` | Jurusan SMK | Six model lineup | 1440 x 793 | `frontend/public/assets/figma/majors/` | Jurusan | EXISTING | Six local major images; CSS crop/zoom required. |
+| `242:695` | Video profil | Composite frame | 1447 x 700 | MISSING | Video Profil | BLOCKED_BY_FIGMA_PERMISSION | Background/play source asset not exportable from current access. |
+| `246:1219` | Program SMK | Composite frame | 1184 x 673 | MISSING | Program | BLOCKED_BY_FIGMA_PERMISSION | Slider/card artwork source mapping unavailable. |
+| `246:1477` | BLUD SMK | Composite frame | 1272 x 629 | MISSING | BLUD | BLOCKED_BY_FIGMA_PERMISSION | Six unit image sources unavailable. |
+| `270:2717` | Prestasi SMK | Composite frame | 1272 x 654.983 | MISSING | Prestasi | BLOCKED_BY_FIGMA_PERMISSION | Five achievement image sources unavailable. |
+| `279:1210` | Berita SMK | Composite frame | 1382 x 495.017 | MISSING | News | BLOCKED_BY_FIGMA_PERMISSION | Five news image sources unavailable. |
+| `286:1952` | Frame 36411 / Bot | Composite frame | 1272 x 442 | MISSING | Pembangunan.AI CTA | BLOCKED_BY_FIGMA_PERMISSION | Bot artwork source unavailable. |
+| `286:1470` | Footer | Footer instance | 1440 x 626 | MISSING | Footer | BLOCKED_BY_FIGMA_PERMISSION | Footer logo/mark sources unavailable. |
+| `293:1975` | Chat bot Ai | Floating instance | 120 x 120 | MISSING | Floating chatbot | BLOCKED_BY_FIGMA_PERMISSION | Exact illustration source unavailable. |
+
+### Asset status rules
+
+- `EXISTING`: local file or asset family is present in the repository.
+- `VERIFIED`: prior manifest evidence records a non-empty local export; source identity may still require confirmation.
+- `MISSING`: no local production asset was found for the Figma section.
+- `BLOCKED_BY_FIGMA_PERMISSION`: exact source export or node correlation cannot be completed with View access.
+- No new exact Figma assets were imported in this continuation.
