@@ -26,8 +26,8 @@ export function PublicNavbar() {
           src={figmaAssets.branding.schoolLogo}
           alt="Logo SMK Negeri 26 Jakarta"
         />
-        <span className="hidden text-xs font-bold leading-[14px] text-[#1f2937] sm:block">
-          SMK NEGERI 26 JAKARTA
+        <span className="hidden w-[110px] text-xs font-bold leading-[14px] text-[#1f2937] sm:block">
+          SMK NEGERI 26<br />JAKARTA
           <em className="block text-[8px] font-normal text-muted">
             Belajar, Bekerja, Membangun
           </em>
@@ -62,7 +62,7 @@ export function PublicNavbar() {
                   WebkitMaskPosition: "center",
                   WebkitMaskRepeat: "no-repeat",
                   WebkitMaskSize: "7px 12px",
-                  transform: activeLink === link.label ? "rotate(-90deg)" : "rotate(90deg)",
+                  transform: activeLink === link.label ? "rotate(90deg)" : "rotate(-90deg)",
                   backgroundColor: activeLink === link.label ? "transparent" : "#0B1324",
                   backgroundImage: activeLink === link.label ? "linear-gradient(105deg,#006CDC,#0092FF)" : "none",
                 }}

@@ -29,6 +29,35 @@
 
 .program-card > a::after { content: none; display: none; }
 .program-card > a img { width: 24px !important; height: 24px !important; }
+.quick-access-card { box-shadow: none; }
+.quick-access-card.is-first { transform: translateY(1px); }
+.quick-access-card.is-first.is-active { transform: translateY(-4px); }
+.overview-photo-cta { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.overview-photo-cta:hover,.overview-photo-cta:focus-visible,.achievement-card a:hover,.achievement-card a:focus-visible { background: #0092FF !important; border: 1px solid #CBD5E1; color: #fff !important; }
+.overview-photo-cta:hover img,.overview-photo-cta:focus-visible img,.achievement-card a:hover img,.achievement-card a:focus-visible img { filter: brightness(0) invert(1); }
+.blud-cta.primary-button { width: 153px; height: 41px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: linear-gradient(105deg,#006CDC,#0092FF,#4CBAF5); color: #fff; padding: 0 16px; }
+.blud-cta.primary-button:hover,.blud-cta.primary-button:focus-visible { background: #F1F5F9 !important; color: #0092FF !important; border-color: #CBD5E1; }
+.video-play-button-o { position: absolute; left: 12px; top: 10px; z-index: 2; display: grid; width: 98.4px; height: 98.4px; place-items: center; border: 1px solid #E2E8F0; border-radius: 50%; background: #fff; transition: background-color .3s ease-out, border-color .3s ease-out; }
+.video-play-button-o img { width: 52.48px; height: 52.48px; object-fit: contain; }
+.video-play:hover .video-play-button-o,.video-play:focus-visible .video-play-button-o { border-color: #fff; background: #006CDC; }
+.video-play:hover .video-play-button-o img,.video-play:focus-visible .video-play-button-o img { filter: brightness(0) invert(1); }
+.video-play.is-playing .video-play-button-o { left: 1.2px; top: -1px; }
+.footer-subscribe { position: relative; gap: 0; }
+.footer-subscribe input { box-sizing: border-box; width: 654px; flex: 0 0 654px; border: 1px solid #CBD5E1; }
+.footer-subscribe button { position: absolute; right: 0; top: 0; z-index: 1; }
+.footer-top-social a { border: 1px solid #E2E8F0; }
+.achievement-card { transition: width .3s ease-out, height .3s ease-out, border-radius .3s ease-out; }
+.school-overview { width: min(1272px, calc(100% - 32px)); margin: 59px auto 0; background: #F4F8FF; }
+@media (min-width: 768px) {
+  .school-overview > div { width: 1272px; }
+}
+.school-overview .absolute.right-0.top-\[35px\] > .absolute.left-0.top-\[67px\] { left: 35px; top: 37px; }
+.school-overview .overview-photo-cta { right: -65px; bottom: -20px; width: 182px; height: 41px; box-sizing: border-box; justify-content: center; padding: 0 16px; }
+.school-overview .absolute.left-0.top-\[180px\] { left: 1px; top: 213px; }
+@media (max-width: 767px) {
+  .footer-subscribe input { width: 100%; flex-basis: auto; }
+  .footer-subscribe button { right: 0; }
+}
 
 /* Exact Figma correction contract; this file is imported after app.css. */
 @media (min-width: 1024px) {

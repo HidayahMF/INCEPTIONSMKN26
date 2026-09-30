@@ -43,21 +43,58 @@ test.describe("homepage Figma interaction contracts", () => {
       page.getByRole("link", { name: "KJP & PIP" }),
       page.getByRole("button", { name: "Tanya AI", exact: true }),
     ];
-    const defaultBox = await cards[0].boundingBox();
+    const quickAccess = page.locator("section.relative.z-30").first();
+    const quickBox = await quickAccess.boundingBox();
+    expect(quickBox).toBeTruthy();
+    expect(quickBox!.x).toBeCloseTo(132, 0);
+    expect(quickBox!.y).toBeCloseTo(807, 0);
+    expect(quickBox!.width).toBeCloseTo(1192, 0);
+    expect(quickBox!.height).toBeCloseTo(149, 0);
+    const defaultCardBoxes = await Promise.all(cards.map((card) => card.boundingBox()));
+    expect(defaultCardBoxes.map((box) => Math.round(box!.x - quickBox!.x))).toEqual([0, 304, 608, 912]);
+    expect(defaultCardBoxes.map((box) => Math.round(box!.y - quickBox!.y))).toEqual([1, 0, 0, 0]);
+    const chatbotBox = await page.getByRole("button", { name: "Buka Tanya AI" }).boundingBox();
+    expect(chatbotBox).toBeTruthy();
+    expect(chatbotBox!.x).toBeCloseTo(1279, 0);
+    expect(chatbotBox!.y).toBeCloseTo(654, 0);
+    expect(chatbotBox!.width).toBeCloseTo(120, 0);
+    expect(chatbotBox!.height).toBeCloseTo(120, 0);
+    await expect(cards[0]).toHaveCSS("box-shadow", "none");
     await cards[2].hover();
     await expect(cards[2]).toHaveCSS("opacity", "1");
     await expect(cards[0]).toHaveCSS("opacity", "0.5");
     const activeBox = await cards[2].boundingBox();
-    expect(activeBox && defaultBox).toBeTruthy();
-    expect(activeBox!.y).toBeCloseTo(defaultBox!.y - 4, 0);
+    expect(activeBox).toBeTruthy();
+    expect(activeBox!.y).toBeCloseTo(quickBox!.y - 4, 0);
     await page.mouse.move(700, 500);
     await expect(cards[0]).toHaveCSS("opacity", "1");
   });
 
   test("overview, advantages, video, program, BLUD, achievement, news, AI, footer, and chatbot", async ({ page }) => {
+    const overviewSection = page.locator(".school-overview");
+    const overviewBox = await overviewSection.boundingBox();
+    expect(overviewBox).toBeTruthy();
+    expect(overviewBox!.x).toBeCloseTo(84, 0);
+    expect(overviewBox!.y).toBeCloseTo(1009, 0);
+    expect(overviewBox!.width).toBeCloseTo(1272, 0);
+    expect(overviewBox!.height).toBeCloseTo(400, 0);
+    const overviewImage = overviewSection.locator(".absolute.left-0.top-\\[67px\\]");
+    const imageBox = await overviewImage.boundingBox();
+    expect(imageBox).toBeTruthy();
+    expect(imageBox!.x).toBeCloseTo(853, 0);
+    expect(imageBox!.y).toBeCloseTo(1111, 0);
+    expect(imageBox!.width).toBeCloseTo(420, 0);
+    expect(imageBox!.height).toBeCloseTo(233, 0);
     const overview = page.getByRole("link", { name: /Kenal Lebih Dekat/ });
+    const overviewCtaBox = await overview.boundingBox();
+    expect(overviewCtaBox).toBeTruthy();
+    expect(overviewCtaBox!.x).toBeCloseTo(1154, 0);
+    expect(overviewCtaBox!.y).toBeCloseTo(1321, 0);
+    expect(overviewCtaBox!.width).toBeCloseTo(182, 0);
+    expect(overviewCtaBox!.height).toBeCloseTo(41, 0);
+    await expect(overview).toHaveCSS("box-shadow", /rgba\(15, 23, 42, 0.08\)/);
     await overview.hover();
-    await expect(overview).toHaveCSS("background-image", /linear-gradient/);
+    await expect(overview).toHaveCSS("background-color", "rgb(0, 146, 255)");
 
     const advantage = page.locator("article").filter({ hasText: "Pendidikan Berkualitas" });
     await advantage.hover();
@@ -65,6 +102,9 @@ test.describe("homepage Figma interaction contracts", () => {
     await expect(advantage).toHaveCSS("box-shadow", /rgba\(15, 23, 42/);
     await page.locator(".video-play").hover();
     await expect(page.locator(".video-play")).toHaveCSS("filter", /drop-shadow/);
+    await expect.poll(async () => Number.parseFloat(await page.locator(".video-play-button-o").evaluate((element) => getComputedStyle(element).width))).toBeCloseTo(98.4, 1);
+    await expect.poll(async () => Number.parseFloat(await page.locator(".video-play-button-o").evaluate((element) => getComputedStyle(element).height))).toBeCloseTo(98.4, 1);
+    await expect(page.locator(".video-play-button-o")).toHaveCSS("background-color", "rgb(0, 108, 220)");
 
     const programCard = page.locator(".program-card").first();
     await programCard.hover();
@@ -75,6 +115,12 @@ test.describe("homepage Figma interaction contracts", () => {
     await page.waitForTimeout(500);
     await expect(blud).toHaveCSS("border-width", "4px");
     await expect.poll(async () => Number.parseFloat(await page.locator(".achievement-stats").evaluate((el) => getComputedStyle(el).width))).toBeCloseTo(1194, 0);
+    const statsBox = await page.locator(".school-overview .absolute.left-0.top-\\[180px\\]").last().boundingBox();
+    expect(statsBox).toBeTruthy();
+    expect(statsBox!.x).toBeCloseTo(85, 0);
+    expect(statsBox!.y + await page.evaluate(() => window.scrollY)).toBeCloseTo(1252, 0);
+    expect(statsBox!.width).toBeCloseTo(680, 0);
+    expect(statsBox!.height).toBeCloseTo(90, 0);
     await page.locator(".achievement-stats").hover();
     await page.waitForTimeout(500);
     await expect(page.locator(".achievement-stats")).toHaveCSS("box-shadow", /rgba\(15, 23, 42/);
@@ -82,6 +128,9 @@ test.describe("homepage Figma interaction contracts", () => {
     const achievement = page.locator(".achievement-card").first();
     await achievement.hover();
     await expect(achievement).toHaveCSS("width", "261px");
+    const achievementCta = achievement.getByRole("link", { name: /Lihat Detail/ });
+    await achievementCta.hover();
+    await expect(achievementCta).toHaveCSS("background-color", "rgb(0, 146, 255)");
     const news = page.locator(".news-card").first();
     const newsBox = await news.boundingBox();
     expect(newsBox).toBeTruthy();
@@ -96,12 +145,19 @@ test.describe("homepage Figma interaction contracts", () => {
     await expect(programCta).toHaveCSS("height", "41px");
     await programCta.hover();
     await expect(programCta).toHaveCSS("background-color", "rgb(241, 245, 249)");
+    await expect(programCta.locator("img")).toHaveAttribute("src", "/assets/figma/icons/icon-arrow-right.svg");
+    await expect(page.getByRole("link", { name: /Jelajahi BLUD/ }).locator("img")).toHaveAttribute("src", "/assets/figma/icons/icon-arrow-right.svg");
+    await expect(page.getByRole("button", { name: "Mulai Bertanya" }).locator("img")).toHaveAttribute("src", "/assets/figma/icons/icon-arrow-right.svg");
 
     const buttonO = page.locator(".news-controls button").first();
     await buttonO.hover();
     await expect(buttonO).toHaveCSS("background-color", "rgb(0, 108, 220)");
 
     const footerInput = page.getByRole("textbox", { name: "Email" });
+    await expect(footerInput).toHaveCSS("width", "654px");
+    await expect(footerInput).toHaveCSS("border-color", "rgb(203, 213, 225)");
+    await expect(page.getByRole("button", { name: "Kirim" })).toHaveCSS("width", "112px");
+    await expect(page.locator(".footer-top-social a").first()).toHaveCSS("border-color", "rgb(226, 232, 240)");
     await footerInput.hover();
     await expect(footerInput).toHaveCSS("border-color", "rgb(0, 108, 220)");
     await page.getByRole("button", { name: "Buka Tanya AI" }).hover();

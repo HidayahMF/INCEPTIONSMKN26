@@ -11,6 +11,7 @@ test.describe("current Figma prototype motion parity", () => {
   test("program waits 800ms then moves one verified panel step", async ({ page }) => {
     const track = page.locator(".program-panel-track");
     await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(track.locator('img').first()).toHaveAttribute('src', /programs-raw-04\.png$/);
     const initial = await track.evaluate((element) => ({
       shifted: element.classList.contains("is-shifted"),
       transform: getComputedStyle(element).transform,

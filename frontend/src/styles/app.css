@@ -430,6 +430,9 @@ body.chat-room-open {
 .ai-cta.is-bot-settled .ai-cta-outline { top: 2px; height: 417px; }
 .ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .footer-subscribe input:hover,.footer-subscribe input:focus { border: 1px solid #006cdc; color: #0092ff; box-shadow: 0 2px 4px rgba(15,84,142,.25); }
+@media (min-width: 768px) {
+  .floating-chatbot { right: 41px; bottom: 226px; }
+}
 .ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 
 /* Final cascade parity: legacy rules above must not cancel audited hover states. */

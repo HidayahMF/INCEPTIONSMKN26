@@ -12,7 +12,7 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
 
   return (
     <section
-      className="relative z-30 mx-auto -mt-[79px] grid w-[calc(100%-32px)] max-w-[1192px] gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      className="relative z-30 mx-auto -mt-[79px] grid w-[calc(100%-32px)] max-w-[1192px] gap-6 sm:grid-cols-2 lg:grid-cols-4 md:left-2 md:top-[6px] md:min-h-[149px]"
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
           setActiveShortcut(null);
@@ -22,7 +22,7 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
     >
       {imageShortcuts.map(([label, href, image], index) => (
         <a
-          className={`quick-access-card group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "is-normal" : "is-dimmed"} ${activeShortcut === index ? "is-active" : ""}`}
+          className={`quick-access-card ${index === 0 ? "is-first" : ""} group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "is-normal" : "is-dimmed"} ${activeShortcut === index ? "is-active" : ""}`}
           href={href}
           aria-label={label}
           key={label}
