@@ -15,6 +15,9 @@ export const figmaAssets = {
     arrowRight: "/assets/figma/icons/icon-arrow-right.svg",
     chevronDown: "/assets/figma/icons/icon-chevron-down.svg",
   },
+  secondaryButton: {
+    arrowRight: "/assets/figma/icons/secondary-arrow-right.svg",
+  },
   shortcuts: {
     spmb: "/assets/figma/shortcuts/shortcut-spmb.png",
     library: "/assets/figma/shortcuts/shortcut-library.png",

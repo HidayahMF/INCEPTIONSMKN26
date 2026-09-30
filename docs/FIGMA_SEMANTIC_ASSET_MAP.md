@@ -7,6 +7,7 @@ Current local asset mapping for visible homepage controls. Entries marked `VERIF
 | Hero | school building / composite student | `frontend/public/assets/figma/hero/hero-school-building.png`, `student-male.png` | VERIFIED |
 | Quick Access | SPMB, library, KJP/PIP, AI | `frontend/public/assets/figma/shortcuts/` | VERIFIED |
 | Overview CTA | right arrow | `frontend/public/assets/figma/icons/icon-arrow-right.svg` | VERIFIED |
+| Secondary Button Arrow | `basil:arrow-right-solid` | `frontend/public/assets/figma/icons/secondary-arrow-right.svg` | EXACT_FIGMA_EXPORT (`9c51c.svg`, node `86:1202`, `#0092FF`) |
 | Advantages carousel | left/right controls | `frontend/public/assets/figma/advantages/advantage-carousel-left.svg`, `advantage-carousel-right.svg` | VERIFIED |
 | Jurusan | badge, education, pointers, card arrows, six people | `frontend/public/assets/figma/majors/` | VERIFIED |
 | Video default | blue play glyph, default ring | `frontend/public/assets/figma/video-profile/video-profile-svg-01.svg`, `video-profile-svg-03.svg` | VERIFIED |

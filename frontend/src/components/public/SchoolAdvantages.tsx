@@ -176,7 +176,7 @@ export function SchoolAdvantages() {
                     className="pointer-events-none size-5 select-none"
                     draggable={false}
                     onDragStart={(event) => event.preventDefault()}
-                    src={figmaAssets.icons.arrowRight}
+                    src={figmaAssets.secondaryButton.arrowRight}
                     alt=""
                   />
                 </a>

@@ -53,7 +53,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
                 src={figmaAssets.school.overviewPhoto}
                 alt="Gedung SMK Negeri 26 Jakarta"
               />
-              <a className="overview-photo-cta" href="/profile">Kenal Lebih Dekat <span aria-hidden="true">→</span></a>
+              <a className="overview-photo-cta" href="/profile">Kenal Lebih Dekat <img className="size-5" src={figmaAssets.secondaryButton.arrowRight} alt="" /></a>
             </div>
           </div>
            <div className="absolute left-0 top-[180px] flex h-[90px] w-[680px] max-w-full items-center justify-between rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-white shadow-lg">
