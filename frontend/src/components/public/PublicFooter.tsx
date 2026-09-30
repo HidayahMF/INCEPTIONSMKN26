@@ -20,7 +20,7 @@ export function PublicFooter() {
   return <footer className="figma-footer">
     <div className="footer-newsletter">
       <h2>Dapatkan Informasi<br />SMKN 26 Jakarta</h2>
-      <form className="footer-subscribe" onSubmit={(event) => event.preventDefault()}><input aria-label="Email" placeholder="Ketik Email disini..." type="email" /><button type="submit">Kirim</button></form>
+       <form className="footer-subscribe" onSubmit={(event) => event.preventDefault()}><input aria-label="Email" placeholder="Ketik Email disini..." type="email" /><button className="primary-button" type="submit">Kirim</button></form>
       <div className="footer-top-social"><a href="#footer-social" aria-label="Instagram"><img src={footerIcon.instagram} alt="" /></a><a href="#footer-social" aria-label="YouTube"><img src={footerIcon.youtube} alt="" /></a><a href="#footer-social" aria-label="Email"><img src={footerIcon.email} alt="" /></a></div>
     </div>
     <div className="footer-divider" />

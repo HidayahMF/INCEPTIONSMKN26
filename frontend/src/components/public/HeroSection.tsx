@@ -43,7 +43,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <a
-            className="group inline-flex items-center gap-2 rounded-full border border-transparent bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors duration-300 ease-out hover:border-white hover:bg-white hover:bg-none hover:text-primary focus-visible:border-white focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
+            className="primary-button group inline-flex items-center gap-2 rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
             href="/profile"
           >
             Jelajahi SMKN 26{" "}
@@ -53,7 +53,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
             </span>
           </a>
           <a
-            className="group inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2.5 text-sm font-semibold text-primary shadow-lg transition-colors duration-300 ease-out hover:border-transparent hover:bg-gradient-to-br hover:from-primary-dark hover:via-primary hover:to-soft-blue hover:text-white focus-visible:border-transparent focus-visible:bg-gradient-to-br focus-visible:from-primary-dark focus-visible:via-primary focus-visible:to-soft-blue focus-visible:text-white focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
+            className="secondary-button group inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2.5 text-sm font-semibold text-primary shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-primary hover:bg-none hover:text-white focus-visible:border-[#CBD5E1] focus-visible:bg-primary focus-visible:bg-none focus-visible:text-white focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
             href="#video-profile"
           >
             <span
@@ -75,7 +75,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </div>
       </div>
       <form
-        className="group absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#e5e7eb] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border-primary hover:bg-white hover:bg-none hover:text-primary focus-within:border-primary focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
+        className="group hero-search absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#E5E7EB] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border-primary hover:bg-white hover:bg-none hover:text-primary focus-within:border-primary focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
         onSubmit={submitSearch}
         role="search"
       >
@@ -84,13 +84,13 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </label>
         <input
           id="hero-search"
-          className="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white transition-colors duration-300 ease-out group-hover:text-primary group-hover:placeholder:text-primary group-focus-within:text-primary group-focus-within:placeholder:text-primary motion-reduce:transition-none"
+          className="hero-search-input min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white transition-[color,margin] duration-300 ease-out group-hover:ml-[-4px] group-hover:text-primary group-hover:placeholder:text-primary group-focus-within:ml-[-4px] group-focus-within:text-primary group-focus-within:placeholder:text-primary motion-reduce:transition-none"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Cari disini..."
         />
         <button
-          className="grid size-7 shrink-0 place-items-center rounded-full bg-white focus-visible:outline-2 focus-visible:outline-white"
+          className="hero-search-control grid size-7 shrink-0 place-items-center rounded-full bg-white transition-[margin] duration-300 ease-out group-hover:mr-1 group-focus-within:mr-1 focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
           type="submit"
           aria-label="Cari"
         >

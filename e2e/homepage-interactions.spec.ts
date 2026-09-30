@@ -11,24 +11,31 @@ test.describe("homepage Figma interaction contracts", () => {
   test("navbar, hero buttons, search, and quick access states", async ({ page }) => {
     const navItem = page.getByRole("navigation", { name: "Navigasi utama" }).getByRole("link", { name: "Program", exact: true });
     await navItem.hover();
-    await expect(navItem).toHaveCSS("color", "rgb(0, 146, 255)");
+    await expect(navItem).toHaveCSS("font-size", "20px");
+    await expect(navItem).toHaveCSS("background-image", /linear-gradient/);
     await expect(page.getByRole("link", { name: "Login", exact: true })).toBeVisible();
 
     const explore = page.getByRole("link", { name: "Jelajahi SMKN 26" });
     const video = page.getByRole("link", { name: "Tonton Video Profile" });
     await explore.hover();
+    await expect(explore).toHaveCSS("background-color", "rgb(241, 245, 249)");
+    await expect(explore).toHaveCSS("border-color", "rgb(203, 213, 225)");
     await expect(explore).toHaveCSS("color", "rgb(0, 146, 255)");
     await expect(video).toHaveCSS("background-color", "rgb(255, 255, 255)");
     await video.hover();
+    await expect(video).toHaveCSS("background-color", "rgb(0, 146, 255)");
     await expect(video).toHaveCSS("color", "rgb(255, 255, 255)");
 
     const search = page.getByRole("search");
     await expect(search).toHaveCSS("width", "840px");
     await expect(search).toHaveCSS("height", "44px");
     await search.hover();
+    await expect(search).toHaveCSS("border-width", "1px");
+    await expect(search).toHaveCSS("border-color", "rgb(0, 108, 220)");
     await expect(search).toHaveCSS("width", "840px");
     await expect(search).toHaveCSS("height", "44px");
     await expect(search).toHaveCSS("background-color", "rgb(255, 255, 255)");
+    await expect(search.locator("input")).toHaveCSS("color", "rgb(0, 146, 255)");
 
     const cards = [
       page.getByRole("link", { name: "SPMB" }),
@@ -84,10 +91,25 @@ test.describe("homepage Figma interaction contracts", () => {
     await page.getByRole("button", { name: "Mulai Bertanya" }).hover();
     await expect(page.getByRole("button", { name: "Mulai Bertanya" })).toHaveCSS("background-color", /rgba|rgb/);
 
+    const programCta = page.getByRole("link", { name: /Jelajahi Esktrakurikuler/ });
+    await expect(programCta).toHaveCSS("width", "218px");
+    await expect(programCta).toHaveCSS("height", "41px");
+    await programCta.hover();
+    await expect(programCta).toHaveCSS("background-color", "rgb(241, 245, 249)");
+
+    const buttonO = page.locator(".news-controls button").first();
+    await buttonO.hover();
+    await expect(buttonO).toHaveCSS("background-color", "rgb(0, 108, 220)");
+
     const footerInput = page.getByRole("textbox", { name: "Email" });
     await footerInput.hover();
     await expect(footerInput).toHaveCSS("border-color", "rgb(0, 108, 220)");
     await page.getByRole("button", { name: "Buka Tanya AI" }).hover();
     await expect(page.getByRole("button", { name: "Buka Tanya AI" }).locator("img")).toHaveAttribute("src", /chatbot-hover/);
+
+    await page.locator(".ai-cta").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1100);
+    await expect(page.locator(".ai-cta.is-bot-settled .ai-cta-bot")).toHaveCSS("top", "68px");
+    await expect(page.locator(".ai-cta.is-bot-settled .ai-cta-outline")).toHaveCSS("height", "417px");
   });
 });

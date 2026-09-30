@@ -168,7 +168,7 @@ export function SchoolAdvantages() {
                 </h3>
                 <p className="relative mt-1 text-xs leading-[18px]">{body}</p>
                 <a
-                  className="relative mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-primary transition hover:text-primary-dark"
+                  className="secondary-button relative mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-[background,color,border-color] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-primary hover:text-white"
                   href="/information"
                 >
                   Baca selengkapnya{" "}

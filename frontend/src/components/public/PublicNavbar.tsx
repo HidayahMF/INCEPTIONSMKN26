@@ -15,7 +15,7 @@ export function PublicNavbar() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
 
   return (
-    <header className="absolute left-4 right-4 top-5 z-40 flex h-20 w-auto max-w-none translate-x-0 items-center justify-between rounded-full bg-white px-4 py-2.5 shadow-[0_4px_8px_rgba(15,23,42,.08)] sm:px-6 md:left-1/2 md:right-auto md:w-[calc(100%_-_32px)] md:max-w-[1272px] md:-translate-x-1/2">
+    <header className="public-navbar absolute left-4 right-4 top-5 z-40 flex h-20 w-auto max-w-none translate-x-0 items-center justify-between rounded-full bg-white px-4 py-2.5 shadow-[0_4px_8px_rgba(15,23,42,.08)] sm:px-6 md:left-1/2 md:right-auto md:w-[calc(100%_-_32px)] md:max-w-[1272px] md:-translate-x-1/2">
       <a
         className="flex items-center gap-2 p-1"
         href="/"
@@ -36,7 +36,7 @@ export function PublicNavbar() {
       <nav className="hidden items-center lg:flex" aria-label="Navigasi utama">
         {links.map((link) => (
           <a
-            className="group flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-colors duration-300 ease-out focus-visible:outline-none motion-reduce:transition-none"
+            className={`group flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-[color,font-size] duration-300 ease-out focus-visible:outline-none motion-reduce:transition-none ${activeLink === link.label ? "is-hovered" : ""}`}
             href={link.href}
             key={link.label}
             onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
@@ -47,12 +47,12 @@ export function PublicNavbar() {
                 setActiveLink((value) => (value === link.label ? null : value));
               }
             }}
-            style={{ color: activeLink === link.label ? "#0092FF" : "#0B1324" }}
+            style={{ color: activeLink === link.label && !link.dropdown ? "#0092FF" : "#0B1324" }}
           >
             {link.label}
             {link.dropdown && (
               <span
-                className="h-3 w-[7px] shrink-0 bg-current transition-transform duration-300 ease-out motion-reduce:transition-none"
+                className={`navbar-chevron h-3 w-[7px] shrink-0 transition-[transform,background] duration-300 ease-out motion-reduce:transition-none ${activeLink === link.label ? "is-hovered" : ""}`}
                 style={{
                   maskImage: `url(${figmaAssets.icons.chevronDown})`,
                   maskPosition: "center",
@@ -63,6 +63,8 @@ export function PublicNavbar() {
                   WebkitMaskRepeat: "no-repeat",
                   WebkitMaskSize: "7px 12px",
                   transform: activeLink === link.label ? "rotate(-90deg)" : "rotate(90deg)",
+                  backgroundColor: activeLink === link.label ? "transparent" : "#0B1324",
+                  backgroundImage: activeLink === link.label ? "linear-gradient(105deg,#006CDC,#0092FF)" : "none",
                 }}
                 aria-hidden="true"
               />
@@ -72,7 +74,7 @@ export function PublicNavbar() {
       </nav>
       <div className="flex items-center gap-2">
         <a
-          className="rounded-full px-8 py-2.5 text-sm font-semibold text-white transition-[background,box-shadow] duration-300 ease-out hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:outline-2 focus-visible:outline-primary motion-reduce:transition-none"
+          className="navbar-login rounded-full px-8 py-2.5 text-sm font-semibold text-white transition-[background,color,border-color,box-shadow] duration-300 ease-out focus-visible:outline-2 focus-visible:outline-primary motion-reduce:transition-none"
           style={{
             background:
               "linear-gradient(-77.19849341073589deg, rgb(0, 108, 220) 2.9054%, rgb(0, 146, 255) 74.035%, rgb(76, 186, 245) 100%)",

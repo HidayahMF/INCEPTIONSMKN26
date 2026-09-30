@@ -370,12 +370,64 @@ body.chat-room-open {
   .major-mobile-item.is-active { grid-template-columns: 1fr; padding-top: 8px; }.major-mobile-item.is-active > img { width: 100%; height: 230px; }.major-mobile-item.is-active > span { display: none; }.major-mobile-item .major-popover { position: relative; left: auto; top: auto; width: 100%; min-height: 0; margin-top: 8px; box-shadow: none; padding: 0; }.major-mobile-item .major-popover-pointer { display: none; }.major-mobile-item .major-popover-icon { width: 48px; height: 48px; }.major-mobile-item .major-popover h3 { font-size: 20px; }.major-mobile-item .major-popover a { margin-top: 16px; }
 }
 
+/* Exact Figma correction contract. */
+.navbar-login:hover,.navbar-login:focus-visible { border: 1px solid #CBD5E1; background: #F1F5F9 !important; color: #0092FF; box-shadow: none; }
+@media (min-width: 1024px) {
+  .public-navbar nav a.is-hovered { font-size: 20px; }
+  .public-navbar nav a.is-hovered { color: #0092FF !important; }
+  .public-navbar nav a:has(.navbar-chevron).is-hovered { background: linear-gradient(105deg,#006CDC,#0092FF); background-clip: text; color: transparent !important; }
+  .public-navbar nav a:has(.navbar-chevron).is-hovered .navbar-chevron { background-color: transparent !important; background-image: linear-gradient(105deg,#006CDC,#0092FF) !important; }
+}
+.primary-button:hover,.primary-button:focus-visible { border: 1px solid #CBD5E1 !important; background: #F1F5F9 !important; color: #0092FF !important; box-shadow: none; }
+.secondary-button:hover,.secondary-button:focus-visible { border: 1px solid #CBD5E1 !important; background: #0092FF !important; color: #fff !important; }
+.hero-search:hover,.hero-search:focus-within { border-width: 1px; border-color: #006CDC; }
+.hero-search:hover .hero-search-input,.hero-search:focus-within .hero-search-input { margin-left: -4px; }
+.hero-search:hover .hero-search-control,.hero-search:focus-within .hero-search-control { margin-right: 4px; }
+.program-feature-copy a.primary-button { display: inline-flex; width: 218px; height: 41px; box-sizing: border-box; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: linear-gradient(105deg,#006CDC,#0092FF,#4CBAF5); color: #fff; padding: 0 16px; }
+.program-feature-copy a.primary-button:hover,.program-feature-copy a.primary-button:focus-visible { background: #F1F5F9 !important; color: #0092FF !important; }
+.news-controls button:hover,.news-controls button:focus-visible,.achievement-carousel > button:hover,.achievement-carousel > button:focus-visible,.program-card > a:hover,.program-card > a:focus-visible,.footer-top-social a:hover,.footer-top-social a:focus-visible { background: #006CDC !important; }
+.blud-card:hover,.blud-card:focus-visible { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006CDC,#0092FF) border-box; }
+.news-card:hover,.news-card:focus-within { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006CDC,#0092FF) border-box; }
+.footer-subscribe button.primary-button { width: 112px; height: 44px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: linear-gradient(105deg,#006CDC,#0092FF,#4CBAF5); color: #fff; }
+.footer-subscribe button.primary-button:hover,.footer-subscribe button.primary-button:focus-visible { background: #F1F5F9 !important; color: #0092FF !important; }
+.video-play { transition: filter .3s ease-out !important; }
+.video-play:hover,.video-play:focus-visible { opacity: 1 !important; filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); }
+.ai-cta-fill,.ai-cta-bot,.ai-cta-outline { transition: top 1s ease-out, height 1s ease-out, inset 1s ease-out; }
+.ai-cta-fill { top: 27px; }
+.ai-cta-bot { top: 64px; }
+.ai-cta-outline { top: 0; }
+.ai-cta.is-bot-settled .ai-cta-fill { top: 31px; }
+.ai-cta.is-bot-settled .ai-cta-bot { top: 68px; }
+.ai-cta.is-bot-settled .ai-cta-outline { top: 2px; height: 417px; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-cta-fill,.ai-cta-bot,.ai-cta-outline { transition: none !important; }
+}
+
 /* Final cascade parity: legacy rules above must not cancel audited hover states. */
 .program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); opacity: 1; }
+
+/* Exact Figma correction contract must remain last in the cascade. */
+.navbar-login:hover,.navbar-login:focus-visible { border: 1px solid #CBD5E1; background: #F1F5F9 !important; color: #0092FF; box-shadow: none; }
+.primary-button:hover,.primary-button:focus-visible { border: 1px solid #CBD5E1 !important; background: #F1F5F9 !important; color: #0092FF !important; box-shadow: none; }
+.secondary-button:hover,.secondary-button:focus-visible { border: 1px solid #CBD5E1 !important; background: #0092FF !important; color: #fff !important; }
+.hero-search:hover,.hero-search:focus-within { border-width: 1px; border-color: #006CDC; }
+.hero-search:hover .hero-search-input,.hero-search:focus-within .hero-search-input { margin-left: -4px; }
+.hero-search:hover .hero-search-control,.hero-search:focus-within .hero-search-control { margin-right: 4px; }
+.program-feature-copy a.primary-button { display: inline-flex; width: 218px; height: 41px; box-sizing: border-box; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: linear-gradient(105deg,#006CDC,#0092FF,#4CBAF5); color: #fff; padding: 0 16px; }
+.program-feature-copy a.primary-button:hover,.program-feature-copy a.primary-button:focus-visible { background: #F1F5F9 !important; color: #0092FF !important; }
+.news-controls button:hover,.news-controls button:focus-visible,.achievement-carousel > button:hover,.achievement-carousel > button:focus-visible,.program-card > a:hover,.program-card > a:focus-visible,.footer-top-social a:hover,.footer-top-social a:focus-visible { background: #006CDC !important; }
+.blud-card:hover,.blud-card:focus-visible { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006CDC,#0092FF) border-box; }
+.news-card:hover,.news-card:focus-within { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006CDC,#0092FF) border-box; }
+.footer-subscribe button.primary-button { width: 112px; height: 44px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: linear-gradient(105deg,#006CDC,#0092FF,#4CBAF5); color: #fff; }
+.footer-subscribe button.primary-button:hover,.footer-subscribe button.primary-button:focus-visible { background: #F1F5F9 !important; color: #0092FF !important; }
+.ai-cta-fill,.ai-cta-bot,.ai-cta-outline { transition: top 1s ease-out, height 1s ease-out; }
+.ai-cta.is-bot-settled .ai-cta-fill { top: 31px; }
+.ai-cta.is-bot-settled .ai-cta-bot { top: 68px; }
+.ai-cta.is-bot-settled .ai-cta-outline { top: 2px; height: 417px; }
 .ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .footer-subscribe input:hover,.footer-subscribe input:focus { border: 1px solid #006cdc; color: #0092ff; box-shadow: 0 2px 4px rgba(15,84,142,.25); }
 .ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
