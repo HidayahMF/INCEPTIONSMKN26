@@ -27,7 +27,5 @@
   .achievement-carousel > button img { width: 24px; height: 24px; }
 }
 
-.program-card:hover,
-.program-card:focus-within { transform: none; box-shadow: none; }
 .program-card > a::after { content: none; display: none; }
 .program-card > a img { width: 24px !important; height: 24px !important; }

@@ -26,9 +26,12 @@ test.describe("public homepage parity smoke", () => {
     const newsCard = page.locator(".news-card").first();
     await expect(newsCard).toHaveCSS("width", "400px");
     await expect(newsCard).toHaveCSS("height", "300px");
-    await expect(newsCard).toHaveCSS("border-radius", "24px");
-    await expect(newsCard).toHaveCSS("border-width", "2px");
-    await expect(newsCard).toHaveCSS("box-shadow", "none");
+     await expect(newsCard).toHaveCSS("border-radius", "24px");
+     await expect(newsCard).toHaveCSS("border-width", "2px");
+     await expect(newsCard).toHaveCSS("box-shadow", "none");
+     await newsCard.focus();
+     await expect(newsCard).toHaveCSS("border-width", "4px");
+     await expect(newsCard).toHaveCSS("box-shadow", /rgba\(15, 23, 42/);
     await expect(page.locator(".news-controls button")).toHaveCount(2);
     await expect(page.locator(".news-controls button").first()).toHaveCSS("width", "48px");
     await expect(page.locator(".news-controls button img").first()).toHaveCSS("width", "24px");
@@ -39,9 +42,9 @@ test.describe("public homepage parity smoke", () => {
     const programCard = page.locator(".program-card").first();
     await expect(programCard.locator(":scope > a img")).toHaveCount(1);
     await expect(programCard.locator(":scope > a img")).toBeVisible();
-    await expect(programCard).toHaveCSS("box-shadow", "none");
-    await programCard.hover();
-    await expect(programCard).toHaveCSS("box-shadow", "none");
+     await expect(programCard).toHaveCSS("box-shadow", "none");
+     await programCard.hover();
+     await expect(programCard).toHaveCSS("box-shadow", /rgba\(15, 23, 42/);
     const pseudoContent = await programCard.locator(":scope > a").evaluate((element) => getComputedStyle(element, "::after").content);
     expect(pseudoContent).toBe("none");
     await expect(page.locator('.video-play-circle img')).toHaveAttribute('src', /video-profile-svg-01\.svg$/);
@@ -88,11 +91,14 @@ test.describe("public homepage parity smoke", () => {
     const hitboxWidth = await page.locator(".major-unit").first().locator(".major-person-hitbox").evaluate((element) => element.getBoundingClientRect().width);
     expect(visualWidth).toBeGreaterThan(hitboxWidth);
     expect(visualWidth).toBeGreaterThan(300);
+    await page.mouse.move(20, 20);
     await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).focus();
-    await page.waitForTimeout(500);
     await expect(page.locator(".major-unit.is-active")).toBeVisible();
     await expect(page.locator(".major-unit.is-active .major-person-visual")).toHaveCSS("opacity", "1");
-    await expect(page.locator(".major-unit.is-dimmed .major-person-visual").first()).toHaveCSS("opacity", "0.25");
+    await expect.poll(
+      async () => Number(await page.locator(".major-unit.is-dimmed .major-person-visual").first().evaluate((element) => getComputedStyle(element).opacity)),
+      { timeout: 1500 },
+    ).toBeCloseTo(0.25, 2);
   });
 
   test("achievement, BLUD, AI, and footer states expose their Figma layers", async ({ page }) => {

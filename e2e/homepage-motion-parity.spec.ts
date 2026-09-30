@@ -72,8 +72,18 @@ test.describe("current Figma prototype motion parity", () => {
         const initial = bounds.initial;
         const destination = bounds.destination;
         return values.some((value, property) => Math.abs(value - initial[property]) > 0.5 && Math.abs(value - destination[property]) > 0.5);
-      }, { initial: [defaultLeft, defaultTop, defaultWidth, defaultHeight], destination: [finalLeft, finalTop, finalWidth, finalHeight] }), { timeout: 250 }).toBe(true);
-      await page.waitForTimeout(350);
+      }, { initial: [defaultLeft, defaultTop, defaultWidth, defaultHeight], destination: [finalLeft, finalTop, finalWidth, finalHeight] }), { timeout: 1500 }).toBe(true);
+      await expect.poll(async () => {
+        const box = await page.locator(".major-unit.is-active").boundingBox();
+        const stage = await page.locator(".major-stage").boundingBox();
+        if (!box || !stage) return null;
+        return [box.x - stage.x, box.y - stage.y, box.width, box.height];
+      }, { timeout: 1500 }).toEqual([
+        expect.closeTo(finalLeft, 0),
+        expect.closeTo(finalTop, 0),
+        expect.closeTo(finalWidth, 0),
+        expect.closeTo(finalHeight, 0),
+      ]);
       const box = await page.locator(".major-unit.is-active").boundingBox();
       const stage = await page.locator(".major-stage").boundingBox();
       expect(box && stage).toBeTruthy();

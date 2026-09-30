@@ -370,6 +370,63 @@ body.chat-room-open {
   .major-mobile-item.is-active { grid-template-columns: 1fr; padding-top: 8px; }.major-mobile-item.is-active > img { width: 100%; height: 230px; }.major-mobile-item.is-active > span { display: none; }.major-mobile-item .major-popover { position: relative; left: auto; top: auto; width: 100%; min-height: 0; margin-top: 8px; box-shadow: none; padding: 0; }.major-mobile-item .major-popover-pointer { display: none; }.major-mobile-item .major-popover-icon { width: 48px; height: 48px; }.major-mobile-item .major-popover h3 { font-size: 20px; }.major-mobile-item .major-popover a { margin-top: 16px; }
 }
 
+/* Final cascade parity: legacy rules above must not cancel audited hover states. */
+.program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); opacity: 1; }
+.ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.footer-subscribe input:hover,.footer-subscribe input:focus { border: 1px solid #006cdc; color: #0092ff; box-shadow: 0 2px 4px rgba(15,84,142,.25); }
+.ai-cta-copy button:hover,.ai-cta-copy button:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.program-feature-copy a:hover,.program-feature-copy a:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+
+/* Final cascade parity: legacy rules above must not cancel audited hover states. */
+.program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); opacity: 1; }
+
+/* Final Figma prototype interaction contract. */
+.program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.achievement-stats:hover,.achievement-stats:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); opacity: 1; }
+.news-controls button:hover,.news-controls button:focus-visible,.achievement-carousel > button:hover,.achievement-carousel > button:focus-visible,.program-card > a:hover,.program-card > a:focus-visible,.footer-top-social a:hover,.footer-top-social a:focus-visible { background: #0092ff; color: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-controls button:hover img,.news-controls button:focus-visible img,.achievement-carousel > button:hover img,.achievement-carousel > button:focus-visible img,.program-card > a:hover img,.program-card > a:focus-visible img,.footer-top-social a:hover img,.footer-top-social a:focus-visible img { filter: brightness(0) invert(1); }
+.footer-subscribe input:hover,.footer-subscribe input:focus { border: 1px solid #006cdc; color: #0092ff; box-shadow: 0 2px 4px rgba(15,84,142,.25); }
+@media (prefers-reduced-motion: reduce) {
+  .program-card,.blud-card,.news-card,.achievement-stats,.video-play,.news-controls button,.achievement-carousel > button,.footer-top-social a,.footer-subscribe input { transition: none !important; }
+}
+
+/* Figma homepage interaction contracts: 300ms ease-out, no generic lift. */
+.quick-access-card { box-sizing: border-box; border: 2px solid #eaf5fa; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.quick-access-card.is-active { z-index: 10; transform: translateY(-4px); border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; }
+.quick-access-card.is-dimmed { z-index: 0; opacity: .5; }
+.quick-access-card.is-normal { z-index: 1; opacity: 1; }
+.advantages-control:hover,.advantages-control:focus-visible { color: #fff; }
+.advantages-control:hover img,.advantages-control:focus-visible img { filter: brightness(0) invert(1); }
+.overview-photo-cta,.program-feature-copy a,.blud-cta,.ai-cta-copy button,.major-popover a,.achievement-card a { transition: background .3s ease-out, color .3s ease-out, box-shadow .3s ease-out; }
+.overview-photo-cta:hover,.overview-photo-cta:focus-visible,.major-popover a:hover,.major-popover a:focus-visible,.achievement-card a:hover,.achievement-card a:focus-visible { background: linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5); color: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.program-feature-copy a:hover,.program-feature-copy a:focus-visible,.blud-cta:hover,.blud-cta:focus-visible,.ai-cta-copy button:hover,.ai-cta-copy button:focus-visible { background: #fff; color: #0092ff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.video-play { transition: filter .3s ease-out; }
+.video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); }
+.program-feature-card,.program-card,.achievement-stats,.news-card,.blud-card { transition: border-color .3s ease-out, border-width .3s ease-out, box-shadow .3s ease-out; }
+.program-feature-card:hover,.program-feature-card:focus-within,.program-card:hover,.program-card:focus-within,.achievement-stats:hover,.achievement-stats:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.program-card:hover,.program-card:focus-within { transform: none; }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-controls button,.achievement-carousel > button,.program-card > a,.footer-top-social a { transition: background-color .3s ease-out, box-shadow .3s ease-out, color .3s ease-out; }
+.news-controls button:hover,.news-controls button:focus-visible,.achievement-carousel > button:hover,.achievement-carousel > button:focus-visible,.program-card > a:hover,.program-card > a:focus-visible,.footer-top-social a:hover,.footer-top-social a:focus-visible { background: #0092ff; color: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-controls button:hover img,.news-controls button:focus-visible img,.achievement-carousel > button:hover img,.achievement-carousel > button:focus-visible img,.program-card > a:hover img,.program-card > a:focus-visible img,.footer-top-social a:hover img,.footer-top-social a:focus-visible img { filter: brightness(0) invert(1); }
+.footer-subscribe input { transition: border-color .3s ease-out, color .3s ease-out, box-shadow .3s ease-out; }
+.footer-subscribe input:hover,.footer-subscribe input:focus { border: 1px solid #006cdc; color: #0092ff; box-shadow: 0 2px 4px rgba(15,84,142,.25); }
+@media (prefers-reduced-motion: reduce) {
+  .quick-access-card,.program-feature-card,.program-card,.achievement-stats,.news-card,.blud-card,.news-controls button,.achievement-carousel > button,.program-card > a,.footer-top-social a,.footer-subscribe input { transition: none; }
+}
+
 /* Final cascade for the verified News, Prestasi, and Program contracts. */
 @media (min-width: 768px) {
   .news-card { box-sizing: border-box; position: relative; border: 2px solid #eaf5fa; border-radius: 24px; background: #fff; box-shadow: none; padding: 18px; }
@@ -438,7 +495,7 @@ body.chat-room-open {
 .news-controls button:last-child img,.achievement-carousel > button:last-child img { transform: rotate(180deg); }
 .blud-cta img,.ai-cta-copy button img { width: 20px; height: 20px; object-fit: contain; }
 .program-card > a img { width: 24px !important; height: 24px !important; }
-.program-card:hover,.program-card:focus-within,.blud-card:hover,.blud-card:focus-visible { transform: none; }
+ .program-card:hover,.program-card:focus-within,.blud-card:hover,.blud-card:focus-visible { transform: none; }
 @media (min-width: 768px) {
   .achievement-card { transition: width .3s cubic-bezier(0.25, 1, 0.5, 1), height .3s cubic-bezier(0.25, 1, 0.5, 1), border-radius .3s cubic-bezier(0.25, 1, 0.5, 1); }
   .achievement-card:hover,.achievement-card:focus-within { width: 261px; height: 326px; flex-basis: 261px; }
@@ -499,3 +556,10 @@ body.chat-room-open {
   .floating-chatbot { width: 72px; height: 72px; }
   .footer-newsletter { display: block; }.footer-subscribe { width: 100%; margin-top: 20px; }.footer-top-social { position: static; margin-top: 16px; }.footer-grid { display: block; }.footer-columns { grid-template-columns: repeat(2, 1fr); margin-top: 32px; }.footer-brand { max-width: none; }.footer-map { margin-top: 28px; }.footer-map img { max-width: 100%; }.ai-cta { height: 560px; }.ai-cta-copy { width: 100%; padding: 0 24px; }.ai-cta-copy h2 { font-size: 30px; line-height: 42px; }.ai-cta-art { right: -44px; top: 250px; width: 320px; height: 320px; }.achievement-stats { width: 100%; height: auto; grid-template-columns: 1fr 1fr; }.achievement-stats > div:not(:last-child)::after { display: none; }.achievement-stats > div { grid-template-columns: 56px 1fr; }.stat-icon { width: 56px; height: 56px; }.program-slider { padding: 0; }.program-panel-track img { width: 100vw; }.blud-intro { text-align: center; }.blud-cta { position: static; display: inline-flex; margin-top: 16px; }.school-overview { height: auto !important; padding-bottom: 28px; }.school-overview .relative { height: 520px; }.school-overview .absolute.left-0.top-\[180px\] { top: 390px; width: 100%; }
 }
+
+/* Final cascade parity: legacy rules above must not cancel audited hover states. */
+.program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.video-play:hover,.video-play:focus-visible { filter: drop-shadow(0 4px 16px rgba(15,23,42,.08)); opacity: 1; }

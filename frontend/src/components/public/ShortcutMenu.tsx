@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
 
 type ShortcutMenuProps = { onAskAi: () => void };
@@ -7,14 +8,26 @@ const imageShortcuts = [
   ["KJP & PIP", "/information", figmaAssets.shortcuts.kjpPip],
 ] as const;
 export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
+  const [activeShortcut, setActiveShortcut] = useState<number | null>(null);
+
   return (
-    <section className="relative z-30 mx-auto -mt-[79px] grid w-[calc(100%-32px)] max-w-[1192px] gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {imageShortcuts.map(([label, href, image]) => (
+    <section
+      className="relative z-30 mx-auto -mt-[79px] grid w-[calc(100%-32px)] max-w-[1192px] gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setActiveShortcut(null);
+        }
+      }}
+      onMouseLeave={() => setActiveShortcut(null)}
+    >
+      {imageShortcuts.map(([label, href, image], index) => (
         <a
-          className="group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl border-2 border-[#eaf5fa] bg-white shadow-[0_4px_16px_rgba(15,23,42,.08)] transition-colors duration-300 hover:border-primary hover:shadow-xl focus-visible:border-primary focus-visible:outline-none"
+          className={`quick-access-card group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "is-normal" : "is-dimmed"} ${activeShortcut === index ? "is-active" : ""}`}
           href={href}
           aria-label={label}
           key={label}
+          onFocus={() => setActiveShortcut(index)}
+          onMouseEnter={() => setActiveShortcut(index)}
         >
           <img
             className="absolute inset-0 size-full object-cover"
@@ -24,9 +37,11 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
         </a>
       ))}
       <button
-        className="group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl border-2 border-[#eaf5fa] bg-white shadow-[0_4px_16px_rgba(15,23,42,.08)] transition-colors duration-300 hover:border-primary hover:shadow-xl focus-visible:border-primary focus-visible:outline-none"
+        className={`quick-access-card group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "is-normal" : "is-dimmed"} ${activeShortcut === 3 ? "is-active" : ""}`}
         onClick={onAskAi}
         aria-label="Tanya AI"
+        onFocus={() => setActiveShortcut(3)}
+        onMouseEnter={() => setActiveShortcut(3)}
       >
         <img className="absolute inset-0 size-full object-cover" src={figmaAssets.shortcuts.aiChat} alt="Tanya AI" />
       </button>

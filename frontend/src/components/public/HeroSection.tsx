@@ -41,25 +41,41 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
           Membentuk generasi yang kompeten, berkarakter, dan siap memasuki dunia
           kerja untuk masa depan yang lebih baik.
         </p>
-         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <a
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold shadow-lg focus-visible:outline-2 focus-visible:outline-white"
+            className="group inline-flex items-center gap-2 rounded-full border border-transparent bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors duration-300 ease-out hover:border-white hover:bg-white hover:bg-none hover:text-primary focus-visible:border-white focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
             href="/profile"
           >
             Jelajahi SMKN 26{" "}
-            <img className="size-5" src={figmaAssets.icons.arrowRight} alt="" />
+            <span className="relative inline-flex size-5 shrink-0" aria-hidden="true">
+              <img className="absolute inset-0 size-5 opacity-100 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none" src={figmaAssets.icons.arrowRight} alt="" />
+              <img className="absolute inset-0 size-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" src={figmaAssets.secondaryButton.arrowRight} alt="" />
+            </span>
           </a>
           <a
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-primary shadow-lg focus-visible:outline-2 focus-visible:outline-primary"
+            className="group inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2.5 text-sm font-semibold text-primary shadow-lg transition-colors duration-300 ease-out hover:border-transparent hover:bg-gradient-to-br hover:from-primary-dark hover:via-primary hover:to-soft-blue hover:text-white focus-visible:border-transparent focus-visible:bg-gradient-to-br focus-visible:from-primary-dark focus-visible:via-primary focus-visible:to-soft-blue focus-visible:text-white focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
             href="#video-profile"
           >
-            <img className="size-5" src={figmaAssets.icons.playVideo} alt="" />
+            <span
+              className="size-5 shrink-0 bg-current text-primary transition-colors duration-300 group-hover:text-white group-focus-visible:text-white motion-reduce:transition-none"
+              style={{
+                maskImage: `url(${figmaAssets.icons.playVideo})`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "20px 20px",
+                WebkitMaskImage: `url(${figmaAssets.icons.playVideo})`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "20px 20px",
+              }}
+              aria-hidden="true"
+            />
             Tonton Video Profile
           </a>
         </div>
       </div>
       <form
-        className="absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-gray-200 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm"
+        className="group absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#e5e7eb] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border-primary hover:bg-white hover:bg-none hover:text-primary focus-within:border-primary focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
         onSubmit={submitSearch}
         role="search"
       >
@@ -68,13 +84,13 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </label>
         <input
           id="hero-search"
-          className="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white"
+          className="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white transition-colors duration-300 ease-out group-hover:text-primary group-hover:placeholder:text-primary group-focus-within:text-primary group-focus-within:placeholder:text-primary motion-reduce:transition-none"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Cari disini..."
         />
         <button
-          className="grid size-7 shrink-0 place-items-center rounded-full bg-white transition hover:scale-110 focus-visible:outline-2 focus-visible:outline-white"
+          className="grid size-7 shrink-0 place-items-center rounded-full bg-white focus-visible:outline-2 focus-visible:outline-white"
           type="submit"
           aria-label="Cari"
         >

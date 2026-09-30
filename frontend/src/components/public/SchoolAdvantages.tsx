@@ -111,7 +111,7 @@ export function SchoolAdvantages() {
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
-           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-[background-color,box-shadow] duration-300 ease-out hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
           disabled={translate >= bounds.max}
           aria-label="Keunggulan sebelumnya"
@@ -185,7 +185,7 @@ export function SchoolAdvantages() {
         </div>
         </div>
         <button
-           className="z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-[background-color,box-shadow] duration-300 ease-out hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(1)}
           disabled={translate <= bounds.min}
           aria-label="Keunggulan berikutnya"
