@@ -64,16 +64,15 @@ test.describe("current Figma prototype motion parity", () => {
     for (const [index, label] of labels.entries()) {
       const button = page.locator(`.major-person-hitbox[aria-label="Lihat ${label}"]`);
       await button.focus();
-      await page.waitForTimeout(75);
-      const mid = await page.locator(".major-unit.is-active").evaluate((element) => ({
-        left: Number.parseFloat(getComputedStyle(element).left),
-        top: Number.parseFloat(getComputedStyle(element).top),
-        width: Number.parseFloat(getComputedStyle(element).width),
-        height: Number.parseFloat(getComputedStyle(element).height),
-      }));
       const [finalLeft, finalTop, finalWidth, finalHeight] = expected[index];
       const [defaultLeft, defaultTop, defaultWidth, defaultHeight] = defaults[index];
-      expect([mid.left, mid.top, mid.width, mid.height].some((value, property) => value > [defaultLeft, defaultTop, defaultWidth, defaultHeight][property] && value < [finalLeft, finalTop, finalWidth, finalHeight][property] || value < [defaultLeft, defaultTop, defaultWidth, defaultHeight][property] && value > [finalLeft, finalTop, finalWidth, finalHeight][property])).toBeTruthy();
+      await expect.poll(async () => page.locator(".major-unit.is-active").evaluate((element, bounds) => {
+        const style = getComputedStyle(element);
+        const values = [Number.parseFloat(style.left), Number.parseFloat(style.top), Number.parseFloat(style.width), Number.parseFloat(style.height)];
+        const initial = bounds.initial;
+        const destination = bounds.destination;
+        return values.some((value, property) => Math.abs(value - initial[property]) > 0.5 && Math.abs(value - destination[property]) > 0.5);
+      }, { initial: [defaultLeft, defaultTop, defaultWidth, defaultHeight], destination: [finalLeft, finalTop, finalWidth, finalHeight] }), { timeout: 250 }).toBe(true);
       await page.waitForTimeout(350);
       const box = await page.locator(".major-unit.is-active").boundingBox();
       const stage = await page.locator(".major-stage").boundingBox();

@@ -7,6 +7,7 @@ import "@fontsource-variable/inter";
 import "./styles/tokens.css";
 import "./styles/app.css";
 import "./styles/aos-failsafe.css";
+import "./styles/final-controls.css";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode><AOSInitializer /><App /></React.StrictMode>,

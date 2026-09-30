@@ -1,0 +1,33 @@
+@media (min-width: 768px) {
+  .news-card {
+    box-sizing: border-box;
+    position: relative;
+    border: 2px solid #eaf5fa;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: none;
+    padding: 18px;
+  }
+
+  .news-card > img { position: absolute; left: 0; top: 0; width: 396px; height: 176px; object-fit: cover; }
+  .news-card > div { position: absolute; right: 18px; bottom: 18px; left: 18px; height: 83px; padding: 0; }
+  .news-card > div > span { position: absolute; left: -2px; top: -1px; display: inline-block; border-radius: 999px; background: linear-gradient(105deg,#006cdc,#0092ff); color: #fff; padding: 5px 12px; font-size: 14px; font-weight: 600; }
+  .news-card h3 { position: absolute; left: 0; top: 25px; margin: 0; background: linear-gradient(105deg,#006cdc,#0092ff); background-clip: text; color: transparent; font-size: 24px; font-weight: 700; line-height: 29px; }
+  .news-card time { position: absolute; left: 0; bottom: 0; display: block; margin: 0; color: #0b1324; font-size: 12px; line-height: 18px; }
+
+  .news-controls { top: 314.02px; right: auto; left: 0; width: 1382px; display: flex; justify-content: space-between; gap: 0; }
+  .news-controls button { display: grid; width: 48px; height: 48px; flex: 0 0 48px; place-items: center; border: 1px solid #e2e8f0; border-radius: 999px; background: #fff; }
+  .news-controls button img { width: 24px; height: 24px; }
+
+  .achievement-carousel { position: relative; display: block; width: 1272px; height: 296px; }
+  .achievement-track { width: 1272px; height: 296px; }
+  .achievement-carousel > button { position: absolute; top: 114px; z-index: 2; display: grid; width: 48px; height: 48px; flex: none; place-items: center; border: 1px solid #e2e8f0; border-radius: 999px; background: #fff; pointer-events: auto; }
+  .achievement-carousel > button:first-child { left: -57px; }
+  .achievement-carousel > button:last-child { right: -57px; }
+  .achievement-carousel > button img { width: 24px; height: 24px; }
+}
+
+.program-card:hover,
+.program-card:focus-within { transform: none; box-shadow: none; }
+.program-card > a::after { content: none; display: none; }
+.program-card > a img { width: 24px !important; height: 24px !important; }
