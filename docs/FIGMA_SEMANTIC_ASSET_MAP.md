@@ -16,7 +16,7 @@ Current local asset mapping for visible homepage controls. Entries marked `VERIF
 | BLUD | six icons and six shape variants | `frontend/public/assets/figma/blud/` | VERIFIED / per-card bounds unresolved |
 | Prestasi statistics | gift, people | `achievements-svg-12.svg`, `achievements-svg-03.svg` | VERIFIED |
 | Prestasi carousel / News controls | gradient chevron | `frontend/public/assets/figma/news/news-svg-02.svg` | VERIFIED |
-| Prestasi CTA | solid white arrow | `frontend/public/assets/figma/achievements/` matching `6d2f1.svg` role | UNRESOLVED filename match |
+| Prestasi CTA | `6d2f1.svg`, `basil:arrow-right-solid`, solid white arrow | `frontend/public/assets/figma/achievements/achievements-svg-13.svg` | VERIFIED exact path/viewBox/dimensions/fill; SHA-256 matches `programs-svg-08.svg` |
 | News cards | current Figma variants | `news-raw-03.png`, `news-raw-04.png`, `news-raw-01.png`, `news-raw-09.png`, `news-raw-07.png` | VERIFIED by current visual mapping |
 | AI CTA | badge, rings, bot, primary arrow | `frontend/public/assets/figma/ai-cta/`, `programs-svg-08.svg` | VERIFIED |
 | Footer | crest, social, contact, map | `frontend/public/assets/figma/branding/`, `footer/` | VERIFIED |

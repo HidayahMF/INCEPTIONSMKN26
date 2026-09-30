@@ -94,13 +94,16 @@ export const figmaAssets = {
       "/assets/figma/blud/blud-svg-11.svg",
     ],
   },
-  achievements: [
-    "/assets/figma/achievements/achievements-raw-01.png",
-    "/assets/figma/achievements/achievements-raw-02.png",
-    "/assets/figma/achievements/achievements-raw-03.png",
-    "/assets/figma/achievements/achievements-raw-04.png",
-    "/assets/figma/achievements/achievements-raw-05.png",
-  ],
+  achievements: {
+    cards: [
+      "/assets/figma/achievements/achievements-raw-01.png",
+      "/assets/figma/achievements/achievements-raw-02.png",
+      "/assets/figma/achievements/achievements-raw-03.png",
+      "/assets/figma/achievements/achievements-raw-04.png",
+      "/assets/figma/achievements/achievements-raw-05.png",
+    ],
+    detailArrow: "/assets/figma/achievements/achievements-svg-13.svg",
+  },
   news: [
     "/assets/figma/news/news-raw-01.png",
     "/assets/figma/news/news-raw-02.png",
