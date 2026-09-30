@@ -15,7 +15,7 @@ This contract records verified prototype behavior for the current Figma file. Nu
 | Jurusan TKR | default -> `205:914` | `ON_HOVER` | ~300ms | Ease Out | Wrapper `526,-38,576,562`. |
 | Jurusan SIJA | default -> `205:950` | `ON_HOVER` | ~300ms | Ease Out | Wrapper `728,17,524,503`. |
 | Prestasi card | `266:2170` -> `266:2136` | `ON_HOVER` / focus | ~300ms | Ease Out | Card `237 x 296` becomes `261 x 326`; matching internal layers animate; poster override remains per instance. |
-| BLUD cards | default -> `246:1294`, `1310`, `1306`, `1302`, `1298`, `1314` | `ON_HOVER` / focus | ~300ms | Ease Out | Per-card shape, border, shadow, opacity; no shared generic lift. Exact internal deltas remain unavailable from the checked API context. |
+| BLUD cards | default -> `246:1294`, `1310`, `1306`, `1302`, `1298`, `1314` | `ON_HOVER` / focus | ~300ms | Ease Out | Card `400x200`; border `2px #EAF5FA` -> `4px #006CDC`; shape wrapper `(392,24.39,59.92,150.215)` -> `(297,-28,100.92,253)`; hover shape `blud-svg-19.svg`; shadow only KGStudio, E-MAN, Manufaktur26, Garage26. |
 | Advantages cards | `111:453` -> `123:708` | `ON_HOVER` | ~300ms | Ease Out | Geometry remains `300 x 400`; hover adds verified shadow only. |
 
 ## Reduced Motion
@@ -25,23 +25,23 @@ With `prefers-reduced-motion: reduce`, marquee and timed transitions stop or res
 ## Unresolved
 
 - `SLOW_NUMERIC_CURVE = UNRESOLVED`: the checked Figma prototype/node context (`I246:1137;242:1043` -> `242:995`) exposes the preset name and duration, but not cubic-bezier control points. No approximation was introduced.
-- Exact per-card BLUD internal shape bounds remain unresolved. The checked prototype destination nodes (`246:1294`, `246:1310`, `246:1306`, `246:1302`, `246:1298`, `246:1314`) were available only as destination references; recursive child property deltas were not exposed by the available API context.
+- BLUD child geometry is resolved from fresh direct contexts: default shape wrapper `(392,24.39,59.92,150.215)` with the `150.215x59.92` shape rotated `-90deg`; hover wrapper `(297,-28,100.92,253)` with `blud-svg-19.svg` (`253x100.92`) rotated `-90deg`. Hover shadow is present for KGStudio, E-MAN, Manufaktur26, and Garage26 only.
 
 ## BLUD Default -> Hover Geometry Audit
 
-The default values below are the verified shared component contract. The six hover destination node IDs were checked as prototype destinations, but the available API did not return recursive child bounds/styles for their shape, border, shadow, icon, or text layers. Therefore no per-card CSS delta is asserted or invented.
+The default values below are the verified shared component contract. Default semantic shape assets are mapped by role in `figmaAssets.blud.defaultShapes`; the obsolete numeric icon/plus/bolt/arrow array is no longer used.
 
 | Card | Default | Hover | Verified delta | Node evidence |
 |---|---|---|---|---|
-| KGStudio | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1294`; card source `246:1379` |
-| UPTECHNO | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1310`; card source `246:1386` |
-| E-MAN | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1306`; card source `246:1393` |
-| Manufaktur26 | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1302`; card source `246:1400` |
-| Garage26 | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1298`; card source `246:1401` |
-| GADIZ VOKASI | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; semantic icon/shape pair | Internal geometry unavailable | No extractable shape x/y/width/height/opacity, border, shadow, icon, or text delta | `246:1314`; card source `246:1402` |
+| KGStudio | card 400x200, radius 24px, 2px `#EAF5FA` border, padding 18px; default shape wrapper `(392,24.39,59.92,150.215)` | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; shadow `0 4px 16px rgba(15,23,42,.08)` | Border width/color and shape wrapper change | `246:1294`; default `246:1379`, component `246:1244` |
+| UPTECHNO | same shared default geometry | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; no exposed hover shadow | Border width/color and shape wrapper change | `246:1310`; default `246:1386`, component `246:1286` |
+| E-MAN | same shared default geometry | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; shadow `0 4px 16px rgba(15,23,42,.08)` | Border width/color and shape wrapper change | `246:1306`; default `246:1393`, component `246:1282` |
+| Manufaktur26 | same shared default geometry | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; shadow `0 4px 16px rgba(15,23,42,.08)` | Border width/color and shape wrapper change | `246:1302`; default `246:1400`, component `246:1278` |
+| Garage26 | same shared default geometry | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; shadow `0 4px 16px rgba(15,23,42,.08)` | Border width/color and shape wrapper change | `246:1298`; default `246:1401`, component `246:1246` |
+| GADIZ VOKASI | same shared default geometry | 4px `#006CDC` border; hover wrapper `(297,-28,100.92,253)`; no exposed hover shadow | Border width/color and shape wrapper change | `246:1314`; default `246:1402`, component `246:1290` |
 
-Production comparison: the current implementation has a shared hover border/shadow and per-card semantic shape asset positioning, but the checked Figma data does not prove those values wrong. No BLUD CSS was changed.
+Production comparison: the generic lift and generic blue shadow were removed. Default and hover shape wrappers, border transition, hover asset, and per-card shadow behavior now follow the fresh Figma contract.
 
 ## Prestasi CTA Asset Audit
 
-Source role: `6d2f1.svg`, `basil:arrow-right-solid`. The exact local equivalent is `frontend/public/assets/figma/achievements/achievements-svg-13.svg`. It has the same path geometry, `viewBox="0 0 20 20"`, dimensions `20 x 20`, and `fill="white"` as the existing exported `frontend/public/assets/figma/programs/programs-svg-08.svg`; both files also have identical SHA-256 hashes. The semantic mapping is `figmaAssets.achievements.detailArrow`.
+Current source role: `9c51c.svg`, `basil:arrow-right-solid`. The exact local export is `frontend/public/assets/figma/icons/secondary-arrow-right.svg`, `20x20`, `viewBox="0 0 20 20"`, fill `#0092FF`. The semantic mapping is `figmaAssets.secondaryButton.arrowRight`; Prestasi no longer uses `figmaAssets.achievements.detailArrow`.

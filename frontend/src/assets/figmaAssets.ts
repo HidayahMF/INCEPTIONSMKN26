@@ -88,14 +88,15 @@ export const figmaAssets = {
       "/assets/figma/blud/blud-TKR-icon.svg",
       "/assets/figma/blud/blud-SIJA-icon.svg",
     ],
-    shapes: [
-      "/assets/figma/blud/blud-svg-01.svg",
-      "/assets/figma/blud/blud-svg-03.svg",
-      "/assets/figma/blud/blud-svg-05.svg",
-      "/assets/figma/blud/blud-svg-07.svg",
-      "/assets/figma/blud/blud-svg-09.svg",
-      "/assets/figma/blud/blud-svg-11.svg",
-    ],
+    defaultShapes: {
+      kgs: "/assets/figma/blud/blud-KGS-shape.svg",
+      tek: "/assets/figma/blud/blud-svg-06.svg",
+      titl: "/assets/figma/blud/blud-svg-12.svg",
+      tflm: "/assets/figma/blud/blud-svg-13.svg",
+      tkr: "/assets/figma/blud/blud-TKR-shape.svg",
+      sija: "/assets/figma/blud/blud-SIJA-shape.svg",
+    },
+    hoverShape: "/assets/figma/blud/blud-svg-19.svg",
   },
   achievements: {
     cards: [

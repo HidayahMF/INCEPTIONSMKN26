@@ -27,6 +27,14 @@ body {
   }
 }
 
+/* Keep the exact BLUD state contract after the legacy desktop overrides. */
+.blud-card .blud-shape-wrap { left: 392px; top: 24.39px; width: 59.92px; height: 150.215px; opacity: .75; }
+.blud-card .blud-shape { right: auto; bottom: auto; left: 0; top: 0; width: 59.92px; height: 150.215px; transform: rotate(-90deg); }
+.blud-card .blud-hover-shape { display: none; }
+.blud-card:hover .blud-shape-wrap,.blud-card:focus-visible .blud-shape-wrap { left: 297px; top: -28px; width: 100.92px; height: 253px; opacity: .9; }
+.blud-card:hover .blud-default-shape,.blud-card:focus-visible .blud-default-shape { display: none; }
+.blud-card:hover .blud-hover-shape,.blud-card:focus-visible .blud-hover-shape { display: block; width: 253px; height: 100.92px; }
+
 @media (prefers-reduced-motion: reduce) {
   [data-aos],
   [data-aos].aos-init,
@@ -146,10 +154,6 @@ body.chat-room-open {
   object-fit: contain;
 }
 
-/* Keep BLUD decoration hidden until the card enters its Figma hover state. */
-.blud-card .blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
-.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
-
 /* Last verified parity overrides. */
 .section-intro h2 { font-weight: 700; }
 .video-play { filter: drop-shadow(0 4.8px 9.6px rgba(15,23,42,.08)); }
@@ -192,10 +196,6 @@ body.chat-room-open {
 .major-card-layer { pointer-events: none; }
 .major-card-layer .major-popover a { pointer-events: auto; }
 .major-unit.right .major-card-layer,.major-unit.left .major-card-layer { left: 0; }
-.blud-card { transform: none; transition: border-color .3s ease-out, box-shadow .3s ease-out; }
-.blud-card:hover,.blud-card:focus-visible { border-color: #0092ff; box-shadow: 0 8px 24px rgba(0,108,220,.18); }
-.blud-shape { left: auto; right: -180px; bottom: -8px; width: 260px; height: 216px; opacity: 0; transform: none; transition: right .3s ease-out, opacity .3s ease-out; }
-.blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -12px; opacity: .9; }
 .achievement-card::after { opacity: 0; transition: opacity .3s ease-out; }
 .achievement-card > div { opacity: 0; transform: translateY(14px); transition: opacity .3s ease-out, transform .3s ease-out; }
 .achievement-card:hover::after,.achievement-card:focus-within::after { opacity: 1; }
@@ -255,6 +255,7 @@ body.chat-room-open {
 
 @media (max-width: 1100px) { .blud-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.program-grid { grid-template-columns: minmax(0, 1fr); height: auto; }.program-slider { width: 100%; }.programs-section { height: auto; padding-bottom: 64px; }.program-cards { margin-top: 24px; }.footer-grid { grid-template-columns: 1fr; }.footer-columns { grid-template-columns: repeat(3, 1fr); }.figma-footer { padding-inline: 32px; } }
 @media (max-width: 767px) { .section-intro h2 { font-size: 30px; line-height: 42px; }.video-profile { height: 560px; }.video-profile-content h2 { font-size: 32px; }.program-grid,.blud-grid { display: flex; flex-direction: column; }.program-slider { height: 303px; }.program-cards { display: grid; }.blud-section,.achievements-section,.news-section { height: auto; padding-bottom: 64px; }.blud-grid { margin: 0; }.achievement-track { overflow-x: auto; padding-bottom: 12px; }.achievement-stats { width: 100%; height: auto; grid-template-columns: 1fr 1fr; }.achievement-stats button { display: none; }.news-track { transform: none; overflow-x: auto; }.news-card { width: min(400px, calc(100vw - 64px)); flex-basis: min(400px, calc(100vw - 64px)); }.ai-cta { height: 560px; margin-bottom: 56px; }.ai-cta-copy { width: 100%; padding: 40px 24px; }.ai-cta-copy h2 { font-size: 30px; }.ai-cta-art { right: -44px; top: 250px; width: 320px; height: 320px; }.figma-footer { padding: 40px 24px 20px; }.footer-newsletter { display: block; }.footer-subscribe { width: 100%; margin-top: 20px; }.footer-grid { grid-template-columns: repeat(2, 1fr); }.footer-brand { grid-column: span 2; }.footer-bottom { display: block; line-height: 24px; }.footer-social { margin-top: 8px; } }
+
 @media (prefers-reduced-motion: reduce) { .partner-track { animation: none; }.video-play,.program-panel-track,.partner-track,.program-card,.blud-card { transition: none; } }
 
 .school-majors { position: relative; height: 793px; margin-top: 100px; overflow: hidden; background: #fff; padding: 28px 16px 0; box-sizing: border-box; }
@@ -268,7 +269,7 @@ body.chat-room-open {
 .major-stage-wrap { position: absolute; top: 49px; left: 50%; width: min(1444px, calc(100% + 32px)); height: 576px; margin: 0; transform: translateX(-50%); }
 .major-stage-background { position: absolute; inset: 0; width: 100%; height: 576px; pointer-events: none; object-fit: fill; }
 .major-stage { position: absolute; left: 50%; top: 0; width: 1272px; height: 524px; transform: translateX(-50%); }
-.major-unit { position: absolute; z-index: 1; pointer-events: none; transition: opacity .3s ease-out; }
+.major-unit { position: absolute; z-index: 1; pointer-events: none; transition: left .3s ease-out, top .3s ease-out, width .3s ease-out, height .3s ease-out, opacity .3s ease-out; }
 .major-unit.is-active { z-index: 20; }
 .major-unit.is-dimmed { opacity: 1; transition: opacity .3s ease-out; }
 .major-person { position: absolute; inset: 0 35%; display: block; width: 30%; height: 100%; border: 0; background: transparent; cursor: pointer; pointer-events: auto; padding: 0; }
@@ -301,6 +302,23 @@ body.chat-room-open {
   .major-mobile-item.is-active { grid-template-columns: 1fr; padding-top: 8px; }.major-mobile-item.is-active > img { width: 100%; height: 230px; }.major-mobile-item.is-active > span { display: none; }.major-mobile-item .major-popover { position: relative; left: auto; top: auto; width: 100%; min-height: 0; margin-top: 8px; box-shadow: none; padding: 0; }.major-mobile-item .major-popover-pointer { display: none; }.major-mobile-item .major-popover-icon { width: 48px; height: 48px; }.major-mobile-item .major-popover h3 { font-size: 20px; }.major-mobile-item .major-popover a { margin-top: 16px; }
 }
 
+/* Exact current Figma state contracts. */
+.blud-card { transform: none; border-width: 2px; box-shadow: none; transition: border-width .3s ease-out, border-color .3s ease-out, box-shadow .3s ease-out; }
+.blud-card:hover,.blud-card:focus-visible { border-width: 4px; border-color: #006cdc; }
+.blud-card.has-hover-shadow:hover,.blud-card.has-hover-shadow:focus-visible { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-shape-wrap { position: absolute; left: 392px; top: 24.39px; width: 59.92px; height: 150.215px; opacity: .75; transition: left .3s ease-out, top .3s ease-out, width .3s ease-out, height .3s ease-out, opacity .3s ease-out; }
+.blud-shape { position: absolute; right: auto; bottom: auto; left: 0; top: 0; width: 59.92px; height: 150.215px; transform: rotate(-90deg); transform-origin: top left; object-fit: fill; }
+.blud-hover-shape { display: none; }
+.blud-card:hover .blud-shape-wrap,.blud-card:focus-visible .blud-shape-wrap { left: 297px; top: -28px; width: 100.92px; height: 253px; opacity: .9; }
+.blud-card:hover .blud-default-shape,.blud-card:focus-visible .blud-default-shape { display: none; }
+.blud-card:hover .blud-hover-shape,.blud-card:focus-visible .blud-hover-shape { display: block; width: 253px; height: 100.92px; }
+.achievement-card::after { inset: 17px -2px 0; background: linear-gradient(180deg, transparent 56px, #000059 295px); }
+.achievement-card > div { top: 180px; right: auto; bottom: auto; left: 16px; width: 221px; padding: 0; }
+.achievement-card h3 { font-size: 20px; font-weight: 700; }
+.achievement-card p { width: 238px; font-size: 12px; }
+.achievement-card a { color: #0092ff; padding: 10px 16px; font-size: 14px; font-weight: 600; filter: drop-shadow(0 4px 8px rgba(15,23,42,.08)); }
+.achievement-card a img { width: 20px; height: 20px; }
+
 /* Current prototype state motion rules. */
 .video-play-ring { position: absolute; left: 12px; top: 10px; z-index: 0; width: 98.4px !important; height: 98.4px !important; object-fit: contain !important; transition: left 1s cubic-bezier(0.25, 1, 0.5, 1), top 1s cubic-bezier(0.25, 1, 0.5, 1), width 1s cubic-bezier(0.25, 1, 0.5, 1), height 1s cubic-bezier(0.25, 1, 0.5, 1); }
 .video-play.is-playing .video-play-ring { left: 1.2px; top: -1px; width: 120px !important; height: 120px !important; }
@@ -331,8 +349,6 @@ body.chat-room-open {
   .blud-section { margin-top: 88px; }
   .blud-intro h2 span,.programs-section .section-intro h2 span,.achievements-section .section-intro h2 span,.ai-cta-copy h2 span { background: linear-gradient(105deg,#006cdc,#0092ff 72%,#4cbaf5); background-clip: text; color: transparent; }
   .blud-cta { background: linear-gradient(105deg,#006cdc,#0092ff); }
-  .blud-card .blud-shape { right: -74px; bottom: -20px; left: auto; width: 150px; height: 240px; opacity: 0; transform: none; }
-  .blud-card:hover .blud-shape,.blud-card:focus-visible .blud-shape { right: -42px; opacity: .9; }
   .achievements-section { margin-top: 88px; padding-top: 0; }
   .news-section { padding-top: 0; }
   .ai-cta { margin-top: 88px; }

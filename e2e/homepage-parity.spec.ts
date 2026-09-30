@@ -48,7 +48,8 @@ test.describe("public homepage parity smoke", () => {
     ]);
     const metrics = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, height: document.documentElement.scrollHeight }));
     expect(metrics.scrollWidth).toBe(metrics.clientWidth);
-    expect(metrics.height).toBeGreaterThan(8000);
+    expect(metrics.height).toBeGreaterThanOrEqual(8093);
+    expect(metrics.height).toBeLessThanOrEqual(8097);
     expect(failedAssets).toEqual([]);
     await page.screenshot({ path: "artifacts/homepage-1440-full.png", fullPage: true });
   });
@@ -67,7 +68,7 @@ test.describe("public homepage parity smoke", () => {
     expect(visualWidth).toBeGreaterThan(hitboxWidth);
     expect(visualWidth).toBeGreaterThan(300);
     await page.getByRole("button", { name: "Lihat Sistem Informasi, Jaringan & Aplikasi" }).focus();
-    await page.waitForTimeout(350);
+    await page.waitForTimeout(500);
     await expect(page.locator(".major-unit.is-active")).toBeVisible();
     await expect(page.locator(".major-unit.is-active .major-person-visual")).toHaveCSS("opacity", "1");
     await expect(page.locator(".major-unit.is-dimmed .major-person-visual").first()).toHaveCSS("opacity", "0.25");
@@ -83,9 +84,12 @@ test.describe("public homepage parity smoke", () => {
     await achievement.focus();
     await expect(achievement.locator(".achievement-card-content")).toHaveCSS("opacity", "1");
     const blud = page.locator(".blud-card").first();
-    await expect(blud.locator(".blud-shape")).toHaveCSS("opacity", "0");
+    await expect(blud.locator(".blud-shape-wrap")).toHaveCSS("left", "392px");
+    await expect(blud.locator(".blud-default-shape")).toBeVisible();
     await blud.hover();
-    await expect(blud.locator(".blud-shape")).toHaveCSS("opacity", "0.9");
+    await expect(blud.locator(".blud-shape-wrap")).toHaveCSS("left", "297px");
+    await expect(blud.locator(".blud-hover-shape")).toBeVisible();
+    await expect(blud.locator(".blud-hover-shape")).toHaveAttribute("src", "/assets/figma/blud/blud-svg-19.svg");
     await expect(page.locator(".ai-cta-art .ai-cta-layer")).toHaveCount(3);
     await expect(page.locator(".ai-cta-art .ai-cta-bot")).toHaveCSS("width", "285px");
     await expect(page.locator(".footer-top-social a")).toHaveCount(3);
