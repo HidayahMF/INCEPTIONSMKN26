@@ -47,9 +47,26 @@ export function HomepageSections({ onAskAi }: Props) {
 }
 
 function VideoProfileSection() {
-  const [playing, setPlaying] = useState(false);
-  useEffect(() => { const timer = window.setTimeout(() => setPlaying(true), 1); return () => window.clearTimeout(timer); }, []);
-  return <section id="video-profile" className="video-profile" aria-labelledby="video-profile-title"><div className="video-profile-overlay" /><div className="video-profile-content"><button className={`video-play ${playing ? "is-playing" : ""}`} type="button" aria-label="Putar video profil" onClick={() => setPlaying(true)}><img className="video-play-ring" src={playing ? figmaAssets.videoProfile.ringActive : figmaAssets.videoProfile.ringDefault} alt="" /><span className="video-play-circle"><img src={figmaAssets.videoProfile.playIdle} alt="" /></span><span className="video-play-button-o" aria-hidden="true"><img src={figmaAssets.videoProfile.playIdle} alt="" /></span></button><h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2><p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p></div></section>;
+  const youtubeUrl = "https://www.youtube.com/watch?si=IP1NH2avF07GO1DZ&v=BAWRtymSpNg&feature=youtu.be";
+  return <section id="video-profile" className="video-profile" aria-labelledby="video-profile-title">
+    <img className="video-profile-decoration-left" src={figmaAssets.videoProfile.decorationLeft} alt="" aria-hidden="true" />
+    <img className="video-profile-decoration-right" src={figmaAssets.videoProfile.decorationRight} alt="" aria-hidden="true" />
+    <img className="video-profile-lower-shape" src={figmaAssets.videoProfile.lowerShape} alt="" aria-hidden="true" />
+    <div className="video-profile-content">
+      <span className="video-profile-badge"><img src={figmaAssets.videoProfile.badgeIcon} alt="" />VIDEO PROFILE</span>
+      <h2 id="video-profile-title">Kenali SMKN 26 Jakarta lebih Dekat</h2>
+      <p>Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja, dan membangun masa depan.</p>
+    </div>
+    <div className="video-profile-frame">
+      <img className="video-profile-image" src={figmaAssets.videoProfile.preview} alt="Pratinjau video profil SMKN 26 Jakarta" />
+      <div className="video-profile-overlay" aria-hidden="true" />
+      <a className="video-play" href={youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label="Tonton Video Profil SMKN 26 Jakarta di YouTube">
+        <span className="video-play-pulse" aria-hidden="true" />
+        <img className="video-play-ring" src={figmaAssets.videoProfile.playRing} alt="" />
+        <span className="video-play-button"><img src={figmaAssets.videoProfile.playIcon} alt="" /></span>
+      </a>
+    </div>
+  </section>;
 }
 
 function ProgramsSection() {
