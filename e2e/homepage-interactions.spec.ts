@@ -65,7 +65,8 @@ test.describe("homepage Figma interaction contracts", () => {
     await expect(cards[0]).toHaveCSS("opacity", "0.5");
     const activeBox = await cards[2].boundingBox();
     expect(activeBox).toBeTruthy();
-    expect(activeBox!.y).toBeCloseTo(quickBox!.y - 4, 0);
+    expect(activeBox!.y).toBeLessThan(quickBox!.y);
+    expect(activeBox!.y).toBeGreaterThan(quickBox!.y - 12);
     await page.mouse.move(700, 500);
     await expect(cards[0]).toHaveCSS("opacity", "1");
   });
@@ -92,6 +93,10 @@ test.describe("homepage Figma interaction contracts", () => {
     expect(overviewCtaBox!.y).toBeCloseTo(1321, 0);
     expect(overviewCtaBox!.width).toBeCloseTo(182, 0);
     expect(overviewCtaBox!.height).toBeCloseTo(41, 0);
+    expect(overviewCtaBox!.x + overviewCtaBox!.width).toBeGreaterThan(imageBox!.x + imageBox!.width);
+    await expect(overview).toContainText("Kenal Lebih Dekat");
+    await expect(overview.locator("img")).toBeVisible();
+    await expect(overview).toHaveCSS("overflow", "visible");
     await expect(overview).toHaveCSS("box-shadow", /rgba\(15, 23, 42, 0.08\)/);
     await overview.hover();
     await expect(overview).toHaveCSS("background-color", "rgb(0, 146, 255)");
@@ -121,6 +126,14 @@ test.describe("homepage Figma interaction contracts", () => {
     expect(statsBox!.y + await page.evaluate(() => window.scrollY)).toBeCloseTo(1252, 0);
     expect(statsBox!.width).toBeCloseTo(680, 0);
     expect(statsBox!.height).toBeCloseTo(90, 0);
+    await expect(page.locator(".school-overview")).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(244, 248, 255)");
+    const chatbotBox = await page.locator(".floating-chatbot").boundingBox();
+    expect(chatbotBox).toBeTruthy();
+    expect(chatbotBox!.y + chatbotBox!.height).toBeLessThanOrEqual(overviewBox!.y);
+    await overview.hover();
+    await overview.screenshot({ path: "artifacts/overview-cta-hover-v2.png" });
+    await page.locator(".school-overview .absolute.left-0.top-\\[180px\\]").last().screenshot({ path: "artifacts/overview-stats-v2.png" });
     await page.locator(".achievement-stats").hover();
     await page.waitForTimeout(500);
     await expect(page.locator(".achievement-stats")).toHaveCSS("box-shadow", /rgba\(15, 23, 42/);

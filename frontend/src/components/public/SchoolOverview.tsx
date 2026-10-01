@@ -23,7 +23,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
     .slice(0, 5);
   const shownStats = stats.length ? stats : fallbackStats;
   return (
-    <section className="school-overview mt-[60px] h-[400px] bg-white" aria-labelledby="overview-title">
+    <section className="school-overview mt-[60px] h-[400px]" aria-labelledby="overview-title">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px]">
           <div className="flex justify-center">
           <span className="rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
@@ -53,7 +53,6 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
                 src={figmaAssets.school.overviewPhoto}
                 alt="Gedung SMK Negeri 26 Jakarta"
               />
-              <a className="overview-photo-cta secondary-button" href="/profile">Kenal Lebih Dekat <img className="size-5" src={figmaAssets.secondaryButton.arrowRight} alt="" /></a>
             </div>
           </div>
            <div className="absolute left-0 top-[180px] flex h-[90px] w-[680px] max-w-full items-center justify-between rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-white shadow-lg">
@@ -63,10 +62,10 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
                 key={label}
               >
                 <div className="min-w-0 text-center">
-                  <strong className="block text-[32px] font-bold">
+                  <strong className={`block font-bold ${index === 0 ? "text-[36px]" : "text-[32px]"}`}>
                     {value}
                   </strong>
-                  <span className="block whitespace-nowrap text-sm">
+                  <span className="block whitespace-nowrap text-base font-medium">
                     {label}
                   </span>
                 </div>
@@ -78,6 +77,9 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
           </div>
         </div>
       </div>
+      <a className="overview-photo-cta secondary-button hidden md:inline-flex" href="/profile">
+        Kenal Lebih Dekat <img className="size-5" src={figmaAssets.secondaryButton.arrowRight} alt="" />
+      </a>
     </section>
   );
 }

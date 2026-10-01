@@ -22,7 +22,7 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
     >
       {imageShortcuts.map(([label, href, image], index) => (
         <a
-          className={`quick-access-card ${index === 0 ? "is-first" : ""} group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "is-normal" : "is-dimmed"} ${activeShortcut === index ? "is-active" : ""}`}
+          className={`quick-access-card ${index === 0 ? "is-first" : ""} group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-[12000ms] ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "is-normal" : "is-dimmed"} ${activeShortcut === index ? "is-active" : ""}`}
           href={href}
           aria-label={label}
           key={label}
@@ -37,13 +37,17 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
         </a>
       ))}
       <button
-        className={`quick-access-card group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-300 ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "is-normal" : "is-dimmed"} ${activeShortcut === 3 ? "is-active" : ""}`}
+        className={`quick-access-card group relative block h-[148px] min-w-0 overflow-hidden rounded-3xl bg-white transition-[transform,opacity,box-shadow,border] duration-[12000ms] ease-out focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "is-normal" : "is-dimmed"} ${activeShortcut === 3 ? "is-active" : ""}`}
         onClick={onAskAi}
         aria-label="Tanya AI"
         onFocus={() => setActiveShortcut(3)}
         onMouseEnter={() => setActiveShortcut(3)}
       >
-        <img className="absolute inset-0 size-full object-cover" src={figmaAssets.shortcuts.aiChat} alt="Tanya AI" />
+        <img
+          className="absolute inset-0 size-full object-cover"
+          src={figmaAssets.shortcuts.aiChat}
+          alt="Tanya AI"
+        />
       </button>
     </section>
   );

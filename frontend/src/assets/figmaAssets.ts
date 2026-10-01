@@ -62,10 +62,13 @@ export const figmaAssets = {
     badgeIcon: "/assets/figma/majors/icon-section-badge.svg",
   },
   videoProfile: {
-    background: "/assets/figma/video-profile/video-profile-raw-02.jpg",
-    playIdle: "/assets/figma/video-profile/video-profile-svg-01.svg",
-    ringDefault: "/assets/figma/video-profile/video-profile-svg-03.svg",
-    ringActive: "/assets/figma/video-profile/video-profile-svg-08.svg",
+    preview: "/assets/figma/video-profile/video-profile-preview.png",
+    badgeIcon: "/assets/figma/video-profile/video-profile-badge-icon.svg",
+    lowerShape: "/assets/figma/video-profile/video-profile-lower-shape.svg",
+    playIcon: "/assets/figma/video-profile/video-profile-play-icon.svg",
+    playRing: "/assets/figma/video-profile/video-profile-play-ring.svg",
+    decorationLeft: "/assets/figma/video-profile/video-profile-decoration-left.svg",
+    decorationRight: "/assets/figma/video-profile/video-profile-decoration-right.svg",
   },
   programs: {
     panels: [
@@ -80,6 +83,7 @@ export const figmaAssets = {
     ],
   },
   blud: {
+    badgeIcon: "/assets/figma/video-profile/video-profile-badge-icon.svg",
     icons: [
       "/assets/figma/blud/blud-svg-02.svg",
       "/assets/figma/blud/blud-TEK-icon.svg",

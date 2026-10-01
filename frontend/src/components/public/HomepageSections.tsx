@@ -70,15 +70,27 @@ function VideoProfileSection() {
 }
 
 function ProgramsSection() {
-  const [slide, setSlide] = useState(false);
-  useEffect(() => { const timer = window.setTimeout(() => setSlide(true), 800); return () => window.clearTimeout(timer); }, []);
-  return <section className="homepage-section programs-section" aria-labelledby="programs-title"><div className="section-intro"><span className="section-badge">Program SMK Negeri 26 Jakarta</span><h2 id="programs-title">Berkembang di Dalam dan <span>di Luar Kelas</span></h2><p>Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman, kepemimpinan, dan potensi melalui berbagai program sekolah.</p></div><div className="program-grid"><article className="program-slider program-feature-card"><div className={`program-panel-track ${slide ? "is-shifted" : ""}`}>{programPanels.map((src, index) => <img key={src} src={src} alt={`Panel ekstrakurikuler ${index + 1}`} />)}</div><div className="program-feature-copy"><h3>Ekstrakurikuler</h3><p>Temukan ruang untuk berkembang sesuai minat dan bakatmu.</p><a className="primary-button" href="/programs">Jelajahi Esktrakurikuler <img src={figmaAssets.icons.arrowRight} alt="" width="20" height="20" /></a></div></article><div className="program-cards">{programRightCards.map(([title, description, image]) => <article className="program-card" key={title}><img src={image} alt="" /><div><span>Program</span><h3>{title}</h3><p>{description}</p></div><a href="/programs" aria-label={`Lihat ${title}`}><img src="/assets/figma/programs/programs-svg-01.svg" alt="" /></a></article>)}</div></div></section>;
+  const [panel, setPanel] = useState(0);
+
+  useEffect(() => {
+    let timer: number;
+    const schedule = (current: number) => {
+      timer = window.setTimeout(() => {
+        const next = (current + 1) % programPanels.length;
+        setPanel(next);
+        schedule(next);
+      }, (current === 0 ? 800 : 900) + (current === 2 ? 1249.8885399 : 1458.4209919));
+    };
+    schedule(panel);
+    return () => window.clearTimeout(timer);
+  }, [panel]);
+
+  return <section className="homepage-section programs-section" aria-labelledby="programs-title"><div className="section-intro"><span className="section-badge">Program SMK Negeri 26 Jakarta</span><h2 id="programs-title">Berkembang di Dalam dan <span>di Luar Kelas</span></h2><p>Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman, kepemimpinan, dan potensi melalui berbagai program sekolah.</p></div><div className="program-grid"><article className="program-slider program-feature-card"><div className={`program-panel-track ${panel === 0 ? "is-mb" : panel === 1 ? "is-tari" : "is-silat"}`}>{programPanels.map((src, index) => <img key={src} src={src} alt={`Panel ekstrakurikuler ${index + 1}`} />)}</div><div className="program-feature-copy"><h3>Ekstrakurikuler</h3><p>Temukan ruang untuk berkembang sesuai minat dan bakatmu.</p><a className="primary-button" href="/programs">Jelajahi Esktrakurikuler <img src={figmaAssets.icons.arrowRight} alt="" width="20" height="20" /></a></div></article><div className="program-cards">{programRightCards.map(([title, description, image]) => <article className="program-card" key={title}><img src={image} alt="" /><div className="program-card-content"><h3>{title}</h3><p>{description}</p><a href="/programs" aria-label={`Lihat ${title}`}><img src={figmaAssets.icons.arrowRight} alt="" /></a></div></article>)}</div></div></section>;
 }
 
 function BludSection() {
   const defaultShapes = [figmaAssets.blud.defaultShapes.kgs, figmaAssets.blud.defaultShapes.tek, figmaAssets.blud.defaultShapes.titl, figmaAssets.blud.defaultShapes.tflm, figmaAssets.blud.defaultShapes.tkr, figmaAssets.blud.defaultShapes.sija];
-  const shadowCards = new Set([0, 2, 3, 4]);
-  return <section className="homepage-section blud-section" aria-labelledby="blud-title"><div className="section-intro blud-intro"><span className="section-badge">BELAJAR • BERKARYA • MENGHASILKAN</span><h2 id="blud-title">Belajar Melalui <span>Pengalaman Nyata</span></h2><p>Menghubungkan pembelajaran dengan pengalaman kerja melalui unit produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.</p><a className="blud-cta primary-button" href="/programs">Jelajahi BLUD <img src={figmaAssets.icons.arrowRight} alt="" /></a></div><div className="blud-grid">{bludCards.map(([name, description], index) => <a className={`blud-card ${shadowCards.has(index) ? "has-hover-shadow" : ""}`} href="/blud" key={name}><span className="blud-shape-wrap"><img className="blud-shape blud-default-shape" src={defaultShapes[index]} alt="" /><img className="blud-shape blud-hover-shape" src={figmaAssets.blud.hoverShape} alt="" /></span><span className="blud-icon"><img src={figmaAssets.blud.icons[index]} alt="" /></span><h3>{name}</h3><p>{description}</p></a>)}</div></section>;
+  return <section className="homepage-section blud-section" aria-labelledby="blud-title"><div className="section-intro blud-intro"><span className="section-badge"><img src={figmaAssets.blud.badgeIcon} alt="" />BELAJAR • BERKARYA • MENGHASILKAN</span><h2 id="blud-title">Belajar Melalui <span>Pengalaman Nyata</span></h2><p>Menghubungkan pembelajaran dengan pengalaman kerja melalui unit produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.</p><a className="blud-cta primary-button" href="/programs">Jelajahi BLUD <img src={figmaAssets.icons.arrowRight} alt="" /></a></div><div className="blud-grid">{bludCards.map(([name, description], index) => <a className={`blud-card blud-card-${index}`} href="/blud" key={name}><span className="blud-shape-wrap"><img className="blud-shape blud-default-shape" src={defaultShapes[index]} alt="" /><img className="blud-shape blud-hover-shape" src={figmaAssets.blud.hoverShape} alt="" /></span><span className="blud-icon"><img src={figmaAssets.blud.icons[index]} alt="" /></span><h3>{name}</h3><p>{description}</p></a>)}</div></section>;
 }
 
 function AchievementsSection() {

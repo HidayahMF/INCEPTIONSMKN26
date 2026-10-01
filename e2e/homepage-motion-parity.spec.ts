@@ -27,25 +27,80 @@ test.describe("current Figma prototype motion parity", () => {
 
   test("partner marquee progresses and video transitions without click", async ({ page }) => {
     const partner = page.locator(".partner-track");
-    const transforms = await partner.evaluate((element) => {
+    const motion = await partner.evaluate((element) => {
       const animation = element.getAnimations()[0];
       if (!animation) throw new Error("Partner marquee animation is missing");
       animation.pause();
-      return [0, 2500, 5000, 7500, 9999].map((time) => {
+      const transforms = [0, 1000, 2000, 2500, 5000, 7500, 9999].map((time) => {
         animation.currentTime = time;
         const matrix = new DOMMatrixReadOnly(getComputedStyle(element).transform);
         return matrix.e;
       });
+      const set = element.querySelector(".partner-set");
+      if (!set) throw new Error("Partner set is missing");
+      return { transforms, setWidth: set.getBoundingClientRect().width, duration: getComputedStyle(element).animationDuration, timing: getComputedStyle(element).animationTimingFunction, iteration: getComputedStyle(element).animationIterationCount };
     });
-    expect(transforms[0]).toBeCloseTo(0, 1);
-    expect(transforms[1]).toBeCloseTo(-647.56325, 1);
-    expect(transforms[2]).toBeCloseTo(-1295.1265, 1);
-    expect(transforms[3]).toBeCloseTo(-1942.68975, 1);
-    expect(transforms[4]).toBeCloseTo(-2590.253, 0);
+    expect(motion.transforms[0]).toBeCloseTo(0, 1);
+    expect(motion.transforms[1]).not.toBe(motion.transforms[0]);
+    expect(motion.transforms[2]).not.toBe(motion.transforms[1]);
+    expect(motion.transforms[3]).toBeCloseTo(-motion.setWidth * 0.25, 1);
+    expect(motion.transforms[4]).toBeCloseTo(-motion.setWidth * 0.5, 1);
+    expect(motion.transforms[5]).toBeCloseTo(-motion.setWidth * 0.75, 1);
+    expect(motion.transforms[6]).toBeLessThan(-motion.setWidth * 0.99);
+    expect(motion.duration).toBe("10s");
+    expect(motion.timing).toBe("linear");
+    expect(motion.iteration).toBe("infinite");
+    await expect(partner.locator(".partner-set")).toHaveCount(2);
+    const baseSet = partner.locator(".partner-set").nth(0);
+    await expect(baseSet.locator(".partner-slot")).toHaveCount(10);
+    await expect(partner.locator(".partner-set").nth(1).locator(".partner-slot")).toHaveCount(10);
+    const basePartners = await baseSet.locator(".partner-slot").evaluateAll((items) => items.map((item) => ({ key: item.dataset.partnerKey, src: item.querySelector("img")?.getAttribute("src") })));
+    expect(new Set(basePartners.map((partner) => partner.key)).size).toBe(basePartners.length);
+    expect(new Set(basePartners.map((partner) => partner.src)).size).toBe(basePartners.length);
+    for (let index = 0; index < basePartners.length - 1; index += 1) {
+      expect(basePartners[index].src).not.toBe(basePartners[index + 1].src);
+    }
 
     const ring = page.locator(".video-play-ring");
     await expect(ring).toHaveCSS("width", "120px");
     await expect(ring).toHaveCSS("height", "120px");
+  });
+
+  test("partner marquee moves with both browser motion preferences", async ({ browser }) => {
+    for (const reducedMotion of ["no-preference", "reduce"] as const) {
+      const context = await browser.newContext({ reducedMotion, viewport: { width: 1440, height: 1000 } });
+      const page = await context.newPage();
+      await page.goto("/");
+      await page.evaluate(() => document.fonts.ready);
+      const values = await page.locator(".partner-track").evaluate(async (element) => {
+        const style = getComputedStyle(element);
+        const t0 = getComputedStyle(element).transform;
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const t1 = getComputedStyle(element).transform;
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const t2 = getComputedStyle(element).transform;
+        return {
+          t0,
+          t1,
+          t2,
+          animationName: style.animationName,
+          animationDuration: style.animationDuration,
+          animationTimingFunction: style.animationTimingFunction,
+          animationIterationCount: style.animationIterationCount,
+          animationPlayState: style.animationPlayState,
+          reduced: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+        };
+      });
+      expect(values.t0).not.toBe(values.t1);
+      expect(values.t1).not.toBe(values.t2);
+      expect(values.animationName).toBe("partner-marquee");
+      expect(values.animationDuration).toBe("10s");
+      expect(values.animationTimingFunction).toBe("linear");
+      expect(values.animationIterationCount).toBe("infinite");
+      expect(values.animationPlayState).toBe("running");
+      expect(values.reduced).toBe(reducedMotion === "reduce");
+      await context.close();
+    }
   });
 
   test("all majors animate their wrapper and reduced motion remains usable", async ({ page }) => {

@@ -156,7 +156,7 @@ function Home() {
   }, []);
   const askAi = () => window.dispatchEvent(new Event("open-chat"));
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F4F8FF]">
       <PublicNavbar />
       <main>
         <HeroSection onAskAi={askAi} />
