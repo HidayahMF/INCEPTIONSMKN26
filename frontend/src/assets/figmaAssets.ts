@@ -71,6 +71,7 @@ export const figmaAssets = {
     decorationRight: "/assets/figma/video-profile/video-profile-decoration-right.svg",
   },
   programs: {
+    arrowRight: "/assets/figma/icons/arrow-right-ekstrakulikuler.png",
     panels: [
       "/assets/figma/programs/programs-raw-01.png",
       "/assets/figma/programs/programs-raw-02.png",

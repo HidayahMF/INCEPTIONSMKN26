@@ -412,7 +412,7 @@
   width: 237px;
   min-width: 237px;
   max-width: 237px;
-  grid-template-columns: minmax(0, 1fr) 45px;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   column-gap: 8px;
   align-items: center;
@@ -449,29 +449,48 @@
   line-height: 18px;
 }
 .program-card-content > a {
-  display: inline-flex;
+  position: absolute;
+  display: grid;
+  box-sizing: border-box;
   width: 45px;
   height: 45px;
   min-width: 45px;
   min-height: 45px;
   flex: 0 0 45px;
-  grid-column: 2;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+  grid-column: 1;
   grid-row: 1 / span 2;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
+  align-self: auto;
+  margin: 0;
+  padding: 0;
   border: 1px solid #e2e8f0;
   border-radius: 999px;
   background: #fff;
+  line-height: 0;
+  place-items: center;
   text-decoration: none;
 }
 .program-card-content > a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: block;
   width: 24px !important;
   height: 24px !important;
+  margin: 0;
   object-fit: contain;
+  transform: translate(-50%, -50%);
   filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(1914%) hue-rotate(196deg) brightness(86%) contrast(103%);
+}
+.program-card-content > a:hover,
+.program-card-content > a:focus-visible {
+  background: #006cdc;
+}
+.program-card-content > a:hover img,
+.program-card-content > a:focus-visible img {
+  filter: brightness(0) invert(1);
 }
 @media (prefers-reduced-motion: reduce) {
   .program-feature-card .program-panel-track.is-mb,
