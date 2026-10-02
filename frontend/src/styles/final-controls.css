@@ -420,6 +420,8 @@
   position: absolute;
   left: 0;
   width: 237px;
+  padding-right: 60px;
+  box-sizing: border-box;
 }
 .program-card-content h3 {
   top: 0;
@@ -462,6 +464,16 @@
   line-height: 0;
   place-items: center;
   text-decoration: none;
+}
+.program-card-content h3,
+.program-card-content p {
+  padding-right: 60px;
+}
+.program-card-content > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .program-card-content > a img {
   position: absolute;
@@ -547,10 +559,10 @@
 .blud-card:hover,
 .blud-card:focus-visible {
   transform: none;
-  border: 4px solid #006cdc;
+  border: 2px solid #eaf5fa;
   background: #fff;
-  padding: 14px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .08), 0 0 0 2px #006cdc;
 }
 .blud-intro .section-badge {
   display: inline-flex;
@@ -667,6 +679,74 @@
   opacity: 1;
   width: 253px;
   height: 100.92px;
+}
+@media (min-width: 768px) {
+  .blud-section {
+    position: relative;
+    width: 1272px;
+    max-width: 1272px;
+    min-height: 629px;
+    height: 629px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .blud-intro {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1272px;
+    height: 181px;
+    margin: 0;
+  }
+  .blud-intro .section-badge {
+    position: absolute;
+    left: 476px;
+    top: 0;
+    width: 320.6px;
+    height: 31px;
+    min-width: 320.6px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .blud-intro .blud-cta {
+    position: absolute;
+    left: 1119px;
+    top: 101.5px;
+    width: 153px;
+    height: 41px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .blud-grid {
+    position: absolute;
+    left: 12px;
+    top: 205px;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: repeat(2, 200px);
+    gap: 24px;
+    width: 1248px;
+    height: 424px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .blud-card {
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+  .blud-card:hover,
+  .blud-card:focus-visible {
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 2px solid #eaf5fa;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, .08), 0 0 0 2px #006cdc;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .program-feature-card .program-panel-track.is-mb,
