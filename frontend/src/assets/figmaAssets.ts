@@ -71,7 +71,7 @@ export const figmaAssets = {
     decorationRight: "/assets/figma/video-profile/video-profile-decoration-right.svg",
   },
   programs: {
-    arrowRight: "/assets/figma/icons/arrow-right-ekstrakulikuler.png",
+    arrowRight: "/assets/figma/programs/programs-svg-01.svg",
     panels: [
       "/assets/figma/programs/programs-raw-01.png",
       "/assets/figma/programs/programs-raw-02.png",
@@ -84,7 +84,8 @@ export const figmaAssets = {
     ],
   },
   blud: {
-    badgeIcon: "/assets/figma/video-profile/video-profile-badge-icon.svg",
+    badgeIcon: "/assets/figma/blud/blud-svg-16.svg",
+    arrowRight: "/assets/figma/programs/programs-svg-08.svg",
     icons: [
       "/assets/figma/blud/blud-svg-02.svg",
       "/assets/figma/blud/blud-TEK-icon.svg",

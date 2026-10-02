@@ -409,6 +409,7 @@
 }
 .program-card-content {
   display: grid;
+  box-sizing: border-box;
   width: 237px;
   min-width: 237px;
   max-width: 237px;
@@ -438,11 +439,13 @@
   color: transparent;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: normal;
+  white-space: nowrap;
 }
 .program-card-content p {
   grid-column: 1;
   grid-row: 2;
+  width: 184px;
   margin: 0;
   color: #0b1324;
   font-size: 10px;
@@ -458,8 +461,8 @@
   min-height: 45px;
   flex: 0 0 45px;
   z-index: 1;
-  right: 16px;
-  bottom: 16px;
+  top: 63px;
+  left: 192px;
   grid-column: 1;
   grid-row: 1 / span 2;
   align-self: auto;
@@ -486,11 +489,128 @@
 }
 .program-card-content > a:hover,
 .program-card-content > a:focus-visible {
-  background: #006cdc;
+  background: #fff !important;
 }
 .program-card-content > a:hover img,
 .program-card-content > a:focus-visible img {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(1914%) hue-rotate(196deg) brightness(86%) contrast(103%);
+}
+.program-card-content > a:focus-visible {
+  outline: 2px solid #94a3b8;
+  outline-offset: 3px;
+}
+.program-card {
+  box-sizing: border-box;
+  width: 580px;
+  height: 140px;
+  border: 4px solid #fff;
+  border-radius: 24px;
+  background: #fff;
+  transition: box-shadow 300ms ease-out;
+}
+.program-card > img {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 290px;
+  height: 140px;
+  object-fit: fill;
+  transition: left 300ms ease-out, top 300ms ease-out;
+}
+.program-card:nth-child(1) > img {
+  height: 100%;
+  left: -12.51%;
+  width: 112.6%;
+}
+.program-card:nth-child(2) > img {
+  height: 106.65%;
+  left: -19.98%;
+  top: -0.3%;
+  width: 120.1%;
+}
+.program-card:nth-child(3) > img {
+  height: 108.79%;
+  left: -20.09%;
+  top: -4.4%;
+  width: 122.57%;
+}
+.program-card:hover,
+.program-card:focus-within {
+  transform: none;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
+}
+.program-card:hover > img,
+.program-card:focus-within > img {
+  left: -4px;
+  top: -4px;
+}
+.blud-card {
+  border: 2px solid #eaf5fa;
+  box-sizing: border-box;
+  transition: border-color 300ms ease-out, box-shadow 300ms ease-out;
+}
+.blud-card:hover,
+.blud-card:focus-visible {
+  transform: none;
+  border: 4px solid #006cdc;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
+}
+.blud-intro .section-badge {
+  background: #f6fbff;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
+  color: #4cbaf5;
+  gap: 4px;
+  padding: 5px 12px;
+}
+.blud-intro .section-badge img {
+  width: 13.6px;
+  height: 17px;
+  margin: 0;
+}
+.blud-cta {
+  white-space: nowrap;
+}
+.blud-cta img {
+  width: 20px;
+  height: 20px;
+}
+.blud-shape-wrap {
+  left: 392px;
+  top: 24.39px;
+  width: 59.92px;
+  height: 150.215px;
+  opacity: 1;
+  transition: left 300ms ease-out, top 300ms ease-out, width 300ms ease-out, height 300ms ease-out;
+}
+.blud-shape {
+  left: 0;
+  top: 0;
+  width: 59.92px;
+  height: 150.215px;
+  transform: rotate(-90deg);
+}
+.blud-hover-shape {
+  display: none;
+}
+.blud-card:hover .blud-shape-wrap,
+.blud-card:focus-visible .blud-shape-wrap {
+  left: 297px;
+  top: -28px;
+  width: 100.92px;
+  height: 253px;
+  opacity: .9;
+}
+.blud-card:hover .blud-default-shape,
+.blud-card:focus-visible .blud-default-shape {
+  display: none;
+}
+.blud-card:hover .blud-hover-shape,
+.blud-card:focus-visible .blud-hover-shape {
+  display: block;
+  width: 253px;
+  height: 100.92px;
 }
 @media (prefers-reduced-motion: reduce) {
   .program-feature-card .program-panel-track.is-mb,
@@ -503,8 +623,6 @@
 .news-controls button:focus-visible,
 .achievement-carousel > button:hover,
 .achievement-carousel > button:focus-visible,
-.program-card > a:hover,
-.program-card > a:focus-visible,
 .footer-top-social a:hover,
 .footer-top-social a:focus-visible {
   background: #006cdc !important;
@@ -550,4 +668,12 @@
 .ai-cta.is-bot-settled .ai-cta-outline {
   top: 2px;
   height: 417px;
+}
+.program-card-content > a:hover,
+.program-card-content > a:focus-visible {
+  background: #fff !important;
+}
+.program-card-content > a:hover img,
+.program-card-content > a:focus-visible img {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(1914%) hue-rotate(196deg) brightness(86%) contrast(103%) !important;
 }
