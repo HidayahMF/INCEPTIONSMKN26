@@ -46,9 +46,6 @@ body {
   .achievement-carousel > button:last-child { right: -57px; }
   .achievement-carousel > button img { width: 24px; height: 24px; }
 }
-.program-card:hover,.program-card:focus-within { transform: none; box-shadow: none; }
-.program-card > a::after { content: none; display: none; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
 
 @media (min-width: 768px) {
   /* Final cascade for the verified News, Prestasi, and Program contracts. */
@@ -69,9 +66,6 @@ body {
   .achievement-carousel > button img { width: 24px; height: 24px; }
 }
 
-.program-card:hover,.program-card:focus-within { transform: none; box-shadow: none; }
-.program-card > a::after { content: none; display: none; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
 
 @media (min-width: 768px) {
   /* Final cascade for the verified News, Prestasi, and Program contracts. */
@@ -92,17 +86,6 @@ body {
   .achievement-carousel > button img { width: 24px; height: 24px; }
 }
 
-.program-card:hover,.program-card:focus-within { transform: none; box-shadow: none; }
-.program-card > a::after { content: none; display: none; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
-
-/* Keep the exact BLUD state contract after the legacy desktop overrides. */
-.blud-card .blud-shape-wrap { left: 392px; top: 24.39px; width: 59.92px; height: 150.215px; opacity: .75; }
-.blud-card .blud-shape { right: auto; bottom: auto; left: 0; top: 0; width: 59.92px; height: 150.215px; transform: rotate(-90deg); }
-.blud-card .blud-hover-shape { display: none; }
-.blud-card:hover .blud-shape-wrap,.blud-card:focus-visible .blud-shape-wrap { left: 297px; top: -28px; width: 100.92px; height: 253px; opacity: .9; }
-.blud-card:hover .blud-default-shape,.blud-card:focus-visible .blud-default-shape { display: none; }
-.blud-card:hover .blud-hover-shape,.blud-card:focus-visible .blud-hover-shape { display: block; width: 253px; height: 100.92px; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-aos],
@@ -497,7 +480,7 @@ body.chat-room-open {
 
 /* Final cascade parity: legacy rules above must not cancel audited hover states. */
 .program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
-.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border: 4px solid #006cdc; background: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 
@@ -528,13 +511,13 @@ body.chat-room-open {
 
 /* Final cascade parity: legacy rules above must not cancel audited hover states. */
 .program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
-.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border: 4px solid #006cdc; background: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 
 /* Final Figma prototype interaction contract. */
 .program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
-.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border: 4px solid #006cdc; background: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .achievement-stats:hover,.achievement-stats:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
@@ -558,7 +541,7 @@ body.chat-room-open {
 .program-feature-card,.program-card,.achievement-stats,.news-card,.blud-card { transition: border-color .3s ease-out, border-width .3s ease-out, box-shadow .3s ease-out; }
 .program-feature-card:hover,.program-feature-card:focus-within,.program-card:hover,.program-card:focus-within,.achievement-stats:hover,.achievement-stats:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .program-card:hover,.program-card:focus-within { transform: none; }
-.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border: 4px solid #006cdc; background: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-controls button,.achievement-carousel > button,.program-card > a,.footer-top-social a { transition: background-color .3s ease-out, box-shadow .3s ease-out, color .3s ease-out; }
 .news-controls button:hover,.news-controls button:focus-visible,.achievement-carousel > button:hover,.achievement-carousel > button:focus-visible,.program-card > a:hover,.program-card > a:focus-visible,.footer-top-social a:hover,.footer-top-social a:focus-visible { background: #0092ff; color: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
@@ -587,10 +570,6 @@ body.chat-room-open {
   .achievement-carousel > button:last-child { right: -57px; }
   .achievement-carousel > button img { width: 24px; height: 24px; }
 }
-.program-card:hover,.program-card:focus-within { transform: none; box-shadow: none; }
-.program-card > a::after { content: none; display: none; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
-
 /* Final News, Prestasi controls, and Program card contracts. */
 .news-card { box-sizing: border-box; border: 2px solid #eaf5fa; border-radius: 24px; background: #fff; box-shadow: none; padding: 18px; }
 .news-card > img { position: absolute; left: 0; top: 0; width: 396px; height: 176px; object-fit: cover; }
@@ -607,20 +586,6 @@ body.chat-room-open {
 .achievement-carousel > button:first-child { left: -57px; }
 .achievement-carousel > button:last-child { right: -57px; }
 .achievement-carousel > button img { width: 24px; height: 24px; }
-.program-card:hover,.program-card:focus-within { transform: none; box-shadow: none; }
-.program-card > a::after { content: none; display: none; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
-
-/* Exact current Figma state contracts. */
-.blud-card { transform: none; border-width: 2px; box-shadow: none; transition: border-width .3s ease-out, border-color .3s ease-out, box-shadow .3s ease-out; }
-.blud-card:hover,.blud-card:focus-visible { border-width: 4px; border-color: #006cdc; }
-.blud-card.has-hover-shadow:hover,.blud-card.has-hover-shadow:focus-visible { box-shadow: 0 4px 16px rgba(15,23,42,.08); }
-.blud-shape-wrap { position: absolute; left: 392px; top: 24.39px; width: 59.92px; height: 150.215px; opacity: .75; transition: left .3s ease-out, top .3s ease-out, width .3s ease-out, height .3s ease-out, opacity .3s ease-out; }
-.blud-shape { position: absolute; right: auto; bottom: auto; left: 0; top: 0; width: 59.92px; height: 150.215px; transform: rotate(-90deg); transform-origin: top left; object-fit: fill; }
-.blud-hover-shape { display: none; }
-.blud-card:hover .blud-shape-wrap,.blud-card:focus-visible .blud-shape-wrap { left: 297px; top: -28px; width: 100.92px; height: 253px; opacity: .9; }
-.blud-card:hover .blud-default-shape,.blud-card:focus-visible .blud-default-shape { display: none; }
-.blud-card:hover .blud-hover-shape,.blud-card:focus-visible .blud-hover-shape { display: block; width: 253px; height: 100.92px; }
 .achievement-card::after { inset: 17px -2px 0; background: linear-gradient(180deg, transparent 56px, #000059 295px); }
 .achievement-card > div { top: 180px; right: auto; bottom: auto; left: 16px; width: 221px; padding: 0; }
 .achievement-card h3 { font-size: 20px; font-weight: 700; }
@@ -634,8 +599,6 @@ body.chat-room-open {
 .news-controls img,.achievement-carousel > button img { width: 14px; height: 14px; object-fit: contain; }
 .news-controls button:last-child img,.achievement-carousel > button:last-child img { transform: rotate(180deg); }
 .blud-cta img,.ai-cta-copy button img { width: 20px; height: 20px; object-fit: contain; }
-.program-card > a img { width: 24px !important; height: 24px !important; }
- .program-card:hover,.program-card:focus-within,.blud-card:hover,.blud-card:focus-visible { transform: none; }
 @media (min-width: 768px) {
   .achievement-card { transition: width .3s cubic-bezier(0.25, 1, 0.5, 1), height .3s cubic-bezier(0.25, 1, 0.5, 1), border-radius .3s cubic-bezier(0.25, 1, 0.5, 1); }
   .achievement-card:hover,.achievement-card:focus-within { width: 261px; height: 326px; flex-basis: 261px; }
@@ -718,8 +681,11 @@ body.chat-room-open {
     top: 0;
     left: 476px;
     width: 320.6px;
+    min-width: 320.6px;
+    height: 31px;
     box-sizing: border-box;
     justify-content: center;
+    white-space: nowrap;
   }
   .blud-intro h2 {
     position: absolute;
@@ -742,10 +708,10 @@ body.chat-room-open {
     line-height: 30px;
   }
   .blud-intro .blud-cta {
-    top: 38.5px;
-    right: 0;
-    left: auto;
-    width: auto;
+    top: 101.5px;
+    right: auto;
+    left: 1119px;
+    width: 153px;
     height: 41px;
     min-width: 153px;
     white-space: nowrap;
@@ -768,12 +734,12 @@ body.chat-room-open {
     min-width: 400px;
     box-sizing: border-box;
     flex: none;
-    padding: 18px;
+    padding: 16px;
   }
 }
 
 /* Final cascade parity: legacy rules above must not cancel audited hover states. */
 .program-card:hover,.program-card:focus-within { transform: none; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
-.blud-card:hover,.blud-card:focus-visible { transform: none; border-width: 4px; border-color: transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
+.blud-card:hover,.blud-card:focus-visible { transform: none; border: 4px solid #006cdc; background: #fff; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .news-card:hover,.news-card:focus-within { border: 4px solid transparent; background: linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc) border-box; box-shadow: 0 4px 16px rgba(15,23,42,.08); }
 .achievement-stats:hover,.achievement-stats:focus-within,.advantages-carousel article:hover,.advantages-carousel article:focus-within { box-shadow: 0 4px 16px rgba(15,23,42,.08); }

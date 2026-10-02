@@ -85,7 +85,7 @@ export const figmaAssets = {
   },
   blud: {
     badgeIcon: "/assets/figma/blud/blud-svg-16.svg",
-    arrowRight: "/assets/figma/programs/programs-svg-08.svg",
+    arrowRight: "/assets/figma/blud/blud-arrow-right.svg",
     icons: [
       "/assets/figma/blud/blud-svg-02.svg",
       "/assets/figma/blud/blud-TEK-icon.svg",
