@@ -219,5 +219,6 @@ Prototype starting point: `496:1479` (`Mars SMKN 26`, separate subpage frame)
 
 The Profile frame also contains the existing approved school logo, navbar,
 footer, and text-driven Visi/Misi/Sejarah content. The Mars frame is a separate
-prototype destination and was not added as a new route because the repository
-does not currently have a route-backed Mars page.
+prototype destination and is now exposed at ``/mars`` through the Tentang Kami
+navigation. The exact Figma hero image fill for node ``496:1814`` remains
+blocked by the Figma API rate limit; no placeholder is claimed as exact.

@@ -28,14 +28,14 @@ function linkHref(title: string, link: string) {
 export function PublicFooter() {
   return (
     <footer className="box-border min-h-[626px] bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] px-6 pb-6 pt-12 text-white md:px-[84px]">
-      <div className="relative flex flex-col gap-6 md:grid md:h-11 md:grid-cols-[1fr_auto_1fr] md:items-end md:gap-8">
-        <h2 className="m-0 shrink-0 text-xl leading-7 md:justify-self-start">
+      <div className="relative flex flex-col items-center justify-center gap-6 min-[1272px]:grid min-[1272px]:h-11 min-[1272px]:grid-cols-[1fr_auto_1fr] min-[1272px]:items-end min-[1272px]:gap-8">
+        <h2 className="m-0 shrink-0 text-center text-xl leading-7 min-[1272px]:justify-self-start">
           Dapatkan Informasi
           <br />
           SMKN 26 Jakarta
         </h2>
         <form
-          className="flex h-11 w-full min-w-0 gap-2 md:w-[654px] md:justify-self-center"
+          className="flex h-11 w-full min-w-0 gap-2 min-[1272px]:w-[654px] min-[1272px]:justify-self-center"
           onSubmit={(event) => event.preventDefault()}
         >
           <input
@@ -51,7 +51,7 @@ export function PublicFooter() {
             Kirim
           </button>
         </form>
-        <div className="flex gap-3 md:static md:justify-self-end">
+        <div className="flex gap-3 min-[1272px]:static min-[1272px]:justify-self-end">
           <a
             className="grid size-[45px] place-items-center rounded-full bg-white"
             href="#footer-social"
@@ -116,7 +116,7 @@ export function PublicFooter() {
             href="mailto:smkn26jkt@gmail.com"
           >
             <img
-              className="size-[18px] shrink-0 object-contain"
+              className="size-[18px] shrink-0 object-contain brightness-0 invert"
               src={footerIcon.email}
               alt=""
             />

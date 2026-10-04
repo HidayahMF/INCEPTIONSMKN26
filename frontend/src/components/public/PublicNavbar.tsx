@@ -3,7 +3,15 @@ import { figmaAssets } from "../../assets/figmaAssets";
 
 const links = [
   { label: "Beranda", href: "/" },
-  { label: "Tentang kami", href: "/profile", dropdown: true },
+  {
+    label: "Tentang kami",
+    href: "/profile",
+    dropdown: true,
+    children: [
+      { label: "Profil Sekolah", href: "/profile" },
+      { label: "Mars SMKN 26", href: "/mars" },
+    ],
+  },
   { label: "Jurusan", href: "/majors", dropdown: true },
   { label: "BLUD", href: "/blud", dropdown: true },
   { label: "Program", href: "/programs", dropdown: true },
@@ -33,42 +41,52 @@ export function PublicNavbar() {
           </em>
         </span>
       </a>
-      <nav className="hidden items-center lg:flex" aria-label="Navigasi utama">
+      <nav className="hidden items-center min-[1272px]:flex" aria-label="Navigasi utama">
         {links.map((link) => (
-          <a
-            className={`group flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-[color,font-size] duration-300 ease-out focus-visible:outline-none motion-reduce:transition-none hover:text-[20px] ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink"}`}
-            href={link.href}
-            key={link.label}
-            onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
-            onFocus={() => setActiveLink(link.label)}
-            onMouseEnter={() => setActiveLink(link.label)}
-            onMouseLeave={(event) => {
-              if (document.activeElement !== event.currentTarget) {
-                setActiveLink((value) => (value === link.label ? null : value));
-              }
-            }}
-          >
-            {link.label}
-            {link.dropdown && (
-              <span
-                  className={`h-3 w-[7px] shrink-0 transition-[transform,background-color,background-image] duration-300 ease-out motion-reduce:transition-none`}
-                style={{
-                  maskImage: `url(${figmaAssets.icons.chevronDown})`,
-                  maskPosition: "center",
-                  maskRepeat: "no-repeat",
-                  maskSize: "7px 12px",
-                  WebkitMaskImage: `url(${figmaAssets.icons.chevronDown})`,
-                  WebkitMaskPosition: "center",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskSize: "7px 12px",
-                  transform: activeLink === link.label ? "rotate(90deg)" : "rotate(-90deg)",
+          <div className="group relative" key={link.label}>
+            <a
+              className={`flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-[color,font-size] duration-300 ease-out focus-visible:outline-none motion-reduce:transition-none hover:text-[20px] ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink"}`}
+              href={link.href}
+              onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
+              onFocus={() => setActiveLink(link.label)}
+              onMouseEnter={() => setActiveLink(link.label)}
+              onMouseLeave={() => {
+                if (!link.children) setActiveLink((value) => (value === link.label ? null : value));
+              }}
+            >
+              {link.label}
+              {link.dropdown && (
+                <span
+                  className="h-3 w-[7px] shrink-0 transition-[transform,background-color,background-image] duration-300 ease-out motion-reduce:transition-none"
+                  style={{
+                    maskImage: `url(${figmaAssets.icons.chevronDown})`,
+                    maskPosition: "center",
+                    maskRepeat: "no-repeat",
+                    maskSize: "7px 12px",
+                    WebkitMaskImage: `url(${figmaAssets.icons.chevronDown})`,
+                    WebkitMaskPosition: "center",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskSize: "7px 12px",
+                    transform: activeLink === link.label ? "rotate(90deg)" : "rotate(-90deg)",
                     backgroundColor: activeLink === link.label ? "transparent" : "#0B1324",
                     backgroundImage: activeLink === link.label ? "linear-gradient(105deg,#006CDC,#0092FF)" : "none",
-                }}
-                aria-hidden="true"
-              />
+                  }}
+                  aria-hidden="true"
+                />
+              )}
+            </a>
+            {link.children && (
+              <div className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 translate-y-1 opacity-0 transition-[opacity,transform,visibility] duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="mt-1 grid gap-1 rounded-2xl border border-school-bg bg-white p-2 text-sm font-semibold text-muted shadow-xl">
+                  {link.children.map((child) => (
+                    <a className="rounded-xl px-3 py-2.5 hover:bg-light-blue hover:text-primary" href={child.href} key={child.href}>
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             )}
-          </a>
+          </div>
         ))}
       </nav>
       <div className="flex items-center gap-2">
@@ -82,7 +100,7 @@ export function PublicNavbar() {
         >
           Login
         </a>
-        <details className="relative lg:hidden">
+        <details className="relative min-[1272px]:hidden">
           <summary
             className="grid size-10 cursor-pointer list-none place-items-center rounded-full bg-light-blue text-primary-dark"
             aria-label="Buka menu"
@@ -91,13 +109,16 @@ export function PublicNavbar() {
           </summary>
           <nav className="absolute right-0 top-12 z-30 grid min-w-52 gap-1 rounded-2xl bg-white p-3 text-sm font-semibold text-muted shadow-xl">
             {links.map((link) => (
-              <a
-                className="rounded-xl px-3 py-2 hover:bg-light-blue"
-                href={link.href}
-                key={link.label}
-              >
-                {link.label}
-              </a>
+              <div className="grid gap-1" key={link.label}>
+                <a className="rounded-xl px-3 py-2 hover:bg-light-blue" href={link.href}>
+                  {link.label}
+                </a>
+                {link.children?.map((child) => (
+                  <a className="rounded-xl px-6 py-2 text-xs text-muted hover:bg-light-blue hover:text-primary" href={child.href} key={child.href}>
+                    {child.label}
+                  </a>
+                ))}
+              </div>
             ))}
           </nav>
         </details>
