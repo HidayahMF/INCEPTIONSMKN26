@@ -23,6 +23,7 @@ import { SchoolMajors } from "./components/public/SchoolMajors";
 import { MajorsPage } from "./pages/MajorsPage";
 import { HomepageSections } from "./components/public/HomepageSections";
 import { PublicFooter } from "./components/public/PublicFooter";
+import { ProfilePage } from "./pages/ProfilePage";
 
 type Page = {
   id: string;
@@ -220,6 +221,7 @@ export function LegacyApp() {
 export function App() {
   const path = usePathname();
   if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
+  if (path === "/profile") return <PublicExperience><ProfilePage /></PublicExperience>;
   if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
   return <AuthProvider>

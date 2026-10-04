@@ -17,18 +17,15 @@ export function PartnerLogos() {
   const trackRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const track = trackRef.current;
-    if (!track || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    let last = performance.now();
-    let offset = 0;
-    const tick = (now: number) => {
-      offset = (offset + (now - last) * 0.259) % Math.max(1, track.scrollWidth / 2);
-      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
-      last = now;
-      frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    if (!track) return;
+    // Replaces the previous @keyframes partner-marquee (10s linear infinite,
+    // translateX(0) -> translateX(-50%)). Two identical sets are rendered, so
+    // -50% is exactly one set width and the loop is seamless.
+    const animation = track.animate(
+      [{ transform: "translateX(0)" }, { transform: "translateX(-50%)" }],
+      { duration: 10000, iterations: Infinity, easing: "linear" },
+    );
+    return () => animation.cancel();
   }, []);
 
   const renderPartnerSet = (hidden = false) => (

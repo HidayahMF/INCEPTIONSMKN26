@@ -27,6 +27,13 @@ export const figmaAssets = {
   school: {
     overviewPhoto: "/assets/figma/school/school-overview-photo-clean.png",
   },
+  profile: {
+    heroBackground: "/assets/figma/profile/profile-hero-bg.png",
+    overviewPhoto: "/assets/figma/profile/profile-overview.png",
+    mottoBackground: "/assets/figma/profile/profile-motto-bg.png",
+    semboyanBackground: "/assets/figma/profile/profile-semboyan-bg.png",
+    marsBackground: "/assets/figma/profile/profile-mars-bg.png",
+  },
   advantages: {
     education: "/assets/figma/advantages/advantage-education.png",
     secondaryEducationIcon:

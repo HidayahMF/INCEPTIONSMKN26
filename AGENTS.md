@@ -43,11 +43,30 @@ Styling policy:
 
 Validation policy:
 
-- Capture fresh Figma references as `artifacts/figma-*.png` and web references as `artifacts/<section>-default.png` / `-hover.png` when implementing or auditing a section.
-- Use DOM geometry, Figma node data, and the focused Playwright test as the primary verification loop. Do not run the full Playwright suite after every CSS iteration; run focused tests during iteration and the full suite only at the end or when routing/shared behavior changed.
-- Always run `npm.cmd run check --workspace frontend` and the focused test before reporting a section complete. Run build/full tests when the task scope warrants them. Report pre-existing unrelated failures honestly.
+- See `## Validation Policy (permanent — default and mandatory)` below. That policy is authoritative and overrides the historical guidance that used to sit here.
+- When a Figma PNG reference exists, compare against it by reading the image. Capturing fresh web screenshots into `artifacts/` is optional and must not be done automatically.
 
 Reusable prompt: `Figma link/file key + section/node IDs + "match Figma and existing section behavior"`. If the user has a specific behavior override, the latest explicit instruction wins.
+
+## Landing Page Section Order
+
+Audit and recover the public landing page in this order, one section at a time, building after each:
+
+1. Hero + Navbar
+2. Quick Access
+3. Overview
+4. Advantages
+5. Partners
+6. Jurusan
+7. Video Profile
+8. Program
+9. BLUD
+10. Prestasi
+11. News
+12. AI CTA
+13. Footer
+
+For each section: read the current component, read `git show 40cf91f:<path>` for the pre-refactor baseline, read only the section-scoped CSS from `git show 40cf91f:frontend/src/styles/app.css`, compare assets, then port only the lost visual behaviour into Tailwind. Never checkout, revert, or restore `app.css`.
 
 ## Agent work contract
 - Before changing code: inspect current repository, report intended files, route/feature scope, dependencies, and potential conflicts.
@@ -101,6 +120,76 @@ This project uses Tailwind CSS as the primary and required styling system.
 
 Target state: `application-owned CSS = 0`. The only remaining application stylesheet is `frontend/src/styles/tokens.css`, which is the Tailwind entry point (`@import "tailwindcss"` + `@theme` design tokens) and must not contain additional rules.
 
+## Validation Policy (permanent — default and mandatory)
+
+This is the DEFAULT for this project. It overrides any earlier suggestion in this file that recommends running tests as part of ordinary frontend work.
+
+### Default validation
+
+For ordinary code changes — React components, Tailwind styling, responsive UI, animation, layout, assets/images, frontend refactors, and frontend bug fixes — the ONLY validation to run is:
+
+```powershell
+npm.cmd run build --workspace frontend
+```
+
+Do NOT run any of the following unless the user explicitly asks for E2E/Playwright/browser testing:
+
+- `npx playwright test`
+- Playwright E2E
+- `npm run test:e2e`
+- browser automation
+- screenshot testing
+- visual regression testing
+- temporary E2E or probe files
+
+### No temporary test files
+
+Never create files such as `e2e/tmp-*.spec.ts` or `e2e/*probe*.spec.ts` to validate an ordinary change, and never create a throwaway test only to prove a UI change.
+
+For animation work such as a marquee, rely on:
+
+1. code inspection
+2. comparison against the previous implementation/reference commit
+3. TypeScript/build validation
+
+Then run the build command above. If it passes, report exactly:
+
+```text
+Build: PASS
+```
+
+Do not add further validation automatically.
+
+### Exception: explicit user request only
+
+Playwright/E2E may be run only when the user explicitly asks, for example: "jalankan Playwright", "E2E", "browser test", "visual test", or an explicit request for runtime/browser verification.
+
+If runtime verification appears necessary but the user has not asked for E2E, DO NOT run it. Explain that runtime verification requires Playwright/browser and wait for the user's instruction.
+
+### No over-validation
+
+More tests is not better. Prefer the minimum validation that is sufficient for the task. The normal frontend loop is:
+
+```text
+Edit
+  ↓
+Inspect
+  ↓
+npm.cmd run build --workspace frontend
+  ↓
+Report
+```
+
+Do not add Playwright merely because a change touches animation, responsive UI, or visuals.
+
+### Temporary file cleanup
+
+Never leave debugging or temporary test files in the repository. If the user explicitly requests a Playwright probe, delete the temporary probe/test file when finished, do not commit it, and report that the temporary file was removed.
+
+### Reporting honestly
+
+`Build: PASS` means the build passed. It is NOT proof of runtime or visual behavior. When runtime or visual behavior has not actually been verified, say so plainly instead of implying it was confirmed.
+
 ## Agent Workflow (styling/UI changes)
 Before changing UI:
 1. Read the relevant component and existing styling.
@@ -108,6 +197,6 @@ Before changing UI:
 3. Implement styling with Tailwind first.
 4. Avoid introducing application-owned CSS.
 5. Verify responsive behavior (desktop and mobile).
-6. Run the project's checks/build before reporting completion (`npm.cmd run check --workspace frontend`, `npm.cmd run build --workspace frontend`), plus focused Playwright tests where they exist.
+6. Run `npm.cmd run build --workspace frontend` before reporting completion, per the Validation Policy above. Do not run Playwright unless explicitly asked.
 
 User request always outranks these defaults: if the user explicitly requests a specific CSS approach, follow the user's instruction.

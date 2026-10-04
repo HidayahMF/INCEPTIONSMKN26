@@ -135,8 +135,8 @@ function VideoProfileSection() {
       return;
     const animation = ring.animate(
       [
-        { width: "98.4px", height: "98.4px", left: "12px", top: "10px" },
-        { width: "120px", height: "120px", left: "1px", top: "0px" },
+        { width: "98.4px", height: "98.4px", left: "11.8px", top: "11.8px" },
+        { width: "120px", height: "120px", left: "1px", top: "1px" },
       ],
       {
         duration: 1000,
@@ -150,13 +150,12 @@ function VideoProfileSection() {
 
   useEffect(() => {
     const pulse = pulseRef.current;
-    if (!pulse || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-      return;
+    if (!pulse) return;
+    // Tailwind v4 centers this element with the `translate` property, so the
+    // keyframes must only scale. Re-applying translate(-50%,-50%) here would
+    // compose on top of it and offset the halo by twice its size.
     const animation = pulse.animate(
-      [
-        { transform: "translate(-50%, -50%) scale(1)", opacity: 0.9 },
-        { transform: "translate(-50%, -50%) scale(1.154)", opacity: 0 },
-      ],
+      [{ transform: "scale(1)", opacity: 0.9 }, { transform: "scale(1.154)", opacity: 0 }],
       {
         duration: 1350,
         iterations: Infinity,
@@ -170,11 +169,11 @@ function VideoProfileSection() {
     playState === "idle"
       ? undefined
       : {
-          left: "1px",
-          top: "0px",
-          width: "120px",
-          height: "120px",
-          filter: "drop-shadow(0 0 2px rgba(255,255,255,.25))",
+        left: "1px",
+        top: "1px",
+        width: "120px",
+        height: "120px",
+        filter: "drop-shadow(0 0 2px rgba(255,255,255,.25))",
         };
   const innerStyle = {
     transform: playState === "pressed" ? "scale(.98)" : "none",
@@ -234,7 +233,7 @@ function VideoProfileSection() {
           aria-hidden="true"
         />
         <a
-          className="video-play absolute left-1/2 top-[170px] z-10 grid size-[122px] -translate-x-1/2 place-items-center overflow-visible cursor-pointer border-0 bg-transparent max-md:top-1/2 max-md:-translate-y-1/2"
+          className="video-play group absolute left-1/2 top-[170px] z-10 grid size-[122px] -translate-x-1/2 place-items-center overflow-visible cursor-pointer border-0 bg-transparent max-md:top-1/2 max-md:-translate-y-1/2"
           href={youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -250,18 +249,18 @@ function VideoProfileSection() {
         >
           <span
             ref={pulseRef}
-            className="absolute left-1/2 top-1/2 size-[104px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[3.5px] border-white/95"
+            className="pointer-events-none absolute left-1/2 top-1/2 size-[104px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[3.5px] border-white/95 [filter:drop-shadow(0_0_4px_rgba(255,255,255,.38))]"
             aria-hidden="true"
           />
           <img
             ref={ringRef}
-            className="video-play-ring absolute left-3 top-2 z-[2] size-[98.4px] object-fill"
+            className="video-play-ring pointer-events-none absolute left-[11.8px] top-[11.8px] z-[2] size-[98.4px] object-fill"
             style={ringStyle}
             src={figmaAssets.videoProfile.playRing}
             alt=""
           />
           <span
-            className="video-play-button absolute left-3 top-2 z-[3] grid size-[98.4px] place-items-center rounded-full border-[2.187px] border-slate-200 bg-white shadow-[0_4.8px_9.6px_rgba(15,23,42,.08)]"
+            className="video-play-button pointer-events-none absolute left-[11.8px] top-[11.8px] z-[3] grid size-[98.4px] place-items-center rounded-full border-[2.187px] border-slate-200 bg-white shadow-[0_4.8px_9.6px_rgba(15,23,42,.08)] [transition:transform_110ms_cubic-bezier(0.25,1,0.5,1),box-shadow_300ms_cubic-bezier(0.25,1,0.5,1)] group-focus-visible:[box-shadow:0_5px_16px_rgba(15,23,42,.16)]"
             style={innerStyle}
           >
             <img
@@ -342,11 +341,24 @@ function ProgramsSection() {
               Temukan ruang untuk berkembang sesuai minat dan bakatmu.
             </p>
             <a
-              className="primary-button inline-flex h-[41px] items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
+              className="group primary-button inline-flex h-[41px] items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
               href="/programs"
             >
               Jelajahi Ekstrakurikuler{" "}
-              <img className="size-5" src={programCtaArrow} alt="" />
+              <span
+                className="size-5 shrink-0 bg-white group-hover:bg-primary"
+                style={{
+                  maskImage: `url(${programCtaArrow})`,
+                  maskPosition: "center",
+                  maskRepeat: "no-repeat",
+                  maskSize: "contain",
+                  WebkitMaskImage: `url(${programCtaArrow})`,
+                  WebkitMaskPosition: "center",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskSize: "contain",
+                }}
+                aria-hidden="true"
+              />
             </a>
           </div>
         </article>
@@ -389,60 +401,66 @@ function ProgramsSection() {
   );
 }
 
+// Baseline .blud-card-N p widths from 40cf91f, kept as literal strings so the
+// Tailwind scanner can see them.
+const bludCardTextWidth = [
+  "max-w-[241px]",
+  "max-w-[226px]",
+  "max-w-[226px]",
+  "max-w-[265px]",
+  "max-w-[255px]",
+  "max-w-[226px]",
+] as const;
+
 function BludSection() {
-  const defaultShapes = [
-    figmaAssets.blud.defaultShapes.kgs,
-    figmaAssets.blud.defaultShapes.tek,
-    figmaAssets.blud.defaultShapes.titl,
-    figmaAssets.blud.defaultShapes.tflm,
-    figmaAssets.blud.defaultShapes.tkr,
-    figmaAssets.blud.defaultShapes.sija,
-  ];
   return (
     <section
-      className="blud-section relative mx-auto h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0 min-[1600px]:h-[720px] min-[1600px]:w-[1600px] min-[1600px]:max-w-[calc(100%-40px)]"
+      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0 min-[1600px]:h-[720px] min-[1600px]:w-[1600px] min-[1600px]:max-w-[calc(100%-40px)]"
       aria-labelledby="blud-title"
     >
       <div className="section-intro blud-intro relative mb-[42px] w-full text-left">
-        <span className="section-badge inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-          <img src={figmaAssets.blud.badgeIcon} alt="" />
+        <div className="flex justify-center">
+        <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+          <img className="h-[17px] w-[13.6px]" src={figmaAssets.blud.badgeIcon} alt="" />
           BELAJAR • BERKARYA • MENGHASILKAN
         </span>
+        </div>
         <h2 id="blud-title" className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink">
           Belajar Melalui{" "}
           <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">Pengalaman Nyata</span>
         </h2>
-        <p className="max-w-[698px] text-base leading-6 text-muted">
+        <p className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted">
           Menghubungkan pembelajaran dengan pengalaman kerja melalui unit
           produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.
         </p>
         <a
-          className="blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto"
+          className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto"
           href="/programs"
         >
           Jelajahi Ekstrakurikuler{" "}
-            <img className="size-5 brightness-0 invert" src={programCtaArrow} alt="" />
+            <span
+              className="size-5 shrink-0 bg-white group-hover:bg-primary"
+              style={{
+                maskImage: `url(${programCtaArrow})`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+                WebkitMaskImage: `url(${programCtaArrow})`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+              }}
+              aria-hidden="true"
+            />
         </a>
       </div>
       <div className="blud-grid grid grid-cols-[repeat(3,400px)] grid-rows-[repeat(2,200px)] gap-6 overflow-visible min-[1600px]:absolute min-[1600px]:left-[13px] min-[1600px]:top-[263px] min-[1600px]:grid-cols-[repeat(3,500px)] min-[1600px]:grid-rows-[repeat(2,250px)] min-[1600px]:gap-[30px]">
         {bludCards.map(([name, description], index) => (
           <a
-            className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] w-[400px] min-w-[400px] box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[transform,box-shadow] duration-300 hover:-translate-y-[3px] hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:-translate-y-[3px] focus-visible:shadow-[0_4px_16px_rgba(15,23,42,.08)] min-[1600px]:h-[250px] min-[1600px]:w-[500px] min-[1600px]:min-w-[500px] min-[1600px]:p-[22px]`}
+            className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] w-[400px] min-w-[400px] box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow] duration-300 hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] ${[0, 2, 3, 4].includes(index) ? "hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:shadow-[0_4px_16px_rgba(15,23,42,.08)]" : ""} min-[1600px]:h-[250px] min-[1600px]:w-[500px] min-[1600px]:min-w-[500px] min-[1600px]:p-[22px]`}
             href="/blud"
             key={name}
           >
-            <span className="blud-shape-wrap pointer-events-none absolute left-[392px] top-[24.39px] z-0 h-[150.215px] w-[59.92px] overflow-visible opacity-100 transition-[left,top,width,height,opacity] duration-300 group-hover:left-[297px] group-hover:top-[-28px] group-hover:h-[253px] group-hover:w-[100.92px] group-hover:opacity-90 group-focus-visible:left-[297px] group-focus-visible:top-[-28px] group-focus-visible:h-[253px] group-focus-visible:w-[100.92px] group-focus-visible:opacity-90 min-[1600px]:group-hover:left-auto min-[1600px]:group-hover:right-0 min-[1600px]:group-hover:top-0 min-[1600px]:group-hover:h-[250px] min-[1600px]:group-hover:w-[116px]">
-              <img
-                className="blud-shape blud-default-shape absolute left-0 top-0 h-[150.215px] w-[59.92px] rotate-[-90deg] object-fill transition-[width,height,opacity] duration-300 group-hover:hidden group-focus-visible:hidden"
-                src={defaultShapes[index]}
-                alt=""
-              />
-              <img
-                className="blud-shape blud-hover-shape hidden h-[100.92px] w-[253px] rotate-90 object-fill opacity-0 transition-opacity duration-300 group-hover:block group-hover:opacity-100 group-focus-visible:block group-focus-visible:opacity-100 min-[1600px]:group-hover:hidden min-[1600px]:group-focus-visible:hidden"
-                src={figmaAssets.blud.hoverShape}
-                alt=""
-              />
-            </span>
             <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
               <img
                 className="size-[29.455px]"
@@ -453,7 +471,7 @@ function BludSection() {
             <h3 className="relative z-[1] m-0 bg-gradient-to-r from-primary-dark to-soft-blue bg-clip-text text-2xl leading-[29px] font-bold text-transparent min-[1600px]:mt-5 min-[1600px]:text-[30px] min-[1600px]:leading-9">
               {name}
             </h3>
-            <p className="relative z-[1] m-0 max-w-[280px] text-xs leading-[18px] text-ink min-[1600px]:text-base min-[1600px]:leading-6">
+            <p className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}>
               {description}
             </p>
           </a>
@@ -524,7 +542,7 @@ function AchievementsSection() {
 
   return (
     <section
-      className="achievements-section relative mx-auto mt-20 h-[655px] w-[min(1272px,100%-32px)] pt-[83px] max-md:h-auto max-md:pb-16"
+      className="achievements-section relative mx-auto mt-[88px] h-[655px] w-[min(1272px,100%-32px)] pt-0 max-md:h-auto max-md:pb-16"
       aria-labelledby="achievements-title"
     >
       <div className="mx-auto mb-12 w-[min(872px,100%)] text-center">
@@ -570,16 +588,16 @@ function AchievementsSection() {
               key={src}
             >
               <img className="block h-full w-full object-cover [-webkit-user-drag:none]" src={src} alt="" draggable={false} />
-              <div className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-none group-hover:opacity-100 group-focus-within:opacity-100" aria-hidden="true" />
-              <div className="achievement-card-content pointer-events-none absolute bottom-[14px] left-4 right-0 z-[1] flex w-[216px] [transform:translateY(12px)] flex-col items-start justify-end opacity-0 shadow-[0_4px_7px_rgba(0,0,0,.1)] transition-none group-hover:pointer-events-auto group-hover:[transform:translateY(0)] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:[transform:translateY(0)] group-focus-within:opacity-100">
-                <h3 className="text-[20px] leading-[24.2px]">{title}</h3>
-                <p className="w-[216px] text-xs leading-[14.5px]">{description}</p>
+              <div className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100" aria-hidden="true" />
+              <div className="achievement-card-content pointer-events-none absolute bottom-[14px] left-4 right-0 z-[1] flex w-[216px] [transform:translateY(12px)] flex-col items-start justify-end opacity-0 shadow-[0_4px_7px_rgba(0,0,0,.1)] transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:[transform:translateY(0)] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:[transform:translateY(0)] group-focus-within:opacity-100">
+                <h3 className="text-[20px] leading-[24.2px] text-white">{title}</h3>
+                <p className="mt-1 mb-2.5 w-[216px] text-xs leading-[14.5px] text-white">{description}</p>
                 <a
-                  className="gap-2 px-4 py-2.5 text-sm leading-[21px] shadow-[0_4px_15px_rgba(15,23,42,.08)] [-webkit-user-drag:none] hover:rounded-[10px] hover:border hover:border-primary hover:bg-primary hover:text-white focus-visible:rounded-[10px] focus-visible:border focus-visible:border-primary focus-visible:bg-primary focus-visible:text-white"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
                   href="/achievements"
                 >
                   Lihat Detail{" "}
-                  <img className="h-5 w-5" src={figmaAssets.secondaryButton.arrowRight} alt="" />
+                  <img className="size-[18px] object-contain" src={figmaAssets.secondaryButton.arrowRight} alt="" />
                 </a>
               </div>
             </article>
@@ -594,7 +612,7 @@ function AchievementsSection() {
           <img className="size-6 rotate-180 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.carouselRight} alt="" />
         </button>
       </div>
-      <div className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
+      <div className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
         {[
           [
             "100+",
@@ -743,16 +761,30 @@ function NewsSection() {
 
 function AiCtaSection({ onAskAi }: Props) {
   const [botSettled, setBotSettled] = useState(false);
+  const botRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
     const timer = window.setTimeout(() => setBotSettled(true), 1);
     return () => window.clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+    const bot = botRef.current;
+    if (!bot) return;
+    const float = bot.animate(
+      [
+        { transform: "translateY(0)" },
+        { transform: "translateY(-14px)" },
+        { transform: "translateY(0)" },
+      ],
+      { duration: 3600, iterations: Infinity, easing: "ease-in-out" },
+    );
+    return () => float.cancel();
   }, []);
   return (
     <section
       className={`ai-cta relative mx-auto mt-[88px] flex h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden bg-white ${botSettled ? "is-bot-settled" : ""}`}
       aria-labelledby="ai-cta-title"
     >
-      <span className="ai-cta-badge absolute left-[106px] top-[78px] inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+      <span className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
         Tanya Pembangunan.AI
       </span>
       <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px]">
@@ -775,12 +807,25 @@ function AiCtaSection({ onAskAi }: Props) {
           .
         </p>
         <button
-          className="primary-button mt-8 inline-flex items-center gap-4 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
+          className="group primary-button mt-8 inline-flex items-center gap-4 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
           type="button"
           onClick={onAskAi}
         >
           Mulai Bertanya{" "}
-          <img className="size-5" src={figmaAssets.icons.arrowRight} alt="" />
+          <span
+            className="size-5 shrink-0 bg-white group-hover:bg-primary"
+            style={{
+              maskImage: `url(${figmaAssets.icons.arrowRight})`,
+              maskPosition: "center",
+              maskRepeat: "no-repeat",
+              maskSize: "contain",
+              WebkitMaskImage: `url(${figmaAssets.icons.arrowRight})`,
+              WebkitMaskPosition: "center",
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskSize: "contain",
+            }}
+            aria-hidden="true"
+          />
         </button>
       </div>
       <span className="ai-circle ai-circle-small absolute left-[1253px] top-[137px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue" />
@@ -807,6 +852,7 @@ function AiCtaSection({ onAskAi }: Props) {
           alt=""
         />
         <img
+          ref={botRef}
           className="ai-cta-bot absolute left-[66px] top-[64px] size-[285px] object-contain transition-[top] duration-1000 ease-out"
           style={{ top: botSettled ? "68px" : "64px" }}
           src={figmaAssets.aiCtaLayers.bot}

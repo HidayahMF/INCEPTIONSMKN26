@@ -202,3 +202,22 @@ after page load may show panel 2 or 3 because the slider autoplays.
   `/dashboard/learning`, `/dashboard/grades`, `/admin/knowledge`). The
   prototype manifest contains no login, dashboard, student, or teacher screens.
   Those pages were not redesigned.
+
+### Tentang Kami / Profile sekolah assets
+
+Source file: `ejCueRQbWIbvl4Fp89gLOu`  
+Profile frame: `328:1155`  
+Prototype starting point: `496:1479` (`Mars SMKN 26`, separate subpage frame)
+
+| Figma node | Local path | Used by | Status |
+|---|---|---|---|
+| `328:1188` Hero BG | `/assets/figma/profile/profile-hero-bg.png` | `pages/ProfilePage.tsx` | IMPORTED_FROM_FIGMA |
+| `333:1244` image 2 | `/assets/figma/profile/profile-overview.png` | `pages/ProfilePage.tsx` | IMPORTED_FROM_FIGMA |
+| `I432:1436;432:1470` BG Pict / Motto | `/assets/figma/profile/profile-motto-bg.png` | `pages/ProfilePage.tsx` | IMPORTED_FROM_FIGMA |
+| `I432:1437;432:1474` BG Pict / Semboyan | `/assets/figma/profile/profile-semboyan-bg.png` | `pages/ProfilePage.tsx` | IMPORTED_FROM_FIGMA |
+| `I432:1438;432:1481` BG Pict / Mars | `/assets/figma/profile/profile-mars-bg.png` | `pages/ProfilePage.tsx` | IMPORTED_FROM_FIGMA |
+
+The Profile frame also contains the existing approved school logo, navbar,
+footer, and text-driven Visi/Misi/Sejarah content. The Mars frame is a separate
+prototype destination and was not added as a new route because the repository
+does not currently have a route-backed Mars page.

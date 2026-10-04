@@ -36,7 +36,7 @@ export function PublicNavbar() {
       <nav className="hidden items-center lg:flex" aria-label="Navigasi utama">
         {links.map((link) => (
           <a
-            className={`group flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-none hover:text-[20px] focus-visible:outline-none ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink"}`}
+            className={`group flex items-center gap-[10px] rounded-xl px-4 py-4 text-lg font-medium transition-[color,font-size] duration-300 ease-out focus-visible:outline-none motion-reduce:transition-none hover:text-[20px] ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink"}`}
             href={link.href}
             key={link.label}
             onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
@@ -51,7 +51,7 @@ export function PublicNavbar() {
             {link.label}
             {link.dropdown && (
               <span
-                  className={`h-3 w-[7px] shrink-0 bg-ink transition-none ${activeLink === link.label ? "rotate-90 bg-gradient-to-r from-primary-dark to-primary" : "-rotate-90"}`}
+                  className={`h-3 w-[7px] shrink-0 transition-[transform,background-color,background-image] duration-300 ease-out motion-reduce:transition-none`}
                 style={{
                   maskImage: `url(${figmaAssets.icons.chevronDown})`,
                   maskPosition: "center",
