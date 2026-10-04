@@ -44,12 +44,12 @@ export function MarsPage() {
   const innerStyle = { transform: playState === "pressed" ? "scale(.98)" : "none" };
 
   return (
-    <div className="min-h-screen bg-[#F4F8FF] text-ink">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main>
         <section className="relative h-[830px] overflow-hidden bg-[#F4F8FF] text-ink max-md:h-[650px]" aria-labelledby="mars-title">
-          <img className="pointer-events-none absolute left-[5%] top-[120px] z-[1] size-[100px] object-contain md:size-[120px]" src={figmaAssets.profile.marsHeroBallLeft} alt="" aria-hidden="true" />
-          <img className="pointer-events-none absolute right-[5%] top-[205px] z-[1] size-[100px] object-contain md:size-[120px]" src={figmaAssets.profile.marsHeroBallRight} alt="" aria-hidden="true" />
+          <img className="pointer-events-none absolute left-2 top-[118px] z-[1] size-12 object-contain md:left-[5%] md:top-[120px] md:size-[120px]" src={figmaAssets.profile.marsHeroBallLeft} alt="" aria-hidden="true" />
+          <img className="pointer-events-none absolute right-2 top-[178px] z-[1] size-12 object-contain md:right-[5%] md:top-[205px] md:size-[120px]" src={figmaAssets.profile.marsHeroBallRight} alt="" aria-hidden="true" />
           <div className="absolute left-1/2 top-[112px] z-[7] flex w-[872px] max-w-[calc(100%-32px)] -translate-x-1/2 flex-col items-center text-center max-md:top-[96px]">
             <MarsBadge>IDENTITAS SEKOLAH</MarsBadge>
             <h1 id="mars-title" className="my-[24px] mb-[10px] text-[36px] font-extrabold leading-[54px] max-md:mt-[18px] max-md:text-[30px] max-md:leading-[42px]"><span className="text-primary-dark">MARS</span> SMK Negeri 26 Jakarta</h1>
@@ -57,7 +57,7 @@ export function MarsPage() {
               Sebuah lagu yang merepresentasikan semangat, perjuangan, dan kebanggaan keluarga besar SMK Negeri 26 Jakarta.
             </p>
           </div>
-          <img className="pointer-events-none absolute bottom-[-20px] left-1/2 z-[2] h-auto w-[1100px] max-w-none -translate-x-1/2" src={figmaAssets.profile.marsHeroBackground} alt="" aria-hidden="true" />
+          <img className="pointer-events-none absolute bottom-[-20px] left-1/2 z-[2] h-auto w-[1100px] max-w-none -translate-x-1/2 max-md:w-[760px]" src={figmaAssets.profile.marsHeroBackground} alt="" aria-hidden="true" />
           <div className="absolute left-1/2 top-[300px] z-[5] box-border h-[450px] w-[900px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_12px_40px_rgba(15,23,42,.12)] max-[1271px]:w-[calc(100%-48px)] max-md:top-[230px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
             <img className="block size-full object-cover object-center" src={figmaAssets.videoProfile.preview} alt="Mars SMK Negeri 26 Jakarta" />
             <div className="absolute inset-0 z-[1] bg-[rgba(0,108,220,.04)]" aria-hidden="true" />
@@ -75,16 +75,16 @@ export function MarsPage() {
           <div className="mx-auto max-w-[1272px] text-center">
             <MarsBadge>TENTANG MARS</MarsBadge>
             <h2 className="mt-5 text-[32px] font-bold leading-[48px]">
-              <span className="text-ink">Derap Langkah</span> <span className="text-primary-dark">Cita Bersama</span> <span className="text-ink">SMK NEGERI 26 JAKARTA</span>
+              <span className="text-ink">Derap Langkah</span> <span className="text-primary-dark">Cita Bersama</span> 
             </h2>
            
             <div className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
-              <img className="pointer-events-none absolute right-0 top-0 h-full w-auto max-w-none object-contain" src="/assets/figma/profile/VISI SEKOLAHujung.png" alt="" aria-hidden="true" />
+              <img className="pointer-events-none absolute right-[-18%] top-0 h-full w-auto max-w-[58%] object-contain opacity-60 md:right-0 md:max-w-none md:opacity-100" src="/assets/figma/profile/VISI SEKOLAHujung.png" alt="" aria-hidden="true" />
               <div className="relative z-10 flex items-center gap-2">
                 <img className="size-[22px] object-contain" src="/assets/figma/profile/icondisampingjudulvisimisi.png" alt="" aria-hidden="true" />
                 <span className="text-sm font-semibold text-soft-blue">TENTANG MARS</span>
               </div>
-              <p className="relative z-10 mt-5 max-w-[927px] text-lg font-semibold leading-[30px] text-muted">
+              <p className="relative z-10 mt-5 max-w-[927px] text-lg font-bold leading-[30px] ">
                 Mars SMK Negeri 26 Jakarta merupakan bagian dari identitas sekolah yang mencerminkan semangat belajar, bekerja, dan membangun. Lagu ini menjadi salah satu representasi semangat dan kebanggaan keluarga besar SMK Negeri 26 Jakarta.
               </p>
               <img className="absolute bottom-6 left-12 h-[5px] w-[64px] object-fill" src="/assets/figma/profile/GARISBAWAHVISISEKOLAH.png" alt="" aria-hidden="true" />
@@ -92,76 +92,103 @@ export function MarsPage() {
           </div>
         </section>
 
-        <section className="min-h-[389px] bg-white px-6 py-16 md:px-10 md:py-16">
-          <div className="mx-auto max-w-[1272px] text-center">
-            <MarsBadge>PENCIPTA MARS</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">Diciptakan untuk SMK Negeri 26 Jakarta</h2>
-            <p className="mx-auto mt-4 max-w-[858px] text-lg leading-[30px] text-muted">
-              MARS SMK Negeri 26 Jakarta lahir dari dedikasi dan kecintaan terhadap sekolah, sebagai wujud semangat untuk terus melangkah, belajar, bekerja, dan membangun masa depan bersama.
-            </p>
-            <div className="mx-auto mt-8 grid max-w-[760px] gap-6 md:grid-cols-2">
-              {[
-                ["Bu Derliana", figmaAssets.profile.creatorBuDerliana],
-                ["Pak Sutaryo", figmaAssets.profile.creatorPakSutaryo],
-              ].map(([name, image]) => (
-                <article className="rounded-3xl bg-[#F4F8FF] p-6 text-left shadow-[0_4px_16px_rgba(15,23,42,.08)]" key={name}>
-                  <img className="size-20 rounded-full object-cover" src={image} alt={name} />
-                  <h3 className="mt-4 text-xl font-bold">{name}</h3>
-                  <p className="mt-2 text-sm text-muted">Pencipta MARS SMK Negeri 26 Jakarta</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="mars-lyrics" className="mx-auto min-h-[696px] w-[min(1272px,100%-32px)] py-20 md:py-24">
           <div className="text-center">
             <MarsBadge>LIRIK MARS</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">Lirik Mars SMK Negeri 26 Jakarta</h2>
-            <p className="mx-auto mt-4 max-w-[887px] text-lg leading-[30px] text-muted">
+            <h2 className="mt-5 text-[32px] font-bold leading-[48px]"><span className="text-primary-dark">Lirik Mars</span> <span className="text-ink">SMK Negeri 26 Jakarta</span></h2>
+            <p className="mx-auto mt-4 max-w-[900px] text-lg leading-[30px] text-muted">
               Derap langkah cita bersama, menjadi pengingat semangat untuk terus belajar, bekerja, dan membangun.
             </p>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-[1024px] gap-8 rounded-3xl bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:grid-cols-2 md:p-12">
-            <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
-              {`Derap langkah cita bersama,
-menjadi pengingat semangat untuk terus belajar, bekerja, dan membangun.
+            <div className="mx-auto mt-10 max-w-[1024px] rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-12">
+              <div className="grid gap-8 md:grid-cols-2">
+                <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
+                  {`Derap Langkah Cita Bersama
+Belajar bekerja membangun bangsa
 
 Sebagai pusaka panji-panji suci
 SMK 26 kepada ibu pertiwi
 Paku jiwa sungguh terpatri
 Tingkatkan kompetensi anak negeri`}
-            </p>
-            <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
-              {`Sebagai patriot pejuang sejati
+                </p>
+                <div className="text-left">
+                  <span className="inline-flex rounded-full bg-primary-dark px-4 py-2 text-sm font-bold uppercase tracking-[0.16em] text-white">Reff</span>
+                  <p className="mt-5 whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
+                    {`Ayo ayo giat belajar
+Ayo ayo semangat bekerja
+
+Ayo ayo prestasi membangun
+Semoga SMK Negeri 26 jaya
+
+Pasti SMK Negeri 26 jayalah terus`}
+                  </p>
+                </div>
+                <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink md:col-start-1">
+                  {`Sebagai patriot pejuang sejati
 Hadapi tantangan teknologi mendatang
 Kami ada di depan persada
 Bina cipta hadirkan karya
 
 Janji kami di gerbang hati
 Demi sekolah yang kucintai`}
-            </p>
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="min-h-[369px] bg-gradient-to-br from-soft-blue via-primary to-primary-dark px-6 py-14 text-white md:px-10 md:py-14">
+        <section className="min-h-[575px] bg-white px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px] text-center">
-            <MarsBadge>SEMANGAT YANG KAMI BAWA</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">BELAJAR, BEKERJA, MEMBANGUN</h2>
-            <p className="mx-auto mt-4 max-w-[887px] text-lg leading-[30px] text-white/85">
-              Derap langkah cita bersama, menjadi pengingat semangat untuk terus belajar, bekerja, dan membangun.
+            <MarsBadge>PENCIPTA MARS</MarsBadge>
+            <h2 className="mt-5 text-[32px] font-bold leading-[48px] text-ink max-md:text-[28px] max-md:leading-[40px]">Diciptakan untuk <span className="text-primary-dark">SMK Negeri 26 Jakarta</span></h2>
+            <p className="mx-auto mt-4 max-w-[858px] text-lg leading-[30px] text-muted max-md:text-base max-md:leading-7">
+              MARS SMK Negeri 26 Jakarta lahir dari dedikasi dan kecintaan terhadap sekolah, sebagai wujud semangat untuk terus melangkah, belajar, bekerja, dan membangun masa depan bersama.
             </p>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="mx-auto mt-12 grid max-w-[880px] gap-7 md:grid-cols-2">
               {[
-                ["Belajar", "Terus mengembangkan pengetahuan dan kompetensi untuk menghadapi masa depan."],
-                ["Bekerja", "Membangun keterampilan, profesionalisme, dan kesiapan menghadapi dunia kerja."],
-                ["Membangun", "Menghasilkan karya dan kontribusi bagi sekolah, masyarakat, dan bangsa."],
-              ].map(([title, description]) => (
-                <article className="rounded-3xl bg-white/15 p-5 text-left backdrop-blur-sm" key={title}>
-                  <h3 className="text-2xl font-bold">{title}</h3>
-                  <p className="mt-4 text-lg leading-7 text-white/85">{description}</p>
+                ["Bu Derliana", figmaAssets.profile.creatorBuDerliana],
+                ["Pak Sutaryo", figmaAssets.profile.creatorPakSutaryo],
+              ].map(([name, image]) => (
+                <article className="group overflow-hidden rounded-[28px] border border-school-bg bg-[#F4F8FF] text-center shadow-[0_8px_24px_rgba(15,23,42,.08)]" key={name}>
+                  <div className="relative flex h-[220px] items-end justify-center overflow-hidden bg-gradient-to-br from-[#e6f3ff] via-[#f4f8ff] to-[#d5eaff] px-8 pt-8">
+                    <div className="absolute left-1/2 top-8 size-[176px] -translate-x-1/2 rounded-full bg-white/70" aria-hidden="true" />
+                    <img className="relative z-10 h-[205px] w-[205px] object-contain object-bottom mix-blend-multiply transition-transform duration-300 ease-out group-hover:scale-[1.03]" src={image} alt={name} />
+                  </div>
+                  <div className="px-6 py-6">
+                    <h3 className="text-2xl font-bold leading-9 text-ink">{name}</h3>
+                    <p className="mt-2 text-base leading-6 text-muted">Pencipta MARS SMK Negeri 26 Jakarta</p>
+                  </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="min-h-[578px] bg-[#F4F8FF] px-6 py-14 text-ink md:px-10 md:py-16">
+          <div className="mx-auto max-w-[1272px] text-center">
+            <MarsBadge>SEMANGAT YANG KAMI BAWA</MarsBadge>
+            <h2 className="mt-5 text-[40px] font-bold leading-[52px] max-md:text-[30px] max-md:leading-10">BELAJAR, BEKERJA, <span className="text-primary-dark">MEMBANGUN</span></h2>
+            <p className="mx-auto mt-4 max-w-[887px] text-lg leading-[30px] text-[#5b7098] max-md:text-base max-md:leading-7">
+              Derap langkah cita bersama, menjadi pengingat semangat untuk terus belajar, bekerja, dan membangun.
+            </p>
+            <div className="mt-8 grid gap-6 text-left md:grid-cols-3">
+              {[
+                ["Belajar", ["Terus mengembangkan", "pengetahuan dan kompetensi", "untuk menghadapi masa depan."]],
+                ["Bekerja", ["Membangun keterampilan,", "profesionalisme, dan kesiapan", "menghadapi dunia kerja."]],
+                ["Membangun", ["Menghasilkan karya dan", "kontribusi bagi sekolah,", "masyarakat, dan bangsa."]],
+              ].map(([title, description]) => {
+                const lines = Array.isArray(description) ? description : [description];
+                return (
+                <article className="min-h-[248px] rounded-[28px] border-2 border-[#e2f1fb] bg-white px-7 py-5 shadow-[0_2px_8px_rgba(15,23,42,.02)]" key={String(title)}>
+                  <div className="flex items-center gap-6">
+                    <img className="size-[68px] shrink-0 object-contain" src="/assets/figma/mars/SEMANGATlogo.png" alt="" aria-hidden="true" />
+                    <h3 className="text-[30px] font-bold leading-9 text-primary-dark">{String(title)}</h3>
+                  </div>
+                  <p className="ml-[94px] mt-3 text-left text-[18px] leading-[33px] text-[#5b7098] max-md:ml-0 max-md:text-lg max-md:leading-7">
+                    {lines.map((line) => <span className="block whitespace-nowrap max-md:whitespace-normal" key={line}>{line}</span>)}
+                  </p>
+                </article>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -25,6 +25,22 @@ import { HomepageSections } from "./components/public/HomepageSections";
 import { PublicFooter } from "./components/public/PublicFooter";
 import { ProfilePage } from "./pages/ProfilePage";
 import { MarsPage } from "./pages/MarsPage";
+import { StrukturUnitKerjaPage } from "./pages/StrukturUnitKerjaPage";
+import {
+  GuruNormatifAdaptifPage,
+} from "./pages/GuruNormatifAdaptifPage";
+import { GuruKejuruanPage } from "./pages/GuruKejuruanPage";
+import { TenagaKependidikanPage } from "./pages/TenagaKependidikanPage";
+import { TimPendukungSekolahPage } from "./pages/TimPendukungSekolahPage";
+import { tourLocations } from "./data/tourLocations";
+import { GuruDetailPage, type StaffCategory } from "./pages/GuruDetailPage";
+import { staffSlug } from "./pages/TeacherDirectoryPage";
+import {
+  educationStaff,
+  normativeTeachers,
+  supportTeam,
+  vocationalTeachers,
+} from "./data/organization";
 
 type Page = {
   id: string;
@@ -138,7 +154,7 @@ function Home() {
   }, []);
   const askAi = () => window.dispatchEvent(new Event("open-chat"));
   return (
-    <div className="min-h-screen bg-[#F4F8FF]">
+    <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF]">
       <PublicNavbar />
       <main>
         <HeroSection onAskAi={askAi} />
@@ -155,7 +171,7 @@ function Home() {
 }
 
 function PublicExperience({ children }: { children: ReactNode }) {
-  return <PublicChatProvider><AOSInitializer />{children}<FloatingChatbot /><PublicChatRoom /></PublicChatProvider>;
+  return <PublicChatProvider><AOSInitializer /><div className="min-w-0 max-w-full overflow-x-clip">{children}</div><FloatingChatbot /><PublicChatRoom /></PublicChatProvider>;
 }
 
 export function LegacyApp() {
@@ -221,9 +237,32 @@ export function LegacyApp() {
 
 export function App() {
   const path = usePathname();
+  if (path.startsWith("/guru/")) {
+    const slug = decodeURIComponent(path.slice("/guru/".length));
+    const groups: [StaffCategory, typeof normativeTeachers][] = [
+      ["normatif", normativeTeachers],
+      ["kejuruan", vocationalTeachers],
+      ["kependidikan", educationStaff],
+      ["pendukung", supportTeam],
+    ];
+    for (const [category, members] of groups) {
+      const teacher = members.find((member) => staffSlug(member) === slug);
+      if (teacher) return <PublicExperience><GuruDetailPage category={category} teacher={teacher} /></PublicExperience>;
+    }
+  }
+  if (path.startsWith("/tour/")) {
+    const locationId = path.slice("/tour/".length);
+    const location = tourLocations.find((item) => item.id === locationId);
+    if (location) return <PublicExperience><LapanganTourPage location={location} /></PublicExperience>;
+  }
   if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
   if (path === "/profile") return <PublicExperience><ProfilePage /></PublicExperience>;
   if (path === "/mars") return <PublicExperience><MarsPage /></PublicExperience>;
+  if (path === "/struktur-unit-kerja") return <PublicExperience><StrukturUnitKerjaPage /></PublicExperience>;
+  if (path === "/guru-normatif-adaptif") return <PublicExperience><GuruNormatifAdaptifPage /></PublicExperience>;
+  if (path === "/guru-kejuruan") return <PublicExperience><GuruKejuruanPage /></PublicExperience>;
+  if (path === "/tenaga-kependidikan") return <PublicExperience><TenagaKependidikanPage /></PublicExperience>;
+  if (path === "/tim-pendukung-sekolah") return <PublicExperience><TimPendukungSekolahPage /></PublicExperience>;
   if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
   return <AuthProvider>

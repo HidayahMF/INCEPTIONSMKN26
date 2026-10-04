@@ -5,9 +5,10 @@ import "@photo-sphere-viewer/core/index.css";
 
 type PanoramaViewerProps = {
   panorama: string;
+  locationName?: string;
 };
 
-export function PanoramaViewer({ panorama }: PanoramaViewerProps) {
+export function PanoramaViewer({ panorama, locationName = "lokasi sekolah" }: PanoramaViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<Viewer | null>(null);
   const [ready, setReady] = useState(false);
@@ -52,19 +53,24 @@ export function PanoramaViewer({ panorama }: PanoramaViewerProps) {
   }, [panorama]);
 
   return (
-    <div className="relative block w-full min-w-0 max-w-full overflow-hidden rounded-3xl border-2 border-light-blue bg-white p-2 shadow-[0_4px_16px_rgba(15,23,42,.12)]">
+    <div className="relative mx-auto block aspect-[2/1] w-full min-w-0 max-w-[600px] overflow-hidden rounded-3xl border-2 border-light-blue bg-white p-2 shadow-[0_4px_16px_rgba(15,23,42,.12)] sm:max-w-[600px]">
       <div
         ref={containerRef}
-        className={`relative block h-[clamp(420px,68vh,720px)] min-h-[420px] w-full min-w-0 max-w-full overflow-hidden rounded-[18px] ${ready ? "opacity-100" : "opacity-0"}`}
+        className={`relative block size-full min-w-0 max-w-full overflow-hidden rounded-[18px] ${ready ? "opacity-100" : "opacity-0"}`}
       />
-      <img
-        className={`absolute bottom-2 left-2 right-2 top-2 h-auto w-auto max-w-none rounded-[18px] object-cover transition-opacity ${ready ? "pointer-events-none opacity-0" : "opacity-100"}`}
-        src={panorama}
-        alt="Panorama area lapangan SMKN 26 Jakarta"
-      />
+      {!error && (
+        <img
+          className={`absolute inset-2 size-[calc(100%-1rem)] rounded-[18px] object-contain transition-opacity ${ready ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          src={panorama}
+          alt={`Panorama ${locationName}`}
+        />
+      )}
       {error && (
-        <div className="absolute inset-x-0 bottom-0 bg-ink/75 px-4 py-3 text-center text-sm text-white">
-          <p>{error}</p>
+        <div className="absolute inset-2 grid place-items-center rounded-[18px] bg-[#f3f8ff] px-6 text-center">
+          <div>
+            <strong className="block text-lg text-ink">Panorama belum tersedia</strong>
+            <p className="mt-2 text-sm leading-6 text-muted">{error} Asset panorama untuk lokasi ini belum tersedia atau tidak dapat dibaca.</p>
+          </div>
         </div>
       )}
     </div>

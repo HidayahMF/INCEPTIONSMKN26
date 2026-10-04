@@ -9,7 +9,9 @@ const links = [
     dropdown: true,
     children: [
       { label: "Profil Sekolah", href: "/profile" },
+      { label: "Struktur & Unit Kerja", href: "/struktur-unit-kerja" },
       { label: "Mars SMKN 26", href: "/mars" },
+      { label: "School Tour", href: "/tour" },
     ],
   },
   { label: "Jurusan", href: "/majors", dropdown: true },
@@ -107,7 +109,7 @@ export function PublicNavbar() {
           >
             ☰
           </summary>
-          <nav className="absolute right-0 top-12 z-30 grid min-w-52 gap-1 rounded-2xl bg-white p-3 text-sm font-semibold text-muted shadow-xl">
+            <nav className="absolute right-0 top-12 z-30 grid w-[min(14rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] gap-1 overflow-y-auto rounded-2xl bg-white p-3 text-sm font-semibold text-muted shadow-xl">
             {links.map((link) => (
               <div className="grid gap-1" key={link.label}>
                 <a className="rounded-xl px-3 py-2 hover:bg-light-blue" href={link.href}>

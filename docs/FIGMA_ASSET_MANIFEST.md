@@ -24,6 +24,15 @@ reference could be determined.
 
 **Totals:** 111 asset files - 107 referenced, 4 intentionally unreferenced, 0 broken references.
 
+### Local School Tour assets
+
+| Asset | Local path | Used by | Status |
+|---|---|---|---|
+| School Tour hero | `/assets/panorama/heroschooltour.png` | `pages/TourPage.tsx` | IMPORTED_FROM_LOCAL_REFERENCE |
+| School Tour reference screenshot | `/assets/panorama/tampilanfigma.png` | Reference only | REFERENCE_ONLY |
+| School building visual | `/assets/figma/school/school-overview-photo-clean.png` | `pages/TourPage.tsx` | EXISTS_REFERENCED |
+| Lapangan panorama | `/assets/panorama/LapanganSMKN261.jpeg` | `PanoramaViewer` | BLOCKED_NOT_PRESENT |
+
 | Path | Category | Format | Dimensions | Used By | Status |
 |---|---|---|---|---|---|
 | `/assets/figma/achievements/achievements-play-circle.svg` | achievements | SVG | viewBox 0 0 20 20 | UNKNOWN | EXISTS_UNREFERENCED |
@@ -181,6 +190,14 @@ after page load may show panel 2 or 3 because the slider autoplays.
 
 ## Unresolved
 
+- **Portrait-to-person binding on `508:2153`.** `FIGMA_API_KEY` is not
+  available in the build environment, so the local exports could not be
+  re-matched against Figma node IDs. Within each row the four portraits are
+  assigned in Figma document order (Kesiswaan, Kurikulum, HUMAS, SAPRAS for
+  Wakil Kepala; and reading order for Normatif, Kejuruan, and Tendik). Text
+  content per card is transcribed from the frame and is correct; only the
+  photo-to-name binding is assumed. Re-verify with the Figma REST API when a
+  key is available.
 - **Achievement card 4 exact artwork.** The Figma frame shows a Pramuka poster
   whose caption reads "LOMBA KREATIVITAS PUTRA". Neither local Pramuka export
   matches that wording (`raw-04` = "PENEGAK", `raw-06` = "PERSEKOLAHAN").
@@ -221,4 +238,62 @@ The Profile frame also contains the existing approved school logo, navbar,
 footer, and text-driven Visi/Misi/Sejarah content. The Mars frame is a separate
 prototype destination and is now exposed at ``/mars`` through the Tentang Kami
 navigation. The exact Figma hero image fill for node ``496:1814`` remains
-blocked by the Figma API rate limit; no placeholder is claimed as exact.
+ blocked by the Figma API rate limit; no placeholder is claimed as exact.
+
+### Struktur & Unit Kerja assets
+
+Source file: `ejCueRQbWIbvl4Fp89gLOu`  
+Target frame: `508:2153` (1440x5646)
+
+| Figma node | Local path | Used by | Status |
+|---|---|---|---|
+| `514:2498` SMKN 26 (hero image fill) | `/assets/figma/struktur & unit kerja/bghero.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `I508:2489;49:665` Badges dot | `/assets/figma/struktur & unit kerja/struktur-badge.svg` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `I621:3800;13:14769` basil:arrow-right-solid | `/assets/figma/struktur & unit kerja/struktur-arrow-right.svg` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `I587:2195;111:617` Arrow (carousel chevron) | `/assets/figma/struktur & unit kerja/struktur-arrow.svg` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `653:5270` Detail Foto Profil Guru | `/assets/figma/struktur & unit kerja/struktur-kepsek.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `563:2358` Wakil Kepala (4x Profile Guru SMK) | `/assets/figma/struktur & unit kerja/struktur-wakasek-1..4.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `706:4535` Guru Normatif (4x Profile Guru SMK) | `/assets/figma/struktur & unit kerja/struktur-guru-1..4.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `722:4028` Guru Kejuruan (4x Profile Guru SMK) | `/assets/figma/struktur & unit kerja/struktur-guru-5..8.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+| `722:4050` Tenaga Pendidik (4x Profile Guru SMK) | `/assets/figma/struktur & unit kerja/struktur-tendik-1..4.png` | `pages/StrukturUnitKerjaPage.tsx` | IMPORTED_FROM_FIGMA |
+
+The carousel chevron `struktur-arrow.svg` (viewBox `0 0 8.67514 14.3325`) points
+**right**. The Figma prototype wraps both carousel buttons in net-identity
+`-scale-y-100 rotate-180` pairs, so the "previous" button also renders pointing
+right. `StrukturUnitKerjaPage.tsx` rotates that control by `rotate-180`
+explicitly so it points left.
+
+### Struktur & Unit Kerja content status
+
+**DRAFT - not verified.** Staff names, positions, and the principal tenure
+("2026-2027") are transcribed verbatim from the Figma frame so the layout can be
+reviewed. They are **not** sourced from `https://smkn26jkt.sch.id/`. Several names
+repeat across unrelated roles in the frame (for example "Rizky Maulana" is Guru
+Bahasa Indonesia, Guru Kejuruan TEK, and Staf Administrasi Sekolah), which
+indicates placeholder content. `frontend/src/data/organization.ts` keeps
+`isDraftContent = true`, which renders a visible DRAFT notice on the page.
+Replace the roster and set `isDraftContent = false` once the school content
+owner confirms the data.
+
+Figma node `587:2105` ("Tim Pendukung Sekolah") reuses the *same* four
+`Profile Guru SMK` instances and the same portraits as `563:2358`
+(Wakil Kepala). The design therefore contains no dedicated supporting-team
+roster, so the page renders the reused entries rather than inventing one.
+
+### Struktur & Unit Kerja deliberate deviations from Figma
+
+- **`Lihat Semua` buttons are implemented as local controls.** In
+  `docs/figma-reference/interactions.json` nodes `587:2048`, `587:2069`,
+  `587:2089`, and `587:2104` carry only an `ON_HOVER` reaction to the hover
+  state `13:14770`; there is no click destination and no staff-directory route
+  exists in the app. The implementation therefore keeps the visual button but
+  gives it a real local action: teacher buttons switch the active filter, while
+  Tendik and Tim Pendukung buttons scroll their section into view rather than
+  acting as dead links.
+- **Tim Pendukung carousel arrows are mobile-only** (`lg:hidden`). At the Figma
+  desktop width the four cards fill the full 1280px track, so there is nothing
+  to scroll; the arrows drive the horizontal scroll on narrow viewports instead.
+- **`Filter Guru` is wired as a real filter.** `582:1872` (Guru Normatif) and
+  `582:1878` (Guru Kejuruan) both have `ON_CLICK` reactions in
+  `interactions.json`, so the pill switches the visible group(s); "Semua"
+  reproduces the Figma default state with both groups shown.

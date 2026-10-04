@@ -181,7 +181,7 @@ function VideoProfileSection() {
   return (
     <section
       id="video-profile"
-      className="video-profile relative h-[830px] overflow-hidden bg-gradient-to-b from-primary-dark via-primary to-soft-blue text-white max-md:h-[650px]"
+      className="video-profile relative h-[830px] overflow-hidden bg-gradient-to-b from-primary-dark via-primary to-soft-blue text-white max-md:h-[760px]"
       aria-labelledby="video-profile-title"
     >
       <img
@@ -213,7 +213,7 @@ function VideoProfileSection() {
         </span>
         <h2
           id="video-profile-title"
-          className="my-[24px] mb-[10px] text-[36px] font-extrabold leading-[54px] text-white drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] max-md:mt-[18px] max-md:text-[30px] max-md:leading-[42px]"
+          className="my-[24px] mb-[10px] max-w-[720px] text-[36px] font-extrabold leading-[54px] text-white drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] max-md:mt-[18px] max-md:max-w-[320px] max-md:text-[28px] max-md:leading-[36px]"
         >
           Kenali SMKN 26 Jakarta lebih Dekat
         </h2>
@@ -222,7 +222,7 @@ function VideoProfileSection() {
           dan membangun masa depan.
         </p>
       </div>
-      <div className="absolute left-1/2 top-[259px] z-[5] box-border h-[500px] w-[1000px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white max-[1271px]:w-[calc(100%-48px)] max-md:top-[230px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
+      <div className="absolute left-1/2 top-[259px] z-[5] box-border h-[500px] w-[1000px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white max-[1271px]:w-[calc(100%-48px)] max-md:top-[270px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
         <img
           className="block size-full object-cover object-center"
           src={figmaAssets.videoProfile.preview}

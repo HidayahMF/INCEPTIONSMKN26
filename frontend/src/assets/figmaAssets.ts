@@ -27,6 +27,11 @@ export const figmaAssets = {
   school: {
     overviewPhoto: "/assets/figma/school/school-overview-photo-clean.png",
   },
+  tour: {
+    heroBackground: "/assets/panorama/heroschooltour.png",
+    referenceScreenshot: "/assets/panorama/tampilanfigma.png",
+    schoolVisual: "/assets/figma/school/school-overview-photo-clean.png",
+  },
   profile: {
     heroBackground: "/assets/figma/profile/profile-hero-bg.png",
     overviewPhoto: "/assets/figma/profile/profile-overview.png",
@@ -42,7 +47,43 @@ export const figmaAssets = {
     marsHeroBallRight: "/assets/figma/mars/bolabolaheromarskecilkanan.png",
     creatorBuDerliana: "/assets/figma/mars/buderliana.png",
     creatorPakSutaryo: "/assets/figma/mars/pak sutaryo.png",
+organizationHero: "/assets/figma/struktur & unit kerja/bghero.png",
     timelineLine: "/assets/figma/profile/timelinegaris.png",
+  },
+  struktur: {
+    heroBackground: "/assets/figma/struktur & unit kerja/bghero.png",
+    badgeIcon: "/assets/figma/struktur & unit kerja/struktur-badge.svg",
+    arrowRight: "/assets/figma/struktur & unit kerja/struktur-arrow-right.svg",
+    // Raw chevron points right; previous controls rotate it explicitly.
+    carouselChevron: "/assets/figma/struktur & unit kerja/struktur-arrow.svg",
+    principalPhoto: "/assets/figma/struktur & unit kerja/struktur-kepsek.png",
+    vicePrincipals: [
+      "/assets/figma/struktur & unit kerja/struktur-wakasek-1.png",
+      "/assets/figma/struktur & unit kerja/struktur-wakasek-2.png",
+      "/assets/figma/struktur & unit kerja/struktur-wakasek-3.png",
+      "/assets/figma/struktur & unit kerja/struktur-wakasek-4.png",
+    ],
+    normativeTeachers: [
+      "/assets/figma/struktur & unit kerja/struktur-guru-1.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-2.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-3.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-4.png",
+    ],
+    vocationalTeachers: [
+      "/assets/figma/struktur & unit kerja/struktur-guru-5.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-6.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-7.png",
+      "/assets/figma/struktur & unit kerja/struktur-guru-8.png",
+    ],
+    educationStaff: [
+      "/assets/figma/struktur & unit kerja/struktur-tendik-1.png",
+      "/assets/figma/struktur & unit kerja/struktur-tendik-2.png",
+      "/assets/figma/struktur & unit kerja/struktur-tendik-3.png",
+      "/assets/figma/struktur & unit kerja/struktur-tendik-4.png",
+    ],
+  },
+  detailGuru: {
+    cornerCircles: "/assets/figma/detail-guru/detail-guru-corner-circles.svg",
   },
   advantages: {
     education: "/assets/figma/advantages/advantage-education.png",

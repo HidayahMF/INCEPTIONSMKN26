@@ -27,7 +27,7 @@ function linkHref(title: string, link: string) {
 
 export function PublicFooter() {
   return (
-    <footer className="box-border min-h-[626px] bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] px-6 pb-6 pt-12 text-white md:px-[84px]">
+    <footer className="box-border min-h-[626px] min-w-0 max-w-full overflow-x-clip bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] px-6 pb-6 pt-12 text-white md:px-[84px]">
       <div className="relative flex flex-col items-center justify-center gap-6 min-[1272px]:grid min-[1272px]:h-11 min-[1272px]:grid-cols-[1fr_auto_1fr] min-[1272px]:items-end min-[1272px]:gap-8">
         <h2 className="m-0 shrink-0 text-center text-xl leading-7 min-[1272px]:justify-self-start">
           Dapatkan Informasi
@@ -76,7 +76,7 @@ export function PublicFooter() {
         </div>
       </div>
       <div className="my-8 h-px bg-white/70" />
-      <div className="grid gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:grid-cols-[300px_minmax(0,1fr)_249px] lg:gap-11">
+      <div className="grid min-w-0 gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:grid-cols-[300px_minmax(0,1fr)_249px] lg:gap-11">
         <div className="max-w-[300px]">
           <div className="flex items-center gap-2.5">
             <img
@@ -132,7 +132,7 @@ export function PublicFooter() {
             Jakarta Timur, DKI Jakarta 13220
           </address>
         </div>
-        <div className="grid content-start grid-cols-2 gap-[26px] md:grid-cols-3">
+        <div className="grid min-w-0 grid-cols-1 content-start gap-[26px] sm:grid-cols-2 md:grid-cols-3">
           {[
             columns.slice(0, 2),
             columns.slice(2, 4),
@@ -146,7 +146,7 @@ export function PublicFooter() {
                   </h3>
                   {links.map((link) => (
                     <a
-                      className="mb-[9px] block text-xs leading-4 text-white/90 no-underline hover:text-ink"
+                      className="mb-[9px] block break-words text-xs leading-4 text-white/90 no-underline hover:text-ink"
                       href={linkHref(title, link)}
                       key={link}
                     >
