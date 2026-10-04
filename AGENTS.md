@@ -21,6 +21,34 @@ Competition guidebook is the source of truth for rules. Initial submission: prop
 4. Existing repository architecture and conventions.
 5. Agent assumptions. If any required information is absent, ask; do not fabricate school facts, brand tokens, permissions, credentials, or Figma details.
 
+## Figma → Web implementation contract
+When the user asks to implement or align a Figma section, the agent owns the audit and implementation. The user should only need to provide a Figma link/file key and the section or node name/ID. Do not repeatedly ask the user to resolve asset mappings, icon direction, hover behavior, or text layout when the repository contains enough Figma data to determine them.
+
+Global workflow:
+
+1. Read `docs/figma-reference/` and `docs/figma-reference/interactions.json` before coding. Use the Figma REST API with `FIGMA_API_KEY` from the environment (never from chat or committed files) to fetch referenced nodes, image fills, dimensions, colors, gradients, shadows, fonts, and rendered PNGs.
+2. Resolve local asset mapping automatically by comparing Figma image fills, node names, asset manifests, and `frontend/public/assets/figma/`. Keep uncertain assets rather than guessing or deleting them.
+3. Read prototype reactions from `docs/figma-reference/interactions.json` when available. Implement trigger, destination state, easing, and duration from that data. If the interaction data is absent or ambiguous, use the existing section pattern first and ask one concise clarification only when implementation would otherwise be speculative.
+4. Verify every SVG arrow's actual path direction. Rotate it explicitly when the intended direction differs; never trust filenames such as `left` or `right` blindly.
+5. Default/hover visibility and card geometry must follow the verified Figma state and the user's latest explicit decision. Do not infer runtime behavior from a static node alone when prototype data exists.
+6. Anchor variable-length content with bottom-anchored flex layout. CTA/detail controls must keep the same position for short and long text; clamp text only when Figma shows a fixed line count.
+7. Guard hover effects against scroll-through and text selection. Draggable carousels must use pointer dragging, `user-select: none`, non-draggable images, scroll protection, and no body horizontal overflow.
+
+Styling policy:
+
+- Use existing design tokens and Tailwind utilities for new or actively refactored landing-page sections. Do not expand legacy global CSS for a new section unless an existing component requires it.
+- Do not migrate the entire legacy stylesheet as part of an ordinary section task. A full CSS migration is a separate explicitly requested task.
+- Prefer a small section-scoped style block or component utility classes over duplicated global overrides and `!important` cascades.
+- Visual parity means matching composition, content, assets, behavior, and interaction feel. A small pixel difference from browser/font rasterization is acceptable unless the user explicitly requires pixel-perfect geometry.
+
+Validation policy:
+
+- Capture fresh Figma references as `artifacts/figma-*.png` and web references as `artifacts/<section>-default.png` / `-hover.png` when implementing or auditing a section.
+- Use DOM geometry, Figma node data, and the focused Playwright test as the primary verification loop. Do not run the full Playwright suite after every CSS iteration; run focused tests during iteration and the full suite only at the end or when routing/shared behavior changed.
+- Always run `npm.cmd run check --workspace frontend` and the focused test before reporting a section complete. Run build/full tests when the task scope warrants them. Report pre-existing unrelated failures honestly.
+
+Reusable prompt: `Figma link/file key + section/node IDs + "match Figma and existing section behavior"`. If the user has a specific behavior override, the latest explicit instruction wins.
+
 ## Agent work contract
 - Before changing code: inspect current repository, report intended files, route/feature scope, dependencies, and potential conflicts.
 - Implement one feature or small vertical slice at a time. Do not silently expand scope or add a new UI library, backend, database, payment provider, or AI provider.
@@ -56,3 +84,30 @@ School panorama, grade-based learning recommendations, PKL/BKK applications, por
 
 ## Definition of done for any implemented feature
 A real entry point, supported happy path, permission checks where relevant, loading/empty/error states, desktop and mobile behavior, no exposed credentials, tested core flow, and documented demo steps. Status labels: PLANNED / IN PROGRESS / WORKING / VERIFIED. Never mark VERIFIED unless tested.
+
+## Styling Rule (permanent — Tailwind-first)
+This project uses Tailwind CSS as the primary and required styling system.
+- AI agents MUST use Tailwind utility classes for application UI styling.
+- Do NOT create application-owned `.css`, `.scss`, `.sass`, or `.less` styling.
+- Do NOT add application-owned `@media`, `@keyframes`, `::before`, or `::after`.
+- Use responsive Tailwind utilities such as `sm:`, `md:`, `lg:`, `xl:`, and arbitrary media variants like `min-[1272px]:` / `max-[639px]:` instead of CSS media queries.
+- Use conditional React `className` for state-dependent styling.
+- Use inline styles only when a value is genuinely dynamic and cannot reasonably be represented with Tailwind.
+- Use React state, Web Animations API, or existing Tailwind animation utilities when animation behavior requires runtime control.
+- Before creating new styling, search the existing codebase and reuse existing Tailwind patterns/components.
+- Never move application CSS into another CSS file as a workaround.
+- Preserve existing design, colors, spacing, responsive behavior, and functionality unless the user explicitly requests a change.
+- Third-party dependency CSS may remain when it is genuinely owned and required by the dependency (e.g. `aos/dist/aos.css`, `@photo-sphere-viewer/core/index.css`, `@fontsource-variable/inter`).
+
+Target state: `application-owned CSS = 0`. The only remaining application stylesheet is `frontend/src/styles/tokens.css`, which is the Tailwind entry point (`@import "tailwindcss"` + `@theme` design tokens) and must not contain additional rules.
+
+## Agent Workflow (styling/UI changes)
+Before changing UI:
+1. Read the relevant component and existing styling.
+2. Search for existing Tailwind patterns.
+3. Implement styling with Tailwind first.
+4. Avoid introducing application-owned CSS.
+5. Verify responsive behavior (desktop and mobile).
+6. Run the project's checks/build before reporting completion (`npm.cmd run check --workspace frontend`, `npm.cmd run build --workspace frontend`), plus focused Playwright tests where they exist.
+
+User request always outranks these defaults: if the user explicitly requests a specific CSS approach, follow the user's instruction.

@@ -41,9 +41,7 @@ export const figmaAssets = {
     carouselRight: "/assets/figma/advantages/advantage-carousel-right.svg",
   },
   partners: {
-    azko: "/assets/figma/partners/partner-azko.png",
     pln: "/assets/figma/partners/partner-pln.png",
-    toyota: "/assets/figma/partners/partner-toyota.png",
     wika: "/assets/figma/partners/partner-wika.png",
     panasonic: "/assets/figma/partners/partner-panasonic.png",
   },
@@ -71,15 +69,19 @@ export const figmaAssets = {
     decorationRight: "/assets/figma/video-profile/video-profile-decoration-right.svg",
   },
   programs: {
+    // Featured slider panels, in Figma slide order. Verified by reading the
+    // artwork in each export: raw-04 marching band (slide 1 / default state),
+    // raw-06 Tari, raw-03 Pencak Silat.
     panels: [
-      "/assets/figma/programs/programs-raw-01.png",
-      "/assets/figma/programs/programs-raw-02.png",
+      "/assets/figma/programs/programs-raw-04.png",
+      "/assets/figma/programs/programs-raw-06.png",
       "/assets/figma/programs/programs-raw-03.png",
     ],
+    // Right-hand program cards: LSP, OSIS & MPK, BKK.
     cards: [
-      "/assets/figma/programs/programs-raw-04.png",
-      "/assets/figma/programs/programs-raw-05.png",
-      "/assets/figma/programs/programs-raw-06.png",
+      "/assets/figma/programs/programs-raw-07.png",
+      "/assets/figma/programs/programs-raw-10.png",
+      "/assets/figma/programs/programs-raw-02.png",
     ],
   },
   blud: {
@@ -104,11 +106,11 @@ export const figmaAssets = {
   },
   achievements: {
     cards: [
-      "/assets/figma/achievements/achievements-raw-01.png",
-      "/assets/figma/achievements/achievements-raw-02.png",
+      "/assets/figma/achievements/achievements-raw-08.png",
       "/assets/figma/achievements/achievements-raw-03.png",
+      "/assets/figma/achievements/achievements-raw-01.png",
       "/assets/figma/achievements/achievements-raw-04.png",
-      "/assets/figma/achievements/achievements-raw-05.png",
+      "/assets/figma/achievements/achievements-raw-07.png",
     ],
     detailArrow: "/assets/figma/achievements/achievements-svg-13.svg",
   },

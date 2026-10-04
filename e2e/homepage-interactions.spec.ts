@@ -55,8 +55,8 @@ test.describe("homepage Figma interaction contracts", () => {
     expect(defaultCardBoxes.map((box) => Math.round(box!.y - quickBox!.y))).toEqual([1, 0, 0, 0]);
     const chatbotBox = await page.getByRole("button", { name: "Buka Tanya AI" }).boundingBox();
     expect(chatbotBox).toBeTruthy();
-    expect(chatbotBox!.x).toBeCloseTo(1279, 0);
-    expect(chatbotBox!.y).toBeCloseTo(654, 0);
+    expect(chatbotBox!.x).toBeCloseTo(1292, 0);
+    expect(chatbotBox!.y).toBeCloseTo(816, 0);
     expect(chatbotBox!.width).toBeCloseTo(120, 0);
     expect(chatbotBox!.height).toBeCloseTo(120, 0);
     await expect(cards[0]).toHaveCSS("box-shadow", "none");
@@ -174,7 +174,7 @@ test.describe("homepage Figma interaction contracts", () => {
     await footerInput.hover();
     await expect(footerInput).toHaveCSS("border-color", "rgb(0, 108, 220)");
     await page.getByRole("button", { name: "Buka Tanya AI" }).hover();
-    await expect(page.getByRole("button", { name: "Buka Tanya AI" }).locator("img")).toHaveAttribute("src", /chatbot-hover/);
+     await expect(page.getByRole("button", { name: "Buka Tanya AI" }).locator("img")).toHaveAttribute("src", /ai-cta-raw-02\.png/);
 
     await page.locator(".ai-cta").scrollIntoViewIfNeeded();
     await page.waitForTimeout(1100);

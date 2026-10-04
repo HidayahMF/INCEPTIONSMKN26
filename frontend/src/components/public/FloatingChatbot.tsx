@@ -1,28 +1,17 @@
-import { useEffect, useState } from "react";
-import chatbotDefault from "../../assets/chatbot/chatbot-default.png";
-import chatbotHover from "../../assets/chatbot/chatbot-hover.png";
-import chatbotPressed from "../../assets/chatbot/chatbot-pressed.png";
+import { useState } from "react";
 import { usePublicChat } from "../../features/chat/ChatProvider";
 
 type ChatbotState = "idle" | "hover" | "active";
+const chatbotImage = "/assets/figma/ai-cta/ai-cta-raw-02.png";
 
 export function FloatingChatbot() {
   const { openChat } = usePublicChat();
   const [state, setState] = useState<ChatbotState>("idle");
 
-  useEffect(() => {
-    for (const source of [chatbotHover, chatbotPressed]) {
-      const image = new Image();
-      image.src = source;
-    }
-  }, []);
-
-  const image = state === "active" ? chatbotPressed : state === "hover" ? chatbotHover : chatbotDefault;
-
   return (
     <button
       type="button"
-      className="floating-chatbot"
+      className="floating-chatbot fixed right-4 bottom-4 z-50 size-[72px] cursor-pointer border-0 bg-transparent p-0 md:right-7 md:bottom-16 md:size-[120px] focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
       aria-label="Buka Tanya AI"
       onClick={openChat}
       onPointerEnter={() => setState("hover")}
@@ -30,7 +19,7 @@ export function FloatingChatbot() {
       onPointerDown={() => setState("active")}
       onPointerUp={() => setState("hover")}
     >
-      <img src={image} alt="" aria-hidden="true" />
+      <img className="block size-full object-contain" src={chatbotImage} alt="" aria-hidden="true" data-chatbot-state={state} draggable={false} />
     </button>
   );
 }

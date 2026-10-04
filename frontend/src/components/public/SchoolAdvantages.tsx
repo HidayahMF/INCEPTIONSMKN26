@@ -100,7 +100,7 @@ export function SchoolAdvantages() {
   };
 
   return (
-    <section className="relative mt-[88px] h-[645px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
+    <section className="relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
       <div className="absolute left-1/2 top-10 -translate-x-1/2">
         <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
            <img src={figmaAssets.majors.badgeIcon} alt="" />Keunggulan SMK Negeri 26 Jakarta
@@ -111,7 +111,7 @@ export function SchoolAdvantages() {
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
-            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-[background-color,box-shadow] duration-300 ease-out hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
           disabled={translate >= bounds.max}
           aria-label="Keunggulan sebelumnya"
@@ -142,7 +142,7 @@ export function SchoolAdvantages() {
           >
             {advantages.map(([title, body, image]) => (
               <article
-                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(15,23,42,.08)]"
+                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink transition-none hover:shadow-[0_4px_16px_rgba(15,23,42,.08)]"
                 key={title}
               >
                  <div className="absolute left-0 top-0 h-[200px] w-[320px] overflow-hidden rounded-t-3xl">
@@ -185,7 +185,7 @@ export function SchoolAdvantages() {
         </div>
         </div>
         <button
-            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-[background-color,box-shadow] duration-300 ease-out hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(1)}
           disabled={translate <= bounds.min}
           aria-label="Keunggulan berikutnya"

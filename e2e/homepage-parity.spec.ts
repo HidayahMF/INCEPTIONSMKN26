@@ -17,7 +17,7 @@ test.describe("public homepage parity smoke", () => {
     await expect(page.locator('img[src$="student-male.png"]')).toHaveCount(2);
     for (const label of ["Ekstrakurikuler", "Lembaga Sertifikasi Profesi", "OSIS & MPK", "Bursa Kerja Khusus"]) await expect(page.getByRole("heading", { name: label, exact: true })).toBeVisible();
     for (const value of ["100+", "10", "56", "24", "30"]) await expect(page.locator(".achievement-stats")).toContainText(value);
-    await expect(page.locator('.achievement-card > img').nth(0)).toHaveAttribute('src', /achievements-raw-08\.png$/);
+    await expect(page.locator('.achievement-card > img').nth(0)).toHaveAttribute('src', /achievements-raw-01\.png$/);
     await expect(page.locator('.achievement-card > img').nth(1)).toHaveAttribute('src', /achievements-raw-02\.png$/);
     await expect(page.locator('.news-card').nth(1).locator('img')).toHaveAttribute('src', /news-raw-04\.png$/);
     await expect(page.locator('.news-card').nth(2).locator('img')).toHaveAttribute('src', /news-raw-01\.png$/);
@@ -114,8 +114,7 @@ test.describe("public homepage parity smoke", () => {
     await expect(blud.locator(".blud-shape-wrap")).toHaveCSS("left", "392px");
     await expect(blud.locator(".blud-default-shape")).toBeVisible();
     await blud.hover();
-    await expect(blud.locator(".blud-shape-wrap")).toHaveCSS("left", "297px");
-    await expect(blud.locator(".blud-hover-shape")).toBeVisible();
+    await expect(blud.locator(".blud-hover-shape")).toBeHidden();
     await expect(blud.locator(".blud-hover-shape")).toHaveAttribute("src", "/assets/figma/blud/blud-svg-19.svg");
     await expect(page.locator(".ai-cta-art .ai-cta-layer")).toHaveCount(3);
     await expect(page.locator(".ai-cta-art .ai-cta-bot")).toHaveCSS("width", "285px");

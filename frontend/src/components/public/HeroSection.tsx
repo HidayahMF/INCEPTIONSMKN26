@@ -35,7 +35,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </span>
         <h1 className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
           Belajar, Bekerja,{" "}
-          <span className="hero-gradient-text">Membangun!</span>
+           <span className="bg-gradient-to-r from-soft-blue via-primary to-primary-dark bg-clip-text text-transparent">Membangun!</span>
         </h1>
         <p className="w-full max-w-[681px] text-sm font-medium leading-6 drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:text-xl md:leading-[30px]">
           Membentuk generasi yang kompeten, berkarakter, dan siap memasuki dunia
@@ -43,7 +43,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <a
-            className="primary-button group inline-flex items-center gap-2 rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
+            className="primary-button group inline-flex items-center gap-2 rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
             href="/profile"
           >
             Jelajahi SMKN 26{" "}
@@ -75,7 +75,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </div>
       </div>
       <form
-        className="group hero-search absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#E5E7EB] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border-primary hover:bg-white hover:bg-none hover:text-primary focus-within:border-primary focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
+        className="group hero-search absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#E5E7EB] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border hover:border-primary-dark hover:bg-white hover:bg-none hover:text-primary focus-within:border focus-within:border-primary-dark focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
         onSubmit={submitSearch}
         role="search"
       >

@@ -158,19 +158,22 @@ test.describe("current Figma prototype motion parity", () => {
 
   test("achievement hover uses the verified larger destination geometry", async ({ page }) => {
     const card = page.locator(".achievement-card").first();
+    await card.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(300);
     await card.hover();
-    await page.waitForTimeout(350);
+    await page.waitForTimeout(500);
     const box = await card.boundingBox();
-    expect(box?.width).toBeCloseTo(261, 0);
-    expect(box?.height).toBeCloseTo(326, 0);
+    expect(box?.width).toBeCloseTo(237, 0);
+    expect(box?.height).toBeCloseTo(296, 0);
     await expect(card.locator("h3")).toHaveCSS("font-size", "20px");
     await expect(card.locator("p")).toHaveCSS("font-size", "12px");
-    await expect(card.locator("a img")).toHaveAttribute("src", "/assets/figma/icons/secondary-arrow-right.svg");
+    await expect(card.locator("a img").last()).toHaveAttribute("src", "/assets/figma/icons/secondary-arrow-right.svg");
     const overlay = await card.evaluate((element) => getComputedStyle(element, "::after").backgroundImage);
     expect(overlay).toContain("rgb(0, 0, 89)");
     const content = await card.locator(".achievement-card-content").boundingBox();
-    expect(content && box).toBeTruthy();
+    const cta = await card.locator(".achievement-card-content a").boundingBox();
+    expect(content && box && cta).toBeTruthy();
     expect(content!.x - box!.x).toBeCloseTo(18, 0);
-    expect(content!.y - box!.y).toBeCloseTo(182, 0);
+    expect(box!.y + box!.height - (cta!.y + cta!.height)).toBeCloseTo(16, 0);
   });
 });

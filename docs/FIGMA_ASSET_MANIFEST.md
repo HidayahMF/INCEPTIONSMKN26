@@ -1,286 +1,204 @@
-# Figma Asset Manifest
+﻿# Figma Asset Manifest
 
-Source file: `YpgHMnWSwcq2oBKDbOJrnX`  
-Design URL: `https://www.figma.com/design/YpgHMnWSwcq2oBKDbOJrnX/WEBSITE-SMKN-26`  
-Imported from Figma MCP context and `download_assets`; temporary MCP URLs are not stored in application source.
+Source Figma file: `YpgHMnWSwcq2oBKDbOJrnX`  
+Design URL: https://www.figma.com/design/YpgHMnWSwcq2oBKDbOJrnX/WEBSITE-SMKN-26
 
-| Section | Figma Node ID | Layer/Component | Deskripsi Visual | File Lokal | Format | Dimensi | Source URL | Status |
-|---|---|---|---|---|---|---|---|---|
-| Hero | 43:360 | Siswa Laki | Student cutout | `hero/student-male.png` | PNG | verify locally | Figma file | Imported and verified |
-| Hero | 43:359 | Siswa Perempuan | Student cutout | `hero/student-female.png` | PNG | 147384 bytes export | Figma file | Imported and verified |
-| Hero | 43:173 | SMKN 26 | Hero building/background image | `hero/hero-school-building.png` | PNG | verify locally | Figma file | Imported and verified |
-| Hero | 43:187 | Belajar, Bekerja, Membangun! | Hero headline artwork | `hero/hero-headline.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Hero | 49:722 | Hero Section | Background photo source slot | `hero/hero-background.png` | PNG | verify locally | Figma file | Imported and verified |
-| Branding | 43:325 | Navbar | SMK Negeri 26 Jakarta logo | `branding/smkn26-logo.png` | PNG | verify locally | Figma file | Imported and verified |
-| Icons | 49:756 | Search Bar | Search icon | `icons/icon-search.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Icons | 43:409 | Action Button | SolarPlayCircleBold | `icons/icon-play-video.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Icons | 84:1200 | Secondary Button | Arrow right | `icons/icon-arrow-right.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Shortcuts | 59:930 | SPMB | Shortcut card artwork | `shortcuts/shortcut-spmb.png` | PNG | verify locally | Figma file | Imported and verified |
-| Shortcuts | 59:931 | Perpus | Shortcut card artwork | `shortcuts/shortcut-library.png` | PNG | verify locally | Figma file | Imported and verified |
-| Shortcuts | 59:932 | KJP | Shortcut card artwork | `shortcuts/shortcut-kjp-pip.png` | PNG | verify locally | Figma file | Imported and verified |
-| Shortcuts | 59:933 | Card Summary Lisensi Saya | AI shortcut artwork | `shortcuts/shortcut-ai-chat.png` | PNG | verify locally | Figma file | Imported and verified |
-| School | 62:1023 | image 2 | Overview photo | `school/school-overview-photo.png` | PNG | 202749 bytes export | Figma file | Imported and verified |
-| Advantages | 108:350 | Keunggulan SMKN 26 | Education icon | `advantages/advantage-education.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Advantages | 111:453 | Keunggulan SMKN 26 | Industry card image | `advantages/advantage-industry.png` | PNG | verify locally | Figma file | Imported and verified |
-| Advantages | 90:332 | State=BLUD | BLUD card asset | `advantages/advantage-blud.png` | PNG | 132045 bytes export | Figma file | Imported and verified |
-| Advantages | 90:339 | State=LSP | LSP card asset | `advantages/advantage-lsp.png` | PNG | 120200 bytes export | Figma file | Imported and verified |
-| Advantages | 90:346 | State=Minat | Interest card asset | `advantages/advantage-interest.png` | PNG | 146722 bytes export | Figma file | Imported and verified |
-| Advantages | 90:353 | State=Inklusif | Inclusive card asset | `advantages/advantage-inclusive.png` | PNG | 138511 bytes export | Figma file | Imported and verified |
-| Advantages | 111:668 | Button RIght and Left | Carousel arrow | `advantages/advantage-arrow.svg` | SVG | verify locally | Figma file | Imported and verified |
-| Partners | 129:811 | Logo Place/PLN | Partner logo, identity from layer | `partners/partner-logo-01.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:812 | Logo Place/Panasonic | Partner logo, identity from layer | `partners/partner-logo-02.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:813 | Logo Place/Azzko | Partner logo, identity from layer | `partners/partner-logo-03.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:814 | Logo Place/Toyota | Partner logo, identity from layer | `partners/partner-logo-04.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:815 | Logo Place/WIKA | Partner logo, identity from layer | `partners/partner-logo-05.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:816 | Logo Place/Compnet | Partner logo, identity from layer | `partners/partner-logo-06.jpeg` | JPEG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:817 | Logo Place/AXA | Partner logo, identity from layer | `partners/partner-logo-07.jpeg` | JPEG | verify locally | Figma file | Imported, identity pending |
-| Partners | 129:818 | Logo Place/KOMATSU | Partner logo, identity from layer | `partners/partner-logo-08.png` | PNG | verify locally | Figma file | Imported, identity pending |
-| Partners | 130:940 | Daftar Perusahaan | Remaining partner logo carousel assets | `partners/partner-logo-09.png`–`partner-logo-18.png` | PNG | verify locally | Figma file | Imported, identity pending |
+> **Regenerated from actual repository state.** Previous revisions of this file listed
+> exports that no longer exist on disk; every row below was produced by scanning
+> `frontend/public/assets/figma/` and cross-referencing real asset references in
+> `frontend/src`. No row is aspirational.
 
-## Reuse, duplicates, and failures
+Generation inputs:
 
-- Existing assets remain untouched; no content hash comparison could be completed for every legacy file because the existing folder contains non-semantic duplicates and no prior manifest.
-- `hero/hero-background.png` is the canonical local copy for the identical overview-photo export; duplicate downloads were removed.
-- The partner sequence is intentionally neutral where visual identity was not verified from the source layer. No company names are inferred from appearance.
-- `lebih-dari-sekadar-sekolah-vokasi.svg`, `mdi-book-education-2.png`, dropdown vectors, and individual Anima-named rectangle exports still need direct child-node export/identity correlation; they are not claimed as imported here.
-- No asset export failed at the section level. Remaining items are `Needs designer verification` until their exact child-node source and dimensions are confirmed.
-- The female student asset needs a child-node export from `43:359`; the section export returned a duplicate photo, so it was intentionally not mapped as a verified student cutout.
+- Asset files: `frontend/public/assets/figma/**`
+- Runtime asset map: `frontend/src/assets/figmaAssets.ts`
+- All `/assets/figma/*` references across `frontend/src/**/*.ts(x)`
 
-## Pending asset re-import
+Status values:
 
-| Section | Figma Node ID | Layer/Component | Deskripsi Visual | File Lokal | Format | Dimensi | Source URL atau sumber Figma | Status |
-|---|---|---|---|---|---|---|---|---|
-| School | 70:1045 | Lebih dari Sekadar Sekolah Vokasi | Text headline node; no embedded SVG asset | — | — | 604 x 54 node bounds | Frame `84:1200` / child `70:1045` | Failed: MCP export unavailable |
-| Advantages | 108:334 / 90:256 | Child image / Pendidikan | Top image crop for Pendidikan card | `advantages/advantage-education.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 111:428 / 90:325 | Child image / Industri | Top image crop for Industri card | `advantages/advantage-industry.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 111:429 / 90:332 | Child image / BLUD | Top image crop for Teaching Factory card | `advantages/advantage-blud.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 111:430 / 90:346 | Child image / Minat | Top image crop for Minat card | `advantages/advantage-interest.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 111:432 / 90:353 | Child image / Inklusif | Top image crop for Inklusif card | `advantages/advantage-inclusive.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 111:431 / 90:339 | Child image / LSP | Top image crop for Sertifikasi Kompetensi card | `advantages/advantage-lsp.png` | PNG | 640 x 400 | Figma component child image | Imported and verified |
-| Advantages | 90:256 / 108:350 | mdi:book-education | Education icon source reused by card variants | `advantages/icon-book-education-secondary.svg` | SVG | viewBox in source SVG | Figma component asset `0aec9.svg` | Existing and verified |
-| Partners | I130:940;129:819 / 129:819 | Logo Place/MICRO, image 2 | Partner logo | `partners/partner-logo-19.png` | PNG | 1397 x 382 | Figma component source `2f8b2.png` | Imported, identity pending |
-| Partners | I130:940;129:820 / 129:820 | Logo Place/ASTRA, image 2 | Partner logo | `partners/partner-logo-20.png` | PNG | 1374 x 385 | Figma component source `ff1c5.png` | Imported, identity pending |
-| Navbar | I43:325;43:275 / 43:286 / 43:298 | Menu Item / Vector | Shared dropdown chevron | `icons/icon-chevron-down.svg` | SVG | viewBox in source SVG | Navbar component source `68e66.svg` | Existing and verified |
+- `EXISTS_REFERENCED` - file present and referenced by application source
+- `EXISTS_UNREFERENCED` - file present, no source reference (kept intentionally; see Notes)
 
-### Pending failures and manual actions
+`Used By` lists source files that reference the path. `UNKNOWN` means no source
+reference could be determined.
 
-- `70:1045` is a text node, not an SVG asset. A designer must provide an approved exported SVG only if the Anima SVG is required as a standalone asset; no manual SVG was generated.
-- The requested Anima names `rectangle-89.png` through `rectangle-89-5.png` map to the verified child image nodes above. Their semantic files are used instead of preserving Anima filenames.
+**Totals:** 111 asset files - 107 referenced, 4 intentionally unreferenced, 0 broken references.
 
-## Partner audit - node 130:940
+| Path | Category | Format | Dimensions | Used By | Status |
+|---|---|---|---|---|---|
+| `/assets/figma/achievements/achievements-play-circle.svg` | achievements | SVG | viewBox 0 0 20 20 | UNKNOWN | EXISTS_UNREFERENCED |
+| `/assets/figma/achievements/achievements-raw-01.png` | achievements | PNG | 1081x1351 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-raw-02.png` | achievements | PNG | 271x338 | UNKNOWN | EXISTS_UNREFERENCED |
+| `/assets/figma/achievements/achievements-raw-03.png` | achievements | PNG | 1081x1351 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-raw-04.png` | achievements | PNG | 1081x1351 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-raw-05.png` | achievements | PNG | 271x338 | UNKNOWN | EXISTS_UNREFERENCED |
+| `/assets/figma/achievements/achievements-raw-06.png` | achievements | PNG | 271x338 | UNKNOWN | EXISTS_UNREFERENCED |
+| `/assets/figma/achievements/achievements-raw-07.png` | achievements | PNG | 271x338 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-raw-08.png` | achievements | PNG | 271x338 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-svg-03.svg` | achievements | SVG | viewBox 0 0 33 21 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-svg-12.svg` | achievements | SVG | viewBox 0 0 33 30.1051 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/achievements/achievements-svg-13.svg` | achievements | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-arrow.svg` | advantages | SVG | viewBox 0 0 8.67514 14.3325 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-blud.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-carousel-left.svg` | advantages | SVG | viewBox 0 0 8.67511 14.3326 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-carousel-right.svg` | advantages | SVG | viewBox 0 0 8.67514 14.3326 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-education.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-inclusive.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-industry.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-interest.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/advantage-lsp.png` | advantages | PNG | 640x400 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/advantages/icon-book-education-secondary.svg` | advantages | SVG | viewBox 0 0 34.3636 34.3636 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/ai-cta/ai-cta-raw-01.png` | ai-cta | PNG | 1287x1222 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/ai-cta/ai-cta-raw-02.png` | ai-cta | PNG | 322x306 | assets/figmaAssets.ts, components/public/FloatingChatbot.tsx, features/chat/PublicChatRoom.tsx | EXISTS_REFERENCED |
+| `/assets/figma/ai-cta/ai-cta-svg-02.svg` | ai-cta | SVG | viewBox 0 0 365 365 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/ai-cta/ai-cta-svg-07.svg` | ai-cta | SVG | viewBox 0 0 365 365 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/ai-cta/ai-cta-svg-10.svg` | ai-cta | SVG | viewBox 0 0 418 417 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-KGS-shape.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-SIJA-icon.svg` | blud | SVG | viewBox 0 0 29.4545 29.4545 | assets/figmaAssets.ts, data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-SIJA-shape.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-svg-02.svg` | blud | SVG | viewBox 0 0 20 21.6199 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-svg-06.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-svg-12.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-svg-13.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-svg-19.svg` | blud | SVG | viewBox 0 0 253 100.92 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-TEK-icon.svg` | blud | SVG | viewBox 0 0 29.4545 29.4545 | assets/figmaAssets.ts, data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-TFLM-icon.svg` | blud | SVG | viewBox 0 0 29.4545 29.4545 | assets/figmaAssets.ts, data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-TITL-icon.svg` | blud | SVG | viewBox 0 0 29.4545 29.4545 | assets/figmaAssets.ts, data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-TKR-icon.svg` | blud | SVG | viewBox 0 0 29.4545 29.4545 | assets/figmaAssets.ts, data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/blud/blud-TKR-shape.svg` | blud | SVG | viewBox 0 0 150.215 59.9196 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/branding/smkn26-logo.png` | branding | PNG | 375x403 | assets/figmaAssets.ts, layouts/PortalLayout.tsx, pages/LoginPage.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-raw-02.png` | footer | PNG | 342x317 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-svg-03.svg` | footer | SVG | viewBox 0 0 19.916 19.8382 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-svg-04.svg` | footer | SVG | viewBox 0 0 20 16 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-svg-07.svg` | footer | SVG | viewBox 0 0 18.7377 18.7373 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-svg-08.svg` | footer | SVG | viewBox 0 0 23.9985 16.8585 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/footer/footer-svg-13.svg` | footer | SVG | viewBox 0 0 14 20 | components/public/PublicFooter.tsx | EXISTS_REFERENCED |
+| `/assets/figma/hero/hero-background.png` | hero | PNG | 1920x1080 | assets/figmaAssets.ts, pages/TourPage.tsx | EXISTS_REFERENCED |
+| `/assets/figma/hero/hero-headline.svg` | hero | SVG | viewBox 0 0 13.6 17 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/hero/hero-school-building.png` | hero | PNG | 2848x1494 | assets/figmaAssets.ts, pages/LoginPage.tsx | EXISTS_REFERENCED |
+| `/assets/figma/hero/student-female.png` | hero | PNG | 302x459 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/hero/student-male.png` | hero | PNG | 4096x2404 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/icons/icon-arrow-right.svg` | icons | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/icons/icon-chevron-down.svg` | icons | SVG | viewBox 0 0 7 12 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/icons/icon-play-video.svg` | icons | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/icons/icon-search.svg` | icons | SVG | viewBox 0 0 28 28 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/icons/secondary-arrow-right.svg` | icons | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/icon-arrow-right.svg` | majors | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/icon-major-building.svg` | majors | SVG | viewBox 0 0 29.454546 29.454546 | data/majors.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/icon-major-education.svg` | majors | SVG | viewBox 0 0 34.3636 34.3636 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/icon-section-badge.svg` | majors | SVG | viewBox 0 0 13.6 17 | App.tsx, assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-background-shape.svg` | majors | SVG | viewBox 0 0 1444 576 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-kgs.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-sija.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-tek.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-tflm.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-titl.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/major-tkr.png` | majors | PNG | 2160x3840 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/popover-pointer-left.svg` | majors | SVG | viewBox 0 0 23.3827 16.5 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/majors/popover-pointer-right.svg` | majors | SVG | viewBox 0 0 23.3827 16.5 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/news/news-calendar.svg` | news | SVG | viewBox 0 0 17 17 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-01.png` | news | PNG | 418x236 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-02.png` | news | PNG | 1672x941 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-03.png` | news | PNG | 418x236 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-04.png` | news | PNG | 418x236 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-05.png` | news | PNG | 1672x941 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-07.png` | news | PNG | 418x236 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-raw-09.png` | news | PNG | 418x236 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/news/news-svg-02.svg` | news | SVG | viewBox 0 0 8.67526 14.3326 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-04.png` | partners | PNG | 1374x385 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-05.png` | partners | PNG | 1449x1045 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-07.jpeg` | partners | JPEG | 3840x2160 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-09.png` | partners | PNG | 360x119 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-10.png` | partners | PNG | 512x146 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-12.png` | partners | PNG | 892x190 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-logo-16.png` | partners | PNG | 350x96 | components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-panasonic.png` | partners | PNG | 300x56 | assets/figmaAssets.ts, components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-pln.png` | partners | PNG | 218x315 | assets/figmaAssets.ts, components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/partners/partner-wika.png` | partners | PNG | 480x326 | assets/figmaAssets.ts, components/public/PartnerLogos.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-01.png` | programs | PNG | 1915x821 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-02.png` | programs | PNG | 479x206 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-03.png` | programs | PNG | 412x239 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-04.png` | programs | PNG | 412x239 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-05.png` | programs | PNG | 1648x954 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-06.png` | programs | PNG | 412x239 | assets/figmaAssets.ts, components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-07.png` | programs | PNG | 479x206 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-raw-10.png` | programs | PNG | 479x206 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-svg-01.svg` | programs | SVG | viewBox 0 0 8.67514 14.3325 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/programs/programs-svg-04.svg` | programs | SVG | viewBox 0 0 13.6 17 | components/public/HomepageSections.tsx | EXISTS_REFERENCED |
+| `/assets/figma/school/school-overview-photo-clean.png` | school | PNG | 420x233 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/shortcuts/shortcut-ai-chat.png` | shortcuts | PNG | 560x296 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/shortcuts/shortcut-kjp-pip.png` | shortcuts | PNG | 280x148 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/shortcuts/shortcut-library.png` | shortcuts | PNG | 280x148 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/shortcuts/shortcut-spmb.png` | shortcuts | PNG | 280x148 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-badge-icon.svg` | video-profile | SVG | viewBox 0 0 13.6 17 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-decoration-left.svg` | video-profile | SVG | viewBox 0 0 245 245 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-decoration-right.svg` | video-profile | SVG | viewBox 0 0 180 180 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-lower-shape.svg` | video-profile | SVG | viewBox 0 0 1440 514 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-play-icon.svg` | video-profile | SVG | viewBox 0 0 20 20 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-play-ring.svg` | video-profile | SVG | viewBox 0 0 98.4 98.4 | assets/figmaAssets.ts | EXISTS_REFERENCED |
+| `/assets/figma/video-profile/video-profile-preview.png` | video-profile | PNG | 1671x941 | assets/figmaAssets.ts | EXISTS_REFERENCED |
 
-Latest Figma MCP metadata identifies the visible partner order and source layers.
+## Notes
 
-| Section | Figma Node ID | Layer | Identity | File Lokal | Format | Dimensi | Status |
-|---|---|---|---|---|---|---|---|
-| Partners | I130:940;129:813 | Logo Place/Azzko | AZKO | `partners/partner-azko.png` | PNG | 446x95 -> 446x95 | Content bounds filled source canvas; normalized with 6px safety padding | Existing and verified |
-| Partners | I130:940;129:811 | Logo Place/PLN | PLN | `partners/partner-pln.png` | PNG | 320x320 -> 218x315 | Content bounds detected and trimmed with 6px safety padding | Existing and verified |
-| Partners | I130:940;129:814 | Logo Place/Toyota | Toyota | `partners/partner-toyota.png` | PNG | 480x270 -> 480x90 | JPEG canvas converted to PNG and trimmed with 6px safety padding | Imported and verified |
-| Partners | I130:940;129:815 | Logo Place/WIKA | WIKA | `partners/partner-wika.png` | PNG | 480x326 -> 480x326 | Content bounds filled source canvas; normalized with 6px safety padding | Existing and verified |
-| Partners | I130:940;129:812 | Logo Place/Panasonic | Panasonic | `partners/partner-panasonic.png` | PNG | 300x300 -> 300x56 | Content bounds detected and trimmed with 6px safety padding | Existing and verified |
+### Achievement card artwork (identified by reading text baked into each poster)
 
-Final visible order: AZKO -> PLN -> Toyota -> WIKA -> Panasonic. Figma frame `130:940` is `1272 x 140`; each visible logo place is approximately `235.47 x 117.74`, with approximately `23.54px` horizontal gap. Latest audit screenshot: `artifacts/figma-partners-audit-latest.png`.
+Rendered order in `docs/figma-reference/achievements.png` is
+Basket, Futsal, Paskibrada, Pramuka, Voli. Mapping below was verified by
+matching the printed team name and achievement lines inside each export,
+not by filename.
 
-Renamed canonical files: `partner-logo-13.png` -> `partner-azko.png`, `partner-logo-03.png` -> `partner-pln.png`, `partner-logo-06.jpeg` -> `partner-toyota.png`, `partner-logo-02.png` -> `partner-wika.png`, and `partner-logo-01.png` -> `partner-panasonic.png`. Original files were backed up outside the repository during normalization. Explicitly listed unused legacy root exports and old visual audit artifacts were removed after reference checks.
+| Render position | Team | Local file | Evidence |
+|---|---|---|---|
+| 1 | Tim Basket Putra | `achievements-raw-08.png` | Exact: "JUARA 1 KESUKARAN OLAHRAGA VOLI & BASKET DKI JAKARTA" |
+| 2 | Tim Futsal Putra | `achievements-raw-03.png` | Exact: "JUARA 1 KOFESSE CUP TINGKAT PROVINSI" |
+| 3 | Paskibrada Swabhangun | `achievements-raw-01.png` | Exact: "HARAPAN 3 / JUARA MAKE UP TERBAIK 2 / JUARA UTAMA 1 / VARIASI FORMASI TERBAIK" |
+| 4 | Tim Pramuka Prambanan | `achievements-raw-04.png` | Team and photograph match. Poster line reads "LOMBA KREATIVITAS PENEGAK" while the Figma frame reads "LOMBA KREATIVITAS PUTRA" - see Unresolved. |
+| 5 | Tim Voli Putri | `achievements-raw-07.png` | Exact: "JUARA 2 GALAXY CUP 2025 TINGKAT WILAYAH" |
 
-## Homepage parity audit additions
+Unreferenced achievement alternates (kept, not deleted):
 
-The following findings come from Figma metadata/design contexts for file `YpgHMnWSwcq2oBKDbOJrnX`, root `43:172`, and are marked `VERIFIED_FROM_FIGMA`. The authenticated account is a View seat, but targeted `get_design_context` works. Exact assets already downloaded are marked `IMPORTED_AND_VERIFIED`; only semantic roles not exposed by a child context remain `UNRESOLVED`.
+- `achievements-raw-02.png` (271x338) - Futsal, low-resolution variant of raw-03
+- `achievements-raw-05.png` (271x338) - Paskibrada, low-resolution variant of raw-01
+- `achievements-raw-06.png` (271x338) - Pramuka, low-resolution variant of raw-04
+- `achievements-play-circle.svg` - alternate play ring; the video profile uses `video-profile-play-ring.svg`
 
-| Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Already Existing / Newly Imported | Notes |
-|---|---|---|---|---|---|---|---|
-| `49:722` | Hero Section | Composite frame | 1440 x 880 | Existing hero asset family | Hero | EXISTING | Exact child source mapping remains Editor-only. |
-| `250:985` | Quick Access | Composite frame | 1192 x 149 | `frontend/public/assets/figma/shortcuts/` | Quick Access | EXISTING | Four local shortcut assets are present. |
-| `84:1200` | Mengenal SMK | Composite frame | 1272 x 400 | `frontend/public/assets/figma/school/` | Mengenal SMK | EXISTING | Existing overview images; exact source correlation pending. |
-| `113:686` | Keunggulan SMK | Composite frame | 1440 x 645 | `frontend/public/assets/figma/advantages/` | Keunggulan | EXISTING | Existing artwork family. |
-| `208:1127` | Mitra Industri | Logo track | 1272 x 218 | `frontend/public/assets/figma/partners/` | Mitra Industri | EXISTING | Two repeated logo copies are visible in metadata; see parity report. |
-| `208:1126` | Jurusan SMK | Six model lineup | 1440 x 793 | `frontend/public/assets/figma/majors/` | Jurusan | EXISTING | Six local major images; CSS crop/zoom required. |
-| `242:695` | Video profil | Composite frame | 1447 x 700 | local video-profile batch | Video Profil | IMPORTED_AND_VERIFIED | Raw source files are local; play-state geometry is in the parity report. |
-| `246:1219` | Program SMK | Composite frame | 1184 x 673 | local programs batch | Program | IMPORTED_AND_VERIFIED | Six visible context image sources are mapped in the parity report. |
-| `246:1477` | BLUD SMK | Composite frame | 1272 x 629 | local blud batch | BLUD | IMPORTED_AND_VERIFIED | Six card icon/shape pairs are mapped below. |
-| `270:2717` | Prestasi SMK | Composite frame | 1272 x 654.983 | local achievements batch | Prestasi | IMPORTED_AND_VERIFIED | Five card images are semantically mapped below. |
-| `279:1210` | Berita SMK | Composite frame | 1382 x 495.017 | local news batch | News | IMPORTED_AND_VERIFIED | Five card images are semantically mapped below. |
-| `286:1952` | Frame 36411 / Bot | Composite frame | 1272 x 442 | local ai-cta batch | Pembangunan.AI CTA | IMPORTED_AND_VERIFIED | Exact raw artwork is local; no runtime screenshot is used. |
-| `286:1470` | Footer | Footer instance | 1440 x 626 | local footer batch + existing branding | Footer | IMPORTED_AND_VERIFIED | Logo, mail, social, WhatsApp, marker, and secondary image are mapped below. |
-| `293:1975` | Chat bot Ai | Floating instance | 120 x 120 | local chatbot batch | Floating chatbot | IMPORTED_AND_VERIFIED | Exact raw illustration batch is local. |
+### Programs artwork
 
-### Asset status rules
+| Role | Local file | Identified content |
+|---|---|---|
+| Featured panel 1 (default state) | `programs-raw-04.png` | Marching band - matches Figma slide 1 |
+| Featured panel 2 | `programs-raw-06.png` | Tari (traditional dance) |
+| Featured panel 3 | `programs-raw-03.png` | Pencak Silat |
+| Right card 1 | `programs-raw-07.png` | LSP / Lembaga Sertifikasi Profesi |
+| Right card 2 | `programs-raw-10.png` | OSIS & MPK |
+| Right card 3 | `programs-raw-02.png` | BKK / Bursa Kerja Khusus |
 
-- `EXISTING`: local file or asset family is present in the repository.
-- `VERIFIED`: prior manifest evidence records a non-empty local export; source identity may still require confirmation.
-- `MISSING`: no local production asset was found for the Figma section.
-- `BLOCKED_BY_FIGMA_PERMISSION`: exact source export or node correlation cannot be completed with View access.
-- No new exact Figma assets were imported in this continuation.
+`programs-raw-01.png` (1915x821) is a high-resolution variant of the LSP card
+artwork and is not referenced by any component.
 
-## Final extraction imports
+The featured slider initial state is correct (marching band). A screenshot taken
+after page load may show panel 2 or 3 because the slider autoplays.
 
-## Targeted semantic mappings
+## Unresolved
 
-| Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Status | Notes |
-|---|---|---|---|---|---|---|---|
-| `246:1219` / slider context | Program panel 1 | PNG | Figma context source `4bf29.png` | `frontend/public/assets/figma/programs/programs-raw-01.png` | Program | IMPORTED_AND_VERIFIED | First slider panel; preserve as the left/default panel. |
-| `246:1219` / slider context | Program panel 2 | PNG | Figma context source `bc691.png` | `frontend/public/assets/figma/programs/programs-raw-02.png` | Program | IMPORTED_AND_VERIFIED | Second slider panel; source order, not visual guessing. |
-| `246:1219` / slider context | Program panel 3 | PNG | Figma context source `40d06.png` | `frontend/public/assets/figma/programs/programs-raw-03.png` | Program | IMPORTED_AND_VERIFIED | Third slider panel. |
-| `246:1219` / card context | Program artwork | PNG | Figma context source `54bad.png` | `frontend/public/assets/figma/programs/programs-raw-04.png` | Program | IMPORTED_AND_VERIFIED | Large/right card artwork. |
-| `246:1219` / card context | Program artwork | PNG | Figma context source `1d769.png` | `frontend/public/assets/figma/programs/programs-raw-05.png` | Program | IMPORTED_AND_VERIFIED | Supporting/right card artwork. |
-| `246:1219` / card context | Program artwork | PNG | Figma context source `0bbd9.png` | `frontend/public/assets/figma/programs/programs-raw-06.png` | Program | IMPORTED_AND_VERIFIED | Supporting/right card artwork. |
-| `246:1379` | KGStudio / Building | SVG | `05a5c.svg` | `frontend/public/assets/figma/blud/blud-KGS-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Icon for KGStudio. Shape source `69756.svg` is `blud-KGS-shape.svg`. |
-| `246:1386` | UPTECHNO / processor | SVG | `66658.svg` | `frontend/public/assets/figma/blud/blud-TEK-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `04174.svg`; use the matching existing shape batch entry. |
-| `246:1393` | E-MAN / electric bolt | SVG | `79d12.svg` | `frontend/public/assets/figma/blud/blud-TITL-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `29cdd.svg`; use the matching existing shape batch entry. |
-| `246:1400` | Manufaktur26 / machine | SVG | `95397.svg` | `frontend/public/assets/figma/blud/blud-TFLM-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `8a7ef.svg`; use the matching existing shape batch entry. |
-| `246:1401` | Garage26 / wheel | SVG | `fb769.svg` | existing `frontend/public/assets/figma/blud/` matching icon | BLUD | VERIFIED | Shape source `9ea58.svg`; local semantic shape is `blud-TKR-shape.svg`. |
-| `246:1402` | GADIZ VOKASI / computer | SVG | `76ef9.svg` | `frontend/public/assets/figma/blud/blud-SIJA-icon.svg` | BLUD | IMPORTED_AND_VERIFIED | Shape source `2e132.svg`; local shape is `blud-SIJA-shape.svg`. |
-| `266:2170`, `266:2177`, `266:2183`, `I266:2374`, `266:2380` | Card Prestasi 1-5 | PNG | `29ece.png`, `217f1.png`, `a4e8d.png`, `e188b.png`, `b5468.png` | `frontend/public/assets/figma/achievements/achievements-raw-01.png` through `-05.png` | Prestasi | IMPORTED_AND_VERIFIED | Exact source order for the five visible cards. |
-| `277:1121` variants | Pengumuman, Prestasi, Kegiatan, Kemitraan, Karya | PNG | `3af12.png`, `bce98.png`, `271da.png`, `868e3.png`, `102a1.png` | `frontend/public/assets/figma/news/news-raw-01.png` through `-05.png` | News | IMPORTED_AND_VERIFIED | Exact variant mapping; dates/titles are in the parity report. |
-| `279:1380` / `I279:1380;22:18773` | SMK Negeri 26 Jakarta logo | PNG | `d0def.png` | existing branding logo under `frontend/public/assets/figma/branding/` | Footer | VERIFIED | Exact logo is reused; no duplicate retained. |
-| `279:1297` | material-symbols:mail-rounded | SVG | `6368f.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Email icon. |
-| `279:1391` / mask | basil:whatsapp-solid | SVG | `15274.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | WhatsApp mask. |
-| `279:1394` | mdi:address-marker | SVG | `23a21.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Address icon. |
-| `286:1470` | Instagram/social control | SVG | `4fd12.svg` | matching `frontend/public/assets/figma/footer/footer-svg-*` | Footer | IMPORTED_AND_VERIFIED | Social icon source exposed by context. |
-
-The physical `footer-svg-*` and supporting raw filenames remain unchanged; where multiple files share the same generic batch naming, the exact source filename and role above are authoritative. `UNRESOLVED` applies only to raw supporting fills whose child semantic role is not exposed, never to a required visible card image.
-
-The following exact raw fills were downloaded from `download_assets`. They are not section screenshots and are stored as production-ready source assets. Where a raw fill matched an existing local file by SHA-256, the duplicate was removed and the existing path is retained.
-
-| Figma Node | Layer Name | Asset Type | Original Dimensions | Local Path | Used By Section | Already Existing / Newly Imported | Notes |
-|---|---|---|---|---|---|---|---|
-| `242:695` | Video source raw image 2 | JPEG | 102378 bytes | `frontend/public/assets/figma/video-profile/video-profile-raw-02.jpg` | Video Profil | Newly Imported / VERIFIED | Raw Figma fill; raw image 1 matched existing hero building and was not duplicated. |
-| `246:1219` | Program raw source images 1-12 | PNG | see local byte sizes | `frontend/public/assets/figma/programs/programs-raw-01.png` through `programs-raw-12.png` | Program | Newly Imported / VERIFIED | Exact raw subtree fills; child semantic mapping remains to be confirmed from child node names. |
-| `270:2717` | Achievement raw source images 1-10 | PNG | see local byte sizes | `frontend/public/assets/figma/achievements/achievements-raw-01.png` through `achievements-raw-10.png` | Prestasi | Newly Imported / VERIFIED | Includes card artwork and supporting fills. |
-| `279:1210` | News raw source images 1-10 | PNG | see local byte sizes | `frontend/public/assets/figma/news/news-raw-01.png` through `news-raw-10.png` | Berita | Newly Imported / VERIFIED | Includes card artwork and supporting fills. |
-| `286:1952` | AI CTA raw source images 1-2 | PNG | see local byte sizes | `frontend/public/assets/figma/ai-cta/ai-cta-raw-01.png` through `ai-cta-raw-02.png` | Pembangunan.AI CTA | Newly Imported / VERIFIED | Exact raw subtree fills; one matching chatbot raw pair is reused, not duplicated. |
-| `286:1470` | Footer raw source image 2 | PNG | 58222 bytes | `frontend/public/assets/figma/footer/footer-raw-02.png` | Footer | Newly Imported / VERIFIED | Raw Figma fill; logo raw image matched existing branding asset and was not duplicated. |
-| `242:695` | video-profile-raw-02.jpg | JPEG | 102378 bytes | `frontend/public/assets/figma/video-profile/video-profile-raw-02.jpg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-01.svg | SVG | 923 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-01.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-02.svg | SVG | 1197 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-02.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-03.svg | SVG | 270 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-03.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-04.svg | SVG | 639 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-04.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-05.svg | SVG | 1199 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-05.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-06.svg | SVG | 1163 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-06.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-07.svg | SVG | 1436 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-07.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `242:695` | video-profile-svg-08.svg | SVG | 262 bytes | `frontend/public/assets/figma/video-profile/video-profile-svg-08.svg` | video-profile | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-01.png | PNG | 1970930 bytes | `frontend/public/assets/figma/programs/programs-raw-01.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-02.png | PNG | 219369 bytes | `frontend/public/assets/figma/programs/programs-raw-02.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-03.png | PNG | 259614 bytes | `frontend/public/assets/figma/programs/programs-raw-03.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-04.png | PNG | 270450 bytes | `frontend/public/assets/figma/programs/programs-raw-04.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-05.png | PNG | 2227765 bytes | `frontend/public/assets/figma/programs/programs-raw-05.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-06.png | PNG | 258434 bytes | `frontend/public/assets/figma/programs/programs-raw-06.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-07.png | PNG | 234610 bytes | `frontend/public/assets/figma/programs/programs-raw-07.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-08.png | PNG | 2386542 bytes | `frontend/public/assets/figma/programs/programs-raw-08.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-09.png | PNG | 2023606 bytes | `frontend/public/assets/figma/programs/programs-raw-09.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-10.png | PNG | 241636 bytes | `frontend/public/assets/figma/programs/programs-raw-10.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-11.png | PNG | 2287657 bytes | `frontend/public/assets/figma/programs/programs-raw-11.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-raw-12.png | PNG | 1886296 bytes | `frontend/public/assets/figma/programs/programs-raw-12.png` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-01.svg | SVG | 1199 bytes | `frontend/public/assets/figma/programs/programs-svg-01.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-02.svg | SVG | 1179 bytes | `frontend/public/assets/figma/programs/programs-svg-02.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-03.svg | SVG | 1159 bytes | `frontend/public/assets/figma/programs/programs-svg-03.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-04.svg | SVG | 385 bytes | `frontend/public/assets/figma/programs/programs-svg-04.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-05.svg | SVG | 1066 bytes | `frontend/public/assets/figma/programs/programs-svg-05.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-06.svg | SVG | 1064 bytes | `frontend/public/assets/figma/programs/programs-svg-06.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-07.svg | SVG | 1432 bytes | `frontend/public/assets/figma/programs/programs-svg-07.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-08.svg | SVG | 1163 bytes | `frontend/public/assets/figma/programs/programs-svg-08.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-09.svg | SVG | 1438 bytes | `frontend/public/assets/figma/programs/programs-svg-09.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-10.svg | SVG | 1064 bytes | `frontend/public/assets/figma/programs/programs-svg-10.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-11.svg | SVG | 1432 bytes | `frontend/public/assets/figma/programs/programs-svg-11.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-12.svg | SVG | 1438 bytes | `frontend/public/assets/figma/programs/programs-svg-12.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1219` | programs-svg-13.svg | SVG | 1197 bytes | `frontend/public/assets/figma/programs/programs-svg-13.svg` | programs | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-01.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-01.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-02.svg | SVG | 1255 bytes | `frontend/public/assets/figma/blud/blud-svg-02.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-03.svg | SVG | 1064 bytes | `frontend/public/assets/figma/blud/blud-svg-03.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-04.svg | SVG | 861 bytes | `frontend/public/assets/figma/blud/blud-svg-04.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-05.svg | SVG | 694 bytes | `frontend/public/assets/figma/blud/blud-svg-05.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-06.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-06.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-07.svg | SVG | 1179 bytes | `frontend/public/assets/figma/blud/blud-svg-07.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-08.svg | SVG | 3979 bytes | `frontend/public/assets/figma/blud/blud-svg-08.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-09.svg | SVG | 1338 bytes | `frontend/public/assets/figma/blud/blud-svg-09.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-10.svg | SVG | 1159 bytes | `frontend/public/assets/figma/blud/blud-svg-10.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-11.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-11.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-12.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-12.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-13.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-13.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-14.svg | SVG | 1066 bytes | `frontend/public/assets/figma/blud/blud-svg-14.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-15.svg | SVG | 877 bytes | `frontend/public/assets/figma/blud/blud-svg-15.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-16.svg | SVG | 385 bytes | `frontend/public/assets/figma/blud/blud-svg-16.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-17.svg | SVG | 761 bytes | `frontend/public/assets/figma/blud/blud-svg-17.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-18.svg | SVG | 3422 bytes | `frontend/public/assets/figma/blud/blud-svg-18.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-19.svg | SVG | 743 bytes | `frontend/public/assets/figma/blud/blud-svg-19.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `246:1477` | blud-svg-20.svg | SVG | 2630 bytes | `frontend/public/assets/figma/blud/blud-svg-20.svg` | blud | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-01.png | PNG | 1271163 bytes | `frontend/public/assets/figma/achievements/achievements-raw-01.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-02.png | PNG | 163726 bytes | `frontend/public/assets/figma/achievements/achievements-raw-02.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-03.png | PNG | 1143974 bytes | `frontend/public/assets/figma/achievements/achievements-raw-03.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-04.png | PNG | 1071816 bytes | `frontend/public/assets/figma/achievements/achievements-raw-04.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-05.png | PNG | 168535 bytes | `frontend/public/assets/figma/achievements/achievements-raw-05.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-06.png | PNG | 161505 bytes | `frontend/public/assets/figma/achievements/achievements-raw-06.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-07.png | PNG | 166913 bytes | `frontend/public/assets/figma/achievements/achievements-raw-07.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-08.png | PNG | 162941 bytes | `frontend/public/assets/figma/achievements/achievements-raw-08.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-09.png | PNG | 1188714 bytes | `frontend/public/assets/figma/achievements/achievements-raw-09.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-raw-10.png | PNG | 1230512 bytes | `frontend/public/assets/figma/achievements/achievements-raw-10.png` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-01.svg | SVG | 385 bytes | `frontend/public/assets/figma/achievements/achievements-svg-01.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-02.svg | SVG | 1066 bytes | `frontend/public/assets/figma/achievements/achievements-svg-02.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-03.svg | SVG | 783 bytes | `frontend/public/assets/figma/achievements/achievements-svg-03.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-04.svg | SVG | 1044 bytes | `frontend/public/assets/figma/achievements/achievements-svg-04.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-05.svg | SVG | 1200 bytes | `frontend/public/assets/figma/achievements/achievements-svg-05.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-06.svg | SVG | 1535 bytes | `frontend/public/assets/figma/achievements/achievements-svg-06.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-07.svg | SVG | 1438 bytes | `frontend/public/assets/figma/achievements/achievements-svg-07.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-08.svg | SVG | 2227 bytes | `frontend/public/assets/figma/achievements/achievements-svg-08.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-09.svg | SVG | 1476 bytes | `frontend/public/assets/figma/achievements/achievements-svg-09.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-10.svg | SVG | 628 bytes | `frontend/public/assets/figma/achievements/achievements-svg-10.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-11.svg | SVG | 1325 bytes | `frontend/public/assets/figma/achievements/achievements-svg-11.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-12.svg | SVG | 1392 bytes | `frontend/public/assets/figma/achievements/achievements-svg-12.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-13.svg | SVG | 1163 bytes | `frontend/public/assets/figma/achievements/achievements-svg-13.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-14.svg | SVG | 1548 bytes | `frontend/public/assets/figma/achievements/achievements-svg-14.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-15.svg | SVG | 1199 bytes | `frontend/public/assets/figma/achievements/achievements-svg-15.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-16.svg | SVG | 639 bytes | `frontend/public/assets/figma/achievements/achievements-svg-16.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-17.svg | SVG | 2220 bytes | `frontend/public/assets/figma/achievements/achievements-svg-17.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-18.svg | SVG | 1064 bytes | `frontend/public/assets/figma/achievements/achievements-svg-18.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-19.svg | SVG | 1432 bytes | `frontend/public/assets/figma/achievements/achievements-svg-19.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `270:2717` | achievements-svg-20.svg | SVG | 1064 bytes | `frontend/public/assets/figma/achievements/achievements-svg-20.svg` | achievements | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-01.png | PNG | 203331 bytes | `frontend/public/assets/figma/news/news-raw-01.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-02.png | PNG | 1917098 bytes | `frontend/public/assets/figma/news/news-raw-02.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-03.png | PNG | 234560 bytes | `frontend/public/assets/figma/news/news-raw-03.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-04.png | PNG | 240122 bytes | `frontend/public/assets/figma/news/news-raw-04.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-05.png | PNG | 2073126 bytes | `frontend/public/assets/figma/news/news-raw-05.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-06.png | PNG | 1737312 bytes | `frontend/public/assets/figma/news/news-raw-06.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-07.png | PNG | 253800 bytes | `frontend/public/assets/figma/news/news-raw-07.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-08.png | PNG | 2065031 bytes | `frontend/public/assets/figma/news/news-raw-08.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-09.png | PNG | 249354 bytes | `frontend/public/assets/figma/news/news-raw-09.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-raw-10.png | PNG | 2175406 bytes | `frontend/public/assets/figma/news/news-raw-10.png` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-01.svg | SVG | 385 bytes | `frontend/public/assets/figma/news/news-svg-01.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-02.svg | SVG | 1432 bytes | `frontend/public/assets/figma/news/news-svg-02.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-03.svg | SVG | 1353 bytes | `frontend/public/assets/figma/news/news-svg-03.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-04.svg | SVG | 1438 bytes | `frontend/public/assets/figma/news/news-svg-04.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-05.svg | SVG | 1476 bytes | `frontend/public/assets/figma/news/news-svg-05.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-06.svg | SVG | 1311 bytes | `frontend/public/assets/figma/news/news-svg-06.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-07.svg | SVG | 1197 bytes | `frontend/public/assets/figma/news/news-svg-07.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-08.svg | SVG | 1163 bytes | `frontend/public/assets/figma/news/news-svg-08.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `279:1210` | news-svg-09.svg | SVG | 1199 bytes | `frontend/public/assets/figma/news/news-svg-09.svg` | news | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-raw-01.png | PNG | 795975 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-raw-01.png` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-raw-02.png | PNG | 87646 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-raw-02.png` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-01.svg | SVG | 1064 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-01.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-02.svg | SVG | 267 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-02.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-03.svg | SVG | 555 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-03.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-04.svg | SVG | 1179 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-04.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-05.svg | SVG | 562 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-05.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-06.svg | SVG | 1159 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-06.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-07.svg | SVG | 498 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-07.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-08.svg | SVG | 1064 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-08.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-09.svg | SVG | 1066 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-09.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1952` | ai-cta-svg-10.svg | SVG | 365 bytes | `frontend/public/assets/figma/ai-cta/ai-cta-svg-10.svg` | ai-cta | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-raw-02.png | PNG | 58222 bytes | `frontend/public/assets/figma/footer/footer-raw-02.png` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-01.svg | SVG | 1064 bytes | `frontend/public/assets/figma/footer/footer-svg-01.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-02.svg | SVG | 1597 bytes | `frontend/public/assets/figma/footer/footer-svg-02.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-03.svg | SVG | 4062 bytes | `frontend/public/assets/figma/footer/footer-svg-03.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-04.svg | SVG | 1258 bytes | `frontend/public/assets/figma/footer/footer-svg-04.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-05.svg | SVG | 1197 bytes | `frontend/public/assets/figma/footer/footer-svg-05.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-06.svg | SVG | 1066 bytes | `frontend/public/assets/figma/footer/footer-svg-06.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-07.svg | SVG | 2061 bytes | `frontend/public/assets/figma/footer/footer-svg-07.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-08.svg | SVG | 1838 bytes | `frontend/public/assets/figma/footer/footer-svg-08.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-09.svg | SVG | 1163 bytes | `frontend/public/assets/figma/footer/footer-svg-09.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-10.svg | SVG | 1034 bytes | `frontend/public/assets/figma/footer/footer-svg-10.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-11.svg | SVG | 1820 bytes | `frontend/public/assets/figma/footer/footer-svg-11.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-12.svg | SVG | 811 bytes | `frontend/public/assets/figma/footer/footer-svg-12.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-13.svg | SVG | 811 bytes | `frontend/public/assets/figma/footer/footer-svg-13.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-14.svg | SVG | 1064 bytes | `frontend/public/assets/figma/footer/footer-svg-14.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-15.svg | SVG | 1438 bytes | `frontend/public/assets/figma/footer/footer-svg-15.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-16.svg | SVG | 1199 bytes | `frontend/public/assets/figma/footer/footer-svg-16.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-17.svg | SVG | 1256 bytes | `frontend/public/assets/figma/footer/footer-svg-17.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
-| `286:1470` | footer-svg-18.svg | SVG | 4062 bytes | `frontend/public/assets/figma/footer/footer-svg-18.svg` | footer | Newly Imported / VERIFIED | Exact asset returned by Figma download_assets; child semantic mapping is recorded as raw export order where not exposed. |
+- **Achievement card 4 exact artwork.** The Figma frame shows a Pramuka poster
+  whose caption reads "LOMBA KREATIVITAS PUTRA". Neither local Pramuka export
+  matches that wording (`raw-04` = "PENEGAK", `raw-06` = "PERSEKOLAHAN").
+  The exact source was most likely among previously deleted exports
+  (`achievements-raw-09/10`). `raw-04` is used as the closest verified match.
+- **Tim Basket caption.** The DOM description for the Basketball card reads
+  "Juara 1 kategori student Ciara Student Orienteering 4 - Tingkat nasional",
+  which does not match its poster artwork ("Juara 1 Kesukaan Olahraga Voli &
+  Basket DKI Jakarta"). Descriptions are content-layer data and were not changed
+  without content-owner verification.
+- **Programs slide 4+.** `interactions.json` lists `Property 1=01` through
+  `Property 1=08` panel components plus named `SILAT` and `TARI` variants.
+  Only three panel exports exist locally, so slides beyond the first three cannot
+  be verified or implemented.
+- **Mobile navigation icon.** No hamburger/menu-button node exists anywhere in
+  `interactions.json`; only `Menu Item` and `Form Gulir` appear. The mobile
+  menu therefore keeps its text glyph.
+- **No Figma reference exists for the portal routes** (`/login`, `/dashboard`,
+  `/dashboard/learning`, `/dashboard/grades`, `/admin/knowledge`). The
+  prototype manifest contains no login, dashboard, student, or teacher screens.
+  Those pages were not redesigned.

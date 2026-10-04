@@ -33,62 +33,17 @@ type Page = {
   body: string;
   metadata: Record<string, unknown>;
 };
-const publicLinks = [
-  { path: "/profile", label: "Profil" },
-  { path: "/majors", label: "Jurusan" },
-  { path: "/programs", label: "Program" },
-  { path: "/news", label: "Berita" },
-  { path: "/contact", label: "Kontak" },
-];
-
-function Header() {
-  return (
-    <header className="container nav mx-auto">
-      <a className="logo" href="/">
-        SMK NEGERI 26 JAKARTA
-      </a>
-      <nav className="links" aria-label="Navigasi utama">
-        {publicLinks.map((link) => (
-          <a
-            className="transition-colors hover:text-primary"
-            key={link.path}
-            href={link.path}
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-      <a
-        className="button transition-colors hover:bg-primary-dark"
-        href="/login"
-      >
-        Masuk Portal
-      </a>
-    </header>
-  );
-}
-function Footer() {
-  return (
-    <footer>
-      <div className="container">
-        <strong>SMK Negeri 26 Jakarta</strong>
-        <p className="note">
-          Informasi resmi sekolah akan ditampilkan setelah diverifikasi dan
-          dipublikasikan.
-        </p>
-      </div>
-    </footer>
-  );
-}
 function EmptyState({
   message = "Konten resmi belum tersedia.",
 }: {
   message?: string;
 }) {
   return (
-    <div className="empty-state">
-      <strong>Belum ada informasi</strong>
-      <p>{message}</p>
+    <div className="rounded-3xl border border-school-bg bg-white px-7 py-14 text-center shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+      <strong className="block text-lg text-ink">Belum ada informasi</strong>
+      <p className="mx-auto mt-2 max-w-[520px] text-sm leading-[24px] text-muted">
+        {message}
+      </p>
     </div>
   );
 }
@@ -112,26 +67,51 @@ function PublicPage({
       );
   }, [section]);
   return (
-    <>
-      <Header />
-      <main>
-        <section className="page-hero">
-          <div className="container">
-            <div className="pill">SMK Negeri 26 Jakarta</div>
-            <h1>{title}</h1>
-            <p className="lead">{intro}</p>
-          </div>
+    <div className="min-h-screen bg-[#F4F8FF]">
+      <PublicNavbar />
+      <main className="mx-auto w-[min(1272px,100%-32px)] pt-[132px] pb-24">
+        <section className="mx-auto w-[min(872px,100%)] text-center">
+          <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+            <img
+              className="h-[17px] w-[13.6px]"
+              src="/assets/figma/majors/icon-section-badge.svg"
+              alt=""
+            />
+            SMK NEGERI 26 JAKARTA
+          </span>
+          <h1 className="mt-5 mb-2.5 text-4xl leading-[54px] font-bold text-ink max-md:text-[32px] max-md:leading-[1.2]">
+            {title}
+          </h1>
+          <p className="mx-auto w-[774px] max-w-full text-lg leading-[30px] text-muted">
+            {intro}
+          </p>
         </section>
-        <section className="section container">
+        <section className="mt-14">
           {error ? (
-            <div className="error-state">{error}</div>
+            <div
+              role="alert"
+              className="rounded-3xl border border-red-200 bg-white px-7 py-6 text-sm text-red-700 shadow-[0_4px_16px_rgba(15,23,42,.08)]"
+            >
+              {error}
+            </div>
           ) : pages.length ? (
-            <div className="content-grid">
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {pages.map((page) => (
-                <article className="card content-card" key={page.id}>
-                  <h2>{page.title}</h2>
-                  {page.summary && <p className="lead">{page.summary}</p>}
-                  <div className="rich-text">{page.body}</div>
+                <article
+                  className="rounded-3xl border border-school-bg bg-white p-7 shadow-[0_4px_16px_rgba(15,23,42,.08)]"
+                  key={page.id}
+                >
+                  <h2 className="text-xl leading-[30px] font-bold text-ink">
+                    {page.title}
+                  </h2>
+                  {page.summary && (
+                    <p className="mt-3 text-sm leading-[22px] text-muted">
+                      {page.summary}
+                    </p>
+                  )}
+                  <div className="mt-4 text-sm leading-[24px] text-muted">
+                    {page.body}
+                  </div>
                 </article>
               ))}
             </div>
@@ -140,8 +120,8 @@ function PublicPage({
           )}
         </section>
       </main>
-      <Footer />
-    </>
+      <PublicFooter />
+    </div>
   );
 }
 

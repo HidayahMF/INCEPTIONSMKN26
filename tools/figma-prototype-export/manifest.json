@@ -1,0 +1,7 @@
+{
+  "name": "Export Prototype Interactions v2",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "code.js",
+  "documentAccess": "dynamic-page"
+}
