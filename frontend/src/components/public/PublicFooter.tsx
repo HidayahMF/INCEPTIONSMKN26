@@ -16,6 +16,13 @@ const footerIcon = {
   youtube: "/assets/figma/footer/footer-svg-08.svg",
 };
 
+const schoolAddress =
+  "SMK Negeri 26 Jakarta, Jl. Balai Pustaka Baru No. 1, Rawamangun, Jakarta Timur";
+const googleMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=SMK+Negeri+26+Jakarta%2C+Jl.+Balai+Pustaka+Baru+No.+1%2C+Rawamangun%2C+Jakarta+Timur";
+const googleMapsEmbedUrl =
+  "https://www.google.com/maps?q=SMK+Negeri+26+Jakarta%2C+Jl.+Balai+Pustaka+Baru+No.+1%2C+Rawamangun%2C+Jakarta+Timur&output=embed";
+
 function linkHref(title: string, link: string) {
   const routes: Record<string, string> = {
     "Tentang Kami:Profil Sekolah": "/profile",
@@ -188,19 +195,33 @@ export function PublicFooter() {
           <h3 className="mb-3.5 inline-block text-base font-bold">
             Lokasi Sekolah
           </h3>
+          <div className="w-full max-w-[249px]">
           <a
-            className="block w-full max-w-[249px] rounded-[18px] focus-visible:outline-2 focus-visible:outline-white"
-            href="https://www.google.com/maps/search/?api=1&query=SMK+Negeri+26+Jakarta%2C+Jl.+Balai+Pustaka+Baru+No.+1%2C+Rawamangun%2C+Jakarta+Timur"
+            className="group relative block aspect-[249/150] overflow-hidden rounded-[18px] border-2 border-white bg-[#dbeafe] focus-visible:outline-2 focus-visible:outline-white"
+            href={googleMapsUrl}
             target="_blank"
-            rel="noreferrer"
-            aria-label="Buka lokasi SMK Negeri 26 Jakarta di Google Maps"
+            rel="noopener noreferrer"
+            aria-label={`Buka ${schoolAddress} di Google Maps`}
           >
-            <img
-              className="w-full max-w-[249px] rounded-[18px] border-2 border-white object-cover"
-              src="/assets/figma/footer/footer-raw-02.png"
-              alt="Peta lokasi SMK Negeri 26 Jakarta"
+            <iframe
+              className="pointer-events-none size-full border-0"
+              src={googleMapsEmbedUrl}
+              title={`Pratinjau peta ${schoolAddress}`}
+              loading="lazy"
             />
+            <span className="pointer-events-none absolute inset-x-2 bottom-2 rounded-full bg-white/95 px-3 py-1.5 text-center text-[10px] font-bold text-primary shadow-[0_3px_10px_rgba(15,23,42,.14)] transition group-hover:bg-primary group-hover:text-white">
+              SMKN 26 Jakarta
+            </span>
           </a>
+          <a
+            className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-white/70 px-3 py-2 text-xs font-semibold text-white transition-[background,color] duration-300 hover:bg-white hover:text-primary focus-visible:bg-white focus-visible:text-primary"
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Google Maps
+          </a>
+          </div>
         </div>
       </div>
       <div className="mt-8 h-px bg-white/70" />

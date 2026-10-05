@@ -83,7 +83,7 @@ export function PublicNavbar() {
               }}
             >
               {link.label === "Jurusan" ? (
-                <a className="rounded-xl px-4 py-4 focus-visible:outline-none" href="/#school-majors">
+                <a className="rounded-xl px-4 py-4 focus-visible:outline-none" href="/majors">
                   {link.label}
                 </a>
               ) : dropdownOnlyLabels.has(link.label) ? (
@@ -151,7 +151,7 @@ export function PublicNavbar() {
             {links.map((link) => (
               <div className="grid gap-1" key={link.label}>
                 {link.label === "Jurusan" ? (
-                  <a className="rounded-xl px-3 py-2 hover:bg-light-blue" href="/#school-majors">
+                  <a className="rounded-xl px-3 py-2 hover:bg-light-blue" href="/majors">
                     {link.label}
                   </a>
                 ) : dropdownOnlyLabels.has(link.label) ? (
