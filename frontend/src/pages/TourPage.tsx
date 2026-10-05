@@ -42,7 +42,7 @@ export function TourPage() {
         </section>
 
 
-        <section className="mx-auto max-w-[1272px] px-6 pb-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
+        <section className="mx-auto max-w-[1272px] px-6 pb-16 pt-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
           <div className="text-center">
             <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
               23 LOKASI PANORAMA
