@@ -1,12 +1,43 @@
+# Dependencies
 node_modules/
-dist/
+
+# Environment / secrets
 .env
-.env.local
-.env.*.local
+.env.*
 !.env.example
-*.log
-.DS_Store
-coverage/
-test-results/
-.vercel/
+
+# Build output
+dist/
+build/
 *.tsbuildinfo
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+
+# Local Vercel metadata
+.vercel/
+
+# Local development notes and capture helpers
+AGENTS.md
+DEPLOYMENT.md
+.tmp-*
+
+# Development artifacts
+artifacts/
+
+# Internal visual-audit specs and reports
+e2e/capture-*.spec.ts
+e2e/tmp-*.spec.ts
+docs/CSS_AUDIT_STATUS.md
+docs/FIGMA_MOTION_PARITY.md
+docs/FIGMA_PARITY_REPORT.md
+docs/FIGMA_SEMANTIC_ASSET_MAP.md
+docs/JURUSAN_OPENCODE_PROMPT.md
+docs/TAILWIND_MIGRATION.md
+docs/figma-reference/
+
+# OS files
+.DS_Store
+Thumbs.db

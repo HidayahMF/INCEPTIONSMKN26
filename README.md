@@ -1,4 +1,4 @@
-# INCEPTIONSMKN26 — development starter
+# INCEPTIONSMKN26 — SMK Negeri 26 Jakarta
 
 Website profil SMK Negeri 26 Jakarta untuk lomba INCEPTION 2026. Frontend React + TypeScript + Vite; backend Express **JavaScript**; database Supabase PostgreSQL. Public AI RAG, panorama, and Midtrans Sandbox remain planned. Auth/RBAC is implemented as a Supabase-backed foundation and requires configured infrastructure.
 
@@ -8,7 +8,7 @@ Website profil SMK Negeri 26 Jakarta untuk lomba INCEPTION 2026. Frontend React 
 3. In terminal B run `npm run dev` and open http://localhost:5173.
 4. Run `npm run check && npm run build` for type/syntax checking and frontend build.
 
-The public UI uses the approved screenshot tokens and contains honest empty states until verified school content is supplied. It does not invent school statistics, unapproved logos/photos, or fake AI answers. Public content and knowledge-base/RAG APIs are implemented but require the additional migration and approved sources below. Login uses server-only identifier mapping, Supabase Auth, HTTP-only cookies, `/api/me`, and additive role assignments. No credentials or student records are included. Keep service-role secrets on the backend only.
+The public UI uses the approved design tokens and local project assets. It does not expose credentials or student records. Public content and knowledge-base/RAG APIs require the additional migration and approved sources below. Login uses server-only identifier mapping, Supabase Auth, HTTP-only cookies, `/api/me`, and additive role assignments. Keep service-role secrets on the backend only.
 
 ## Public content and chatbot
 1. Apply `supabase/migrations/202609240002_public_content_knowledge.sql` after the identity migration.
@@ -29,7 +29,7 @@ npm run import:official --workspace backend
 The importer is idempotent: it inserts missing `public_pages` and knowledge records as `DRAFT`, skips existing slugs/source documents, does not truncate tables, and never overwrites existing published/admin-edited content. An editor must approve records before they appear publicly or are retrieved by the chatbot. The SIJA and TKR source pages returned generic/template content during review, so their details are explicitly limited rather than invented.
 
 ## Landing page
-The home route is split into reusable React components under `frontend/src/components/public/` for the navbar, hero, shortcut menu, school overview, advantages, and footer. Tailwind v4 utilities use the approved token theme. The requested Figma node was not exportable through the available agent access, and no local Figma image assets were present, so the hero uses a clearly labelled local-asset slot rather than an external image or invented school photograph. Replace that slot only with team-approved files under `frontend/public/assets/`.
+The home route is split into reusable React components under `frontend/src/components/public/` for the navbar, hero, shortcut menu, school overview, advantages, partner section, news, and footer. Tailwind v4 utilities use the approved token theme, and approved local assets are served from `frontend/public/assets/`.
 
 ## Runtime independence
 The new site is self-contained after migration/import. Normal browser requests use the frontend, Express API, Supabase PostgreSQL/Storage, and Gemini only. The old school site is referenced only by migration-audit metadata and the administrator-run initial import dataset; it is never fetched by the frontend, public API, chatbot retrieval, or normal backend request path. Public chatbot citations use the new site's routes.
@@ -47,6 +47,3 @@ For local development only, set `ENABLE_DEV_QUICK_LOGIN=true` in `backend/.env`.
 
 ## Deployment
 Validate the Vercel plan, deployment shape and routing in a minimal proof of concept before publishing; this archive does **not** claim an already-working Vercel setup. Configure frontend and API routing so `/api/*` targets the Express serverless function, and ensure SPA fallback doesn't intercept `/api/*`. Supabase Auth onboarding (NIS/NIP account provisioning) remains undecided. Midtrans remains Sandbox-only.
-
-## Coding agent contract
-Read `AGENTS.md` and every relevant file in `docs/` before implementing a module. Change only requested scopes; never represent a mock or unavailable feature as complete.
