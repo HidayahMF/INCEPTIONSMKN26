@@ -4,7 +4,7 @@ import { HeroSection } from "./components/public/HeroSection";
 import { ShortcutMenu } from "./components/public/ShortcutMenu";
 import { SchoolOverview } from "./components/public/SchoolOverview";
 import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
-import { PartnerLogos } from "./components/public/PartnerLogos";
+import { PartnerIndustryPage, PartnerLogos } from "./components/public/PartnerLogos";
 import { TourPage } from "./pages/TourPage";
 import { LapanganTourPage } from "./pages/LapanganTourPage";
 import { AuthProvider } from "./features/auth/AuthProvider";
@@ -198,7 +198,7 @@ export function LegacyApp() {
     "/partners": [
       "partners",
       "Mitra Industri",
-      "Mitra industri akan ditampilkan setelah data dan hak publikasi dikonfirmasi.",
+      "Mitra industri SMKN 26 Jakarta.",
     ],
     "/blud": [
       "blud",
@@ -263,7 +263,8 @@ export function App() {
   if (path === "/guru-kejuruan") return <PublicExperience><GuruKejuruanPage /></PublicExperience>;
   if (path === "/tenaga-kependidikan") return <PublicExperience><TenagaKependidikanPage /></PublicExperience>;
   if (path === "/tim-pendukung-sekolah") return <PublicExperience><TimPendukungSekolahPage /></PublicExperience>;
-  if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/partners", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
+  if (path === "/partners") return <PublicExperience><div className="min-h-screen bg-white"><PublicNavbar /><PartnerIndustryPage /><PublicFooter /></div></PublicExperience>;
+  if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}

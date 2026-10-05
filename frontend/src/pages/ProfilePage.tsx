@@ -35,8 +35,7 @@ function ProfilePage() {
       <PublicNavbar />
       <main>
         <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink max-md:h-[680px] max-md:overflow-hidden max-md:pt-[128px] md:px-16">
-          <img className="absolute left-0 top-[30px] z-0 h-[757px] w-full object-cover object-top max-md:top-[390px] max-md:h-auto max-md:w-full max-md:object-contain" src={figmaAssets.profile.heroBackground} alt="Gedung SMK Negeri 26 Jakarta" />
-          <div className="pointer-events-none absolute inset-x-0 top-10 z-[1] h-auto bg-gradient-to-b from-[#F4F8FF] via-[#F4F8FF] to-[#F4F8FF]/90" aria-hidden="true" />
+          <img className="absolute left-0 top-0 z-0 h-[757px] w-full object-cover object-top max-md:top-[250px] max-md:h-auto max-md:w-full max-md:object-contain" src="/assets/figma/profile/profile-hero-bg.png" alt="Gedung SMK Negeri 26 Jakarta" />
           <div className="relative z-10 mx-auto w-full max-w-[1025px] text-center">
             <ProfileBadge>PROFIL SMK NEGERI 26 JAKARTA</ProfileBadge>
             <h1 className="mt-6 text-4xl font-bold leading-[54px] tracking-[-.02em] md:text-[48px] md:leading-[72px]">
@@ -48,8 +47,7 @@ function ProfilePage() {
           </div>
         </section>
 
-        <section className="relative z-20 mx-auto -mt-[45px] h-[160px] w-[min(1200px,100%-32px)] translate-y-[100px] max-md:mt-4 max-md:h-auto max-md:translate-y-0">
-          <h2 className="pointer-events-none absolute -top-12 left-0 right-0 z-20 text-center text-xl font-bold text-primary-dark md:hidden">Overview Statistic</h2>
+        <section className="relative z-20 mx-auto -mt-[45px] h-[205px] w-[min(1200px,100%-32px)] translate-y-[70px] max-md:mt-4 max-md:h-auto max-md:translate-y-0">
           <div className="absolute bottom-0 left-0 right-0 grid grid-cols-2 overflow-hidden rounded-[12px] bg-gradient-to-r from-primary-dark via-primary to-soft-blue text-white shadow-[0_8px_24px_rgba(15,23,42,.16)] sm:grid-cols-3 md:grid-cols-5 max-md:relative">
             {[
               ["6", "Jurusan"],
@@ -66,14 +64,14 @@ function ProfilePage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-[45px] grid min-h-[549px] min-w-0 w-full bg-white px-6 py-16 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-[84px] md:py-[40px]">
-          <img className="mx-auto h-auto max-h-[365px] w-full max-w-[538px] object-contain" src={figmaAssets.profile.overviewComposite} alt="Lingkungan SMK Negeri 26 Jakarta" />
+        <section className="mx-auto mt-[45px] grid min-h-[549px] min-w-0 w-full max-w-[1272px] bg-white px-6 py-16 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-0 md:py-[40px]">
+          <img className="mx-auto h-auto max-h-[365px] w-full max-w-[538px] mix-blend-multiply object-contain" src={figmaAssets.profile.overviewComposite} alt="Lingkungan SMK Negeri 26 Jakarta" />
           <div className="min-w-0 md:pt-[30px]">
           
-            <h2 className="mt-5 max-w-[494px] text-[36px] font-bold leading-[54px] md:text-[44px] md:leading-[53.25px]">
+            <h2 className="mt-5 max-w-none text-[clamp(24px,3.05vw,44px)] font-bold leading-[1.2] max-md:text-[32px] md:leading-[53.25px]">
               Mengenal
               <br />
-              <span className="bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">SMK Negeri 26 Jakarta</span>
+              <span className="whitespace-nowrap bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">SMK Negeri 26 Jakarta</span>
             </h2>
             <p className="mt-5 max-w-[652px] text-[20px] leading-[30px] text-muted">
               SMK Negeri 26 Jakarta hadir sebagai satuan pendidikan vokasi yang mengembangkan kompetensi siswa melalui pembelajaran yang relevan dengan kebutuhan dunia usaha dan dunia industri. Dengan mengintegrasikan pembelajaran, teknologi, pengalaman praktik, dan kemitraan industri, SMK Negeri 26 Jakarta terus mendorong siswa untuk berkembang dan menghasilkan karya nyata.

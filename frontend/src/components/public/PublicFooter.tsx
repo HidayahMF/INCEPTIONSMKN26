@@ -20,6 +20,7 @@ function linkHref(title: string, link: string) {
   if (title === "Tentang Kami") {
     if (link === "Profil Sekolah") return "/profile";
     if (link === "School Tour") return "/tour";
+    if (link === "Mitra Industri") return "/partners";
     return "/majors";
   }
   return "/information";
