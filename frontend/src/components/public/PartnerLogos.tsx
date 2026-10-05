@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 type Partner = {
   key: string;
   name: string;
@@ -5,14 +7,14 @@ type Partner = {
 };
 
 const partners: Partner[] = [
-  { key: "astra", name: "Astra", src: "/assets/figma/mitra-industri/astra.png" },
-  { key: "azko", name: "AZKO", src: "/assets/figma/mitra-industri/azko.png" },
-  { key: "komatsu", name: "Komatsu", src: "/assets/figma/mitra-industri/komatsu.png" },
-  { key: "microvision", name: "Microvision", src: "/assets/figma/mitra-industri/microvision.png" },
-  { key: "panasonic", name: "Panasonic", src: "/assets/figma/mitra-industri/panasonic.png" },
-  { key: "pln", name: "PLN", src: "/assets/figma/mitra-industri/pln.png" },
-  { key: "toyota", name: "Toyota", src: "/assets/figma/mitra-industri/toyota.png" },
-  { key: "wika", name: "WIKA", src: "/assets/figma/mitra-industri/wika.png" },
+  { key: "astra", name: "Astra", src: "/assets/figma/partners/astra.png" },
+  { key: "azko", name: "AZKO", src: "/assets/figma/partners/azko.png" },
+  { key: "komatsu", name: "Komatsu", src: "/assets/figma/partners/komatsu.png" },
+  { key: "microvision", name: "Microvision", src: "/assets/figma/partners/microvision.png" },
+  { key: "panasonic", name: "Panasonic", src: "/assets/figma/partners/panasonic.png" },
+  { key: "pln", name: "PLN", src: "/assets/figma/partners/pln.png" },
+  { key: "toyota", name: "Toyota", src: "/assets/figma/partners/toyota.jpeg" },
+  { key: "wika", name: "WIKA", src: "/assets/figma/partners/wika.png" },
 ];
 
 function PartnerCard({ partner }: { partner: Partner }) {
@@ -29,11 +31,32 @@ function PartnerCard({ partner }: { partner: Partner }) {
 }
 
 function PartnerCards({ compact = false }: { compact?: boolean }) {
-  return (
-    <div className={compact ? "flex gap-6 overflow-x-auto pb-2" : "grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"}>
-      {partners.map((partner) => <PartnerCard partner={partner} key={partner.key} />)}
-    </div>
-  );
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!compact || !trackRef.current) return;
+    const animation = trackRef.current.animate(
+      [{ transform: "translateX(0)" }, { transform: "translateX(-50%)" }],
+      { duration: 30000, iterations: Infinity, easing: "linear" },
+    );
+    return () => animation.cancel();
+  }, [compact]);
+
+  if (compact) {
+    return (
+      <div className="overflow-hidden" aria-label="Daftar mitra industri">
+        <div ref={trackRef} className="flex w-max gap-6 pb-2 will-change-transform hover:[animation-play-state:paused]">
+          {[0, 1].map((copy) => (
+            <div className="flex gap-6" aria-hidden={copy === 1} key={copy}>
+              {partners.map((partner) => <PartnerCard partner={partner} key={`${copy}-${partner.key}`} />)}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">{partners.map((partner) => <PartnerCard partner={partner} key={partner.key} />)}</div>;
 }
 
 const partnerDetails = [
