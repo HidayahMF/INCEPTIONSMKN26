@@ -18,6 +18,7 @@ const links: NavLink[] = [
       { label: "Struktur & Unit Kerja", href: "/struktur-unit-kerja" },
       { label: "Mars SMKN 26", href: "/mars" },
       { label: "School Tour", href: "/tour" },
+      { label: "Mitra Industri", href: "/partners" },
     ],
   },
   {
@@ -37,7 +38,10 @@ const links: NavLink[] = [
     { label: "Garage26", href: "/blud/garage26" },
     { label: "GADIZ VOKASI", href: "/blud/gadiz-vokasi" },
   ] },
-  { label: "Program", href: "/programs", dropdown: true },
+  { label: "Program", href: "/programs", dropdown: true, children: [
+    { label: "LSP - Lembaga Sertifikasi Profesi", href: "/programs/lsp" },
+    { label: "Ekstrakurikuler", href: "/programs/ekstrakurikuler" },
+  ] },
   { label: "Prestasi", href: "/achievements" },
   { label: "Portal Informasi", href: "/information", dropdown: true, children: [
     { label: "Portal LMS-SIMAK26", href: "https://lms.smkn26jkt.sch.id/", external: true },

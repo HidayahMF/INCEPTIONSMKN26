@@ -42,8 +42,17 @@ import {
 import { GuruKejuruanPage } from "./pages/GuruKejuruanPage";
 import { TenagaKependidikanPage } from "./pages/TenagaKependidikanPage";
 import { TimPendukungSekolahPage } from "./pages/TimPendukungSekolahPage";
+import { LspPage } from "./pages/LspPage";
+import { LspKgsPage } from "./pages/LspKgsPage";
+import { LspTekPage } from "./pages/LspTekPage";
+import { LspTitlPage } from "./pages/LspTitlPage";
+import { LspTflmPage } from "./pages/LspTflmPage";
+import { LspSijaPage } from "./pages/LspSijaPage";
+import { LspTkrPage } from "./pages/LspTkrPage";
+import { EkstrakurikulerPage } from "./pages/EkstrakurikulerPage";
 import { AdvantageDetailPage } from "./pages/AdvantageDetailPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
+import { PartnerDetailPage } from "./pages/PartnerDetailPage";
 import { newsItems } from "./data/news";
 import { majors } from "./data/majors";
 import { advantages } from "./data/advantages";
@@ -404,12 +413,23 @@ export function App() {
   if (path.startsWith("/news/")) {
     return <PublicExperience><NewsDetailPage slug={path.slice("/news/".length)} /></PublicExperience>;
   }
+  if (path.startsWith("/partners/")) {
+    return <PublicExperience><PartnerDetailPage slug={path.slice("/partners/".length)} /></PublicExperience>;
+  }
   if (path.startsWith("/tour/")) {
     const locationId = path.slice("/tour/".length);
     const location = tourLocations.find((item) => item.id === locationId);
     if (location) return <PublicExperience><LapanganTourPage location={location} /></PublicExperience>;
   }
   if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
+  if (path === "/programs/lsp") return <PublicExperience><LspPage /></PublicExperience>;
+  if (path === "/programs/lsp/kgs") return <PublicExperience><LspKgsPage /></PublicExperience>;
+  if (path === "/programs/lsp/tek") return <PublicExperience><LspTekPage /></PublicExperience>;
+  if (path === "/programs/lsp/titl") return <PublicExperience><LspTitlPage /></PublicExperience>;
+  if (path === "/programs/lsp/tflm") return <PublicExperience><LspTflmPage /></PublicExperience>;
+  if (path === "/programs/lsp/sija") return <PublicExperience><LspSijaPage /></PublicExperience>;
+  if (path === "/programs/lsp/tkr") return <PublicExperience><LspTkrPage /></PublicExperience>;
+  if (path === "/programs/ekstrakurikuler") return <PublicExperience><EkstrakurikulerPage /></PublicExperience>;
   if (path === "/majors/kgs") return <PublicExperience><KgsPage /></PublicExperience>;
   if (path === "/majors/tek") return <PublicExperience><TekPage /></PublicExperience>;
   if (path === "/majors/titl") return <PublicExperience><TitlPage /></PublicExperience>;
