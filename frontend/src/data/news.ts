@@ -1,0 +1,42 @@
+export const newsItems = [
+  {
+    category: "Kegiatan",
+    title: "Workshop Pengembangan Soft Skill Siswa",
+    date: "28 September 2026",
+    image: "/assets/figma/news/news-raw-03.png",
+    slug: "workshop-pengembangan-soft-skill-siswa",
+    description: "Workshop ini menjadi ruang bagi siswa untuk mengembangkan komunikasi, kerja sama, kepercayaan diri, dan kesiapan menghadapi lingkungan belajar maupun dunia kerja.",
+  },
+  {
+    category: "Prestasi",
+    title: "Siswa SMKN 26 Raih Prestasi di LKS",
+    date: "20 September 2026",
+    image: "/assets/figma/news/news-raw-04.png",
+    slug: "siswa-smkn-26-raih-prestasi-di-lks",
+    description: "Pencapaian di LKS menjadi bagian dari perjalanan siswa dalam menguji kompetensi, ketekunan, dan kemampuan menerapkan keterampilan sesuai bidang keahlian.",
+  },
+  {
+    category: "Kegiatan Sekolah",
+    title: "Workshop Pengembangan Soft Skill Siswa",
+    date: "18 September 2026",
+    image: "/assets/figma/news/news-raw-01.png",
+    slug: "workshop-soft-skill-kegiatan-sekolah",
+    description: "Kegiatan sekolah ini mendukung pembentukan karakter dan keterampilan interpersonal siswa melalui pengalaman belajar yang kolaboratif dan reflektif.",
+  },
+  {
+    category: "Kemitraan & Kerja Sama",
+    title: "Kolaborasi SMKN 26 dengan Dunia Industri",
+    date: "12 September 2026",
+    image: "/assets/figma/news/news-raw-09.png",
+    slug: "kolaborasi-smkn-26-dengan-dunia-industri",
+    description: "Kolaborasi dengan dunia industri membantu mendekatkan pembelajaran sekolah dengan kebutuhan profesional dan membuka ruang pengalaman yang relevan bagi siswa.",
+  },
+  {
+    category: "Karya & Inovasi",
+    title: "SMKN 26 Hadirkan Karya Inovatif Berbasis Teknologi",
+    date: "09 September 2026",
+    image: "/assets/figma/news/news-raw-07.png",
+    slug: "karya-inovatif-berbasis-teknologi",
+    description: "Karya berbasis teknologi menjadi wadah bagi siswa untuk menggabungkan kreativitas, pemecahan masalah, dan kompetensi kejuruan menjadi solusi yang bernilai.",
+  },
+] as const;

@@ -17,18 +17,39 @@ const footerIcon = {
 };
 
 function linkHref(title: string, link: string) {
-  if (title === "Tentang Kami") {
-    if (link === "Profil Sekolah") return "/profile";
-    if (link === "School Tour") return "/tour";
-    if (link === "Mitra Industri") return "/partners";
-    return "/majors";
-  }
-  return "/information";
+  const routes: Record<string, string> = {
+    "Tentang Kami:Profil Sekolah": "/profile",
+    "Tentang Kami:Struktur & Unit Kerja": "/struktur-unit-kerja",
+    "Tentang Kami:School Tour": "/tour",
+    "Tentang Kami:Mitra Industri": "/partners",
+    "Jurusan:Konstruksi Gedung & Sanitasi": "/majors/kgs",
+    "Jurusan:Teknik Elektronika & Komunikasi": "/majors/tek",
+    "Jurusan:Teknik Instalasi Tenaga Listrik": "/majors/titl",
+    "Jurusan:Teknik Fabrikasi Logam & Manufaktur": "/majors/tflm",
+    "Jurusan:Teknik Kendaraan Ringan": "/majors/tkr",
+    "Jurusan:Sistem Informasi, Jaringan & Aplikasi": "/majors/sija",
+    "Program:LSP": "/programs",
+    "Program:Organisasi Sekolah": "/programs",
+    "Program:Ekstrakurikuler": "/programs",
+    "Program:BKK": "/programs",
+    "BLUD:KGStudio": "/blud/kgstudio",
+    "BLUD:UPTECHNO": "/blud/uptechno",
+    "BLUD:E-MAN": "/blud/e-man",
+    "BLUD:Manufaktur26": "/blud/manufaktur26",
+    "BLUD:Garage26": "/blud/garage26",
+    "BLUD:GADIZ VOKASI": "/blud/gadiz-vokasi",
+    "Informasi:Berita": "/news",
+    "Informasi:Prestasi": "/achievements",
+    "Informasi:Portal Informasi": "/information",
+    "Informasi:Pembangunan.AI": "/#ai-cta",
+  };
+  return routes[`${title}:${link}`] ?? "/";
 }
 
 export function PublicFooter() {
   return (
-    <footer className="box-border min-h-[626px] min-w-0 max-w-full overflow-x-clip bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] px-6 pb-6 pt-12 text-white md:px-[84px]">
+    <footer className="box-border min-h-[626px] min-w-0 max-w-full overflow-x-clip bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] pb-6 pt-12 text-white">
+      <div className="mx-auto w-[min(1272px,100%-32px)]">
       <div className="relative flex flex-col items-center justify-center gap-6 min-[1272px]:grid min-[1272px]:h-11 min-[1272px]:grid-cols-[1fr_auto_1fr] min-[1272px]:items-end min-[1272px]:gap-8">
         <h2 className="m-0 shrink-0 text-center text-xl leading-7 min-[1272px]:justify-self-start">
           Dapatkan Informasi
@@ -46,7 +67,7 @@ export function PublicFooter() {
             type="email"
           />
           <button
-            className="h-11 w-28 shrink-0 rounded-full border border-white/35 bg-gradient-to-r from-primary-dark via-primary to-soft-blue font-semibold text-white"
+            className="h-11 w-28 shrink-0 rounded-full border border-white/35 bg-gradient-to-r from-primary-dark via-primary to-soft-blue font-semibold text-white transition-[background,color,border-color] duration-300 hover:border-white hover:bg-white hover:bg-none hover:text-primary focus-visible:border-white focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary"
             type="submit"
           >
             Kirim
@@ -55,21 +76,25 @@ export function PublicFooter() {
         <div className="flex gap-3 min-[1272px]:static min-[1272px]:justify-self-end">
           <a
             className="grid size-[45px] place-items-center rounded-full bg-white"
-            href="#footer-social"
+            href="https://www.instagram.com/smkn.26jakarta/"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Instagram"
           >
             <img className="size-[22px]" src={footerIcon.instagram} alt="" />
           </a>
           <a
             className="grid size-[45px] place-items-center rounded-full bg-white"
-            href="#footer-social"
+            href="https://www.youtube.com/@smkn26jakarta23"
+            target="_blank"
+            rel="noreferrer"
             aria-label="YouTube"
           >
             <img className="size-[22px]" src={footerIcon.youtube} alt="" />
           </a>
           <a
             className="grid size-[45px] place-items-center rounded-full bg-white"
-            href="#footer-social"
+            href="mailto:smkn26jkt@gmail.com"
             aria-label="Email"
           >
             <img className="size-[22px]" src={footerIcon.email} alt="" />
@@ -147,7 +172,7 @@ export function PublicFooter() {
                   </h3>
                   {links.map((link) => (
                     <a
-                      className="mb-[9px] block break-words text-xs leading-4 text-white/90 no-underline hover:text-ink"
+                      className="mb-[9px] block break-words text-xs leading-4 text-white/90 no-underline hover:text-primary"
                       href={linkHref(title, link)}
                       key={link}
                     >
@@ -163,17 +188,26 @@ export function PublicFooter() {
           <h3 className="mb-3.5 inline-block text-base font-bold">
             Lokasi Sekolah
           </h3>
-          <img
-            className="w-full max-w-[249px] rounded-[18px] border-2 border-white object-cover"
-            src="/assets/figma/footer/footer-raw-02.png"
-            alt="Peta lokasi SMK Negeri 26 Jakarta"
-          />
+          <a
+            className="block w-full max-w-[249px] rounded-[18px] focus-visible:outline-2 focus-visible:outline-white"
+            href="https://www.google.com/maps/search/?api=1&query=SMK+Negeri+26+Jakarta%2C+Jl.+Balai+Pustaka+Baru+No.+1%2C+Rawamangun%2C+Jakarta+Timur"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Buka lokasi SMK Negeri 26 Jakarta di Google Maps"
+          >
+            <img
+              className="w-full max-w-[249px] rounded-[18px] border-2 border-white object-cover"
+              src="/assets/figma/footer/footer-raw-02.png"
+              alt="Peta lokasi SMK Negeri 26 Jakarta"
+            />
+          </a>
         </div>
       </div>
       <div className="mt-8 h-px bg-white/70" />
       <p className="mt-6 text-center text-sm leading-6">
         © 2026 SMKN 26 Jakarta. Semua Hak Dilindungi.
       </p>
+      </div>
     </footer>
   );
 }

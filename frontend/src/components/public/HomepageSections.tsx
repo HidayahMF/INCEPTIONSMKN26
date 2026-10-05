@@ -5,18 +5,20 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
+import { newsItems } from "../../data/news";
 
 type Props = { onAskAi: () => void };
 const bludCards = [
-  ["KGStudio", "Mengasah keterampilan melalui produksi dan layanan kreatif."],
-  ["UPTECHNO", "Mengembangkan solusi teknologi sesuai kebutuhan industri."],
-  ["E-MAN", "Menerapkan kompetensi kelistrikan dalam praktik nyata."],
+  ["KGStudio", "Mengasah keterampilan melalui produksi dan layanan kreatif.", "/blud/kgstudio"],
+  ["UPTECHNO", "Mengembangkan solusi teknologi sesuai kebutuhan industri.", "/blud/uptechno"],
+  ["E-MAN", "Menerapkan kompetensi kelistrikan dalam praktik nyata.", "/blud/e-man"],
   [
     "Manufaktur26",
     "Mengenal proses produksi dan pembuatan komponen manufaktur.",
+    "/blud/manufaktur26",
   ],
-  ["Garage26", "Praktik langsung dalam perawatan dan perbaikan kendaraan."],
-  ["GADIZ VOKASI", "Mengubah kompetensi vokasi menjadi produk dan layanan."],
+  ["Garage26", "Praktik langsung dalam perawatan dan perbaikan kendaraan.", "/blud/garage26"],
+  ["GADIZ VOKASI", "Mengubah kompetensi vokasi menjadi produk dan layanan.", "/blud/gadiz-vokasi"],
 ] as const;
 const achievementCards = [
   [
@@ -45,38 +47,7 @@ const achievementCards = [
     "/assets/figma/achievements/achievements-raw-07.png",
   ],
 ] as const;
-const newsCards = [
-  {
-    category: "Kegiatan",
-    title: "Workshop Pengembangan Soft Skill Siswa",
-    date: "28 September 2026",
-    image: "/assets/figma/news/news-raw-03.png",
-  },
-  {
-    category: "Prestasi",
-    title: "Siswa SMKN 26 Raih Prestasi di LKS",
-    date: "20 September 2026",
-    image: "/assets/figma/news/news-raw-04.png",
-  },
-  {
-    category: "Kegiatan Sekolah",
-    title: "Workshop Pengembangan Soft Skill Siswa",
-    date: "18 September 2026",
-    image: "/assets/figma/news/news-raw-01.png",
-  },
-  {
-    category: "Kemitraan & Kerja Sama",
-    title: "Kolaborasi SMKN 26 dengan Dunia Industri",
-    date: "12 September 2026",
-    image: "/assets/figma/news/news-raw-09.png",
-  },
-  {
-    category: "Karya & Inovasi",
-    title: "SMKN 26 Hadirkan Karya Inovatif Berbasis Teknologi",
-    date: "09 September 2026",
-    image: "/assets/figma/news/news-raw-07.png",
-  },
-] as const;
+const newsCards = newsItems;
 const programRightCards = [
   [
     "Lembaga Sertifikasi Profesi",
@@ -415,7 +386,7 @@ const bludCardTextWidth = [
 function BludSection() {
   return (
     <section
-      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0 min-[1600px]:h-[720px] min-[1600px]:w-[1600px] min-[1600px]:max-w-[calc(100%-40px)]"
+      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0"
       aria-labelledby="blud-title"
     >
       <div className="section-intro blud-intro relative mb-[42px] w-full text-left">
@@ -454,11 +425,11 @@ function BludSection() {
             />
         </a>
       </div>
-      <div className="blud-grid grid grid-cols-[repeat(3,400px)] grid-rows-[repeat(2,200px)] gap-6 overflow-visible min-[1600px]:absolute min-[1600px]:left-[13px] min-[1600px]:top-[263px] min-[1600px]:grid-cols-[repeat(3,500px)] min-[1600px]:grid-rows-[repeat(2,250px)] min-[1600px]:gap-[30px]">
-        {bludCards.map(([name, description], index) => (
+      <div className="blud-grid grid grid-cols-3 grid-rows-2 gap-6 overflow-visible max-md:grid-cols-1 max-md:grid-rows-none">
+        {bludCards.map(([name, description, href], index) => (
           <a
-            className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] w-[400px] min-w-[400px] box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow] duration-300 hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] ${[0, 2, 3, 4].includes(index) ? "hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:shadow-[0_4px_16px_rgba(15,23,42,.08)]" : ""} min-[1600px]:h-[250px] min-[1600px]:w-[500px] min-[1600px]:min-w-[500px] min-[1600px]:p-[22px]`}
-            href="/blud"
+             className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow] duration-300 hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] ${[0, 2, 3, 4].includes(index) ? "hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:shadow-[0_4px_16px_rgba(15,23,42,.08)]" : ""}`}
+             href={href}
             key={name}
           >
             <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
@@ -567,11 +538,11 @@ function AchievementsSection() {
       <div className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0">
         <button
           type="button"
-          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
+           className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
           aria-label="Prestasi sebelumnya"
           onClick={() => scrollByStep(-1)}
         >
-          <img className="size-6 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.carouselLeft} alt="" />
+           <img className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowLeft} alt="" />
         </button>
         <div
           className={`achievement-track flex w-full max-w-full flex-1 cursor-grab select-none gap-[22px] overflow-x-auto overflow-y-hidden [scrollbar-width:none] [touch-action:pan-y] max-[1271.98px]:[-webkit-overflow-scrolling:touch] max-[1271.98px]:[scroll-snap-type:x_proximity] min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:overflow-x-hidden max-md:pb-3 ${isDragging ? " is-dragging cursor-grabbing" : ""}${isScrolling ? " is-scrolling pointer-events-none" : ""}`}
@@ -593,11 +564,11 @@ function AchievementsSection() {
                 <h3 className="text-[20px] leading-[24.2px] text-white">{title}</h3>
                 <p className="mt-1 mb-2.5 w-[216px] text-xs leading-[14.5px] text-white">{description}</p>
                 <a
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
+                   className="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
                   href="/achievements"
                 >
                   Lihat Detail{" "}
-                  <img className="size-[18px] object-contain" src={figmaAssets.secondaryButton.arrowRight} alt="" />
+                   <img className="size-[18px] object-contain" src={figmaAssets.secondaryButton.arrowRight} alt="" />
                 </a>
               </div>
             </article>
@@ -605,11 +576,11 @@ function AchievementsSection() {
         </div>
         <button
           type="button"
-          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px]"
+           className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px]"
           aria-label="Prestasi berikutnya"
           onClick={() => scrollByStep(1)}
         >
-          <img className="size-6 rotate-180 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.carouselRight} alt="" />
+           <img className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowRight} alt="" />
         </button>
       </div>
       <div className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
@@ -660,6 +631,7 @@ const newsBadgeIcon = "/assets/figma/programs/programs-svg-04.svg";
 function NewsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ pointerX: 0, scrollLeft: 0 });
+  const draggedRef = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -685,13 +657,17 @@ function NewsSection() {
     const track = trackRef.current;
     if (!track) return;
     dragRef.current = { pointerX: event.clientX, scrollLeft: track.scrollLeft };
-    setIsDragging(true);
-    track.setPointerCapture(event.pointerId);
+    draggedRef.current = false;
   }
 
   function handlePointerMove(event: ReactPointerEvent<HTMLDivElement>) {
     const track = trackRef.current;
     if (!track || event.buttons === 0) return;
+    if (Math.abs(event.clientX - dragRef.current.pointerX) > 8) {
+      if (!draggedRef.current) track.setPointerCapture(event.pointerId);
+      draggedRef.current = true;
+      setIsDragging(true);
+    }
     track.scrollLeft =
       dragRef.current.scrollLeft - (event.clientX - dragRef.current.pointerX);
   }
@@ -701,6 +677,10 @@ function NewsSection() {
     setIsDragging(false);
     if (track && track.hasPointerCapture(event.pointerId))
       track.releasePointerCapture(event.pointerId);
+  }
+
+  function scrollByStep(direction: -1 | 1) {
+    trackRef.current?.scrollBy({ left: direction * 424, behavior: "smooth" });
   }
 
   return (
@@ -729,10 +709,16 @@ function NewsSection() {
           onPointerCancel={endDrag}
         >
           {newsCards.map((card) => (
-            <article
-              className="news-card group relative box-border h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white transition-none hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box] focus-within:border-4 focus-within:border-transparent focus-within:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]"
-              tabIndex={0}
+            <a
+              className="news-card group relative box-border h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-none hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]"
+              href={`/news/${card.slug}`}
               key={card.title + card.date}
+              onClick={(event) => {
+                if (draggedRef.current) {
+                  event.preventDefault();
+                  draggedRef.current = false;
+                }
+              }}
             >
               <img className="absolute left-0 top-0 h-[176px] w-[396px] object-cover" src={card.image} alt="" draggable={false} />
               <div className="absolute bottom-[18px] left-[18px] right-[18px] h-[83px] p-0">
@@ -743,17 +729,17 @@ function NewsSection() {
                 <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">{card.title}</h3>
                 <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">{card.date}</time>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>
-      <div className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-[1382px] justify-between gap-0">
-        <button className="pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita sebelumnya">
-          <img className="h-6 w-6" src="/assets/figma/news/news-svg-02.svg" alt="" />
-        </button>
-        <button className="pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita berikutnya">
-          <img className="h-6 w-6 rotate-180" src="/assets/figma/news/news-svg-02.svg" alt="" />
-        </button>
+       <div className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
+         <button className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita sebelumnya" onClick={() => scrollByStep(-1)}>
+           <img className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowLeft} alt="" />
+         </button>
+         <button className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita berikutnya" onClick={() => scrollByStep(1)}>
+           <img className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowRight} alt="" />
+         </button>
       </div>
     </section>
   );
@@ -781,7 +767,8 @@ function AiCtaSection({ onAskAi }: Props) {
   }, []);
   return (
     <section
-      className={`ai-cta relative mx-auto mt-[88px] flex h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden bg-white ${botSettled ? "is-bot-settled" : ""}`}
+      id="ai-cta"
+      className={`ai-cta scroll-mt-28 relative mx-auto mt-[88px] flex h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden bg-white ${botSettled ? "is-bot-settled" : ""}`}
       aria-labelledby="ai-cta-title"
     >
       <span className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">

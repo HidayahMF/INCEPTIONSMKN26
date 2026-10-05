@@ -1,38 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
-
-const advantages = [
-  [
-    "Pendidikan Berkualitas",
-    "Pembelajaran dirancang sesuai kompetensi keahlian dan kebutuhan dunia kerja.",
-    figmaAssets.advantages.education,
-  ],
-  [
-    "Pembelajaran Berbasis Industri",
-    "Membangun pengalaman belajar melalui kolaborasi dengan mitra industri.",
-    figmaAssets.advantages.industry,
-  ],
-  [
-    "Teaching Factory",
-    "Mengasah keterampilan melalui praktik dan pengalaman produksi nyata di lingkungan sekolah.",
-    figmaAssets.advantages.blud,
-  ],
-  [
-    "Pengalaman Karakter & Minat",
-    "Berkembang melalui organisasi, ekstrakurikuler, dan berbagai kegiatan siswa.",
-    figmaAssets.advantages.interest,
-  ],
-  [
-    "Lingkungan Belajar Inklusif",
-    "Ruang untuk belajar, berkarya, berkolaborasi, dan mengembangkan potensi setiap siswa.",
-    figmaAssets.advantages.inclusive,
-  ],
-  [
-    "Sertifikasi Kompetensi",
-    "Mengembangkan kompetensi siswa melalui skema sertifikasi yang relevan dengan bidang keahlian.",
-    figmaAssets.advantages.lsp,
-  ],
-] as const;
+import { advantages } from "../../data/advantages";
 
 const CARD_STEP = 324;
 
@@ -41,6 +9,7 @@ export function SchoolAdvantages() {
   const trackRef = useRef<HTMLDivElement>(null);
   const pointerStart = useRef<number | null>(null);
   const translateStart = useRef(0);
+  const dragged = useRef(false);
   const [translate, setTranslate] = useState(-170);
   const [bounds, setBounds] = useState({ min: 0, max: 0 });
   const [dragging, setDragging] = useState(false);
@@ -71,11 +40,15 @@ export function SchoolAdvantages() {
   const startDrag = (event: PointerEvent<HTMLDivElement>) => {
     pointerStart.current = event.clientX;
     translateStart.current = translate;
+    dragged.current = false;
     setDragging(true);
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
   const drag = (event: PointerEvent<HTMLDivElement>) => {
     if (pointerStart.current === null) return;
+    if (Math.abs(event.clientX - pointerStart.current) > 8) {
+      if (!dragged.current) event.currentTarget.setPointerCapture(event.pointerId);
+      dragged.current = true;
+    }
     setTranslate(
       clamp(translateStart.current + event.clientX - pointerStart.current),
     );
@@ -97,10 +70,11 @@ export function SchoolAdvantages() {
   const cancelDrag = () => {
     pointerStart.current = null;
     setDragging(false);
+    dragged.current = false;
   };
 
   return (
-    <section className="relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
+    <section id="school-advantages" className="scroll-mt-28 relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
       <div className="absolute left-1/2 top-10 -translate-x-1/2">
         <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
            <img src={figmaAssets.majors.badgeIcon} alt="" />Keunggulan SMK Negeri 26 Jakarta
@@ -111,16 +85,16 @@ export function SchoolAdvantages() {
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
-            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+             className="group advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
           disabled={translate >= bounds.max}
           aria-label="Keunggulan sebelumnya"
         >
           <img
-            className="size-6"
+             className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
             draggable={false}
             onDragStart={(event) => event.preventDefault()}
-            src={figmaAssets.advantages.carouselLeft}
+             src={figmaAssets.advantages.arrowLeft}
             alt=""
           />
         </button>
@@ -140,17 +114,24 @@ export function SchoolAdvantages() {
               transitionDuration: dragging ? "0ms" : undefined,
             }}
           >
-            {advantages.map(([title, body, image]) => (
-              <article
-                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink transition-none hover:shadow-[0_4px_16px_rgba(15,23,42,.08)]"
-                key={title}
+            {advantages.map((advantage) => (
+              <a
+                className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink no-underline transition-none hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:outline-2 focus-visible:outline-white"
+                href={`/advantages/${advantage.slug}`}
+                key={advantage.slug}
+                onClick={(event) => {
+                  if (dragged.current) {
+                    event.preventDefault();
+                    dragged.current = false;
+                  }
+                }}
               >
                  <div className="absolute left-0 top-0 h-[200px] w-[320px] overflow-hidden rounded-t-3xl">
                   <img
                      className="pointer-events-none block h-[200px] w-[320px] max-w-none select-none object-cover"
                     draggable={false}
                     onDragStart={(event) => event.preventDefault()}
-                    src={image}
+                     src={advantage.image}
                     alt=""
                   />
                   </div>
@@ -164,37 +145,34 @@ export function SchoolAdvantages() {
                   />
                 </span>
                 <h3 className="relative text-2xl font-bold leading-tight text-primary-dark">
-                  {title}
+                  {advantage.title}
                 </h3>
-                <p className="relative mt-1 text-xs leading-[18px]">{body}</p>
-                <a
-                  className="secondary-button relative mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-[background,color,border-color] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-primary hover:text-white"
-                  href="/information"
-                >
+                <p className="relative mt-1 text-xs leading-[18px]">{advantage.summary}</p>
+                <span className="secondary-button relative mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-[background,color,border-color] duration-300 ease-out group-hover:border-[#CBD5E1] group-hover:bg-primary group-hover:text-white">
                   Baca selengkapnya{" "}
                   <img
-                    className="pointer-events-none size-5 select-none"
+                    className="pointer-events-none size-5 select-none transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
                     draggable={false}
                     onDragStart={(event) => event.preventDefault()}
                     src={figmaAssets.secondaryButton.arrowRight}
                     alt=""
                   />
-                </a>
-              </article>
+                </span>
+              </a>
             ))}
         </div>
         </div>
         <button
-            className="advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+             className="group advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(1)}
           disabled={translate <= bounds.min}
           aria-label="Keunggulan berikutnya"
         >
           <img
-            className="size-6 rotate-180"
+             className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
             draggable={false}
             onDragStart={(event) => event.preventDefault()}
-            src={figmaAssets.advantages.carouselRight}
+             src={figmaAssets.advantages.arrowRight}
             alt=""
           />
         </button>

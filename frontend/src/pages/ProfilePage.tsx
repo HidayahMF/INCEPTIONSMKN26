@@ -34,21 +34,21 @@ function ProfilePage() {
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main>
-        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink max-md:h-[680px] max-md:overflow-hidden max-md:pt-[128px] md:px-16">
-          <img className="absolute left-0 top-0 z-0 h-[757px] w-full object-cover object-top max-md:top-[250px] max-md:h-auto max-md:w-full max-md:object-contain" src="/assets/figma/profile/profile-hero-bg.png" alt="Gedung SMK Negeri 26 Jakarta" />
+        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[610px] max-md:overflow-hidden max-md:pt-[126px] md:px-16">
+          <img className="absolute left-0 top-[clamp(72px,5vw,110px)] z-0 h-auto w-full object-contain object-top max-md:left-1/2 max-md:top-[205px] max-md:w-[180%] max-md:max-w-none max-md:-translate-x-1/2" src="/assets/figma/profile/profile-hero-bg.png" alt="Gedung SMK Negeri 26 Jakarta" />
           <div className="relative z-10 mx-auto w-full max-w-[1025px] text-center">
             <ProfileBadge>PROFIL SMK NEGERI 26 JAKARTA</ProfileBadge>
-            <h1 className="mt-6 text-4xl font-bold leading-[54px] tracking-[-.02em] md:text-[48px] md:leading-[72px]">
+            <h1 className="mt-6 text-[32px] font-bold leading-[42px] tracking-[-.02em] sm:text-4xl sm:leading-[54px] md:text-[48px] md:leading-[72px]">
               Belajar, Bekerja, <span className="bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">Membangun!</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-[1025px] text-[20px] font-medium leading-[30px] text-muted max-md:max-w-[350px] max-md:text-base max-md:leading-6">
+            <p className="mx-auto mt-5 max-w-[1025px] text-base font-medium leading-6 text-muted sm:mt-6 sm:text-[20px] sm:leading-[30px] max-md:max-w-[350px]">
               SMK Negeri 26 Jakarta merupakan sekolah menengah kejuruan yang berkomitmen membentuk generasi yang kompeten, berkarakter, inovatif, dan siap menghadapi dunia kerja serta perkembangan teknologi.
             </p>
           </div>
         </section>
 
-        <section className="relative z-20 mx-auto -mt-[45px] h-[205px] w-[min(1200px,100%-32px)] translate-y-[70px] max-md:mt-4 max-md:h-auto max-md:translate-y-0">
-          <div className="absolute bottom-0 left-0 right-0 grid grid-cols-2 overflow-hidden rounded-[12px] bg-gradient-to-r from-primary-dark via-primary to-soft-blue text-white shadow-[0_8px_24px_rgba(15,23,42,.16)] sm:grid-cols-3 md:grid-cols-5 max-md:relative">
+        <section className="relative z-20 mx-auto -mt-[105px] h-[205px] w-[min(1272px,100%-32px)] max-md:mt-4 max-md:h-auto">
+          <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 overflow-hidden rounded-[12px] bg-gradient-to-r from-primary-dark via-primary to-soft-blue text-white shadow-[0_8px_24px_rgba(15,23,42,.16)] sm:grid-cols-3 md:grid-cols-5 max-md:relative">
             {[
               ["6", "Jurusan"],
               ["1750+", "Siswa Aktif"],
@@ -64,7 +64,7 @@ function ProfilePage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-[45px] grid min-h-[549px] min-w-0 w-full max-w-[1272px] bg-white px-6 py-16 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-0 md:py-[40px]">
+        <section className="mx-auto grid min-h-[549px] min-w-0 w-full max-w-[1272px] bg-white px-6 py-16 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-0 md:py-[40px] max-md:mt-8">
           <img className="mx-auto h-auto max-h-[365px] w-full max-w-[538px] mix-blend-multiply object-contain" src={figmaAssets.profile.overviewComposite} alt="Lingkungan SMK Negeri 26 Jakarta" />
           <div className="min-w-0 md:pt-[30px]">
           

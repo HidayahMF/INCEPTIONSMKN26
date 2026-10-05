@@ -21,6 +21,16 @@ import { PublicChatRoom } from "./features/chat/PublicChatRoom";
 import { AOSInitializer } from "./components/public/AOSInitializer";
 import { SchoolMajors } from "./components/public/SchoolMajors";
 import { MajorsPage } from "./pages/MajorsPage";
+import { KgsPage } from "./pages/KgsPage";
+import { TekPage } from "./pages/TekPage";
+import { TitlPage } from "./pages/TitlPage";
+import { TflmPage } from "./pages/TflmPage";
+import { TkrPage } from "./pages/TkrPage";
+import { SijaPage } from "./pages/SijaPage";
+import { KgStudioPage } from "./pages/KgStudioPage";
+import { UptechnoPage } from "./pages/UptechnoPage";
+import { EmanPage } from "./pages/EmanPage";
+import { BludServicePage } from "./pages/BludServicePage";
 import { HomepageSections } from "./components/public/HomepageSections";
 import { PublicFooter } from "./components/public/PublicFooter";
 import { ProfilePage } from "./pages/ProfilePage";
@@ -32,6 +42,11 @@ import {
 import { GuruKejuruanPage } from "./pages/GuruKejuruanPage";
 import { TenagaKependidikanPage } from "./pages/TenagaKependidikanPage";
 import { TimPendukungSekolahPage } from "./pages/TimPendukungSekolahPage";
+import { AdvantageDetailPage } from "./pages/AdvantageDetailPage";
+import { NewsDetailPage } from "./pages/NewsDetailPage";
+import { newsItems } from "./data/news";
+import { majors } from "./data/majors";
+import { advantages } from "./data/advantages";
 import { tourLocations } from "./data/tourLocations";
 import { GuruDetailPage, type StaffCategory } from "./pages/GuruDetailPage";
 import { staffSlug } from "./pages/TeacherDirectoryPage";
@@ -51,6 +66,54 @@ type Page = {
   body: string;
   metadata: Record<string, unknown>;
 };
+
+const informationPortals = [
+  {
+    title: "Portal LMS-SIMAK26",
+    image: "SIMAK 26.png",
+    href: "https://lms.smkn26jkt.sch.id/",
+  },
+  {
+    title: "Portal Perpus26",
+    image: "Perpustakaan Digital.png",
+    href: "https://perpus.smkn26jkt.sch.id/",
+  },
+  {
+    title: "Portal SPMB",
+    image: "SPMB.png",
+    href: "https://spmb.jakarta.go.id/",
+  },
+  {
+    title: "Portal KJP",
+    image: "kjp.png",
+    href: "https://edu.jakarta.go.id/kjp/login",
+  },
+  {
+    title: "Portal PIP",
+    image: "pip.png",
+    href: "https://pip.kemendikdasmen.go.id/home_v1",
+  },
+] as const;
+
+const majorHeroImages: Record<string, string> = {
+  KGS: "/assets/figma/KGS/Hero%20Section.png",
+  TEK: "/assets/figma/TEK/Hero%20Section.png",
+  TITL: "/assets/figma/TITL/Hero%20Section%20(1).png",
+  TFLM: "/assets/figma/TFLM/Hero%20Section%20(2).png",
+  TKR: "/assets/figma/TKR/Hero%20Section%20(3).png",
+  SIJA: "/assets/figma/SIJA/Hero%20Section%20(5).png",
+};
+
+const searchableInformation = [
+  { title: "Profil SMK Negeri 26 Jakarta", category: "Profil", summary: "Mengenal sekolah, visi misi, sejarah, identitas, dan perjalanan SMK Negeri 26 Jakarta.", href: "/profile", image: undefined },
+  { title: "Program Sekolah", category: "Program", summary: "Informasi program sekolah, LSP, organisasi, ekstrakurikuler, dan BKK.", href: "/programs", image: undefined },
+  { title: "Prestasi Siswa", category: "Prestasi", summary: "Karya dan prestasi siswa SMK Negeri 26 Jakarta.", href: "/achievements", image: undefined },
+  ...majors.map((major) => ({ title: major.name, category: `Jurusan ${major.code}`, summary: major.description, href: major.href, image: majorHeroImages[major.id] })),
+  ...advantages.map((advantage) => ({ title: advantage.title, category: "Keunggulan", summary: advantage.summary, href: `/advantages/${advantage.slug}`, image: advantage.image })),
+  ...newsItems.map((news) => ({ title: news.title, category: news.category, summary: news.description, href: `/news/${news.slug}`, image: news.image })),
+  ...informationPortals.map((portal) => ({ title: portal.title, category: "Portal Informasi", summary: "Akses portal resmi yang digunakan untuk layanan dan informasi sekolah.", href: portal.href, image: `/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}`, external: true })),
+];
+
 function EmptyState({
   message = "Konten resmi belum tersedia.",
 }: {
@@ -77,6 +140,7 @@ function PublicPage({
 }) {
   const [pages, setPages] = useState<Page[]>([]);
   const [error, setError] = useState("");
+  const [query, setQuery] = useState(() => new URLSearchParams(window.location.search).get("q")?.trim() ?? "");
   useEffect(() => {
     api<Page[]>(`/api/public/pages?section=${section}`)
       .then(setPages)
@@ -104,8 +168,92 @@ function PublicPage({
             {intro}
           </p>
         </section>
+        {section === "information" && (
+          <form
+            className="mx-auto mt-10 flex h-12 w-full max-w-[720px] gap-2 rounded-full border-2 border-school-bg bg-white p-1.5 shadow-[0_4px_16px_rgba(15,23,42,.06)] focus-within:border-primary"
+            role="search"
+            onSubmit={(event) => {
+              event.preventDefault();
+              const value = query.trim();
+              window.location.href = value ? `/information?q=${encodeURIComponent(value)}` : "/information";
+            }}
+          >
+            <label className="sr-only" htmlFor="information-search">Cari informasi sekolah</label>
+            <input id="information-search" className="min-w-0 flex-1 rounded-full bg-transparent px-4 text-sm text-ink outline-none placeholder:text-muted" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Cari jurusan, berita, prestasi, portal..." />
+            <button className="rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-6 text-sm font-semibold text-white transition hover:bg-white hover:bg-none hover:text-primary" type="submit">Cari</button>
+          </form>
+        )}
         <section className="mt-14">
-          {error ? (
+          {section === "information" && query ? (
+            (() => {
+              const normalizedQuery = query.toLocaleLowerCase();
+              const staticResults = searchableInformation.filter((item) => `${item.title} ${item.category} ${item.summary}`.toLocaleLowerCase().includes(normalizedQuery));
+              const apiResults = pages.filter((page) => `${page.title} ${page.summary} ${page.body}`.toLocaleLowerCase().includes(normalizedQuery)).map((page) => ({ title: page.title, category: "Informasi sekolah", summary: page.summary || page.body, href: "/information", image: undefined }));
+              const results = [...staticResults, ...apiResults];
+              return results.length ? (
+                <div>
+                  <p className="mb-6 text-sm text-muted">Menampilkan {results.length} hasil untuk <strong className="text-ink">“{query}”</strong></p>
+                  <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                    {results.map((result, index) => (
+                      <a className="group rounded-3xl border border-school-bg bg-white p-6 no-underline shadow-[0_4px_16px_rgba(15,23,42,.08)] transition hover:-translate-y-1 hover:border-primary hover:shadow-xl" href={result.href} target={"external" in result && result.external ? "_blank" : undefined} rel={"external" in result && result.external ? "noreferrer" : undefined} key={`${result.href}-${result.title}-${index}`}>
+                        {result.image && <div className="-mx-6 -mt-6 mb-6 h-48 overflow-hidden rounded-t-3xl bg-school-bg"><img className="block size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" src={result.image} alt={result.title} /></div>}
+                        <span className="text-xs font-semibold text-primary">{result.category}</span>
+                        <h2 className="mt-3 text-xl font-bold text-ink">{result.title}</h2>
+                        <p className="mt-3 text-sm leading-6 text-muted">{result.summary}</p>
+                        <span className="mt-5 inline-block text-sm font-semibold text-primary group-hover:underline">Lihat informasi →</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-3xl border border-school-bg bg-white px-7 py-14 text-center shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+                  <strong className="block text-lg text-ink">Informasi belum ditemukan</strong>
+                  <p className="mx-auto mt-2 max-w-[520px] text-sm leading-6 text-muted">Coba gunakan kata kunci seperti jurusan, berita, prestasi, portal, atau profil.</p>
+                </div>
+              );
+            })()
+          ) : section === "information" ? (
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {informationPortals.map((portal) => (
+                <a
+                  className="group overflow-hidden rounded-3xl border border-school-bg bg-white shadow-[0_4px_16px_rgba(15,23,42,.08)] transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-primary"
+                  href={portal.href}
+                  key={portal.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src={`/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}`}
+                    alt={portal.title}
+                  />
+                  <h2 className="p-5 text-xl font-bold text-ink">{portal.title}</h2>
+                </a>
+              ))}
+            </div>
+          ) : section === "news" ? (
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {newsItems.map((news) => (
+                <a
+                  className="group overflow-hidden rounded-3xl border border-school-bg bg-white no-underline shadow-[0_4px_16px_rgba(15,23,42,.08)] transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-primary"
+                  href={`/news/${news.slug}`}
+                  key={news.slug}
+                >
+                  <img
+                    className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src={news.image}
+                    alt={news.title}
+                  />
+                  <div className="p-6">
+                    <span className="text-xs font-semibold text-primary">{news.category}</span>
+                    <h2 className="mt-2 text-xl leading-7 font-bold text-ink">{news.title}</h2>
+                    <time className="mt-3 block text-xs text-muted">{news.date}</time>
+                    <p className="mt-3 text-sm leading-6 text-muted">{news.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : error ? (
             <div
               role="alert"
               className="rounded-3xl border border-red-200 bg-white px-7 py-6 text-sm text-red-700 shadow-[0_4px_16px_rgba(15,23,42,.08)]"
@@ -250,12 +398,30 @@ export function App() {
       if (teacher) return <PublicExperience><GuruDetailPage category={category} teacher={teacher} /></PublicExperience>;
     }
   }
+  if (path.startsWith("/advantages/")) {
+    return <PublicExperience><AdvantageDetailPage slug={path.slice("/advantages/".length)} /></PublicExperience>;
+  }
+  if (path.startsWith("/news/")) {
+    return <PublicExperience><NewsDetailPage slug={path.slice("/news/".length)} /></PublicExperience>;
+  }
   if (path.startsWith("/tour/")) {
     const locationId = path.slice("/tour/".length);
     const location = tourLocations.find((item) => item.id === locationId);
     if (location) return <PublicExperience><LapanganTourPage location={location} /></PublicExperience>;
   }
   if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
+  if (path === "/majors/kgs") return <PublicExperience><KgsPage /></PublicExperience>;
+  if (path === "/majors/tek") return <PublicExperience><TekPage /></PublicExperience>;
+  if (path === "/majors/titl") return <PublicExperience><TitlPage /></PublicExperience>;
+  if (path === "/majors/tflm") return <PublicExperience><TflmPage /></PublicExperience>;
+  if (path === "/majors/tkr") return <PublicExperience><TkrPage /></PublicExperience>;
+  if (path === "/majors/sija") return <PublicExperience><SijaPage /></PublicExperience>;
+  if (path === "/blud/kgstudio") return <PublicExperience><KgStudioPage /></PublicExperience>;
+  if (path === "/blud/uptechno") return <PublicExperience><UptechnoPage /></PublicExperience>;
+  if (path === "/blud/e-man") return <PublicExperience><EmanPage /></PublicExperience>;
+  if (path === "/blud/manufaktur26") return <PublicExperience><BludServicePage service="manufaktur26" /></PublicExperience>;
+  if (path === "/blud/garage26") return <PublicExperience><BludServicePage service="garage26" /></PublicExperience>;
+  if (path === "/blud/gadiz-vokasi") return <PublicExperience><BludServicePage service="gadizVokasi" /></PublicExperience>;
   if (path === "/profile") return <PublicExperience><ProfilePage /></PublicExperience>;
   if (path === "/mars") return <PublicExperience><MarsPage /></PublicExperience>;
   if (path === "/struktur-unit-kerja") return <PublicExperience><StrukturUnitKerjaPage /></PublicExperience>;

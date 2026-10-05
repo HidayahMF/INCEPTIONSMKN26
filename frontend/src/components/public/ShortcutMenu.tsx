@@ -3,8 +3,8 @@ import { figmaAssets } from "../../assets/figmaAssets";
 
 type ShortcutMenuProps = { onAskAi: () => void };
 const imageShortcuts = [
-  ["SPMB", "/information", figmaAssets.shortcuts.spmb],
-  ["Perpustakaan", "/information", figmaAssets.shortcuts.library],
+  ["SPMB", "https://spmb.jakarta.go.id/", figmaAssets.shortcuts.spmb],
+  ["Perpustakaan", "https://perpus.smkn26jkt.sch.id/", figmaAssets.shortcuts.library],
   ["KJP & PIP", "/information", figmaAssets.shortcuts.kjpPip],
 ] as const;
 export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
@@ -24,6 +24,8 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
         <a
           className={`group relative block h-[148px] min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === index ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : index === 0 ? "translate-y-px" : ""} ${activeShortcut === index && index === 0 ? "-translate-y-[6px]" : ""}`}
           href={href}
+          target={href.startsWith("http") ? "_blank" : undefined}
+          rel={href.startsWith("http") ? "noreferrer" : undefined}
           aria-label={label}
           key={label}
           onFocus={() => setActiveShortcut(index)}
