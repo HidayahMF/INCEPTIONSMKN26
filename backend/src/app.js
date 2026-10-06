@@ -10,8 +10,8 @@ import { getAuthClient } from './lib/supabase.js';
 import { authenticate } from './middleware/auth.js';
 import { authorize } from './middleware/authorize.js';
 import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './modules/content/content.service.js';
-import { createPdfSource, createTextSource, listKnowledge, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
-import { answerFromApprovedFaq, answerFromGemini } from './modules/knowledge/gemini.service.js';
+import { createPdfSource, createTextSource, isSuppressedPublicSource, listKnowledge, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
+import { answerFromApprovedFaq, answerFromGemini, answerFromKnownIntent, safeUnavailable } from './modules/knowledge/gemini.service.js';
 import { learningRouter } from './modules/learning/learning.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
@@ -77,22 +77,56 @@ app.post('/api/admin/knowledge/:id/status', authenticate, authorize('content:man
 app.post('/api/chat', chatLimiter, (req,res)=>{
  const message=req.body?.message;
  if(typeof message!=='string'||!message.trim()||message.length>500)return res.status(400).json({data:null,error:{message:'Pertanyaan harus diisi (maksimal 500 karakter).'}});
-  retrieveApproved(message).then(async (matches) => {
-    if (!matches.length) {
-      const schoolTerms = /smk|sekolah|jurusan|program|berita|kontak|alamat|pendaftaran|lsp|osis|mpk|bkk|blud|prestasi|fasilitas|tour|tur/i;
-      const status = schoolTerms.test(message) ? 'insufficient_evidence' : 'out_of_scope';
-      const answer = status === 'out_of_scope' ? 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.' : 'Informasi tersebut belum ditemukan dalam sumber resmi SMKN 26 Jakarta.';
-      return res.json({ data: { answer, sources: [], status }, error: null });
-    }
-    const sources = matches.map((item) => ({ title: publicTitleForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title), url: publicPathForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.source_page), page: null }));
-     if (!process.env.GEMINI_API_KEY) {
-       const faqAnswer = answerFromApprovedFaq(matches);
-       if (faqAnswer) return res.json({ data: { answer: faqAnswer, sources, status: 'answered' }, error: null });
-       return res.json({ data: { answer: 'Sumber resmi ditemukan, tetapi layanan jawaban AI belum dikonfigurasi.', sources, status: 'insufficient_evidence' }, error: null });
+   const knownIntent = answerFromKnownIntent(message);
+   if (knownIntent) return res.json({ data: { ...knownIntent, status: 'answered' }, error: null });
+    retrieveApproved(message).then(async (matches) => {
+     if (!matches.length) {
+       const schoolTerms = /smk|sekolah|jurusan|program|berita|kontak|alamat|pendaftaran|lsp|osis|mpk|bkk|blud|prestasi|fasilitas|tour|tur/i;
+       const status = schoolTerms.test(message) ? 'insufficient_evidence' : 'out_of_scope';
+       const answer = status === 'out_of_scope' ? 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.' : safeUnavailable;
+       return res.json({ data: { answer, sources: [], status }, error: null });
      }
-    return answerFromGemini(message, matches).then((answer) => res.json({ data: { answer, sources, status: 'answered' }, error: null })).catch(() => res.status(503).json({ data: null, error: { message: 'Layanan AI sedang tidak tersedia. Coba lagi nanti.' } }));
-  }).catch(() => res.status(503).json({ data: null, error: { message: 'Pencarian sumber sekolah gagal sementara.' } }));
-});
+     const lowerMessage = message.toLowerCase();
+     const intentRoute = /\btitl\b|instalasi tenaga listrik/.test(lowerMessage) ? ['/majors/titl', 'Teknik Instalasi Tenaga Listrik']
+       : /\bsija\b|sistem informasi.*jaringan|jaringan.*aplikasi/.test(lowerMessage) ? ['/majors/sija', 'Sistem Informasi, Jaringan, dan Aplikasi']
+       : /\btflm\b|fabrikasi logam/.test(lowerMessage) ? ['/majors/tflm', 'Teknik Fabrikasi Logam dan Manufaktur']
+       : /\blsp\b/.test(lowerMessage) ? ['/programs/lsp', 'LSP SMKN 26 Jakarta']
+       : /\bbkk\b/.test(lowerMessage) ? ['/programs/bkk', 'BKK SMKN 26 Jakarta']
+       : /lokasi|alamat|di mana.*smkn 26/.test(lowerMessage) ? ['/profile', 'Identitas SMKN 26 Jakarta']
+       : null;
+      const sources = (intentRoute
+        ? [{ title: intentRoute[1], url: intentRoute[0], page: null }]
+        : matches
+          .filter((item) => !isSuppressedPublicSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title))
+          .map((item) => ({ title: publicTitleForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title), url: publicPathForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.source_page), page: null })))
+        .filter((source, index, all) => source.url
+          && !['/information', '/programs', '/contact'].includes(source.url)
+          && all.findIndex((candidate) => candidate.url === source.url) === index)
+        .filter((source) => {
+          const text = message.toLowerCase();
+          if (/lokasi|alamat|nama resmi|npsn|negeri|akreditasi|motto|sejarah|berdiri|diresmikan|dulu nama/.test(text)) return source.url === '/profile';
+          if (/telepon|email|kontak/.test(text)) return source.url === '/contact';
+          if (/\bkgs\b|konstruksi gedung|\btek\b|elektronika dan komunikasi|\btitl\b|instalasi tenaga listrik|\btflm\b|fabrikasi logam|\bsija\b|sistem informasi|\btkr\b|kendaraan ringan/.test(text)) return /^\/majors(?:\/|$)/.test(source.url);
+          if (/lsp|sertifikasi/.test(text)) return source.url === '/programs/lsp';
+          if (/bkk|lowongan|penyaluran kerja/.test(text)) return source.url === '/programs/bkk';
+          if (/ekskul|ekstrakurikuler|basket|futsal|rohis/.test(text)) return source.url === '/programs/ekstrakurikuler';
+          if (/tour|fasilitas|perpustakaan|aula|ruang sidang/.test(text)) return source.url === '/tour' || source.url === '/contact';
+          if (/pkl|industri|dudi|teaching factory/.test(text)) return source.url === '/profile';
+          return true;
+        });
+      if (!process.env.GEMINI_API_KEY) {
+         const faqAnswer = answerFromApprovedFaq(matches, message);
+        if (faqAnswer) return res.json({ data: { answer: faqAnswer, sources, status: 'answered' }, error: null });
+        return res.json({ data: { answer: safeUnavailable, sources, status: 'insufficient_evidence' }, error: null });
+      }
+     return answerFromGemini(message, matches)
+       .then((answer) => res.json({ data: { answer, sources, status: 'answered' }, error: null }))
+       .catch(() => {
+         const faqAnswer = answerFromApprovedFaq(matches, message);
+         return res.json({ data: { answer: faqAnswer || safeUnavailable, sources: faqAnswer ? sources : [], status: faqAnswer ? 'answered' : 'insufficient_evidence' }, error: null });
+       });
+   }).catch(() => res.json({ data: { answer: safeUnavailable, sources: [], status: 'insufficient_evidence' }, error: null }));
+ });
 app.use((error,_req,res,_next)=>{
   console.error('API error:', error?.message);
   if (error?.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ data: null, error: { message: `Ukuran PDF melebihi batas ${process.env.VERCEL ? '4' : '10'} MB.` } });

@@ -52,7 +52,7 @@ const topicRoutes = {
   profil: '/profile',
   sejarah: '/profile',
   jurusan: '/majors',
-  akademik: '/majors',
+  akademik: null,
   'jurusan-kgs': '/majors/kgs',
   'jurusan-tek': '/majors/tek',
   'jurusan-titl': '/majors/titl',
@@ -63,12 +63,12 @@ const topicRoutes = {
   ekstrakurikuler: '/programs/ekstrakurikuler',
   bkk: '/programs/bkk',
   fasilitas: '/contact',
-  ppdb: '/information',
+  ppdb: null,
   blud: '/blud',
   news: '/news',
   contact: '/contact',
   unknown: '/contact',
-  faq: '/information',
+  faq: null,
 };
 
 const topicTitles = {
@@ -124,6 +124,15 @@ export function publicTitleForKnowledgeSource(sourcePage, fallbackTitle = '') {
   return fallbackTitle || 'Sumber sekolah';
 }
 
+export function isSuppressedPublicSource(sourcePage, sourceTitle = '') {
+  const value = `${sourcePage || ''} ${sourceTitle || ''}`.toLowerCase();
+  return value.includes('99-faq')
+    || value.includes('faq-smkn')
+    || value.includes('faq terverifikasi')
+    || value.includes('09-ppdb')
+    || value.includes('penerimaan murid baru');
+}
+
 export function publicPathForKnowledgeSource(sourcePage, section) {
   const { page, topic } = splitKnowledgeTopic(sourcePage);
   if (topic && topicRoutes[topic]) return topicRoutes[topic];
@@ -139,7 +148,7 @@ export function publicPathForKnowledgeSource(sourcePage, section) {
     'jurusan-teknik-kendaraan-ringan': '/majors/tkr',
   };
   if (majorPaths[page]) return majorPaths[page];
-  const sectionPaths = { home: '/', profile: '/profile', organization: '/organization', majors: '/majors', tour: '/tour', partners: '/partners', blud: '/blud', programs: '/programs', achievements: '/achievements', news: '/news', information: '/information', contact: '/contact' };
+  const sectionPaths = { home: '/', profile: '/profile', organization: '/organization', majors: '/majors', tour: '/tour', partners: '/partners', blud: '/blud', programs: null, achievements: '/achievements', news: '/news', information: null, contact: '/contact' };
   if (sectionPaths[section]) return sectionPaths[section];
   // Markdown knowledge sources are stored as "knowledge/<folder>/<file>.md".
   // Point them at the public page that actually shows the same information.
@@ -148,22 +157,22 @@ export function publicPathForKnowledgeSource(sourcePage, section) {
     const folderPaths = {
       '01-profil-sekolah': '/profile',
       '02-jurusan': '/majors',
-      '03-akademik': '/majors',
+       '03-akademik': null,
       '04-kesiswaan': '/programs/ekstrakurikuler',
       '05-karier': '/programs/bkk',
       '06-lsp': '/programs/lsp',
       '07-fasilitas': '/tour',
       '08-layanan': '/contact',
-      '09-ppdb': '/information',
+       '09-ppdb': null,
       '10-berita': '/news',
-      '99-faq': '/information',
+       '99-faq': null,
     };
     if (folderPaths[folder]) return folderPaths[folder];
-    return '/information';
+    return null;
   }
   if (/^(profil|identitas|sejarah|akreditasi)-/.test(page)) return '/profile';
   if (/^jurusan-/.test(page)) return '/majors';
-  if (/^(program|blud)-/.test(page)) return page.startsWith('blud-') ? '/blud' : '/programs';
+  if (/^(program|blud)-/.test(page)) return page.startsWith('blud-') ? '/blud' : null;
   if (page === 'statistik-tahun-ajaran-2025-2026') return '/';
-  return '/information';
+  return null;
 }

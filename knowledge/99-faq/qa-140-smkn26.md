@@ -108,7 +108,7 @@ A: Karena sejarahnya berasal dari STM Pembangunan dan visi sekolah saat ini juga
 ## C. JURUSAN DAN KOMPETENSI KEAHLIAN
 
 Q: Ada berapa jurusan di SMKN 26?
-A: Situs resmi sekolah menampilkan 6 kompetensi keahlian. Data pemerintah menampilkan nomenklatur lama dan baru menurut tingkat dan angkatan, sehingga daftar untuk penerimaan tahun tertentu harus mengikuti pengumuman resmi.
+A: SMKN 26 Jakarta memiliki 6 kompetensi keahlian resmi.
 
 Q: Apa saja jurusan SMKN 26?
 A: Keenamnya adalah Konstruksi Gedung dan Sanitasi, Teknik Elektronika dan Komunikasi, Teknik Instalasi Tenaga Listrik, Teknik Fabrikasi Logam dan Manufaktur, Sistem Informasi Jaringan dan Aplikasi, serta Teknik Kendaraan Ringan.

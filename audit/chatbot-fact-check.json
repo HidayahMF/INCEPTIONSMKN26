@@ -1,0 +1,674 @@
+﻿[
+    {
+        "id":  1,
+        "category":  "profil",
+        "question":  "Apa nama resmi sekolah?",
+        "answer":  "Halo! Nama resmi sekolah kita adalah SMK Negeri 26 Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Ekstrakurikuler dan organisasi siswa",
+                            "url":  "/programs/ekstrakurikuler"
+                        }
+                    ]
+    },
+    {
+        "id":  2,
+        "category":  "profil",
+        "question":  "NPSN berapa?",
+        "answer":  "Halo! NPSN SMKN 26 Jakarta adalah 20103787. Ada hal lain yang bisa dibantu?",
+        "sources":  [
+                        {
+                            "title":  "Identitas SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  3,
+        "category":  "profil",
+        "question":  "Di mana lokasi SMKN 26?",
+        "answer":  "Halo! SMKN 26 Jakarta beralamat di Jl. Balai Pustaka Baru 1, Rawamangun, Kecamatan Pulo Gadung, Jakarta Timur, DKI Jakarta 13220.",
+        "sources":  [
+                        {
+                            "title":  "Identitas SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  4,
+        "category":  "profil",
+        "question":  "Nomor telepon sekolah berapa?",
+        "answer":  "Halo! Nomor telepon SMKN 26 Jakarta adalah 021-4720310. Ada yang bisa dibantu lagi?",
+        "sources":  [
+                        {
+                            "title":  "Sejarah, visi, misi, dan motto SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Layanan sekolah, sewa ruang, kontak, dan lokasi",
+                            "url":  "/contact"
+                        }
+                    ]
+    },
+    {
+        "id":  5,
+        "category":  "profil",
+        "question":  "Email sekolah apa?",
+        "answer":  "Halo! Email resmi SMKN 26 Jakarta adalah smkn26jkt@gmail.com. Ada yang bisa dibantu lagi?",
+        "sources":  [
+                        {
+                            "title":  "Layanan sekolah, sewa ruang, kontak, dan lokasi",
+                            "url":  "/contact"
+                        },
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  6,
+        "category":  "profil",
+        "question":  "Status sekolah negeri atau swasta?",
+        "answer":  "Halo! SMKN 26 Jakarta berstatus sebagai sekolah negeri.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  7,
+        "category":  "profil",
+        "question":  "Apa akreditasi SMKN 26?",
+        "answer":  "Halo! SMKN 26 Jakarta memiliki akreditasi A berdasarkan SK Nomor 1857/BAN-SM/SK/2022 tanggal 30 November 2022. Ada yang bisa dibantu lagi?",
+        "sources":  [
+                        {
+                            "title":  "Akreditasi Sekolah",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  8,
+        "category":  "profil",
+        "question":  "Apa motto sekolah?",
+        "answer":  "Halo! Motto yang dikenal dari sejarah SMKN 26 Jakarta adalah **Belajar, Bekerja, Membangun**.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah, visi, misi, dan motto SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  9,
+        "category":  "sejarah",
+        "question":  "SMKN 26 berdiri tahun berapa?",
+        "answer":  "Halo! SMKN 26 Jakarta diresmikan pada 1 Juli 1971 (awalnya sebagai Proyek Perintis STM Pembangunan Jakarta). Ada lagi yang bisa kubantu?",
+        "sources":  [
+                        {
+                            "title":  "Sejarah, visi, misi, dan motto SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Ekstrakurikuler dan organisasi siswa",
+                            "url":  "/programs/ekstrakurikuler"
+                        }
+                    ]
+    },
+    {
+        "id":  10,
+        "category":  "sejarah",
+        "question":  "Dulu nama sekolah ini apa?",
+        "answer":  "Halo! Dahulu SMKN 26 Jakarta bernama STM Negeri Pembangunan Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Ekstrakurikuler dan organisasi siswa",
+                            "url":  "/programs/ekstrakurikuler"
+                        }
+                    ]
+    },
+    {
+        "id":  11,
+        "category":  "sejarah",
+        "question":  "Kapan SMKN 26 diresmikan?",
+        "answer":  "Halo! SMKN 26 Jakarta diresmikan pada 1 Juli 1971.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  12,
+        "category":  "sejarah",
+        "question":  "Bagaimana sejarah perubahan nama sekolah?",
+        "answer":  "Halo! SMKN 26 Jakarta awalnya diresmikan pada 1 Juli 1971 sebagai Proyek Perintis Sekolah Teknologi Menengah (STM) Pembangunan Jakarta. Sejak tahun 1986, namanya berubah menjadi STM Negeri Pembangunan Jakarta, dan pada tahun 1997 resmi berubah nama menjadi SMK Negeri 26 Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  13,
+        "category":  "sejarah",
+        "question":  "Apa latar belakang berdirinya SMKN 26?",
+        "answer":  "Halo! SMKN 26 Jakarta berawal dari penetapan Jakarta sebagai salah satu Proyek Perintis Sekolah Teknologi Menengah (STM) Pembangunan dengan masa belajar empat tahun, yang kemudian diresmikan pada 1 Juli 1971. Seiring berjalan waktu, terjadi beberapa kali perubahan nama hingga akhirnya berubah menjadi SMK Negeri 26 Jakarta pada tahun 1997.",
+        "sources":  [
+                        {
+                            "title":  "Sejarah, visi, misi, dan motto SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Jurusan SMKN 26 Jakarta",
+                            "url":  "/majors"
+                        }
+                    ]
+    },
+    {
+        "id":  14,
+        "category":  "sejarah",
+        "question":  "Mengapa sekolah ini disebut STM Pembangunan?",
+        "answer":  "Halo! Sekolah ini disebut STM Pembangunan karena sejarahnya dirintis sebagai Proyek Perintis Sekolah Teknologi Menengah Pembangunan yang diresmikan pada 1 Juli 1971, sebelum akhirnya berubah nama menjadi SMK Negeri 26 Jakarta pada tahun 1997. Ada hal lain yang bisa dibantu?",
+        "sources":  [
+                        {
+                            "title":  "Sejarah Singkat SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  15,
+        "category":  "jurusan",
+        "question":  "Apa saja jurusan di SMKN 26?",
+        "answer":  "Enam jurusan resmi SMKN 26 Jakarta adalah:\n1. Konstruksi Gedung dan Sanitasi (KGS)\n2. Teknik Elektronika dan Komunikasi (TEK)\n3. Teknik Instalasi Tenaga Listrik (TITL)\n4. Teknik Fabrikasi Logam dan Manufaktur (TFLM)\n5. Sistem Informasi, Jaringan, dan Aplikasi (SIJA)\n6. Teknik Kendaraan Ringan (TKR)",
+        "sources":  [
+                        {
+                            "title":  "Jurusan SMKN 26 Jakarta",
+                            "url":  "/majors"
+                        }
+                    ]
+    },
+    {
+        "id":  16,
+        "category":  "jurusan",
+        "question":  "Apa itu KGS?",
+        "answer":  "Halo! KGS adalah singkatan dari Konstruksi Gedung dan Sanitasi, yang merupakan salah satu kompetensi keahlian resmi di SMKN 26 Jakarta. Ada yang ingin kamu tanyakan lagi?",
+        "sources":  [
+                        {
+                            "title":  "Jurusan SMKN 26 Jakarta",
+                            "url":  "/majors"
+                        },
+                        {
+                            "title":  "Unit BLUD SMKN 26 Jakarta",
+                            "url":  "/blud"
+                        }
+                    ]
+    },
+    {
+        "id":  17,
+        "category":  "jurusan",
+        "question":  "Apa kepanjangan KGS?",
+        "answer":  "Halo! Aku belum menemukan informasi itu dalam sumber resmi yang disetujui.",
+        "sources":  [
+                        {
+                            "title":  "Jurusan SMKN 26 Jakarta",
+                            "url":  "/majors"
+                        }
+                    ]
+    },
+    {
+        "id":  18,
+        "category":  "jurusan",
+        "question":  "Apa itu TEK?",
+        "answer":  "Halo! TEK adalah singkatan dari Teknik Elektronika dan Komunikasi, yang merupakan salah satu dari enam jurusan resmi di SMKN 26 Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Visi dan Misi SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        },
+                        {
+                            "title":  "Jurusan SMKN 26 Jakarta",
+                            "url":  "/majors"
+                        },
+                        {
+                            "title":  "Teknik Elektronika dan Komunikasi",
+                            "url":  "/majors/tek"
+                        },
+                        {
+                            "title":  "Teknik Instalasi Tenaga Listrik",
+                            "url":  "/majors/titl"
+                        }
+                    ]
+    },
+    {
+        "id":  19,
+        "category":  "jurusan",
+        "question":  "Apa kepanjangan TEK?",
+        "answer":  "Halo! Aku belum menemukan informasi itu dalam sumber resmi yang disetujui.",
+        "sources":  [
+                        {
+                            "title":  "Visi dan Misi SMKN 26 Jakarta",
+                            "url":  "/profile"
+                        }
+                    ]
+    },
+    {
+        "id":  20,
+        "category":  "jurusan",
+        "question":  "Apa itu TITL?",
+        "answer":  "Halo! TITL adalah singkatan dari Teknik Instalasi Tenaga Listrik, yang merupakan salah satu dari enam kompetensi keahlian resmi di SMKN 26 Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Teknik Instalasi Tenaga Listrik",
+                            "url":  "/majors/titl"
+                        }
+                    ]
+    },
+    {
+        "id":  21,
+        "category":  "jurusan",
+        "question":  "Apa kepanjangan TITL?",
+        "answer":  "Halo! TITL adalah kepanjangan dari Teknik Instalasi Tenaga Listrik.",
+        "sources":  [
+                        {
+                            "title":  "Teknik Instalasi Tenaga Listrik",
+                            "url":  "/majors/titl"
+                        }
+                    ]
+    },
+    {
+        "id":  22,
+        "category":  "jurusan",
+        "question":  "Apa itu TFLM?",
+        "answer":  "Halo! TFLM adalah singkatan dari Teknik Fabrikasi Logam dan Manufaktur, yang merupakan salah satu dari enam kompetensi keahlian resmi di SMKN 26 Jakarta.",
+        "sources":  [
+                        {
+                            "title":  "Teknik Fabrikasi Logam dan Manufaktur",
+                            "url":  "/majors/tflm"
+                        }
+                    ]
+    },
+    {
+        "id":  23,
+        "category":  "jurusan",
+        "question":  "Apa kepanjangan TFLM?",
+        "answer":  "Halo! TFLM adalah kepanjangan dari Teknik Fabrikasi Logam dan Manufaktur.",
+        "sources":  [
+                        {
+                            "title":  "Teknik Fabrikasi Logam dan Manufaktur",
+                            "url":  "/majors/tflm"
+                        }
+                    ]
+    },
+    {
+        "id":  24,
+        "category":  "jurusan",
+        "question":  "Apa itu SIJA?",
+        "answer":  "Halo! SIJA adalah singkatan dari Sistem Informasi, Jaringan, dan Aplikasi, yang merupakan salah satu dari enam jurusan resmi di SMKN 26 Jakarta. Jurusan ini mempelajari bidang sistem informasi, jaringan, dan aplikasi.",
+        "sources":  [
+                        {
+                            "title":  "Sistem Informasi, Jaringan, dan Aplikasi",
+                            "url":  "/majors/sija"
+                        }
+                    ]
+    },
+    {
+        "id":  25,
+        "category":  "jurusan",
+        "question":  "Apa kepanjangan SIJA?",
+        "answer":  "Halo! SIJA adalah Sistem Informasi, Jaringan, dan Aplikasi. Ada lagi yang ingin kamu ketahui tentang SMKN 26 Jakarta?",
+        "sources":  [
+                        {
+                            "title":  "Sistem Informasi, Jaringan, dan Aplikasi",
+                            "url":  "/majors/sija"
+                        }
+                    ]
+    },
+    {
+        "id":  26,
+        "category":  "jurusan",
+        "question":  "Kalau suka coding masuk jurusan mana?",
+        "answer":  "Halo! Kalau kamu suka coding (serta jaringan dan aplikasi), jurusan yang paling relevan di SMKN 26 Jakarta adalah **SIJA**.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  27,
+        "category":  "lsp",
+        "question":  "Apa itu LSP?",
+        "answer":  "Halo! Lembaga Sertifikasi Profesi (LSP) di SMKN 26 Jakarta adalah LSP Pihak Kesatu yang berlisensi BNSP (nomor lisensi `BNSP-LSP-1112-ID`) dengan status aktif untuk menyediakan sertifikasi kompetensi bagi siswa. Untuk informasi status terkini, silakan merujuk ke BNSP atau pihak sekolah.",
+        "sources":  [
+                        {
+                            "title":  "LSP SMKN 26 Jakarta",
+                            "url":  "/programs/lsp"
+                        }
+                    ]
+    },
+    {
+        "id":  28,
+        "category":  "lsp",
+        "question":  "LSP SMKN 26 untuk apa?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  29,
+        "category":  "lsp",
+        "question":  "Sertifikasi apa yang tersedia?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  30,
+        "category":  "lsp",
+        "question":  "Apakah ada sertifikasi jaringan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  31,
+        "category":  "lsp",
+        "question":  "Apakah ada sertifikasi otomotif?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  32,
+        "category":  "lsp",
+        "question":  "Apakah siswa bisa ikut sertifikasi?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  33,
+        "category":  "bkk",
+        "question":  "Apa itu BKK?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  34,
+        "category":  "bkk",
+        "question":  "Apa fungsi BKK?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  35,
+        "category":  "bkk",
+        "question":  "Apakah ada informasi lowongan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  36,
+        "category":  "bkk",
+        "question":  "Lulusan SMKN 26 bisa bekerja di mana?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  37,
+        "category":  "bkk",
+        "question":  "Apakah sekolah membantu penyaluran kerja?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  38,
+        "category":  "ekstrakurikuler",
+        "question":  "Ekskul apa saja yang ada?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  39,
+        "category":  "ekstrakurikuler",
+        "question":  "Apakah ada basket?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  40,
+        "category":  "ekstrakurikuler",
+        "question":  "Apakah ada futsal?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  41,
+        "category":  "ekstrakurikuler",
+        "question":  "Apakah ada Rohis?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  42,
+        "category":  "ekstrakurikuler",
+        "question":  "Ada berapa ekskul?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  43,
+        "category":  "program",
+        "question":  "Program sekolah apa saja?",
+        "answer":  "Program sekolah yang tersedia di halaman publik mencakup LSP, BKK, dan ekstrakurikuler.",
+        "sources":  [
+                        {
+                            "title":  "LSP SMKN 26 Jakarta",
+                            "url":  "/programs/lsp"
+                        },
+                        {
+                            "title":  "BKK SMKN 26 Jakarta",
+                            "url":  "/programs/bkk"
+                        },
+                        {
+                            "title":  "Ekstrakurikuler SMKN 26 Jakarta",
+                            "url":  "/programs/ekstrakurikuler"
+                        }
+                    ]
+    },
+    {
+        "id":  44,
+        "category":  "program",
+        "question":  "Apa itu Kaizen Goes to School?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  45,
+        "category":  "program",
+        "question":  "Apakah ada PKL?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  46,
+        "category":  "program",
+        "question":  "Apakah ada kerja sama industri?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  47,
+        "category":  "program",
+        "question":  "Apakah ada teaching factory?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  48,
+        "category":  "fasilitas",
+        "question":  "Fasilitas apa saja yang tersedia?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  49,
+        "category":  "fasilitas",
+        "question":  "Apakah ada perpustakaan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  50,
+        "category":  "fasilitas",
+        "question":  "Bagaimana akses perpustakaan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  51,
+        "category":  "fasilitas",
+        "question":  "Apakah ada aula?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  52,
+        "category":  "fasilitas",
+        "question":  "Apakah ada ruang sidang?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  53,
+        "category":  "navigasi",
+        "question":  "Bagaimana cara melihat Virtual Tour?",
+        "answer":  "Virtual Tour SMKN 26 Jakarta dapat dilihat melalui halaman Virtual Tour sekolah.",
+        "sources":  [
+                        {
+                            "title":  "Virtual Tour SMKN 26 Jakarta",
+                            "url":  "/tour"
+                        }
+                    ]
+    },
+    {
+        "id":  54,
+        "category":  "navigasi",
+        "question":  "Di mana melihat jurusan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  55,
+        "category":  "navigasi",
+        "question":  "Di mana melihat informasi LSP?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  56,
+        "category":  "trick",
+        "question":  "Siapa kepala sekolah sekarang?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  57,
+        "category":  "trick",
+        "question":  "Berapa biaya masuk tahun 2026?",
+        "answer":  "Data biaya masuk SMKN 26 Jakarta belum tersedia dalam sumber resmi yang disetujui. Silakan cek pengumuman penerimaan resmi sekolah atau Dinas Pendidikan DKI Jakarta.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  58,
+        "category":  "trick",
+        "question":  "Berapa SPP per bulan?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  59,
+        "category":  "trick",
+        "question":  "Siapa juara LKS terbaru?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    },
+    {
+        "id":  60,
+        "category":  "trick",
+        "question":  "Apa lowongan BKK hari ini?",
+        "answer":  "HTTP 503: Layanan AI sedang tidak tersedia. Coba lagi nanti.",
+        "sources":  [
+
+                    ]
+    }
+]
