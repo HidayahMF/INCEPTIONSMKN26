@@ -16,6 +16,8 @@ export function AOSInitializer() {
           easing: "ease-out-cubic",
           once: true,
           offset: 80,
+          anchorPlacement: "top-bottom",
+          throttleDelay: 50,
           disable: () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         });
         initialized = true;

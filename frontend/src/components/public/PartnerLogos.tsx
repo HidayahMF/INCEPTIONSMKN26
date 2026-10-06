@@ -133,7 +133,7 @@ export function PartnerIndustryPage() {
         </section>
       </div>
 
-      <section className="w-full rounded-t-[32px] bg-[#F4F8FF] px-4 py-14 sm:px-8 sm:py-16" aria-labelledby="partners-list-title">
+      <section className="w-full bg-[#F4F8FF] px-4 py-14 sm:px-8 sm:py-16" aria-labelledby="partners-list-title">
         <div className="mx-auto w-full max-w-[1272px]">
           <h2 id="partners-list-title" className="mx-auto max-w-[820px] text-center text-3xl font-bold leading-[1.3] sm:text-4xl sm:leading-[54px]"><span className="text-primary-dark">100+ Mitra Industri</span> yang Berkolaborasi Bersama</h2>
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,0 +1,42 @@
+export const smkn26Faq = [
+  ['Profil sekolah', 'Apa itu SMKN 26 Jakarta?', 'SMKN 26 Jakarta adalah sekolah menengah kejuruan negeri di Rawamangun, Jakarta Timur, yang berfokus pada pendidikan vokasi dan pengembangan kompetensi sesuai kebutuhan dunia kerja dan industri.'],
+  ['Profil sekolah', 'Di mana lokasi SMKN 26 Jakarta?', 'SMKN 26 Jakarta berada di Jl. Balai Pustaka Baru 1, Rawamangun, Kecamatan Pulo Gadung, Jakarta Timur, DKI Jakarta 13220.'],
+  ['Profil sekolah', 'SMKN 26 Jakarta negeri atau swasta?', 'SMKN 26 Jakarta adalah sekolah negeri.'],
+  ['Profil sekolah', 'Berapa NPSN dan akreditasi SMKN 26 Jakarta?', 'NPSN SMKN 26 Jakarta adalah 20103787. Sekolah berakreditasi A berdasarkan SK Akreditasi No. 1857/BAN-SM/SK/2022.'],
+  ['Profil sekolah', 'Kapan SMKN 26 Jakarta berdiri?', 'SK pendirian sekolah bertanggal 3 Februari 1971. Secara sejarah, sekolah diresmikan pada 1 Juli 1971 sebagai Proyek Perintis Sekolah Teknologi Menengah Pembangunan.'],
+  ['Profil sekolah', 'Apa nama SMKN 26 Jakarta dulu?', 'SMKN 26 Jakarta sebelumnya dikenal sebagai STM Negeri Pembangunan Jakarta atau Proyek Perintis STM Pembangunan. Pada 1997 nomenklaturnya berubah menjadi SMK Negeri 26 Jakarta.'],
+  ['Profil sekolah', 'Apa motto SMKN 26 Jakarta?', 'Motto yang dikenal dari sejarah sekolah adalah “Belajar, Bekerja, Membangun”.'],
+  ['Kontak', 'Bagaimana cara menghubungi SMKN 26 Jakarta?', 'SMKN 26 Jakarta dapat dihubungi melalui telepon 021-4720310 atau email smkn26jkt@gmail.com.'],
+  ['Jurusan', 'Jurusan apa saja yang ada di SMKN 26 Jakarta?', 'Bidang kompetensi yang tercatat meliputi konstruksi, elektronika, ketenagalistrikan, fabrikasi logam, otomotif, serta sistem informasi, jaringan, dan aplikasi. Data tingkat I juga mencatat Pengembangan Perangkat Lunak dan Gim (PPLG). Nomenklatur lama dan baru masih dapat berjalan bersamaan karena masa transisi, jadi jurusan pada tahun penerimaan tertentu harus merujuk pengumuman SPMB resmi.'],
+  ['Jurusan', 'Apakah ada SIJA di SMKN 26 Jakarta?', 'Ya. SIJA berfokus pada sistem informasi, jaringan, aplikasi, dan teknologi komputer. Sebutan kompetensi dapat berbeda menurut angkatan karena nomenklatur sedang bertransisi.'],
+  ['Jurusan', 'Apakah ada PPLG di SMKN 26 Jakarta?', 'Data Direktorat SMK yang disinkronisasi 29 September 2026 mencatat Pengembangan Perangkat Lunak dan Gim (PPLG) pada tingkat I. Untuk status penerimaan tahun berikutnya, cek pengumuman SPMB resmi.'],
+  ['Jurusan', 'Apakah ada jurusan otomotif?', 'Ada. Data pemerintah mencatat Teknik Otomotif, Teknik Kendaraan Ringan, Teknik Bodi Kendaraan Ringan, dan Teknik dan Manajemen Perawatan Otomotif pada tingkat atau angkatan yang berbeda.'],
+  ['Jurusan', 'Apakah ada jurusan listrik?', 'Ada. Data pemerintah mencatat Teknik Ketenagalistrikan, Teknik Instalasi Tenaga Listrik, dan Teknik Tenaga Listrik pada tingkat atau angkatan yang berbeda.'],
+  ['Jurusan', 'Jurusan mana yang cocok untuk yang suka coding?', 'Bidang yang paling relevan adalah PPLG dan SIJA. Keduanya memiliki fokus berbeda, jadi sebaiknya lihat kurikulum dan kompetensi masing-masing.'],
+  ['Jurusan', 'Jurusan mana yang cocok untuk yang suka jaringan komputer?', 'SIJA merupakan bidang yang paling relevan karena berkaitan dengan sistem informasi, jaringan, dan aplikasi.'],
+  ['Fasilitas', 'Apakah SMKN 26 punya laboratorium komputer?', 'Ya. Data sarana Direktorat SMK mencatat 4 laboratorium komputer.'],
+  ['Fasilitas', 'Apakah SMKN 26 punya ruang praktik dan bengkel?', 'Ya. Sebagai SMK berbasis vokasi, SMKN 26 memiliki ruang praktik siswa dan fasilitas untuk berbagai kompetensi seperti konstruksi, SIJA, otomotif, elektronika, fabrikasi logam, dan tenaga listrik.'],
+  ['Fasilitas', 'Apakah ada perpustakaan, UKS, kantin, dan BK?', 'Data sarana pemerintah mencatat adanya layanan perpustakaan, ruang UKS, satu kantin sekolah, dan ruang BP/BK. Jam layanan dan kondisi terbaru sebaiknya dikonfirmasi melalui sekolah.'],
+  ['LSP', 'Apakah SMKN 26 punya LSP?', 'Ya. LSP SMKN 26 Jakarta tercatat sebagai LSP Pihak Kesatu yang berlisensi BNSP. Data BNSP yang diriset mencatat lisensi aktif sampai 27 Maret 2028.'],
+  ['LSP', 'Apa manfaat LSP untuk siswa?', 'LSP membantu pelaksanaan sertifikasi kompetensi sesuai skema yang tersedia. Sertifikasi dapat menjadi bukti kompetensi tambahan bagi siswa.'],
+  ['PKL dan industri', 'Apakah SMKN 26 punya kerja sama dengan industri?', 'Ya. Data Direktorat SMK mencatat kerja sama DUDI untuk PKL, pelatihan, pengembangan sumber daya manusia, dan bentuk kerja sama lainnya.'],
+  ['PKL dan industri', 'Apakah siswa SMKN 26 wajib PKL?', 'PKL merupakan bagian penting dari pendidikan vokasi. Pelaksanaan, durasi, dan ketentuannya mengikuti kurikulum serta kebijakan sekolah dan program keahlian.'],
+  ['PKL dan industri', 'Apakah lulusan SMKN 26 bisa kuliah?', 'Bisa. Lulusan SMK dapat melanjutkan pendidikan ke perguruan tinggi sesuai ketentuan dan jalur penerimaan yang berlaku.'],
+  ['SPMB', 'Bagaimana cara masuk SMKN 26 Jakarta?', 'Penerimaan murid baru SMKN 26 mengikuti sistem penerimaan yang ditetapkan Pemerintah Provinsi DKI Jakarta. Untuk tahun tertentu, ikuti mekanisme dan pengumuman SPMB DKI Jakarta resmi.'],
+  ['SPMB', 'Apa itu SPMB?', 'SPMB adalah Sistem Penerimaan Murid Baru. Informasi resmi mengenai jadwal, syarat, jalur, dan hasil seleksi tersedia melalui kanal Dinas Pendidikan DKI Jakarta.'],
+  ['SPMB', 'Apakah pendaftaran SPMB sekolah negeri berbayar?', 'SPMB sekolah negeri DKI Jakarta tidak dipungut biaya. Waspadai pihak yang meminta pembayaran atau menjanjikan kelulusan.'],
+  ['SPMB', 'Berapa kuota SMKN 26 Jakarta?', 'Kuota dapat berbeda setiap tahun dan tiap kompetensi. Saya tidak akan memberikan angka tanpa data daya tampung resmi terbaru. Silakan cek pengumuman SPMB resmi.'],
+  ['Kesiswaan', 'Apakah SMKN 26 punya ekstrakurikuler dan organisasi siswa?', 'Ya. Sekolah memiliki kegiatan kesiswaan, organisasi siswa, dan ekstrakurikuler. Daftarnya dapat berubah setiap tahun, jadi cek pengumuman kesiswaan atau kanal resmi sekolah untuk daftar terbaru.'],
+  ['Kesiswaan', 'Bagaimana jika siswa punya masalah akademik atau pribadi?', 'Siswa dapat menghubungi guru, wali kelas, atau guru BK untuk mendapatkan arahan dan pendampingan.'],
+  ['Fallback', 'Siapa kepala sekolah SMKN 26 Jakarta sekarang?', 'Informasi pimpinan sekolah dapat berubah. Untuk nama terbaru, silakan cek kanal resmi sekolah atau konfirmasi langsung ke tata usaha SMKN 26 Jakarta.'],
+  ['Fallback', 'Bagaimana mendapatkan jadwal, biaya, kegiatan, atau informasi terbaru?', 'Untuk informasi terbaru terkait jadwal, biaya, kegiatan, atau pejabat sekolah, silakan cek pengumuman resmi SMKN 26 Jakarta atau Dinas Pendidikan DKI Jakarta karena informasi tersebut dapat berubah.'],
+];
+
+export const smkn26FaqChunks = smkn26Faq.map(([category, question, answer]) => `${category}\nQ: ${question}\nA: ${answer}`);
+
+export const smkn26FaqSource = {
+  title: 'FAQ Knowledge Base SMKN 26 Jakarta - riset 6 Oktober 2026',
+  sourceUrl: 'https://smkn26jakarta.sch.id/',
+  sourcePage: 'faq-smkn26-2026-10-06',
+  body: smkn26FaqChunks.join('\n\n'),
+};

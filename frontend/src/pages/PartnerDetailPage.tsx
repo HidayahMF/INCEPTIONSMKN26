@@ -94,7 +94,7 @@ const collaborations = [
 ] as const;
 
 function Label({ children }: { children: string }) {
-  return <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-[#39aef2] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="mr-1.5 size-1.5 self-center rounded-full bg-[#39aef2]" />{children}</span>;
+  return <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]"><img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{children}</span>;
 }
 
 export function PartnerDetailPage({ slug }: { slug: string }) {

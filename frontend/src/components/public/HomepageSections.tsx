@@ -9,16 +9,36 @@ import { newsItems } from "../../data/news";
 
 type Props = { onAskAi: () => void };
 const bludCards = [
-  ["KGStudio", "Mengasah keterampilan melalui produksi dan layanan kreatif.", "/blud/kgstudio"],
-  ["UPTECHNO", "Mengembangkan solusi teknologi sesuai kebutuhan industri.", "/blud/uptechno"],
-  ["E-MAN", "Menerapkan kompetensi kelistrikan dalam praktik nyata.", "/blud/e-man"],
+  [
+    "KGStudio",
+    "Mengasah keterampilan melalui produksi dan layanan kreatif.",
+    "/blud/kgstudio",
+  ],
+  [
+    "UPTECHNO",
+    "Mengembangkan solusi teknologi sesuai kebutuhan industri.",
+    "/blud/uptechno",
+  ],
+  [
+    "E-MAN",
+    "Menerapkan kompetensi kelistrikan dalam praktik nyata.",
+    "/blud/e-man",
+  ],
   [
     "Manufaktur26",
     "Mengenal proses produksi dan pembuatan komponen manufaktur.",
     "/blud/manufaktur26",
   ],
-  ["Garage26", "Praktik langsung dalam perawatan dan perbaikan kendaraan.", "/blud/garage26"],
-  ["GADIZ VOKASI", "Mengubah kompetensi vokasi menjadi produk dan layanan.", "/blud/gadiz-vokasi"],
+  [
+    "Garage26",
+    "Praktik langsung dalam perawatan dan perbaikan kendaraan.",
+    "/blud/garage26",
+  ],
+  [
+    "GADIZ VOKASI",
+    "Mengubah kompetensi vokasi menjadi produk dan layanan.",
+    "/blud/gadiz-vokasi",
+  ],
 ] as const;
 const achievementCards = [
   [
@@ -126,7 +146,10 @@ function VideoProfileSection() {
     // keyframes must only scale. Re-applying translate(-50%,-50%) here would
     // compose on top of it and offset the halo by twice its size.
     const animation = pulse.animate(
-      [{ transform: "scale(1)", opacity: 0.9 }, { transform: "scale(1.154)", opacity: 0 }],
+      [
+        { transform: "scale(1)", opacity: 0.9 },
+        { transform: "scale(1.154)", opacity: 0 },
+      ],
       {
         duration: 1350,
         iterations: Infinity,
@@ -140,11 +163,11 @@ function VideoProfileSection() {
     playState === "idle"
       ? undefined
       : {
-        left: "1px",
-        top: "1px",
-        width: "120px",
-        height: "120px",
-        filter: "drop-shadow(0 0 2px rgba(255,255,255,.25))",
+          left: "1px",
+          top: "1px",
+          width: "120px",
+          height: "120px",
+          filter: "drop-shadow(0 0 2px rgba(255,255,255,.25))",
         };
   const innerStyle = {
     transform: playState === "pressed" ? "scale(.98)" : "none",
@@ -274,11 +297,16 @@ function ProgramsSection() {
       <div className="section-intro mx-auto mb-[15px] w-[min(872px,100%)] text-center">
         <span className="section-badge inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img src={programBadgeIcon} alt="" />
-           PROGRAM SMK NEGERI 26 JAKARTA
+          PROGRAM SMK NEGERI 26 JAKARTA
         </span>
-        <h2 id="programs-title" className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink">
+        <h2
+          id="programs-title"
+          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+        >
           Berkembang di Dalam dan{" "}
-          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">di Luar Kelas</span>
+          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
+            di Luar Kelas
+          </span>
         </h2>
         <p className="mx-auto max-w-[774px] text-base leading-6 text-muted">
           Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman,
@@ -386,19 +414,28 @@ const bludCardTextWidth = [
 function BludSection() {
   return (
     <section
-      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0"
+      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible bg-white p-0"
       aria-labelledby="blud-title"
     >
       <div className="section-intro blud-intro relative mb-[42px] w-full text-left">
         <div className="flex justify-center">
-        <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-          <img className="h-[17px] w-[13.6px]" src={figmaAssets.blud.badgeIcon} alt="" />
-          BELAJAR • BERKARYA • MENGHASILKAN
-        </span>
+          <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+            <img
+              className="h-[17px] w-[13.6px]"
+              src={figmaAssets.blud.badgeIcon}
+              alt=""
+            />
+            BELAJAR • BERKARYA • MENGHASILKAN
+          </span>
         </div>
-        <h2 id="blud-title" className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink">
+        <h2
+          id="blud-title"
+          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+        >
           Belajar Melalui{" "}
-          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">Pengalaman Nyata</span>
+          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
+            Pengalaman Nyata
+          </span>
         </h2>
         <p className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted">
           Menghubungkan pembelajaran dengan pengalaman kerja melalui unit
@@ -409,27 +446,27 @@ function BludSection() {
           href="/programs"
         >
           Jelajahi Ekstrakurikuler{" "}
-            <span
-              className="size-5 shrink-0 bg-white group-hover:bg-primary"
-              style={{
-                maskImage: `url(${programCtaArrow})`,
-                maskPosition: "center",
-                maskRepeat: "no-repeat",
-                maskSize: "contain",
-                WebkitMaskImage: `url(${programCtaArrow})`,
-                WebkitMaskPosition: "center",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskSize: "contain",
-              }}
-              aria-hidden="true"
-            />
+          <span
+            className="size-5 shrink-0 bg-white group-hover:bg-primary"
+            style={{
+              maskImage: `url(${programCtaArrow})`,
+              maskPosition: "center",
+              maskRepeat: "no-repeat",
+              maskSize: "contain",
+              WebkitMaskImage: `url(${programCtaArrow})`,
+              WebkitMaskPosition: "center",
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskSize: "contain",
+            }}
+            aria-hidden="true"
+          />
         </a>
       </div>
       <div className="blud-grid grid grid-cols-3 grid-rows-2 gap-6 overflow-visible max-md:grid-cols-1 max-md:grid-rows-none">
         {bludCards.map(([name, description, href], index) => (
           <a
-             className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
-             href={href}
+            className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
+            href={href}
             key={name}
           >
             <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
@@ -442,7 +479,9 @@ function BludSection() {
             <h3 className="relative z-[1] m-0 bg-gradient-to-r from-primary-dark to-soft-blue bg-clip-text text-2xl leading-[29px] font-bold text-transparent min-[1600px]:mt-5 min-[1600px]:text-[30px] min-[1600px]:leading-9">
               {name}
             </h3>
-            <p className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}>
+            <p
+              className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}
+            >
               {description}
             </p>
           </a>
@@ -518,8 +557,12 @@ function AchievementsSection() {
     >
       <div className="mx-auto mb-12 w-[min(872px,100%)] text-center">
         <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-          <img className="h-[17px] w-[13.6px]" src={achievementBadgeIcon} alt="" />
-           PRESTASI SMK NEGERI 26 JAKARTA
+          <img
+            className="h-[17px] w-[13.6px]"
+            src={achievementBadgeIcon}
+            alt=""
+          />
+          PRESTASI SMK NEGERI 26 JAKARTA
         </span>
         <h2
           id="achievements-title"
@@ -538,11 +581,15 @@ function AchievementsSection() {
       <div className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0">
         <button
           type="button"
-           className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
+          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
           aria-label="Prestasi sebelumnya"
           onClick={() => scrollByStep(-1)}
         >
-           <img className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowLeft} alt="" />
+          <img
+            className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
+            src={figmaAssets.advantages.arrowLeft}
+            alt=""
+          />
         </button>
         <div
           className={`achievement-track flex w-full max-w-full flex-1 cursor-grab select-none gap-[22px] overflow-x-auto overflow-y-hidden [scrollbar-width:none] [touch-action:pan-y] max-[1271.98px]:[-webkit-overflow-scrolling:touch] max-[1271.98px]:[scroll-snap-type:x_proximity] min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:overflow-x-hidden max-md:pb-3 ${isDragging ? " is-dragging cursor-grabbing" : ""}${isScrolling ? " is-scrolling pointer-events-none" : ""}`}
@@ -558,17 +605,33 @@ function AchievementsSection() {
               tabIndex={0}
               key={src}
             >
-              <img className="block h-full w-full object-cover [-webkit-user-drag:none]" src={src} alt="" draggable={false} />
-              <div className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100" aria-hidden="true" />
+              <img
+                className="block h-full w-full object-cover [-webkit-user-drag:none]"
+                src={src}
+                alt=""
+                draggable={false}
+              />
+              <div
+                className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100"
+                aria-hidden="true"
+              />
               <div className="achievement-card-content pointer-events-none absolute bottom-[14px] left-4 right-0 z-[1] flex w-[216px] [transform:translateY(12px)] flex-col items-start justify-end opacity-0 shadow-[0_4px_7px_rgba(0,0,0,.1)] transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:[transform:translateY(0)] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:[transform:translateY(0)] group-focus-within:opacity-100">
-                <h3 className="text-[20px] font-bold leading-[24.2px] text-white">{title}</h3>
-                <p className="mt-1 mb-2.5 w-[216px] text-xs leading-[14.5px] text-white">{description}</p>
+                <h3 className="text-[20px] font-bold leading-[24.2px] text-white">
+                  {title}
+                </h3>
+                <p className="mt-1 mb-2.5 w-[216px] text-xs leading-[14.5px] text-white">
+                  {description}
+                </p>
                 <a
-                   className="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-medium leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
+                  className="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-medium leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
                   href="/achievements"
                 >
                   Lihat Detail{" "}
-                   <img className="size-[18px] object-contain" src={figmaAssets.secondaryButton.arrowRight} alt="" />
+                  <img
+                    className="size-[18px] object-contain"
+                    src={figmaAssets.secondaryButton.arrowRight}
+                    alt=""
+                  />
                 </a>
               </div>
             </article>
@@ -576,11 +639,15 @@ function AchievementsSection() {
         </div>
         <button
           type="button"
-           className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px]"
+          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px]"
           aria-label="Prestasi berikutnya"
           onClick={() => scrollByStep(1)}
         >
-           <img className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowRight} alt="" />
+          <img
+            className="size-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
+            src={figmaAssets.advantages.arrowRight}
+            alt=""
+          />
         </button>
       </div>
       <div className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
@@ -611,13 +678,27 @@ function AchievementsSection() {
             "/assets/figma/achievements/achievements-svg-03.svg",
           ],
         ].map(([value, label, icon], index) => (
-          <div className="relative grid grid-cols-[70px_1fr] items-center gap-x-3" key={label}>
+          <div
+            className="relative grid grid-cols-[70px_1fr] items-center gap-x-3"
+            key={label}
+          >
             <span className="stat-icon row-span-2 grid size-[70px] place-items-center rounded-full bg-[linear-gradient(135deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] text-white">
-              <img className="h-[33px] w-[33px] object-contain" src={icon} alt="" />
+              <img
+                className="h-[33px] w-[33px] object-contain"
+                src={icon}
+                alt=""
+              />
             </span>
             <strong className="text-[36px]">{value}</strong>
-            <p className="m-0 text-xs leading-[18px] font-medium text-muted">{label}</p>
-            {index < 4 && <span className="pointer-events-none absolute right-[-10px] h-[86px] border-r border-dashed border-primary max-md:hidden" aria-hidden="true" />}
+            <p className="m-0 text-xs leading-[18px] font-medium text-muted">
+              {label}
+            </p>
+            {index < 4 && (
+              <span
+                className="pointer-events-none absolute right-[-10px] h-[86px] border-r border-dashed border-primary max-md:hidden"
+                aria-hidden="true"
+              />
+            )}
           </div>
         ))}
       </div>
@@ -691,12 +772,17 @@ function NewsSection() {
       <div className="section-intro mx-auto w-[min(872px,100%)] text-center">
         <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img className="h-[17px] w-[13.6px]" src={newsBadgeIcon} alt="" />
-           BERITA SMK NEGERI 26 JAKARTA
+          BERITA SMK NEGERI 26 JAKARTA
         </span>
-        <h2 id="news-title" className="mt-11 mb-2.5 text-4xl font-bold leading-[54px] text-ink">
+        <h2
+          id="news-title"
+          className="mt-11 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+        >
           Berita &amp; Informasi Terkini
           <br />
-          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">SMK Negeri 26 Jakarta</span>
+          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
+            SMK Negeri 26 Jakarta
+          </span>
         </h2>
       </div>
       <div className="news-viewport absolute left-1/2 top-[195.02px] h-[300px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden">
@@ -720,26 +806,57 @@ function NewsSection() {
                 }
               }}
             >
-              <img className="absolute left-0 top-0 h-[176px] w-[396px] object-cover" src={card.image} alt="" draggable={false} />
+              <img
+                className="absolute left-0 top-0 h-[176px] w-[396px] object-cover"
+                src={card.image}
+                alt=""
+                draggable={false}
+              />
               <div className="absolute bottom-[18px] left-[18px] right-[18px] h-[83px] p-0">
                 <span className="absolute -left-0.5 -top-[37px] inline-flex items-center gap-1.5 rounded-full [background:linear-gradient(90deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] py-[5px] pr-3 pl-2.5 text-sm font-medium text-white">
-                  <img className="h-[17px] w-[17px] shrink-0" src={newsCategoryIcon} alt="" />
+                  <img
+                    className="h-[17px] w-[17px] shrink-0"
+                    src={newsCategoryIcon}
+                    alt=""
+                  />
                   {card.category}
                 </span>
-                <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">{card.title}</h3>
-                <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">{card.date}</time>
+                <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">
+                  {card.title}
+                </h3>
+                <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">
+                  {card.date}
+                </time>
               </div>
             </a>
           ))}
         </div>
       </div>
-       <div className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
-         <button className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita sebelumnya" onClick={() => scrollByStep(-1)}>
-           <img className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowLeft} alt="" />
-         </button>
-         <button className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark" type="button" aria-label="Berita berikutnya" onClick={() => scrollByStep(1)}>
-           <img className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={figmaAssets.advantages.arrowRight} alt="" />
-         </button>
+      <div className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
+        <button
+          className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark"
+          type="button"
+          aria-label="Berita sebelumnya"
+          onClick={() => scrollByStep(-1)}
+        >
+          <img
+            className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
+            src={figmaAssets.advantages.arrowLeft}
+            alt=""
+          />
+        </button>
+        <button
+          className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark"
+          type="button"
+          aria-label="Berita berikutnya"
+          onClick={() => scrollByStep(1)}
+        >
+          <img
+            className="h-6 w-6 transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"
+            src={figmaAssets.advantages.arrowRight}
+            alt=""
+          />
+        </button>
       </div>
     </section>
   );
@@ -773,7 +890,9 @@ function AiCtaSection({ onAskAi }: Props) {
       [largeCircleRef.current, 4100, 16],
     ];
     const animations = circles
-      .filter((circle): circle is [HTMLElement, number, number] => Boolean(circle[0]))
+      .filter((circle): circle is [HTMLElement, number, number] =>
+        Boolean(circle[0]),
+      )
       .map(([element, duration, distance]) =>
         element.animate(
           [
@@ -793,70 +912,77 @@ function AiCtaSection({ onAskAi }: Props) {
       aria-labelledby="ai-cta-title"
     >
       <div className="relative mx-auto h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden">
-      <span className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-         TANYA PEMBANGUNAN.AI
-      </span>
-      <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px]">
-        <h2
-          id="ai-cta-title"
-          className="m-0 mb-3 text-4xl font-bold leading-[54px] text-ink"
+        <span className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+          <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+          TANYA PEMBANGUNAN.AI
+        </span>
+        <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px]">
+          <h2
+            id="ai-cta-title"
+            className="m-0 mb-3 text-4xl font-bold leading-[54px] text-ink"
+          >
+            Punya Pertanyaan tentang
+            <br />
+            <span className="bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">
+              SMK Negeri 26 Jakarta?
+            </span>
+          </h2>
+          <p className="text-lg font-medium leading-[30px] text-muted">
+            Temukan informasi tentang jurusan, program sekolah, fasilitas,
+            pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama{" "}
+            <strong className="font-bold text-primary-dark">
+              Pembangunan.AI
+            </strong>
+            .
+          </p>
+          <button
+            className="group primary-button mt-8 inline-flex items-center gap-4 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
+            type="button"
+            onClick={onAskAi}
+          >
+            Mulai Bertanya{" "}
+            <span
+              className="size-5 shrink-0 bg-white group-hover:bg-primary"
+              style={{
+                maskImage: `url(${figmaAssets.icons.arrowRight})`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+                WebkitMaskImage: `url(${figmaAssets.icons.arrowRight})`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+              }}
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        <span
+          ref={smallCircleRef}
+          className="ai-circle ai-circle-small absolute left-[1253px] top-[137px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue"
+        />
+        <span
+          ref={largeCircleRef}
+          className="ai-circle ai-circle-large absolute left-[770px] top-[374px] size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue"
+        />
+        <div
+          className="ai-cta-art absolute left-[859px] top-[78px] size-[418px]"
+          aria-label="Ilustrasi Pembangunan.AI"
         >
-          Punya Pertanyaan tentang
-          <br />
-          <span className="bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">
-            SMK Negeri 26 Jakarta?
-          </span>
-        </h2>
-        <p className="text-lg font-medium leading-[30px] text-muted">
-          Temukan informasi tentang jurusan, program sekolah, fasilitas,
-          pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama{" "}
-          <strong className="font-bold text-primary-dark">
-            Pembangunan.AI
-          </strong>
-          .
-        </p>
-        <button
-          className="group primary-button mt-8 inline-flex items-center gap-4 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
-          type="button"
-          onClick={onAskAi}
-        >
-          Mulai Bertanya{" "}
-          <span
-            className="size-5 shrink-0 bg-white group-hover:bg-primary"
-            style={{
-              maskImage: `url(${figmaAssets.icons.arrowRight})`,
-              maskPosition: "center",
-              maskRepeat: "no-repeat",
-              maskSize: "contain",
-              WebkitMaskImage: `url(${figmaAssets.icons.arrowRight})`,
-              WebkitMaskPosition: "center",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskSize: "contain",
-            }}
-            aria-hidden="true"
+          <img
+            className="ai-cta-layer ai-cta-fill absolute left-[26px] top-[27px] size-[365px] transition-[top] duration-1000 ease-out"
+            style={{ top: botSettled ? "31px" : "27px" }}
+            src={figmaAssets.aiCtaLayers.fill}
+            alt=""
           />
-        </button>
-      </div>
-      <span ref={smallCircleRef} className="ai-circle ai-circle-small absolute left-[1253px] top-[137px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue" />
-      <span ref={largeCircleRef} className="ai-circle ai-circle-large absolute left-[770px] top-[374px] size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue" />
-      <div
-        className="ai-cta-art absolute left-[859px] top-[78px] size-[418px]"
-        aria-label="Ilustrasi Pembangunan.AI"
-      >
-        <img
-          className="ai-cta-layer ai-cta-fill absolute left-[26px] top-[27px] size-[365px] transition-[top] duration-1000 ease-out"
-          style={{ top: botSettled ? "31px" : "27px" }}
-          src={figmaAssets.aiCtaLayers.fill}
-          alt=""
-        />
-        <img
-          ref={botRef}
-          className="ai-cta-bot absolute left-[66px] top-[64px] size-[285px] object-contain transition-[top] duration-1000 ease-out"
-          style={{ top: botSettled ? "68px" : "64px" }}
-          src={figmaAssets.aiCtaLayers.bot}
-          alt=""
-        />
-      </div>
+          <img
+            ref={botRef}
+            className="ai-cta-bot absolute left-[66px] top-[64px] size-[285px] object-contain transition-[top] duration-1000 ease-out"
+            style={{ top: botSettled ? "68px" : "64px" }}
+            src={figmaAssets.aiCtaLayers.bot}
+            alt=""
+          />
+        </div>
       </div>
     </section>
   );

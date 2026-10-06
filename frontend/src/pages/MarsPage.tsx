@@ -7,7 +7,7 @@ import { useFloatShapes } from "../lib/useFloatShapes";
 function MarsBadge({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <span className="size-2 rounded-full bg-soft-blue" aria-hidden="true" />
+      <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
       {children}
     </span>
   );
@@ -91,14 +91,14 @@ export function MarsPage() {
         >
           <img
             ref={ballLeftRef}
-            className="pointer-events-none absolute left-2 top-[118px] z-[1] size-12 object-contain md:left-[5%] md:top-[120px] md:size-[120px]"
+            className="pointer-events-none absolute left-2 top-[118px] z-[1] size-12 object-contain mix-blend-multiply md:left-[5%] md:top-[120px] md:size-[120px]"
             src={figmaAssets.profile.marsHeroBallLeft}
             alt=""
             aria-hidden="true"
           />
           <img
             ref={ballRightRef}
-            className="pointer-events-none absolute right-2 top-[178px] z-[1] size-12 object-contain md:right-[5%] md:top-[205px] md:size-[120px]"
+            className="pointer-events-none absolute right-2 top-[178px] z-[1] size-12 object-contain mix-blend-multiply md:right-[5%] md:top-[205px] md:size-[120px]"
             src={figmaAssets.profile.marsHeroBallRight}
             alt=""
             aria-hidden="true"
@@ -118,7 +118,7 @@ export function MarsPage() {
             </p>
           </div>
           <img
-            className="pointer-events-none absolute bottom-[-20px] left-1/2 z-[2] h-auto w-[1100px] max-w-none -translate-x-1/2 max-md:w-[760px]"
+            className="pointer-events-none absolute bottom-[-20px] left-1/2 z-[2] h-auto w-[1100px] max-w-none -translate-x-1/2 mix-blend-multiply max-md:w-[760px]"
             src={figmaAssets.profile.marsHeroBackground}
             alt=""
             aria-hidden="true"
@@ -268,7 +268,7 @@ Pasti SMK Negeri 26 jayalah terus`}
           </div>
         </section>
 
-        <section className="min-h-[575px] bg-school-bg px-6 py-20 md:px-10 md:py-24">
+        <section className="min-h-[575px] bg-white px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px] text-center">
             <MarsBadge>PENCIPTA MARS</MarsBadge>
             <h2 className="mt-5 text-[32px] font-bold leading-[48px] text-ink max-md:text-[28px] max-md:leading-[40px]">

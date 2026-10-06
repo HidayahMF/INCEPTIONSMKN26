@@ -7,13 +7,13 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 
 const asset = (name: string) => `/assets/figma/TITL/${name}`;
 const competencies = ["Dasar Kelistrikan", "Instalasi Listrik", "Pengawatan", "Pengukuran Listrik", "Panel Listrik", "Sistem Tenaga Listrik", "Proteksi & Keselamatan", "Troubleshooting"];
-const achievements = [["Dimas Ahmad", "Juara 1 - Kompetisi Instalasi Listrik", "dimasahmad.png"], ["Annisa Kuncoro", "Juara 2 - Kompetisi Kelistrikan", "annisakuncoro.png"], ["Lili Putri Kencana", "Finalis - Kompetisi Inovasi Energi", "liliputrikencana.png"], ["Raka Aditya", "Juara 3 - Electrical Installation", "rakaaditya.png"]] as const;
+const achievements = [["Dimas Ahmad", "Finalis - Kompetisi Inovasi Energi", "dimasahmad.png"], ["Annisa Kuncoro", "Juara 2 - Kompetisi Kelistrikan", "annisakuncoro.png"], ["Lili Putri Kencana", "Juara 3 - Electrical Installation", "liliputrikencana.png"], ["Raka Aditya", "Juara 1 -  Listrik Installation", "rakaaditya.png"]] as const;
 const alumni = [["Assad El Ghanie", "Assad El Ghanie.png", "TITL — Angkatan 50", "Bekerja sebagai Teknisi Instalasi Listrik", "Selama belajar di TITL, saya terbiasa melakukan praktik instalasi, pengawatan, dan pengukuran secara langsung. Pengalaman tersebut membuat saya lebih siap ketika mulai bekerja di dunia industri."], ["Muhammad Akbar", "Muhammad Akbar.png", "TITL — Angkatan 49", "Melanjutkan Pendidikan — D4 Teknik Elektro", "TITL mengajarkan saya untuk tidak hanya memahami teori, tetapi juga terbiasa bekerja dengan teliti dan memperhatikan keselamatan. Kebiasaan itu sangat membantu saya melanjutkan pendidikan di bidang teknik."]] as const;
 
 function Label({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff7dc] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.04em] text-[#b78300] shadow-[0_2px_8px_rgba(15,23,42,.08)]">
-      <span className="size-1.5 rounded-full bg-[#FFC533]" aria-hidden="true" />
+    <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#b78300] shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
       {children}
     </span>
   );
@@ -29,9 +29,9 @@ export function TitlPage() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
+    <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
       <PublicNavbar />
-      <main className="[&>section:nth-of-type(3)]:bg-white">
+        <main className="[&>section:nth-of-type(3)]:bg-white [&>section:nth-of-type(3)]:shadow-[0_0_0_100vmax_#fff]">
         <section className="relative isolate w-full overflow-hidden bg-[#bdb7a2]"><div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0"><img className="absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center" src={asset("Hero Section (1).png")} alt="Siswa Teknik Instalasi Tenaga Listrik SMKN 26 Jakarta" /><div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]"><div className="max-w-[700px] text-white"><Label>JURUSAN TITL</Label><h1 className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">Teknik Instalasi <span className="text-[#FFDA7B]">Tenaga Listrik</span></h1><p className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">Membekali siswa dengan keterampilan instalasi, pengawatan, pengukuran, dan pengelolaan sistem tenaga listrik melalui pembelajaran berbasis praktik serta proyek nyata.</p></div></div></div></section>
         <section className="relative z-20 mx-auto -mt-8 w-[calc(100%-32px)] max-w-[1200px] overflow-hidden rounded-lg bg-[#ffc533] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10"><div className="grid grid-cols-2 sm:grid-cols-4">{[["3 Tahun", "Program Pendidikan"], ["15+", "Mitra Industri"], ["288+", "Siswa"], ["20+", "Prestasi TITL"]].map(([value, label]) => <div className="border-r border-white/50 px-2 py-3 last:border-0 sm:py-4" key={label}><strong className="block text-xl font-bold sm:text-2xl">{value}</strong><span className="text-[9px] sm:text-xs">{label}</span></div>)}</div></section>
         <section className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20"><img className="mx-auto w-full max-w-[470px] object-contain" src={asset("image 3 (1).png")} alt="Siswa Teknik Instalasi Tenaga Listrik" /><div><h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">Mengenal<br /><span className="text-[#FFC533]">Teknik Instalasi Tenaga Listrik</span></h2><p className="mt-4 text-sm leading-6 text-[#61708b] sm:text-base">TITL membekali siswa dengan pengetahuan dan keterampilan dalam memahami, merancang, memasang, serta menguji berbagai sistem instalasi tenaga listrik. Pembelajaran menggabungkan teori dan praktik agar siswa terbiasa bekerja secara teliti, sistematis, dan mengutamakan keselamatan.</p><p className="mt-3 text-sm font-bold text-[#FFC533]">Belajar kelistrikan melalui praktik yang nyata.</p></div></section>

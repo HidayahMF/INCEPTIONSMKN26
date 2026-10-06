@@ -5,6 +5,7 @@ import { rolePermissions } from '../src/middleware/authorize.js';
 import { DEV_DEMO_ACCOUNTS, isAllowedDemoIdentifier, isLocalQuickLoginRequest } from '../src/modules/auth/dev-quick-login.js';
 import { chunkText, tokenize, validatePdf } from '../src/modules/knowledge/knowledge.service.js';
 import { publicPathForKnowledgeSource } from '../src/modules/knowledge/knowledge.service.js';
+import { answerFromApprovedFaq } from '../src/modules/knowledge/gemini.service.js';
 
 test('normalizes school identifiers without exposing credentials', () => {
   assert.equal(normalizeIdentifier('  demo-siswa '), 'DEMO-SISWA');
@@ -39,6 +40,23 @@ test('knowledge retrieval preparation chunks and tokenizes without accepting inv
 
 test('public knowledge citations point to new-site routes', () => {
   assert.equal(publicPathForKnowledgeSource('profil-visi-misi', 'profile'), '/profile');
-  assert.equal(publicPathForKnowledgeSource('jurusan-sija', 'majors'), '/majors');
   assert.equal(publicPathForKnowledgeSource('portal-resmi-smkn-26-jakarta', 'information'), '/information');
+});
+
+test('jurusan citations deep-link to the specific major page', () => {
+  assert.equal(publicPathForKnowledgeSource('jurusan-konstruksi-gedung-sanitasi', 'majors'), '/majors/kgs');
+  assert.equal(publicPathForKnowledgeSource('jurusan-teknik-elektronika-komunikasi', 'majors'), '/majors/tek');
+  assert.equal(publicPathForKnowledgeSource('jurusan-teknik-instalasi-tenaga-listrik', 'majors'), '/majors/titl');
+  assert.equal(publicPathForKnowledgeSource('jurusan-teknik-fabrikasi-logam-manufaktur', 'majors'), '/majors/tflm');
+  assert.equal(publicPathForKnowledgeSource('jurusan-sija', 'majors'), '/majors/sija');
+  assert.equal(publicPathForKnowledgeSource('jurusan-teknik-kendaraan-ringan', 'majors'), '/majors/tkr');
+});
+
+test('the majors index source still points to the majors list', () => {
+  assert.equal(publicPathForKnowledgeSource('jurusan-smkn-26-jakarta', 'majors'), '/majors');
+});
+
+test('approved FAQ fallback returns only the stored answer', () => {
+  assert.equal(answerFromApprovedFaq([{ content: 'Profil sekolah\nQ: Apa motto?\nA: Belajar, Bekerja, Membangun.' }]), 'Belajar, Bekerja, Membangun.');
+  assert.equal(answerFromApprovedFaq([{ content: 'Informasi umum tanpa format FAQ.' }]), null);
 });

@@ -74,16 +74,7 @@ const milestones = [
 function ProfileBadge({ children, icon }: { children: string; icon?: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      {icon ? (
-        <img
-          className="size-[18px] object-contain"
-          src={icon}
-          alt=""
-          aria-hidden="true"
-        />
-      ) : (
-        <span className="size-2 rounded-full bg-soft-blue" aria-hidden="true" />
-      )}
+      <img className="h-[17px] w-[13.6px] object-contain" src={icon ?? "/assets/figma/majors/icon-section-badge.svg"} alt="" aria-hidden="true" />
       {children}
     </span>
   );

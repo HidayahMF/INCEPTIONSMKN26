@@ -34,24 +34,25 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
   return (
     <section className="school-overview relative mx-auto mt-[59px] h-[400px] w-[min(1272px,calc(100%-32px))]" aria-labelledby="overview-title">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px] md:w-[1272px]">
-          <div className="flex justify-center">
-          <span className="rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+          <div data-aos="fade-down" className="flex justify-center">
+           <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+             <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
              MENGENAL SMK NEGERI 26 JAKARTA
           </span>
         </div>
         <div className="relative h-[337px]">
-           <div className="absolute left-0 top-[23px] max-w-[680px]">
-            <h2 id="overview-title" className="text-[36px] font-bold leading-[54px] text-ink">
+            <div data-aos="fade-right" className="absolute left-0 top-[23px] max-w-[680px]">
+             <h2 data-aos="fade-up" data-aos-delay="100" id="overview-title" className="text-[36px] font-bold leading-[54px] text-ink">
               Lebih dari Sekadar{" "}
               <span className="text-primary-dark">Sekolah Vokasi</span>
             </h2>
-            <p className="mt-1 max-w-[620px] text-lg font-medium leading-[30px] text-muted">
+             <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[620px] text-lg font-medium leading-[30px] text-muted">
               {loading
                 ? "Memuat informasi sekolah..."
                 : "SMK Negeri 26 Jakarta merupakan sekolah menengah kejuruan yang mempersiapkan siswa untuk belajar, berkarya, dan berkembang sesuai kompetensi serta kebutuhan dunia kerja."}
             </p>
           </div>
-            <div className="pointer-events-none absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
+            <div data-aos="fade-left" className="pointer-events-none absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
             <div className="absolute right-0 z-0 size-[365px] rounded-full bg-gradient-to-br from-primary-dark to-transparent" />
             <div className="absolute right-[18px] top-[18px] z-0 size-[330px] rounded-full border-2 border-white" />
             <div ref={smallCircleRef} className="absolute left-[148px] top-[7px] z-0 size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />

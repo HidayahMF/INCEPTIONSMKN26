@@ -76,11 +76,11 @@ export function SchoolAdvantages() {
   return (
     <section id="school-advantages" className="scroll-mt-28 relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
       <div className="absolute left-1/2 top-10 -translate-x-1/2">
-        <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+         <span data-aos="fade-down" className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
             <img src={figmaAssets.majors.badgeIcon} alt="" />KEUNGGULAN SMK NEGERI 26 JAKARTA
         </span>
       </div>
-       <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
+        <h2 data-aos="fade-up" data-aos-delay="100" className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
          Apa yang Membuat SMK Negeri 26 Jakarta Berbeda?
       </h2>
          <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
@@ -115,7 +115,7 @@ export function SchoolAdvantages() {
             }}
           >
             {advantages.map((advantage) => (
-              <a
+              <a data-aos="fade-up" data-aos-delay={Math.min(advantage.slug.length * 20, 300)}
                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink no-underline transition-none hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:outline-2 focus-visible:outline-white"
                 href={`/advantages/${advantage.slug}`}
                 key={advantage.slug}

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { CtaLink } from "../components/public/CtaLink";
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
+import { SectionBadge } from "../components/public/SectionBadge";
 
 const asset = (name: string) => `/assets/figma/lsp/${name}`;
 const schemes = [
@@ -35,18 +36,11 @@ const mission = [
 
 function Label({
   children,
-  showDot = true,
 }: {
   children: ReactNode;
-  showDot?: boolean;
 }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-[#39aef2] shadow-[0_4px_12px_rgba(15,23,42,.08)]">
-      {showDot && (
-        <span className="mr-1.5 size-1.5 rounded-full bg-[#39aef2]" />
-      )}
-      {children}
-    </span>
+    <SectionBadge>{children}</SectionBadge>
   );
 }
 
@@ -54,10 +48,10 @@ export function LspPage() {
   return (
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
-      <main>
-        <section className="relative isolate min-h-[620px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[700px] lg:min-h-[760px] lg:pt-32">
+    <main>
+        <section className="relative isolate min-h-[620px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[700px] lg:min-h-[860px] lg:pt-32">
           <img
-            className="absolute inset-0 -z-10 size-full object-cover object-center"
+            className="absolute inset-0 -z-10 size-full object-cover object-center lg:object-[center_bottom]"
             src={asset("Hero Section.png")}
             alt="Siswa LSP SMKN 26 Jakarta"
           />
@@ -67,7 +61,7 @@ export function LspPage() {
             src={asset("Hero Section-1.png")}
             alt=""
           />
-          <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-12 text-center sm:min-h-[700px] sm:px-8 sm:pt-16 lg:min-h-[760px] lg:px-16 lg:pt-20">
+          <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-[700px] sm:px-8 sm:pt-6 lg:min-h-[760px] lg:px-16 lg:pb-48 lg:pt-4">
             <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
             <h1 className="mt-4 max-w-[800px] text-4xl font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-5xl lg:text-[54px]">
               Lembaga Sertifikasi <span className="text-primary">Profesi</span>
@@ -123,7 +117,7 @@ export function LspPage() {
             </div>
           </div>
         </section>
-        <section className="bg-[#edf4ff] px-6 py-14 sm:px-10 lg:py-20">
+        <section className="bg-[#f3f7ff] px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
             <h2 className="text-2xl font-bold sm:text-3xl">
               <span className="text-primary">Visi</span> &amp;{" "}
@@ -143,7 +137,7 @@ export function LspPage() {
                       alt=""
                       aria-hidden="true"
                     />
-                    <Label showDot={false}>VISI LSP</Label>
+                    <Label>VISI LSP</Label>
                   </div>
                   <p className="mt-4 max-w-[370px] text-lg font-bold leading-[1.6]">
                     Menjadi lembaga sertifikasi profesi yang terpercaya dan
@@ -168,7 +162,7 @@ export function LspPage() {
                       alt=""
                       aria-hidden="true"
                     />
-                    <Label showDot={false}>MISI LSP</Label>
+                    <Label>MISI LSP</Label>
                   </div>
                   <ol className="mt-4 list-decimal space-y-1 pl-5 text-sm leading-5">
                     {mission.map((item) => (

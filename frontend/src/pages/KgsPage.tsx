@@ -27,7 +27,7 @@ const students = [
   ["Nabilla Pertiwi", "Juara 2 — Lomba Gambar Teknik", "Nabilla Pertiwi.png"],
   [
     "Angelica Vero",
-    "Finalis — Kompetisi Inovasi Bangunan",
+    "Juara Harapan 1 — Kontruksi Bangunan",
     "Angelica Vero.png",
   ],
   ["Agung Lazuardi", "Juara 3 — Plumbing Competition", "Agung Lazuardi.png"],
@@ -52,8 +52,8 @@ const alumni = [
 
 function Label({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fdecec] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.04em] text-[#D40009] shadow-[0_2px_8px_rgba(227,6,19,.08)]">
-      <span className="size-1.5 rounded-full bg-[#D40009]" aria-hidden="true" />
+    <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#D40009] shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
       {children}
     </span>
   );
@@ -69,7 +69,7 @@ export function KgsPage() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
+    <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
       <PublicNavbar />
       <main>
         <section className="relative isolate w-full overflow-hidden bg-[#d5c8cc]">

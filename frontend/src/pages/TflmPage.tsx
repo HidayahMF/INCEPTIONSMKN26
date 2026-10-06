@@ -20,9 +20,9 @@ const competencies = [
 
 const achievements = [
   ["Raihan Nugroho", "Juara 1 - Kompetisi Pengelasan Pelajar", "Raihan Nugroho.png"],
-  ["Salsa Nurfatiha", "Juara 2 - Lomba Fabrikasi Logam", "Salsa Nurfatiha.png"],
+  ["Salsa Nurfatiha", "Juara 3 - Kompetisi Teknik Mesin", "Salsa Nurfatiha.png"],
   ["Riky Hamdan", "Finalis - Kompetisi Manufaktur Pelajar", "Riky Hamdan.png"],
-  ["Nayla Safira", "Juara 3 - Kompetisi Teknik Mesin", "Nayla Safira.png"],
+  ["Nayla Safira", "Juara 2 - Fabrikasi Logam", "Nayla Safira.png"],
 ] as const;
 
 const alumni = [
@@ -31,16 +31,16 @@ const alumni = [
 ] as const;
 
 function Label({ children }: { children: string }) {
-  return <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fdecec] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.04em] text-[#AB0001] shadow-[0_2px_8px_rgba(15,23,42,.08)]"><span className="size-1.5 rounded-full bg-[#AB0001]" aria-hidden="true" />{children}</span>;
+  return <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#AB0001] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>;
 }
 
 export function TflmPage() {
   const alumniTrackRef = useRef<HTMLDivElement>(null);
   function scrollAlumni(direction: number) { alumniTrackRef.current?.scrollBy({ left: direction * (alumniTrackRef.current?.clientWidth ?? 0) * 0.6, behavior: "smooth" }); }
 
-  return <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
+  return <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
     <PublicNavbar />
-    <main className="[&>section:nth-of-type(3)]:bg-white">
+    <main className="[&>section:nth-of-type(3)]:bg-white [&>section:nth-of-type(3)]:shadow-[0_0_0_100vmax_#fff]">
       <section className="relative isolate w-full overflow-hidden bg-[#c5b7ba]"><div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0"><img className="absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center" src={asset("Hero Section (2).png")} alt="Siswa Teknik Fabrikasi Logam dan Manufaktur" /><div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]"><div className="max-w-[700px] text-white"><Label>JURUSAN TFLM</Label><h1 className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">Teknik Fabrikasi <span className="text-[#C10102]">Logam &amp; Manufaktur</span></h1><p className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">Membekali siswa dengan keterampilan fabrikasi logam dan manufaktur melalui pembelajaran berbasis praktik, teknologi, dan proyek nyata yang dekat dengan kebutuhan industri.</p></div></div></div></section>
       <section className="relative z-20 mx-auto -mt-8 w-[calc(100%-32px)] max-w-[1200px] overflow-hidden rounded-lg bg-[#AB0001] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10"><div className="grid grid-cols-2 sm:grid-cols-4">{[["4 Tahun", "Program Pendidikan"], ["10+", "Mitra Industri"], ["288+", "Siswa"], ["17+", "Prestasi TFLM"]].map(([value, label]) => <div className="border-r border-white/40 px-2 py-3 last:border-0 sm:py-4" key={label}><strong className="block text-xl font-bold sm:text-2xl">{value}</strong><span className="text-[9px] sm:text-xs">{label}</span></div>)}</div></section>
       <section className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20"><img className="mx-auto w-full max-w-[470px] object-contain" src={asset("image 3 (2).png")} alt="Siswa Teknik Fabrikasi Logam dan Manufaktur" /><div><h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">Mengenal<br /><span className="text-[#AB0001]">Teknik Fabrikasi Logam &amp; Manufaktur</span></h2><p className="mt-4 text-sm leading-6 text-[#61708b] sm:text-base">TFLM membekali siswa dengan keterampilan mengolah, membentuk, memotong, dan menyambung logam melalui pembelajaran teori dan praktik. Siswa dibiasakan bekerja teliti, disiplin, dan mengutamakan keselamatan dalam setiap proses kerja.</p><p className="mt-3 text-sm font-bold text-[#AB0001]">Mengolah logam menjadi karya yang bernilai.</p></div></section>

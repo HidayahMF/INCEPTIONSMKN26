@@ -113,6 +113,13 @@ export function GuruDetailPage({
   category: StaffCategory;
 }) {
   const content = categoryContent[category];
+  const isVicePrincipal = [
+    "Muhafiz Dwi Azhari",
+    "Slamet",
+    "Dimas Ahmad",
+    "Riky Hamdan",
+  ].includes(teacher.name);
+  const backHref = isVicePrincipal ? "/struktur-unit-kerja" : content.backHref;
 
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#f3f8ff] text-ink">
@@ -134,8 +141,8 @@ export function GuruDetailPage({
               src={teacher.photo}
             />
             <div className="min-w-0 max-w-[700px]">
-              <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
-                <span className="mr-1 text-primary">•</span>{content.badge}
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+                <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.badge}
               </span>
               <h1 className="mt-2 text-3xl font-bold leading-9 text-primary sm:text-4xl">{teacher.name}</h1>
               <p className="mt-2 max-w-[700px] text-sm leading-6 text-muted">
@@ -154,8 +161,8 @@ export function GuruDetailPage({
         </section>
         <section className="mx-auto mt-12 max-w-[1180px]">
           <div className="mb-4 text-center sm:text-left">
-            <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
-              <span className="mr-1 text-primary">•</span>{content.sectionBadge}
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+              <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">
               {content.sectionTitle} <span className="text-primary">{content.sectionAccent}</span>
@@ -167,7 +174,7 @@ export function GuruDetailPage({
               <DetailCard description={description} key={title} title={title} />
             ))}
           </div>
-          <a className="mt-7 inline-flex rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff,#4cbaf5)] px-5 py-2.5 text-sm font-bold text-white hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href={content.backHref}>
+          <a className="mt-7 inline-flex rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff,#4cbaf5)] px-5 py-2.5 text-sm font-bold text-white hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href={backHref}>
             Kembali ke daftar
           </a>
         </section>

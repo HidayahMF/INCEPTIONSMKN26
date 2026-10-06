@@ -5,7 +5,13 @@ import { majors } from "../../data/majors";
 type NavChild = { label: string; href: string; external?: boolean };
 type NavLink = { label: string; href: string; dropdown?: boolean; children?: NavChild[] };
 
-const dropdownOnlyLabels = new Set(["BLUD", "Program"]);
+const dropdownOnlyLabels = new Set([
+  "Tentang kami",
+  "Jurusan",
+  "BLUD",
+  "Program",
+  "Portal Informasi",
+]);
 
 const links: NavLink[] = [
   { label: "Beranda", href: "/" },
@@ -87,12 +93,8 @@ export function PublicNavbar() {
               onMouseLeave={() => {
                 if (!link.children) setActiveLink((value) => (value === link.label ? null : value));
               }}
-            >
-              {link.label === "Jurusan" ? (
-                <a className="rounded-xl px-4 py-4 focus-visible:outline-none" href="/majors">
-                  {link.label}
-                </a>
-              ) : dropdownOnlyLabels.has(link.label) ? (
+>
+              {dropdownOnlyLabels.has(link.label) ? (
                 <button className="rounded-xl border-0 bg-transparent px-4 py-4 font-inherit text-inherit focus-visible:outline-none" type="button">
                   {link.label}
                 </button>
@@ -151,12 +153,8 @@ export function PublicNavbar() {
           </summary>
             <nav className="absolute right-0 top-12 z-30 grid w-[min(14rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] gap-1 overflow-y-auto rounded-2xl bg-white p-3 text-sm font-medium text-muted shadow-xl">
             {links.map((link) => (
-              <div className="grid gap-1" key={link.label}>
-                {link.label === "Jurusan" ? (
-                  <a className="rounded-xl px-3 py-2 hover:bg-light-blue" href="/majors">
-                    {link.label}
-                  </a>
-                ) : dropdownOnlyLabels.has(link.label) ? (
+<div className="grid gap-1" key={link.label}>
+                {dropdownOnlyLabels.has(link.label) ? (
                   <button className="rounded-xl border-0 bg-transparent px-3 py-2 text-left font-inherit text-inherit hover:bg-light-blue" type="button">
                     {link.label}
                   </button>

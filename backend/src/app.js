@@ -10,8 +10,8 @@ import { getAuthClient } from './lib/supabase.js';
 import { authenticate } from './middleware/auth.js';
 import { authorize } from './middleware/authorize.js';
 import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './modules/content/content.service.js';
-import { createPdfSource, createTextSource, listKnowledge, publicPathForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
-import { answerFromGemini } from './modules/knowledge/gemini.service.js';
+import { createPdfSource, createTextSource, listKnowledge, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
+import { answerFromApprovedFaq, answerFromGemini } from './modules/knowledge/gemini.service.js';
 import { learningRouter } from './modules/learning/learning.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
@@ -84,8 +84,12 @@ app.post('/api/chat', chatLimiter, (req,res)=>{
       const answer = status === 'out_of_scope' ? 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.' : 'Informasi tersebut belum ditemukan dalam sumber resmi SMKN 26 Jakarta.';
       return res.json({ data: { answer, sources: [], status }, error: null });
     }
-    const sources = matches.map((item) => ({ title: item.knowledge_documents?.knowledge_sources?.title || 'Sumber sekolah', url: publicPathForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.source_page), page: null }));
-    if (!process.env.GEMINI_API_KEY) return res.json({ data: { answer: 'Sumber resmi ditemukan, tetapi layanan jawaban AI belum dikonfigurasi.', sources, status: 'insufficient_evidence' }, error: null });
+    const sources = matches.map((item) => ({ title: publicTitleForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title), url: publicPathForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.source_page), page: null }));
+     if (!process.env.GEMINI_API_KEY) {
+       const faqAnswer = answerFromApprovedFaq(matches);
+       if (faqAnswer) return res.json({ data: { answer: faqAnswer, sources, status: 'answered' }, error: null });
+       return res.json({ data: { answer: 'Sumber resmi ditemukan, tetapi layanan jawaban AI belum dikonfigurasi.', sources, status: 'insufficient_evidence' }, error: null });
+     }
     return answerFromGemini(message, matches).then((answer) => res.json({ data: { answer, sources, status: 'answered' }, error: null })).catch(() => res.status(503).json({ data: null, error: { message: 'Layanan AI sedang tidak tersedia. Coba lagi nanti.' } }));
   }).catch(() => res.status(503).json({ data: null, error: { message: 'Pencarian sumber sekolah gagal sementara.' } }));
 });
