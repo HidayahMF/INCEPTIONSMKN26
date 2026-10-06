@@ -148,17 +148,28 @@ export const educationStaff: StaffMember[] = [
   },
 ];
 
-/**
- * Figma node `587:2105` ("Tim Dung") reuses the exact same `Profile Guru SMK`
- * component instances as the vice-principal row (`563:2358`) - same four states
- * (Kesiswaan, Kurikulum, HUMAS, SAPRAS) and the same portraits. The design
- * therefore contains no dedicated Tim Pendukung roster, and none is invented
- * here. Replace this array with the verified supporting-team roster when the
- * school content owner supplies it.
- */
-export const supportTeam: StaffMember[] = vicePrincipals.map(
-  (member) => ({ ...member }),
-);
+export const supportTeam: StaffMember[] = [
+  {
+    name: "Ardiansyah Putra",
+    role: "Petugas Keamanan",
+    photo: figmaAssets.struktur.supportTeam[0],
+  },
+  {
+    name: "Bagus Setiawan",
+    role: "Petugas Keamanan",
+    photo: figmaAssets.struktur.supportTeam[1],
+  },
+  {
+    name: "Rani Maharani",
+    role: "Petugas Keamanan",
+    photo: figmaAssets.struktur.supportTeam[2],
+  },
+  {
+    name: "Deni Kurniawan",
+    role: "Petugas Keamanan",
+    photo: figmaAssets.struktur.supportTeam[3],
+  },
+];
 
 /** Counts rendered in the hero statistics bar, transcribed from Figma node `559:1814`. */
 export const statistics: readonly (readonly [string, string])[] = [

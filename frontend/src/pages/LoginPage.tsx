@@ -4,8 +4,8 @@ import { useAuth } from "../features/auth/AuthProvider";
 import { useNavigate, Link } from "../routes/compat";
 
 const devAccounts = [
-  { identifier: "DEMO-GURU", label: "Guru Demo" },
-  { identifier: "DEMO-SISWA", label: "Siswa Demo" },
+  { identifier: "DEMO-GURU", label: "Role Guru" },
+  { identifier: "DEMO-SISWA", label: "Role Siswa" },
 ];
 
 export function LoginPage() {
@@ -83,7 +83,7 @@ export function LoginPage() {
             </div>
           </div>
           <div className="relative z-10 max-w-xl">
-            <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold tracking-wide text-white/90">
+            <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium tracking-wide text-white/90">
               PORTAL INTERNAL
             </span>
             <h1 className="mt-6 text-5xl font-bold leading-[1.08] tracking-[-.04em] xl:text-6xl">
@@ -115,7 +115,7 @@ export function LoginPage() {
                 <p className="text-[10px] text-muted">Portal internal</p>
               </div>
             </div>
-            <span className="mt-10 inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue lg:mt-0">
+            <span className="mt-10 inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue lg:mt-0">
               Selamat datang
             </span>
             <h2 className="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
@@ -129,7 +129,7 @@ export function LoginPage() {
               className="mt-8 grid min-w-0 max-w-full gap-5 max-[639px]:w-[calc(100vw-88px)] max-[639px]:max-w-[calc(100vw-88px)]"
               onSubmit={submit}
             >
-              <label className="grid min-w-0 gap-2 text-sm font-semibold text-ink">
+              <label className="grid min-w-0 gap-2 text-sm font-medium text-ink">
                 NIS / NIP / Identifier
                 <input
                   className="box-border min-w-0 w-full max-w-full rounded-2xl border border-light-blue px-4 py-3.5 font-normal outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 max-[639px]:max-w-[calc(100vw-88px)]"
@@ -139,7 +139,7 @@ export function LoginPage() {
                   required
                 />
               </label>
-              <label className="grid min-w-0 gap-2 text-sm font-semibold text-ink">
+              <label className="grid min-w-0 gap-2 text-sm font-medium text-ink">
                 Password
                 <div className="relative min-w-0 w-full max-w-full max-[639px]:max-w-[calc(100vw-88px)]">
                   <input
@@ -152,7 +152,7 @@ export function LoginPage() {
                   />
                   <button
                     type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-primary"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-primary"
                     onClick={() => setShowPassword((value) => !value)}
                   >
                     {showPassword ? "Sembunyikan" : "Lihat"}
@@ -160,7 +160,7 @@ export function LoginPage() {
                 </div>
               </label>
               <button
-                className="w-full max-w-full rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60"
+                className="w-full max-w-full rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60"
                 disabled={busy}
               >
                 {busy ? "Memeriksa..." : "Masuk ke portal"}
@@ -174,13 +174,9 @@ export function LoginPage() {
                 </p>
               )}
             </form>
-            {import.meta.env.DEV && (
-              <div className="mt-8 box-border min-w-0 w-full max-w-full rounded-2xl border border-dashed border-light-blue bg-school-bg/60 p-4">
+            <div className="mt-8 box-border min-w-0 w-full max-w-full rounded-2xl border border-dashed border-light-blue bg-school-bg/60 p-4">
                 <p className="text-xs font-bold uppercase tracking-[.12em] text-muted">
-                  Developer quick login
-                </p>
-                <p className="mt-1 text-xs text-muted">
-                  Hanya tersedia pada environment lokal.
+                  Quick login
                 </p>
                 <div className="mt-3 grid min-w-0 grid-cols-2 gap-2">
                   {devAccounts.map((account) => (
@@ -188,20 +184,19 @@ export function LoginPage() {
                       key={account.identifier}
                       disabled={busy}
                       onClick={() => void quickLogin(account.identifier)}
-                      className="box-border min-w-0 w-full max-w-full rounded-xl bg-white px-3 py-2.5 text-left text-xs font-semibold text-primary shadow-sm ring-1 ring-light-blue hover:bg-light-blue"
+                      className="box-border min-w-0 w-full max-w-full rounded-xl bg-white px-3 py-2.5 text-left text-xs font-medium text-primary shadow-sm ring-1 ring-light-blue hover:bg-light-blue"
                     >
                       {account.label}
                       <small className="mt-1 block truncate text-[10px] font-normal text-muted">
                         {account.identifier}
                       </small>
                     </button>
-                  ))}
+                    ))}
                 </div>
-              </div>
-            )}
+            </div>
             <Link
               to="/"
-              className="mt-8 block text-center text-sm font-semibold text-muted hover:text-primary"
+              className="mt-8 block text-center text-sm font-medium text-muted hover:text-primary"
             >
               ← Kembali ke website publik
             </Link>

@@ -58,23 +58,23 @@ export function PublicFooter() {
     <footer className="box-border min-h-[626px] min-w-0 max-w-full overflow-x-clip bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] pb-6 pt-12 text-white">
       <div className="mx-auto w-[min(1272px,100%-32px)]">
       <div className="relative flex flex-col items-center justify-center gap-6 min-[1272px]:grid min-[1272px]:h-11 min-[1272px]:grid-cols-[1fr_auto_1fr] min-[1272px]:items-end min-[1272px]:gap-8">
-        <h2 className="m-0 shrink-0 text-center text-xl leading-7 min-[1272px]:justify-self-start">
+        <h2 className="m-0 shrink-0 text-center text-xl font-bold leading-7 min-[1272px]:justify-self-start">
           Dapatkan Informasi
           <br />
           SMKN 26 Jakarta
         </h2>
         <form
-          className="flex h-11 w-full min-w-0 gap-2 min-[1272px]:w-[654px] min-[1272px]:justify-self-center"
+          className="flex h-11 w-full min-w-0 items-center overflow-hidden rounded-full bg-white min-[1272px]:w-[654px] min-[1272px]:justify-self-center"
           onSubmit={(event) => event.preventDefault()}
         >
           <input
-            className="min-w-0 flex-1 rounded-full border-0 bg-white px-4 text-ink outline-none"
+            className="min-w-0 flex-1 border-0 bg-transparent pl-6 pr-4 text-sm text-ink outline-none placeholder:text-muted"
             aria-label="Email"
             placeholder="Ketik Email disini..."
             type="email"
           />
           <button
-            className="h-11 w-28 shrink-0 rounded-full border border-white/35 bg-gradient-to-r from-primary-dark via-primary to-soft-blue font-semibold text-white transition-[background,color,border-color] duration-300 hover:border-white hover:bg-white hover:bg-none hover:text-primary focus-visible:border-white focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary"
+            className="h-11 w-28 shrink-0 rounded-full border-0 bg-gradient-to-r from-primary-dark via-primary to-soft-blue font-medium text-white transition-[background,color] duration-300 hover:bg-white hover:bg-none hover:text-primary focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary"
             type="submit"
           >
             Kirim
@@ -196,25 +196,16 @@ export function PublicFooter() {
             Lokasi Sekolah
           </h3>
           <div className="w-full max-w-[249px]">
-          <a
-            className="group relative block aspect-[249/150] overflow-hidden rounded-[18px] border-2 border-white bg-[#dbeafe] focus-visible:outline-2 focus-visible:outline-white"
-            href={googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Buka ${schoolAddress} di Google Maps`}
-          >
+          <div className="relative block aspect-[249/150] overflow-hidden rounded-[18px] border-2 border-white bg-[#dbeafe]">
             <iframe
               className="pointer-events-none size-full border-0"
               src={googleMapsEmbedUrl}
               title={`Pratinjau peta ${schoolAddress}`}
               loading="lazy"
             />
-            <span className="pointer-events-none absolute inset-x-2 bottom-2 rounded-full bg-white/95 px-3 py-1.5 text-center text-[10px] font-bold text-primary shadow-[0_3px_10px_rgba(15,23,42,.14)] transition group-hover:bg-primary group-hover:text-white">
-              SMKN 26 Jakarta
-            </span>
-          </a>
+          </div>
           <a
-            className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-white/70 px-3 py-2 text-xs font-semibold text-white transition-[background,color] duration-300 hover:bg-white hover:text-primary focus-visible:bg-white focus-visible:text-primary"
+            className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-white/70 px-3 py-2 text-xs font-medium text-white transition-[background,color] duration-300 hover:bg-white hover:text-primary focus-visible:bg-white focus-visible:text-primary"
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"

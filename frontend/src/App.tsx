@@ -50,6 +50,10 @@ import { LspTflmPage } from "./pages/LspTflmPage";
 import { LspSijaPage } from "./pages/LspSijaPage";
 import { LspTkrPage } from "./pages/LspTkrPage";
 import { EkstrakurikulerPage } from "./pages/EkstrakurikulerPage";
+import { OrganisasiSekolahPage } from "./pages/OrganisasiSekolahPage";
+import { StrukturOrganisasiPage } from "./pages/StrukturOrganisasiPage";
+import { BkkPage } from "./pages/BkkPage";
+import { PrestasiPage } from "./pages/PrestasiPage";
 import { AdvantageDetailPage } from "./pages/AdvantageDetailPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { PartnerDetailPage } from "./pages/PartnerDetailPage";
@@ -63,7 +67,9 @@ import {
   educationStaff,
   normativeTeachers,
   supportTeam,
+  vicePrincipals,
   vocationalTeachers,
+  type StaffMember,
 } from "./data/organization";
 
 type Page = {
@@ -162,7 +168,7 @@ function PublicPage({
       <PublicNavbar />
       <main className="mx-auto w-[min(1272px,100%-32px)] pt-[132px] pb-24">
         <section className="mx-auto w-[min(872px,100%)] text-center">
-          <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+          <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
             <img
               className="h-[17px] w-[13.6px]"
               src="/assets/figma/majors/icon-section-badge.svg"
@@ -189,7 +195,7 @@ function PublicPage({
           >
             <label className="sr-only" htmlFor="information-search">Cari informasi sekolah</label>
             <input id="information-search" className="min-w-0 flex-1 rounded-full bg-transparent px-4 text-sm text-ink outline-none placeholder:text-muted" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Cari jurusan, berita, prestasi, portal..." />
-            <button className="rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-6 text-sm font-semibold text-white transition hover:bg-white hover:bg-none hover:text-primary" type="submit">Cari</button>
+            <button className="rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-6 text-sm font-bold text-white transition hover:bg-white hover:bg-none hover:text-primary" type="submit">Cari</button>
           </form>
         )}
         <section className="mt-14">
@@ -206,10 +212,10 @@ function PublicPage({
                     {results.map((result, index) => (
                       <a className="group rounded-3xl border border-school-bg bg-white p-6 no-underline shadow-[0_4px_16px_rgba(15,23,42,.08)] transition hover:-translate-y-1 hover:border-primary hover:shadow-xl" href={result.href} target={"external" in result && result.external ? "_blank" : undefined} rel={"external" in result && result.external ? "noreferrer" : undefined} key={`${result.href}-${result.title}-${index}`}>
                         {result.image && <div className="-mx-6 -mt-6 mb-6 h-48 overflow-hidden rounded-t-3xl bg-school-bg"><img className="block size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" src={result.image} alt={result.title} /></div>}
-                        <span className="text-xs font-semibold text-primary">{result.category}</span>
+                        <span className="text-xs font-medium text-primary">{result.category}</span>
                         <h2 className="mt-3 text-xl font-bold text-ink">{result.title}</h2>
                         <p className="mt-3 text-sm leading-6 text-muted">{result.summary}</p>
-                        <span className="mt-5 inline-block text-sm font-semibold text-primary group-hover:underline">Lihat informasi →</span>
+                        <span className="mt-5 inline-block text-sm font-medium text-primary group-hover:underline">Lihat informasi →</span>
                       </a>
                     ))}
                   </div>
@@ -254,7 +260,7 @@ function PublicPage({
                     alt={news.title}
                   />
                   <div className="p-6">
-                    <span className="text-xs font-semibold text-primary">{news.category}</span>
+                    <span className="text-xs font-medium text-primary">{news.category}</span>
                     <h2 className="mt-2 text-xl leading-7 font-bold text-ink">{news.title}</h2>
                     <time className="mt-3 block text-xs text-muted">{news.date}</time>
                     <p className="mt-3 text-sm leading-6 text-muted">{news.description}</p>
@@ -396,11 +402,12 @@ export function App() {
   const path = usePathname();
   if (path.startsWith("/guru/")) {
     const slug = decodeURIComponent(path.slice("/guru/".length));
-    const groups: [StaffCategory, typeof normativeTeachers][] = [
+    const groups: [StaffCategory, StaffMember[]][] = [
       ["normatif", normativeTeachers],
       ["kejuruan", vocationalTeachers],
       ["kependidikan", educationStaff],
       ["pendukung", supportTeam],
+      ["kependidikan", vicePrincipals],
     ];
     for (const [category, members] of groups) {
       const teacher = members.find((member) => staffSlug(member) === slug);
@@ -430,6 +437,11 @@ export function App() {
   if (path === "/programs/lsp/sija") return <PublicExperience><LspSijaPage /></PublicExperience>;
   if (path === "/programs/lsp/tkr") return <PublicExperience><LspTkrPage /></PublicExperience>;
   if (path === "/programs/ekstrakurikuler") return <PublicExperience><EkstrakurikulerPage /></PublicExperience>;
+  if (path === "/programs/bkk") return <PublicExperience><BkkPage /></PublicExperience>;
+  if (path === "/achievements") return <PublicExperience><PrestasiPage /></PublicExperience>;
+  if (path === "/programs/organisasi") return <PublicExperience><OrganisasiSekolahPage /></PublicExperience>;
+  if (path === "/programs/organisasi/osis") return <PublicExperience><StrukturOrganisasiPage type="osis" /></PublicExperience>;
+  if (path === "/programs/organisasi/mpk") return <PublicExperience><StrukturOrganisasiPage type="mpk" /></PublicExperience>;
   if (path === "/majors/kgs") return <PublicExperience><KgsPage /></PublicExperience>;
   if (path === "/majors/tek") return <PublicExperience><TekPage /></PublicExperience>;
   if (path === "/majors/titl") return <PublicExperience><TitlPage /></PublicExperience>;

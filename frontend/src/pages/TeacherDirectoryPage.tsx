@@ -52,7 +52,7 @@ export function TeacherDirectoryPage({
           <div aria-hidden="true" className="absolute left-0 top-10 size-6 rounded-full bg-gradient-to-br from-[#4cbaf5] to-primary md:size-8" />
           <div aria-hidden="true" className="absolute right-0 top-6 size-6 rounded-full bg-gradient-to-br from-primary to-[#4cbaf5] md:size-8" />
           <div className="mx-auto max-w-[760px] text-center">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
+            <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
               <img alt="" className="size-2" src={figmaAssets.struktur.badgeIcon} />
               PENDIDIK SMK NEGERI 26 JAKARTA
             </span>

@@ -94,7 +94,7 @@ const collaborations = [
 ] as const;
 
 function Label({ children }: { children: string }) {
-  return <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-[#39aef2] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="mr-1.5 size-1.5 self-center rounded-full bg-[#39aef2]" />{children}</span>;
+  return <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-[#39aef2] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="mr-1.5 size-1.5 self-center rounded-full bg-[#39aef2]" />{children}</span>;
 }
 
 export function PartnerDetailPage({ slug }: { slug: string }) {
@@ -134,7 +134,7 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
           <h2 id="partner-competency-title" className="text-3xl font-bold sm:text-4xl">Kompetensi yang Terhubung</h2>
           <p className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Kolaborasi industri yang selaras dengan kompetensi keahlian untuk membantu siswa mempersiapkan diri menghadapi dunia kerja.</p>
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-             {relevantCompetencies.map(([title, copy, color, href], index) => <article className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={`/assets/figma/mitra-industri/${index + 1}.png`} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
+             {relevantCompetencies.map(([title, copy, color, href], index) => <article className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={`/assets/figma/mitra-industri/${index + 1}.png`} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
           </div>
         </section>
       </main>

@@ -1,9 +1,9 @@
 import { useState, type ReactNode } from "react";
 
 import { figmaAssets } from "../assets/figmaAssets";
+import { CtaLink } from "../components/public/CtaLink";
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
-import { useNavigate } from "../routes/compat";
 import { staffSlug } from "./TeacherDirectoryPage";
 import {
   educationStaff,
@@ -25,7 +25,7 @@ function GradientText({ children }: { children: string }) {
 
 function SectionBadge({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+    <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
       <img alt="" className="h-[17px] w-[13.6px]" src={figmaAssets.struktur.badgeIcon} />
       {label}
     </span>
@@ -109,39 +109,11 @@ function SectionHeading({ badge, children }: { badge: string; children: ReactNod
   );
 }
 
-function SectionAction({ onClick, href }: { onClick?: () => void; href?: string }) {
-  const navigate = useNavigate();
-  const content = (
-    <>
-      Lihat Semua
-      <img
-        alt=""
-        className="size-5 transition-transform duration-300 group-hover:translate-x-0.5"
-        src={figmaAssets.struktur.arrowRight}
-      />
-    </>
-  );
-
-  if (href) {
-    return (
-      <button
-        className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-white/35 bg-[linear-gradient(90deg,#006cdc,#0092ff_72%,#4cbaf5)] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] transition-[filter] duration-300 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary lg:self-center"
-        onClick={() => navigate(href)}
-        type="button"
-      >
-        {content}
-      </button>
-    );
-  }
-
+function SectionAction({ href }: { href: string }) {
   return (
-    <button
-      className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-white/35 bg-[linear-gradient(90deg,#006cdc,#0092ff_72%,#4cbaf5)] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] transition-[filter] duration-300 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary lg:self-center"
-      onClick={onClick}
-      type="button"
-    >
-      {content}
-    </button>
+    <CtaLink className="shrink-0 self-start lg:self-center" href={href}>
+      Lihat Semua
+    </CtaLink>
   );
 }
 
@@ -240,7 +212,7 @@ function TeacherFilter({
         return (
           <button
             aria-selected={active}
-            className={`w-1/3 shrink-0 whitespace-nowrap px-2 py-3 text-center text-sm font-semibold transition-colors duration-300 sm:w-[186px] sm:px-6 sm:py-4 sm:text-xl ${
+            className={`w-1/3 shrink-0 whitespace-nowrap px-2 py-3 text-center text-sm font-medium transition-colors duration-300 sm:w-[186px] sm:px-6 sm:py-4 sm:text-xl ${
               active
                 ? "rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff)] text-white"
                 : "text-ink hover:text-primary-dark"
@@ -355,20 +327,20 @@ function HeroSection() {
     >
       <img
         alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[610px] w-full max-w-full object-cover object-[center_bottom] md:h-[690px]"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full max-w-full object-cover object-top"
         src={figmaAssets.struktur.heroBackground}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[610px] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10 md:h-[690px]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
       />
       <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
           <img alt="" className="h-[17px] w-[13.6px]" src={figmaAssets.struktur.badgeIcon} />
           STRUKTUR &amp; UNIT KERJA
         </span>
         <h1
-          className="mt-4 max-w-[1000px] text-[32px] font-extrabold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]"
+          className="mt-4 max-w-[1000px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]"
           id="organization-title"
         >
           <span>Di Balik </span>
@@ -383,17 +355,9 @@ function HeroSection() {
           proses pembelajaran, pengembangan kompetensi, serta layanan di SMK Negeri 26
           Jakarta.
         </p>
-        <a
-          className="group mt-4 inline-flex items-center gap-3 rounded-full border border-white/50 bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(15,23,42,.14)] transition-[filter] duration-300 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-white"
-          href="#organization-statistics"
-        >
-          Jelajahi SMKN 26
-          <img
-            alt=""
-            className="size-5 transition-transform duration-300 group-hover:translate-x-1"
-            src={figmaAssets.struktur.arrowRight}
-          />
-        </a>
+        <CtaLink className="mt-4" href="#organization-statistics">
+          Lihat Daftar Guru
+        </CtaLink>
       </div>
       <div
         className="absolute bottom-0 left-1/2 z-30 grid w-[min(1200px,calc(100%-32px))] -translate-x-1/2 translate-y-1/2 overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:grid-cols-5 max-sm:grid-cols-2"

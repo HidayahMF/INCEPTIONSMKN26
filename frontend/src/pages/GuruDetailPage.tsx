@@ -134,7 +134,7 @@ export function GuruDetailPage({
               src={teacher.photo}
             />
             <div className="min-w-0 max-w-[700px]">
-              <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-semibold text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
+              <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
                 <span className="mr-1 text-primary">•</span>{content.badge}
               </span>
               <h1 className="mt-2 text-3xl font-bold leading-9 text-primary sm:text-4xl">{teacher.name}</h1>
@@ -154,7 +154,7 @@ export function GuruDetailPage({
         </section>
         <section className="mx-auto mt-12 max-w-[1180px]">
           <div className="mb-4 text-center sm:text-left">
-            <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-semibold text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
+            <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-[10px] font-medium text-soft-blue shadow-[0_4px_12px_rgba(15,23,42,.06)]">
               <span className="mr-1 text-primary">•</span>{content.sectionBadge}
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">
@@ -167,7 +167,7 @@ export function GuruDetailPage({
               <DetailCard description={description} key={title} title={title} />
             ))}
           </div>
-          <a className="mt-7 inline-flex rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff,#4cbaf5)] px-5 py-2.5 text-sm font-semibold text-white hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href={content.backHref}>
+          <a className="mt-7 inline-flex rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff,#4cbaf5)] px-5 py-2.5 text-sm font-bold text-white hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href={content.backHref}>
             Kembali ke daftar
           </a>
         </section>

@@ -9,7 +9,7 @@ export function LapanganTourPage({ location = tourLocations[0] }: { location?: T
       <PublicNavbar />
       <main className="mx-auto w-full max-w-[1272px] px-4 pb-20 pt-36 md:pb-28 md:pt-40">
         <section className="mx-auto w-full min-w-0 max-w-4xl text-center">
-          <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+          <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
             Virtual Tour
           </span>
           <h1 className="mx-auto mt-6 w-full max-w-full break-words text-[34px] font-bold leading-[1.15] tracking-[-0.03em] text-ink sm:text-5xl">
@@ -24,11 +24,11 @@ export function LapanganTourPage({ location = tourLocations[0] }: { location?: T
           <p className="mt-4 text-center text-sm font-medium text-muted">Geser untuk melihat area sekitar.</p>
         </section>
         <div className="mt-7 flex flex-wrap gap-3">
-          <a className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary shadow-[0_4px_16px_rgba(15,23,42,.08)] ring-1 ring-light-blue transition hover:-translate-y-0.5 hover:shadow-lg" href="/tour">
+          <a className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-primary shadow-[0_4px_16px_rgba(15,23,42,.08)] ring-1 ring-light-blue transition hover:-translate-y-0.5 hover:shadow-lg" href="/tour">
             <span aria-hidden="true" className="text-xl leading-none">←</span>
             Kembali ke Virtual Tour
           </a>
-          <a className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(15,23,42,.12)] transition hover:-translate-y-0.5 hover:shadow-lg" href="#tour-locations">
+          <a className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-5 py-3 text-sm font-bold text-white shadow-[0_4px_16px_rgba(15,23,42,.12)] transition hover:-translate-y-0.5 hover:shadow-lg" href="#tour-locations">
             Pilih Lokasi Lain
           </a>
         </div>
@@ -36,7 +36,7 @@ export function LapanganTourPage({ location = tourLocations[0] }: { location?: T
           <h2 className="text-xl font-bold text-ink">Lokasi Panorama Lainnya</h2>
           <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
             {tourLocations.map((item) => (
-              <a className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold ${item.id === location.id ? "bg-primary text-white" : "bg-[#f6fbff] text-primary"}`} href={item.href} key={item.id}>
+              <a className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium ${item.id === location.id ? "bg-primary text-white" : "bg-[#f6fbff] text-primary"}`} href={item.href} key={item.id}>
                 {item.name}
               </a>
             ))}

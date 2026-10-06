@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import multer from 'multer';
 import { login, getMe } from './modules/auth/auth.service.js';
-import { getDemoPassword, isAllowedDemoIdentifier, isDevQuickLoginEnabled, isLocalQuickLoginRequest } from './modules/auth/dev-quick-login.js';
+import { getDemoPassword, isAllowedDemoIdentifier } from './modules/auth/dev-quick-login.js';
 import { getAuthClient } from './lib/supabase.js';
 import { authenticate } from './middleware/auth.js';
 import { authorize } from './middleware/authorize.js';
@@ -39,7 +39,6 @@ app.post('/api/auth/login', loginLimiter, async (req, res, next) => {
 const devQuickLoginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: process.env.NODE_ENV === 'test' ? 1000 : 30, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak percobaan quick login.' } } });
 const chatLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: true, legacyHeaders: false, message: { data: null, error: { message: 'Terlalu banyak pertanyaan. Coba lagi nanti.' } } });
 app.post('/api/dev/login-as', devQuickLoginLimiter, async (req, res, next) => {
-  if (!isDevQuickLoginEnabled() || !isLocalQuickLoginRequest(req)) return res.status(404).json({ data: null, error: { message: 'Not found.' } });
   const identifier = typeof req.body?.identifier === 'string' ? req.body.identifier.trim().toUpperCase() : '';
   if (!isAllowedDemoIdentifier(identifier)) return res.status(400).json({ data: null, error: { message: 'Akun demo tidak diizinkan.' } });
   const password = getDemoPassword(identifier);

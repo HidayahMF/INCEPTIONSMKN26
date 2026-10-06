@@ -76,8 +76,8 @@ export function SchoolAdvantages() {
   return (
     <section id="school-advantages" className="scroll-mt-28 relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
       <div className="absolute left-1/2 top-10 -translate-x-1/2">
-        <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
-           <img src={figmaAssets.majors.badgeIcon} alt="" />Keunggulan SMK Negeri 26 Jakarta
+        <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+            <img src={figmaAssets.majors.badgeIcon} alt="" />KEUNGGULAN SMK NEGERI 26 JAKARTA
         </span>
       </div>
        <h2 className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
@@ -148,7 +148,7 @@ export function SchoolAdvantages() {
                   {advantage.title}
                 </h3>
                 <p className="relative mt-1 text-xs leading-[18px]">{advantage.summary}</p>
-                <span className="secondary-button relative mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-[background,color,border-color] duration-300 ease-out group-hover:border-[#CBD5E1] group-hover:bg-primary group-hover:text-white">
+                <span className="secondary-button relative mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-white px-4 py-2.5 text-sm font-medium text-primary transition-[background,color,border-color] duration-300 ease-out group-hover:border-[#CBD5E1] group-hover:bg-primary group-hover:text-white">
                   Baca selengkapnya{" "}
                   <img
                     className="pointer-events-none size-5 select-none transition-[filter] group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert"

@@ -1,9 +1,19 @@
+import { useRef } from "react";
+
 import { figmaAssets } from "../assets/figmaAssets";
+import { CtaLink } from "../components/public/CtaLink";
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
+import { useFloatShapes } from "../lib/useFloatShapes";
 import { tourLocations } from "../data/tourLocations";
 
 export function TourPage() {
+  const leftCircleRef = useRef<HTMLDivElement>(null);
+  const rightCircleRef = useRef<HTMLDivElement>(null);
+  useFloatShapes([
+    { ref: leftCircleRef, duration: 3200, distance: -12 },
+    { ref: rightCircleRef, duration: 4100, distance: 16 },
+  ]);
   return (
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-white text-ink">
       <PublicNavbar />
@@ -25,7 +35,7 @@ export function TourPage() {
               <span aria-hidden="true" className="size-1.5 rounded-full bg-soft-blue" />
               SCHOOL TOUR
             </span>
-            <h1 className="mt-5 max-w-[760px] text-[32px] font-extrabold leading-[1.12] tracking-[-0.03em] sm:text-[48px] md:text-[52px]" id="tour-title">
+            <h1 className="mt-5 max-w-[760px] text-[32px] font-bold leading-[1.12] tracking-[-0.03em] sm:text-[48px] md:text-[52px]" id="tour-title">
               Jelajahi SMK Negeri 26 Jakarta
             </h1>
             <p className="mt-4 max-w-[650px] text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
@@ -33,7 +43,7 @@ export function TourPage() {
             </p>
             <a
               aria-label="Lihat visual utama School Tour"
-              className="mt-12 grid size-14 place-items-center rounded-full bg-white text-2xl font-bold text-primary shadow-[0_8px_20px_rgba(15,23,42,.2)] transition-transform hover:translate-y-1 focus-visible:outline-2 focus-visible:outline-white"
+              className="mt-12 grid size-14 animate-bounce place-items-center rounded-full bg-white text-2xl font-bold text-primary shadow-[0_8px_20px_rgba(15,23,42,.2)] transition-transform hover:translate-y-1 focus-visible:outline-2 focus-visible:outline-white"
               href="#tour-visual"
             >
               ↓
@@ -42,7 +52,7 @@ export function TourPage() {
         </section>
 
 
-        <section className="mx-auto max-w-[1272px] px-6 pb-16 pt-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
+        <section id="tour-visual" className="mx-auto max-w-[1272px] px-6 pb-16 pt-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
           <div className="text-center">
             <span className="inline-flex rounded-full bg-[#f6fbff] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
               23 LOKASI PANORAMA
@@ -65,7 +75,7 @@ export function TourPage() {
                 <div className="p-4">
                   <span className="text-[10px] font-bold text-primary">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="mt-1 text-base font-bold text-ink">{location.name}</h3>
-                  <span className="mt-3 inline-flex text-xs font-semibold text-primary">Buka Panorama →</span>
+                  <span className="mt-3 inline-flex text-xs font-medium text-primary">Buka Panorama →</span>
                 </div>
               </a>
             ))}
@@ -73,8 +83,8 @@ export function TourPage() {
         </section>
 
         <section className="relative overflow-hidden px-6 py-16 text-center sm:px-10 sm:py-24">
-          <div aria-hidden="true" className="pointer-events-none absolute left-8 top-20 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:left-16 sm:size-10" />
-          <div aria-hidden="true" className="pointer-events-none absolute right-8 top-14 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:right-16 sm:size-10" />
+          <div ref={leftCircleRef} aria-hidden="true" className="pointer-events-none absolute left-8 top-20 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:left-16 sm:size-10" />
+          <div ref={rightCircleRef} aria-hidden="true" className="pointer-events-none absolute right-8 top-14 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:right-16 sm:size-10" />
           <span className="relative inline-flex rounded-full bg-[#f6fbff] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
             TENTANG SMK NEGERI 26 JAKARTA
           </span>
@@ -84,9 +94,9 @@ export function TourPage() {
           <p className="relative mx-auto mt-3 max-w-[640px] text-sm leading-6 text-muted sm:text-base sm:leading-7">
             Masih ingin mengenal SMKN 26 Jakarta lebih jauh? Jelajahi profil, program, dan berbagai informasi tentang sekolah kami.
           </p>
-          <a className="relative mt-6 inline-flex rounded-full bg-gradient-to-r from-primary-dark via-primary to-soft-blue px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_12px_rgba(15,23,42,.12)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href="/profile">
+          <CtaLink className="relative mt-6" href="/profile">
             Lihat Profil Sekolah
-          </a>
+          </CtaLink>
         </section>
       </main>
       <PublicFooter />

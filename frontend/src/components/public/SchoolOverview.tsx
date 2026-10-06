@@ -1,4 +1,7 @@
+import { useRef } from "react";
+
 import { figmaAssets } from "../../assets/figmaAssets";
+import { useFloatShapes } from "../../lib/useFloatShapes";
 
 type OverviewPage = { title: string; summary: string; body: string };
 type SchoolOverviewProps = { pages: OverviewPage[]; loading: boolean };
@@ -11,6 +14,12 @@ const fallbackStats = [
 ];
 
 export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
+  const smallCircleRef = useRef<HTMLDivElement>(null);
+  const largeCircleRef = useRef<HTMLDivElement>(null);
+  useFloatShapes([
+    { ref: smallCircleRef, duration: 3200, distance: -12 },
+    { ref: largeCircleRef, duration: 4100, distance: 16 },
+  ]);
   const statistic = pages.find((page) => page.title.includes("Statistik"));
   const stats = (
     statistic?.body.match(
@@ -26,8 +35,8 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
     <section className="school-overview relative mx-auto mt-[59px] h-[400px] w-[min(1272px,calc(100%-32px))]" aria-labelledby="overview-title">
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px] md:w-[1272px]">
           <div className="flex justify-center">
-          <span className="rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-semibold text-soft-blue shadow-sm">
-            Mengenal SMK Negeri 26 Jakarta
+          <span className="rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+             MENGENAL SMK NEGERI 26 JAKARTA
           </span>
         </div>
         <div className="relative h-[337px]">
@@ -45,8 +54,8 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
             <div className="pointer-events-none absolute right-0 top-[35px] hidden h-[365px] w-[538px] md:block">
             <div className="absolute right-0 z-0 size-[365px] rounded-full bg-gradient-to-br from-primary-dark to-transparent" />
             <div className="absolute right-[18px] top-[18px] z-0 size-[330px] rounded-full border-2 border-white" />
-            <div className="absolute left-[148px] top-[7px] z-0 size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
-            <div className="absolute left-0 top-[267px] z-0 size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
+            <div ref={smallCircleRef} className="absolute left-[148px] top-[7px] z-0 size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
+            <div ref={largeCircleRef} className="absolute left-0 top-[267px] z-0 size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-transparent" />
             <div className="absolute left-0 top-[67px] z-10 h-[233px] w-[420px] overflow-hidden rounded-[18px] border-2 border-white shadow-[0_4px_16px_rgba(15,23,42,0.08)]" style={{ left: "35px", top: "37px" }}>
               <img
                 className="block h-full w-full object-cover opacity-100"

@@ -81,6 +81,12 @@ organizationHero: "/assets/figma/struktur & unit kerja/bghero.png",
       "/assets/figma/struktur & unit kerja/struktur-tendik-3.png",
       "/assets/figma/struktur & unit kerja/struktur-tendik-4.png",
     ],
+    supportTeam: [
+      "/assets/figma/struktur & unit kerja/Ardiansyah Putra.png",
+      "/assets/figma/struktur & unit kerja/Bagus Setiawan.png",
+      "/assets/figma/struktur & unit kerja/Rani Maharani.png",
+      "/assets/figma/struktur & unit kerja/Deni Kurniawan.png",
+    ],
   },
   detailGuru: {
     cornerCircles: "/assets/figma/detail-guru/detail-guru-corner-circles.svg",
