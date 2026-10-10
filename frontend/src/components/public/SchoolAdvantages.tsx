@@ -74,16 +74,16 @@ export function SchoolAdvantages() {
   };
 
   return (
-    <section id="school-advantages" className="scroll-mt-28 relative mt-[88px] h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark py-0 text-white">
-      <div className="absolute left-1/2 top-10 -translate-x-1/2">
-         <span data-aos="fade-down" className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
-            <img src={figmaAssets.majors.badgeIcon} alt="" />KEUNGGULAN SMK NEGERI 26 JAKARTA
+    <section id="school-advantages" className="scroll-mt-28 relative mt-[88px] h-auto min-h-[637px] overflow-hidden bg-gradient-to-b from-soft-blue via-primary to-primary-dark pb-8 pt-10 text-white md:h-[637px] md:pb-0 md:pt-0">
+      <div className="mx-auto flex w-[min(933px,calc(100%-32px))] flex-col items-center gap-3 md:absolute md:left-1/2 md:top-10 md:w-[min(933px,100%)] md:-translate-x-1/2 md:gap-0">
+         <span data-aos="fade-down" className="inline-flex max-w-full items-center justify-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-center text-sm font-medium text-soft-blue shadow-sm">
+            <img className="size-[13.6px] shrink-0" src={figmaAssets.majors.badgeIcon} alt="" />KEUNGGULAN SMK NEGERI 26 JAKARTA
         </span>
-      </div>
-        <h2 data-aos="fade-up" data-aos-delay="100" className="absolute left-1/2 top-[103px] -translate-x-1/2 whitespace-nowrap text-center text-4xl font-bold drop-shadow-sm">
+        <h2 data-aos="fade-up" data-aos-delay="100" className="text-center text-[26px] font-bold leading-[34px] drop-shadow-sm md:absolute md:left-1/2 md:top-[63px] md:w-[min(933px,calc(100vw-32px))] md:-translate-x-1/2 md:text-4xl md:leading-[1.2] min-[1024px]:whitespace-nowrap">
          Apa yang Membuat SMK Negeri 26 Jakarta Berbeda?
       </h2>
-         <div className="absolute inset-0"><div className="advantages-carousel absolute left-1/2 top-[181px] mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] -translate-x-1/2 grid-cols-1 items-center md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
+      </div>
+         <div className="relative mt-8 md:absolute md:inset-0 md:mt-0"><div className="advantages-carousel relative left-auto top-auto mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] grid-cols-1 items-center md:absolute md:left-1/2 md:top-[181px] md:-translate-x-1/2 md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
         <button
              className="group advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
           onClick={() => move(-1)}
