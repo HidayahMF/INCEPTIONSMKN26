@@ -105,10 +105,10 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
       <main className="relative px-6 pb-24 pt-[132px] sm:px-8 lg:px-12">
         <img className="pointer-events-none absolute right-0 top-[110px] z-0 hidden h-[301px] w-[155px] max-w-none select-none sm:block" src="/assets/figma/mitra-industri/Shape.png" alt="" aria-hidden="true" draggable={false} />
         <div className="relative z-10 mx-auto grid max-w-[1180px] items-center gap-10 lg:grid-cols-[305px_1fr] lg:gap-[72px]">
-          <div className="grid min-h-[275px] place-items-center rounded-2xl border border-[#deebf7] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.04)] sm:min-h-[330px]">
+          <div data-aos="fade-right" className="grid min-h-[275px] place-items-center rounded-2xl border border-[#deebf7] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.04)] sm:min-h-[330px]">
             <img className="max-h-32 max-w-full object-contain" src={partner.logo} alt={`${partner.name} logo`} />
           </div>
-          <div className="relative max-w-[690px]">
+          <div className="relative max-w-[690px]" data-aos="fade-left">
             <Label>MITRA INDUSTRI SMK NEGERI 26 JAKARTA</Label>
             <h1 className="mt-4 text-3xl font-bold text-primary sm:text-4xl lg:text-[42px]">{partner.name}</h1>
             <p className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base sm:leading-7">{partner.description}</p>
@@ -121,20 +121,20 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
         </div>
 
         <section className="relative mx-auto mt-24 max-w-[1180px] sm:mt-28" aria-labelledby="partner-collaboration-title">
-          <div className="mb-8 text-center"><Label>KOLABORASI MITRA INDUSTRI</Label></div>
-          <h2 id="partner-collaboration-title" className="text-3xl font-bold sm:text-4xl">Kolaborasi dengan SMK Negeri 26 Jakarta</h2>
-          <p className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Sinergi SMK Negeri 26 Jakarta bersama industri untuk menghadirkan pengalaman belajar yang lebih dekat dengan dunia kerja.</p>
+          <div className="mb-8 text-center" data-aos="fade-down"><Label>KOLABORASI MITRA INDUSTRI</Label></div>
+          <h2 data-aos="fade-up" data-aos-delay="100" id="partner-collaboration-title" className="text-3xl font-bold sm:text-4xl">Kolaborasi dengan SMK Negeri 26 Jakarta</h2>
+          <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Sinergi SMK Negeri 26 Jakarta bersama industri untuk menghadirkan pengalaman belajar yang lebih dekat dengan dunia kerja.</p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {collaborations.map(([title, copy]) => <article className="min-h-[140px] rounded-2xl bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-9" src="/assets/figma/mitra-industri/iconbuku.png" alt="" /><h3 className="mt-2 text-base font-bold leading-5 text-primary">{title}</h3><p className="mt-1 text-[10px] leading-4 text-[#172033]">{copy}</p></article>)}
+            {collaborations.map(([title, copy], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 80, 320)} className="min-h-[140px] rounded-2xl bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-9" src="/assets/figma/mitra-industri/iconbuku.png" alt="" /><h3 className="mt-2 text-base font-bold leading-5 text-primary">{title}</h3><p className="mt-1 text-[10px] leading-4 text-[#172033]">{copy}</p></article>)}
           </div>
         </section>
 
         <section className="mx-auto mt-20 max-w-[1180px]" aria-labelledby="partner-competency-title">
-          <div className="mb-8 text-center"><Label>BIDANG YANG RELEVAN</Label></div>
-          <h2 id="partner-competency-title" className="text-3xl font-bold sm:text-4xl">Kompetensi yang Terhubung</h2>
-          <p className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Kolaborasi industri yang selaras dengan kompetensi keahlian untuk membantu siswa mempersiapkan diri menghadapi dunia kerja.</p>
+          <div className="mb-8 text-center" data-aos="fade-down"><Label>BIDANG YANG RELEVAN</Label></div>
+          <h2 data-aos="fade-up" data-aos-delay="100" id="partner-competency-title" className="text-3xl font-bold sm:text-4xl">Kompetensi yang Terhubung</h2>
+          <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Kolaborasi industri yang selaras dengan kompetensi keahlian untuk membantu siswa mempersiapkan diri menghadapi dunia kerja.</p>
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-             {relevantCompetencies.map(([title, copy, color, href], index) => <article className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={`/assets/figma/mitra-industri/${index + 1}.png`} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
+             {relevantCompetencies.map(([title, copy, color, href], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 60, 300)} className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={`/assets/figma/mitra-industri/${index + 1}.png`} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
           </div>
         </section>
       </main>

@@ -32,10 +32,12 @@ function SectionBadge({ label }: { label: string }) {
   );
 }
 
-function StaffCard({ member }: { member: StaffMember }) {
+function StaffCard({ member, index = 0 }: { member: StaffMember; index?: number }) {
   return (
     <a
       className="relative mx-auto flex h-[430px] w-full max-w-[305px] shrink-0 snap-start flex-col justify-end overflow-hidden rounded-[18.3px] border border-[1.525px] border-school-bg bg-white p-[15px] transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(15,23,42,.12)] focus-visible:outline-2 focus-visible:outline-primary min-[768px]:h-[450px]"
+      data-aos="fade-up"
+      data-aos-delay={Math.min((index % 4) * 70, 280)}
       data-staff-card
       href={`/guru/${staffSlug(member)}`}
     >
@@ -60,8 +62,8 @@ function StaffCard({ member }: { member: StaffMember }) {
 function StaffGrid({ members }: { members: StaffMember[] }) {
   return (
     <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-5 px-4 pb-2 min-[768px]:grid-cols-2 min-[1040px]:grid-cols-3 min-[1280px]:grid-cols-4 min-[1280px]:px-0">
-      {members.map((member) => (
-        <StaffCard key={member.name + member.role} member={member} />
+      {members.map((member, index) => (
+        <StaffCard index={index} key={member.name + member.role} member={member} />
       ))}
     </div>
   );
@@ -101,10 +103,12 @@ function StaffHeading({
 function SectionHeading({ badge, children }: { badge: string; children: ReactNode }) {
   return (
     <div className="flex w-full flex-col items-center gap-1 text-center">
-      <div className="mb-7">
+      <div className="mb-7" data-aos="fade-down">
         <SectionBadge label={badge} />
       </div>
-      {children}
+      <div data-aos="fade-up" className="w-full">
+        {children}
+      </div>
     </div>
   );
 }
@@ -124,14 +128,14 @@ function PrincipalSection() {
       className="mx-auto w-full max-w-[1200px] px-6 md:px-10"
     >
       <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-12">
-        <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-[24px] border-2 border-school-bg sm:h-[420px] lg:h-[420px] lg:w-[350px]">
+        <div data-aos="fade-right" className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-[24px] border-2 border-school-bg sm:h-[420px] lg:h-[420px] lg:w-[350px]">
           <img
             alt="Foto Kepala SMK Negeri 26 Jakarta"
             className="absolute inset-0 size-full max-w-none rounded-[24px] object-cover"
             src={principal.photo}
           />
         </div>
-        <div className="flex w-full flex-col items-start gap-8">
+        <div className="flex w-full flex-col items-start gap-8" data-aos="fade-left">
           <div className="flex flex-col items-start gap-1">
             <SectionBadge label="KEPALA SEKOLAH" />
             <h2
@@ -335,11 +339,15 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
       />
       <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
-          <img alt="" className="h-[17px] w-[13.6px]" src={figmaAssets.struktur.badgeIcon} />
-          STRUKTUR &amp; UNIT KERJA
-        </span>
+        <div data-aos="fade-down">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
+            <img alt="" className="h-[17px] w-[13.6px]" src={figmaAssets.struktur.badgeIcon} />
+            STRUKTUR &amp; UNIT KERJA
+          </span>
+        </div>
         <h1
+          data-aos="fade-up"
+          data-aos-delay="100"
           className="mt-4 max-w-[1000px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]"
           id="organization-title"
         >
@@ -350,21 +358,25 @@ function HeroSection() {
           <br />
           Ada Tim yang Membangun Bersama
         </h1>
-        <p className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
+        <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
           Kenali para pendidik dan tenaga kependidikan yang berperan dalam mendukung
           proses pembelajaran, pengembangan kompetensi, serta layanan di SMK Negeri 26
           Jakarta.
         </p>
-        <CtaLink className="mt-4" href="#organization-statistics">
-          Lihat Daftar Guru
-        </CtaLink>
+        <div data-aos="fade-up" data-aos-delay="260">
+          <CtaLink className="mt-4" href="#organization-statistics">
+            Lihat Daftar Guru
+          </CtaLink>
+        </div>
       </div>
       <div
         className="absolute bottom-0 left-1/2 z-30 grid w-[min(1200px,calc(100%-32px))] -translate-x-1/2 translate-y-1/2 overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:grid-cols-5 max-sm:grid-cols-2"
         id="organization-statistics"
       >
-        {statistics.map(([value, label]) => (
+        {statistics.map(([value, label], index) => (
           <div
+            data-aos="fade-up"
+            data-aos-delay={index * 80}
             className="flex min-h-[90px] flex-col items-center justify-center border-r border-dashed border-white/80 px-2 py-3 text-center last:border-r-0 max-sm:nth-[odd]:border-r max-sm:nth-[-n+4]:border-b sm:last:border-r-0"
             key={label}
           >

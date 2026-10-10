@@ -52,23 +52,29 @@ export function TeacherDirectoryPage({
           <div aria-hidden="true" className="absolute left-0 top-10 size-6 rounded-full bg-gradient-to-br from-[#4cbaf5] to-primary md:size-8" />
           <div aria-hidden="true" className="absolute right-0 top-6 size-6 rounded-full bg-gradient-to-br from-primary to-[#4cbaf5] md:size-8" />
           <div className="mx-auto max-w-[760px] text-center">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
-              <img alt="" className="size-2" src={figmaAssets.struktur.badgeIcon} />
-              PENDIDIK SMK NEGERI 26 JAKARTA
-            </span>
+            <div data-aos="fade-down">
+              <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
+                <img alt="" className="size-2" src={figmaAssets.struktur.badgeIcon} />
+                PENDIDIK SMK NEGERI 26 JAKARTA
+              </span>
+            </div>
             <h1
+              data-aos="fade-up"
+              data-aos-delay="100"
               className="mt-4 text-[28px] font-bold leading-9 text-ink sm:text-[38px] sm:leading-[48px]"
               id="teacher-directory-title"
             >
               Guru <span className={gradientText}>{title}</span>
             </h1>
-            <p className="mx-auto mt-2 max-w-[650px] text-xs leading-5 text-muted sm:text-sm sm:leading-6">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-2 max-w-[650px] text-xs leading-5 text-muted sm:text-sm sm:leading-6">
               {description}
             </p>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            {teachers.map((teacher) => (
-              <TeacherCard key={teacher.name + teacher.role} teacher={teacher} />
+            {teachers.map((teacher, index) => (
+              <div data-aos="fade-up" data-aos-delay={Math.min(index * 60, 360)} key={teacher.name + teacher.role}>
+                <TeacherCard teacher={teacher} />
+              </div>
             ))}
           </div>
         </section>

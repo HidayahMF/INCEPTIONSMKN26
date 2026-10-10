@@ -120,14 +120,16 @@ function ProfilePage() {
             />
           </div>
           <div className="relative z-10 mx-auto w-full max-w-[1025px] text-center">
-            <ProfileBadge>PROFIL SMK NEGERI 26 JAKARTA</ProfileBadge>
-            <h1 className="mt-6 text-[32px] font-bold leading-[42px] tracking-[-.02em] sm:text-4xl sm:leading-[54px] md:text-[48px] md:leading-[72px]">
+            <div data-aos="fade-down">
+              <ProfileBadge>PROFIL SMK NEGERI 26 JAKARTA</ProfileBadge>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-6 text-[32px] font-bold leading-[42px] tracking-[-.02em] sm:text-4xl sm:leading-[54px] md:text-[48px] md:leading-[72px]">
               Belajar, Bekerja,{" "}
               <span className="bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">
                 Membangun!
               </span>
             </h1>
-            <p className="mx-auto mt-5 max-w-[1025px] text-base font-medium leading-6 text-muted sm:mt-6 sm:text-[20px] sm:leading-[30px] max-md:max-w-[350px]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-5 max-w-[1025px] text-base font-medium leading-6 text-muted sm:mt-6 sm:text-[20px] sm:leading-[30px] max-md:max-w-[350px]">
               SMK Negeri 26 Jakarta merupakan sekolah menengah kejuruan yang
               berkomitmen membentuk generasi yang kompeten, berkarakter,
               inovatif, dan siap menghadapi dunia kerja serta perkembangan
@@ -146,6 +148,8 @@ function ProfilePage() {
               ["24", "Ekstrakulikuler"],
             ].map(([value, label], index) => (
               <div
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
                 className={`flex h-[90px] flex-col items-center justify-center border-r border-white/60 px-3 text-center last:border-r-0 max-md:h-auto max-md:min-h-[68px] max-md:border-b max-md:border-white/70 max-md:nth-[2n]:border-r-0 ${index === 4 ? "max-md:col-span-2 max-md:border-b-0" : ""}`}
                 key={label}
               >
@@ -164,7 +168,7 @@ function ProfilePage() {
 
         <section className="w-full bg-white py-16 md:py-[40px] max-md:mt-8">
           <div className="mx-auto grid min-h-[549px] min-w-0 w-full max-w-[1272px] px-6 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-0">
-            <div className="relative mx-auto h-auto w-full max-w-[538px]">
+            <div className="relative mx-auto h-auto w-full max-w-[538px]" data-aos="fade-right">
               <img
                 ref={overviewBottomRef}
                 aria-hidden="true"
@@ -185,7 +189,7 @@ function ProfilePage() {
                 alt="Lingkungan SMK Negeri 26 Jakarta"
               />
             </div>
-            <div className="min-w-0 md:pt-[30px]">
+            <div className="min-w-0 md:pt-[30px]" data-aos="fade-left">
               <h2 className="mt-5 max-w-none text-[clamp(24px,3.05vw,44px)] font-bold leading-[1.2] max-md:text-[32px] md:leading-[53.25px]">
                 Mengenal
                 <br />
@@ -227,16 +231,16 @@ function ProfilePage() {
 
         <section className="min-h-[1016px] min-w-0 overflow-hidden bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px] text-center">
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">
+            <h2 data-aos="fade-up" className="mt-5 text-[32px] font-bold leading-[48px]">
               <span className="text-primary-dark">Visi &amp; Misi</span>{" "}
               <span className="text-ink">Sekolah</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-[908px] text-lg leading-[30px] text-muted">
+            <p data-aos="fade-up" data-aos-delay="100" className="mx-auto mt-4 max-w-[908px] text-lg leading-[30px] text-muted">
               Menjadi landasan SMK Negeri 26 Jakarta dalam membentuk lulusan
               yang berkarakter, kompeten, inovatif, dan siap menghadapi
               perkembangan dunia kerja serta tantangan global.
             </p>
-            <div className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
+            <div data-aos="zoom-in" className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
                 className="pointer-events-none absolute right-0 top-0 h-full w-auto max-w-none object-contain"
                 src="/assets/figma/profile/VISI SEKOLAHujung.png"
@@ -269,16 +273,18 @@ function ProfilePage() {
               />
             </div>
             <div className="mt-16 text-center">
-              <ProfileBadge icon="/assets/figma/profile/icondisampingjudulvisimisi.png">
-                MISI SEKOLAH
-              </ProfileBadge>
-              <h3 className="mt-5 text-[32px] font-bold leading-[48px]">
+              <div data-aos="fade-down">
+                <ProfileBadge icon="/assets/figma/profile/icondisampingjudulvisimisi.png">
+                  MISI SEKOLAH
+                </ProfileBadge>
+              </div>
+              <h3 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
                 <span className="text-primary-dark">Delapan Langkah</span>{" "}
                 <span className="text-ink">
                   untuk Masa Depan yang Lebih Baik
                 </span>
               </h3>
-              <p className="mx-auto mt-4 max-w-[894px] text-lg leading-[30px] text-muted">
+              <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[894px] text-lg leading-[30px] text-muted">
                 Misi SMK Negeri 26 Jakarta diwujudkan melalui pembelajaran yang
                 berpusat pada murid, penguatan kompetensi, pemanfaatan
                 teknologi, serta kolaborasi dengan dunia industri.
@@ -286,6 +292,8 @@ function ProfilePage() {
               <div className="mt-8 grid items-start gap-3 md:grid-cols-2">
                 {missions.map(([number, title, description]) => (
                   <details
+                    data-aos="fade-up"
+                    data-aos-delay={Number(number) * 40}
                     className="group self-start overflow-hidden rounded-2xl border border-school-bg bg-white"
                     key={number}
                   >
@@ -324,11 +332,13 @@ function ProfilePage() {
         <section className="min-h-[701px] bg-gradient-to-br from-soft-blue via-primary to-primary-dark px-6 py-20 text-white md:px-10 md:py-[44px]">
           <div className="mx-auto w-[min(1272px,100%-32px)]">
             <div className="text-center">
-              <ProfileBadge>IDENTITAS SMK NEGERI 26 JAKARTA</ProfileBadge>
-              <h2 className="mt-5 text-[36px] font-bold leading-[54px]">
+              <div data-aos="fade-down">
+                <ProfileBadge>IDENTITAS SMK NEGERI 26 JAKARTA</ProfileBadge>
+              </div>
+              <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[36px] font-bold leading-[54px]">
                 Identitas yang Menjadi Karakter Kami
               </h2>
-              <p className="mx-auto mt-4 max-w-[872px] text-lg leading-[30px] text-white/85">
+              <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[872px] text-lg leading-[30px] text-white/85">
                 Nilai, semangat, dan prinsip yang menjadi bagian dari perjalanan
                 SMK Negeri 26 Jakarta dalam membentuk generasi yang siap
                 belajar, bekerja, dan membangun.
@@ -357,9 +367,11 @@ function ProfilePage() {
                   figmaAssets.profile.marsBackground,
                   figmaAssets.profile.marsTitle,
                 ],
-              ].map(([label, subtitle, description, image, titleImage]) => (
+              ].map(([label, subtitle, description, image, titleImage], index) => (
                 <article
                   id={label === "MARS" ? "mars" : undefined}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                   className="group relative h-[400px] w-full overflow-hidden rounded-3xl border-2 border-white/70 bg-white p-7 text-ink shadow-[0_4px_16px_rgba(15,23,42,.08)] md:w-[300px]"
                   key={label}
                 >
@@ -410,12 +422,14 @@ function ProfilePage() {
         <section className="min-h-[612px] bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px]">
             <div className="text-center">
-              <ProfileBadge>SEJARAH SMK NEGERI 26 JAKARTA</ProfileBadge>
-              <h2 className="mt-5 text-[32px] font-bold leading-[48px]">
+              <div data-aos="fade-down">
+                <ProfileBadge>SEJARAH SMK NEGERI 26 JAKARTA</ProfileBadge>
+              </div>
+              <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
                 Jejak Perjalanan{" "}
                 <span className="text-primary-dark">SMK Negeri 26 Jakarta</span>
               </h2>
-              <p className="mx-auto mt-4 max-w-[848px] text-lg leading-[30px] text-muted">
+              <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[848px] text-lg leading-[30px] text-muted">
                 Dari sekolah teknologi pembangunan hingga menjadi SMK Negeri 26
                 Jakarta, setiap perubahan menjadi bagian dari perjalanan dalam
                 membangun pendidikan vokasi.
@@ -430,6 +444,8 @@ function ProfilePage() {
               />
               {milestones.map(([year, title, description], index) => (
                 <article
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                   className={`relative z-10 min-w-0 px-4 md:min-h-[460px] ${index % 2 === 1 ? "md:pt-[260px]" : "md:pt-0"} ${index === 3 ? "md:pr-6" : ""}`}
                   key={year}
                 >

@@ -9,16 +9,17 @@ export function AdvantageDetailPage({ slug }: { slug: string }) {
     <div className="min-h-screen overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main className="mx-auto w-[min(1272px,100%-32px)] px-0 pb-24 pt-[140px] sm:pt-[160px]">
-        <a className="text-sm font-medium text-primary hover:underline" href="/#school-advantages">
+        <a className="text-sm font-medium text-primary hover:underline" data-aos="fade-right" href="/#school-advantages">
           ← Kembali ke Keunggulan
         </a>
         <section className="mt-8 grid overflow-hidden rounded-[32px] bg-white shadow-[0_4px_24px_rgba(15,23,42,.08)] lg:grid-cols-2">
           <img
+            data-aos="fade-right"
             className="h-[280px] w-full object-cover sm:h-[380px] lg:h-full lg:min-h-[540px]"
             src={advantage.image}
             alt={advantage.title}
           />
-          <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16">
+          <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16" data-aos="fade-left">
             <span className="w-fit rounded-full bg-light-blue px-3 py-1.5 text-sm font-medium text-primary">
               Keunggulan SMK Negeri 26 Jakarta
             </span>

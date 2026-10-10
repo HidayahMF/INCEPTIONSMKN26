@@ -197,7 +197,7 @@ function VideoProfileSection() {
         aria-hidden="true"
       />
       <div className="absolute left-1/2 top-11 z-[7] flex w-[872px] max-w-[calc(100%-32px)] -translate-x-1/2 flex-col items-center text-center max-md:top-10">
-        <span className="inline-flex items-center rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium leading-5 text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+        <span data-aos="fade-down" className="inline-flex items-center rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium leading-5 text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img
             className="mr-[7px] size-[17px]"
             src={figmaAssets.videoProfile.badgeIcon}
@@ -206,17 +206,19 @@ function VideoProfileSection() {
           VIDEO PROFILE
         </span>
         <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
           id="video-profile-title"
           className="my-[24px] mb-[10px] max-w-[720px] text-[36px] font-bold leading-[54px] text-white drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] max-md:mt-[18px] max-md:max-w-[320px] max-md:text-[28px] max-md:leading-[36px]"
         >
           Kenali SMKN 26 Jakarta lebih Dekat
         </h2>
-        <p className="w-[578px] max-w-full text-lg font-medium leading-[30px] text-white drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] max-md:text-base max-md:leading-[26px]">
+        <p data-aos="fade-up" data-aos-delay="180" className="w-[578px] max-w-full text-lg font-medium leading-[30px] text-white drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] max-md:text-base max-md:leading-[26px]">
           Satu sekolah, banyak cerita, dan langkah nyata untuk belajar, bekerja,
           dan membangun masa depan.
         </p>
       </div>
-      <div className="absolute left-1/2 top-[259px] z-[5] box-border h-[500px] w-[1000px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white max-[1271px]:w-[calc(100%-48px)] max-md:top-[270px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
+      <div data-aos="zoom-in" data-aos-delay="240" className="absolute left-1/2 top-[259px] z-[5] box-border h-[500px] w-[1000px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white max-[1271px]:w-[calc(100%-48px)] max-md:top-[270px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
         <img
           className="block size-full object-cover object-center"
           src={figmaAssets.videoProfile.preview}
@@ -295,11 +297,13 @@ function ProgramsSection() {
       aria-labelledby="programs-title"
     >
       <div className="section-intro mx-auto mb-[15px] w-[min(872px,100%)] text-center">
-        <span className="section-badge inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+        <span data-aos="fade-down" className="section-badge inline-flex rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img src={programBadgeIcon} alt="" />
           PROGRAM SMK NEGERI 26 JAKARTA
         </span>
         <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
           id="programs-title"
           className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
         >
@@ -308,13 +312,13 @@ function ProgramsSection() {
             di Luar Kelas
           </span>
         </h2>
-        <p className="mx-auto max-w-[774px] text-base leading-6 text-muted">
+        <p data-aos="fade-up" data-aos-delay="180" className="mx-auto max-w-[774px] text-base leading-6 text-muted">
           Ruang bagi siswa untuk mengembangkan kompetensi, pengalaman,
           kepemimpinan, dan potensi melalui berbagai program sekolah.
         </p>
       </div>
       <div className="program-grid grid h-[468px] grid-cols-[580px_580px] gap-6">
-        <article className="program-slider program-feature-card relative box-border h-[468px] w-[580px] overflow-hidden rounded-3xl border-4 border-white bg-white px-[22px] pt-[23px]">
+        <article data-aos="fade-right" data-aos-delay="200" className="program-slider program-feature-card relative box-border h-[468px] w-[580px] overflow-hidden rounded-3xl border-4 border-white bg-white px-[22px] pt-[23px]">
           <div
             className="program-panel-track flex h-[299px] w-max gap-6"
             style={{
@@ -361,7 +365,7 @@ function ProgramsSection() {
             </a>
           </div>
         </article>
-        <div className="program-cards grid grid-rows-[repeat(3,140px)] gap-5">
+        <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5">
           {programRightCards.map(([title, description, image]) => (
             <article
               className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]"
@@ -413,79 +417,89 @@ const bludCardTextWidth = [
 
 function BludSection() {
   return (
-    <section
-      className="blud-section relative mx-auto mt-[88px] h-[629px] w-[min(1272px,100%-32px)] overflow-visible bg-white p-0"
-      aria-labelledby="blud-title"
-    >
-      <div className="section-intro blud-intro relative mb-[42px] w-full text-left">
-        <div className="flex justify-center">
-          <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-            <img
-              className="h-[17px] w-[13.6px]"
-              src={figmaAssets.blud.badgeIcon}
-              alt=""
-            />
-            BELAJAR • BERKARYA • MENGHASILKAN
-          </span>
-        </div>
-        <h2
-          id="blud-title"
-          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
-        >
-          Belajar Melalui{" "}
-          <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
-            Pengalaman Nyata
-          </span>
-        </h2>
-        <p className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted">
-          Menghubungkan pembelajaran dengan pengalaman kerja melalui unit
-          produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.
-        </p>
-        <a
-          className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto"
-          href="/programs"
-        >
-          Jelajahi Ekstrakurikuler{" "}
-          <span
-            className="size-5 shrink-0 bg-white group-hover:bg-primary"
-            style={{
-              maskImage: `url(${programCtaArrow})`,
-              maskPosition: "center",
-              maskRepeat: "no-repeat",
-              maskSize: "contain",
-              WebkitMaskImage: `url(${programCtaArrow})`,
-              WebkitMaskPosition: "center",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskSize: "contain",
-            }}
-            aria-hidden="true"
-          />
-        </a>
-      </div>
-      <div className="blud-grid grid grid-cols-3 grid-rows-2 gap-6 overflow-visible max-md:grid-cols-1 max-md:grid-rows-none">
-        {bludCards.map(([name, description, href], index) => (
-          <a
-            className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
-            href={href}
-            key={name}
-          >
-            <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
+    <section className="relative mt-[88px] w-full bg-white py-14">
+      <div
+        className="blud-section relative mx-auto h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0"
+        aria-labelledby="blud-title"
+      >
+        <div className="section-intro blud-intro relative mb-[31px] w-full text-left">
+          <div className="flex justify-center">
+            <span data-aos="fade-down" className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
               <img
-                className="size-[29.455px]"
-                src={figmaAssets.blud.icons[index]}
+                className="h-[17px] w-[13.6px]"
+                src={figmaAssets.blud.badgeIcon}
                 alt=""
               />
+              BELAJAR • BERKARYA • MENGHASILKAN
             </span>
-            <h3 className="relative z-[1] m-0 bg-gradient-to-r from-primary-dark to-soft-blue bg-clip-text text-2xl leading-[29px] font-bold text-transparent min-[1600px]:mt-5 min-[1600px]:text-[30px] min-[1600px]:leading-9">
-              {name}
-            </h3>
-            <p
-              className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}
-            >
-              {description}
-            </p>
+          </div>
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            id="blud-title"
+            className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+          >
+            Belajar Melalui{" "}
+            <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
+              Pengalaman Nyata
+            </span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted">
+            Menghubungkan pembelajaran dengan pengalaman kerja melalui unit
+            produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.
+          </p>
+          <a
+            className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto"
+            href="/programs"
+          >
+            Jelajahi Ekstrakurikuler{" "}
+            <span
+              className="size-5 shrink-0 bg-white group-hover:bg-primary"
+              style={{
+                maskImage: `url(${programCtaArrow})`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+                WebkitMaskImage: `url(${programCtaArrow})`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+              }}
+              aria-hidden="true"
+            />
           </a>
-        ))}
+        </div>
+        <div className="blud-grid grid grid-cols-3 grid-rows-2 gap-6 overflow-visible max-md:grid-cols-1 max-md:grid-rows-none">
+          {bludCards.map(([name, description, href], index) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={Math.min(index * 80, 320)}
+              className="relative min-w-0"
+              key={name}
+            >
+              <a
+                className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
+                href={href}
+              >
+                <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
+                  <img
+                    className="size-[29.455px]"
+                    src={figmaAssets.blud.icons[index]}
+                    alt=""
+                  />
+                </span>
+                <h3 className="relative z-[1] m-0 bg-gradient-to-r from-primary-dark to-soft-blue bg-clip-text text-2xl leading-[29px] font-bold text-transparent min-[1600px]:mt-5 min-[1600px]:text-[30px] min-[1600px]:leading-9">
+                  {name}
+                </h3>
+                <p
+                  className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}
+                >
+                  {description}
+                </p>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -556,7 +570,7 @@ function AchievementsSection() {
       aria-labelledby="achievements-title"
     >
       <div className="mx-auto mb-12 w-[min(872px,100%)] text-center">
-        <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+        <span data-aos="fade-down" className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img
             className="h-[17px] w-[13.6px]"
             src={achievementBadgeIcon}
@@ -565,6 +579,8 @@ function AchievementsSection() {
           PRESTASI SMK NEGERI 26 JAKARTA
         </span>
         <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
           id="achievements-title"
           className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
         >
@@ -573,12 +589,12 @@ function AchievementsSection() {
             Prestasi Siswa
           </span>
         </h2>
-        <p className="mx-auto w-[774px] max-w-full text-base leading-6 text-muted">
+        <p data-aos="fade-up" data-aos-delay="180" className="mx-auto w-[774px] max-w-full text-base leading-6 text-muted">
           Berbagai pencapaian siswa menjadi bagian dari perjalanan SMK Negeri 26
           Jakarta dalam mengembangkan talenta dan potensi generasi muda.
         </p>
       </div>
-      <div className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0">
+      <div data-aos="fade-up" data-aos-delay="200" className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0">
         <button
           type="button"
           className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
@@ -650,7 +666,7 @@ function AchievementsSection() {
           />
         </button>
       </div>
-      <div className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
+      <div data-aos="fade-up" data-aos-delay="240" className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
         {[
           [
             "100+",
@@ -717,8 +733,6 @@ function NewsSection() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (track) track.scrollLeft = 180;
     let timer: number;
     const mark = () => {
       setIsScrolling(true);
@@ -770,11 +784,13 @@ function NewsSection() {
       aria-labelledby="news-title"
     >
       <div className="section-intro mx-auto w-[min(872px,100%)] text-center">
-        <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+        <span data-aos="fade-down" className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img className="h-[17px] w-[13.6px]" src={newsBadgeIcon} alt="" />
           BERITA SMK NEGERI 26 JAKARTA
         </span>
         <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
           id="news-title"
           className="mt-11 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
         >
@@ -794,47 +810,53 @@ function NewsSection() {
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
         >
-          {newsCards.map((card) => (
-            <a
-              className="news-card group relative box-border h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-none hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]"
-              href={`/news/${card.slug}`}
+          {newsCards.map((card, index) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={Math.min(index * 100, 400)}
+              className="shrink-0"
               key={card.title + card.date}
-              onClick={(event) => {
-                if (draggedRef.current) {
-                  event.preventDefault();
-                  draggedRef.current = false;
-                }
-              }}
             >
-              <img
-                className="absolute left-0 top-0 h-[176px] w-[396px] object-cover"
-                src={card.image}
-                alt=""
-                draggable={false}
-              />
-              <div className="absolute bottom-[18px] left-[18px] right-[18px] h-[83px] p-0">
-                <span className="absolute -left-0.5 -top-[37px] inline-flex items-center gap-1.5 rounded-full [background:linear-gradient(90deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] py-[5px] pr-3 pl-2.5 text-sm font-medium text-white">
-                  <img
-                    className="h-[17px] w-[17px] shrink-0"
-                    src={newsCategoryIcon}
-                    alt=""
-                  />
-                  {card.category}
-                </span>
-                <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">
-                  {card.title}
-                </h3>
-                <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">
-                  {card.date}
-                </time>
-              </div>
-            </a>
+              <a
+                className="news-card group relative box-border block h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-none hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]"
+                href={`/news/${card.slug}`}
+                onClick={(event) => {
+                  if (draggedRef.current) {
+                    event.preventDefault();
+                    draggedRef.current = false;
+                  }
+                }}
+              >
+                <img
+                  className="absolute left-0 top-0 h-[176px] w-[396px] object-cover"
+                  src={card.image}
+                  alt=""
+                  draggable={false}
+                />
+                <div className="absolute bottom-[18px] left-[18px] right-[18px] h-[83px] p-0">
+                  <span className="absolute -left-0.5 -top-[37px] inline-flex items-center gap-1.5 rounded-full [background:linear-gradient(90deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] py-[5px] pr-3 pl-2.5 text-sm font-medium text-white">
+                    <img
+                      className="h-[17px] w-[17px] shrink-0"
+                      src={newsCategoryIcon}
+                      alt=""
+                    />
+                    {card.category}
+                  </span>
+                  <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">
+                    {card.title}
+                  </h3>
+                  <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">
+                    {card.date}
+                  </time>
+                </div>
+              </a>
+            </div>
           ))}
         </div>
       </div>
-      <div className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
+      <div data-aos="fade-up" data-aos-delay="200" className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
         <button
-          className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark"
+          className="group pointer-events-auto grid h-12 w-12 shrink-0 cursor-pointer place-items-center rounded-full border border-slate-200 bg-white transition-colors hover:bg-primary-dark focus-visible:bg-primary-dark"
           type="button"
           aria-label="Berita sebelumnya"
           onClick={() => scrollByStep(-1)}
@@ -846,7 +868,7 @@ function NewsSection() {
           />
         </button>
         <button
-          className="group pointer-events-auto grid h-12 w-12 shrink-0 place-items-center rounded-full border border-slate-200 bg-white hover:bg-primary-dark focus-visible:bg-primary-dark"
+          className="group pointer-events-auto grid h-12 w-12 shrink-0 cursor-pointer place-items-center rounded-full border border-slate-200 bg-white transition-colors hover:bg-primary-dark focus-visible:bg-primary-dark"
           type="button"
           aria-label="Berita berikutnya"
           onClick={() => scrollByStep(1)}
@@ -912,12 +934,14 @@ function AiCtaSection({ onAskAi }: Props) {
       aria-labelledby="ai-cta-title"
     >
       <div className="relative mx-auto h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden">
-        <span className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+        <span data-aos="fade-down" className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
           <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
           TANYA PEMBANGUNAN.AI
         </span>
         <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px]">
           <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
             id="ai-cta-title"
             className="m-0 mb-3 text-4xl font-bold leading-[54px] text-ink"
           >
@@ -927,7 +951,7 @@ function AiCtaSection({ onAskAi }: Props) {
               SMK Negeri 26 Jakarta?
             </span>
           </h2>
-          <p className="text-lg font-medium leading-[30px] text-muted">
+          <p data-aos="fade-up" data-aos-delay="180" className="text-lg font-medium leading-[30px] text-muted">
             Temukan informasi tentang jurusan, program sekolah, fasilitas,
             pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama{" "}
             <strong className="font-bold text-primary-dark">

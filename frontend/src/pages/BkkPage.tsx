@@ -135,17 +135,21 @@ export function BkkPage() {
           />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.9)_0%,rgba(225,241,255,.08)_42%,rgba(0,108,220,.12)_100%)]" />
           <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-5 text-center sm:min-h-[700px] sm:px-8 sm:pt-9 lg:min-h-[760px] lg:px-16 lg:pt-12">
-            <Badge>BURSA KERJA KHUSUS</Badge>
-            <h1 className="mt-4 max-w-[1100px] text-[28px] font-bold leading-tight text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.2)] sm:text-4xl lg:text-[52px]">
+            <div data-aos="fade-down">
+              <Badge>BURSA KERJA KHUSUS</Badge>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1100px] text-[28px] font-bold leading-tight text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.2)] sm:text-4xl lg:text-[52px]">
               Buka Jalan Menuju{" "}
               <span className="text-primary">Dunia Industri</span>
             </h1>
-            <p className="mt-4 max-w-[760px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[760px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base">
               BKK SMK Negeri 26 Jakarta menjadi jembatan antara siswa dan dunia
               kerja melalui informasi peluang PKL, rekrutmen, serta koneksi
               dengan mitra industri.
             </p>
             <a
+              data-aos="fade-up"
+              data-aos-delay="260"
               className="group mt-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none focus-visible:outline-2 focus-visible:outline-white motion-reduce:transition-none"
               href="#peluang"
             >
@@ -173,8 +177,10 @@ export function BkkPage() {
             ["20+", "Ekstrakurikuler"],
             ["6", "Bidang Keahlian"],
             ["1", "Komunitas Sekolah"],
-          ].map(([value, label]) => (
+          ].map(([value, label], index) => (
             <div
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
               className="border-r border-dashed border-white/70 px-2 py-3 last:border-r-0 sm:py-4"
               key={label}
             >
@@ -187,11 +193,12 @@ export function BkkPage() {
         </section>
         <section className="mx-auto grid max-w-[1100px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img
+            data-aos="fade-right"
             className="mx-auto w-full max-w-[470px] object-contain"
             src={asset("Dynamic Youth Activities Group Portrait 1 (2).png")}
             alt="Siswa BKK SMKN 26 Jakarta"
           />
-          <div>
+          <div data-aos="fade-left">
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
               Bursa Kerja Khusus{" "}
               <span className="block text-primary">SMK Negeri 26 Jakarta</span>
@@ -207,18 +214,22 @@ export function BkkPage() {
         </section>
         <section className="bg-[#f3f7ff] px-5 py-14 sm:px-10 lg:py-[72px]">
           <div className="mx-auto max-w-[930px] text-center">
-            <Badge>PERAN BKK</Badge>
-            <h2 className="mt-4 text-[26px] font-bold leading-tight sm:text-[32px]">
+            <div data-aos="fade-down">
+              <Badge>PERAN BKK</Badge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[26px] font-bold leading-tight sm:text-[32px]">
               Peran BKK{" "}
               <span className="text-primary">SMK Negeri 26 Jakarta</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-[700px] text-sm leading-6 text-[#61708b] sm:text-base">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-[700px] text-sm leading-6 text-[#61708b] sm:text-base">
               Menghadirkan layanan yang membantu siswa mempersiapkan diri dan
               terhubung dengan dunia industri.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {services.map(([title, copy]) => (
+              {services.map(([title, copy], index) => (
                 <article
+                  data-aos="fade-up"
+                  data-aos-delay={index * 80}
                   className="flex min-h-[112px] items-start gap-4 rounded-[20px] bg-white px-4 py-4 text-left sm:px-5 sm:py-5"
                   key={title}
                 >
@@ -243,12 +254,14 @@ export function BkkPage() {
         </section>
         <section className="bg-[#f3f7ff] px-5 py-14 sm:px-10 lg:py-[72px]">
           <div className="mx-auto max-w-[1110px] text-center">
-            <Badge>ALUR BKK</Badge>
-            <h2 className="mt-4 text-[26px] font-bold leading-tight sm:text-[30px]">
+            <div data-aos="fade-down">
+              <Badge>ALUR BKK</Badge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[26px] font-bold leading-tight sm:text-[30px]">
               Langkah Menuju{" "}
               <span className="text-primary">Dunia Industri</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-[700px] text-sm leading-6 text-[#61708b] sm:text-base">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-[700px] text-sm leading-6 text-[#61708b] sm:text-base">
               Ikuti proses BKK mulai dari menemukan peluang hingga memantau
               perkembangan lamaran.
             </p>
@@ -256,6 +269,8 @@ export function BkkPage() {
               <div className="absolute left-[4%] right-[4%] top-[122px] hidden h-1 rounded-full bg-[#48b9f0] sm:block" />
               {steps.map(([number, title, copy], index) => (
                 <article
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                   className={`relative z-10 text-left sm:px-3 ${index % 2 === 1 ? "sm:pt-[160px]" : "sm:pb-[100px]"}`}
                   key={number}
                 >
@@ -277,29 +292,36 @@ export function BkkPage() {
         </section>
         <section id="peluang" className="bg-white px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1240px] text-center">
-            <Badge>PELUANG BKK</Badge>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Badge>PELUANG BKK</Badge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Temukan Peluang{" "}
               <span className="text-primary">untuk Berkembang</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
               Temukan berbagai peluang PKL, kerja, dan program industri yang
               sesuai dengan kompetensi kamu.
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {opportunities.map(
-                ([
-                  company,
-                  field,
-                  role,
-                  competency,
-                  location,
-                  period,
-                  deadline,
-                  image,
-                  logo,
-                ]) => (
+                (
+                  [
+                    company,
+                    field,
+                    role,
+                    competency,
+                    location,
+                    period,
+                    deadline,
+                    image,
+                    logo,
+                  ],
+                  index,
+                ) => (
                   <article
+                    data-aos="fade-up"
+                    data-aos-delay={Math.min(index * 60, 300)}
                     className="overflow-hidden rounded-[22px] border border-[#dce8f3] bg-white text-left shadow-[0_4px_12px_rgba(15,23,42,.08)]"
                     key={company}
                   >
@@ -380,12 +402,14 @@ export function BkkPage() {
         </section>
         <section className="px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1100px] text-center">
-            <Badge>MITRA INDUSTRI</Badge>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Badge>MITRA INDUSTRI</Badge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Terhubung dengan{" "}
               <span className="text-primary">Dunia Industri</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
               Membangun koneksi antara siswa, sekolah, dan mitra industri untuk
               membuka peluang masa depan.
             </p>

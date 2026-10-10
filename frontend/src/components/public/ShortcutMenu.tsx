@@ -21,40 +21,44 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
       onMouseLeave={() => setActiveShortcut(null)}
     >
       {imageShortcuts.map(([label, href, image], index) => (
-        <a
+        <div
           data-aos="fade-up"
           data-aos-delay={index * 80}
-          className={`group relative block h-[148px] min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === index ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : index === 0 ? "translate-y-px" : ""} ${activeShortcut === index && index === 0 ? "-translate-y-[6px]" : ""}`}
-          href={href}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          rel={href.startsWith("http") ? "noreferrer" : undefined}
-          aria-label={label}
+          className="min-w-0"
           key={label}
-          onFocus={() => setActiveShortcut(index)}
-          onMouseEnter={() => setActiveShortcut(index)}
+        >
+          <a
+            className={`group relative block h-[148px] min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === index ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === index ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : index === 0 ? "translate-y-px" : ""} ${activeShortcut === index && index === 0 ? "-translate-y-[6px]" : ""}`}
+            href={href}
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noreferrer" : undefined}
+            aria-label={label}
+            onFocus={() => setActiveShortcut(index)}
+            onMouseEnter={() => setActiveShortcut(index)}
+          >
+            <img
+              className="absolute inset-0 size-full object-cover"
+              src={image}
+              alt={`${label} shortcut`}
+            />
+          </a>
+        </div>
+      ))}
+      <div data-aos="fade-up" data-aos-delay="240" className="min-w-0">
+        <button
+          className={`group relative block h-[148px] w-full min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === 3 ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : ""}`}
+          onClick={onAskAi}
+          aria-label="Tanya AI"
+          onFocus={() => setActiveShortcut(3)}
+          onMouseEnter={() => setActiveShortcut(3)}
         >
           <img
             className="absolute inset-0 size-full object-cover"
-            src={image}
-            alt={`${label} shortcut`}
+            src={figmaAssets.shortcuts.aiChat}
+            alt="Tanya AI"
           />
-        </a>
-      ))}
-      <button
-         data-aos="zoom-in"
-         data-aos-delay="240"
-         className={`group relative block h-[148px] min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === 3 ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : ""}`}
-        onClick={onAskAi}
-        aria-label="Tanya AI"
-        onFocus={() => setActiveShortcut(3)}
-        onMouseEnter={() => setActiveShortcut(3)}
-      >
-        <img
-          className="absolute inset-0 size-full object-cover"
-          src={figmaAssets.shortcuts.aiChat}
-          alt="Tanya AI"
-        />
-      </button>
+        </button>
+      </div>
     </section>
   );
 }

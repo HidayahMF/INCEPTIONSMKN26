@@ -104,15 +104,19 @@ export function MarsPage() {
             aria-hidden="true"
           />
           <div className="absolute left-1/2 top-[112px] z-[7] flex w-[872px] max-w-[calc(100%-32px)] -translate-x-1/2 flex-col items-center text-center max-md:top-[96px]">
-            <MarsBadge>IDENTITAS SEKOLAH</MarsBadge>
+            <div data-aos="fade-down">
+              <MarsBadge>IDENTITAS SEKOLAH</MarsBadge>
+            </div>
             <h1
+              data-aos="fade-up"
+              data-aos-delay="100"
               id="mars-title"
               className="my-[24px] mb-[10px] text-[36px] font-bold leading-[54px] max-md:mt-[18px] max-md:text-[30px] max-md:leading-[42px]"
             >
               <span className="text-primary-dark">MARS</span> SMK Negeri 26
               Jakarta
             </h1>
-            <p className="w-[578px] max-w-full text-lg font-medium leading-[30px] text-muted max-md:text-base max-md:leading-[26px]">
+            <p data-aos="fade-up" data-aos-delay="180" className="w-[578px] max-w-full text-lg font-medium leading-[30px] text-muted max-md:text-base max-md:leading-[26px]">
               Sebuah lagu yang merepresentasikan semangat, perjuangan, dan
               kebanggaan keluarga besar SMK Negeri 26 Jakarta.
             </p>
@@ -123,7 +127,7 @@ export function MarsPage() {
             alt=""
             aria-hidden="true"
           />
-          <div className="absolute left-1/2 top-[300px] z-[5] box-border h-[450px] w-[900px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_12px_40px_rgba(15,23,42,.12)] max-[1271px]:w-[calc(100%-48px)] max-md:top-[230px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
+          <div data-aos="zoom-in" data-aos-delay="260" className="absolute left-1/2 top-[300px] z-[5] box-border h-[450px] w-[900px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_12px_40px_rgba(15,23,42,.12)] max-[1271px]:w-[calc(100%-48px)] max-md:top-[230px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
             <img
               className="block size-full object-cover object-center"
               src={figmaAssets.videoProfile.preview}
@@ -174,13 +178,15 @@ export function MarsPage() {
 
         <section className="min-h-[500px] bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px] text-center">
-            <MarsBadge>TENTANG MARS</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">
+            <div data-aos="fade-down">
+              <MarsBadge>TENTANG MARS</MarsBadge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
               <span className="text-ink">Derap Langkah</span>{" "}
               <span className="text-primary-dark">Cita Bersama</span>
             </h2>
 
-            <div className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
+            <div data-aos="zoom-in" className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
                 className="pointer-events-none absolute right-[-18%] top-0 h-full w-auto max-w-[58%] object-contain opacity-60 md:right-0 md:max-w-none md:opacity-100"
                 src="/assets/figma/profile/VISI SEKOLAHujung.png"
@@ -219,17 +225,19 @@ export function MarsPage() {
           className="mx-auto min-h-[696px] w-[min(1272px,100%-32px)] py-20 md:py-24"
         >
           <div className="text-center">
-            <MarsBadge>LIRIK MARS</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px]">
+            <div data-aos="fade-down">
+              <MarsBadge>LIRIK MARS</MarsBadge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
               <span className="text-primary-dark">Lirik Mars</span>{" "}
               <span className="text-ink">SMK Negeri 26 Jakarta</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-[900px] text-lg leading-[30px] text-muted">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[900px] text-lg leading-[30px] text-muted">
               Derap langkah cita bersama, menjadi pengingat semangat untuk terus
               belajar, bekerja, dan membangun.
             </p>
             <div className="mx-auto mt-10 grid max-w-[1272px] gap-8 text-left md:grid-cols-2 md:gap-9">
-              <div className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
+              <div data-aos="fade-right" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
                 <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
                   {`Derap Langkah Cita Bersama
 Belajar bekerja membangun bangsa
@@ -250,7 +258,7 @@ Janji kami di gerbang hati
 Demi sekolah yang kucintai`}
                 </p>
               </div>
-              <div className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
+              <div data-aos="fade-left" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
                 <span className="inline-flex rounded-full bg-primary-dark px-5 py-2 text-base font-bold text-white">
                   Reff:
                 </span>
@@ -270,12 +278,14 @@ Pasti SMK Negeri 26 jayalah terus`}
 
         <section className="min-h-[575px] bg-white px-6 py-20 md:px-10 md:py-24">
           <div className="mx-auto max-w-[1272px] text-center">
-            <MarsBadge>PENCIPTA MARS</MarsBadge>
-            <h2 className="mt-5 text-[32px] font-bold leading-[48px] text-ink max-md:text-[28px] max-md:leading-[40px]">
+            <div data-aos="fade-down">
+              <MarsBadge>PENCIPTA MARS</MarsBadge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px] text-ink max-md:text-[28px] max-md:leading-[40px]">
               <span className="text-primary-dark">Diciptakan untuk</span> SMK
               Negeri 26 Jakarta
             </h2>
-            <p className="mx-auto mt-4 max-w-[858px] text-lg leading-[30px] text-muted max-md:text-base max-md:leading-7">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[858px] text-lg leading-[30px] text-muted max-md:text-base max-md:leading-7">
               MARS SMK Negeri 26 Jakarta lahir dari dedikasi dan kecintaan
               terhadap sekolah, sebagai wujud semangat untuk terus melangkah,
               belajar, bekerja, dan membangun masa depan bersama.
@@ -284,8 +294,10 @@ Pasti SMK Negeri 26 jayalah terus`}
               {[
                 ["Bu Derliana", figmaAssets.profile.creatorBuDerliana],
                 ["Pak Sutaryo", figmaAssets.profile.creatorPakSutaryo],
-              ].map(([name, image]) => (
+              ].map(([name, image], index) => (
                 <article
+                  data-aos="fade-up"
+                  data-aos-delay={index * 120}
                   className="group relative flex flex-col items-center rounded-[28px] bg-white px-8 py-6 text-center shadow-[0_8px_24px_rgba(15,23,42,.08)] md:min-h-[156px] md:flex-row md:items-center md:py-0 md:pl-[208px] md:pr-6 md:text-left"
                   key={name}
                 >
@@ -316,16 +328,18 @@ Pasti SMK Negeri 26 jayalah terus`}
 
         <section className="min-h-[578px] bg-[#F4F8FF] px-6 py-14 text-ink md:px-10 md:py-16">
           <div className="mx-auto max-w-[1272px] text-center">
-            <MarsBadge>SEMANGAT YANG KAMI BAWA</MarsBadge>
-            <h2 className="mt-5 text-[40px] font-bold leading-[52px] max-md:text-[30px] max-md:leading-10">
+            <div data-aos="fade-down">
+              <MarsBadge>SEMANGAT YANG KAMI BAWA</MarsBadge>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[40px] font-bold leading-[52px] max-md:text-[30px] max-md:leading-10">
               BELAJAR, BEKERJA,{" "}
               <span className="text-primary-dark">MEMBANGUN</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-[887px] text-lg leading-[30px] text-[#5b7098] max-md:text-base max-md:leading-7">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[887px] text-lg leading-[30px] text-[#5b7098] max-md:text-base max-md:leading-7">
               Derap langkah cita bersama, menjadi pengingat semangat untuk terus
               belajar, bekerja, dan membangun.
             </p>
-            <div className="mt-8 grid gap-6 text-left md:grid-cols-3">
+            <div data-aos="fade-up" data-aos-delay="240" className="mt-8 grid gap-6 text-left md:grid-cols-3">
               {[
                 [
                   "Belajar",

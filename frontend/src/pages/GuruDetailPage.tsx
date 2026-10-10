@@ -93,9 +93,9 @@ const categoryContent: Record<StaffCategory, CategoryContent> = {
   },
 };
 
-function DetailCard({ title, description }: { title: string; description: string }) {
+function DetailCard({ title, description, index = 0 }: { title: string; description: string; index?: number }) {
   return (
-    <article className="min-h-[150px] rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_12px_rgba(15,23,42,.04)] sm:p-6">
+    <article data-aos="fade-up" data-aos-delay={index * 90} className="min-h-[150px] rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_12px_rgba(15,23,42,.04)] sm:p-6">
       <div className="grid size-10 place-items-center rounded-full bg-primary text-white">
         <img alt="" className="size-5 brightness-0 invert" src={figmaAssets.majors.educationIcon} />
       </div>
@@ -135,12 +135,13 @@ export function GuruDetailPage({
           />
           <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-9">
             <img
+              data-aos="fade-right"
               alt={`Foto ${teacher.name}`}
               className="mx-auto aspect-[304.779/354] w-full max-w-[305px] rounded-[14px] object-cover object-top lg:w-[230px]"
               draggable={false}
               src={teacher.photo}
             />
-            <div className="min-w-0 max-w-[700px]">
+            <div className="min-w-0 max-w-[700px]" data-aos="fade-left">
               <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
                 <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.badge}
               </span>
@@ -161,17 +162,19 @@ export function GuruDetailPage({
         </section>
         <section className="mx-auto mt-12 max-w-[1180px]">
           <div className="mb-4 text-center sm:text-left">
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-              <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
-            </span>
-            <h2 className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">
+            <div data-aos="fade-down">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+                <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
+              </span>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">
               {content.sectionTitle} <span className="text-primary">{content.sectionAccent}</span>
             </h2>
-            <p className="mt-2 max-w-[760px] text-sm leading-6 text-muted">{content.sectionDescription}</p>
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-2 max-w-[760px] text-sm leading-6 text-muted">{content.sectionDescription}</p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
-            {content.cards.map(([title, description]) => (
-              <DetailCard description={description} key={title} title={title} />
+            {content.cards.map(([title, description], index) => (
+              <DetailCard description={description} index={index} key={title} title={title} />
             ))}
           </div>
           <a className="mt-7 inline-flex rounded-full bg-[linear-gradient(90deg,#006cdc,#0092ff,#4cbaf5)] px-5 py-2.5 text-sm font-bold text-white hover:brightness-110 focus-visible:outline-2 focus-visible:outline-primary" href={backHref}>

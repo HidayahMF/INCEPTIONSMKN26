@@ -81,12 +81,14 @@ export function KgsPage() {
             />
             <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
               <div className="max-w-[700px] text-white">
-                <Label>JURUSAN KGS</Label>
-                <h1 className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
+                <div data-aos="fade-down">
+                  <Label>JURUSAN KGS</Label>
+                </div>
+                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
                   Konstruksi{" "}
                   <span className="text-[#FF3239]">Gedung &amp; Sanitasi</span>
                 </h1>
-                <p className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">
+                <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">
                   Membekali siswa dengan pengetahuan dan keterampilan dalam bidang
                   konstruksi gedung, gambar bangunan, pekerjaan konstruksi, hingga
                   sistem sanitasi untuk menghadapi kebutuhan dunia kerja dan
@@ -104,8 +106,10 @@ export function KgsPage() {
               ["8+", "Mitra Industri"],
               ["288+", "Siswa"],
               ["15+", "Prestasi KGS"],
-            ].map(([value, label]) => (
+            ].map(([value, label], index) => (
               <div
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
                 className="border-r border-white/40 px-2 py-3 last:border-0 sm:py-4"
                 key={label}
               >
@@ -121,11 +125,12 @@ export function KgsPage() {
         <section className="bg-white">
           <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img
+            data-aos="fade-right"
             className="mx-auto w-full max-w-[470px] object-contain"
             src={asset("mengenal.png")}
             alt="Siswa Konstruksi Gedung dan Sanitasi"
           />
-          <div>
+          <div data-aos="fade-left">
             <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
               Mengenal
               <br />
@@ -150,19 +155,23 @@ export function KgsPage() {
 
         <section className="px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
-            <Label>KOMPETENSI UTAMA</Label>
-            <h2 className="mt-4 text-[26px] font-bold sm:text-[34px]">
+            <div data-aos="fade-down">
+              <Label>KOMPETENSI UTAMA</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[26px] font-bold sm:text-[34px]">
               Kompetensi{" "}
               <span className="text-[#D40009]">yang Dipelajari</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-[760px] text-sm leading-6 text-[#61708b] sm:text-base sm:leading-7">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-[760px] text-sm leading-6 text-[#61708b] sm:text-base sm:leading-7">
               Siswa KGS mengembangkan berbagai keterampilan yang menjadi dasar
               untuk melanjutkan pendidikan, memasuki dunia kerja, maupun
               mengembangkan usaha di bidang konstruksi.
             </p>
             <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {competencies.map((item) => (
+              {competencies.map((item, index) => (
                 <div
+                  data-aos="zoom-in"
+                  data-aos-delay={Math.min(index * 60, 360)}
                   className="flex items-center gap-3 rounded-2xl bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,23,42,.05)] sm:px-5"
                   key={item}
                 >
@@ -183,16 +192,19 @@ export function KgsPage() {
 
         <section className="px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
-            <Label>ROADMAP PEMBELAJARAN</Label>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Label>ROADMAP PEMBELAJARAN</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Dari Dasar hingga Siap Berkarya{" "}
               <span className="text-[#D40009]">#Program4Tahun</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
               Empat tahun perjalanan untuk mengenal, mengembangkan, menerapkan,
               dan menguji kompetensi di dunia industri.
             </p>
             <img
+              data-aos="zoom-in"
               className="mx-auto mt-8 w-full max-w-[1140px] object-contain"
               src={asset("kompetensi.png")}
               alt="Roadmap pembelajaran KGS dari kelas X hingga kelas XIII"
@@ -202,23 +214,28 @@ export function KgsPage() {
 
         <section className="px-5 py-12 sm:px-10 lg:py-16">
           <div className="mx-auto max-w-[1200px] text-center">
-            <Label>KEGIATAN PEMBELAJARAN</Label>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Label>KEGIATAN PEMBELAJARAN</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Belajar Tidak Hanya di{" "}
               <span className="text-[#D40009]">Dalam Kelas</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm text-[#61708b]">
               Pengalaman belajar KGS hadir melalui perpaduan teori, praktik,
               proyek, dan kegiatan yang memberikan gambaran nyata mengenai dunia
               konstruksi.
             </p>
             <div className="mx-auto mt-8 grid max-w-[1100px] gap-3">
               <img
+                data-aos="fade-up"
                 className="h-auto w-full rounded-2xl object-contain"
                 src={asset("Dokumentasi Pembelajaranatas.png")}
                 alt="Dokumentasi pembelajaran KGS baris pertama"
               />
               <img
+                data-aos="fade-up"
+                data-aos-delay="100"
                 className="h-auto w-full rounded-2xl object-contain"
                 src={asset("Dokumentasi Pembelajaranbawah.png")}
                 alt="Dokumentasi pembelajaran KGS baris kedua"
@@ -229,10 +246,12 @@ export function KgsPage() {
 
         <section className="px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
-            <Label>CIRI KHAS KGS</Label>
+            <div data-aos="fade-down">
+              <Label>CIRI KHAS KGS</Label>
+            </div>
           </div>
           <div className="mx-auto mt-8 grid max-w-[1140px] items-center gap-8 sm:gap-12 lg:grid-cols-2">
-            <div className="text-left">
+            <div className="text-left" data-aos="fade-right">
               <h2 className="text-[26px] font-bold leading-[1.15] sm:text-[34px]">
                 Identitas{" "}
                 <span className="text-[#D40009]">
@@ -249,6 +268,7 @@ export function KgsPage() {
               </p>
             </div>
             <img
+              data-aos="fade-left"
               className="mx-auto w-full max-w-[460px] object-contain"
               src={asset("mengenal.png")}
               alt="Identitas siswa KGS dengan wearpack"
@@ -258,19 +278,23 @@ export function KgsPage() {
 
         <section className="px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1200px] text-center">
-            <Label>PRESTASI SISWA</Label>
-            <h2 className="mt-4 text-[26px] font-bold sm:text-[34px]">
+            <div data-aos="fade-down">
+              <Label>PRESTASI SISWA</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[26px] font-bold sm:text-[34px]">
               Prestasi yang Dibangun{" "}
               <span className="text-[#D40009]">dari Kompetensi</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-[760px] text-sm leading-6 text-[#61708b] sm:text-base sm:leading-7">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-[760px] text-sm leading-6 text-[#61708b] sm:text-base sm:leading-7">
               Kenali perusahaan dan institusi yang menjadi bagian dari
               kolaborasi SMK Negeri 26 Jakarta dalam mendukung kesiapan siswa
               menghadapi dunia kerja.
             </p>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {students.map(([name, achievement, photo]) => (
+              {students.map(([name, achievement, photo], index) => (
                 <article
+                  data-aos="fade-up"
+                  data-aos-delay={index * 80}
                   className="overflow-hidden rounded-[20px] bg-white text-left shadow-[0_4px_16px_rgba(15,23,42,.06)]"
                   key={name}
                 >
@@ -308,11 +332,13 @@ export function KgsPage() {
         />
 
         <section className="bg-[linear-gradient(90deg,#FF3239,#D40009_50%,#B50008)] px-6 py-14 text-center text-white sm:px-10 lg:py-16">
-          <Label>ALUMNI KGS</Label>
-          <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+          <div data-aos="fade-down">
+            <Label>ALUMNI KGS</Label>
+          </div>
+          <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
             Dari KGS, Melangkah Lebih Jauh
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/85">
+          <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-xl text-sm text-white/85">
             Kompetensi yang diperoleh selama belajar menjadi bekal bagi alumni
             untuk melanjutkan pendidikan, memasuki dunia kerja, maupun
             mengembangkan karier di bidang konstruksi.
@@ -336,6 +362,7 @@ export function KgsPage() {
             >
               {alumni.map(([name, photo, batch, work, quote]) => (
                 <article
+                  data-aos="fade-up"
                   className="flex w-[85%] shrink-0 items-start gap-4 rounded-2xl bg-white p-4 text-left text-[#10182b] sm:gap-5 sm:p-5 md:w-[calc(50%-10px)]"
                   key={name}
                 >

@@ -129,16 +129,18 @@ export function EkstrakurikulerPage() {
             alt="Siswa SMKN 26 Jakarta"
           />
           <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-5 text-center sm:min-h-[700px] sm:px-8 sm:pt-9 lg:min-h-[760px] lg:px-16 lg:pt-12">
-            <Label>EKSTRAKURIKULER</Label>
-            <h1 className="mt-4 max-w-[1100px] whitespace-nowrap text-[26px] font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-4xl lg:text-[52px]">
+            <div data-aos="fade-down">
+              <Label>EKSTRAKURIKULER</Label>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1100px] whitespace-nowrap text-[26px] font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-4xl lg:text-[52px]">
               Temukan Minat, <span className="text-primary">Kembangkan Potensi</span>
             </h1>
-            <p className="mt-4 max-w-[940px] text-lg leading-[1.75] text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] lg:text-xl">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[940px] text-lg leading-[1.75] text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] lg:text-xl">
               SMKN 26 Jakarta menyediakan berbagai kegiatan ekstrakurikuler
               sebagai ruang bagi siswa untuk mengembangkan minat, bakat,
               keterampilan, dan pengalaman di luar pembelajaran akademik.
             </p>
-            <CtaLink className="mt-5" href="#pilihan-ekstrakurikuler">
+            <CtaLink data-aos="fade-up" data-aos-delay="260" className="mt-5" href="#pilihan-ekstrakurikuler">
               Jelajahi Ekstrakurikuler
             </CtaLink>
           </div>
@@ -148,8 +150,10 @@ export function EkstrakurikulerPage() {
             ["20+", "Ekstrakurikuler"],
             ["6", "Bidang Keahlian"],
             ["1", "Komunitas Sekolah"],
-          ].map(([value, label]) => (
+          ].map(([value, label], index) => (
             <div
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
               className="border-r border-dashed border-white/70 px-2 py-3 last:border-r-0 sm:py-4"
               key={label}
             >
@@ -162,11 +166,12 @@ export function EkstrakurikulerPage() {
         </section>
         <section className="mx-auto grid max-w-[1100px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img
+            data-aos="fade-right"
             className="mx-auto w-full max-w-[498px] object-contain"
             src={asset("image 2 (2).png")}
             alt="Siswa mengikuti kegiatan sekolah"
           />
-          <div>
+          <div data-aos="fade-left">
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
               Berkembang di Dalam dan{" "}
               <span className="text-primary">di Luar Kelas</span>
@@ -185,17 +190,19 @@ export function EkstrakurikulerPage() {
         >
           <div className="mx-auto max-w-[1140px]">
             <div className="text-center">
-              <Label>PILIHAN EKSTRAKURIKULER</Label>
-              <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+              <div data-aos="fade-down">
+                <Label>PILIHAN EKSTRAKURIKULER</Label>
+              </div>
+              <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
                 Temukan <span className="text-primary">Kegiatanmu</span>
               </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+              <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
                 Beragam pilihan kegiatan tersedia untuk memberikan ruang bagi
                 siswa dalam mengembangkan minat dan bakat sesuai dengan potensi
                 masing-masing.
               </p>
             </div>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div data-aos="fade-up" className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {activities.map(([title, description]) => (
                 <article
                   className="min-h-[132px] rounded-2xl border border-[#deebf7] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.04)] transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)]"

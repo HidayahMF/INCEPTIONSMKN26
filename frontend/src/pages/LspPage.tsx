@@ -62,18 +62,22 @@ export function LspPage() {
             alt=""
           />
           <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-[700px] sm:px-8 sm:pt-6 lg:min-h-[760px] lg:px-16 lg:pb-48 lg:pt-4">
-            <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
-            <h1 className="mt-4 max-w-[800px] text-4xl font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-5xl lg:text-[54px]">
+            <div data-aos="fade-down">
+              <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[800px] text-4xl font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-5xl lg:text-[54px]">
               Lembaga Sertifikasi <span className="text-primary">Profesi</span>
             </h1>
-            <p className="mt-4 max-w-[790px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base sm:leading-7">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[790px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base sm:leading-7">
               Lembaga Sertifikasi Profesi (LSP) SMKN 26 Jakarta hadir sebagai
               bagian dari proses pengakuan kompetensi siswa melalui sertifikasi
               profesi yang sesuai dengan bidang keahliannya.
             </p>
-            <CtaLink className="mt-5" href="#skema-sertifikasi">
-              Lihat Skema Sertifikasi
-            </CtaLink>
+            <div data-aos="fade-up" data-aos-delay="260">
+              <CtaLink className="mt-5" href="#skema-sertifikasi">
+                Lihat Skema Sertifikasi
+              </CtaLink>
+            </div>
           </div>
         </section>
         <section className="relative z-20 mx-auto -mt-8 grid w-[calc(100%-32px)] max-w-[1200px] grid-cols-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#48b9f0] via-[#0092ff] to-[#006cdc] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10 sm:grid-cols-4">
@@ -82,8 +86,10 @@ export function LspPage() {
             ["13+", "Skema Sertifikasi"],
             ["500+", "Peserta Tersertifikasi"],
             ["10+ Tahun", "Pengalaman"],
-          ].map(([value, label]) => (
+          ].map(([value, label], index) => (
             <div
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
               className="border-b border-r border-dashed border-white/70 px-2 py-3 sm:py-4"
               key={label}
             >
@@ -97,11 +103,12 @@ export function LspPage() {
         <section className="bg-white px-6 py-14 sm:px-10 lg:py-[72px]">
           <div className="mx-auto grid max-w-[1080px] items-center gap-8 md:grid-cols-[.92fr_1.08fr] md:gap-12 lg:gap-16">
             <img
+              data-aos="fade-right"
               className="mx-auto w-full max-w-[500px] object-contain"
               src={asset("image 2 (2).png")}
               alt="Siswa SMKN 26 Jakarta mengikuti sertifikasi profesi"
             />
-            <div>
+            <div data-aos="fade-left">
               <h2 className="text-[34px] font-bold leading-[1.08] sm:text-[42px]">
                 Lembaga
                 <br />
@@ -119,15 +126,15 @@ export function LspPage() {
         </section>
         <section className="bg-[#f3f7ff] px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
-            <h2 className="text-2xl font-bold sm:text-3xl">
+            <h2 data-aos="fade-up" className="text-2xl font-bold sm:text-3xl">
               <span className="text-primary">Visi</span> &amp;{" "}
               <span className="text-primary">Misi</span> LSP
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="100" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
               LSP SMKN 26 Jakarta memiliki visi dan misi sebagai landasan dalam
               pelaksanaan sertifikasi kompetensi bagi peserta didik.
             </p>
-            <div className="mt-7 grid gap-5 md:grid-cols-2">
+            <div data-aos="fade-up" data-aos-delay="180" className="mt-7 grid gap-5 md:grid-cols-2">
               <article className="group relative min-h-[275px] overflow-hidden rounded-[24px] bg-white p-6 text-left shadow-[0_4px_16px_rgba(15,23,42,.05)] transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(15,23,42,.1)]">
                 <div className="relative z-10 max-w-[calc(100%-120px)]">
                   <div className="flex items-center gap-2">
@@ -186,18 +193,22 @@ export function LspPage() {
           className="px-5 py-14 sm:px-10 lg:py-20"
         >
           <div className="mx-auto max-w-[1140px] text-center">
-            <Label>SKEMA SERTIFIKASI</Label>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Label>SKEMA SERTIFIKASI</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Pilih Skema, Buktikan{" "}
               <span className="text-primary">Kompetensi!</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
               Skema sertifikasi menjadi bagian penting dalam proses pengakuan
               kompetensi siswa sesuai dengan bidang keahlian yang dipelajari.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {schemes.map(([title, image, href]) => (
+              {schemes.map(([title, image, href], index) => (
                 <a
+                  data-aos="zoom-in"
+                  data-aos-delay={Math.min(index * 60, 300)}
                   className="group relative overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(15,23,42,.08)]"
                   href={href}
                   key={title}
@@ -214,17 +225,20 @@ export function LspPage() {
         </section>
         <section className="bg-white px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
-            <Label>UJI SERTIFIKASI KOMPETENSI</Label>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
+            <div data-aos="fade-down">
+              <Label>UJI SERTIFIKASI KOMPETENSI</Label>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
               Uji Kompetensi,{" "}
               <span className="text-primary">Raih Pengakuan</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
               Uji Sertifikasi Kompetensi merupakan proses untuk mengukur dan
               membuktikan kemampuan siswa sesuai dengan kompetensi yang telah
               dipelajari selama proses pendidikan.
             </p>
             <img
+              data-aos="zoom-in"
               className="mx-auto mt-8 w-full max-w-[1272px] object-contain"
               src={asset("Alur LSP.png")}
               alt="Alur uji sertifikasi kompetensi LSP"
