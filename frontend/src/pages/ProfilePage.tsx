@@ -12,34 +12,34 @@ const missions = [
     "Menanamkan nilai-nilai keimanan dan ketakwaan terhadap Tuhan Yang Maha Esa, kewargaan, penalaran kritis, kreativitas, kemandirian, kolaborasi, kesehatan, serta komunikasi.",
   ],
   [
-    "05",
-    "Profesionalisme Pendidik",
-    "Mengembangkan kompetensi keahlian sesuai kebutuhan dunia usaha/dunia industri (DUDI) melalui teaching factory, magang, guru tamu, dan sertifikasi.",
-  ],
-  [
     "02",
     "Kompetensi Keahlian",
-    "Menyelenggarakan pembelajaran mendalam yang berpusat pada murid untuk mengembangkan kemampuan berpikir kritis, kreatif, inovatif, kolaboratif, dan komunikatif.",
-  ],
-  [
-    "06",
-    "Kemitraan Strategis",
-    "Mengintegrasikan teknologi digital dan proyek nyata dalam proses pembelajaran.",
+    "Mengembangkan kompetensi keahlian sesuai kebutuhan dunia usaha/dunia industri (DUDI) melalui teaching factory, magang, guru tamu, dan sertifikasi.",
   ],
   [
     "03",
     "Pembelajaran Berpusat",
-    "Meningkatkan profesionalisme pendidik dan tenaga kependidikan melalui pendidikan/pelatihan, inovasi pembelajaran dan penguasaan teknologi terkini.",
-  ],
-  [
-    "07",
-    "Teknologi & Proyek Nyata",
-    "Membangun kemitraan strategis dengan dunia usaha/dunia industri (DUDI), perguruan tinggi, dan masyarakat untuk mendukung pembelajaran kontekstual dan berkelanjutan.",
+    "Menyelenggarakan pembelajaran mendalam yang berpusat pada murid untuk mengembangkan kemampuan berpikir kritis, kreatif, inovatif, kolaboratif, dan komunikatif.",
   ],
   [
     "04",
     "Kemampuan Bahasa Asing",
     "Meningkatkan kemampuan berbahasa asing murid guna mendukung lulusan yang berdaya saing global.",
+  ],
+  [
+    "05",
+    "Profesionalisme Pendidik",
+    "Meningkatkan profesionalisme pendidik dan tenaga kependidikan melalui pendidikan/pelatihan, inovasi pembelajaran dan penguasaan teknologi terkini.",
+  ],
+  [
+    "06",
+    "Kemitraan Strategis",
+    "Membangun kemitraan strategis dengan dunia usaha/dunia industri (DUDI), perguruan tinggi, dan masyarakat untuk mendukung pembelajaran kontekstual dan berkelanjutan.",
+  ],
+  [
+    "07",
+    "Teknologi & Proyek Nyata",
+    "Mengintegrasikan teknologi digital dan proyek nyata dalam proses pembelajaran.",
   ],
   [
     "08",
@@ -97,10 +97,10 @@ function ProfilePage() {
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main>
-        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[610px] max-md:overflow-hidden max-md:pt-[126px] md:px-16">
-          <div className="pointer-events-none absolute left-0 top-[clamp(72px,5vw,110px)] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-[205px] max-md:w-[180%] max-md:max-w-none max-md:-translate-x-1/2">
+        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[660px] max-md:overflow-hidden max-md:pt-[126px] md:px-16">
+          <div className="pointer-events-none absolute left-0 top-[clamp(72px,5vw,110px)] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-auto max-md:bottom-[6px] max-md:w-[150%] max-md:aspect-[1440/433] max-md:max-w-none max-md:-translate-x-1/2">
             <img
-              className="absolute inset-0 size-full object-contain object-top"
+              className="absolute inset-0 size-full object-contain object-top max-md:object-cover max-md:object-bottom"
               src="/assets/figma/profile/profile-hero-bg.png"
               alt="Gedung SMK Negeri 26 Jakarta"
             />
@@ -167,7 +167,7 @@ function ProfilePage() {
         </section>
 
         <section className="w-full bg-white py-16 md:py-[40px] max-md:mt-8">
-          <div className="mx-auto grid min-h-[549px] min-w-0 w-full max-w-[1272px] px-6 md:grid-cols-[minmax(0,538px)_minmax(0,1fr)] md:items-center md:gap-[68px] md:px-0">
+          <div className="mx-auto grid min-h-[549px] min-w-0 w-full max-w-[1272px] px-6 lg:grid-cols-[minmax(0,538px)_minmax(0,1fr)] lg:items-center lg:gap-[68px] lg:px-0">
             <div className="relative mx-auto h-auto w-full max-w-[538px]" data-aos="fade-right">
               <img
                 ref={overviewBottomRef}
@@ -193,7 +193,7 @@ function ProfilePage() {
               <h2 className="mt-5 max-w-none text-[clamp(24px,3.05vw,44px)] font-bold leading-[1.2] max-md:text-[32px] md:leading-[53.25px]">
                 Mengenal
                 <br />
-                <span className="whitespace-nowrap bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent">
+                <span className="whitespace-nowrap bg-gradient-to-r from-primary-dark via-primary to-soft-blue bg-clip-text text-transparent max-md:whitespace-normal">
                   SMK Negeri 26 Jakarta
                 </span>
               </h2>
@@ -240,14 +240,14 @@ function ProfilePage() {
               yang berkarakter, kompeten, inovatif, dan siap menghadapi
               perkembangan dunia kerja serta tantangan global.
             </p>
-            <div data-aos="zoom-in" className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
+            <div data-aos="zoom-in" className="relative mx-auto mt-12 h-auto min-[1291px]:h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
-                className="pointer-events-none absolute right-0 top-0 h-full w-auto max-w-none object-contain"
+                className="pointer-events-none absolute right-0 top-0 w-auto max-w-none object-contain h-[100px] min-[768px]:h-[180px] min-[1291px]:h-full max-lg:opacity-70"
                 src="/assets/figma/profile/VISI SEKOLAHujung.png"
                 alt=""
                 aria-hidden="true"
               />
-              <div className="relative z-10 flex items-center gap-2">
+              <div className="relative z-10 flex items-start gap-2 min-h-[100px] min-[768px]:min-h-[180px] min-[1291px]:min-h-0 min-[1291px]:items-center">
                 <img
                   className="size-[22px] object-contain"
                   src="/assets/figma/profile/icondisampingjudulvisimisi.png"
@@ -258,7 +258,7 @@ function ProfilePage() {
                   VISI SEKOLAH
                 </span>
               </div>
-              <p className="relative z-10 mt-5 max-w-[927px] text-[32px] font-bold leading-[48px] text-ink">
+              <p className="relative z-10 mt-5 max-w-[927px] text-[32px] font-bold leading-[48px] text-ink max-lg:text-[24px] max-lg:leading-[34px]">
                 <span className="text-primary-dark">&quot;</span>SMK teknologi
                 unggul yang menghasilkan lulusan{" "}
                 <span className="text-primary-dark">berkarakter</span>,
@@ -289,11 +289,11 @@ function ProfilePage() {
                 berpusat pada murid, penguatan kompetensi, pemanfaatan
                 teknologi, serta kolaborasi dengan dunia industri.
               </p>
-              <div className="mt-8 grid items-start gap-3 md:grid-cols-2">
+              <div className="mt-8 grid items-start gap-3 md:grid-flow-col md:grid-cols-2 md:[grid-template-rows:repeat(4,auto)]">
                 {missions.map(([number, title, description]) => (
                   <details
                     data-aos="fade-up"
-                    data-aos-delay={Number(number) * 40}
+                    data-aos-delay={Number(number) * 50}
                     className="group self-start overflow-hidden rounded-2xl border border-school-bg bg-white"
                     key={number}
                   >
@@ -301,7 +301,7 @@ function ProfilePage() {
                       <span className="w-[44px] shrink-0 text-left text-[32px] font-bold leading-[48px] text-primary">
                         {number}
                       </span>
-                      <span className="min-w-0 flex-1 text-left text-2xl leading-[29px]">
+                      <span className="min-w-0 flex-1 break-words text-left text-2xl leading-[29px] max-md:text-xl">
                         {title}
                       </span>
                       <span
@@ -372,7 +372,7 @@ function ProfilePage() {
                   id={label === "MARS" ? "mars" : undefined}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
-                  className="group relative h-[400px] w-full overflow-hidden rounded-3xl border-2 border-white/70 bg-white p-7 text-ink shadow-[0_4px_16px_rgba(15,23,42,.08)] md:w-[300px]"
+                  className="group relative h-[400px] w-full overflow-hidden rounded-3xl border-2 border-white/70 bg-white p-7 text-ink shadow-[0_4px_16px_rgba(15,23,42,.08)] lg:w-[300px]"
                   key={label}
                 >
                   <img
@@ -392,7 +392,7 @@ function ProfilePage() {
                       alt={label}
                     />
                     <h3
-                      className={`mt-3 font-bold leading-7 ${label === "MOTTO" ? "whitespace-nowrap text-lg" : "text-xl"}`}
+                      className={`mt-3 font-bold leading-7 ${label === "MOTTO" ? "whitespace-nowrap text-lg max-lg:whitespace-normal" : "text-xl"}`}
                     >
                       {subtitle}
                     </h3>

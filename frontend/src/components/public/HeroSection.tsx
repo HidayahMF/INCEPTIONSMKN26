@@ -74,7 +74,7 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
         </div>
       </div>
       <form
-        className="group hero-search absolute left-1/2 top-[725px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#E5E7EB] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border hover:border-primary-dark hover:bg-white hover:bg-none hover:text-primary focus-within:border focus-within:border-primary-dark focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
+        className="group hero-search absolute left-1/2 top-[725px] max-md:top-auto max-md:bottom-[111px] z-30 flex h-11 w-[calc(100%-32px)] max-w-[840px] -translate-x-1/2 items-center justify-between rounded-full border-2 border-[#E5E7EB] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 text-sm text-white transition-[background-color,color,border-color] duration-300 ease-out hover:border hover:border-primary-dark hover:bg-white hover:bg-none hover:text-primary focus-within:border focus-within:border-primary-dark focus-within:bg-white focus-within:bg-none focus-within:text-primary motion-reduce:transition-none"
         onSubmit={submitSearch}
         role="search"
       >

@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
@@ -73,16 +74,19 @@ const programRightCards = [
     "Lembaga Sertifikasi Profesi",
     "Validasi kompetensi, siapkan diri untuk dunia kerja.",
     "/assets/figma/programs/programs-raw-07.png",
+    "/programs/lsp",
   ],
   [
     "OSIS & MPK",
     "Tempat belajar memimpin, berkolaborasi, dan berkontribusi.",
     "/assets/figma/programs/programs-raw-10.png",
+    "/programs/organisasi",
   ],
   [
     "Bursa Kerja Khusus",
     "Menghubungkan kompetensi siswa dengan peluang kerja.",
     "/assets/figma/programs/programs-raw-02.png",
+    "/programs/bkk",
   ],
 ] as const;
 const programPanels = [
@@ -273,6 +277,28 @@ function VideoProfileSection() {
 
 function ProgramsSection() {
   const [panel, setPanel] = useState(0);
+  const cardRef = useRef<HTMLElement>(null);
+  const [slideWidth, setSlideWidth] = useState(532);
+
+  // Measure the feature card's inner width so the ekstrakurikuler slider tracks
+  // the viewport on mobile (desktop keeps its fixed 532px slide).
+  useLayoutEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const measure = () => {
+      const styles = getComputedStyle(card);
+      const inner =
+        card.clientWidth -
+        parseFloat(styles.paddingLeft) -
+        parseFloat(styles.paddingRight);
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      setSlideWidth(mobile ? inner : 532);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     let timer: number;
@@ -305,7 +331,7 @@ function ProgramsSection() {
           data-aos="fade-up"
           data-aos-delay="100"
           id="programs-title"
-          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink max-md:text-[28px] max-md:leading-9"
         >
           Berkembang di Dalam dan{" "}
           <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
@@ -317,22 +343,23 @@ function ProgramsSection() {
           kepemimpinan, dan potensi melalui berbagai program sekolah.
         </p>
       </div>
-      <div className="program-grid grid h-[468px] grid-cols-[580px_580px] gap-6">
-        <article data-aos="fade-right" data-aos-delay="200" className="program-slider program-feature-card relative box-border h-[468px] w-[580px] overflow-hidden rounded-3xl border-4 border-white bg-white px-[22px] pt-[23px]">
+      <div className="program-grid grid h-[468px] grid-cols-[580px_580px] gap-6 max-md:h-auto max-md:grid-cols-1 max-md:gap-4">
+        <article data-aos="fade-right" data-aos-delay="200" ref={cardRef} className="program-slider program-feature-card relative box-border h-[468px] w-[580px] overflow-hidden rounded-3xl border-4 border-white bg-white px-[22px] pt-[23px] max-md:h-auto max-md:w-full max-md:px-4 max-md:pt-4 max-md:pb-5">
           <div
-            className="program-panel-track flex h-[299px] w-max gap-6"
+            className="program-panel-track flex h-[299px] w-max gap-6 max-md:h-auto"
             style={{
-              transform: `translateX(${-556 * panel}px)`,
+              transform: `translateX(${-(slideWidth + 24) * panel}px)`,
               transition: `transform ${panel === 0 ? 0 : 1458.4209919}ms cubic-bezier(.2,.7,.2,1)`,
             }}
           >
             {programPanels.map((src, index) => (
               <img
-                className="block h-[299px] w-[532px] shrink-0 rounded-[18px] object-cover"
+                className="block shrink-0 rounded-[18px] object-cover"
                 key={src}
                 src={src}
                 alt={`Panel ekstrakurikuler ${index + 1}`}
                 draggable={false}
+                style={{ width: slideWidth, height: slideWidth * (299 / 532) }}
               />
             ))}
           </div>
@@ -345,7 +372,7 @@ function ProgramsSection() {
             </p>
             <a
               className="group primary-button inline-flex h-[41px] items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
-              href="/programs"
+              href="/programs/ekstrakurikuler"
             >
               Jelajahi Ekstrakurikuler{" "}
               <span
@@ -365,28 +392,28 @@ function ProgramsSection() {
             </a>
           </div>
         </article>
-        <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5">
-          {programRightCards.map(([title, description, image]) => (
+        <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5 max-md:grid-rows-none">
+          {programRightCards.map(([title, description, image, href]) => (
             <article
-              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]"
+              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
               key={title}
             >
               <img
-                className="h-[136px] w-[290px] shrink-0 object-cover"
+                className="h-[136px] w-[290px] shrink-0 object-cover max-md:h-auto max-md:w-full max-md:aspect-[290/136]"
                 src={image}
                 alt=""
                 draggable={false}
               />
-              <div className="program-card-content grid w-[237px] min-w-[237px] max-w-[237px] flex-none grid-cols-[minmax(0,1fr)_45px] grid-rows-[auto_1fr] items-center gap-x-2 p-0">
-                <h3 className="col-start-1 row-start-1 m-0 bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-base font-bold leading-tight text-transparent">
+              <div className="program-card-content grid w-[237px] min-w-[237px] max-w-[237px] flex-none grid-cols-[minmax(0,1fr)_45px] grid-rows-[auto_1fr] items-center gap-x-2 p-0 max-md:max-w-none max-md:min-w-0 max-md:w-full max-md:p-4 max-md:gap-x-3">
+                <h3 className="col-start-1 row-start-1 m-0 bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-base font-bold leading-tight text-transparent max-md:text-lg">
                   {title}
                 </h3>
-                <p className="col-start-1 row-start-2 m-0 w-full text-[10px] leading-[18px] text-ink">
+                <p className="col-start-1 row-start-2 m-0 w-full text-[10px] leading-[18px] text-ink max-md:text-xs">
                   {description}
                 </p>
                 <a
                   className="group col-start-2 row-span-2 row-start-1 inline-flex size-[45px] items-center justify-center rounded-full border border-slate-200 bg-white transition-none hover:border-primary focus-visible:border-primary hover:bg-primary focus-visible:bg-primary"
-                  href="/programs"
+                  href={href}
                   aria-label={`Lihat ${title}`}
                 >
                   <img
@@ -419,7 +446,7 @@ function BludSection() {
   return (
     <section className="relative mt-[88px] w-full bg-white py-14">
       <div
-        className="blud-section relative mx-auto h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0"
+        className="blud-section relative mx-auto h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0 max-md:h-auto"
         aria-labelledby="blud-title"
       >
         <div className="section-intro blud-intro relative mb-[31px] w-full text-left">
@@ -437,22 +464,22 @@ function BludSection() {
             data-aos="fade-up"
             data-aos-delay="100"
             id="blud-title"
-            className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+            className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink max-md:text-[28px] max-md:leading-9"
           >
             Belajar Melalui{" "}
             <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
               Pengalaman Nyata
             </span>
           </h2>
-          <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted">
+          <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[698px] text-lg leading-[30px] text-muted max-md:text-base max-md:leading-[26px]">
             Menghubungkan pembelajaran dengan pengalaman kerja melalui unit
             produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.
           </p>
           <a
-            className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto"
-            href="/programs"
+            className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto max-md:static max-md:mt-2 max-md:w-full"
+            href="/blud/kgstudio"
           >
-            Jelajahi Ekstrakurikuler{" "}
+            Jelajahi BLUD{" "}
             <span
               className="size-5 shrink-0 bg-white group-hover:bg-primary"
               style={{
@@ -582,7 +609,7 @@ function AchievementsSection() {
           data-aos="fade-up"
           data-aos-delay="100"
           id="achievements-title"
-          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+          className="mt-5 mb-2.5 text-4xl font-bold leading-[54px] text-ink max-md:text-[28px] max-md:leading-9"
         >
           Karya dan{" "}
           <span className="bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-transparent">
@@ -594,10 +621,10 @@ function AchievementsSection() {
           Jakarta dalam mengembangkan talenta dan potensi generasi muda.
         </p>
       </div>
-      <div data-aos="fade-up" data-aos-delay="200" className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0">
+      <div data-aos="fade-up" data-aos-delay="200" className="achievement-carousel flex w-full max-w-full items-center gap-3 px-11 min-[640px]:px-14 min-[768px]:relative min-[768px]:block min-[768px]:h-[296px] min-[1272px]:w-[1272px] min-[1272px]:max-w-none min-[1272px]:px-0 max-md:relative max-md:px-0">
         <button
           type="button"
-          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px]"
+          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:left-1 min-[1272px]:left-[-57px] max-md:absolute max-md:top-[134px] max-md:z-[2] max-md:left-2"
           aria-label="Prestasi sebelumnya"
           onClick={() => scrollByStep(-1)}
         >
@@ -655,7 +682,7 @@ function AchievementsSection() {
         </div>
         <button
           type="button"
-          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px]"
+          className="group grid size-10 shrink-0 cursor-pointer place-items-center rounded-full border border-school-bg bg-white text-[22px] text-primary-dark hover:bg-primary-dark focus-visible:bg-primary-dark md:absolute md:top-[114px] md:z-[2] md:size-12 md:border-slate-200 min-[768px]:max-[1271.98px]:right-1 min-[1272px]:right-[-57px] max-md:absolute max-md:top-[134px] max-md:z-[2] max-md:right-2"
           aria-label="Prestasi berikutnya"
           onClick={() => scrollByStep(1)}
         >
@@ -666,7 +693,7 @@ function AchievementsSection() {
           />
         </button>
       </div>
-      <div data-aos="fade-up" data-aos-delay="240" className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-2">
+      <div data-aos="fade-up" data-aos-delay="240" className="achievement-stats mx-auto mt-9 grid h-[122px] w-[calc(100%-78px)] grid-cols-5 items-center gap-5 rounded-3xl bg-white px-7 py-5 text-ink [box-shadow:0_4px_16px_rgba(15,23,42,.06)] transition-[box-shadow] duration-300 ease-out hover:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] focus-within:[box-shadow:0_4px_16px_rgba(15,23,42,.08)] max-md:h-auto max-md:w-full max-md:grid-cols-1 max-md:gap-4 max-md:px-5 max-md:py-6">
         {[
           [
             "100+",
@@ -780,7 +807,7 @@ function NewsSection() {
 
   return (
     <section
-      className="news-section relative mx-auto mt-[88px] h-[495px] w-[min(1272px,100%-32px)] pt-0"
+      className="news-section relative mx-auto mt-[88px] h-[495px] w-[min(1272px,100%-32px)] pt-0 max-md:h-auto"
       aria-labelledby="news-title"
     >
       <div className="section-intro mx-auto w-[min(872px,100%)] text-center">
@@ -792,7 +819,7 @@ function NewsSection() {
           data-aos="fade-up"
           data-aos-delay="100"
           id="news-title"
-          className="mt-11 mb-2.5 text-4xl font-bold leading-[54px] text-ink"
+          className="mt-11 mb-2.5 text-4xl font-bold leading-[54px] text-ink max-md:mt-5 max-md:text-[28px] max-md:leading-9"
         >
           Berita &amp; Informasi Terkini
           <br />
@@ -801,7 +828,8 @@ function NewsSection() {
           </span>
         </h2>
       </div>
-      <div className="news-viewport absolute left-1/2 top-[195.02px] h-[300px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden">
+      <div className="max-md:relative">
+      <div className="news-viewport absolute left-1/2 top-[195.02px] h-[300px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden max-md:static max-md:mt-6 max-md:w-full max-md:translate-x-0">
         <div
           className={`news-track flex h-[300px] cursor-grab select-none gap-6 overflow-x-auto overflow-y-hidden [scrollbar-width:none] ${isDragging ? "is-dragging cursor-grabbing" : ""}${isScrolling ? " is-scrolling pointer-events-none" : ""}`}
           ref={trackRef}
@@ -854,7 +882,7 @@ function NewsSection() {
           ))}
         </div>
       </div>
-      <div data-aos="fade-up" data-aos-delay="200" className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)]">
+      <div data-aos="fade-up" data-aos-delay="200" className="news-controls pointer-events-none absolute left-0 top-[314.02px] flex w-full justify-between gap-0 min-[1272px]:left-[-57px] min-[1272px]:w-[calc(100%+114px)] max-md:absolute max-md:top-[126px] max-md:z-[2] max-md:pl-2 max-md:pr-2">
         <button
           className="group pointer-events-auto grid h-12 w-12 shrink-0 cursor-pointer place-items-center rounded-full border border-slate-200 bg-white transition-colors hover:bg-primary-dark focus-visible:bg-primary-dark"
           type="button"
@@ -879,6 +907,7 @@ function NewsSection() {
             alt=""
           />
         </button>
+      </div>
       </div>
     </section>
   );
@@ -933,17 +962,17 @@ function AiCtaSection({ onAskAi }: Props) {
       className={`ai-cta scroll-mt-28 relative mt-[88px] w-full bg-white ${botSettled ? "is-bot-settled" : ""}`}
       aria-labelledby="ai-cta-title"
     >
-      <div className="relative mx-auto h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden">
-        <span data-aos="fade-down" className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+      <div className="relative mx-auto h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden max-md:h-auto max-md:w-full max-md:max-w-full max-md:px-5 max-md:flex max-md:flex-col max-md:items-center">
+        <span data-aos="fade-down" className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] max-md:static max-md:mt-14 max-md:translate-x-0">
           <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
           TANYA PEMBANGUNAN.AI
         </span>
-        <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px]">
+        <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px] max-md:static max-md:mt-8 max-md:w-full max-md:text-center">
           <h2
             data-aos="fade-up"
             data-aos-delay="100"
             id="ai-cta-title"
-            className="m-0 mb-3 text-4xl font-bold leading-[54px] text-ink"
+            className="m-0 mb-3 text-4xl font-bold leading-[54px] text-ink max-md:mb-4 max-md:text-[28px] max-md:leading-9"
           >
             Punya Pertanyaan tentang
             <br />
@@ -951,7 +980,7 @@ function AiCtaSection({ onAskAi }: Props) {
               SMK Negeri 26 Jakarta?
             </span>
           </h2>
-          <p data-aos="fade-up" data-aos-delay="180" className="text-lg font-medium leading-[30px] text-muted">
+          <p data-aos="fade-up" data-aos-delay="180" className="text-lg font-medium leading-[30px] text-muted max-md:text-base max-md:leading-6">
             Temukan informasi tentang jurusan, program sekolah, fasilitas,
             pendaftaran, hingga berbagai layanan SMK Negeri 26 Jakarta bersama{" "}
             <strong className="font-bold text-primary-dark">
@@ -981,27 +1010,27 @@ function AiCtaSection({ onAskAi }: Props) {
             />
           </button>
         </div>
-        <span
-          ref={smallCircleRef}
-          className="ai-circle ai-circle-small absolute left-[1253px] top-[137px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue"
-        />
-        <span
-          ref={largeCircleRef}
-          className="ai-circle ai-circle-large absolute left-[770px] top-[374px] size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue"
-        />
         <div
-          className="ai-cta-art absolute left-[859px] top-[78px] size-[418px]"
+          className="ai-cta-art absolute left-[859px] top-[78px] size-[418px] max-md:relative max-md:left-auto max-md:top-auto max-md:mt-12 max-md:mb-8 max-md:w-[280px] max-md:h-[400px]"
           aria-label="Ilustrasi Pembangunan.AI"
         >
+          <span
+            ref={smallCircleRef}
+            className="ai-circle ai-circle-small absolute left-[394px] top-[59px] size-[61px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue max-md:left-[200px] max-md:top-[-31px]"
+          />
+          <span
+            ref={largeCircleRef}
+            className="ai-circle ai-circle-large absolute left-[-89px] top-[296px] size-[92px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue max-md:left-0 max-md:top-[292px]"
+          />
           <img
-            className="ai-cta-layer ai-cta-fill absolute left-[26px] top-[27px] size-[365px] transition-[top] duration-1000 ease-out"
+            className="ai-cta-layer ai-cta-fill absolute left-[26px] top-[27px] size-[365px] transition-[top] duration-1000 ease-out max-md:left-[10px] max-md:size-[260px]"
             style={{ top: botSettled ? "31px" : "27px" }}
             src={figmaAssets.aiCtaLayers.fill}
             alt=""
           />
           <img
             ref={botRef}
-            className="ai-cta-bot absolute left-[66px] top-[64px] size-[285px] object-contain transition-[top] duration-1000 ease-out"
+            className="ai-cta-bot absolute left-[66px] top-[64px] size-[285px] object-contain transition-[top] duration-1000 ease-out max-md:left-[47px] max-md:size-[186px]"
             style={{ top: botSettled ? "68px" : "64px" }}
             src={figmaAssets.aiCtaLayers.bot}
             alt=""

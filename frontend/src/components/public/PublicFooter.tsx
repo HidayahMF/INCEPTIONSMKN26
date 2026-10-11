@@ -35,10 +35,10 @@ function linkHref(title: string, link: string) {
     "Jurusan:Teknik Fabrikasi Logam & Manufaktur": "/majors/tflm",
     "Jurusan:Teknik Kendaraan Ringan": "/majors/tkr",
     "Jurusan:Sistem Informasi, Jaringan & Aplikasi": "/majors/sija",
-    "Program:LSP": "/programs",
-    "Program:Organisasi Sekolah": "/programs",
-    "Program:Ekstrakurikuler": "/programs",
-    "Program:BKK": "/programs",
+    "Program:LSP": "/programs/lsp",
+    "Program:Organisasi Sekolah": "/programs/organisasi",
+    "Program:Ekstrakurikuler": "/programs/ekstrakurikuler",
+    "Program:BKK": "/programs/bkk",
     "BLUD:KGStudio": "/blud/kgstudio",
     "BLUD:UPTECHNO": "/blud/uptechno",
     "BLUD:E-MAN": "/blud/e-man",
@@ -165,13 +165,13 @@ export function PublicFooter() {
             Jakarta Timur, DKI Jakarta 13220
           </address>
         </div>
-        <div className="grid min-w-0 grid-cols-1 content-start gap-[26px] sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid min-w-0 grid-cols-1 content-start gap-[26px] md:grid-cols-3">
           {[
             columns.slice(0, 2),
             columns.slice(2, 4),
             columns.slice(4),
           ].map((group, groupIndex) => (
-            <div className="grid content-start gap-[26px]" key={groupIndex}>
+            <div className="grid grid-cols-2 content-start gap-[26px] md:grid-cols-1" key={groupIndex}>
               {group.map(([title, links]) => (
                 <div key={title}>
                   <h3 className="mb-3.5 inline-block text-base font-bold">
@@ -191,11 +191,11 @@ export function PublicFooter() {
             </div>
           ))}
         </div>
-        <div>
+        <div className="max-md:text-center">
           <h3 className="mb-3.5 inline-block text-base font-bold">
             Lokasi Sekolah
           </h3>
-          <div className="w-full max-w-[249px]">
+          <div className="w-full max-w-[249px] max-md:mx-auto max-md:max-w-full">
           <div className="relative block aspect-[249/150] overflow-hidden rounded-[18px] border-2 border-white bg-[#dbeafe]">
             <iframe
               className="pointer-events-none size-full border-0"

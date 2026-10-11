@@ -1,4 +1,4 @@
-import { getAdminClient } from '../../lib/supabase.js';
+import { getAdminClient, isSupabaseConfigured } from '../../lib/supabase.js';
 import { chunkText } from '../knowledge/knowledge.service.js';
 
 const sections = new Set(['home', 'profile', 'organization', 'majors', 'tour', 'partners', 'blud', 'programs', 'achievements', 'news', 'information', 'contact']);
@@ -10,6 +10,7 @@ export function validatePageInput(input) {
 }
 
 export async function listPublishedPages(section) {
+  if (!isSupabaseConfigured()) return [];
   let query = getAdminClient().from('public_pages').select('id,slug,section,title,summary,body,published_at').eq('status', 'PUBLISHED').order('published_at', { ascending: false });
   if (section && sections.has(section)) query = query.eq('section', section);
   const { data, error } = await query; if (error) throw error; return data || [];

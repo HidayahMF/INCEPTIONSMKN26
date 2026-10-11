@@ -20,7 +20,6 @@ import { PublicChatProvider } from "./features/chat/ChatProvider";
 import { PublicChatRoom } from "./features/chat/PublicChatRoom";
 import { AOSInitializer } from "./components/public/AOSInitializer";
 import { SchoolMajors } from "./components/public/SchoolMajors";
-import { MajorsPage } from "./pages/MajorsPage";
 import { KgsPage } from "./pages/KgsPage";
 import { TekPage } from "./pages/TekPage";
 import { TitlPage } from "./pages/TitlPage";
@@ -121,7 +120,6 @@ const majorHeroImages: Record<string, string> = {
 
 const searchableInformation = [
   { title: "Profil SMK Negeri 26 Jakarta", category: "Profil", summary: "Mengenal sekolah, visi misi, sejarah, identitas, dan perjalanan SMK Negeri 26 Jakarta.", href: "/profile", image: undefined },
-  { title: "Program Sekolah", category: "Program", summary: "Informasi program sekolah, LSP, organisasi, ekstrakurikuler, dan BKK.", href: "/programs", image: undefined },
   { title: "Prestasi Siswa", category: "Prestasi", summary: "Karya dan prestasi siswa SMK Negeri 26 Jakarta.", href: "/achievements", image: undefined },
   ...majors.map((major) => ({ title: major.name, category: `Jurusan ${major.code}`, summary: major.description, href: major.href, image: majorHeroImages[major.id] })),
   ...advantages.map((advantage) => ({ title: advantage.title, category: "Keunggulan", summary: advantage.summary, href: `/advantages/${advantage.slug}`, image: advantage.image })),
@@ -348,30 +346,10 @@ export function LegacyApp() {
       "Profil Sekolah",
       "Profil, visi, misi, sejarah, struktur organisasi, dan unit kerja akan ditampilkan dari konten terverifikasi.",
     ],
-    "/organization": [
-      "organization",
-      "Struktur Organisasi",
-      "Struktur organisasi dan unit kerja akan ditampilkan dari sumber resmi.",
-    ],
-    "/majors": [
-      "majors",
-      "Jurusan",
-      "Informasi kompetensi keahlian dan perjalanan belajar akan ditampilkan setelah disetujui.",
-    ],
     "/partners": [
       "partners",
       "Mitra Industri",
       "Mitra industri SMKN 26 Jakarta.",
-    ],
-    "/blud": [
-      "blud",
-      "BLUD",
-      "Informasi unit BLUD terverifikasi akan ditampilkan setelah tersedia.",
-    ],
-    "/programs": [
-      "programs",
-      "Program Sekolah",
-      "LSP, OSIS/MPK, ekstrakurikuler, BKK, dan BLUD akan ditampilkan dari sumber resmi.",
     ],
     "/achievements": [
       "achievements",
@@ -387,11 +365,6 @@ export function LegacyApp() {
       "information",
       "Portal Informasi",
       "Informasi publik sekolah yang telah diverifikasi.",
-    ],
-    "/contact": [
-      "contact",
-      "Kontak dan Lokasi",
-      "Alamat, kontak, dan lokasi resmi sekolah akan ditampilkan setelah dikonfirmasi.",
     ],
   };
   const detail = details[path] || details["/information"];
@@ -428,7 +401,6 @@ export function App() {
     const location = tourLocations.find((item) => item.id === locationId);
     if (location) return <PublicExperience><LapanganTourPage location={location} /></PublicExperience>;
   }
-  if (path === "/majors") return <PublicExperience><MajorsPage /></PublicExperience>;
   if (path === "/programs/lsp") return <PublicExperience><LspPage /></PublicExperience>;
   if (path === "/programs/lsp/kgs") return <PublicExperience><LspKgsPage /></PublicExperience>;
   if (path === "/programs/lsp/tek") return <PublicExperience><LspTekPage /></PublicExperience>;
@@ -462,7 +434,7 @@ export function App() {
   if (path === "/tenaga-kependidikan") return <PublicExperience><TenagaKependidikanPage /></PublicExperience>;
   if (path === "/tim-pendukung-sekolah") return <PublicExperience><TimPendukungSekolahPage /></PublicExperience>;
   if (path === "/partners") return <PublicExperience><div className="min-h-screen bg-white"><PublicNavbar /><PartnerIndustryPage /><PublicFooter /></div></PublicExperience>;
-  if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/organization", "/blud", "/programs", "/achievements", "/news", "/information", "/contact"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
+  if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/achievements", "/news", "/information"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}

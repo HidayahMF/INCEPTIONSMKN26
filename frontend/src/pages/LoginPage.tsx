@@ -160,7 +160,7 @@ export function LoginPage() {
                 </div>
               </label>
               <button
-                className="w-full max-w-full rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60"
+                className="w-full max-w-full rounded-full bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60"
                 disabled={busy}
               >
                 {busy ? "Memeriksa..." : "Masuk ke portal"}
