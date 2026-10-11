@@ -36,7 +36,7 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
       <div className="mx-auto w-[calc(100%-32px)] max-w-[1272px]">
           <div data-aos="fade-down" className="flex justify-center">
            <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
-             <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+             <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
              MENGENAL SMK NEGERI 26 JAKARTA
           </span>
         </div>

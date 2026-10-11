@@ -143,7 +143,7 @@ export function GuruDetailPage({
             />
             <div className="min-w-0 max-w-[700px]" data-aos="fade-left">
               <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-                <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.badge}
+                <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{content.badge}
               </span>
               <h1 className="mt-2 text-3xl font-bold leading-9 text-primary sm:text-4xl">{teacher.name}</h1>
               <p className="mt-2 max-w-[700px] text-sm leading-6 text-muted">
@@ -164,7 +164,7 @@ export function GuruDetailPage({
           <div className="mb-4 text-center sm:text-left">
             <div data-aos="fade-down">
               <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-                <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
+                <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
               </span>
             </div>
             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">

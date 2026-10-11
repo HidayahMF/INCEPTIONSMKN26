@@ -63,14 +63,14 @@ export function LoginPage() {
         <section className="relative hidden min-w-0 overflow-hidden p-10 text-white lg:flex lg:flex-col lg:justify-between xl:p-14">
           <img
             className="absolute inset-0 size-full object-cover"
-            src="/assets/figma/hero/hero-school-building.png"
+            src="/assets/shared/hero/school-building.png"
             alt="Gedung SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(0,108,220,.94),rgba(0,146,255,.78)_58%,rgba(76,186,245,.48))]" />
           <div className="relative z-10 flex items-center gap-3">
             <img
               className="size-14 rounded-full bg-white/95 object-contain p-1"
-              src="/assets/figma/branding/smkn26-logo.png"
+              src="/assets/shared/branding/smkn26-logo.png"
               alt=""
             />
             <div>
@@ -105,7 +105,7 @@ export function LoginPage() {
             <div className="flex min-w-0 items-center gap-3 lg:hidden">
               <img
                 className="size-12 shrink-0 object-contain"
-                src="/assets/figma/branding/smkn26-logo.png"
+                src="/assets/shared/branding/smkn26-logo.png"
                 alt="Logo SMKN 26 Jakarta"
               />
               <div className="min-w-0">

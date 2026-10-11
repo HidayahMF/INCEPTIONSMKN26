@@ -9,11 +9,11 @@ const columns = [
 ] as const;
 
 const footerIcon = {
-  whatsapp: "/assets/figma/footer/footer-svg-03.svg",
-  email: "/assets/figma/footer/footer-svg-04.svg",
-  address: "/assets/figma/footer/footer-svg-13.svg",
-  instagram: "/assets/figma/footer/footer-svg-07.svg",
-  youtube: "/assets/figma/footer/footer-svg-08.svg",
+  whatsapp: "/assets/shared/footer/footer-whatsapp.svg",
+  email: "/assets/shared/footer/footer-email.svg",
+  address: "/assets/shared/footer/footer-address.svg",
+  instagram: "/assets/shared/footer/footer-instagram.svg",
+  youtube: "/assets/shared/footer/footer-youtube.svg",
 };
 
 const schoolAddress =

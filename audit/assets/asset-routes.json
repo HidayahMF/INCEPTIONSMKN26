@@ -1,0 +1,2535 @@
+{
+  "/assets/figma/achievements/achievements-raw-01.png": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-raw-03.png": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-raw-04.png": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-raw-07.png": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-raw-08.png": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-svg-03.svg": [
+    "/"
+  ],
+  "/assets/figma/achievements/achievements-svg-12.svg": [
+    "/"
+  ],
+  "/assets/figma/advantages/Arrowleft.png": [
+    "/",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/advantages/Arrowright.png": [
+    "/",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/advantages/advantage-blud.png": [
+    "/",
+    "/advantages/teaching-factory"
+  ],
+  "/assets/figma/advantages/advantage-education.png": [
+    "/",
+    "/advantages/pendidikan-berkualitas"
+  ],
+  "/assets/figma/advantages/advantage-inclusive.png": [
+    "/",
+    "/advantages/lingkungan-belajar-inklusif"
+  ],
+  "/assets/figma/advantages/advantage-industry.png": [
+    "/",
+    "/advantages/pembelajaran-berbasis-industri"
+  ],
+  "/assets/figma/advantages/advantage-interest.png": [
+    "/",
+    "/advantages/pengalaman-karakter-dan-minat"
+  ],
+  "/assets/figma/advantages/advantage-lsp.png": [
+    "/",
+    "/advantages/sertifikasi-kompetensi"
+  ],
+  "/assets/figma/advantages/icon-book-education-secondary.svg": [
+    "/"
+  ],
+  "/assets/figma/ai-cta/ai-cta-raw-02.png": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/ai-cta/ai-cta-svg-07.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-SIJA-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-TEK-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-TFLM-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-TITL-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-TKR-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/blud/blud-svg-02.svg": [
+    "/"
+  ],
+  "/assets/figma/branding/smkn26-logo.png": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/footer/footer-svg-03.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/footer/footer-svg-04.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/footer/footer-svg-07.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/footer/footer-svg-08.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/footer/footer-svg-13.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/hero/hero-school-building.png": [
+    "/"
+  ],
+  "/assets/figma/hero/student-male.png": [
+    "/"
+  ],
+  "/assets/figma/icons/icon-arrow-right.svg": [
+    "/",
+    "/tour",
+    "/profile",
+    "/partners",
+    "/programs/lsp",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/icons/icon-chevron-down.svg": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/icons/icon-play-video.svg": [
+    "/"
+  ],
+  "/assets/figma/icons/icon-search.svg": [
+    "/"
+  ],
+  "/assets/figma/icons/secondary-arrow-right.svg": [
+    "/",
+    "/tour",
+    "/partners",
+    "/programs/lsp",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/majors/icon-arrow-right.svg": [
+    "/"
+  ],
+  "/assets/figma/majors/icon-major-building.svg": [
+    "/"
+  ],
+  "/assets/figma/majors/icon-section-badge.svg": [
+    "/",
+    "/tour",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/majors/major-background-shape.svg": [
+    "/"
+  ],
+  "/assets/figma/majors/major-kgs.png": [
+    "/"
+  ],
+  "/assets/figma/majors/major-sija.png": [
+    "/"
+  ],
+  "/assets/figma/majors/major-tek.png": [
+    "/"
+  ],
+  "/assets/figma/majors/major-tflm.png": [
+    "/"
+  ],
+  "/assets/figma/majors/major-titl.png": [
+    "/"
+  ],
+  "/assets/figma/majors/major-tkr.png": [
+    "/"
+  ],
+  "/assets/figma/majors/popover-pointer-left.svg": [
+    "/"
+  ],
+  "/assets/figma/majors/popover-pointer-right.svg": [
+    "/"
+  ],
+  "/assets/figma/news/news-calendar.svg": [
+    "/"
+  ],
+  "/assets/figma/news/news-raw-01.png": [
+    "/",
+    "/news",
+    "/news/workshop-soft-skill-kegiatan-sekolah"
+  ],
+  "/assets/figma/news/news-raw-03.png": [
+    "/",
+    "/news",
+    "/news/workshop-pengembangan-soft-skill-siswa"
+  ],
+  "/assets/figma/news/news-raw-04.png": [
+    "/",
+    "/news",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks"
+  ],
+  "/assets/figma/news/news-raw-07.png": [
+    "/",
+    "/news",
+    "/news/karya-inovatif-berbasis-teknologi"
+  ],
+  "/assets/figma/news/news-raw-09.png": [
+    "/",
+    "/news",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri"
+  ],
+  "/assets/figma/partners/astra.png": [
+    "/",
+    "/partners",
+    "/partners/astra",
+    "/programs/bkk"
+  ],
+  "/assets/figma/partners/azko.png": [
+    "/",
+    "/partners",
+    "/partners/azko",
+    "/programs/bkk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/partners/komatsu.png": [
+    "/",
+    "/partners",
+    "/partners/komatsu",
+    "/programs/bkk"
+  ],
+  "/assets/figma/partners/microvision.png": [
+    "/",
+    "/partners",
+    "/partners/microvision",
+    "/programs/bkk"
+  ],
+  "/assets/figma/partners/panasonic.png": [
+    "/",
+    "/partners",
+    "/partners/panasonic",
+    "/programs/bkk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/partners/pln.png": [
+    "/",
+    "/partners",
+    "/partners/pln",
+    "/programs/bkk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/partners/toyota.jpeg": [
+    "/",
+    "/partners",
+    "/partners/toyota",
+    "/programs/bkk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/partners/wika.png": [
+    "/",
+    "/partners",
+    "/partners/wika",
+    "/programs/bkk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija"
+  ],
+  "/assets/figma/programs/programs-raw-02.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-raw-03.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-raw-04.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-raw-06.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-raw-07.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-raw-10.png": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-svg-01.svg": [
+    "/"
+  ],
+  "/assets/figma/programs/programs-svg-04.svg": [
+    "/",
+    "/achievements"
+  ],
+  "/assets/figma/school/school-overview-photo-clean.png": [
+    "/"
+  ],
+  "/assets/figma/shortcuts/shortcut-ai-chat.png": [
+    "/"
+  ],
+  "/assets/figma/shortcuts/shortcut-kjp-pip.png": [
+    "/"
+  ],
+  "/assets/figma/shortcuts/shortcut-library.png": [
+    "/"
+  ],
+  "/assets/figma/shortcuts/shortcut-spmb.png": [
+    "/"
+  ],
+  "/assets/figma/video-profile/video-profile-badge-icon.svg": [
+    "/"
+  ],
+  "/assets/figma/video-profile/video-profile-decoration-left.svg": [
+    "/"
+  ],
+  "/assets/figma/video-profile/video-profile-decoration-right.svg": [
+    "/"
+  ],
+  "/assets/figma/video-profile/video-profile-lower-shape.svg": [
+    "/"
+  ],
+  "/assets/figma/video-profile/video-profile-play-icon.svg": [
+    "/",
+    "/profile",
+    "/mars"
+  ],
+  "/assets/figma/video-profile/video-profile-play-ring.svg": [
+    "/",
+    "/mars"
+  ],
+  "/assets/figma/video-profile/video-profile-preview.png": [
+    "/",
+    "/mars"
+  ],
+  "/src/assets/figmaAssets.ts": [
+    "/",
+    "/tour",
+    "/tour/lapangan",
+    "/tour/gerbang",
+    "/tour/depan-aula",
+    "/tour/depan-lsp",
+    "/tour/depan-masjid",
+    "/tour/dalam-masjid",
+    "/tour/depan-tek",
+    "/tour/bengkel",
+    "/tour/bengkel-kgs",
+    "/tour/bengkel-sija",
+    "/tour/bengkel-titl",
+    "/tour/bengkel-tkr",
+    "/tour/jogging-track",
+    "/tour/kantin",
+    "/tour/pedestrian",
+    "/tour/pedestrian-rbtra",
+    "/tour/rbtra",
+    "/tour/pendopo-kgs",
+    "/tour/perpustakaan",
+    "/tour/ruang-piket",
+    "/tour/satpam",
+    "/tour/toilet1",
+    "/profile",
+    "/achievements",
+    "/news",
+    "/information",
+    "/partners",
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra",
+    "/news/workshop-pengembangan-soft-skill-siswa",
+    "/news/siswa-smkn-26-raih-prestasi-di-lks",
+    "/news/workshop-soft-skill-kegiatan-sekolah",
+    "/news/kolaborasi-smkn-26-dengan-dunia-industri",
+    "/news/karya-inovatif-berbasis-teknologi",
+    "/advantages/pendidikan-berkualitas",
+    "/advantages/pembelajaran-berbasis-industri",
+    "/advantages/teaching-factory",
+    "/advantages/pengalaman-karakter-dan-minat",
+    "/advantages/lingkungan-belajar-inklusif",
+    "/advantages/sertifikasi-kompetensi",
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/programs/lsp",
+    "/programs/lsp/kgs",
+    "/programs/lsp/tek",
+    "/programs/lsp/titl",
+    "/programs/lsp/tflm",
+    "/programs/lsp/sija",
+    "/programs/lsp/tkr",
+    "/programs/ekstrakurikuler",
+    "/programs/bkk",
+    "/programs/organisasi",
+    "/programs/organisasi/osis",
+    "/programs/organisasi/mpk",
+    "/majors/kgs",
+    "/majors/tek",
+    "/majors/titl",
+    "/majors/tflm",
+    "/majors/tkr",
+    "/majors/sija",
+    "/blud/kgstudio",
+    "/blud/uptechno",
+    "/blud/e-man",
+    "/blud/manufaktur26",
+    "/blud/garage26",
+    "/blud/gadiz-vokasi",
+    "/mars",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/panorama/heroschooltour.png": [
+    "/tour"
+  ],
+  "/assets/panorama/school_tour/Upscaled/RBTRA.jpg": [
+    "/tour",
+    "/tour/rbtra"
+  ],
+  "/assets/panorama/school_tour/Upscaled/bengkel.jpg": [
+    "/tour",
+    "/tour/bengkel"
+  ],
+  "/assets/panorama/school_tour/Upscaled/bengkel_kgs.jpg": [
+    "/tour",
+    "/tour/bengkel-kgs"
+  ],
+  "/assets/panorama/school_tour/Upscaled/bengkel_sija.jpg": [
+    "/tour",
+    "/tour/bengkel-sija"
+  ],
+  "/assets/panorama/school_tour/Upscaled/bengkel_titl.jpg": [
+    "/tour",
+    "/tour/bengkel-titl"
+  ],
+  "/assets/panorama/school_tour/Upscaled/bengkel_tkr.jpg": [
+    "/tour",
+    "/tour/bengkel-tkr"
+  ],
+  "/assets/panorama/school_tour/Upscaled/dalam_masjid.jpg": [
+    "/tour",
+    "/tour/dalam-masjid"
+  ],
+  "/assets/panorama/school_tour/Upscaled/depan_aula.jpg": [
+    "/tour",
+    "/tour/depan-aula"
+  ],
+  "/assets/panorama/school_tour/Upscaled/depan_lsp.jpg": [
+    "/tour",
+    "/tour/depan-lsp"
+  ],
+  "/assets/panorama/school_tour/Upscaled/depan_masjid.jpg": [
+    "/tour",
+    "/tour/depan-masjid"
+  ],
+  "/assets/panorama/school_tour/Upscaled/depan_tek.jpg": [
+    "/tour",
+    "/tour/depan-tek"
+  ],
+  "/assets/panorama/school_tour/Upscaled/gerbang.jpg": [
+    "/tour",
+    "/tour/gerbang"
+  ],
+  "/assets/panorama/school_tour/Upscaled/jogging_track.jpg": [
+    "/tour",
+    "/tour/jogging-track"
+  ],
+  "/assets/panorama/school_tour/Upscaled/kantin.jpg": [
+    "/tour",
+    "/tour/kantin"
+  ],
+  "/assets/panorama/school_tour/Upscaled/lapangan.jpg": [
+    "/tour",
+    "/tour/lapangan"
+  ],
+  "/assets/panorama/school_tour/Upscaled/pedestrian.jpg": [
+    "/tour",
+    "/tour/pedestrian"
+  ],
+  "/assets/panorama/school_tour/Upscaled/pedestrian_rbtra.jpg": [
+    "/tour",
+    "/tour/pedestrian-rbtra"
+  ],
+  "/assets/panorama/school_tour/Upscaled/pendopo_kgs.jpg": [
+    "/tour",
+    "/tour/pendopo-kgs"
+  ],
+  "/assets/panorama/school_tour/Upscaled/perpustakaan.jpg": [
+    "/tour",
+    "/tour/perpustakaan"
+  ],
+  "/assets/panorama/school_tour/Upscaled/ruang_piket.jpg": [
+    "/tour",
+    "/tour/ruang-piket"
+  ],
+  "/assets/panorama/school_tour/Upscaled/satpam.jpg": [
+    "/tour",
+    "/tour/satpam"
+  ],
+  "/assets/panorama/school_tour/Upscaled/toilet1.jpg": [
+    "/tour",
+    "/tour/toilet1"
+  ],
+  "/assets/figma/decorations/kanan.png": [
+    "/profile"
+  ],
+  "/assets/figma/decorations/kiri.png": [
+    "/profile"
+  ],
+  "/assets/figma/decorations/mengenal.png": [
+    "/profile"
+  ],
+  "/assets/figma/decorations/mengenalbesar.png": [
+    "/profile"
+  ],
+  "/assets/figma/hero/mengenalsmkprofile.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/GARISBAWAHVISISEKOLAH.png": [
+    "/profile",
+    "/mars"
+  ],
+  "/assets/figma/profile/Mars.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/VISI SEKOLAHujung.png": [
+    "/profile",
+    "/mars"
+  ],
+  "/assets/figma/profile/icondisampingjudulvisimisi.png": [
+    "/profile",
+    "/mars"
+  ],
+  "/assets/figma/profile/motto.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/profile-hero-bg.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/profile-mars-bg.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/profile-motto-bg.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/profile-semboyan-bg.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/semboyan.png": [
+    "/profile"
+  ],
+  "/assets/figma/profile/timelinegaris.png": [
+    "/profile"
+  ],
+  "/assets/figma/Prestasi/,,,.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/.....png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (1).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (10).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (11).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (12).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (13).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (2).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (3).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (4).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (5).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (6).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (7).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (8).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi (9).png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Card Prestasi.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/Group 1815.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/a.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/aa.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/b.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/bbbb.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/c.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/ccc.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/dsa.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/mmm.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/nnn.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/s.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/v.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/vvv.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/xxx.png": [
+    "/achievements"
+  ],
+  "/assets/figma/Prestasi/zzzz.png": [
+    "/achievements"
+  ],
+  "/assets/figma/portalinformasi/Perpustakaan Digital.png": [
+    "/information"
+  ],
+  "/assets/figma/portalinformasi/SIMAK 26.png": [
+    "/information"
+  ],
+  "/assets/figma/portalinformasi/SPMB.png": [
+    "/information"
+  ],
+  "/assets/figma/portalinformasi/kjp.png": [
+    "/information"
+  ],
+  "/assets/figma/portalinformasi/pip.png": [
+    "/information"
+  ],
+  "/assets/figma/decorations/shapekananmitra.png": [
+    "/partners"
+  ],
+  "/assets/figma/decorations/shapekirimitra.png": [
+    "/partners"
+  ],
+  "/assets/figma/mitra-industri/hero.png": [
+    "/partners"
+  ],
+  "/assets/figma/mitra-industri/image 2 (1).png": [
+    "/partners"
+  ],
+  "/assets/figma/mitra-industri/1.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/2.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/3.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/4.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/5.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/6.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/Shape.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/mitra-industri/iconbuku.png": [
+    "/partners/azko",
+    "/partners/pln",
+    "/partners/toyota",
+    "/partners/wika",
+    "/partners/panasonic",
+    "/partners/komatsu",
+    "/partners/microvision",
+    "/partners/astra"
+  ],
+  "/assets/figma/detail-guru/detail-guru-corner-circles.svg": [
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana"
+  ],
+  "/assets/figma/majors/icon-major-education.svg": [
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/guru/fajar-nugroho-guru-matematika",
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/guru/rani-maharani-petugas-keamanan",
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-1.png": [
+    "/guru/rizky-maulana-guru-bahasa-indonesia",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-2.png": [
+    "/guru/aulia-rahmawati-guru-bahasa-inggris",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-3.png": [
+    "/guru/fajar-nugroho-guru-matematika",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-4.png": [
+    "/guru/nadia-putri-lestari-guru-pendidikan-pancasila",
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-5.png": [
+    "/guru/kuri-asih-guru-kejuruan-sija",
+    "/struktur-unit-kerja",
+    "/guru-kejuruan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-6.png": [
+    "/guru/rizky-maulana-guru-kejuruan-tek",
+    "/struktur-unit-kerja",
+    "/guru-kejuruan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-7.png": [
+    "/guru/nadia-putri-lestari-guru-kejuruan-titl",
+    "/struktur-unit-kerja",
+    "/guru-kejuruan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-guru-8.png": [
+    "/guru/fajar-nugraha-guru-kejuruan-tflm",
+    "/struktur-unit-kerja",
+    "/guru-kejuruan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-tendik-1.png": [
+    "/guru/aulia-rahmawati-staf-administrasi-sekolah",
+    "/struktur-unit-kerja",
+    "/tenaga-kependidikan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-tendik-2.png": [
+    "/guru/fikri-ramadhan-operator-sekolah",
+    "/struktur-unit-kerja",
+    "/tenaga-kependidikan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-tendik-3.png": [
+    "/guru/citra-maharani-staf-tata-usaha",
+    "/struktur-unit-kerja",
+    "/tenaga-kependidikan"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-tendik-4.png": [
+    "/guru/rangga-pratama-staf-sarana-prasarana",
+    "/struktur-unit-kerja",
+    "/tenaga-kependidikan"
+  ],
+  "/assets/figma/struktur & unit kerja/Ardiansyah Putra.png": [
+    "/guru/ardiansyah-putra-petugas-keamanan",
+    "/struktur-unit-kerja",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/struktur & unit kerja/Bagus Setiawan.png": [
+    "/guru/bagus-setiawan-petugas-keamanan",
+    "/struktur-unit-kerja",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/struktur & unit kerja/Rani Maharani.png": [
+    "/guru/rani-maharani-petugas-keamanan",
+    "/struktur-unit-kerja",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/struktur & unit kerja/Deni Kurniawan.png": [
+    "/guru/deni-kurniawan-petugas-keamanan",
+    "/struktur-unit-kerja",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-wakasek-1.png": [
+    "/guru/muhafiz-dwi-azhari-wakil-kepala-sekolah-bidang-kesiswaan",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-wakasek-2.png": [
+    "/guru/slamet-wakil-kepala-sekolah-bidang-akademik",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-wakasek-3.png": [
+    "/guru/dimas-ahmad-wakil-kepala-sekolah-bidang-hubungan-dunia-usaha-dunia-industri",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-wakasek-4.png": [
+    "/guru/riky-hamdan-wakil-kepala-sekolah-bidang-sarana-prasarana",
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/lsp/Alur LSP.png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit (1).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit (2).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit (3).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit (4).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit (5).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/BLUD unit.png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/Hero Section.png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/Shape (1).png": [
+    "/programs/lsp",
+    "/programs/organisasi"
+  ],
+  "/assets/figma/lsp/image 2 (2).png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/mdi_book-education.png": [
+    "/programs/lsp"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Button shortcut (8).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (1).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (2).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (3).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (4).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (5).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (6).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan (7).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Foto kegiatan.png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalspkgs/Hero Section (11).png": [
+    "/programs/lsp/kgs"
+  ],
+  "/assets/figma/lsp/skemalsptek/Button shortcut (9).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (1).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (2).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (3).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (4).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (5).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (6).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan (7).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Foto kegiatan.png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptek/Hero Section (12).png": [
+    "/programs/lsp/tek"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Button shortcut (10).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (1).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (2).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (3).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (4).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (5).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (6).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (7).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Foto kegiatan (8).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptitl/Hero Section (13).png": [
+    "/programs/lsp/titl"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Button shortcut (2).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (1).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (2).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (3).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (4).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (5).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (6).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (7).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Foto kegiatan (8).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalsptflm/Hero Section (2).png": [
+    "/programs/lsp/tflm"
+  ],
+  "/assets/figma/lsp/skemalspsija/Button shortcut (4).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (1).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (2).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (3).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (4).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (5).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (6).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (7).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Foto kegiatan (8).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalspsija/Hero Section (5).png": [
+    "/programs/lsp/sija"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Button shortcut (3).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (1).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (2).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (3).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (4).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (5).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (6).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (7).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Foto kegiatan (8).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/lsp/skemalsptkr/Hero Section (3).png": [
+    "/programs/lsp/tkr"
+  ],
+  "/assets/figma/ekstrakulikuler/Button shortcut (11).png": [
+    "/programs/ekstrakurikuler"
+  ],
+  "/assets/figma/ekstrakulikuler/Hero Section.png": [
+    "/programs/ekstrakurikuler"
+  ],
+  "/assets/figma/ekstrakulikuler/image 2 (2).png": [
+    "/programs/ekstrakurikuler"
+  ],
+  "/assets/figma/BKK/Button shortcut (13).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Dynamic Youth Activities Group Portrait 1 (2).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Frame 36448 (1).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Frame 36448 (2).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Frame 36448 (3).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Frame 36448 (4).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Frame 36448.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Group 1813.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/Rectangle 89 (12).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/astra.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/azko.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/boxicons_location-filled.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/goje.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/lets-icons_date-fill.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/mayora.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/mdi_book-education (1).png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/mingcute_time-fill.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/telkom.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/BKK/yamaha.png": [
+    "/programs/bkk"
+  ],
+  "/assets/figma/Organisasi/Button shortcut (12).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Ekstrakurikuler (1).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (1).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (2).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (3).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (4).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (5).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (6).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (7).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Foto kegiatan (8).png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/hero.png": [
+    "/programs/organisasi"
+  ],
+  "/assets/figma/Organisasi/Struktur Osis/Strutur OSIS.png": [
+    "/programs/organisasi/osis"
+  ],
+  "/assets/figma/Organisasi/Struktur MPK/Strutur MPK.png": [
+    "/programs/organisasi/mpk"
+  ],
+  "/assets/figma/KGS/Agung Lazuardi.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Andi Pratama.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Angelica Vero.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Button shortcut.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Dokumentasi Pembelajaranatas.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Dokumentasi Pembelajaranbawah.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Fajar Ramadhan.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Fathan Muyasar.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Hero Section.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/Nabilla Pertiwi.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/kompetensi.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/KGS/mengenal.png": [
+    "/majors/kgs"
+  ],
+  "/assets/figma/TEK/Abi Rafi.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Alyssa Bella.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Button shortcut.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Dinda Azzahra.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Dokumentasi Pembelajaran atas.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Dokumentasi Pembelajaran bawah.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Fajar Ramadhan.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Firmansyah.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Hero Section.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/Hidayah Fadillah.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/kompetensi.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TEK/mengenal.png": [
+    "/majors/tek"
+  ],
+  "/assets/figma/TITL/Assad El Ghanie.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Button shortcut (1).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Dokumentasi Pembelajaran (3).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Dokumentasi Pembelajaran (4).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Frame 36434 (2).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Hero Section (1).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/Muhammad Akbar.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/annisakuncoro.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/dimasahmad.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/image 3 (1).png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/liliputrikencana.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TITL/rakaaditya.png": [
+    "/majors/titl"
+  ],
+  "/assets/figma/TFLM/Abdusallam.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Button shortcut (2).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Dokumentasi Pembelajaran (5).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Dokumentasi Pembelajaran (6).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Frame 36434 (3).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Hero Section (2).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Nayla Safira.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Raihan Nugroho.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Raka Pratama.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Riky Hamdan.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/Salsa Nurfatiha.png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TFLM/image 3 (2).png": [
+    "/majors/tflm"
+  ],
+  "/assets/figma/TKR/Button shortcut (3).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Dokumentasi Pembelajaran (7).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Dokumentasi Pembelajaran (8).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Dwi Bakti.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Eva Khuzaifah.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Frame 36434 (4).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Hero Section (3).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Kaesar Agung.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Putri Cantika.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Raka Kuncoro.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/Rizky Aditya.png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/TKR/image 3 (3).png": [
+    "/majors/tkr"
+  ],
+  "/assets/figma/SIJA/Angelica Putri.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Bagus Rahmansyah.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Button shortcut (4).png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Dokumentasi Pembelajaran (10).png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Dokumentasi Pembelajaran (9).png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Hero Section (5).png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Marwan.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Muhammad Fauzan.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Nabilla Mallya.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Raka Pratama.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/Roadmap Jurusan.png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/SIJA/image 3 (4).png": [
+    "/majors/sija"
+  ],
+  "/assets/figma/BLUD-KGS/Alur BLUD.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Button shortcut (4).png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (10).png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (9).png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Hero Section (4).png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Proyek Gambar Teknik.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Proyek Konstruksi Bangunan.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Proyek Pekerjaan Struktur.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/Proyek Pemasangan Keramik.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/basil_whatsapp-solid.png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-KGS/image 3 (4).png": [
+    "/blud/kgstudio"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Alur BLUD (1).png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/BG Hero.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Button shortcut.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/CCTV Security System.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Electronic Circuit.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/MikroTik Network .png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/Smart Line Follower.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/basil_whatsapp-solid (1).png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-UPTECHNO/image 4.png": [
+    "/blud/uptechno"
+  ],
+  "/assets/figma/BLUD-E-MAN/Alur BLUD (2).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Button shortcut (5).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Hero Section (6).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Instalasi Panel Listrik Gedung.png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Panel Kontrol Motor Listrik.png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Sistem Penerangan Otomatis.png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/Trainer Instalasi Listrik Rumah.png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/basil_whatsapp-solid (2).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-E-MAN/image 4 (1).png": [
+    "/blud/e-man"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Alur BLUD (2).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Button shortcut (5).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Fabrikasi Rangka Baja.png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Hero Section (6).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Pengeboran Komponen Mesin.png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Pengelasan Konstruksi Logam.png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/Pengukuran & Quality Control.png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/basil_whatsapp-solid (3).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Manufaktur26/image 4 (1).png": [
+    "/blud/manufaktur26"
+  ],
+  "/assets/figma/BLUD-Garage26/Alur BLUD (3).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Brake System Maintenance.png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Button shortcut (6).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Engine Tune-Up.png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Hero Section (7).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Undercarriage Inspection.png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/Wheel & Tire Service.png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/basil_whatsapp-solid (4).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-Garage26/image 4 (2).png": [
+    "/blud/garage26"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Alur BLUD (4).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Button shortcut (4).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Custom Apparel Printing.png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Custom Merchandise.png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Digital Print & Branding.png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (13).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (14).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Hero Section (8).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/Sticker & Label Printing.png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/basil_whatsapp-solid (5).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/BLUD-GadizVokasi/image 3 (5).png": [
+    "/blud/gadiz-vokasi"
+  ],
+  "/assets/figma/decorations/Rectangle 93 (1).png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/SEMANGATlogo.png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/belakangvidmars.png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/bolabolaheromarskecilkanan.png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/bolabolaheromarskiri.png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/buderliana.png": [
+    "/mars"
+  ],
+  "/assets/figma/mars/pak sutaryo.png": [
+    "/mars"
+  ],
+  "/assets/figma/struktur & unit kerja/bghero.png": [
+    "/struktur-unit-kerja"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-badge.svg": [
+    "/struktur-unit-kerja",
+    "/guru-normatif-adaptif",
+    "/guru-kejuruan",
+    "/tenaga-kependidikan",
+    "/tim-pendukung-sekolah"
+  ],
+  "/assets/figma/struktur & unit kerja/struktur-kepsek.png": [
+    "/struktur-unit-kerja"
+  ]
+}

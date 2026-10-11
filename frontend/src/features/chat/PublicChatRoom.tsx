@@ -3,7 +3,7 @@ import { api } from "../../lib/api";
 import { usePublicChat } from "./ChatProvider";
 import type { ChatMessage, ChatResponse, ChatSource } from "./chat.types";
 
-const chatbotImage = "/assets/figma/ai-cta/ai-cta-raw-02.png";
+const chatbotImage = "/assets/shared/chatbot/chatbot.png";
 
 const suggestedQuestions = [
   "Apa saja jurusan di SMKN 26?",

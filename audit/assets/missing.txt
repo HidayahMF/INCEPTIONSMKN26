@@ -1,0 +1,38 @@
+/assets/figma/*  <- docs/FIGMA_ASSET_MANIFEST.md:15
+/assets/figma/Organisasi/Struktur MPK/Group 1812 (1).png  <- frontend/src/pages/StrukturOrganisasiPage.tsx:17
+/assets/figma/Organisasi/Struktur Osis/Group 1811 (1).png  <- frontend/src/pages/StrukturOrganisasiPage.tsx:11
+/assets/figma/struktur & unit kerja/struktur-guru-1..4.png  <- docs/FIGMA_ASSET_MANIFEST.md:256
+/assets/figma/struktur & unit kerja/struktur-guru-5..8.png  <- docs/FIGMA_ASSET_MANIFEST.md:257
+/assets/figma/struktur & unit kerja/struktur-tendik-1..4.png  <- docs/FIGMA_ASSET_MANIFEST.md:258
+/assets/figma/struktur & unit kerja/struktur-wakasek-1..4.png  <- docs/FIGMA_ASSET_MANIFEST.md:255
+/assets/panorama/LapanganSMKN261.jpeg  <- docs/FIGMA_ASSET_MANIFEST.md:34
+frontend/public/assets/  <- README.md:32
+frontend/public/assets/figma/  <- docs/FIGMA_ASSET_MANIFEST.md:8
+frontend/public/assets/figma/**  <- docs/FIGMA_ASSET_MANIFEST.md:13
+frontend/public/assets/figma/achievements/achievements-raw-01.png  <- docs/figma-homepage-asset-manifest.md:18
+frontend/public/assets/figma/ai-cta/  <- docs/figma-homepage-asset-manifest.md:21
+frontend/public/assets/figma/ai-cta/ai-cta-raw-01.png  <- docs/figma-homepage-asset-manifest.md:20
+frontend/public/assets/figma/blud/  <- docs/figma-homepage-asset-manifest.md:17
+frontend/public/assets/figma/branding/smkn26-logo.png  <- docs/figma-homepage-asset-manifest.md:22
+frontend/public/assets/figma/footer/  <- docs/figma-homepage-asset-manifest.md:23
+frontend/public/assets/figma/hero/hero-school-building.png  <- docs/figma-homepage-asset-manifest.md:7
+frontend/public/assets/figma/hero/student-male.png  <- docs/figma-homepage-asset-manifest.md:8
+frontend/public/assets/figma/icons/icon-chevron-down.svg  <- docs/figma-homepage-asset-manifest.md:22
+frontend/public/assets/figma/icons/icon-search.svg  <- docs/figma-homepage-asset-manifest.md:9
+frontend/public/assets/figma/majors/*  <- docs/figma-homepage-asset-manifest.md:13
+frontend/public/assets/figma/news/news-raw-01.png  <- docs/figma-homepage-asset-manifest.md:19
+frontend/public/assets/figma/partners/*  <- docs/figma-homepage-asset-manifest.md:12
+frontend/public/assets/figma/programs/programs-raw-01.png  <- docs/figma-homepage-asset-manifest.md:15
+frontend/public/assets/figma/programs/programs-raw-04.png  <- docs/figma-homepage-asset-manifest.md:16
+frontend/public/assets/figma/shortcuts/shortcut-spmb.png  <- docs/figma-homepage-asset-manifest.md:11
+frontend/public/assets/figma/video-profile/video-profile-svg-01.svg  <- docs/figma-homepage-asset-manifest.md:14
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/BludServicePage.tsx:17
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/EmanPage.tsx:24
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/KgStudioPage.tsx:31
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/KgsPage.tsx:56
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/SijaPage.tsx:13
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/TekPage.tsx:36
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/TflmPage.tsx:34
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/TitlPage.tsx:16
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/TkrPage.tsx:13
+h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]  <- frontend/src/pages/UptechnoPage.tsx:24

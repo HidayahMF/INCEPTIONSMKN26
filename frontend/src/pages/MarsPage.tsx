@@ -7,7 +7,7 @@ import { useFloatShapes } from "../lib/useFloatShapes";
 function MarsBadge({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+      <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
       {children}
     </span>
   );
@@ -189,14 +189,14 @@ export function MarsPage() {
             <div data-aos="zoom-in" className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
                 className="pointer-events-none absolute right-[-18%] top-0 h-full w-auto max-w-[58%] object-contain opacity-60 md:right-0 md:max-w-none md:opacity-100"
-                src="/assets/figma/profile/VISI SEKOLAHujung.png"
+                src="/assets/shared/profile/visi-ujung.png"
                 alt=""
                 aria-hidden="true"
               />
               <div className="relative z-10 flex items-center gap-2">
                 <img
                   className="size-[22px] object-contain"
-                  src="/assets/figma/profile/icondisampingjudulvisimisi.png"
+                  src="/assets/shared/profile/visi-misi-icon.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -212,7 +212,7 @@ export function MarsPage() {
               </p>
               <img
                 className="absolute bottom-6 left-12 h-[5px] w-[64px] object-fill"
-                src="/assets/figma/profile/GARISBAWAHVISISEKOLAH.png"
+                src="/assets/shared/profile/visi-misi-garis.png"
                 alt=""
                 aria-hidden="true"
               />
@@ -312,7 +312,7 @@ Pasti SMK Negeri 26 jayalah terus`}
                     </h3>
                     <img
                       className="mt-1 h-auto  object-contain max-md:mx-auto"
-                      src="/assets/figma/decorations/Rectangle 93 (1).png"
+                      src="/assets/shared/decorations/Rectangle 93 (1).png"
                       alt=""
                       aria-hidden="true"
                     />
@@ -377,7 +377,7 @@ Pasti SMK Negeri 26 jayalah terus`}
                     <div className="flex items-center gap-6">
                       <img
                         className="size-[68px] shrink-0 object-contain"
-                        src="/assets/figma/mars/SEMANGATlogo.png"
+                        src="/assets/pages/mars/SEMANGATlogo.png"
                         alt=""
                         aria-hidden="true"
                       />

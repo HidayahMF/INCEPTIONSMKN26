@@ -1,0 +1,152 @@
+moves: 394, deletes: 52, collisions: 0
+
+CATEGORIES:
+  home/achievements: 7
+  home/blud: 6
+  home/majors: 8
+  home/programs: 7
+  home/school: 1
+  home/shortcuts: 4
+  majors/KGSAssets: 3
+  majors/SIJAAssets: 2
+  majors/TEKAssets: 4
+  majors/TFLMAssets: 4
+  majors/TITLAssets: 3
+  majors/TKRAssets: 4
+  pages/bkk: 18
+  pages/blud: 51
+  pages/ekstrakurikuler: 2
+  pages/guru: 1
+  pages/lsp: 59
+  pages/majors: 40
+  pages/mars: 6
+  pages/mitra-industri: 3
+  pages/organisasi: 12
+  pages/portal-informasi: 5
+  pages/prestasi: 30
+  pages/profile: 8
+  pages/tour: 23
+  shared/advantages: 6
+  shared/branding: 1
+  shared/chatbot: 2
+  shared/decorations: 7
+  shared/footer: 5
+  shared/hero: 3
+  shared/icons: 11
+  shared/illustrations: 1
+  shared/lsp: 1
+  shared/majors: 2
+  shared/news: 6
+  shared/partners: 8
+  shared/profile: 3
+  shared/struktur: 22
+  shared/video-profile: 5
+
+MAJORS:
+  majors/KGSAssets/kgs-hero.png   <= figma/KGS/Hero Section.png
+  majors/KGSAssets/kgs-mengenal.png   <= figma/KGS/mengenal.png
+  majors/KGSAssets/kgs-shortcut.png   <= figma/KGS/Button shortcut.png
+  majors/SIJAAssets/sija-hero.png   <= figma/SIJA/Hero Section (5).png
+  majors/SIJAAssets/sija-shortcut.png   <= figma/SIJA/Button shortcut (4).png
+  majors/TEKAssets/tek-dokumentasi-atas.png   <= figma/TEK/Dokumentasi Pembelajaran atas.png
+  majors/TEKAssets/tek-dokumentasi-bawah.png   <= figma/TEK/Dokumentasi Pembelajaran bawah.png
+  majors/TEKAssets/tek-hero.png   <= figma/TEK/Hero Section.png
+  majors/TEKAssets/tek-shortcut.png   <= figma/TEK/Button shortcut.png
+  majors/TFLMAssets/tflm-dokumentasi-5.png   <= figma/TFLM/Dokumentasi Pembelajaran (5).png
+  majors/TFLMAssets/tflm-dokumentasi-6.png   <= figma/TFLM/Dokumentasi Pembelajaran (6).png
+  majors/TFLMAssets/tflm-hero.png   <= figma/TFLM/Hero Section (2).png
+  majors/TFLMAssets/tflm-shortcut.png   <= figma/TFLM/Button shortcut (2).png
+  majors/TITLAssets/titl-dokumentasi-3.png   <= figma/TITL/Dokumentasi Pembelajaran (3).png
+  majors/TITLAssets/titl-dokumentasi-4.png   <= figma/TITL/Dokumentasi Pembelajaran (4).png
+  majors/TITLAssets/titl-shortcut.png   <= figma/TITL/Button shortcut (1).png
+  majors/TKRAssets/tkr-dokumentasi-7.png   <= figma/TKR/Dokumentasi Pembelajaran (7).png
+  majors/TKRAssets/tkr-dokumentasi-8.png   <= figma/TKR/Dokumentasi Pembelajaran (8).png
+  majors/TKRAssets/tkr-hero.png   <= figma/TKR/Hero Section (3).png
+  majors/TKRAssets/tkr-shortcut.png   <= figma/TKR/Button shortcut (3).png
+
+SHARED:
+  shared/advantages/advantage-blud.png   <= figma/advantages/advantage-blud.png
+  shared/advantages/advantage-education.png   <= figma/advantages/advantage-education.png
+  shared/advantages/advantage-inclusive.png   <= figma/advantages/advantage-inclusive.png
+  shared/advantages/advantage-industry.png   <= figma/advantages/advantage-industry.png
+  shared/advantages/advantage-interest.png   <= figma/advantages/advantage-interest.png
+  shared/advantages/advantage-lsp.png   <= figma/advantages/advantage-lsp.png
+  shared/branding/smkn26-logo.png   <= figma/branding/smkn26-logo.png
+  shared/chatbot/ai-cta-svg-07.svg   <= figma/ai-cta/ai-cta-svg-07.svg
+  shared/chatbot/chatbot.png   <= figma/ai-cta/ai-cta-raw-02.png
+  shared/decorations/kanan.png   <= figma/decorations/kanan.png
+  shared/decorations/kiri.png   <= figma/decorations/kiri.png
+  shared/decorations/mengenal.png   <= figma/decorations/mengenal.png
+  shared/decorations/mengenalbesar.png   <= figma/decorations/mengenalbesar.png
+  shared/decorations/Rectangle 93 (1).png   <= figma/decorations/Rectangle 93 (1).png
+  shared/decorations/shapekananmitra.png   <= figma/decorations/shapekananmitra.png
+  shared/decorations/shapekirimitra.png   <= figma/decorations/shapekirimitra.png
+  shared/footer/footer-address.svg   <= figma/footer/footer-svg-13.svg
+  shared/footer/footer-email.svg   <= figma/footer/footer-svg-04.svg
+  shared/footer/footer-instagram.svg   <= figma/footer/footer-svg-07.svg
+  shared/footer/footer-whatsapp.svg   <= figma/footer/footer-svg-03.svg
+  shared/footer/footer-youtube.svg   <= figma/footer/footer-svg-08.svg
+  shared/hero/mengenalsmkprofile.png   <= figma/hero/mengenalsmkprofile.png
+  shared/hero/school-building.png   <= figma/hero/hero-school-building.png
+  shared/hero/student-male.png   <= figma/hero/student-male.png
+  shared/icons/arrow-left.png   <= figma/advantages/Arrowleft.png
+  shared/icons/arrow-right.png   <= figma/advantages/Arrowright.png
+  shared/icons/arrow-right.svg   <= figma/icons/icon-arrow-right.svg
+  shared/icons/book-education.svg   <= figma/advantages/icon-book-education-secondary.svg
+  shared/icons/button-shortcut.png   <= figma/BKK/Button shortcut (13).png
+  shared/icons/chevron-down.svg   <= figma/icons/icon-chevron-down.svg
+  shared/icons/icon-search.svg   <= figma/icons/icon-search.svg
+  shared/icons/play-video.svg   <= figma/icons/icon-play-video.svg
+  shared/icons/popover-pointer.svg   <= figma/majors/popover-pointer-left.svg
+  shared/icons/secondary-arrow-right.svg   <= figma/icons/secondary-arrow-right.svg
+  shared/icons/section-badge.svg   <= figma/majors/icon-section-badge.svg
+  shared/illustrations/berkembang.png   <= figma/lsp/image 2 (2).png
+  shared/lsp/hover-shape.png   <= figma/lsp/Shape (1).png
+  shared/majors/Andi Pratama.png   <= figma/KGS/Andi Pratama.png
+  shared/majors/Marwan.png   <= figma/SIJA/Marwan.png
+  shared/news/news-calendar.svg   <= figma/news/news-calendar.svg
+  shared/news/news-raw-01.png   <= figma/news/news-raw-01.png
+  shared/news/news-raw-03.png   <= figma/news/news-raw-03.png
+  shared/news/news-raw-04.png   <= figma/news/news-raw-04.png
+  shared/news/news-raw-07.png   <= figma/news/news-raw-07.png
+  shared/news/news-raw-09.png   <= figma/news/news-raw-09.png
+  shared/partners/astra.png   <= figma/partners/astra.png
+  shared/partners/azko.png   <= figma/partners/azko.png
+  shared/partners/komatsu.png   <= figma/partners/komatsu.png
+  shared/partners/microvision.png   <= figma/partners/microvision.png
+  shared/partners/panasonic.png   <= figma/partners/panasonic.png
+  shared/partners/pln.png   <= figma/partners/pln.png
+  shared/partners/toyota.jpeg   <= figma/partners/toyota.jpeg
+  shared/partners/wika.png   <= figma/partners/wika.png
+  shared/profile/visi-misi-garis.png   <= figma/profile/GARISBAWAHVISISEKOLAH.png
+  shared/profile/visi-misi-icon.png   <= figma/profile/icondisampingjudulvisimisi.png
+  shared/profile/visi-ujung.png   <= figma/profile/VISI SEKOLAHujung.png
+  shared/struktur/Ardiansyah Putra.png   <= figma/struktur & unit kerja/Ardiansyah Putra.png
+  shared/struktur/Bagus Setiawan.png   <= figma/struktur & unit kerja/Bagus Setiawan.png
+  shared/struktur/bghero.png   <= figma/struktur & unit kerja/bghero.png
+  shared/struktur/Deni Kurniawan.png   <= figma/struktur & unit kerja/Deni Kurniawan.png
+  shared/struktur/Rani Maharani.png   <= figma/struktur & unit kerja/Rani Maharani.png
+  shared/struktur/struktur-guru-1.png   <= figma/struktur & unit kerja/struktur-guru-1.png
+  shared/struktur/struktur-guru-2.png   <= figma/struktur & unit kerja/struktur-guru-2.png
+  shared/struktur/struktur-guru-3.png   <= figma/struktur & unit kerja/struktur-guru-3.png
+  shared/struktur/struktur-guru-4.png   <= figma/struktur & unit kerja/struktur-guru-4.png
+  shared/struktur/struktur-guru-5.png   <= figma/struktur & unit kerja/struktur-guru-5.png
+  shared/struktur/struktur-guru-6.png   <= figma/struktur & unit kerja/struktur-guru-6.png
+  shared/struktur/struktur-guru-7.png   <= figma/struktur & unit kerja/struktur-guru-7.png
+  shared/struktur/struktur-guru-8.png   <= figma/struktur & unit kerja/struktur-guru-8.png
+  shared/struktur/struktur-kepsek.png   <= figma/struktur & unit kerja/struktur-kepsek.png
+  shared/struktur/struktur-tendik-1.png   <= figma/struktur & unit kerja/struktur-tendik-1.png
+  shared/struktur/struktur-tendik-2.png   <= figma/struktur & unit kerja/struktur-tendik-2.png
+  shared/struktur/struktur-tendik-3.png   <= figma/struktur & unit kerja/struktur-tendik-3.png
+  shared/struktur/struktur-tendik-4.png   <= figma/struktur & unit kerja/struktur-tendik-4.png
+  shared/struktur/struktur-wakasek-1.png   <= figma/struktur & unit kerja/struktur-wakasek-1.png
+  shared/struktur/struktur-wakasek-2.png   <= figma/struktur & unit kerja/struktur-wakasek-2.png
+  shared/struktur/struktur-wakasek-3.png   <= figma/struktur & unit kerja/struktur-wakasek-3.png
+  shared/struktur/struktur-wakasek-4.png   <= figma/struktur & unit kerja/struktur-wakasek-4.png
+  shared/video-profile/video-profile-decoration-left.svg   <= figma/video-profile/video-profile-decoration-left.svg
+  shared/video-profile/video-profile-decoration-right.svg   <= figma/video-profile/video-profile-decoration-right.svg
+  shared/video-profile/video-profile-lower-shape.svg   <= figma/video-profile/video-profile-lower-shape.svg
+  shared/video-profile/video-profile-play-ring.svg   <= figma/video-profile/video-profile-play-ring.svg
+  shared/video-profile/video-profile-preview.png   <= figma/video-profile/video-profile-preview.png
+
+COLLISIONS:

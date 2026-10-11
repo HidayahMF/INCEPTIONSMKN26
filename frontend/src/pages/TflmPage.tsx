@@ -5,7 +5,15 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/TFLM/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Abdusallam.png": "/assets/shared/majors/person-b.png",
+  "Button shortcut (2).png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
+  "Dokumentasi Pembelajaran (5).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-5.png",
+  "Dokumentasi Pembelajaran (6).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-6.png",
+  "Hero Section (2).png": "/assets/majors/TFLMAssets/tflm-hero.png",
+  "Raka Pratama.png": "/assets/shared/majors/person-a.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tflm/${name}`;
 
 const competencies = [
   "Gambar Teknik",
@@ -31,7 +39,7 @@ const alumni = [
 ] as const;
 
 function Label({ children }: { children: string }) {
-  return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#AB0001] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>;
+  return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#AB0001] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>;
 }
 
 export function TflmPage() {

@@ -1,0 +1,124 @@
+/assets/figma/BKK/Alur BKK.png
+/assets/figma/BKK/BKK.png
+/assets/figma/BKK/Layanan BLUD.png
+/assets/figma/BKK/Screenshot 2026-10-06 195258.png
+/assets/figma/BKK/Screenshot 2026-10-06 195354.png
+/assets/figma/BLUD-E-MAN/E - Man.png
+/assets/figma/BLUD-GadizVokasi/GADIZ VOKASI.png
+/assets/figma/BLUD-Garage26/Garage26.png
+/assets/figma/BLUD-KGS/KGStudio.png
+/assets/figma/BLUD-Manufaktur26/Manufaktur26.png
+/assets/figma/BLUD-UPTECHNO/UPTECHNO.png
+/assets/figma/KGS/Screenshot 2026-10-06 012606.png
+/assets/figma/KGS/tampilanbenarfigma.png
+/assets/figma/Prestasi/Prestasi SMKN 26 (1).png
+/assets/figma/Prestasi/dd.png
+/assets/figma/SIJA/Jurusan SIJA.png
+/assets/figma/SIJA/Screenshot 2026-10-06 013118.png
+/assets/figma/TEK/Screenshot 2026-10-06 012931.png
+/assets/figma/TEK/tampilanfigmabenar.png
+/assets/figma/TFLM/Screenshot 2026-10-06 013036.png
+/assets/figma/TFLM/tampilanfigmabenar.png
+/assets/figma/TITL/Screenshot 2026-10-06 013010.png
+/assets/figma/TITL/tampilanfigmabenar.png
+/assets/figma/TKR/Screenshot 2026-10-06 013052.png
+/assets/figma/TKR/tampilanbenarfigma.png
+/assets/figma/achievements/achievements-play-circle.svg
+/assets/figma/achievements/achievements-raw-02.png
+/assets/figma/achievements/achievements-raw-05.png
+/assets/figma/achievements/achievements-raw-06.png
+/assets/figma/achievements/achievements-svg-13.svg
+/assets/figma/advantages/advantage-arrow.svg
+/assets/figma/advantages/advantage-carousel-left.svg
+/assets/figma/advantages/advantage-carousel-right.svg
+/assets/figma/advantages/basil_arrow-right-solid.png
+/assets/figma/ai-cta/ai-cta-raw-01.png
+/assets/figma/ai-cta/ai-cta-svg-02.svg
+/assets/figma/ai-cta/ai-cta-svg-10.svg
+/assets/figma/blud/blud-KGS-shape.svg
+/assets/figma/blud/blud-SIJA-shape.svg
+/assets/figma/blud/blud-TKR-shape.svg
+/assets/figma/blud/blud-svg-06.svg
+/assets/figma/blud/blud-svg-12.svg
+/assets/figma/blud/blud-svg-13.svg
+/assets/figma/blud/blud-svg-19.svg
+/assets/figma/ekstrakulikuler/Ekstrakurikuler.png
+/assets/figma/eyebrow/Property=KGS.png
+/assets/figma/eyebrow/Property=SIJA.png
+/assets/figma/eyebrow/Property=TEK.png
+/assets/figma/eyebrow/Property=TFLM.png
+/assets/figma/eyebrow/Property=TITL.png
+/assets/figma/eyebrow/Property=TKR.png
+/assets/figma/footer/footer-raw-02.png
+/assets/figma/hero/hero-background.png
+/assets/figma/hero/hero-headline.svg
+/assets/figma/hero/student-female.png
+/assets/figma/herosection/Frame 36449.png
+/assets/figma/herosection/Frame 36450.png
+/assets/figma/herosection/Frame 36452.png
+/assets/figma/herosection/Frame 36453.png
+/assets/figma/herosection/Hero Section (15).png
+/assets/figma/herosection/Hero Section (16).png
+/assets/figma/herosection/Screenshot 2026-10-06 215343.png
+/assets/figma/herosection/herokgs.png
+/assets/figma/herosection/herolsp.png
+/assets/figma/herosection/herosija.png
+/assets/figma/herosection/herotek.png
+/assets/figma/herosection/herotitl.png
+/assets/figma/herosection/herotkr.png
+/assets/figma/lsp/Lembaga Sertifikasi Profesi (LSP).png
+/assets/figma/lsp/Rectangle 93.png
+/assets/figma/lsp/Screenshot 2026-10-06 052406.png
+/assets/figma/lsp/skemalspkgs/LSP KGS.png
+/assets/figma/lsp/skemalspsija/LSP KGS (1).png
+/assets/figma/lsp/skemalsptflm/LSP TFLM.png
+/assets/figma/lsp/skemalsptitl/LSP TITL.png
+/assets/figma/lsp/skemalsptkr/LSP TKR (1).png
+/assets/figma/mitra-industri/Detail Halaman Card Mitra Industri - Astro.png
+/assets/figma/mitra-industri/Screenshot 2026-10-06 045601.png
+/assets/figma/mitra-industri/figmamitraindustri.png
+/assets/figma/news/news-raw-02.png
+/assets/figma/news/news-raw-05.png
+/assets/figma/news/news-svg-02.svg
+/assets/figma/partners/compnet.png
+/assets/figma/partners/mandiri.png
+/assets/figma/partners/partner-logo-04.png
+/assets/figma/partners/partner-logo-05.png
+/assets/figma/partners/partner-logo-07.jpeg
+/assets/figma/partners/partner-logo-09.png
+/assets/figma/partners/partner-logo-10.png
+/assets/figma/partners/partner-logo-12.png
+/assets/figma/partners/partner-logo-16.png
+/assets/figma/partners/partner-panasonic.png
+/assets/figma/partners/partner-pln.png
+/assets/figma/partners/partner-wika.png
+/assets/figma/profile/profile-overview.png
+/assets/figma/programs/programs-raw-01.png
+/assets/figma/programs/programs-raw-05.png
+/assets/figma/struktur & unit kerja/Screenshot 2026-10-06 043110.png
+/assets/figma/struktur & unit kerja/struktur-arrow-right.svg
+/assets/figma/struktur & unit kerja/struktur-arrow.svg
+/assets/panorama/school_tour/Screenshots/RBTRA.jpg
+/assets/panorama/school_tour/Screenshots/bengkel.jpg
+/assets/panorama/school_tour/Screenshots/bengkel_kgs.jpg
+/assets/panorama/school_tour/Screenshots/bengkel_sija.jpg
+/assets/panorama/school_tour/Screenshots/bengkel_titl.jpg
+/assets/panorama/school_tour/Screenshots/bengkel_tkr.jpg
+/assets/panorama/school_tour/Screenshots/dalam_masjid.jpg
+/assets/panorama/school_tour/Screenshots/depan_aula.jpg
+/assets/panorama/school_tour/Screenshots/depan_lsp.jpg
+/assets/panorama/school_tour/Screenshots/depan_masjid.jpg
+/assets/panorama/school_tour/Screenshots/depan_tek.jpg
+/assets/panorama/school_tour/Screenshots/desktop.ini
+/assets/panorama/school_tour/Screenshots/gerbang.jpg
+/assets/panorama/school_tour/Screenshots/jogging_track.jpg
+/assets/panorama/school_tour/Screenshots/kantin.jpg
+/assets/panorama/school_tour/Screenshots/lapangan.jpg
+/assets/panorama/school_tour/Screenshots/pedestrian.jpg
+/assets/panorama/school_tour/Screenshots/pedestrian_rbtra.jpg
+/assets/panorama/school_tour/Screenshots/pendopo_kgs.jpg
+/assets/panorama/school_tour/Screenshots/perpustakaan.jpg
+/assets/panorama/school_tour/Screenshots/ruang_piket.jpg
+/assets/panorama/school_tour/Screenshots/satpam.jpg
+/assets/panorama/school_tour/Screenshots/toilet1.jpg
+/assets/panorama/tampilanfigma.png

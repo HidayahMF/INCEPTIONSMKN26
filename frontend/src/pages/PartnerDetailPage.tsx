@@ -22,7 +22,7 @@ const relevantCompetencies: Array<[string, string, string, string]> = [
 const partnerDetails: Record<string, PartnerDetail> = {
   azko: {
     name: "AZKO",
-    logo: "/assets/figma/partners/azko.png",
+    logo: "/assets/shared/partners/azko.png",
     industry: "Retail",
     location: "Jakarta",
     website: "https://azko.id/",
@@ -30,7 +30,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   pln: {
     name: "PLN",
-    logo: "/assets/figma/partners/pln.png",
+    logo: "/assets/shared/partners/pln.png",
     industry: "Energi dan ketenagalistrikan",
     location: "Jakarta",
     website: "https://www.pln.co.id/",
@@ -38,7 +38,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   toyota: {
     name: "Toyota",
-    logo: "/assets/figma/partners/toyota.jpeg",
+    logo: "/assets/shared/partners/toyota.jpeg",
     industry: "Otomotif",
     location: "Jakarta",
     website: "https://www.toyota.astra.co.id/",
@@ -46,7 +46,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   wika: {
     name: "WIKA",
-    logo: "/assets/figma/partners/wika.png",
+    logo: "/assets/shared/partners/wika.png",
     industry: "Konstruksi dan infrastruktur",
     location: "Jakarta",
     website: "https://www.wika.co.id/",
@@ -54,7 +54,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   panasonic: {
     name: "Panasonic",
-    logo: "/assets/figma/partners/panasonic.png",
+    logo: "/assets/shared/partners/panasonic.png",
     industry: "Elektronik dan teknologi",
     location: "Jakarta",
     website: "https://www.panasonic.com/id/",
@@ -62,7 +62,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   komatsu: {
     name: "Komatsu",
-    logo: "/assets/figma/partners/komatsu.png",
+    logo: "/assets/shared/partners/komatsu.png",
     industry: "Manufaktur dan alat berat",
     location: "Jakarta",
     website: "https://www.komatsu.com/",
@@ -70,7 +70,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   microvision: {
     name: "Microvision",
-    logo: "/assets/figma/partners/microvision.png",
+    logo: "/assets/shared/partners/microvision.png",
     industry: "Teknologi dan multimedia",
     location: "Jakarta",
     website: "#",
@@ -78,7 +78,7 @@ const partnerDetails: Record<string, PartnerDetail> = {
   },
   astra: {
     name: "Astra Otoparts",
-    logo: "/assets/figma/partners/astra.png",
+    logo: "/assets/shared/partners/astra.png",
     industry: "Komponen otomotif dan manufaktur",
     location: "Jakarta",
     website: "https://www.astra-otoparts.com/",
@@ -94,8 +94,17 @@ const collaborations = [
 ] as const;
 
 function Label({ children }: { children: string }) {
-  return <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]"><img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{children}</span>;
+  return <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]"><img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{children}</span>;
 }
+
+const COMPETENCY_ICONS = [
+  "/assets/majors/KGSAssets/kgs-shortcut.png",
+  "/assets/majors/TEKAssets/tek-shortcut.png",
+  "/assets/majors/TITLAssets/titl-shortcut.png",
+  "/assets/majors/TFLMAssets/tflm-shortcut.png",
+  "/assets/majors/TKRAssets/tkr-shortcut.png",
+  "/assets/majors/SIJAAssets/sija-shortcut.png",
+];
 
 export function PartnerDetailPage({ slug }: { slug: string }) {
   const partner = partnerDetails[slug] ?? partnerDetails.azko;
@@ -103,7 +112,7 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
     <div className="min-h-screen overflow-hidden bg-[#f4f8ff] text-[#10182b]">
       <PublicNavbar />
       <main className="relative px-6 pb-24 pt-[132px] sm:px-8 lg:px-12">
-        <img className="pointer-events-none absolute right-0 top-[110px] z-0 hidden h-[301px] w-[155px] max-w-none select-none sm:block" src="/assets/figma/mitra-industri/Shape.png" alt="" aria-hidden="true" draggable={false} />
+        <img className="pointer-events-none absolute right-0 top-[110px] z-0 hidden h-[301px] w-[155px] max-w-none select-none sm:block" src="/assets/pages/mitra-industri/Shape.png" alt="" aria-hidden="true" draggable={false} />
         <div className="relative z-10 mx-auto grid max-w-[1180px] items-center gap-10 lg:grid-cols-[305px_1fr] lg:gap-[72px]">
           <div data-aos="fade-right" className="grid min-h-[275px] place-items-center rounded-2xl border border-[#deebf7] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.04)] sm:min-h-[330px]">
             <img className="max-h-32 max-w-full object-contain" src={partner.logo} alt={`${partner.name} logo`} />
@@ -125,7 +134,7 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
           <h2 data-aos="fade-up" data-aos-delay="100" id="partner-collaboration-title" className="text-3xl font-bold sm:text-4xl">Kolaborasi dengan SMK Negeri 26 Jakarta</h2>
           <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Sinergi SMK Negeri 26 Jakarta bersama industri untuk menghadirkan pengalaman belajar yang lebih dekat dengan dunia kerja.</p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {collaborations.map(([title, copy], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 80, 320)} className="min-h-[140px] rounded-2xl bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-9" src="/assets/figma/mitra-industri/iconbuku.png" alt="" /><h3 className="mt-2 text-base font-bold leading-5 text-primary">{title}</h3><p className="mt-1 text-[10px] leading-4 text-[#172033]">{copy}</p></article>)}
+            {collaborations.map(([title, copy], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 80, 320)} className="min-h-[140px] rounded-2xl bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-9" src="/assets/pages/mitra-industri/iconbuku.png" alt="" /><h3 className="mt-2 text-base font-bold leading-5 text-primary">{title}</h3><p className="mt-1 text-[10px] leading-4 text-[#172033]">{copy}</p></article>)}
           </div>
         </section>
 
@@ -134,7 +143,7 @@ export function PartnerDetailPage({ slug }: { slug: string }) {
           <h2 data-aos="fade-up" data-aos-delay="100" id="partner-competency-title" className="text-3xl font-bold sm:text-4xl">Kompetensi yang Terhubung</h2>
           <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[650px] text-sm leading-6 text-[#61708b] sm:text-base">Kolaborasi industri yang selaras dengan kompetensi keahlian untuk membantu siswa mempersiapkan diri menghadapi dunia kerja.</p>
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-             {relevantCompetencies.map(([title, copy, color, href], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 60, 300)} className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={`/assets/figma/mitra-industri/${index + 1}.png`} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
+             {relevantCompetencies.map(([title, copy, color, href], index) => <article data-aos="fade-up" data-aos-delay={Math.min(index * 60, 300)} className="flex min-h-[215px] flex-col rounded-2xl bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,.04)]" key={title}><img className="size-10 rounded-full object-contain" src={COMPETENCY_ICONS[index] ?? COMPETENCY_ICONS[0]} alt="" aria-hidden="true" /><h3 className="mt-3 text-xl font-bold leading-6" style={{ color }}>{title}</h3><p className="mt-2 text-xs leading-5 text-[#172033]">{copy}</p><a className="mt-auto inline-flex w-fit rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" href={href}>Jelajahi Jurusan <span className="ml-2">→</span></a></article>)}
           </div>
         </section>
       </main>

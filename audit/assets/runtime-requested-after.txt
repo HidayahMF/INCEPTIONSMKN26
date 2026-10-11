@@ -1,0 +1,394 @@
+/assets/home/achievements/achievements-raw-01.png
+/assets/home/achievements/achievements-raw-03.png
+/assets/home/achievements/achievements-raw-04.png
+/assets/home/achievements/achievements-raw-07.png
+/assets/home/achievements/achievements-raw-08.png
+/assets/home/achievements/achievements-svg-03.svg
+/assets/home/achievements/achievements-svg-12.svg
+/assets/home/blud/blud-SIJA-icon.svg
+/assets/home/blud/blud-TEK-icon.svg
+/assets/home/blud/blud-TFLM-icon.svg
+/assets/home/blud/blud-TITL-icon.svg
+/assets/home/blud/blud-TKR-icon.svg
+/assets/home/blud/blud-svg-02.svg
+/assets/home/majors/icon-major-building.svg
+/assets/home/majors/major-background-shape.svg
+/assets/home/majors/major-kgs.png
+/assets/home/majors/major-sija.png
+/assets/home/majors/major-tek.png
+/assets/home/majors/major-tflm.png
+/assets/home/majors/major-titl.png
+/assets/home/majors/major-tkr.png
+/assets/home/programs/programs-raw-02.png
+/assets/home/programs/programs-raw-03.png
+/assets/home/programs/programs-raw-04.png
+/assets/home/programs/programs-raw-06.png
+/assets/home/programs/programs-raw-07.png
+/assets/home/programs/programs-raw-10.png
+/assets/home/programs/programs-svg-01.svg
+/assets/home/school/school-overview-photo-clean.png
+/assets/home/shortcuts/shortcut-ai-chat.png
+/assets/home/shortcuts/shortcut-kjp-pip.png
+/assets/home/shortcuts/shortcut-library.png
+/assets/home/shortcuts/shortcut-spmb.png
+/assets/majors/KGSAssets/kgs-hero.png
+/assets/majors/KGSAssets/kgs-mengenal.png
+/assets/majors/KGSAssets/kgs-shortcut.png
+/assets/majors/SIJAAssets/sija-hero.png
+/assets/majors/SIJAAssets/sija-shortcut.png
+/assets/majors/TEKAssets/tek-dokumentasi-atas.png
+/assets/majors/TEKAssets/tek-dokumentasi-bawah.png
+/assets/majors/TEKAssets/tek-hero.png
+/assets/majors/TEKAssets/tek-shortcut.png
+/assets/majors/TFLMAssets/tflm-dokumentasi-5.png
+/assets/majors/TFLMAssets/tflm-dokumentasi-6.png
+/assets/majors/TFLMAssets/tflm-hero.png
+/assets/majors/TFLMAssets/tflm-shortcut.png
+/assets/majors/TITLAssets/titl-dokumentasi-3.png
+/assets/majors/TITLAssets/titl-dokumentasi-4.png
+/assets/majors/TITLAssets/titl-shortcut.png
+/assets/majors/TKRAssets/tkr-dokumentasi-7.png
+/assets/majors/TKRAssets/tkr-dokumentasi-8.png
+/assets/majors/TKRAssets/tkr-hero.png
+/assets/majors/TKRAssets/tkr-shortcut.png
+/assets/pages/bkk/Dynamic Youth Activities Group Portrait 1 (2).png
+/assets/pages/bkk/Frame 36448 (1).png
+/assets/pages/bkk/Frame 36448 (2).png
+/assets/pages/bkk/Frame 36448 (3).png
+/assets/pages/bkk/Frame 36448 (4).png
+/assets/pages/bkk/Frame 36448.png
+/assets/pages/bkk/Group 1813.png
+/assets/pages/bkk/Rectangle 89 (12).png
+/assets/pages/bkk/astra.png
+/assets/pages/bkk/azko.png
+/assets/pages/bkk/boxicons_location-filled.png
+/assets/pages/bkk/goje.png
+/assets/pages/bkk/lets-icons_date-fill.png
+/assets/pages/bkk/mayora.png
+/assets/pages/bkk/mdi_book-education (1).png
+/assets/pages/bkk/mingcute_time-fill.png
+/assets/pages/bkk/telkom.png
+/assets/pages/bkk/yamaha.png
+/assets/pages/blud/e-man/Alur BLUD (2).png
+/assets/pages/blud/e-man/Hero Section (6).png
+/assets/pages/blud/e-man/Instalasi Panel Listrik Gedung.png
+/assets/pages/blud/e-man/Panel Kontrol Motor Listrik.png
+/assets/pages/blud/e-man/Sistem Penerangan Otomatis.png
+/assets/pages/blud/e-man/Trainer Instalasi Listrik Rumah.png
+/assets/pages/blud/e-man/basil_whatsapp-solid (2).png
+/assets/pages/blud/e-man/image 4 (1).png
+/assets/pages/blud/gadiz-vokasi/Alur BLUD (4).png
+/assets/pages/blud/gadiz-vokasi/Custom Apparel Printing.png
+/assets/pages/blud/gadiz-vokasi/Custom Merchandise.png
+/assets/pages/blud/gadiz-vokasi/Digital Print & Branding.png
+/assets/pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (13).png
+/assets/pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (14).png
+/assets/pages/blud/gadiz-vokasi/Sticker & Label Printing.png
+/assets/pages/blud/gadiz-vokasi/basil_whatsapp-solid (5).png
+/assets/pages/blud/gadiz-vokasi/image 3 (5).png
+/assets/pages/blud/garage26/Alur BLUD (3).png
+/assets/pages/blud/garage26/Brake System Maintenance.png
+/assets/pages/blud/garage26/Button shortcut (6).png
+/assets/pages/blud/garage26/Engine Tune-Up.png
+/assets/pages/blud/garage26/Undercarriage Inspection.png
+/assets/pages/blud/garage26/Wheel & Tire Service.png
+/assets/pages/blud/garage26/basil_whatsapp-solid (4).png
+/assets/pages/blud/garage26/image 4 (2).png
+/assets/pages/blud/kgstudio/Alur BLUD.png
+/assets/pages/blud/kgstudio/Dokumentasi Pembelajaran (10).png
+/assets/pages/blud/kgstudio/Dokumentasi Pembelajaran (9).png
+/assets/pages/blud/kgstudio/Hero Section (4).png
+/assets/pages/blud/kgstudio/Proyek Gambar Teknik.png
+/assets/pages/blud/kgstudio/Proyek Konstruksi Bangunan.png
+/assets/pages/blud/kgstudio/Proyek Pekerjaan Struktur.png
+/assets/pages/blud/kgstudio/Proyek Pemasangan Keramik.png
+/assets/pages/blud/kgstudio/basil_whatsapp-solid.png
+/assets/pages/blud/manufaktur26/Alur BLUD (2).png
+/assets/pages/blud/manufaktur26/Button shortcut (5).png
+/assets/pages/blud/manufaktur26/Fabrikasi Rangka Baja.png
+/assets/pages/blud/manufaktur26/Hero Section (6).png
+/assets/pages/blud/manufaktur26/Pengeboran Komponen Mesin.png
+/assets/pages/blud/manufaktur26/Pengelasan Konstruksi Logam.png
+/assets/pages/blud/manufaktur26/Pengukuran & Quality Control.png
+/assets/pages/blud/manufaktur26/basil_whatsapp-solid (3).png
+/assets/pages/blud/manufaktur26/image 4 (1).png
+/assets/pages/blud/uptechno/Alur BLUD (1).png
+/assets/pages/blud/uptechno/BG Hero.png
+/assets/pages/blud/uptechno/CCTV Security System.png
+/assets/pages/blud/uptechno/Electronic Circuit.png
+/assets/pages/blud/uptechno/MikroTik Network .png
+/assets/pages/blud/uptechno/Smart Line Follower.png
+/assets/pages/blud/uptechno/basil_whatsapp-solid (1).png
+/assets/pages/blud/uptechno/image 4.png
+/assets/pages/ekstrakurikuler/Hero Section.png
+/assets/pages/ekstrakurikuler/image 2 (2).png
+/assets/pages/guru/detail-guru-corner-circles.svg
+/assets/pages/lsp/Alur LSP.png
+/assets/pages/lsp/BLUD unit (1).png
+/assets/pages/lsp/BLUD unit (2).png
+/assets/pages/lsp/BLUD unit (3).png
+/assets/pages/lsp/BLUD unit (4).png
+/assets/pages/lsp/BLUD unit (5).png
+/assets/pages/lsp/BLUD unit.png
+/assets/pages/lsp/Hero Section.png
+/assets/pages/lsp/kgs/Foto kegiatan (1).png
+/assets/pages/lsp/kgs/Foto kegiatan (2).png
+/assets/pages/lsp/kgs/Foto kegiatan (3).png
+/assets/pages/lsp/kgs/Foto kegiatan (4).png
+/assets/pages/lsp/kgs/Foto kegiatan (5).png
+/assets/pages/lsp/kgs/Foto kegiatan (6).png
+/assets/pages/lsp/kgs/Foto kegiatan (7).png
+/assets/pages/lsp/kgs/Foto kegiatan.png
+/assets/pages/lsp/mdi_book-education.png
+/assets/pages/lsp/sija/Foto kegiatan (1).png
+/assets/pages/lsp/sija/Foto kegiatan (2).png
+/assets/pages/lsp/sija/Foto kegiatan (3).png
+/assets/pages/lsp/sija/Foto kegiatan (4).png
+/assets/pages/lsp/sija/Foto kegiatan (5).png
+/assets/pages/lsp/sija/Foto kegiatan (6).png
+/assets/pages/lsp/sija/Foto kegiatan (7).png
+/assets/pages/lsp/sija/Foto kegiatan (8).png
+/assets/pages/lsp/tek/Button shortcut (9).png
+/assets/pages/lsp/tek/Foto kegiatan (1).png
+/assets/pages/lsp/tek/Foto kegiatan (2).png
+/assets/pages/lsp/tek/Foto kegiatan (3).png
+/assets/pages/lsp/tek/Foto kegiatan (4).png
+/assets/pages/lsp/tek/Foto kegiatan (5).png
+/assets/pages/lsp/tek/Foto kegiatan (6).png
+/assets/pages/lsp/tek/Foto kegiatan (7).png
+/assets/pages/lsp/tek/Foto kegiatan.png
+/assets/pages/lsp/tflm/Foto kegiatan (1).png
+/assets/pages/lsp/tflm/Foto kegiatan (2).png
+/assets/pages/lsp/tflm/Foto kegiatan (3).png
+/assets/pages/lsp/tflm/Foto kegiatan (5).png
+/assets/pages/lsp/tflm/Foto kegiatan (6).png
+/assets/pages/lsp/tflm/Foto kegiatan (7).png
+/assets/pages/lsp/tflm/Foto kegiatan (8).png
+/assets/pages/lsp/titl/Button shortcut (10).png
+/assets/pages/lsp/titl/Foto kegiatan (1).png
+/assets/pages/lsp/titl/Foto kegiatan (2).png
+/assets/pages/lsp/titl/Foto kegiatan (3).png
+/assets/pages/lsp/titl/Foto kegiatan (4).png
+/assets/pages/lsp/titl/Foto kegiatan (5).png
+/assets/pages/lsp/titl/Foto kegiatan (6).png
+/assets/pages/lsp/titl/Foto kegiatan (7).png
+/assets/pages/lsp/titl/Foto kegiatan (8).png
+/assets/pages/lsp/titl/Hero Section (13).png
+/assets/pages/lsp/tkr/Foto kegiatan (1).png
+/assets/pages/lsp/tkr/Foto kegiatan (2).png
+/assets/pages/lsp/tkr/Foto kegiatan (3).png
+/assets/pages/lsp/tkr/Foto kegiatan (4).png
+/assets/pages/lsp/tkr/Foto kegiatan (5).png
+/assets/pages/lsp/tkr/Foto kegiatan (6).png
+/assets/pages/lsp/tkr/Foto kegiatan (7).png
+/assets/pages/lsp/tkr/Foto kegiatan (8).png
+/assets/pages/majors/kgs/Agung Lazuardi.png
+/assets/pages/majors/kgs/Angelica Vero.png
+/assets/pages/majors/kgs/Dokumentasi Pembelajaranatas.png
+/assets/pages/majors/kgs/Dokumentasi Pembelajaranbawah.png
+/assets/pages/majors/kgs/Fathan Muyasar.png
+/assets/pages/majors/kgs/Nabilla Pertiwi.png
+/assets/pages/majors/kgs/kompetensi.png
+/assets/pages/majors/sija/Angelica Putri.png
+/assets/pages/majors/sija/Bagus Rahmansyah.png
+/assets/pages/majors/sija/Dokumentasi Pembelajaran (10).png
+/assets/pages/majors/sija/Dokumentasi Pembelajaran (9).png
+/assets/pages/majors/sija/Muhammad Fauzan.png
+/assets/pages/majors/sija/Nabilla Mallya.png
+/assets/pages/majors/sija/Roadmap Jurusan.png
+/assets/pages/majors/sija/image 3 (4).png
+/assets/pages/majors/tek/Alyssa Bella.png
+/assets/pages/majors/tek/Dinda Azzahra.png
+/assets/pages/majors/tek/Firmansyah.png
+/assets/pages/majors/tek/Hidayah Fadillah.png
+/assets/pages/majors/tek/kompetensi.png
+/assets/pages/majors/tek/mengenal.png
+/assets/pages/majors/tflm/Frame 36434 (3).png
+/assets/pages/majors/tflm/Nayla Safira.png
+/assets/pages/majors/tflm/Raihan Nugroho.png
+/assets/pages/majors/tflm/Riky Hamdan.png
+/assets/pages/majors/tflm/Salsa Nurfatiha.png
+/assets/pages/majors/tflm/image 3 (2).png
+/assets/pages/majors/titl/Frame 36434 (2).png
+/assets/pages/majors/titl/Hero Section (1).png
+/assets/pages/majors/titl/annisakuncoro.png
+/assets/pages/majors/titl/dimasahmad.png
+/assets/pages/majors/titl/image 3 (1).png
+/assets/pages/majors/titl/liliputrikencana.png
+/assets/pages/majors/titl/rakaaditya.png
+/assets/pages/majors/tkr/Eva Khuzaifah.png
+/assets/pages/majors/tkr/Frame 36434 (4).png
+/assets/pages/majors/tkr/Kaesar Agung.png
+/assets/pages/majors/tkr/Putri Cantika.png
+/assets/pages/majors/tkr/Raka Kuncoro.png
+/assets/pages/majors/tkr/image 3 (3).png
+/assets/pages/mars/SEMANGATlogo.png
+/assets/pages/mars/belakangvidmars.png
+/assets/pages/mars/bolabolaheromarskecilkanan.png
+/assets/pages/mars/bolabolaheromarskiri.png
+/assets/pages/mars/buderliana.png
+/assets/pages/mars/pak sutaryo.png
+/assets/pages/mitra-industri/Shape.png
+/assets/pages/mitra-industri/hero.png
+/assets/pages/mitra-industri/iconbuku.png
+/assets/pages/organisasi/Ekstrakurikuler (1).png
+/assets/pages/organisasi/Foto kegiatan (1).png
+/assets/pages/organisasi/Foto kegiatan (2).png
+/assets/pages/organisasi/Foto kegiatan (3).png
+/assets/pages/organisasi/Foto kegiatan (4).png
+/assets/pages/organisasi/Foto kegiatan (5).png
+/assets/pages/organisasi/Foto kegiatan (6).png
+/assets/pages/organisasi/Foto kegiatan (7).png
+/assets/pages/organisasi/Foto kegiatan (8).png
+/assets/pages/organisasi/Struktur MPK/Strutur MPK.png
+/assets/pages/organisasi/Struktur Osis/Strutur OSIS.png
+/assets/pages/organisasi/hero.png
+/assets/pages/portal-informasi/Perpustakaan Digital.png
+/assets/pages/portal-informasi/SIMAK 26.png
+/assets/pages/portal-informasi/SPMB.png
+/assets/pages/portal-informasi/kjp.png
+/assets/pages/portal-informasi/pip.png
+/assets/pages/prestasi/,,,.png
+/assets/pages/prestasi/.....png
+/assets/pages/prestasi/Card Prestasi (1).png
+/assets/pages/prestasi/Card Prestasi (10).png
+/assets/pages/prestasi/Card Prestasi (11).png
+/assets/pages/prestasi/Card Prestasi (12).png
+/assets/pages/prestasi/Card Prestasi (13).png
+/assets/pages/prestasi/Card Prestasi (2).png
+/assets/pages/prestasi/Card Prestasi (3).png
+/assets/pages/prestasi/Card Prestasi (4).png
+/assets/pages/prestasi/Card Prestasi (5).png
+/assets/pages/prestasi/Card Prestasi (6).png
+/assets/pages/prestasi/Card Prestasi (7).png
+/assets/pages/prestasi/Card Prestasi (8).png
+/assets/pages/prestasi/Card Prestasi (9).png
+/assets/pages/prestasi/Card Prestasi.png
+/assets/pages/prestasi/Group 1815.png
+/assets/pages/prestasi/a.png
+/assets/pages/prestasi/aa.png
+/assets/pages/prestasi/b.png
+/assets/pages/prestasi/bbbb.png
+/assets/pages/prestasi/c.png
+/assets/pages/prestasi/ccc.png
+/assets/pages/prestasi/dsa.png
+/assets/pages/prestasi/mmm.png
+/assets/pages/prestasi/nnn.png
+/assets/pages/prestasi/s.png
+/assets/pages/prestasi/v.png
+/assets/pages/prestasi/vvv.png
+/assets/pages/prestasi/zzzz.png
+/assets/pages/profile/Mars.png
+/assets/pages/profile/motto.png
+/assets/pages/profile/profile-hero-bg.png
+/assets/pages/profile/profile-mars-bg.png
+/assets/pages/profile/profile-motto-bg.png
+/assets/pages/profile/profile-semboyan-bg.png
+/assets/pages/profile/semboyan.png
+/assets/pages/profile/timelinegaris.png
+/assets/pages/tour/heroschooltour.png
+/assets/pages/tour/school_tour/Upscaled/RBTRA.jpg
+/assets/pages/tour/school_tour/Upscaled/bengkel.jpg
+/assets/pages/tour/school_tour/Upscaled/bengkel_kgs.jpg
+/assets/pages/tour/school_tour/Upscaled/bengkel_sija.jpg
+/assets/pages/tour/school_tour/Upscaled/bengkel_titl.jpg
+/assets/pages/tour/school_tour/Upscaled/bengkel_tkr.jpg
+/assets/pages/tour/school_tour/Upscaled/dalam_masjid.jpg
+/assets/pages/tour/school_tour/Upscaled/depan_aula.jpg
+/assets/pages/tour/school_tour/Upscaled/depan_lsp.jpg
+/assets/pages/tour/school_tour/Upscaled/depan_masjid.jpg
+/assets/pages/tour/school_tour/Upscaled/depan_tek.jpg
+/assets/pages/tour/school_tour/Upscaled/gerbang.jpg
+/assets/pages/tour/school_tour/Upscaled/jogging_track.jpg
+/assets/pages/tour/school_tour/Upscaled/kantin.jpg
+/assets/pages/tour/school_tour/Upscaled/lapangan.jpg
+/assets/pages/tour/school_tour/Upscaled/pedestrian.jpg
+/assets/pages/tour/school_tour/Upscaled/pedestrian_rbtra.jpg
+/assets/pages/tour/school_tour/Upscaled/pendopo_kgs.jpg
+/assets/pages/tour/school_tour/Upscaled/perpustakaan.jpg
+/assets/pages/tour/school_tour/Upscaled/ruang_piket.jpg
+/assets/pages/tour/school_tour/Upscaled/satpam.jpg
+/assets/pages/tour/school_tour/Upscaled/toilet1.jpg
+/assets/shared/advantages/advantage-blud.png
+/assets/shared/advantages/advantage-education.png
+/assets/shared/advantages/advantage-inclusive.png
+/assets/shared/advantages/advantage-industry.png
+/assets/shared/advantages/advantage-interest.png
+/assets/shared/advantages/advantage-lsp.png
+/assets/shared/branding/smkn26-logo.png
+/assets/shared/chatbot/ai-cta-svg-07.svg
+/assets/shared/chatbot/chatbot.png
+/assets/shared/decorations/Rectangle 93 (1).png
+/assets/shared/decorations/kanan.png
+/assets/shared/decorations/kiri.png
+/assets/shared/decorations/mengenal.png
+/assets/shared/decorations/mengenalbesar.png
+/assets/shared/decorations/shapekananmitra.png
+/assets/shared/decorations/shapekirimitra.png
+/assets/shared/footer/footer-address.svg
+/assets/shared/footer/footer-email.svg
+/assets/shared/footer/footer-instagram.svg
+/assets/shared/footer/footer-whatsapp.svg
+/assets/shared/footer/footer-youtube.svg
+/assets/shared/hero/mengenalsmkprofile.png
+/assets/shared/hero/school-building.png
+/assets/shared/hero/student-male.png
+/assets/shared/icons/arrow-left.png
+/assets/shared/icons/arrow-right.png
+/assets/shared/icons/arrow-right.svg
+/assets/shared/icons/book-education.svg
+/assets/shared/icons/button-shortcut.png
+/assets/shared/icons/chevron-down.svg
+/assets/shared/icons/icon-search.svg
+/assets/shared/icons/play-video.svg
+/assets/shared/icons/popover-pointer.svg
+/assets/shared/icons/secondary-arrow-right.svg
+/assets/shared/icons/section-badge.svg
+/assets/shared/illustrations/berkembang.png
+/assets/shared/lsp/hover-shape.png
+/assets/shared/majors/Andi Pratama.png
+/assets/shared/majors/Marwan.png
+/assets/shared/news/news-calendar.svg
+/assets/shared/news/news-raw-01.png
+/assets/shared/news/news-raw-03.png
+/assets/shared/news/news-raw-04.png
+/assets/shared/news/news-raw-07.png
+/assets/shared/news/news-raw-09.png
+/assets/shared/partners/astra.png
+/assets/shared/partners/azko.png
+/assets/shared/partners/komatsu.png
+/assets/shared/partners/microvision.png
+/assets/shared/partners/panasonic.png
+/assets/shared/partners/pln.png
+/assets/shared/partners/toyota.jpeg
+/assets/shared/partners/wika.png
+/assets/shared/profile/visi-misi-garis.png
+/assets/shared/profile/visi-misi-icon.png
+/assets/shared/profile/visi-ujung.png
+/assets/shared/struktur/Ardiansyah Putra.png
+/assets/shared/struktur/Bagus Setiawan.png
+/assets/shared/struktur/Deni Kurniawan.png
+/assets/shared/struktur/Rani Maharani.png
+/assets/shared/struktur/bghero.png
+/assets/shared/struktur/struktur-guru-1.png
+/assets/shared/struktur/struktur-guru-2.png
+/assets/shared/struktur/struktur-guru-3.png
+/assets/shared/struktur/struktur-guru-4.png
+/assets/shared/struktur/struktur-guru-5.png
+/assets/shared/struktur/struktur-guru-6.png
+/assets/shared/struktur/struktur-guru-7.png
+/assets/shared/struktur/struktur-guru-8.png
+/assets/shared/struktur/struktur-kepsek.png
+/assets/shared/struktur/struktur-tendik-1.png
+/assets/shared/struktur/struktur-tendik-2.png
+/assets/shared/struktur/struktur-tendik-3.png
+/assets/shared/struktur/struktur-tendik-4.png
+/assets/shared/struktur/struktur-wakasek-1.png
+/assets/shared/struktur/struktur-wakasek-2.png
+/assets/shared/struktur/struktur-wakasek-3.png
+/assets/shared/struktur/struktur-wakasek-4.png
+/assets/shared/video-profile/video-profile-decoration-left.svg
+/assets/shared/video-profile/video-profile-decoration-right.svg
+/assets/shared/video-profile/video-profile-lower-shape.svg
+/assets/shared/video-profile/video-profile-play-ring.svg
+/assets/shared/video-profile/video-profile-preview.png

@@ -74,7 +74,7 @@ const milestones = [
 function ProfileBadge({ children, icon }: { children: string; icon?: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <img className="h-[17px] w-[13.6px] object-contain" src={icon ?? "/assets/figma/majors/icon-section-badge.svg"} alt="" aria-hidden="true" />
+      <img className="h-[17px] w-[13.6px] object-contain" src={icon ?? "/assets/shared/icons/section-badge.svg"} alt="" aria-hidden="true" />
       {children}
     </span>
   );
@@ -101,20 +101,20 @@ function ProfilePage() {
           <div className="pointer-events-none absolute left-0 top-[clamp(72px,5vw,110px)] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-auto max-md:bottom-[6px] max-md:w-[150%] max-md:aspect-[1440/433] max-md:max-w-none max-md:-translate-x-1/2">
             <img
               className="absolute inset-0 size-full object-contain object-top max-md:object-cover max-md:object-bottom"
-              src="/assets/figma/profile/profile-hero-bg.png"
+              src="/assets/pages/profile/profile-hero-bg.png"
               alt="Gedung SMK Negeri 26 Jakarta"
             />
             <img
               ref={leftCircleRef}
               className="absolute left-[7.01%] top-[30%] w-[4.17%] max-w-none"
-              src="/assets/figma/decorations/kiri.png"
+              src="/assets/shared/decorations/kiri.png"
               alt=""
               aria-hidden="true"
             />
             <img
               ref={rightCircleRef}
               className="absolute left-[88.4%] top-[20%] w-[4.17%] max-w-none"
-              src="/assets/figma/decorations/kanan.png"
+              src="/assets/shared/decorations/kanan.png"
               alt=""
               aria-hidden="true"
             />
@@ -173,14 +173,14 @@ function ProfilePage() {
                 ref={overviewBottomRef}
                 aria-hidden="true"
                 className="pointer-events-none absolute left-[0.16%] top-[73.94%] z-0 aspect-square w-[17.1%] max-w-none"
-                src="/assets/figma/decorations/mengenalbesar.png"
+                src="/assets/shared/decorations/mengenalbesar.png"
                 alt=""
               />
               <img
                 ref={overviewTopRef}
                 aria-hidden="true"
                 className="pointer-events-none absolute left-[27.73%] top-[1.43%] z-0 aspect-square w-[11.34%] max-w-none"
-                src="/assets/figma/decorations/mengenal.png"
+                src="/assets/shared/decorations/mengenal.png"
                 alt=""
               />
               <img
@@ -243,14 +243,14 @@ function ProfilePage() {
             <div data-aos="zoom-in" className="relative mx-auto mt-12 h-auto min-[1291px]:h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
                 className="pointer-events-none absolute right-0 top-0 w-auto max-w-none object-contain h-[100px] min-[768px]:h-[180px] min-[1291px]:h-full max-lg:opacity-70"
-                src="/assets/figma/profile/VISI SEKOLAHujung.png"
+                src="/assets/shared/profile/visi-ujung.png"
                 alt=""
                 aria-hidden="true"
               />
               <div className="relative z-10 flex items-start gap-2 min-h-[100px] min-[768px]:min-h-[180px] min-[1291px]:min-h-0 min-[1291px]:items-center">
                 <img
                   className="size-[22px] object-contain"
-                  src="/assets/figma/profile/icondisampingjudulvisimisi.png"
+                  src="/assets/shared/profile/visi-misi-icon.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -267,14 +267,14 @@ function ProfilePage() {
               </p>
               <img
                 className="absolute bottom-6 left-12 h-[5px] w-[64px] object-fill"
-                src="/assets/figma/profile/GARISBAWAHVISISEKOLAH.png"
+                src="/assets/shared/profile/visi-misi-garis.png"
                 alt=""
                 aria-hidden="true"
               />
             </div>
             <div className="mt-16 text-center">
               <div data-aos="fade-down">
-                <ProfileBadge icon="/assets/figma/profile/icondisampingjudulvisimisi.png">
+                <ProfileBadge icon="/assets/shared/profile/visi-misi-icon.png">
                   MISI SEKOLAH
                 </ProfileBadge>
               </div>

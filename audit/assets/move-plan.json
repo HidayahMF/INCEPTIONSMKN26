@@ -1,0 +1,2238 @@
+{
+  "moves": [
+    {
+      "from": "figma/achievements/achievements-raw-01.png",
+      "to": "home/achievements/achievements-raw-01.png"
+    },
+    {
+      "from": "figma/achievements/achievements-raw-03.png",
+      "to": "home/achievements/achievements-raw-03.png"
+    },
+    {
+      "from": "figma/achievements/achievements-raw-04.png",
+      "to": "home/achievements/achievements-raw-04.png"
+    },
+    {
+      "from": "figma/achievements/achievements-raw-07.png",
+      "to": "home/achievements/achievements-raw-07.png"
+    },
+    {
+      "from": "figma/achievements/achievements-raw-08.png",
+      "to": "home/achievements/achievements-raw-08.png"
+    },
+    {
+      "from": "figma/achievements/achievements-svg-03.svg",
+      "to": "home/achievements/achievements-svg-03.svg"
+    },
+    {
+      "from": "figma/achievements/achievements-svg-12.svg",
+      "to": "home/achievements/achievements-svg-12.svg"
+    },
+    {
+      "from": "figma/advantages/advantage-blud.png",
+      "to": "shared/advantages/advantage-blud.png"
+    },
+    {
+      "from": "figma/advantages/advantage-education.png",
+      "to": "shared/advantages/advantage-education.png"
+    },
+    {
+      "from": "figma/advantages/advantage-inclusive.png",
+      "to": "shared/advantages/advantage-inclusive.png"
+    },
+    {
+      "from": "figma/advantages/advantage-industry.png",
+      "to": "shared/advantages/advantage-industry.png"
+    },
+    {
+      "from": "figma/advantages/advantage-interest.png",
+      "to": "shared/advantages/advantage-interest.png"
+    },
+    {
+      "from": "figma/advantages/advantage-lsp.png",
+      "to": "shared/advantages/advantage-lsp.png"
+    },
+    {
+      "from": "figma/advantages/Arrowleft.png",
+      "to": "shared/icons/arrow-left.png"
+    },
+    {
+      "from": "figma/advantages/Arrowright.png",
+      "to": "shared/icons/arrow-right.png"
+    },
+    {
+      "from": "figma/advantages/icon-book-education-secondary.svg",
+      "to": "shared/icons/book-education.svg"
+    },
+    {
+      "from": "figma/ai-cta/ai-cta-raw-02.png",
+      "to": "shared/chatbot/chatbot.png"
+    },
+    {
+      "from": "figma/ai-cta/ai-cta-svg-07.svg",
+      "to": "shared/chatbot/ai-cta-svg-07.svg"
+    },
+    {
+      "from": "figma/BKK/astra.png",
+      "to": "pages/bkk/astra.png"
+    },
+    {
+      "from": "figma/BKK/azko.png",
+      "to": "pages/bkk/azko.png"
+    },
+    {
+      "from": "figma/BKK/boxicons_location-filled.png",
+      "to": "pages/bkk/boxicons_location-filled.png"
+    },
+    {
+      "from": "figma/BKK/Button shortcut (13).png",
+      "to": "shared/icons/button-shortcut.png"
+    },
+    {
+      "from": "figma/BKK/Dynamic Youth Activities Group Portrait 1 (2).png",
+      "to": "pages/bkk/Dynamic Youth Activities Group Portrait 1 (2).png"
+    },
+    {
+      "from": "figma/BKK/Frame 36448 (1).png",
+      "to": "pages/bkk/Frame 36448 (1).png"
+    },
+    {
+      "from": "figma/BKK/Frame 36448 (2).png",
+      "to": "pages/bkk/Frame 36448 (2).png"
+    },
+    {
+      "from": "figma/BKK/Frame 36448 (3).png",
+      "to": "pages/bkk/Frame 36448 (3).png"
+    },
+    {
+      "from": "figma/BKK/Frame 36448 (4).png",
+      "to": "pages/bkk/Frame 36448 (4).png"
+    },
+    {
+      "from": "figma/BKK/Frame 36448.png",
+      "to": "pages/bkk/Frame 36448.png"
+    },
+    {
+      "from": "figma/BKK/goje.png",
+      "to": "pages/bkk/goje.png"
+    },
+    {
+      "from": "figma/BKK/Group 1813.png",
+      "to": "pages/bkk/Group 1813.png"
+    },
+    {
+      "from": "figma/BKK/lets-icons_date-fill.png",
+      "to": "pages/bkk/lets-icons_date-fill.png"
+    },
+    {
+      "from": "figma/BKK/mayora.png",
+      "to": "pages/bkk/mayora.png"
+    },
+    {
+      "from": "figma/BKK/mdi_book-education (1).png",
+      "to": "pages/bkk/mdi_book-education (1).png"
+    },
+    {
+      "from": "figma/BKK/mingcute_time-fill.png",
+      "to": "pages/bkk/mingcute_time-fill.png"
+    },
+    {
+      "from": "figma/BKK/Rectangle 89 (12).png",
+      "to": "pages/bkk/Rectangle 89 (12).png"
+    },
+    {
+      "from": "figma/BKK/telkom.png",
+      "to": "pages/bkk/telkom.png"
+    },
+    {
+      "from": "figma/BKK/yamaha.png",
+      "to": "pages/bkk/yamaha.png"
+    },
+    {
+      "from": "figma/blud/blud-SIJA-icon.svg",
+      "to": "home/blud/blud-SIJA-icon.svg"
+    },
+    {
+      "from": "figma/blud/blud-svg-02.svg",
+      "to": "home/blud/blud-svg-02.svg"
+    },
+    {
+      "from": "figma/blud/blud-TEK-icon.svg",
+      "to": "home/blud/blud-TEK-icon.svg"
+    },
+    {
+      "from": "figma/blud/blud-TFLM-icon.svg",
+      "to": "home/blud/blud-TFLM-icon.svg"
+    },
+    {
+      "from": "figma/blud/blud-TITL-icon.svg",
+      "to": "home/blud/blud-TITL-icon.svg"
+    },
+    {
+      "from": "figma/blud/blud-TKR-icon.svg",
+      "to": "home/blud/blud-TKR-icon.svg"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Alur BLUD (2).png",
+      "to": "pages/blud/e-man/Alur BLUD (2).png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/basil_whatsapp-solid (2).png",
+      "to": "pages/blud/e-man/basil_whatsapp-solid (2).png"
+    },
+    {
+      "from": "figma/TITL/Button shortcut (1).png",
+      "to": "majors/TITLAssets/titl-shortcut.png"
+    },
+    {
+      "from": "figma/TITL/Dokumentasi Pembelajaran (3).png",
+      "to": "majors/TITLAssets/titl-dokumentasi-3.png"
+    },
+    {
+      "from": "figma/TITL/Dokumentasi Pembelajaran (4).png",
+      "to": "majors/TITLAssets/titl-dokumentasi-4.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Hero Section (6).png",
+      "to": "pages/blud/e-man/Hero Section (6).png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/image 4 (1).png",
+      "to": "pages/blud/e-man/image 4 (1).png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Instalasi Panel Listrik Gedung.png",
+      "to": "pages/blud/e-man/Instalasi Panel Listrik Gedung.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Panel Kontrol Motor Listrik.png",
+      "to": "pages/blud/e-man/Panel Kontrol Motor Listrik.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Sistem Penerangan Otomatis.png",
+      "to": "pages/blud/e-man/Sistem Penerangan Otomatis.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Trainer Instalasi Listrik Rumah.png",
+      "to": "pages/blud/e-man/Trainer Instalasi Listrik Rumah.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Alur BLUD (4).png",
+      "to": "pages/blud/gadiz-vokasi/Alur BLUD (4).png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/basil_whatsapp-solid (5).png",
+      "to": "pages/blud/gadiz-vokasi/basil_whatsapp-solid (5).png"
+    },
+    {
+      "from": "figma/SIJA/Button shortcut (4).png",
+      "to": "majors/SIJAAssets/sija-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Custom Apparel Printing.png",
+      "to": "pages/blud/gadiz-vokasi/Custom Apparel Printing.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Custom Merchandise.png",
+      "to": "pages/blud/gadiz-vokasi/Custom Merchandise.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Digital Print & Branding.png",
+      "to": "pages/blud/gadiz-vokasi/Digital Print & Branding.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (13).png",
+      "to": "pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (13).png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (14).png",
+      "to": "pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (14).png"
+    },
+    {
+      "from": "figma/SIJA/Hero Section (5).png",
+      "to": "majors/SIJAAssets/sija-hero.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/image 3 (5).png",
+      "to": "pages/blud/gadiz-vokasi/image 3 (5).png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Sticker & Label Printing.png",
+      "to": "pages/blud/gadiz-vokasi/Sticker & Label Printing.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Alur BLUD (3).png",
+      "to": "pages/blud/garage26/Alur BLUD (3).png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/basil_whatsapp-solid (4).png",
+      "to": "pages/blud/garage26/basil_whatsapp-solid (4).png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Brake System Maintenance.png",
+      "to": "pages/blud/garage26/Brake System Maintenance.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Button shortcut (6).png",
+      "to": "pages/blud/garage26/Button shortcut (6).png"
+    },
+    {
+      "from": "figma/TKR/Dokumentasi Pembelajaran (7).png",
+      "to": "majors/TKRAssets/tkr-dokumentasi-7.png"
+    },
+    {
+      "from": "figma/TKR/Dokumentasi Pembelajaran (8).png",
+      "to": "majors/TKRAssets/tkr-dokumentasi-8.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Engine Tune-Up.png",
+      "to": "pages/blud/garage26/Engine Tune-Up.png"
+    },
+    {
+      "from": "figma/TKR/Hero Section (3).png",
+      "to": "majors/TKRAssets/tkr-hero.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/image 4 (2).png",
+      "to": "pages/blud/garage26/image 4 (2).png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Undercarriage Inspection.png",
+      "to": "pages/blud/garage26/Undercarriage Inspection.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Wheel & Tire Service.png",
+      "to": "pages/blud/garage26/Wheel & Tire Service.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Alur BLUD.png",
+      "to": "pages/blud/kgstudio/Alur BLUD.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/basil_whatsapp-solid.png",
+      "to": "pages/blud/kgstudio/basil_whatsapp-solid.png"
+    },
+    {
+      "from": "figma/KGS/Button shortcut.png",
+      "to": "majors/KGSAssets/kgs-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Dokumentasi Pembelajaran (10).png",
+      "to": "pages/blud/kgstudio/Dokumentasi Pembelajaran (10).png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Dokumentasi Pembelajaran (9).png",
+      "to": "pages/blud/kgstudio/Dokumentasi Pembelajaran (9).png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Hero Section (4).png",
+      "to": "pages/blud/kgstudio/Hero Section (4).png"
+    },
+    {
+      "from": "figma/KGS/mengenal.png",
+      "to": "majors/KGSAssets/kgs-mengenal.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Proyek Gambar Teknik.png",
+      "to": "pages/blud/kgstudio/Proyek Gambar Teknik.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Proyek Konstruksi Bangunan.png",
+      "to": "pages/blud/kgstudio/Proyek Konstruksi Bangunan.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Proyek Pekerjaan Struktur.png",
+      "to": "pages/blud/kgstudio/Proyek Pekerjaan Struktur.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Proyek Pemasangan Keramik.png",
+      "to": "pages/blud/kgstudio/Proyek Pemasangan Keramik.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Alur BLUD (2).png",
+      "to": "pages/blud/manufaktur26/Alur BLUD (2).png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/basil_whatsapp-solid (3).png",
+      "to": "pages/blud/manufaktur26/basil_whatsapp-solid (3).png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Button shortcut (5).png",
+      "to": "pages/blud/manufaktur26/Button shortcut (5).png"
+    },
+    {
+      "from": "figma/TFLM/Dokumentasi Pembelajaran (5).png",
+      "to": "majors/TFLMAssets/tflm-dokumentasi-5.png"
+    },
+    {
+      "from": "figma/TFLM/Dokumentasi Pembelajaran (6).png",
+      "to": "majors/TFLMAssets/tflm-dokumentasi-6.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Fabrikasi Rangka Baja.png",
+      "to": "pages/blud/manufaktur26/Fabrikasi Rangka Baja.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Hero Section (6).png",
+      "to": "pages/blud/manufaktur26/Hero Section (6).png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/image 4 (1).png",
+      "to": "pages/blud/manufaktur26/image 4 (1).png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Pengeboran Komponen Mesin.png",
+      "to": "pages/blud/manufaktur26/Pengeboran Komponen Mesin.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Pengelasan Konstruksi Logam.png",
+      "to": "pages/blud/manufaktur26/Pengelasan Konstruksi Logam.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Pengukuran & Quality Control.png",
+      "to": "pages/blud/manufaktur26/Pengukuran & Quality Control.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Alur BLUD (1).png",
+      "to": "pages/blud/uptechno/Alur BLUD (1).png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/basil_whatsapp-solid (1).png",
+      "to": "pages/blud/uptechno/basil_whatsapp-solid (1).png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/BG Hero.png",
+      "to": "pages/blud/uptechno/BG Hero.png"
+    },
+    {
+      "from": "figma/TEK/Button shortcut.png",
+      "to": "majors/TEKAssets/tek-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/CCTV Security System.png",
+      "to": "pages/blud/uptechno/CCTV Security System.png"
+    },
+    {
+      "from": "figma/TEK/Dokumentasi Pembelajaran atas.png",
+      "to": "majors/TEKAssets/tek-dokumentasi-atas.png"
+    },
+    {
+      "from": "figma/TEK/Dokumentasi Pembelajaran bawah.png",
+      "to": "majors/TEKAssets/tek-dokumentasi-bawah.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Electronic Circuit.png",
+      "to": "pages/blud/uptechno/Electronic Circuit.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/image 4.png",
+      "to": "pages/blud/uptechno/image 4.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/MikroTik Network .png",
+      "to": "pages/blud/uptechno/MikroTik Network .png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Smart Line Follower.png",
+      "to": "pages/blud/uptechno/Smart Line Follower.png"
+    },
+    {
+      "from": "figma/branding/smkn26-logo.png",
+      "to": "shared/branding/smkn26-logo.png"
+    },
+    {
+      "from": "figma/decorations/kanan.png",
+      "to": "shared/decorations/kanan.png"
+    },
+    {
+      "from": "figma/decorations/kiri.png",
+      "to": "shared/decorations/kiri.png"
+    },
+    {
+      "from": "figma/decorations/mengenal.png",
+      "to": "shared/decorations/mengenal.png"
+    },
+    {
+      "from": "figma/decorations/mengenalbesar.png",
+      "to": "shared/decorations/mengenalbesar.png"
+    },
+    {
+      "from": "figma/decorations/Rectangle 93 (1).png",
+      "to": "shared/decorations/Rectangle 93 (1).png"
+    },
+    {
+      "from": "figma/decorations/shapekananmitra.png",
+      "to": "shared/decorations/shapekananmitra.png"
+    },
+    {
+      "from": "figma/decorations/shapekirimitra.png",
+      "to": "shared/decorations/shapekirimitra.png"
+    },
+    {
+      "from": "figma/detail-guru/detail-guru-corner-circles.svg",
+      "to": "pages/guru/detail-guru-corner-circles.svg"
+    },
+    {
+      "from": "figma/ekstrakulikuler/Hero Section.png",
+      "to": "pages/ekstrakurikuler/Hero Section.png"
+    },
+    {
+      "from": "figma/ekstrakulikuler/image 2 (2).png",
+      "to": "pages/ekstrakurikuler/image 2 (2).png"
+    },
+    {
+      "from": "figma/footer/footer-svg-03.svg",
+      "to": "shared/footer/footer-whatsapp.svg"
+    },
+    {
+      "from": "figma/footer/footer-svg-04.svg",
+      "to": "shared/footer/footer-email.svg"
+    },
+    {
+      "from": "figma/footer/footer-svg-07.svg",
+      "to": "shared/footer/footer-instagram.svg"
+    },
+    {
+      "from": "figma/footer/footer-svg-08.svg",
+      "to": "shared/footer/footer-youtube.svg"
+    },
+    {
+      "from": "figma/footer/footer-svg-13.svg",
+      "to": "shared/footer/footer-address.svg"
+    },
+    {
+      "from": "figma/hero/hero-school-building.png",
+      "to": "shared/hero/school-building.png"
+    },
+    {
+      "from": "figma/hero/mengenalsmkprofile.png",
+      "to": "shared/hero/mengenalsmkprofile.png"
+    },
+    {
+      "from": "figma/hero/student-male.png",
+      "to": "shared/hero/student-male.png"
+    },
+    {
+      "from": "figma/icons/icon-arrow-right.svg",
+      "to": "shared/icons/arrow-right.svg"
+    },
+    {
+      "from": "figma/icons/icon-chevron-down.svg",
+      "to": "shared/icons/chevron-down.svg"
+    },
+    {
+      "from": "figma/icons/icon-play-video.svg",
+      "to": "shared/icons/play-video.svg"
+    },
+    {
+      "from": "figma/icons/icon-search.svg",
+      "to": "shared/icons/icon-search.svg"
+    },
+    {
+      "from": "figma/icons/secondary-arrow-right.svg",
+      "to": "shared/icons/secondary-arrow-right.svg"
+    },
+    {
+      "from": "figma/KGS/Agung Lazuardi.png",
+      "to": "pages/majors/kgs/Agung Lazuardi.png"
+    },
+    {
+      "from": "figma/KGS/Andi Pratama.png",
+      "to": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/KGS/Angelica Vero.png",
+      "to": "pages/majors/kgs/Angelica Vero.png"
+    },
+    {
+      "from": "figma/KGS/Dokumentasi Pembelajaranatas.png",
+      "to": "pages/majors/kgs/Dokumentasi Pembelajaranatas.png"
+    },
+    {
+      "from": "figma/KGS/Dokumentasi Pembelajaranbawah.png",
+      "to": "pages/majors/kgs/Dokumentasi Pembelajaranbawah.png"
+    },
+    {
+      "from": "figma/SIJA/Marwan.png",
+      "to": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/KGS/Fathan Muyasar.png",
+      "to": "pages/majors/kgs/Fathan Muyasar.png"
+    },
+    {
+      "from": "figma/KGS/Hero Section.png",
+      "to": "majors/KGSAssets/kgs-hero.png"
+    },
+    {
+      "from": "figma/KGS/kompetensi.png",
+      "to": "pages/majors/kgs/kompetensi.png"
+    },
+    {
+      "from": "figma/KGS/Nabilla Pertiwi.png",
+      "to": "pages/majors/kgs/Nabilla Pertiwi.png"
+    },
+    {
+      "from": "figma/lsp/Alur LSP.png",
+      "to": "pages/lsp/Alur LSP.png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit (1).png",
+      "to": "pages/lsp/BLUD unit (1).png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit (2).png",
+      "to": "pages/lsp/BLUD unit (2).png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit (3).png",
+      "to": "pages/lsp/BLUD unit (3).png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit (4).png",
+      "to": "pages/lsp/BLUD unit (4).png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit (5).png",
+      "to": "pages/lsp/BLUD unit (5).png"
+    },
+    {
+      "from": "figma/lsp/BLUD unit.png",
+      "to": "pages/lsp/BLUD unit.png"
+    },
+    {
+      "from": "figma/lsp/Hero Section.png",
+      "to": "pages/lsp/Hero Section.png"
+    },
+    {
+      "from": "figma/lsp/image 2 (2).png",
+      "to": "shared/illustrations/berkembang.png"
+    },
+    {
+      "from": "figma/lsp/mdi_book-education.png",
+      "to": "pages/lsp/mdi_book-education.png"
+    },
+    {
+      "from": "figma/lsp/Shape (1).png",
+      "to": "shared/lsp/hover-shape.png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (1).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (2).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (3).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (4).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (5).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (6).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan (7).png",
+      "to": "pages/lsp/kgs/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Foto kegiatan.png",
+      "to": "pages/lsp/kgs/Foto kegiatan.png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (1).png",
+      "to": "pages/lsp/sija/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (2).png",
+      "to": "pages/lsp/sija/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (3).png",
+      "to": "pages/lsp/sija/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (4).png",
+      "to": "pages/lsp/sija/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (5).png",
+      "to": "pages/lsp/sija/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (6).png",
+      "to": "pages/lsp/sija/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (7).png",
+      "to": "pages/lsp/sija/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Foto kegiatan (8).png",
+      "to": "pages/lsp/sija/Foto kegiatan (8).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Button shortcut (9).png",
+      "to": "pages/lsp/tek/Button shortcut (9).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (1).png",
+      "to": "pages/lsp/tek/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (2).png",
+      "to": "pages/lsp/tek/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (3).png",
+      "to": "pages/lsp/tek/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (4).png",
+      "to": "pages/lsp/tek/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (5).png",
+      "to": "pages/lsp/tek/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (6).png",
+      "to": "pages/lsp/tek/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan (7).png",
+      "to": "pages/lsp/tek/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Foto kegiatan.png",
+      "to": "pages/lsp/tek/Foto kegiatan.png"
+    },
+    {
+      "from": "figma/TEK/Hero Section.png",
+      "to": "majors/TEKAssets/tek-hero.png"
+    },
+    {
+      "from": "figma/TFLM/Button shortcut (2).png",
+      "to": "majors/TFLMAssets/tflm-shortcut.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (1).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (2).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (3).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (5).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (6).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (7).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (8).png",
+      "to": "pages/lsp/tflm/Foto kegiatan (8).png"
+    },
+    {
+      "from": "figma/TFLM/Hero Section (2).png",
+      "to": "majors/TFLMAssets/tflm-hero.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Button shortcut (10).png",
+      "to": "pages/lsp/titl/Button shortcut (10).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (1).png",
+      "to": "pages/lsp/titl/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (2).png",
+      "to": "pages/lsp/titl/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (3).png",
+      "to": "pages/lsp/titl/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (4).png",
+      "to": "pages/lsp/titl/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (5).png",
+      "to": "pages/lsp/titl/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (6).png",
+      "to": "pages/lsp/titl/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (7).png",
+      "to": "pages/lsp/titl/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Foto kegiatan (8).png",
+      "to": "pages/lsp/titl/Foto kegiatan (8).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptitl/Hero Section (13).png",
+      "to": "pages/lsp/titl/Hero Section (13).png"
+    },
+    {
+      "from": "figma/TKR/Button shortcut (3).png",
+      "to": "majors/TKRAssets/tkr-shortcut.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (1).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (2).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (3).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (4).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (5).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (6).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (7).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Foto kegiatan (8).png",
+      "to": "pages/lsp/tkr/Foto kegiatan (8).png"
+    },
+    {
+      "from": "figma/majors/icon-major-building.svg",
+      "to": "home/majors/icon-major-building.svg"
+    },
+    {
+      "from": "figma/majors/icon-section-badge.svg",
+      "to": "shared/icons/section-badge.svg"
+    },
+    {
+      "from": "figma/majors/major-background-shape.svg",
+      "to": "home/majors/major-background-shape.svg"
+    },
+    {
+      "from": "figma/majors/major-kgs.png",
+      "to": "home/majors/major-kgs.png"
+    },
+    {
+      "from": "figma/majors/major-sija.png",
+      "to": "home/majors/major-sija.png"
+    },
+    {
+      "from": "figma/majors/major-tek.png",
+      "to": "home/majors/major-tek.png"
+    },
+    {
+      "from": "figma/majors/major-tflm.png",
+      "to": "home/majors/major-tflm.png"
+    },
+    {
+      "from": "figma/majors/major-titl.png",
+      "to": "home/majors/major-titl.png"
+    },
+    {
+      "from": "figma/majors/major-tkr.png",
+      "to": "home/majors/major-tkr.png"
+    },
+    {
+      "from": "figma/majors/popover-pointer-left.svg",
+      "to": "shared/icons/popover-pointer.svg"
+    },
+    {
+      "from": "figma/mars/belakangvidmars.png",
+      "to": "pages/mars/belakangvidmars.png"
+    },
+    {
+      "from": "figma/mars/bolabolaheromarskecilkanan.png",
+      "to": "pages/mars/bolabolaheromarskecilkanan.png"
+    },
+    {
+      "from": "figma/mars/bolabolaheromarskiri.png",
+      "to": "pages/mars/bolabolaheromarskiri.png"
+    },
+    {
+      "from": "figma/mars/buderliana.png",
+      "to": "pages/mars/buderliana.png"
+    },
+    {
+      "from": "figma/mars/pak sutaryo.png",
+      "to": "pages/mars/pak sutaryo.png"
+    },
+    {
+      "from": "figma/mars/SEMANGATlogo.png",
+      "to": "pages/mars/SEMANGATlogo.png"
+    },
+    {
+      "from": "figma/mitra-industri/hero.png",
+      "to": "pages/mitra-industri/hero.png"
+    },
+    {
+      "from": "figma/mitra-industri/iconbuku.png",
+      "to": "pages/mitra-industri/iconbuku.png"
+    },
+    {
+      "from": "figma/mitra-industri/Shape.png",
+      "to": "pages/mitra-industri/Shape.png"
+    },
+    {
+      "from": "figma/news/news-calendar.svg",
+      "to": "shared/news/news-calendar.svg"
+    },
+    {
+      "from": "figma/news/news-raw-01.png",
+      "to": "shared/news/news-raw-01.png"
+    },
+    {
+      "from": "figma/news/news-raw-03.png",
+      "to": "shared/news/news-raw-03.png"
+    },
+    {
+      "from": "figma/news/news-raw-04.png",
+      "to": "shared/news/news-raw-04.png"
+    },
+    {
+      "from": "figma/news/news-raw-07.png",
+      "to": "shared/news/news-raw-07.png"
+    },
+    {
+      "from": "figma/news/news-raw-09.png",
+      "to": "shared/news/news-raw-09.png"
+    },
+    {
+      "from": "figma/Organisasi/Ekstrakurikuler (1).png",
+      "to": "pages/organisasi/Ekstrakurikuler (1).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (1).png",
+      "to": "pages/organisasi/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (2).png",
+      "to": "pages/organisasi/Foto kegiatan (2).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (3).png",
+      "to": "pages/organisasi/Foto kegiatan (3).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (4).png",
+      "to": "pages/organisasi/Foto kegiatan (4).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (5).png",
+      "to": "pages/organisasi/Foto kegiatan (5).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (6).png",
+      "to": "pages/organisasi/Foto kegiatan (6).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (7).png",
+      "to": "pages/organisasi/Foto kegiatan (7).png"
+    },
+    {
+      "from": "figma/Organisasi/Foto kegiatan (8).png",
+      "to": "pages/organisasi/Foto kegiatan (8).png"
+    },
+    {
+      "from": "figma/Organisasi/hero.png",
+      "to": "pages/organisasi/hero.png"
+    },
+    {
+      "from": "figma/Organisasi/Struktur MPK/Strutur MPK.png",
+      "to": "pages/organisasi/Struktur MPK/Strutur MPK.png"
+    },
+    {
+      "from": "figma/Organisasi/Struktur Osis/Strutur OSIS.png",
+      "to": "pages/organisasi/Struktur Osis/Strutur OSIS.png"
+    },
+    {
+      "from": "figma/partners/astra.png",
+      "to": "shared/partners/astra.png"
+    },
+    {
+      "from": "figma/partners/azko.png",
+      "to": "shared/partners/azko.png"
+    },
+    {
+      "from": "figma/partners/komatsu.png",
+      "to": "shared/partners/komatsu.png"
+    },
+    {
+      "from": "figma/partners/microvision.png",
+      "to": "shared/partners/microvision.png"
+    },
+    {
+      "from": "figma/partners/panasonic.png",
+      "to": "shared/partners/panasonic.png"
+    },
+    {
+      "from": "figma/partners/pln.png",
+      "to": "shared/partners/pln.png"
+    },
+    {
+      "from": "figma/partners/toyota.jpeg",
+      "to": "shared/partners/toyota.jpeg"
+    },
+    {
+      "from": "figma/partners/wika.png",
+      "to": "shared/partners/wika.png"
+    },
+    {
+      "from": "figma/portalinformasi/kjp.png",
+      "to": "pages/portal-informasi/kjp.png"
+    },
+    {
+      "from": "figma/portalinformasi/Perpustakaan Digital.png",
+      "to": "pages/portal-informasi/Perpustakaan Digital.png"
+    },
+    {
+      "from": "figma/portalinformasi/pip.png",
+      "to": "pages/portal-informasi/pip.png"
+    },
+    {
+      "from": "figma/portalinformasi/SIMAK 26.png",
+      "to": "pages/portal-informasi/SIMAK 26.png"
+    },
+    {
+      "from": "figma/portalinformasi/SPMB.png",
+      "to": "pages/portal-informasi/SPMB.png"
+    },
+    {
+      "from": "figma/Prestasi/,,,.png",
+      "to": "pages/prestasi/,,,.png"
+    },
+    {
+      "from": "figma/Prestasi/.....png",
+      "to": "pages/prestasi/.....png"
+    },
+    {
+      "from": "figma/Prestasi/a.png",
+      "to": "pages/prestasi/a.png"
+    },
+    {
+      "from": "figma/Prestasi/aa.png",
+      "to": "pages/prestasi/aa.png"
+    },
+    {
+      "from": "figma/Prestasi/b.png",
+      "to": "pages/prestasi/b.png"
+    },
+    {
+      "from": "figma/Prestasi/bbbb.png",
+      "to": "pages/prestasi/bbbb.png"
+    },
+    {
+      "from": "figma/Prestasi/c.png",
+      "to": "pages/prestasi/c.png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (1).png",
+      "to": "pages/prestasi/Card Prestasi (1).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (10).png",
+      "to": "pages/prestasi/Card Prestasi (10).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (11).png",
+      "to": "pages/prestasi/Card Prestasi (11).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (12).png",
+      "to": "pages/prestasi/Card Prestasi (12).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (13).png",
+      "to": "pages/prestasi/Card Prestasi (13).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (2).png",
+      "to": "pages/prestasi/Card Prestasi (2).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (3).png",
+      "to": "pages/prestasi/Card Prestasi (3).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (4).png",
+      "to": "pages/prestasi/Card Prestasi (4).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (5).png",
+      "to": "pages/prestasi/Card Prestasi (5).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (6).png",
+      "to": "pages/prestasi/Card Prestasi (6).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (7).png",
+      "to": "pages/prestasi/Card Prestasi (7).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (8).png",
+      "to": "pages/prestasi/Card Prestasi (8).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi (9).png",
+      "to": "pages/prestasi/Card Prestasi (9).png"
+    },
+    {
+      "from": "figma/Prestasi/Card Prestasi.png",
+      "to": "pages/prestasi/Card Prestasi.png"
+    },
+    {
+      "from": "figma/Prestasi/ccc.png",
+      "to": "pages/prestasi/ccc.png"
+    },
+    {
+      "from": "figma/Prestasi/dsa.png",
+      "to": "pages/prestasi/dsa.png"
+    },
+    {
+      "from": "figma/Prestasi/Group 1815.png",
+      "to": "pages/prestasi/Group 1815.png"
+    },
+    {
+      "from": "figma/Prestasi/mmm.png",
+      "to": "pages/prestasi/mmm.png"
+    },
+    {
+      "from": "figma/Prestasi/nnn.png",
+      "to": "pages/prestasi/nnn.png"
+    },
+    {
+      "from": "figma/Prestasi/s.png",
+      "to": "pages/prestasi/s.png"
+    },
+    {
+      "from": "figma/Prestasi/v.png",
+      "to": "pages/prestasi/v.png"
+    },
+    {
+      "from": "figma/Prestasi/vvv.png",
+      "to": "pages/prestasi/vvv.png"
+    },
+    {
+      "from": "figma/Prestasi/zzzz.png",
+      "to": "pages/prestasi/zzzz.png"
+    },
+    {
+      "from": "figma/profile/GARISBAWAHVISISEKOLAH.png",
+      "to": "shared/profile/visi-misi-garis.png"
+    },
+    {
+      "from": "figma/profile/icondisampingjudulvisimisi.png",
+      "to": "shared/profile/visi-misi-icon.png"
+    },
+    {
+      "from": "figma/profile/Mars.png",
+      "to": "pages/profile/Mars.png"
+    },
+    {
+      "from": "figma/profile/motto.png",
+      "to": "pages/profile/motto.png"
+    },
+    {
+      "from": "figma/profile/profile-hero-bg.png",
+      "to": "pages/profile/profile-hero-bg.png"
+    },
+    {
+      "from": "figma/profile/profile-mars-bg.png",
+      "to": "pages/profile/profile-mars-bg.png"
+    },
+    {
+      "from": "figma/profile/profile-motto-bg.png",
+      "to": "pages/profile/profile-motto-bg.png"
+    },
+    {
+      "from": "figma/profile/profile-semboyan-bg.png",
+      "to": "pages/profile/profile-semboyan-bg.png"
+    },
+    {
+      "from": "figma/profile/semboyan.png",
+      "to": "pages/profile/semboyan.png"
+    },
+    {
+      "from": "figma/profile/timelinegaris.png",
+      "to": "pages/profile/timelinegaris.png"
+    },
+    {
+      "from": "figma/profile/VISI SEKOLAHujung.png",
+      "to": "shared/profile/visi-ujung.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-02.png",
+      "to": "home/programs/programs-raw-02.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-03.png",
+      "to": "home/programs/programs-raw-03.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-04.png",
+      "to": "home/programs/programs-raw-04.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-06.png",
+      "to": "home/programs/programs-raw-06.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-07.png",
+      "to": "home/programs/programs-raw-07.png"
+    },
+    {
+      "from": "figma/programs/programs-raw-10.png",
+      "to": "home/programs/programs-raw-10.png"
+    },
+    {
+      "from": "figma/programs/programs-svg-01.svg",
+      "to": "home/programs/programs-svg-01.svg"
+    },
+    {
+      "from": "figma/school/school-overview-photo-clean.png",
+      "to": "home/school/school-overview-photo-clean.png"
+    },
+    {
+      "from": "figma/shortcuts/shortcut-ai-chat.png",
+      "to": "home/shortcuts/shortcut-ai-chat.png"
+    },
+    {
+      "from": "figma/shortcuts/shortcut-kjp-pip.png",
+      "to": "home/shortcuts/shortcut-kjp-pip.png"
+    },
+    {
+      "from": "figma/shortcuts/shortcut-library.png",
+      "to": "home/shortcuts/shortcut-library.png"
+    },
+    {
+      "from": "figma/shortcuts/shortcut-spmb.png",
+      "to": "home/shortcuts/shortcut-spmb.png"
+    },
+    {
+      "from": "figma/SIJA/Angelica Putri.png",
+      "to": "pages/majors/sija/Angelica Putri.png"
+    },
+    {
+      "from": "figma/SIJA/Bagus Rahmansyah.png",
+      "to": "pages/majors/sija/Bagus Rahmansyah.png"
+    },
+    {
+      "from": "figma/SIJA/Dokumentasi Pembelajaran (10).png",
+      "to": "pages/majors/sija/Dokumentasi Pembelajaran (10).png"
+    },
+    {
+      "from": "figma/SIJA/Dokumentasi Pembelajaran (9).png",
+      "to": "pages/majors/sija/Dokumentasi Pembelajaran (9).png"
+    },
+    {
+      "from": "figma/SIJA/image 3 (4).png",
+      "to": "pages/majors/sija/image 3 (4).png"
+    },
+    {
+      "from": "figma/SIJA/Muhammad Fauzan.png",
+      "to": "pages/majors/sija/Muhammad Fauzan.png"
+    },
+    {
+      "from": "figma/SIJA/Nabilla Mallya.png",
+      "to": "pages/majors/sija/Nabilla Mallya.png"
+    },
+    {
+      "from": "figma/SIJA/Roadmap Jurusan.png",
+      "to": "pages/majors/sija/Roadmap Jurusan.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/Ardiansyah Putra.png",
+      "to": "shared/struktur/Ardiansyah Putra.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/Bagus Setiawan.png",
+      "to": "shared/struktur/Bagus Setiawan.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/bghero.png",
+      "to": "shared/struktur/bghero.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/Deni Kurniawan.png",
+      "to": "shared/struktur/Deni Kurniawan.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/Rani Maharani.png",
+      "to": "shared/struktur/Rani Maharani.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-1.png",
+      "to": "shared/struktur/struktur-guru-1.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-2.png",
+      "to": "shared/struktur/struktur-guru-2.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-3.png",
+      "to": "shared/struktur/struktur-guru-3.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-4.png",
+      "to": "shared/struktur/struktur-guru-4.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-5.png",
+      "to": "shared/struktur/struktur-guru-5.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-6.png",
+      "to": "shared/struktur/struktur-guru-6.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-7.png",
+      "to": "shared/struktur/struktur-guru-7.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-guru-8.png",
+      "to": "shared/struktur/struktur-guru-8.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-kepsek.png",
+      "to": "shared/struktur/struktur-kepsek.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-tendik-1.png",
+      "to": "shared/struktur/struktur-tendik-1.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-tendik-2.png",
+      "to": "shared/struktur/struktur-tendik-2.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-tendik-3.png",
+      "to": "shared/struktur/struktur-tendik-3.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-tendik-4.png",
+      "to": "shared/struktur/struktur-tendik-4.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-wakasek-1.png",
+      "to": "shared/struktur/struktur-wakasek-1.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-wakasek-2.png",
+      "to": "shared/struktur/struktur-wakasek-2.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-wakasek-3.png",
+      "to": "shared/struktur/struktur-wakasek-3.png"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-wakasek-4.png",
+      "to": "shared/struktur/struktur-wakasek-4.png"
+    },
+    {
+      "from": "figma/TEK/Alyssa Bella.png",
+      "to": "pages/majors/tek/Alyssa Bella.png"
+    },
+    {
+      "from": "figma/TEK/Dinda Azzahra.png",
+      "to": "pages/majors/tek/Dinda Azzahra.png"
+    },
+    {
+      "from": "figma/TEK/Firmansyah.png",
+      "to": "pages/majors/tek/Firmansyah.png"
+    },
+    {
+      "from": "figma/TEK/Hidayah Fadillah.png",
+      "to": "pages/majors/tek/Hidayah Fadillah.png"
+    },
+    {
+      "from": "figma/TEK/kompetensi.png",
+      "to": "pages/majors/tek/kompetensi.png"
+    },
+    {
+      "from": "figma/TEK/mengenal.png",
+      "to": "pages/majors/tek/mengenal.png"
+    },
+    {
+      "from": "figma/TFLM/Frame 36434 (3).png",
+      "to": "pages/majors/tflm/Frame 36434 (3).png"
+    },
+    {
+      "from": "figma/TFLM/image 3 (2).png",
+      "to": "pages/majors/tflm/image 3 (2).png"
+    },
+    {
+      "from": "figma/TFLM/Nayla Safira.png",
+      "to": "pages/majors/tflm/Nayla Safira.png"
+    },
+    {
+      "from": "figma/TFLM/Raihan Nugroho.png",
+      "to": "pages/majors/tflm/Raihan Nugroho.png"
+    },
+    {
+      "from": "figma/TFLM/Riky Hamdan.png",
+      "to": "pages/majors/tflm/Riky Hamdan.png"
+    },
+    {
+      "from": "figma/TFLM/Salsa Nurfatiha.png",
+      "to": "pages/majors/tflm/Salsa Nurfatiha.png"
+    },
+    {
+      "from": "figma/TITL/annisakuncoro.png",
+      "to": "pages/majors/titl/annisakuncoro.png"
+    },
+    {
+      "from": "figma/TITL/dimasahmad.png",
+      "to": "pages/majors/titl/dimasahmad.png"
+    },
+    {
+      "from": "figma/TITL/Frame 36434 (2).png",
+      "to": "pages/majors/titl/Frame 36434 (2).png"
+    },
+    {
+      "from": "figma/TITL/Hero Section (1).png",
+      "to": "pages/majors/titl/Hero Section (1).png"
+    },
+    {
+      "from": "figma/TITL/image 3 (1).png",
+      "to": "pages/majors/titl/image 3 (1).png"
+    },
+    {
+      "from": "figma/TITL/liliputrikencana.png",
+      "to": "pages/majors/titl/liliputrikencana.png"
+    },
+    {
+      "from": "figma/TITL/rakaaditya.png",
+      "to": "pages/majors/titl/rakaaditya.png"
+    },
+    {
+      "from": "figma/TKR/Eva Khuzaifah.png",
+      "to": "pages/majors/tkr/Eva Khuzaifah.png"
+    },
+    {
+      "from": "figma/TKR/Frame 36434 (4).png",
+      "to": "pages/majors/tkr/Frame 36434 (4).png"
+    },
+    {
+      "from": "figma/TKR/image 3 (3).png",
+      "to": "pages/majors/tkr/image 3 (3).png"
+    },
+    {
+      "from": "figma/TKR/Kaesar Agung.png",
+      "to": "pages/majors/tkr/Kaesar Agung.png"
+    },
+    {
+      "from": "figma/TKR/Putri Cantika.png",
+      "to": "pages/majors/tkr/Putri Cantika.png"
+    },
+    {
+      "from": "figma/TKR/Raka Kuncoro.png",
+      "to": "pages/majors/tkr/Raka Kuncoro.png"
+    },
+    {
+      "from": "figma/video-profile/video-profile-decoration-left.svg",
+      "to": "shared/video-profile/video-profile-decoration-left.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-decoration-right.svg",
+      "to": "shared/video-profile/video-profile-decoration-right.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-lower-shape.svg",
+      "to": "shared/video-profile/video-profile-lower-shape.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-play-ring.svg",
+      "to": "shared/video-profile/video-profile-play-ring.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-preview.png",
+      "to": "shared/video-profile/video-profile-preview.png"
+    },
+    {
+      "from": "panorama/heroschooltour.png",
+      "to": "pages/tour/heroschooltour.png"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/bengkel.jpg",
+      "to": "pages/tour/school_tour/Upscaled/bengkel.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/bengkel_kgs.jpg",
+      "to": "pages/tour/school_tour/Upscaled/bengkel_kgs.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/bengkel_sija.jpg",
+      "to": "pages/tour/school_tour/Upscaled/bengkel_sija.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/bengkel_titl.jpg",
+      "to": "pages/tour/school_tour/Upscaled/bengkel_titl.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/bengkel_tkr.jpg",
+      "to": "pages/tour/school_tour/Upscaled/bengkel_tkr.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/dalam_masjid.jpg",
+      "to": "pages/tour/school_tour/Upscaled/dalam_masjid.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/depan_aula.jpg",
+      "to": "pages/tour/school_tour/Upscaled/depan_aula.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/depan_lsp.jpg",
+      "to": "pages/tour/school_tour/Upscaled/depan_lsp.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/depan_masjid.jpg",
+      "to": "pages/tour/school_tour/Upscaled/depan_masjid.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/depan_tek.jpg",
+      "to": "pages/tour/school_tour/Upscaled/depan_tek.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/gerbang.jpg",
+      "to": "pages/tour/school_tour/Upscaled/gerbang.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/jogging_track.jpg",
+      "to": "pages/tour/school_tour/Upscaled/jogging_track.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/kantin.jpg",
+      "to": "pages/tour/school_tour/Upscaled/kantin.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/lapangan.jpg",
+      "to": "pages/tour/school_tour/Upscaled/lapangan.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/pedestrian.jpg",
+      "to": "pages/tour/school_tour/Upscaled/pedestrian.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/pedestrian_rbtra.jpg",
+      "to": "pages/tour/school_tour/Upscaled/pedestrian_rbtra.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/pendopo_kgs.jpg",
+      "to": "pages/tour/school_tour/Upscaled/pendopo_kgs.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/perpustakaan.jpg",
+      "to": "pages/tour/school_tour/Upscaled/perpustakaan.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/RBTRA.jpg",
+      "to": "pages/tour/school_tour/Upscaled/RBTRA.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/ruang_piket.jpg",
+      "to": "pages/tour/school_tour/Upscaled/ruang_piket.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/satpam.jpg",
+      "to": "pages/tour/school_tour/Upscaled/satpam.jpg"
+    },
+    {
+      "from": "panorama/school_tour/Upscaled/toilet1.jpg",
+      "to": "pages/tour/school_tour/Upscaled/toilet1.jpg"
+    }
+  ],
+  "deletes": [
+    {
+      "from": "figma/majors/icon-major-education.svg",
+      "dupOf": "shared/icons/book-education.svg"
+    },
+    {
+      "from": "figma/ekstrakulikuler/Button shortcut (11).png",
+      "dupOf": "shared/icons/button-shortcut.png"
+    },
+    {
+      "from": "figma/Organisasi/Button shortcut (12).png",
+      "dupOf": "shared/icons/button-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Button shortcut (5).png",
+      "dupOf": "majors/TITLAssets/titl-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/3.png",
+      "dupOf": "majors/TITLAssets/titl-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png",
+      "dupOf": "majors/TITLAssets/titl-dokumentasi-3.png"
+    },
+    {
+      "from": "figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png",
+      "dupOf": "majors/TITLAssets/titl-dokumentasi-4.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Button shortcut (4).png",
+      "dupOf": "majors/SIJAAssets/sija-shortcut.png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Button shortcut (4).png",
+      "dupOf": "majors/SIJAAssets/sija-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/6.png",
+      "dupOf": "majors/SIJAAssets/sija-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-GadizVokasi/Hero Section (8).png",
+      "dupOf": "majors/SIJAAssets/sija-hero.png"
+    },
+    {
+      "from": "figma/lsp/skemalspsija/Hero Section (5).png",
+      "dupOf": "majors/SIJAAssets/sija-hero.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png",
+      "dupOf": "majors/TKRAssets/tkr-dokumentasi-7.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png",
+      "dupOf": "majors/TKRAssets/tkr-dokumentasi-8.png"
+    },
+    {
+      "from": "figma/BLUD-Garage26/Hero Section (7).png",
+      "dupOf": "majors/TKRAssets/tkr-hero.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Hero Section (3).png",
+      "dupOf": "majors/TKRAssets/tkr-hero.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/Button shortcut (4).png",
+      "dupOf": "majors/KGSAssets/kgs-shortcut.png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Button shortcut (8).png",
+      "dupOf": "majors/KGSAssets/kgs-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/1.png",
+      "dupOf": "majors/KGSAssets/kgs-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-KGS/image 3 (4).png",
+      "dupOf": "majors/KGSAssets/kgs-mengenal.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png",
+      "dupOf": "majors/TFLMAssets/tflm-dokumentasi-5.png"
+    },
+    {
+      "from": "figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png",
+      "dupOf": "majors/TFLMAssets/tflm-dokumentasi-6.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Button shortcut.png",
+      "dupOf": "majors/TEKAssets/tek-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/2.png",
+      "dupOf": "majors/TEKAssets/tek-shortcut.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png",
+      "dupOf": "majors/TEKAssets/tek-dokumentasi-atas.png"
+    },
+    {
+      "from": "figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png",
+      "dupOf": "majors/TEKAssets/tek-dokumentasi-bawah.png"
+    },
+    {
+      "from": "figma/majors/icon-arrow-right.svg",
+      "dupOf": "shared/icons/arrow-right.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-play-icon.svg",
+      "dupOf": "shared/icons/play-video.svg"
+    },
+    {
+      "from": "figma/SIJA/Raka Pratama.png",
+      "dupOf": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/TEK/Fajar Ramadhan.png",
+      "dupOf": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/TFLM/Raka Pratama.png",
+      "dupOf": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/TITL/Assad El Ghanie.png",
+      "dupOf": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/TKR/Rizky Aditya.png",
+      "dupOf": "shared/majors/Andi Pratama.png"
+    },
+    {
+      "from": "figma/KGS/Fajar Ramadhan.png",
+      "dupOf": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/TEK/Abi Rafi.png",
+      "dupOf": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/TFLM/Abdusallam.png",
+      "dupOf": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/TITL/Muhammad Akbar.png",
+      "dupOf": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/TKR/Dwi Bakti.png",
+      "dupOf": "shared/majors/Marwan.png"
+    },
+    {
+      "from": "figma/lsp/skemalspkgs/Hero Section (11).png",
+      "dupOf": "majors/KGSAssets/kgs-hero.png"
+    },
+    {
+      "from": "figma/mitra-industri/image 2 (1).png",
+      "dupOf": "shared/illustrations/berkembang.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptek/Hero Section (12).png",
+      "dupOf": "majors/TEKAssets/tek-hero.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Button shortcut (2).png",
+      "dupOf": "majors/TFLMAssets/tflm-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/4.png",
+      "dupOf": "majors/TFLMAssets/tflm-shortcut.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Foto kegiatan (4).png",
+      "dupOf": "pages/lsp/tflm/Foto kegiatan (1).png"
+    },
+    {
+      "from": "figma/lsp/skemalsptflm/Hero Section (2).png",
+      "dupOf": "majors/TFLMAssets/tflm-hero.png"
+    },
+    {
+      "from": "figma/lsp/skemalsptkr/Button shortcut (3).png",
+      "dupOf": "majors/TKRAssets/tkr-shortcut.png"
+    },
+    {
+      "from": "figma/mitra-industri/5.png",
+      "dupOf": "majors/TKRAssets/tkr-shortcut.png"
+    },
+    {
+      "from": "figma/programs/programs-svg-04.svg",
+      "dupOf": "shared/icons/section-badge.svg"
+    },
+    {
+      "from": "figma/struktur & unit kerja/struktur-badge.svg",
+      "dupOf": "shared/icons/section-badge.svg"
+    },
+    {
+      "from": "figma/video-profile/video-profile-badge-icon.svg",
+      "dupOf": "shared/icons/section-badge.svg"
+    },
+    {
+      "from": "figma/majors/popover-pointer-right.svg",
+      "dupOf": "shared/icons/popover-pointer.svg"
+    },
+    {
+      "from": "figma/Prestasi/xxx.png",
+      "dupOf": "pages/prestasi/ccc.png"
+    }
+  ],
+  "refMap": {
+    "/assets/figma/achievements/achievements-raw-01.png": "/assets/home/achievements/achievements-raw-01.png",
+    "/assets/figma/achievements/achievements-raw-03.png": "/assets/home/achievements/achievements-raw-03.png",
+    "/assets/figma/achievements/achievements-raw-04.png": "/assets/home/achievements/achievements-raw-04.png",
+    "/assets/figma/achievements/achievements-raw-07.png": "/assets/home/achievements/achievements-raw-07.png",
+    "/assets/figma/achievements/achievements-raw-08.png": "/assets/home/achievements/achievements-raw-08.png",
+    "/assets/figma/achievements/achievements-svg-03.svg": "/assets/home/achievements/achievements-svg-03.svg",
+    "/assets/figma/achievements/achievements-svg-12.svg": "/assets/home/achievements/achievements-svg-12.svg",
+    "/assets/figma/advantages/advantage-blud.png": "/assets/shared/advantages/advantage-blud.png",
+    "/assets/figma/advantages/advantage-education.png": "/assets/shared/advantages/advantage-education.png",
+    "/assets/figma/advantages/advantage-inclusive.png": "/assets/shared/advantages/advantage-inclusive.png",
+    "/assets/figma/advantages/advantage-industry.png": "/assets/shared/advantages/advantage-industry.png",
+    "/assets/figma/advantages/advantage-interest.png": "/assets/shared/advantages/advantage-interest.png",
+    "/assets/figma/advantages/advantage-lsp.png": "/assets/shared/advantages/advantage-lsp.png",
+    "/assets/figma/advantages/Arrowleft.png": "/assets/shared/icons/arrow-left.png",
+    "/assets/figma/advantages/Arrowright.png": "/assets/shared/icons/arrow-right.png",
+    "/assets/figma/advantages/icon-book-education-secondary.svg": "/assets/shared/icons/book-education.svg",
+    "/assets/figma/majors/icon-major-education.svg": "/assets/shared/icons/book-education.svg",
+    "/assets/figma/ai-cta/ai-cta-raw-02.png": "/assets/shared/chatbot/chatbot.png",
+    "/assets/figma/ai-cta/ai-cta-svg-07.svg": "/assets/shared/chatbot/ai-cta-svg-07.svg",
+    "/assets/figma/BKK/astra.png": "/assets/pages/bkk/astra.png",
+    "/assets/figma/BKK/azko.png": "/assets/pages/bkk/azko.png",
+    "/assets/figma/BKK/boxicons_location-filled.png": "/assets/pages/bkk/boxicons_location-filled.png",
+    "/assets/figma/BKK/Button shortcut (13).png": "/assets/shared/icons/button-shortcut.png",
+    "/assets/figma/ekstrakulikuler/Button shortcut (11).png": "/assets/shared/icons/button-shortcut.png",
+    "/assets/figma/Organisasi/Button shortcut (12).png": "/assets/shared/icons/button-shortcut.png",
+    "/assets/figma/BKK/Dynamic Youth Activities Group Portrait 1 (2).png": "/assets/pages/bkk/Dynamic Youth Activities Group Portrait 1 (2).png",
+    "/assets/figma/BKK/Frame 36448 (1).png": "/assets/pages/bkk/Frame 36448 (1).png",
+    "/assets/figma/BKK/Frame 36448 (2).png": "/assets/pages/bkk/Frame 36448 (2).png",
+    "/assets/figma/BKK/Frame 36448 (3).png": "/assets/pages/bkk/Frame 36448 (3).png",
+    "/assets/figma/BKK/Frame 36448 (4).png": "/assets/pages/bkk/Frame 36448 (4).png",
+    "/assets/figma/BKK/Frame 36448.png": "/assets/pages/bkk/Frame 36448.png",
+    "/assets/figma/BKK/goje.png": "/assets/pages/bkk/goje.png",
+    "/assets/figma/BKK/Group 1813.png": "/assets/pages/bkk/Group 1813.png",
+    "/assets/figma/BKK/lets-icons_date-fill.png": "/assets/pages/bkk/lets-icons_date-fill.png",
+    "/assets/figma/BKK/mayora.png": "/assets/pages/bkk/mayora.png",
+    "/assets/figma/BKK/mdi_book-education (1).png": "/assets/pages/bkk/mdi_book-education (1).png",
+    "/assets/figma/BKK/mingcute_time-fill.png": "/assets/pages/bkk/mingcute_time-fill.png",
+    "/assets/figma/BKK/Rectangle 89 (12).png": "/assets/pages/bkk/Rectangle 89 (12).png",
+    "/assets/figma/BKK/telkom.png": "/assets/pages/bkk/telkom.png",
+    "/assets/figma/BKK/yamaha.png": "/assets/pages/bkk/yamaha.png",
+    "/assets/figma/blud/blud-SIJA-icon.svg": "/assets/home/blud/blud-SIJA-icon.svg",
+    "/assets/figma/blud/blud-svg-02.svg": "/assets/home/blud/blud-svg-02.svg",
+    "/assets/figma/blud/blud-TEK-icon.svg": "/assets/home/blud/blud-TEK-icon.svg",
+    "/assets/figma/blud/blud-TFLM-icon.svg": "/assets/home/blud/blud-TFLM-icon.svg",
+    "/assets/figma/blud/blud-TITL-icon.svg": "/assets/home/blud/blud-TITL-icon.svg",
+    "/assets/figma/blud/blud-TKR-icon.svg": "/assets/home/blud/blud-TKR-icon.svg",
+    "/assets/figma/BLUD-E-MAN/Alur BLUD (2).png": "/assets/pages/blud/e-man/Alur BLUD (2).png",
+    "/assets/figma/BLUD-E-MAN/basil_whatsapp-solid (2).png": "/assets/pages/blud/e-man/basil_whatsapp-solid (2).png",
+    "/assets/figma/BLUD-E-MAN/Button shortcut (5).png": "/assets/majors/TITLAssets/titl-shortcut.png",
+    "/assets/figma/mitra-industri/3.png": "/assets/majors/TITLAssets/titl-shortcut.png",
+    "/assets/figma/TITL/Button shortcut (1).png": "/assets/majors/TITLAssets/titl-shortcut.png",
+    "/assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png": "/assets/majors/TITLAssets/titl-dokumentasi-3.png",
+    "/assets/figma/TITL/Dokumentasi Pembelajaran (3).png": "/assets/majors/TITLAssets/titl-dokumentasi-3.png",
+    "/assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png": "/assets/majors/TITLAssets/titl-dokumentasi-4.png",
+    "/assets/figma/TITL/Dokumentasi Pembelajaran (4).png": "/assets/majors/TITLAssets/titl-dokumentasi-4.png",
+    "/assets/figma/BLUD-E-MAN/Hero Section (6).png": "/assets/pages/blud/e-man/Hero Section (6).png",
+    "/assets/figma/BLUD-E-MAN/image 4 (1).png": "/assets/pages/blud/e-man/image 4 (1).png",
+    "/assets/figma/BLUD-E-MAN/Instalasi Panel Listrik Gedung.png": "/assets/pages/blud/e-man/Instalasi Panel Listrik Gedung.png",
+    "/assets/figma/BLUD-E-MAN/Panel Kontrol Motor Listrik.png": "/assets/pages/blud/e-man/Panel Kontrol Motor Listrik.png",
+    "/assets/figma/BLUD-E-MAN/Sistem Penerangan Otomatis.png": "/assets/pages/blud/e-man/Sistem Penerangan Otomatis.png",
+    "/assets/figma/BLUD-E-MAN/Trainer Instalasi Listrik Rumah.png": "/assets/pages/blud/e-man/Trainer Instalasi Listrik Rumah.png",
+    "/assets/figma/BLUD-GadizVokasi/Alur BLUD (4).png": "/assets/pages/blud/gadiz-vokasi/Alur BLUD (4).png",
+    "/assets/figma/BLUD-GadizVokasi/basil_whatsapp-solid (5).png": "/assets/pages/blud/gadiz-vokasi/basil_whatsapp-solid (5).png",
+    "/assets/figma/BLUD-GadizVokasi/Button shortcut (4).png": "/assets/majors/SIJAAssets/sija-shortcut.png",
+    "/assets/figma/lsp/skemalspsija/Button shortcut (4).png": "/assets/majors/SIJAAssets/sija-shortcut.png",
+    "/assets/figma/mitra-industri/6.png": "/assets/majors/SIJAAssets/sija-shortcut.png",
+    "/assets/figma/SIJA/Button shortcut (4).png": "/assets/majors/SIJAAssets/sija-shortcut.png",
+    "/assets/figma/BLUD-GadizVokasi/Custom Apparel Printing.png": "/assets/pages/blud/gadiz-vokasi/Custom Apparel Printing.png",
+    "/assets/figma/BLUD-GadizVokasi/Custom Merchandise.png": "/assets/pages/blud/gadiz-vokasi/Custom Merchandise.png",
+    "/assets/figma/BLUD-GadizVokasi/Digital Print & Branding.png": "/assets/pages/blud/gadiz-vokasi/Digital Print & Branding.png",
+    "/assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (13).png": "/assets/pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (13).png",
+    "/assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (14).png": "/assets/pages/blud/gadiz-vokasi/Dokumentasi Pembelajaran (14).png",
+    "/assets/figma/BLUD-GadizVokasi/Hero Section (8).png": "/assets/majors/SIJAAssets/sija-hero.png",
+    "/assets/figma/lsp/skemalspsija/Hero Section (5).png": "/assets/majors/SIJAAssets/sija-hero.png",
+    "/assets/figma/SIJA/Hero Section (5).png": "/assets/majors/SIJAAssets/sija-hero.png",
+    "/assets/figma/BLUD-GadizVokasi/image 3 (5).png": "/assets/pages/blud/gadiz-vokasi/image 3 (5).png",
+    "/assets/figma/BLUD-GadizVokasi/Sticker & Label Printing.png": "/assets/pages/blud/gadiz-vokasi/Sticker & Label Printing.png",
+    "/assets/figma/BLUD-Garage26/Alur BLUD (3).png": "/assets/pages/blud/garage26/Alur BLUD (3).png",
+    "/assets/figma/BLUD-Garage26/basil_whatsapp-solid (4).png": "/assets/pages/blud/garage26/basil_whatsapp-solid (4).png",
+    "/assets/figma/BLUD-Garage26/Brake System Maintenance.png": "/assets/pages/blud/garage26/Brake System Maintenance.png",
+    "/assets/figma/BLUD-Garage26/Button shortcut (6).png": "/assets/pages/blud/garage26/Button shortcut (6).png",
+    "/assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png": "/assets/majors/TKRAssets/tkr-dokumentasi-7.png",
+    "/assets/figma/TKR/Dokumentasi Pembelajaran (7).png": "/assets/majors/TKRAssets/tkr-dokumentasi-7.png",
+    "/assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png": "/assets/majors/TKRAssets/tkr-dokumentasi-8.png",
+    "/assets/figma/TKR/Dokumentasi Pembelajaran (8).png": "/assets/majors/TKRAssets/tkr-dokumentasi-8.png",
+    "/assets/figma/BLUD-Garage26/Engine Tune-Up.png": "/assets/pages/blud/garage26/Engine Tune-Up.png",
+    "/assets/figma/BLUD-Garage26/Hero Section (7).png": "/assets/majors/TKRAssets/tkr-hero.png",
+    "/assets/figma/lsp/skemalsptkr/Hero Section (3).png": "/assets/majors/TKRAssets/tkr-hero.png",
+    "/assets/figma/TKR/Hero Section (3).png": "/assets/majors/TKRAssets/tkr-hero.png",
+    "/assets/figma/BLUD-Garage26/image 4 (2).png": "/assets/pages/blud/garage26/image 4 (2).png",
+    "/assets/figma/BLUD-Garage26/Undercarriage Inspection.png": "/assets/pages/blud/garage26/Undercarriage Inspection.png",
+    "/assets/figma/BLUD-Garage26/Wheel & Tire Service.png": "/assets/pages/blud/garage26/Wheel & Tire Service.png",
+    "/assets/figma/BLUD-KGS/Alur BLUD.png": "/assets/pages/blud/kgstudio/Alur BLUD.png",
+    "/assets/figma/BLUD-KGS/basil_whatsapp-solid.png": "/assets/pages/blud/kgstudio/basil_whatsapp-solid.png",
+    "/assets/figma/BLUD-KGS/Button shortcut (4).png": "/assets/majors/KGSAssets/kgs-shortcut.png",
+    "/assets/figma/KGS/Button shortcut.png": "/assets/majors/KGSAssets/kgs-shortcut.png",
+    "/assets/figma/lsp/skemalspkgs/Button shortcut (8).png": "/assets/majors/KGSAssets/kgs-shortcut.png",
+    "/assets/figma/mitra-industri/1.png": "/assets/majors/KGSAssets/kgs-shortcut.png",
+    "/assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (10).png": "/assets/pages/blud/kgstudio/Dokumentasi Pembelajaran (10).png",
+    "/assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (9).png": "/assets/pages/blud/kgstudio/Dokumentasi Pembelajaran (9).png",
+    "/assets/figma/BLUD-KGS/Hero Section (4).png": "/assets/pages/blud/kgstudio/Hero Section (4).png",
+    "/assets/figma/BLUD-KGS/image 3 (4).png": "/assets/majors/KGSAssets/kgs-mengenal.png",
+    "/assets/figma/KGS/mengenal.png": "/assets/majors/KGSAssets/kgs-mengenal.png",
+    "/assets/figma/BLUD-KGS/Proyek Gambar Teknik.png": "/assets/pages/blud/kgstudio/Proyek Gambar Teknik.png",
+    "/assets/figma/BLUD-KGS/Proyek Konstruksi Bangunan.png": "/assets/pages/blud/kgstudio/Proyek Konstruksi Bangunan.png",
+    "/assets/figma/BLUD-KGS/Proyek Pekerjaan Struktur.png": "/assets/pages/blud/kgstudio/Proyek Pekerjaan Struktur.png",
+    "/assets/figma/BLUD-KGS/Proyek Pemasangan Keramik.png": "/assets/pages/blud/kgstudio/Proyek Pemasangan Keramik.png",
+    "/assets/figma/BLUD-Manufaktur26/Alur BLUD (2).png": "/assets/pages/blud/manufaktur26/Alur BLUD (2).png",
+    "/assets/figma/BLUD-Manufaktur26/basil_whatsapp-solid (3).png": "/assets/pages/blud/manufaktur26/basil_whatsapp-solid (3).png",
+    "/assets/figma/BLUD-Manufaktur26/Button shortcut (5).png": "/assets/pages/blud/manufaktur26/Button shortcut (5).png",
+    "/assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-5.png",
+    "/assets/figma/TFLM/Dokumentasi Pembelajaran (5).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-5.png",
+    "/assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-6.png",
+    "/assets/figma/TFLM/Dokumentasi Pembelajaran (6).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-6.png",
+    "/assets/figma/BLUD-Manufaktur26/Fabrikasi Rangka Baja.png": "/assets/pages/blud/manufaktur26/Fabrikasi Rangka Baja.png",
+    "/assets/figma/BLUD-Manufaktur26/Hero Section (6).png": "/assets/pages/blud/manufaktur26/Hero Section (6).png",
+    "/assets/figma/BLUD-Manufaktur26/image 4 (1).png": "/assets/pages/blud/manufaktur26/image 4 (1).png",
+    "/assets/figma/BLUD-Manufaktur26/Pengeboran Komponen Mesin.png": "/assets/pages/blud/manufaktur26/Pengeboran Komponen Mesin.png",
+    "/assets/figma/BLUD-Manufaktur26/Pengelasan Konstruksi Logam.png": "/assets/pages/blud/manufaktur26/Pengelasan Konstruksi Logam.png",
+    "/assets/figma/BLUD-Manufaktur26/Pengukuran & Quality Control.png": "/assets/pages/blud/manufaktur26/Pengukuran & Quality Control.png",
+    "/assets/figma/BLUD-UPTECHNO/Alur BLUD (1).png": "/assets/pages/blud/uptechno/Alur BLUD (1).png",
+    "/assets/figma/BLUD-UPTECHNO/basil_whatsapp-solid (1).png": "/assets/pages/blud/uptechno/basil_whatsapp-solid (1).png",
+    "/assets/figma/BLUD-UPTECHNO/BG Hero.png": "/assets/pages/blud/uptechno/BG Hero.png",
+    "/assets/figma/BLUD-UPTECHNO/Button shortcut.png": "/assets/majors/TEKAssets/tek-shortcut.png",
+    "/assets/figma/mitra-industri/2.png": "/assets/majors/TEKAssets/tek-shortcut.png",
+    "/assets/figma/TEK/Button shortcut.png": "/assets/majors/TEKAssets/tek-shortcut.png",
+    "/assets/figma/BLUD-UPTECHNO/CCTV Security System.png": "/assets/pages/blud/uptechno/CCTV Security System.png",
+    "/assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png": "/assets/majors/TEKAssets/tek-dokumentasi-atas.png",
+    "/assets/figma/TEK/Dokumentasi Pembelajaran atas.png": "/assets/majors/TEKAssets/tek-dokumentasi-atas.png",
+    "/assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png": "/assets/majors/TEKAssets/tek-dokumentasi-bawah.png",
+    "/assets/figma/TEK/Dokumentasi Pembelajaran bawah.png": "/assets/majors/TEKAssets/tek-dokumentasi-bawah.png",
+    "/assets/figma/BLUD-UPTECHNO/Electronic Circuit.png": "/assets/pages/blud/uptechno/Electronic Circuit.png",
+    "/assets/figma/BLUD-UPTECHNO/image 4.png": "/assets/pages/blud/uptechno/image 4.png",
+    "/assets/figma/BLUD-UPTECHNO/MikroTik Network .png": "/assets/pages/blud/uptechno/MikroTik Network .png",
+    "/assets/figma/BLUD-UPTECHNO/Smart Line Follower.png": "/assets/pages/blud/uptechno/Smart Line Follower.png",
+    "/assets/figma/branding/smkn26-logo.png": "/assets/shared/branding/smkn26-logo.png",
+    "/assets/figma/decorations/kanan.png": "/assets/shared/decorations/kanan.png",
+    "/assets/figma/decorations/kiri.png": "/assets/shared/decorations/kiri.png",
+    "/assets/figma/decorations/mengenal.png": "/assets/shared/decorations/mengenal.png",
+    "/assets/figma/decorations/mengenalbesar.png": "/assets/shared/decorations/mengenalbesar.png",
+    "/assets/figma/decorations/Rectangle 93 (1).png": "/assets/shared/decorations/Rectangle 93 (1).png",
+    "/assets/figma/decorations/shapekananmitra.png": "/assets/shared/decorations/shapekananmitra.png",
+    "/assets/figma/decorations/shapekirimitra.png": "/assets/shared/decorations/shapekirimitra.png",
+    "/assets/figma/detail-guru/detail-guru-corner-circles.svg": "/assets/pages/guru/detail-guru-corner-circles.svg",
+    "/assets/figma/ekstrakulikuler/Hero Section.png": "/assets/pages/ekstrakurikuler/Hero Section.png",
+    "/assets/figma/ekstrakulikuler/image 2 (2).png": "/assets/pages/ekstrakurikuler/image 2 (2).png",
+    "/assets/figma/footer/footer-svg-03.svg": "/assets/shared/footer/footer-whatsapp.svg",
+    "/assets/figma/footer/footer-svg-04.svg": "/assets/shared/footer/footer-email.svg",
+    "/assets/figma/footer/footer-svg-07.svg": "/assets/shared/footer/footer-instagram.svg",
+    "/assets/figma/footer/footer-svg-08.svg": "/assets/shared/footer/footer-youtube.svg",
+    "/assets/figma/footer/footer-svg-13.svg": "/assets/shared/footer/footer-address.svg",
+    "/assets/figma/hero/hero-school-building.png": "/assets/shared/hero/school-building.png",
+    "/assets/figma/hero/mengenalsmkprofile.png": "/assets/shared/hero/mengenalsmkprofile.png",
+    "/assets/figma/hero/student-male.png": "/assets/shared/hero/student-male.png",
+    "/assets/figma/icons/icon-arrow-right.svg": "/assets/shared/icons/arrow-right.svg",
+    "/assets/figma/majors/icon-arrow-right.svg": "/assets/shared/icons/arrow-right.svg",
+    "/assets/figma/icons/icon-chevron-down.svg": "/assets/shared/icons/chevron-down.svg",
+    "/assets/figma/icons/icon-play-video.svg": "/assets/shared/icons/play-video.svg",
+    "/assets/figma/video-profile/video-profile-play-icon.svg": "/assets/shared/icons/play-video.svg",
+    "/assets/figma/icons/icon-search.svg": "/assets/shared/icons/icon-search.svg",
+    "/assets/figma/icons/secondary-arrow-right.svg": "/assets/shared/icons/secondary-arrow-right.svg",
+    "/assets/figma/KGS/Agung Lazuardi.png": "/assets/pages/majors/kgs/Agung Lazuardi.png",
+    "/assets/figma/KGS/Andi Pratama.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/SIJA/Raka Pratama.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/TEK/Fajar Ramadhan.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/TFLM/Raka Pratama.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/TITL/Assad El Ghanie.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/TKR/Rizky Aditya.png": "/assets/shared/majors/Andi Pratama.png",
+    "/assets/figma/KGS/Angelica Vero.png": "/assets/pages/majors/kgs/Angelica Vero.png",
+    "/assets/figma/KGS/Dokumentasi Pembelajaranatas.png": "/assets/pages/majors/kgs/Dokumentasi Pembelajaranatas.png",
+    "/assets/figma/KGS/Dokumentasi Pembelajaranbawah.png": "/assets/pages/majors/kgs/Dokumentasi Pembelajaranbawah.png",
+    "/assets/figma/KGS/Fajar Ramadhan.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/SIJA/Marwan.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/TEK/Abi Rafi.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/TFLM/Abdusallam.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/TITL/Muhammad Akbar.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/TKR/Dwi Bakti.png": "/assets/shared/majors/Marwan.png",
+    "/assets/figma/KGS/Fathan Muyasar.png": "/assets/pages/majors/kgs/Fathan Muyasar.png",
+    "/assets/figma/KGS/Hero Section.png": "/assets/majors/KGSAssets/kgs-hero.png",
+    "/assets/figma/lsp/skemalspkgs/Hero Section (11).png": "/assets/majors/KGSAssets/kgs-hero.png",
+    "/assets/figma/KGS/kompetensi.png": "/assets/pages/majors/kgs/kompetensi.png",
+    "/assets/figma/KGS/Nabilla Pertiwi.png": "/assets/pages/majors/kgs/Nabilla Pertiwi.png",
+    "/assets/figma/lsp/Alur LSP.png": "/assets/pages/lsp/Alur LSP.png",
+    "/assets/figma/lsp/BLUD unit (1).png": "/assets/pages/lsp/BLUD unit (1).png",
+    "/assets/figma/lsp/BLUD unit (2).png": "/assets/pages/lsp/BLUD unit (2).png",
+    "/assets/figma/lsp/BLUD unit (3).png": "/assets/pages/lsp/BLUD unit (3).png",
+    "/assets/figma/lsp/BLUD unit (4).png": "/assets/pages/lsp/BLUD unit (4).png",
+    "/assets/figma/lsp/BLUD unit (5).png": "/assets/pages/lsp/BLUD unit (5).png",
+    "/assets/figma/lsp/BLUD unit.png": "/assets/pages/lsp/BLUD unit.png",
+    "/assets/figma/lsp/Hero Section.png": "/assets/pages/lsp/Hero Section.png",
+    "/assets/figma/lsp/image 2 (2).png": "/assets/shared/illustrations/berkembang.png",
+    "/assets/figma/mitra-industri/image 2 (1).png": "/assets/shared/illustrations/berkembang.png",
+    "/assets/figma/lsp/mdi_book-education.png": "/assets/pages/lsp/mdi_book-education.png",
+    "/assets/figma/lsp/Shape (1).png": "/assets/shared/lsp/hover-shape.png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (1).png": "/assets/pages/lsp/kgs/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (2).png": "/assets/pages/lsp/kgs/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (3).png": "/assets/pages/lsp/kgs/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (4).png": "/assets/pages/lsp/kgs/Foto kegiatan (4).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (5).png": "/assets/pages/lsp/kgs/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (6).png": "/assets/pages/lsp/kgs/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan (7).png": "/assets/pages/lsp/kgs/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalspkgs/Foto kegiatan.png": "/assets/pages/lsp/kgs/Foto kegiatan.png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (1).png": "/assets/pages/lsp/sija/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (2).png": "/assets/pages/lsp/sija/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (3).png": "/assets/pages/lsp/sija/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (4).png": "/assets/pages/lsp/sija/Foto kegiatan (4).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (5).png": "/assets/pages/lsp/sija/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (6).png": "/assets/pages/lsp/sija/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (7).png": "/assets/pages/lsp/sija/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalspsija/Foto kegiatan (8).png": "/assets/pages/lsp/sija/Foto kegiatan (8).png",
+    "/assets/figma/lsp/skemalsptek/Button shortcut (9).png": "/assets/pages/lsp/tek/Button shortcut (9).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (1).png": "/assets/pages/lsp/tek/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (2).png": "/assets/pages/lsp/tek/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (3).png": "/assets/pages/lsp/tek/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (4).png": "/assets/pages/lsp/tek/Foto kegiatan (4).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (5).png": "/assets/pages/lsp/tek/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (6).png": "/assets/pages/lsp/tek/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan (7).png": "/assets/pages/lsp/tek/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalsptek/Foto kegiatan.png": "/assets/pages/lsp/tek/Foto kegiatan.png",
+    "/assets/figma/lsp/skemalsptek/Hero Section (12).png": "/assets/majors/TEKAssets/tek-hero.png",
+    "/assets/figma/TEK/Hero Section.png": "/assets/majors/TEKAssets/tek-hero.png",
+    "/assets/figma/lsp/skemalsptflm/Button shortcut (2).png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
+    "/assets/figma/mitra-industri/4.png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
+    "/assets/figma/TFLM/Button shortcut (2).png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (1).png": "/assets/pages/lsp/tflm/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (4).png": "/assets/pages/lsp/tflm/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (2).png": "/assets/pages/lsp/tflm/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (3).png": "/assets/pages/lsp/tflm/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (5).png": "/assets/pages/lsp/tflm/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (6).png": "/assets/pages/lsp/tflm/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (7).png": "/assets/pages/lsp/tflm/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalsptflm/Foto kegiatan (8).png": "/assets/pages/lsp/tflm/Foto kegiatan (8).png",
+    "/assets/figma/lsp/skemalsptflm/Hero Section (2).png": "/assets/majors/TFLMAssets/tflm-hero.png",
+    "/assets/figma/TFLM/Hero Section (2).png": "/assets/majors/TFLMAssets/tflm-hero.png",
+    "/assets/figma/lsp/skemalsptitl/Button shortcut (10).png": "/assets/pages/lsp/titl/Button shortcut (10).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (1).png": "/assets/pages/lsp/titl/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (2).png": "/assets/pages/lsp/titl/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (3).png": "/assets/pages/lsp/titl/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (4).png": "/assets/pages/lsp/titl/Foto kegiatan (4).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (5).png": "/assets/pages/lsp/titl/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (6).png": "/assets/pages/lsp/titl/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (7).png": "/assets/pages/lsp/titl/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalsptitl/Foto kegiatan (8).png": "/assets/pages/lsp/titl/Foto kegiatan (8).png",
+    "/assets/figma/lsp/skemalsptitl/Hero Section (13).png": "/assets/pages/lsp/titl/Hero Section (13).png",
+    "/assets/figma/lsp/skemalsptkr/Button shortcut (3).png": "/assets/majors/TKRAssets/tkr-shortcut.png",
+    "/assets/figma/mitra-industri/5.png": "/assets/majors/TKRAssets/tkr-shortcut.png",
+    "/assets/figma/TKR/Button shortcut (3).png": "/assets/majors/TKRAssets/tkr-shortcut.png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (1).png": "/assets/pages/lsp/tkr/Foto kegiatan (1).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (2).png": "/assets/pages/lsp/tkr/Foto kegiatan (2).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (3).png": "/assets/pages/lsp/tkr/Foto kegiatan (3).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (4).png": "/assets/pages/lsp/tkr/Foto kegiatan (4).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (5).png": "/assets/pages/lsp/tkr/Foto kegiatan (5).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (6).png": "/assets/pages/lsp/tkr/Foto kegiatan (6).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (7).png": "/assets/pages/lsp/tkr/Foto kegiatan (7).png",
+    "/assets/figma/lsp/skemalsptkr/Foto kegiatan (8).png": "/assets/pages/lsp/tkr/Foto kegiatan (8).png",
+    "/assets/figma/majors/icon-major-building.svg": "/assets/home/majors/icon-major-building.svg",
+    "/assets/figma/majors/icon-section-badge.svg": "/assets/shared/icons/section-badge.svg",
+    "/assets/figma/programs/programs-svg-04.svg": "/assets/shared/icons/section-badge.svg",
+    "/assets/figma/struktur & unit kerja/struktur-badge.svg": "/assets/shared/icons/section-badge.svg",
+    "/assets/figma/video-profile/video-profile-badge-icon.svg": "/assets/shared/icons/section-badge.svg",
+    "/assets/figma/majors/major-background-shape.svg": "/assets/home/majors/major-background-shape.svg",
+    "/assets/figma/majors/major-kgs.png": "/assets/home/majors/major-kgs.png",
+    "/assets/figma/majors/major-sija.png": "/assets/home/majors/major-sija.png",
+    "/assets/figma/majors/major-tek.png": "/assets/home/majors/major-tek.png",
+    "/assets/figma/majors/major-tflm.png": "/assets/home/majors/major-tflm.png",
+    "/assets/figma/majors/major-titl.png": "/assets/home/majors/major-titl.png",
+    "/assets/figma/majors/major-tkr.png": "/assets/home/majors/major-tkr.png",
+    "/assets/figma/majors/popover-pointer-left.svg": "/assets/shared/icons/popover-pointer.svg",
+    "/assets/figma/majors/popover-pointer-right.svg": "/assets/shared/icons/popover-pointer.svg",
+    "/assets/figma/mars/belakangvidmars.png": "/assets/pages/mars/belakangvidmars.png",
+    "/assets/figma/mars/bolabolaheromarskecilkanan.png": "/assets/pages/mars/bolabolaheromarskecilkanan.png",
+    "/assets/figma/mars/bolabolaheromarskiri.png": "/assets/pages/mars/bolabolaheromarskiri.png",
+    "/assets/figma/mars/buderliana.png": "/assets/pages/mars/buderliana.png",
+    "/assets/figma/mars/pak sutaryo.png": "/assets/pages/mars/pak sutaryo.png",
+    "/assets/figma/mars/SEMANGATlogo.png": "/assets/pages/mars/SEMANGATlogo.png",
+    "/assets/figma/mitra-industri/hero.png": "/assets/pages/mitra-industri/hero.png",
+    "/assets/figma/mitra-industri/iconbuku.png": "/assets/pages/mitra-industri/iconbuku.png",
+    "/assets/figma/mitra-industri/Shape.png": "/assets/pages/mitra-industri/Shape.png",
+    "/assets/figma/news/news-calendar.svg": "/assets/shared/news/news-calendar.svg",
+    "/assets/figma/news/news-raw-01.png": "/assets/shared/news/news-raw-01.png",
+    "/assets/figma/news/news-raw-03.png": "/assets/shared/news/news-raw-03.png",
+    "/assets/figma/news/news-raw-04.png": "/assets/shared/news/news-raw-04.png",
+    "/assets/figma/news/news-raw-07.png": "/assets/shared/news/news-raw-07.png",
+    "/assets/figma/news/news-raw-09.png": "/assets/shared/news/news-raw-09.png",
+    "/assets/figma/Organisasi/Ekstrakurikuler (1).png": "/assets/pages/organisasi/Ekstrakurikuler (1).png",
+    "/assets/figma/Organisasi/Foto kegiatan (1).png": "/assets/pages/organisasi/Foto kegiatan (1).png",
+    "/assets/figma/Organisasi/Foto kegiatan (2).png": "/assets/pages/organisasi/Foto kegiatan (2).png",
+    "/assets/figma/Organisasi/Foto kegiatan (3).png": "/assets/pages/organisasi/Foto kegiatan (3).png",
+    "/assets/figma/Organisasi/Foto kegiatan (4).png": "/assets/pages/organisasi/Foto kegiatan (4).png",
+    "/assets/figma/Organisasi/Foto kegiatan (5).png": "/assets/pages/organisasi/Foto kegiatan (5).png",
+    "/assets/figma/Organisasi/Foto kegiatan (6).png": "/assets/pages/organisasi/Foto kegiatan (6).png",
+    "/assets/figma/Organisasi/Foto kegiatan (7).png": "/assets/pages/organisasi/Foto kegiatan (7).png",
+    "/assets/figma/Organisasi/Foto kegiatan (8).png": "/assets/pages/organisasi/Foto kegiatan (8).png",
+    "/assets/figma/Organisasi/hero.png": "/assets/pages/organisasi/hero.png",
+    "/assets/figma/Organisasi/Struktur MPK/Strutur MPK.png": "/assets/pages/organisasi/Struktur MPK/Strutur MPK.png",
+    "/assets/figma/Organisasi/Struktur Osis/Strutur OSIS.png": "/assets/pages/organisasi/Struktur Osis/Strutur OSIS.png",
+    "/assets/figma/partners/astra.png": "/assets/shared/partners/astra.png",
+    "/assets/figma/partners/azko.png": "/assets/shared/partners/azko.png",
+    "/assets/figma/partners/komatsu.png": "/assets/shared/partners/komatsu.png",
+    "/assets/figma/partners/microvision.png": "/assets/shared/partners/microvision.png",
+    "/assets/figma/partners/panasonic.png": "/assets/shared/partners/panasonic.png",
+    "/assets/figma/partners/pln.png": "/assets/shared/partners/pln.png",
+    "/assets/figma/partners/toyota.jpeg": "/assets/shared/partners/toyota.jpeg",
+    "/assets/figma/partners/wika.png": "/assets/shared/partners/wika.png",
+    "/assets/figma/portalinformasi/kjp.png": "/assets/pages/portal-informasi/kjp.png",
+    "/assets/figma/portalinformasi/Perpustakaan Digital.png": "/assets/pages/portal-informasi/Perpustakaan Digital.png",
+    "/assets/figma/portalinformasi/pip.png": "/assets/pages/portal-informasi/pip.png",
+    "/assets/figma/portalinformasi/SIMAK 26.png": "/assets/pages/portal-informasi/SIMAK 26.png",
+    "/assets/figma/portalinformasi/SPMB.png": "/assets/pages/portal-informasi/SPMB.png",
+    "/assets/figma/Prestasi/,,,.png": "/assets/pages/prestasi/,,,.png",
+    "/assets/figma/Prestasi/.....png": "/assets/pages/prestasi/.....png",
+    "/assets/figma/Prestasi/a.png": "/assets/pages/prestasi/a.png",
+    "/assets/figma/Prestasi/aa.png": "/assets/pages/prestasi/aa.png",
+    "/assets/figma/Prestasi/b.png": "/assets/pages/prestasi/b.png",
+    "/assets/figma/Prestasi/bbbb.png": "/assets/pages/prestasi/bbbb.png",
+    "/assets/figma/Prestasi/c.png": "/assets/pages/prestasi/c.png",
+    "/assets/figma/Prestasi/Card Prestasi (1).png": "/assets/pages/prestasi/Card Prestasi (1).png",
+    "/assets/figma/Prestasi/Card Prestasi (10).png": "/assets/pages/prestasi/Card Prestasi (10).png",
+    "/assets/figma/Prestasi/Card Prestasi (11).png": "/assets/pages/prestasi/Card Prestasi (11).png",
+    "/assets/figma/Prestasi/Card Prestasi (12).png": "/assets/pages/prestasi/Card Prestasi (12).png",
+    "/assets/figma/Prestasi/Card Prestasi (13).png": "/assets/pages/prestasi/Card Prestasi (13).png",
+    "/assets/figma/Prestasi/Card Prestasi (2).png": "/assets/pages/prestasi/Card Prestasi (2).png",
+    "/assets/figma/Prestasi/Card Prestasi (3).png": "/assets/pages/prestasi/Card Prestasi (3).png",
+    "/assets/figma/Prestasi/Card Prestasi (4).png": "/assets/pages/prestasi/Card Prestasi (4).png",
+    "/assets/figma/Prestasi/Card Prestasi (5).png": "/assets/pages/prestasi/Card Prestasi (5).png",
+    "/assets/figma/Prestasi/Card Prestasi (6).png": "/assets/pages/prestasi/Card Prestasi (6).png",
+    "/assets/figma/Prestasi/Card Prestasi (7).png": "/assets/pages/prestasi/Card Prestasi (7).png",
+    "/assets/figma/Prestasi/Card Prestasi (8).png": "/assets/pages/prestasi/Card Prestasi (8).png",
+    "/assets/figma/Prestasi/Card Prestasi (9).png": "/assets/pages/prestasi/Card Prestasi (9).png",
+    "/assets/figma/Prestasi/Card Prestasi.png": "/assets/pages/prestasi/Card Prestasi.png",
+    "/assets/figma/Prestasi/ccc.png": "/assets/pages/prestasi/ccc.png",
+    "/assets/figma/Prestasi/xxx.png": "/assets/pages/prestasi/ccc.png",
+    "/assets/figma/Prestasi/dsa.png": "/assets/pages/prestasi/dsa.png",
+    "/assets/figma/Prestasi/Group 1815.png": "/assets/pages/prestasi/Group 1815.png",
+    "/assets/figma/Prestasi/mmm.png": "/assets/pages/prestasi/mmm.png",
+    "/assets/figma/Prestasi/nnn.png": "/assets/pages/prestasi/nnn.png",
+    "/assets/figma/Prestasi/s.png": "/assets/pages/prestasi/s.png",
+    "/assets/figma/Prestasi/v.png": "/assets/pages/prestasi/v.png",
+    "/assets/figma/Prestasi/vvv.png": "/assets/pages/prestasi/vvv.png",
+    "/assets/figma/Prestasi/zzzz.png": "/assets/pages/prestasi/zzzz.png",
+    "/assets/figma/profile/GARISBAWAHVISISEKOLAH.png": "/assets/shared/profile/visi-misi-garis.png",
+    "/assets/figma/profile/icondisampingjudulvisimisi.png": "/assets/shared/profile/visi-misi-icon.png",
+    "/assets/figma/profile/Mars.png": "/assets/pages/profile/Mars.png",
+    "/assets/figma/profile/motto.png": "/assets/pages/profile/motto.png",
+    "/assets/figma/profile/profile-hero-bg.png": "/assets/pages/profile/profile-hero-bg.png",
+    "/assets/figma/profile/profile-mars-bg.png": "/assets/pages/profile/profile-mars-bg.png",
+    "/assets/figma/profile/profile-motto-bg.png": "/assets/pages/profile/profile-motto-bg.png",
+    "/assets/figma/profile/profile-semboyan-bg.png": "/assets/pages/profile/profile-semboyan-bg.png",
+    "/assets/figma/profile/semboyan.png": "/assets/pages/profile/semboyan.png",
+    "/assets/figma/profile/timelinegaris.png": "/assets/pages/profile/timelinegaris.png",
+    "/assets/figma/profile/VISI SEKOLAHujung.png": "/assets/shared/profile/visi-ujung.png",
+    "/assets/figma/programs/programs-raw-02.png": "/assets/home/programs/programs-raw-02.png",
+    "/assets/figma/programs/programs-raw-03.png": "/assets/home/programs/programs-raw-03.png",
+    "/assets/figma/programs/programs-raw-04.png": "/assets/home/programs/programs-raw-04.png",
+    "/assets/figma/programs/programs-raw-06.png": "/assets/home/programs/programs-raw-06.png",
+    "/assets/figma/programs/programs-raw-07.png": "/assets/home/programs/programs-raw-07.png",
+    "/assets/figma/programs/programs-raw-10.png": "/assets/home/programs/programs-raw-10.png",
+    "/assets/figma/programs/programs-svg-01.svg": "/assets/home/programs/programs-svg-01.svg",
+    "/assets/figma/school/school-overview-photo-clean.png": "/assets/home/school/school-overview-photo-clean.png",
+    "/assets/figma/shortcuts/shortcut-ai-chat.png": "/assets/home/shortcuts/shortcut-ai-chat.png",
+    "/assets/figma/shortcuts/shortcut-kjp-pip.png": "/assets/home/shortcuts/shortcut-kjp-pip.png",
+    "/assets/figma/shortcuts/shortcut-library.png": "/assets/home/shortcuts/shortcut-library.png",
+    "/assets/figma/shortcuts/shortcut-spmb.png": "/assets/home/shortcuts/shortcut-spmb.png",
+    "/assets/figma/SIJA/Angelica Putri.png": "/assets/pages/majors/sija/Angelica Putri.png",
+    "/assets/figma/SIJA/Bagus Rahmansyah.png": "/assets/pages/majors/sija/Bagus Rahmansyah.png",
+    "/assets/figma/SIJA/Dokumentasi Pembelajaran (10).png": "/assets/pages/majors/sija/Dokumentasi Pembelajaran (10).png",
+    "/assets/figma/SIJA/Dokumentasi Pembelajaran (9).png": "/assets/pages/majors/sija/Dokumentasi Pembelajaran (9).png",
+    "/assets/figma/SIJA/image 3 (4).png": "/assets/pages/majors/sija/image 3 (4).png",
+    "/assets/figma/SIJA/Muhammad Fauzan.png": "/assets/pages/majors/sija/Muhammad Fauzan.png",
+    "/assets/figma/SIJA/Nabilla Mallya.png": "/assets/pages/majors/sija/Nabilla Mallya.png",
+    "/assets/figma/SIJA/Roadmap Jurusan.png": "/assets/pages/majors/sija/Roadmap Jurusan.png",
+    "/assets/figma/struktur & unit kerja/Ardiansyah Putra.png": "/assets/shared/struktur/Ardiansyah Putra.png",
+    "/assets/figma/struktur & unit kerja/Bagus Setiawan.png": "/assets/shared/struktur/Bagus Setiawan.png",
+    "/assets/figma/struktur & unit kerja/bghero.png": "/assets/shared/struktur/bghero.png",
+    "/assets/figma/struktur & unit kerja/Deni Kurniawan.png": "/assets/shared/struktur/Deni Kurniawan.png",
+    "/assets/figma/struktur & unit kerja/Rani Maharani.png": "/assets/shared/struktur/Rani Maharani.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-1.png": "/assets/shared/struktur/struktur-guru-1.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-2.png": "/assets/shared/struktur/struktur-guru-2.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-3.png": "/assets/shared/struktur/struktur-guru-3.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-4.png": "/assets/shared/struktur/struktur-guru-4.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-5.png": "/assets/shared/struktur/struktur-guru-5.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-6.png": "/assets/shared/struktur/struktur-guru-6.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-7.png": "/assets/shared/struktur/struktur-guru-7.png",
+    "/assets/figma/struktur & unit kerja/struktur-guru-8.png": "/assets/shared/struktur/struktur-guru-8.png",
+    "/assets/figma/struktur & unit kerja/struktur-kepsek.png": "/assets/shared/struktur/struktur-kepsek.png",
+    "/assets/figma/struktur & unit kerja/struktur-tendik-1.png": "/assets/shared/struktur/struktur-tendik-1.png",
+    "/assets/figma/struktur & unit kerja/struktur-tendik-2.png": "/assets/shared/struktur/struktur-tendik-2.png",
+    "/assets/figma/struktur & unit kerja/struktur-tendik-3.png": "/assets/shared/struktur/struktur-tendik-3.png",
+    "/assets/figma/struktur & unit kerja/struktur-tendik-4.png": "/assets/shared/struktur/struktur-tendik-4.png",
+    "/assets/figma/struktur & unit kerja/struktur-wakasek-1.png": "/assets/shared/struktur/struktur-wakasek-1.png",
+    "/assets/figma/struktur & unit kerja/struktur-wakasek-2.png": "/assets/shared/struktur/struktur-wakasek-2.png",
+    "/assets/figma/struktur & unit kerja/struktur-wakasek-3.png": "/assets/shared/struktur/struktur-wakasek-3.png",
+    "/assets/figma/struktur & unit kerja/struktur-wakasek-4.png": "/assets/shared/struktur/struktur-wakasek-4.png",
+    "/assets/figma/TEK/Alyssa Bella.png": "/assets/pages/majors/tek/Alyssa Bella.png",
+    "/assets/figma/TEK/Dinda Azzahra.png": "/assets/pages/majors/tek/Dinda Azzahra.png",
+    "/assets/figma/TEK/Firmansyah.png": "/assets/pages/majors/tek/Firmansyah.png",
+    "/assets/figma/TEK/Hidayah Fadillah.png": "/assets/pages/majors/tek/Hidayah Fadillah.png",
+    "/assets/figma/TEK/kompetensi.png": "/assets/pages/majors/tek/kompetensi.png",
+    "/assets/figma/TEK/mengenal.png": "/assets/pages/majors/tek/mengenal.png",
+    "/assets/figma/TFLM/Frame 36434 (3).png": "/assets/pages/majors/tflm/Frame 36434 (3).png",
+    "/assets/figma/TFLM/image 3 (2).png": "/assets/pages/majors/tflm/image 3 (2).png",
+    "/assets/figma/TFLM/Nayla Safira.png": "/assets/pages/majors/tflm/Nayla Safira.png",
+    "/assets/figma/TFLM/Raihan Nugroho.png": "/assets/pages/majors/tflm/Raihan Nugroho.png",
+    "/assets/figma/TFLM/Riky Hamdan.png": "/assets/pages/majors/tflm/Riky Hamdan.png",
+    "/assets/figma/TFLM/Salsa Nurfatiha.png": "/assets/pages/majors/tflm/Salsa Nurfatiha.png",
+    "/assets/figma/TITL/annisakuncoro.png": "/assets/pages/majors/titl/annisakuncoro.png",
+    "/assets/figma/TITL/dimasahmad.png": "/assets/pages/majors/titl/dimasahmad.png",
+    "/assets/figma/TITL/Frame 36434 (2).png": "/assets/pages/majors/titl/Frame 36434 (2).png",
+    "/assets/figma/TITL/Hero Section (1).png": "/assets/pages/majors/titl/Hero Section (1).png",
+    "/assets/figma/TITL/image 3 (1).png": "/assets/pages/majors/titl/image 3 (1).png",
+    "/assets/figma/TITL/liliputrikencana.png": "/assets/pages/majors/titl/liliputrikencana.png",
+    "/assets/figma/TITL/rakaaditya.png": "/assets/pages/majors/titl/rakaaditya.png",
+    "/assets/figma/TKR/Eva Khuzaifah.png": "/assets/pages/majors/tkr/Eva Khuzaifah.png",
+    "/assets/figma/TKR/Frame 36434 (4).png": "/assets/pages/majors/tkr/Frame 36434 (4).png",
+    "/assets/figma/TKR/image 3 (3).png": "/assets/pages/majors/tkr/image 3 (3).png",
+    "/assets/figma/TKR/Kaesar Agung.png": "/assets/pages/majors/tkr/Kaesar Agung.png",
+    "/assets/figma/TKR/Putri Cantika.png": "/assets/pages/majors/tkr/Putri Cantika.png",
+    "/assets/figma/TKR/Raka Kuncoro.png": "/assets/pages/majors/tkr/Raka Kuncoro.png",
+    "/assets/figma/video-profile/video-profile-decoration-left.svg": "/assets/shared/video-profile/video-profile-decoration-left.svg",
+    "/assets/figma/video-profile/video-profile-decoration-right.svg": "/assets/shared/video-profile/video-profile-decoration-right.svg",
+    "/assets/figma/video-profile/video-profile-lower-shape.svg": "/assets/shared/video-profile/video-profile-lower-shape.svg",
+    "/assets/figma/video-profile/video-profile-play-ring.svg": "/assets/shared/video-profile/video-profile-play-ring.svg",
+    "/assets/figma/video-profile/video-profile-preview.png": "/assets/shared/video-profile/video-profile-preview.png",
+    "/assets/panorama/heroschooltour.png": "/assets/pages/tour/heroschooltour.png",
+    "/assets/panorama/school_tour/Upscaled/bengkel.jpg": "/assets/pages/tour/school_tour/Upscaled/bengkel.jpg",
+    "/assets/panorama/school_tour/Upscaled/bengkel_kgs.jpg": "/assets/pages/tour/school_tour/Upscaled/bengkel_kgs.jpg",
+    "/assets/panorama/school_tour/Upscaled/bengkel_sija.jpg": "/assets/pages/tour/school_tour/Upscaled/bengkel_sija.jpg",
+    "/assets/panorama/school_tour/Upscaled/bengkel_titl.jpg": "/assets/pages/tour/school_tour/Upscaled/bengkel_titl.jpg",
+    "/assets/panorama/school_tour/Upscaled/bengkel_tkr.jpg": "/assets/pages/tour/school_tour/Upscaled/bengkel_tkr.jpg",
+    "/assets/panorama/school_tour/Upscaled/dalam_masjid.jpg": "/assets/pages/tour/school_tour/Upscaled/dalam_masjid.jpg",
+    "/assets/panorama/school_tour/Upscaled/depan_aula.jpg": "/assets/pages/tour/school_tour/Upscaled/depan_aula.jpg",
+    "/assets/panorama/school_tour/Upscaled/depan_lsp.jpg": "/assets/pages/tour/school_tour/Upscaled/depan_lsp.jpg",
+    "/assets/panorama/school_tour/Upscaled/depan_masjid.jpg": "/assets/pages/tour/school_tour/Upscaled/depan_masjid.jpg",
+    "/assets/panorama/school_tour/Upscaled/depan_tek.jpg": "/assets/pages/tour/school_tour/Upscaled/depan_tek.jpg",
+    "/assets/panorama/school_tour/Upscaled/gerbang.jpg": "/assets/pages/tour/school_tour/Upscaled/gerbang.jpg",
+    "/assets/panorama/school_tour/Upscaled/jogging_track.jpg": "/assets/pages/tour/school_tour/Upscaled/jogging_track.jpg",
+    "/assets/panorama/school_tour/Upscaled/kantin.jpg": "/assets/pages/tour/school_tour/Upscaled/kantin.jpg",
+    "/assets/panorama/school_tour/Upscaled/lapangan.jpg": "/assets/pages/tour/school_tour/Upscaled/lapangan.jpg",
+    "/assets/panorama/school_tour/Upscaled/pedestrian.jpg": "/assets/pages/tour/school_tour/Upscaled/pedestrian.jpg",
+    "/assets/panorama/school_tour/Upscaled/pedestrian_rbtra.jpg": "/assets/pages/tour/school_tour/Upscaled/pedestrian_rbtra.jpg",
+    "/assets/panorama/school_tour/Upscaled/pendopo_kgs.jpg": "/assets/pages/tour/school_tour/Upscaled/pendopo_kgs.jpg",
+    "/assets/panorama/school_tour/Upscaled/perpustakaan.jpg": "/assets/pages/tour/school_tour/Upscaled/perpustakaan.jpg",
+    "/assets/panorama/school_tour/Upscaled/RBTRA.jpg": "/assets/pages/tour/school_tour/Upscaled/RBTRA.jpg",
+    "/assets/panorama/school_tour/Upscaled/ruang_piket.jpg": "/assets/pages/tour/school_tour/Upscaled/ruang_piket.jpg",
+    "/assets/panorama/school_tour/Upscaled/satpam.jpg": "/assets/pages/tour/school_tour/Upscaled/satpam.jpg",
+    "/assets/panorama/school_tour/Upscaled/toilet1.jpg": "/assets/pages/tour/school_tour/Upscaled/toilet1.jpg"
+  }
+}

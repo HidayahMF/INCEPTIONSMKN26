@@ -5,7 +5,11 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import { SectionBadge } from "../components/public/SectionBadge";
 
-const asset = (name: string) => `/assets/figma/lsp/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "image 2 (2).png": "/assets/shared/illustrations/berkembang.png",
+  "Shape (1).png": "/assets/shared/lsp/hover-shape.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/lsp/${name}`;
 const schemes = [
   ["Konstruksi Gedung & Sanitasi", "BLUD unit.png", "/programs/lsp/kgs"],
   ["Teknik Elektronika & Komunikasi", "BLUD unit (1).png", "/programs/lsp/tek"],
@@ -56,11 +60,6 @@ export function LspPage() {
             alt="Siswa LSP SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.88)_0%,rgba(225,241,255,.08)_42%,rgba(0,108,220,.12)_100%)]" />
-          <img
-            className="pointer-events-none absolute bottom-0 left-1/2 z-0 w-[1050px] max-w-none -translate-x-1/2 sm:w-[1275px] lg:w-[1500px]"
-            src={asset("Hero Section-1.png")}
-            alt=""
-          />
           <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-[700px] sm:px-8 sm:pt-6 lg:min-h-[760px] lg:px-16 lg:pb-48 lg:pt-4">
             <div data-aos="fade-down">
               <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>

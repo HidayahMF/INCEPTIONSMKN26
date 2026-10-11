@@ -1,0 +1,73 @@
+APPLIED
+CHANGED FILES:
+  App.tsx
+  assets/figmaAssets.ts
+  components/public/FloatingChatbot.tsx
+  components/public/HomepageSections.tsx
+  components/public/IndustryPartnersMarquee.tsx
+  components/public/PartnerLogos.tsx
+  components/public/PublicFooter.tsx
+  components/public/SchoolOverview.tsx
+  components/public/SectionBadge.tsx
+  data/majors.ts
+  data/news.ts
+  data/partners.ts
+  data/tourLocations.ts
+  features/chat/PublicChatRoom.tsx
+  layouts/PortalLayout.tsx
+  pages/BkkPage.tsx [helper figma/BKK -> pages/bkk ov=1]
+  pages/BludServicePage.tsx
+  pages/EkstrakurikulerPage.tsx [helper figma/ekstrakulikuler -> pages/ekstrakurikuler ov=1]
+  pages/EmanPage.tsx [helper figma/BLUD-E-MAN -> pages/blud/e-man ov=3]
+  pages/GuruDetailPage.tsx
+  pages/KgsPage.tsx [helper figma/KGS -> pages/majors/kgs ov=5]
+  pages/KgStudioPage.tsx [helper figma/BLUD-KGS -> pages/blud/kgstudio ov=2]
+  pages/LoginPage.tsx
+  pages/LspKgsPage.tsx [helper figma/lsp/skemalspkgs -> pages/lsp/kgs ov=2]
+  pages/LspPage.tsx [helper figma/lsp -> pages/lsp ov=2]
+  pages/LspSijaPage.tsx [helper figma/lsp/skemalspsija -> pages/lsp/sija ov=2]
+  pages/LspTekPage.tsx [helper figma/lsp/skemalsptek -> pages/lsp/tek ov=1]
+  pages/LspTflmPage.tsx [helper figma/lsp/skemalsptflm -> pages/lsp/tflm ov=3]
+  pages/LspTitlPage.tsx [helper figma/lsp/skemalsptitl -> pages/lsp/titl ov=0]
+  pages/LspTkrPage.tsx [helper figma/lsp/skemalsptkr -> pages/lsp/tkr ov=2]
+  pages/MarsPage.tsx
+  pages/OrganisasiSekolahPage.tsx [helper figma/Organisasi -> pages/organisasi ov=1]
+  pages/PartnerDetailPage.tsx
+  pages/PrestasiPage.tsx [helper figma/Prestasi -> pages/prestasi ov=1]
+  pages/ProfilePage.tsx
+  pages/SijaPage.tsx [helper figma/SIJA -> pages/majors/sija ov=4]
+  pages/StrukturOrganisasiPage.tsx
+  pages/StrukturUnitKerjaPage.tsx
+  pages/TekPage.tsx [helper figma/TEK -> pages/majors/tek ov=6]
+  pages/TflmPage.tsx [helper figma/TFLM -> pages/majors/tflm ov=6]
+  pages/TitlPage.tsx [helper figma/TITL -> pages/majors/titl ov=5]
+  pages/TkrPage.tsx [helper figma/TKR -> pages/majors/tkr ov=6]
+  pages/TourPage.tsx
+  pages/UptechnoPage.tsx [helper figma/BLUD-UPTECHNO -> pages/blud/uptechno ov=3]
+  index.html
+
+HELPER NOTES:
+  pages/BkkPage.tsx [helper figma/BKK -> pages/bkk ov=1]
+  pages/EkstrakurikulerPage.tsx [helper figma/ekstrakulikuler -> pages/ekstrakurikuler ov=1]
+  pages/EmanPage.tsx [helper figma/BLUD-E-MAN -> pages/blud/e-man ov=3]
+  pages/KgsPage.tsx [helper figma/KGS -> pages/majors/kgs ov=5]
+  pages/KgStudioPage.tsx [helper figma/BLUD-KGS -> pages/blud/kgstudio ov=2]
+  pages/LspKgsPage.tsx [helper figma/lsp/skemalspkgs -> pages/lsp/kgs ov=2]
+  pages/LspPage.tsx [helper figma/lsp -> pages/lsp ov=2]
+  pages/LspSijaPage.tsx [helper figma/lsp/skemalspsija -> pages/lsp/sija ov=2]
+  pages/LspTekPage.tsx [helper figma/lsp/skemalsptek -> pages/lsp/tek ov=1]
+  pages/LspTflmPage.tsx [helper figma/lsp/skemalsptflm -> pages/lsp/tflm ov=3]
+  pages/LspTitlPage.tsx [helper figma/lsp/skemalsptitl -> pages/lsp/titl ov=0]
+  pages/LspTkrPage.tsx [helper figma/lsp/skemalsptkr -> pages/lsp/tkr ov=2]
+  pages/OrganisasiSekolahPage.tsx [helper figma/Organisasi -> pages/organisasi ov=1]
+  pages/PrestasiPage.tsx [helper figma/Prestasi -> pages/prestasi ov=1]
+  pages/SijaPage.tsx [helper figma/SIJA -> pages/majors/sija ov=4]
+  pages/TekPage.tsx [helper figma/TEK -> pages/majors/tek ov=6]
+  pages/TflmPage.tsx [helper figma/TFLM -> pages/majors/tflm ov=6]
+  pages/TitlPage.tsx [helper figma/TITL -> pages/majors/titl ov=5]
+  pages/TkrPage.tsx [helper figma/TKR -> pages/majors/tkr ov=6]
+  pages/UptechnoPage.tsx [helper figma/BLUD-UPTECHNO -> pages/blud/uptechno ov=3]
+
+LEFTOVER /assets/figma|panorama REFERENCES:
+  pages/BludServicePage.tsx: /assets/figma/${folder}/${name}
+  pages/PartnerDetailPage.tsx: /assets/figma/mitra-industri/${index

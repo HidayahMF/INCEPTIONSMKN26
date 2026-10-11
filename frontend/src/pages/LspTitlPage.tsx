@@ -1,10 +1,10 @@
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/lsp/skemalsptitl/${name}`;
+const asset = (name: string) => `/assets/pages/lsp/titl/${name}`;
 const photos = ["Foto kegiatan (1).png", "Foto kegiatan (2).png", "Foto kegiatan (3).png", "Foto kegiatan (4).png", "Foto kegiatan (5).png", "Foto kegiatan (6).png", "Foto kegiatan (7).png", "Foto kegiatan (8).png"];
 
-function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]"><img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />{children}</span>; }
+function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]"><img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{children}</span>; }
 
 export function LspTitlPage() {
   return <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]"><PublicNavbar /><main>

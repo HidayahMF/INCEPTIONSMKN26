@@ -1,0 +1,446 @@
+  1241.4 KB  /assets/figma/achievements/achievements-raw-01.png
+  1117.2 KB  /assets/figma/achievements/achievements-raw-03.png
+  1046.7 KB  /assets/figma/achievements/achievements-raw-04.png
+   163.0 KB  /assets/figma/achievements/achievements-raw-07.png
+   159.1 KB  /assets/figma/achievements/achievements-raw-08.png
+     0.8 KB  /assets/figma/achievements/achievements-svg-03.svg
+     1.4 KB  /assets/figma/achievements/achievements-svg-12.svg
+   388.3 KB  /assets/figma/advantages/advantage-blud.png
+   348.5 KB  /assets/figma/advantages/advantage-education.png
+   396.0 KB  /assets/figma/advantages/advantage-inclusive.png
+   399.4 KB  /assets/figma/advantages/advantage-industry.png
+   440.5 KB  /assets/figma/advantages/advantage-interest.png
+   348.5 KB  /assets/figma/advantages/advantage-lsp.png
+     0.4 KB  /assets/figma/advantages/Arrowleft.png
+     0.4 KB  /assets/figma/advantages/Arrowright.png
+     0.8 KB  /assets/figma/advantages/icon-book-education-secondary.svg
+    85.6 KB  /assets/figma/ai-cta/ai-cta-raw-02.png
+     0.5 KB  /assets/figma/ai-cta/ai-cta-svg-07.svg
+     1.9 KB  /assets/figma/BKK/astra.png
+     2.2 KB  /assets/figma/BKK/azko.png
+     0.7 KB  /assets/figma/BKK/boxicons_location-filled.png
+     2.9 KB  /assets/figma/BKK/Button shortcut (13).png
+   147.0 KB  /assets/figma/BKK/Dynamic Youth Activities Group Portrait 1 (2).png
+   141.6 KB  /assets/figma/BKK/Frame 36448 (1).png
+   117.9 KB  /assets/figma/BKK/Frame 36448 (2).png
+   154.3 KB  /assets/figma/BKK/Frame 36448 (3).png
+   163.1 KB  /assets/figma/BKK/Frame 36448 (4).png
+   146.6 KB  /assets/figma/BKK/Frame 36448.png
+     2.1 KB  /assets/figma/BKK/goje.png
+  1370.9 KB  /assets/figma/BKK/Group 1813.png
+     0.6 KB  /assets/figma/BKK/lets-icons_date-fill.png
+     2.9 KB  /assets/figma/BKK/mayora.png
+     0.8 KB  /assets/figma/BKK/mdi_book-education (1).png
+     0.7 KB  /assets/figma/BKK/mingcute_time-fill.png
+   132.9 KB  /assets/figma/BKK/Rectangle 89 (12).png
+     2.6 KB  /assets/figma/BKK/telkom.png
+     2.2 KB  /assets/figma/BKK/yamaha.png
+    50.6 KB  /assets/figma/BLUD-E-MAN/Alur BLUD (2).png
+     0.8 KB  /assets/figma/BLUD-E-MAN/basil_whatsapp-solid (2).png
+     3.1 KB  /assets/figma/BLUD-E-MAN/Button shortcut (5).png
+   496.1 KB  /assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png
+   504.3 KB  /assets/figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png
+  1105.8 KB  /assets/figma/BLUD-E-MAN/Hero Section (6).png
+   323.0 KB  /assets/figma/BLUD-E-MAN/image 4 (1).png
+   226.3 KB  /assets/figma/BLUD-E-MAN/Instalasi Panel Listrik Gedung.png
+   224.4 KB  /assets/figma/BLUD-E-MAN/Panel Kontrol Motor Listrik.png
+   201.7 KB  /assets/figma/BLUD-E-MAN/Sistem Penerangan Otomatis.png
+   220.0 KB  /assets/figma/BLUD-E-MAN/Trainer Instalasi Listrik Rumah.png
+    47.3 KB  /assets/figma/BLUD-GadizVokasi/Alur BLUD (4).png
+     0.7 KB  /assets/figma/BLUD-GadizVokasi/basil_whatsapp-solid (5).png
+     2.9 KB  /assets/figma/BLUD-GadizVokasi/Button shortcut (4).png
+   243.1 KB  /assets/figma/BLUD-GadizVokasi/Custom Apparel Printing.png
+   241.7 KB  /assets/figma/BLUD-GadizVokasi/Custom Merchandise.png
+   246.6 KB  /assets/figma/BLUD-GadizVokasi/Digital Print & Branding.png
+   488.8 KB  /assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (13).png
+   513.5 KB  /assets/figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (14).png
+  1054.0 KB  /assets/figma/BLUD-GadizVokasi/Hero Section (8).png
+   300.2 KB  /assets/figma/BLUD-GadizVokasi/image 3 (5).png
+   240.8 KB  /assets/figma/BLUD-GadizVokasi/Sticker & Label Printing.png
+    44.4 KB  /assets/figma/BLUD-Garage26/Alur BLUD (3).png
+     0.7 KB  /assets/figma/BLUD-Garage26/basil_whatsapp-solid (4).png
+   223.9 KB  /assets/figma/BLUD-Garage26/Brake System Maintenance.png
+     2.5 KB  /assets/figma/BLUD-Garage26/Button shortcut (6).png
+   489.1 KB  /assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png
+   477.2 KB  /assets/figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png
+   238.1 KB  /assets/figma/BLUD-Garage26/Engine Tune-Up.png
+  1084.0 KB  /assets/figma/BLUD-Garage26/Hero Section (7).png
+   277.8 KB  /assets/figma/BLUD-Garage26/image 4 (2).png
+   230.2 KB  /assets/figma/BLUD-Garage26/Undercarriage Inspection.png
+   238.9 KB  /assets/figma/BLUD-Garage26/Wheel & Tire Service.png
+    49.3 KB  /assets/figma/BLUD-KGS/Alur BLUD.png
+     0.8 KB  /assets/figma/BLUD-KGS/basil_whatsapp-solid.png
+     2.8 KB  /assets/figma/BLUD-KGS/Button shortcut (4).png
+   534.8 KB  /assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (10).png
+   525.1 KB  /assets/figma/BLUD-KGS/Dokumentasi Pembelajaran (9).png
+  1092.1 KB  /assets/figma/BLUD-KGS/Hero Section (4).png
+   267.1 KB  /assets/figma/BLUD-KGS/image 3 (4).png
+   227.5 KB  /assets/figma/BLUD-KGS/Proyek Gambar Teknik.png
+   233.7 KB  /assets/figma/BLUD-KGS/Proyek Konstruksi Bangunan.png
+   233.4 KB  /assets/figma/BLUD-KGS/Proyek Pekerjaan Struktur.png
+   238.2 KB  /assets/figma/BLUD-KGS/Proyek Pemasangan Keramik.png
+    52.2 KB  /assets/figma/BLUD-Manufaktur26/Alur BLUD (2).png
+     0.6 KB  /assets/figma/BLUD-Manufaktur26/basil_whatsapp-solid (3).png
+     3.0 KB  /assets/figma/BLUD-Manufaktur26/Button shortcut (5).png
+   500.7 KB  /assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png
+   495.3 KB  /assets/figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png
+   239.8 KB  /assets/figma/BLUD-Manufaktur26/Fabrikasi Rangka Baja.png
+  1115.7 KB  /assets/figma/BLUD-Manufaktur26/Hero Section (6).png
+   319.5 KB  /assets/figma/BLUD-Manufaktur26/image 4 (1).png
+   235.0 KB  /assets/figma/BLUD-Manufaktur26/Pengeboran Komponen Mesin.png
+   236.1 KB  /assets/figma/BLUD-Manufaktur26/Pengelasan Konstruksi Logam.png
+   216.9 KB  /assets/figma/BLUD-Manufaktur26/Pengukuran & Quality Control.png
+    56.9 KB  /assets/figma/BLUD-UPTECHNO/Alur BLUD (1).png
+     0.8 KB  /assets/figma/BLUD-UPTECHNO/basil_whatsapp-solid (1).png
+  1104.9 KB  /assets/figma/BLUD-UPTECHNO/BG Hero.png
+     3.3 KB  /assets/figma/BLUD-UPTECHNO/Button shortcut.png
+   195.6 KB  /assets/figma/BLUD-UPTECHNO/CCTV Security System.png
+   488.6 KB  /assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png
+   494.2 KB  /assets/figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png
+   209.5 KB  /assets/figma/BLUD-UPTECHNO/Electronic Circuit.png
+   301.9 KB  /assets/figma/BLUD-UPTECHNO/image 4.png
+   219.2 KB  /assets/figma/BLUD-UPTECHNO/MikroTik Network .png
+   221.6 KB  /assets/figma/BLUD-UPTECHNO/Smart Line Follower.png
+     0.9 KB  /assets/figma/blud/blud-SIJA-icon.svg
+     1.2 KB  /assets/figma/blud/blud-svg-02.svg
+     4.5 KB  /assets/figma/blud/blud-TEK-icon.svg
+     2.6 KB  /assets/figma/blud/blud-TFLM-icon.svg
+     0.7 KB  /assets/figma/blud/blud-TITL-icon.svg
+     1.7 KB  /assets/figma/blud/blud-TKR-icon.svg
+   237.3 KB  /assets/figma/branding/smkn26-logo.png
+     4.5 KB  /assets/figma/decorations/kanan.png
+     4.4 KB  /assets/figma/decorations/kiri.png
+     4.5 KB  /assets/figma/decorations/mengenal.png
+     9.1 KB  /assets/figma/decorations/mengenalbesar.png
+     0.3 KB  /assets/figma/decorations/Rectangle 93 (1).png
+     6.9 KB  /assets/figma/decorations/shapekananmitra.png
+     6.9 KB  /assets/figma/decorations/shapekirimitra.png
+     0.9 KB  /assets/figma/detail-guru/detail-guru-corner-circles.svg
+     2.9 KB  /assets/figma/ekstrakulikuler/Button shortcut (11).png
+  1416.3 KB  /assets/figma/ekstrakulikuler/Hero Section.png
+   247.3 KB  /assets/figma/ekstrakulikuler/image 2 (2).png
+     4.0 KB  /assets/figma/footer/footer-svg-03.svg
+     1.2 KB  /assets/figma/footer/footer-svg-04.svg
+     2.0 KB  /assets/figma/footer/footer-svg-07.svg
+     1.8 KB  /assets/figma/footer/footer-svg-08.svg
+     0.8 KB  /assets/figma/footer/footer-svg-13.svg
+  2608.8 KB  /assets/figma/hero/hero-school-building.png
+   290.9 KB  /assets/figma/hero/mengenalsmkprofile.png
+  7615.0 KB  /assets/figma/hero/student-male.png
+     1.2 KB  /assets/figma/icons/icon-arrow-right.svg
+     1.1 KB  /assets/figma/icons/icon-chevron-down.svg
+     0.6 KB  /assets/figma/icons/icon-play-video.svg
+     0.9 KB  /assets/figma/icons/icon-search.svg
+     1.2 KB  /assets/figma/icons/secondary-arrow-right.svg
+   236.2 KB  /assets/figma/KGS/Agung Lazuardi.png
+    69.0 KB  /assets/figma/KGS/Andi Pratama.png
+   238.6 KB  /assets/figma/KGS/Angelica Vero.png
+     2.8 KB  /assets/figma/KGS/Button shortcut.png
+   525.0 KB  /assets/figma/KGS/Dokumentasi Pembelajaranatas.png
+   534.8 KB  /assets/figma/KGS/Dokumentasi Pembelajaranbawah.png
+    65.8 KB  /assets/figma/KGS/Fajar Ramadhan.png
+   235.1 KB  /assets/figma/KGS/Fathan Muyasar.png
+  1092.1 KB  /assets/figma/KGS/Hero Section.png
+   176.5 KB  /assets/figma/KGS/kompetensi.png
+   267.1 KB  /assets/figma/KGS/mengenal.png
+   232.9 KB  /assets/figma/KGS/Nabilla Pertiwi.png
+    51.8 KB  /assets/figma/lsp/Alur LSP.png
+   191.8 KB  /assets/figma/lsp/BLUD unit (1).png
+   193.0 KB  /assets/figma/lsp/BLUD unit (2).png
+   189.7 KB  /assets/figma/lsp/BLUD unit (3).png
+   181.4 KB  /assets/figma/lsp/BLUD unit (4).png
+   181.0 KB  /assets/figma/lsp/BLUD unit (5).png
+   189.6 KB  /assets/figma/lsp/BLUD unit.png
+  1333.1 KB  /assets/figma/lsp/Hero Section.png
+   285.6 KB  /assets/figma/lsp/image 2 (2).png
+     0.5 KB  /assets/figma/lsp/mdi_book-education.png
+    26.4 KB  /assets/figma/lsp/Shape (1).png
+     2.8 KB  /assets/figma/lsp/skemalspkgs/Button shortcut (8).png
+   127.3 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (1).png
+   125.7 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (2).png
+   142.0 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (3).png
+   132.9 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (4).png
+   131.1 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (5).png
+   136.3 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (6).png
+   133.7 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan (7).png
+   127.9 KB  /assets/figma/lsp/skemalspkgs/Foto kegiatan.png
+  1092.1 KB  /assets/figma/lsp/skemalspkgs/Hero Section (11).png
+     2.9 KB  /assets/figma/lsp/skemalspsija/Button shortcut (4).png
+   121.8 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (1).png
+   118.6 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (2).png
+   119.6 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (3).png
+   120.4 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (4).png
+   106.1 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (5).png
+   120.5 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (6).png
+   119.6 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (7).png
+   119.3 KB  /assets/figma/lsp/skemalspsija/Foto kegiatan (8).png
+  1054.0 KB  /assets/figma/lsp/skemalspsija/Hero Section (5).png
+     3.3 KB  /assets/figma/lsp/skemalsptek/Button shortcut (9).png
+   126.1 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (1).png
+   125.2 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (2).png
+   106.8 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (3).png
+   120.5 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (4).png
+   123.1 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (5).png
+   126.7 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (6).png
+   123.9 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan (7).png
+   127.5 KB  /assets/figma/lsp/skemalsptek/Foto kegiatan.png
+  1104.8 KB  /assets/figma/lsp/skemalsptek/Hero Section (12).png
+     3.0 KB  /assets/figma/lsp/skemalsptflm/Button shortcut (2).png
+   128.3 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (1).png
+   122.1 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (2).png
+   123.0 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (3).png
+   128.3 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (4).png
+   126.8 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (5).png
+   120.4 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (6).png
+   125.7 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (7).png
+   121.5 KB  /assets/figma/lsp/skemalsptflm/Foto kegiatan (8).png
+  1115.7 KB  /assets/figma/lsp/skemalsptflm/Hero Section (2).png
+     3.1 KB  /assets/figma/lsp/skemalsptitl/Button shortcut (10).png
+   136.7 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (1).png
+   124.6 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (2).png
+   106.8 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (3).png
+   123.6 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (4).png
+   132.9 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (5).png
+   124.9 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (6).png
+   124.0 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (7).png
+   120.3 KB  /assets/figma/lsp/skemalsptitl/Foto kegiatan (8).png
+  1109.7 KB  /assets/figma/lsp/skemalsptitl/Hero Section (13).png
+     2.5 KB  /assets/figma/lsp/skemalsptkr/Button shortcut (3).png
+   125.5 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (1).png
+   120.0 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (2).png
+   121.3 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (3).png
+   121.8 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (4).png
+   126.7 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (5).png
+   111.1 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (6).png
+   123.7 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (7).png
+   113.2 KB  /assets/figma/lsp/skemalsptkr/Foto kegiatan (8).png
+  1084.0 KB  /assets/figma/lsp/skemalsptkr/Hero Section (3).png
+     1.2 KB  /assets/figma/majors/icon-arrow-right.svg
+     0.5 KB  /assets/figma/majors/icon-major-building.svg
+     0.8 KB  /assets/figma/majors/icon-major-education.svg
+     0.4 KB  /assets/figma/majors/icon-section-badge.svg
+     0.7 KB  /assets/figma/majors/major-background-shape.svg
+  4958.0 KB  /assets/figma/majors/major-kgs.png
+  5335.6 KB  /assets/figma/majors/major-sija.png
+  6012.4 KB  /assets/figma/majors/major-tek.png
+  6276.1 KB  /assets/figma/majors/major-tflm.png
+  6034.7 KB  /assets/figma/majors/major-titl.png
+  5457.5 KB  /assets/figma/majors/major-tkr.png
+     0.3 KB  /assets/figma/majors/popover-pointer-left.svg
+     0.3 KB  /assets/figma/majors/popover-pointer-right.svg
+   280.9 KB  /assets/figma/mars/belakangvidmars.png
+   127.7 KB  /assets/figma/mars/bolabolaheromarskecilkanan.png
+   135.7 KB  /assets/figma/mars/bolabolaheromarskiri.png
+   505.6 KB  /assets/figma/mars/buderliana.png
+   508.0 KB  /assets/figma/mars/pak sutaryo.png
+    15.4 KB  /assets/figma/mars/SEMANGATlogo.png
+     2.8 KB  /assets/figma/mitra-industri/1.png
+     3.3 KB  /assets/figma/mitra-industri/2.png
+     3.1 KB  /assets/figma/mitra-industri/3.png
+     3.0 KB  /assets/figma/mitra-industri/4.png
+     2.5 KB  /assets/figma/mitra-industri/5.png
+     2.9 KB  /assets/figma/mitra-industri/6.png
+  1406.4 KB  /assets/figma/mitra-industri/hero.png
+     1.8 KB  /assets/figma/mitra-industri/iconbuku.png
+   285.6 KB  /assets/figma/mitra-industri/image 2 (1).png
+    89.7 KB  /assets/figma/mitra-industri/Shape.png
+     1.2 KB  /assets/figma/news/news-calendar.svg
+   198.6 KB  /assets/figma/news/news-raw-01.png
+   229.1 KB  /assets/figma/news/news-raw-03.png
+   234.5 KB  /assets/figma/news/news-raw-04.png
+   247.9 KB  /assets/figma/news/news-raw-07.png
+   243.5 KB  /assets/figma/news/news-raw-09.png
+     2.9 KB  /assets/figma/Organisasi/Button shortcut (12).png
+   228.3 KB  /assets/figma/Organisasi/Ekstrakurikuler (1).png
+   120.4 KB  /assets/figma/Organisasi/Foto kegiatan (1).png
+   116.9 KB  /assets/figma/Organisasi/Foto kegiatan (2).png
+   110.0 KB  /assets/figma/Organisasi/Foto kegiatan (3).png
+   123.0 KB  /assets/figma/Organisasi/Foto kegiatan (4).png
+   149.0 KB  /assets/figma/Organisasi/Foto kegiatan (5).png
+   133.5 KB  /assets/figma/Organisasi/Foto kegiatan (6).png
+   125.4 KB  /assets/figma/Organisasi/Foto kegiatan (7).png
+   116.4 KB  /assets/figma/Organisasi/Foto kegiatan (8).png
+  1379.2 KB  /assets/figma/Organisasi/hero.png
+   686.0 KB  /assets/figma/Organisasi/Struktur MPK/Strutur MPK.png
+   555.9 KB  /assets/figma/Organisasi/Struktur Osis/Strutur OSIS.png
+    91.2 KB  /assets/figma/partners/astra.png
+    12.9 KB  /assets/figma/partners/azko.png
+     8.2 KB  /assets/figma/partners/komatsu.png
+    14.5 KB  /assets/figma/partners/microvision.png
+    21.0 KB  /assets/figma/partners/panasonic.png
+    20.9 KB  /assets/figma/partners/pln.png
+    74.2 KB  /assets/figma/partners/toyota.jpeg
+    19.7 KB  /assets/figma/partners/wika.png
+  1378.8 KB  /assets/figma/portalinformasi/kjp.png
+   829.6 KB  /assets/figma/portalinformasi/Perpustakaan Digital.png
+   300.4 KB  /assets/figma/portalinformasi/pip.png
+   902.4 KB  /assets/figma/portalinformasi/SIMAK 26.png
+   797.6 KB  /assets/figma/portalinformasi/SPMB.png
+   119.8 KB  /assets/figma/Prestasi/,,,.png
+   113.0 KB  /assets/figma/Prestasi/.....png
+   101.6 KB  /assets/figma/Prestasi/a.png
+   109.5 KB  /assets/figma/Prestasi/aa.png
+   104.7 KB  /assets/figma/Prestasi/b.png
+   117.6 KB  /assets/figma/Prestasi/bbbb.png
+   119.6 KB  /assets/figma/Prestasi/c.png
+   117.6 KB  /assets/figma/Prestasi/Card Prestasi (1).png
+   113.0 KB  /assets/figma/Prestasi/Card Prestasi (10).png
+   111.6 KB  /assets/figma/Prestasi/Card Prestasi (11).png
+   105.3 KB  /assets/figma/Prestasi/Card Prestasi (12).png
+   109.9 KB  /assets/figma/Prestasi/Card Prestasi (13).png
+   114.7 KB  /assets/figma/Prestasi/Card Prestasi (2).png
+   119.1 KB  /assets/figma/Prestasi/Card Prestasi (3).png
+   108.4 KB  /assets/figma/Prestasi/Card Prestasi (4).png
+   102.7 KB  /assets/figma/Prestasi/Card Prestasi (5).png
+   110.4 KB  /assets/figma/Prestasi/Card Prestasi (6).png
+   107.5 KB  /assets/figma/Prestasi/Card Prestasi (7).png
+   102.4 KB  /assets/figma/Prestasi/Card Prestasi (8).png
+   107.6 KB  /assets/figma/Prestasi/Card Prestasi (9).png
+   118.1 KB  /assets/figma/Prestasi/Card Prestasi.png
+   116.2 KB  /assets/figma/Prestasi/ccc.png
+   112.6 KB  /assets/figma/Prestasi/dsa.png
+  1501.2 KB  /assets/figma/Prestasi/Group 1815.png
+   113.4 KB  /assets/figma/Prestasi/mmm.png
+   102.8 KB  /assets/figma/Prestasi/nnn.png
+   107.1 KB  /assets/figma/Prestasi/s.png
+   101.2 KB  /assets/figma/Prestasi/v.png
+   105.2 KB  /assets/figma/Prestasi/vvv.png
+   116.2 KB  /assets/figma/Prestasi/xxx.png
+   110.9 KB  /assets/figma/Prestasi/zzzz.png
+     8.1 KB  /assets/figma/profile/GARISBAWAHVISISEKOLAH.png
+     8.1 KB  /assets/figma/profile/icondisampingjudulvisimisi.png
+    41.1 KB  /assets/figma/profile/Mars.png
+    40.8 KB  /assets/figma/profile/motto.png
+  1160.1 KB  /assets/figma/profile/profile-hero-bg.png
+    94.3 KB  /assets/figma/profile/profile-mars-bg.png
+    87.5 KB  /assets/figma/profile/profile-motto-bg.png
+    87.6 KB  /assets/figma/profile/profile-semboyan-bg.png
+    50.2 KB  /assets/figma/profile/semboyan.png
+     4.1 KB  /assets/figma/profile/timelinegaris.png
+    47.9 KB  /assets/figma/profile/VISI SEKOLAHujung.png
+   214.2 KB  /assets/figma/programs/programs-raw-02.png
+   253.5 KB  /assets/figma/programs/programs-raw-03.png
+   264.1 KB  /assets/figma/programs/programs-raw-04.png
+   252.4 KB  /assets/figma/programs/programs-raw-06.png
+   229.1 KB  /assets/figma/programs/programs-raw-07.png
+   236.0 KB  /assets/figma/programs/programs-raw-10.png
+     1.2 KB  /assets/figma/programs/programs-svg-01.svg
+     0.4 KB  /assets/figma/programs/programs-svg-04.svg
+   248.6 KB  /assets/figma/school/school-overview-photo-clean.png
+     8.4 KB  /assets/figma/shortcuts/shortcut-ai-chat.png
+    10.4 KB  /assets/figma/shortcuts/shortcut-kjp-pip.png
+    12.1 KB  /assets/figma/shortcuts/shortcut-library.png
+    11.7 KB  /assets/figma/shortcuts/shortcut-spmb.png
+   245.7 KB  /assets/figma/SIJA/Angelica Putri.png
+   247.8 KB  /assets/figma/SIJA/Bagus Rahmansyah.png
+     2.9 KB  /assets/figma/SIJA/Button shortcut (4).png
+   467.1 KB  /assets/figma/SIJA/Dokumentasi Pembelajaran (10).png
+   481.5 KB  /assets/figma/SIJA/Dokumentasi Pembelajaran (9).png
+  1054.0 KB  /assets/figma/SIJA/Hero Section (5).png
+   256.9 KB  /assets/figma/SIJA/image 3 (4).png
+    65.8 KB  /assets/figma/SIJA/Marwan.png
+   249.2 KB  /assets/figma/SIJA/Muhammad Fauzan.png
+   243.1 KB  /assets/figma/SIJA/Nabilla Mallya.png
+    69.0 KB  /assets/figma/SIJA/Raka Pratama.png
+   173.7 KB  /assets/figma/SIJA/Roadmap Jurusan.png
+   229.3 KB  /assets/figma/struktur & unit kerja/Ardiansyah Putra.png
+   227.5 KB  /assets/figma/struktur & unit kerja/Bagus Setiawan.png
+  1482.9 KB  /assets/figma/struktur & unit kerja/bghero.png
+   235.6 KB  /assets/figma/struktur & unit kerja/Deni Kurniawan.png
+   232.2 KB  /assets/figma/struktur & unit kerja/Rani Maharani.png
+     0.4 KB  /assets/figma/struktur & unit kerja/struktur-badge.svg
+   639.4 KB  /assets/figma/struktur & unit kerja/struktur-guru-1.png
+   603.8 KB  /assets/figma/struktur & unit kerja/struktur-guru-2.png
+   620.1 KB  /assets/figma/struktur & unit kerja/struktur-guru-3.png
+   632.3 KB  /assets/figma/struktur & unit kerja/struktur-guru-4.png
+   613.3 KB  /assets/figma/struktur & unit kerja/struktur-guru-5.png
+   634.8 KB  /assets/figma/struktur & unit kerja/struktur-guru-6.png
+   611.8 KB  /assets/figma/struktur & unit kerja/struktur-guru-7.png
+   626.5 KB  /assets/figma/struktur & unit kerja/struktur-guru-8.png
+  1737.5 KB  /assets/figma/struktur & unit kerja/struktur-kepsek.png
+   620.4 KB  /assets/figma/struktur & unit kerja/struktur-tendik-1.png
+   615.4 KB  /assets/figma/struktur & unit kerja/struktur-tendik-2.png
+   627.0 KB  /assets/figma/struktur & unit kerja/struktur-tendik-3.png
+   629.4 KB  /assets/figma/struktur & unit kerja/struktur-tendik-4.png
+   624.6 KB  /assets/figma/struktur & unit kerja/struktur-wakasek-1.png
+   625.5 KB  /assets/figma/struktur & unit kerja/struktur-wakasek-2.png
+   633.1 KB  /assets/figma/struktur & unit kerja/struktur-wakasek-3.png
+   622.2 KB  /assets/figma/struktur & unit kerja/struktur-wakasek-4.png
+    65.8 KB  /assets/figma/TEK/Abi Rafi.png
+   249.7 KB  /assets/figma/TEK/Alyssa Bella.png
+     3.3 KB  /assets/figma/TEK/Button shortcut.png
+   245.7 KB  /assets/figma/TEK/Dinda Azzahra.png
+   488.6 KB  /assets/figma/TEK/Dokumentasi Pembelajaran atas.png
+   494.2 KB  /assets/figma/TEK/Dokumentasi Pembelajaran bawah.png
+    69.0 KB  /assets/figma/TEK/Fajar Ramadhan.png
+   244.4 KB  /assets/figma/TEK/Firmansyah.png
+  1104.8 KB  /assets/figma/TEK/Hero Section.png
+   254.5 KB  /assets/figma/TEK/Hidayah Fadillah.png
+   183.0 KB  /assets/figma/TEK/kompetensi.png
+   248.1 KB  /assets/figma/TEK/mengenal.png
+    65.8 KB  /assets/figma/TFLM/Abdusallam.png
+     3.0 KB  /assets/figma/TFLM/Button shortcut (2).png
+   500.7 KB  /assets/figma/TFLM/Dokumentasi Pembelajaran (5).png
+   495.3 KB  /assets/figma/TFLM/Dokumentasi Pembelajaran (6).png
+   170.4 KB  /assets/figma/TFLM/Frame 36434 (3).png
+  1115.7 KB  /assets/figma/TFLM/Hero Section (2).png
+   272.6 KB  /assets/figma/TFLM/image 3 (2).png
+   258.3 KB  /assets/figma/TFLM/Nayla Safira.png
+   251.4 KB  /assets/figma/TFLM/Raihan Nugroho.png
+    69.0 KB  /assets/figma/TFLM/Raka Pratama.png
+   257.3 KB  /assets/figma/TFLM/Riky Hamdan.png
+   252.8 KB  /assets/figma/TFLM/Salsa Nurfatiha.png
+   254.2 KB  /assets/figma/TITL/annisakuncoro.png
+    69.0 KB  /assets/figma/TITL/Assad El Ghanie.png
+     3.1 KB  /assets/figma/TITL/Button shortcut (1).png
+   258.8 KB  /assets/figma/TITL/dimasahmad.png
+   496.1 KB  /assets/figma/TITL/Dokumentasi Pembelajaran (3).png
+   504.3 KB  /assets/figma/TITL/Dokumentasi Pembelajaran (4).png
+   180.1 KB  /assets/figma/TITL/Frame 36434 (2).png
+  1105.8 KB  /assets/figma/TITL/Hero Section (1).png
+   279.5 KB  /assets/figma/TITL/image 3 (1).png
+   256.0 KB  /assets/figma/TITL/liliputrikencana.png
+    65.8 KB  /assets/figma/TITL/Muhammad Akbar.png
+   252.1 KB  /assets/figma/TITL/rakaaditya.png
+     2.5 KB  /assets/figma/TKR/Button shortcut (3).png
+   489.1 KB  /assets/figma/TKR/Dokumentasi Pembelajaran (7).png
+   477.2 KB  /assets/figma/TKR/Dokumentasi Pembelajaran (8).png
+    65.8 KB  /assets/figma/TKR/Dwi Bakti.png
+   259.3 KB  /assets/figma/TKR/Eva Khuzaifah.png
+   133.5 KB  /assets/figma/TKR/Frame 36434 (4).png
+  1084.0 KB  /assets/figma/TKR/Hero Section (3).png
+   275.4 KB  /assets/figma/TKR/image 3 (3).png
+   254.8 KB  /assets/figma/TKR/Kaesar Agung.png
+   257.5 KB  /assets/figma/TKR/Putri Cantika.png
+   254.0 KB  /assets/figma/TKR/Raka Kuncoro.png
+    69.0 KB  /assets/figma/TKR/Rizky Aditya.png
+     0.4 KB  /assets/figma/video-profile/video-profile-badge-icon.svg
+     0.5 KB  /assets/figma/video-profile/video-profile-decoration-left.svg
+     0.5 KB  /assets/figma/video-profile/video-profile-decoration-right.svg
+     0.6 KB  /assets/figma/video-profile/video-profile-lower-shape.svg
+     0.6 KB  /assets/figma/video-profile/video-profile-play-icon.svg
+     0.3 KB  /assets/figma/video-profile/video-profile-play-ring.svg
+  1989.0 KB  /assets/figma/video-profile/video-profile-preview.png
+  1890.3 KB  /assets/panorama/heroschooltour.png
+   770.9 KB  /assets/panorama/school_tour/Upscaled/bengkel_kgs.jpg
+   960.4 KB  /assets/panorama/school_tour/Upscaled/bengkel_sija.jpg
+   799.3 KB  /assets/panorama/school_tour/Upscaled/bengkel_titl.jpg
+   694.5 KB  /assets/panorama/school_tour/Upscaled/bengkel_tkr.jpg
+   649.3 KB  /assets/panorama/school_tour/Upscaled/bengkel.jpg
+   485.0 KB  /assets/panorama/school_tour/Upscaled/dalam_masjid.jpg
+   845.7 KB  /assets/panorama/school_tour/Upscaled/depan_aula.jpg
+   655.2 KB  /assets/panorama/school_tour/Upscaled/depan_lsp.jpg
+   712.8 KB  /assets/panorama/school_tour/Upscaled/depan_masjid.jpg
+   901.6 KB  /assets/panorama/school_tour/Upscaled/depan_tek.jpg
+   711.0 KB  /assets/panorama/school_tour/Upscaled/gerbang.jpg
+  1063.1 KB  /assets/panorama/school_tour/Upscaled/jogging_track.jpg
+   858.4 KB  /assets/panorama/school_tour/Upscaled/kantin.jpg
+   619.1 KB  /assets/panorama/school_tour/Upscaled/lapangan.jpg
+  1266.9 KB  /assets/panorama/school_tour/Upscaled/pedestrian_rbtra.jpg
+  1118.2 KB  /assets/panorama/school_tour/Upscaled/pedestrian.jpg
+  1141.4 KB  /assets/panorama/school_tour/Upscaled/pendopo_kgs.jpg
+   873.6 KB  /assets/panorama/school_tour/Upscaled/perpustakaan.jpg
+  1229.4 KB  /assets/panorama/school_tour/Upscaled/RBTRA.jpg
+   594.9 KB  /assets/panorama/school_tour/Upscaled/ruang_piket.jpg
+   777.1 KB  /assets/panorama/school_tour/Upscaled/satpam.jpg
+   972.2 KB  /assets/panorama/school_tour/Upscaled/toilet1.jpg

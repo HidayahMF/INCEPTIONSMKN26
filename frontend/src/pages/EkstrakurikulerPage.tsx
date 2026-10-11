@@ -2,7 +2,10 @@ import { CtaLink } from "../components/public/CtaLink";
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/ekstrakulikuler/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Button shortcut (11).png": "/assets/shared/icons/button-shortcut.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/ekstrakurikuler/${name}`;
 
 const activities = [
   [
@@ -103,7 +106,7 @@ const activities = [
 function Label({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+      <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
       {children}
     </span>
   );
@@ -123,11 +126,6 @@ export function EkstrakurikulerPage() {
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.84)_0%,rgba(225,241,255,.08)_42%,rgba(0,108,220,.12)_100%)]" />
           <div aria-hidden="true" className="pointer-events-none absolute right-[9%] top-[30%] -z-[4] aspect-square w-[66px] rounded-full bg-gradient-to-br from-primary to-soft-blue" />
           <div aria-hidden="true" className="pointer-events-none absolute left-[10%] top-[40%] -z-[4] aspect-square w-[76px] rounded-full bg-gradient-to-br from-primary to-soft-blue" />
-          <img
-            className="pointer-events-none absolute bottom-0 left-1/2 z-0 w-[760px] max-w-none -translate-x-1/2 sm:w-[1050px] lg:w-[1320px] xl:w-[1480px]"
-            src={asset("Hero Section-1.png")}
-            alt="Siswa SMKN 26 Jakarta"
-          />
           <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-5 text-center sm:min-h-[700px] sm:px-8 sm:pt-9 lg:min-h-[760px] lg:px-16 lg:pt-12">
             <div data-aos="fade-down">
               <Label>EKSTRAKURIKULER</Label>

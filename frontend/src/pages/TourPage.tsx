@@ -88,7 +88,7 @@ export function TourPage() {
           <div ref={leftCircleRef} aria-hidden="true" className="pointer-events-none absolute left-8 top-20 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:left-16 sm:size-10" />
           <div ref={rightCircleRef} aria-hidden="true" className="pointer-events-none absolute right-8 top-14 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue sm:right-16 sm:size-10" />
            <span data-aos="fade-down" className="relative inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-             <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+             <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
              TENTANG SMK NEGERI 26 JAKARTA
           </span>
           <h2 data-aos="fade-up" data-aos-delay="100" className="relative mx-auto mt-4 max-w-[760px] text-[28px] font-bold leading-9 text-ink sm:text-[38px] sm:leading-[48px]">

@@ -41,7 +41,7 @@ export function IndustryPartnersMarquee({
           <Marquee ariaLabel="Mitra industri" gapClass="gap-4">
             {partners.map(([file, name]) => (
               <div className="flex h-20 w-[180px] shrink-0 items-center justify-center rounded-xl bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,.05)]" key={name}>
-                <img className="max-h-12 w-full object-contain" src={`/assets/figma/partners/${file}`} alt={`${name} logo`} />
+                <img className="max-h-12 w-full object-contain" src={`/assets/shared/partners/${file}`} alt={`${name} logo`} />
               </div>
             ))}
           </Marquee>

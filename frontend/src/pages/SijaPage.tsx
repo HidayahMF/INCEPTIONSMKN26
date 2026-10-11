@@ -5,12 +5,18 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/SIJA/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Button shortcut (4).png": "/assets/majors/SIJAAssets/sija-shortcut.png",
+  "Hero Section (5).png": "/assets/majors/SIJAAssets/sija-hero.png",
+  "Marwan.png": "/assets/shared/majors/person-b.png",
+  "Raka Pratama.png": "/assets/shared/majors/person-a.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/sija/${name}`;
 const competencies = ["Pemrograman", "Pengembangan Aplikasi", "Jaringan Komputer", "Sistem Informasi", "Basis Data", "Cloud & Infrastruktur", "Keamanan Sistem", "UI/UX Design"];
 const achievements = [["Muhammad Fauzan", "Juara 2 - Network & IT Competition", "Muhammad Fauzan.png"], ["Angelica Putri", "Juara 1 - Kompetisi Aplikasi Pelajar", "Angelica Putri.png"], ["Nabilla Mallya", "Finalis - Digital Innovation Competition", "Nabilla Mallya.png"], ["Bagus Rahmansyah", "Juara 3 - Web Development Competition", "Bagus Rahmansyah.png"]] as const;
 const alumni = [["Raka Aditya", "Raka Pratama.png", "SIJA — Angkatan 50", "Software Developer", "Selama belajar di SIJA, saya terbiasa membuat proyek dan menyelesaikan masalah secara langsung. Pengalaman tersebut menjadi bekal penting ketika mulai bekerja di bidang teknologi."], ["Marwan", "Marwan.png", "SIJA — Angkatan 49", "Network Engineer", "Praktik jaringan dan proyek selama di SIJA membuat saya lebih memahami bagaimana teknologi digunakan di dunia kerja. Saya jadi lebih percaya diri untuk mengembangkan karier di bidang IT."]] as const;
 
-function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#FF7700] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>; }
+function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#FF7700] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>; }
 
 export function SijaPage() {
   const alumniTrackRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-const badgeIcon = "/assets/figma/majors/icon-section-badge.svg";
+const badgeIcon = "/assets/shared/icons/section-badge.svg";
 
 export function SectionBadge({ children, color = "#39aef2" }: { children: ReactNode; color?: string }) {
   return (

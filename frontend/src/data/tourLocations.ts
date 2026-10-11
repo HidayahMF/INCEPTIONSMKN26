@@ -7,7 +7,7 @@ export type TourLocation = {
 };
 
 const screenshotPath = (file: string) =>
-  `/assets/panorama/school_tour/Upscaled/${file}.jpg`;
+  `/assets/pages/tour/school_tour/Upscaled/${file}.jpg`;
 
 const locations: [string, string, string][] = [
   ["lapangan", "lapangan", "Lapangan SMKN 26 Jakarta"],

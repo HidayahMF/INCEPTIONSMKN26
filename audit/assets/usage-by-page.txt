@@ -1,0 +1,1065 @@
+### advantage-detail (15)
+    figma/advantages/advantage-blud.png
+    figma/advantages/advantage-education.png
+    figma/advantages/advantage-inclusive.png
+    figma/advantages/advantage-industry.png
+    figma/advantages/advantage-interest.png
+    figma/advantages/advantage-lsp.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    /srcfigmaAssets.ts
+
+### bkk (39)
+    figma/BKK/Button shortcut (13).png
+    figma/BKK/Dynamic Youth Activities Group Portrait 1 (2).png
+    figma/BKK/Frame 36448 (1).png
+    figma/BKK/Frame 36448 (2).png
+    figma/BKK/Frame 36448 (3).png
+    figma/BKK/Frame 36448 (4).png
+    figma/BKK/Frame 36448.png
+    figma/BKK/Group 1813.png
+    figma/BKK/Rectangle 89 (12).png
+    figma/BKK/astra.png
+    figma/BKK/azko.png
+    figma/BKK/boxicons_location-filled.png
+    figma/BKK/goje.png
+    figma/BKK/lets-icons_date-fill.png
+    figma/BKK/mayora.png
+    figma/BKK/mdi_book-education (1).png
+    figma/BKK/mingcute_time-fill.png
+    figma/BKK/telkom.png
+    figma/BKK/yamaha.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/astra.png
+    figma/partners/azko.png
+    figma/partners/komatsu.png
+    figma/partners/microvision.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### blud-e-man (21)
+    figma/BLUD-E-MAN/Alur BLUD (2).png
+    figma/BLUD-E-MAN/Button shortcut (5).png
+    figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png
+    figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png
+    figma/BLUD-E-MAN/Hero Section (6).png
+    figma/BLUD-E-MAN/Instalasi Panel Listrik Gedung.png
+    figma/BLUD-E-MAN/Panel Kontrol Motor Listrik.png
+    figma/BLUD-E-MAN/Sistem Penerangan Otomatis.png
+    figma/BLUD-E-MAN/Trainer Instalasi Listrik Rumah.png
+    figma/BLUD-E-MAN/basil_whatsapp-solid (2).png
+    figma/BLUD-E-MAN/image 4 (1).png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### blud-gadiz-vokasi (21)
+    figma/BLUD-GadizVokasi/Alur BLUD (4).png
+    figma/BLUD-GadizVokasi/Button shortcut (4).png
+    figma/BLUD-GadizVokasi/Custom Apparel Printing.png
+    figma/BLUD-GadizVokasi/Custom Merchandise.png
+    figma/BLUD-GadizVokasi/Digital Print & Branding.png
+    figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (13).png
+    figma/BLUD-GadizVokasi/Dokumentasi Pembelajaran (14).png
+    figma/BLUD-GadizVokasi/Hero Section (8).png
+    figma/BLUD-GadizVokasi/Sticker & Label Printing.png
+    figma/BLUD-GadizVokasi/basil_whatsapp-solid (5).png
+    figma/BLUD-GadizVokasi/image 3 (5).png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### blud-garage26 (21)
+    figma/BLUD-Garage26/Alur BLUD (3).png
+    figma/BLUD-Garage26/Brake System Maintenance.png
+    figma/BLUD-Garage26/Button shortcut (6).png
+    figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png
+    figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png
+    figma/BLUD-Garage26/Engine Tune-Up.png
+    figma/BLUD-Garage26/Hero Section (7).png
+    figma/BLUD-Garage26/Undercarriage Inspection.png
+    figma/BLUD-Garage26/Wheel & Tire Service.png
+    figma/BLUD-Garage26/basil_whatsapp-solid (4).png
+    figma/BLUD-Garage26/image 4 (2).png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### blud-kgstudio (21)
+    figma/BLUD-KGS/Alur BLUD.png
+    figma/BLUD-KGS/Button shortcut (4).png
+    figma/BLUD-KGS/Dokumentasi Pembelajaran (10).png
+    figma/BLUD-KGS/Dokumentasi Pembelajaran (9).png
+    figma/BLUD-KGS/Hero Section (4).png
+    figma/BLUD-KGS/Proyek Gambar Teknik.png
+    figma/BLUD-KGS/Proyek Konstruksi Bangunan.png
+    figma/BLUD-KGS/Proyek Pekerjaan Struktur.png
+    figma/BLUD-KGS/Proyek Pemasangan Keramik.png
+    figma/BLUD-KGS/basil_whatsapp-solid.png
+    figma/BLUD-KGS/image 3 (4).png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### blud-manufaktur26 (21)
+    figma/BLUD-Manufaktur26/Alur BLUD (2).png
+    figma/BLUD-Manufaktur26/Button shortcut (5).png
+    figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png
+    figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png
+    figma/BLUD-Manufaktur26/Fabrikasi Rangka Baja.png
+    figma/BLUD-Manufaktur26/Hero Section (6).png
+    figma/BLUD-Manufaktur26/Pengeboran Komponen Mesin.png
+    figma/BLUD-Manufaktur26/Pengelasan Konstruksi Logam.png
+    figma/BLUD-Manufaktur26/Pengukuran & Quality Control.png
+    figma/BLUD-Manufaktur26/basil_whatsapp-solid (3).png
+    figma/BLUD-Manufaktur26/image 4 (1).png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### blud-uptechno (21)
+    figma/BLUD-UPTECHNO/Alur BLUD (1).png
+    figma/BLUD-UPTECHNO/BG Hero.png
+    figma/BLUD-UPTECHNO/Button shortcut.png
+    figma/BLUD-UPTECHNO/CCTV Security System.png
+    figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png
+    figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png
+    figma/BLUD-UPTECHNO/Electronic Circuit.png
+    figma/BLUD-UPTECHNO/MikroTik Network .png
+    figma/BLUD-UPTECHNO/Smart Line Follower.png
+    figma/BLUD-UPTECHNO/basil_whatsapp-solid (1).png
+    figma/BLUD-UPTECHNO/image 4.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### ekstrakurikuler (15)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/ekstrakulikuler/Button shortcut (11).png
+    figma/ekstrakulikuler/Hero Section.png
+    figma/ekstrakulikuler/image 2 (2).png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### guru-detail (32)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/detail-guru/detail-guru-corner-circles.svg
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-major-education.svg
+    figma/majors/icon-section-badge.svg
+    figma/struktur & unit kerja/Ardiansyah Putra.png
+    figma/struktur & unit kerja/Bagus Setiawan.png
+    figma/struktur & unit kerja/Deni Kurniawan.png
+    figma/struktur & unit kerja/Rani Maharani.png
+    figma/struktur & unit kerja/struktur-guru-1.png
+    figma/struktur & unit kerja/struktur-guru-2.png
+    figma/struktur & unit kerja/struktur-guru-3.png
+    figma/struktur & unit kerja/struktur-guru-4.png
+    figma/struktur & unit kerja/struktur-guru-5.png
+    figma/struktur & unit kerja/struktur-guru-6.png
+    figma/struktur & unit kerja/struktur-guru-7.png
+    figma/struktur & unit kerja/struktur-guru-8.png
+    figma/struktur & unit kerja/struktur-tendik-1.png
+    figma/struktur & unit kerja/struktur-tendik-2.png
+    figma/struktur & unit kerja/struktur-tendik-3.png
+    figma/struktur & unit kerja/struktur-tendik-4.png
+    figma/struktur & unit kerja/struktur-wakasek-1.png
+    figma/struktur & unit kerja/struktur-wakasek-2.png
+    figma/struktur & unit kerja/struktur-wakasek-3.png
+    figma/struktur & unit kerja/struktur-wakasek-4.png
+    /srcfigmaAssets.ts
+
+### guru-kejuruan (14)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/struktur & unit kerja/struktur-badge.svg
+    figma/struktur & unit kerja/struktur-guru-5.png
+    figma/struktur & unit kerja/struktur-guru-6.png
+    figma/struktur & unit kerja/struktur-guru-7.png
+    figma/struktur & unit kerja/struktur-guru-8.png
+    /srcfigmaAssets.ts
+
+### guru-normatif (14)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/struktur & unit kerja/struktur-badge.svg
+    figma/struktur & unit kerja/struktur-guru-1.png
+    figma/struktur & unit kerja/struktur-guru-2.png
+    figma/struktur & unit kerja/struktur-guru-3.png
+    figma/struktur & unit kerja/struktur-guru-4.png
+    /srcfigmaAssets.ts
+
+### home (84)
+    figma/achievements/achievements-raw-01.png
+    figma/achievements/achievements-raw-03.png
+    figma/achievements/achievements-raw-04.png
+    figma/achievements/achievements-raw-07.png
+    figma/achievements/achievements-raw-08.png
+    figma/achievements/achievements-svg-03.svg
+    figma/achievements/achievements-svg-12.svg
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/advantages/advantage-blud.png
+    figma/advantages/advantage-education.png
+    figma/advantages/advantage-inclusive.png
+    figma/advantages/advantage-industry.png
+    figma/advantages/advantage-interest.png
+    figma/advantages/advantage-lsp.png
+    figma/advantages/icon-book-education-secondary.svg
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/ai-cta/ai-cta-svg-07.svg
+    figma/blud/blud-SIJA-icon.svg
+    figma/blud/blud-TEK-icon.svg
+    figma/blud/blud-TFLM-icon.svg
+    figma/blud/blud-TITL-icon.svg
+    figma/blud/blud-TKR-icon.svg
+    figma/blud/blud-svg-02.svg
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/hero/hero-school-building.png
+    figma/hero/student-male.png
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/icon-play-video.svg
+    figma/icons/icon-search.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/majors/icon-arrow-right.svg
+    figma/majors/icon-major-building.svg
+    figma/majors/icon-section-badge.svg
+    figma/majors/major-background-shape.svg
+    figma/majors/major-kgs.png
+    figma/majors/major-sija.png
+    figma/majors/major-tek.png
+    figma/majors/major-tflm.png
+    figma/majors/major-titl.png
+    figma/majors/major-tkr.png
+    figma/majors/popover-pointer-left.svg
+    figma/majors/popover-pointer-right.svg
+    figma/news/news-calendar.svg
+    figma/news/news-raw-01.png
+    figma/news/news-raw-03.png
+    figma/news/news-raw-04.png
+    figma/news/news-raw-07.png
+    figma/news/news-raw-09.png
+    figma/partners/astra.png
+    figma/partners/azko.png
+    figma/partners/komatsu.png
+    figma/partners/microvision.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    figma/programs/programs-raw-02.png
+    figma/programs/programs-raw-03.png
+    figma/programs/programs-raw-04.png
+    figma/programs/programs-raw-06.png
+    figma/programs/programs-raw-07.png
+    figma/programs/programs-raw-10.png
+    figma/programs/programs-svg-01.svg
+    figma/programs/programs-svg-04.svg
+    figma/school/school-overview-photo-clean.png
+    figma/shortcuts/shortcut-ai-chat.png
+    figma/shortcuts/shortcut-kjp-pip.png
+    figma/shortcuts/shortcut-library.png
+    figma/shortcuts/shortcut-spmb.png
+    figma/video-profile/video-profile-badge-icon.svg
+    figma/video-profile/video-profile-decoration-left.svg
+    figma/video-profile/video-profile-decoration-right.svg
+    figma/video-profile/video-profile-lower-shape.svg
+    figma/video-profile/video-profile-play-icon.svg
+    figma/video-profile/video-profile-play-ring.svg
+    figma/video-profile/video-profile-preview.png
+    /srcfigmaAssets.ts
+
+### information (15)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/portalinformasi/Perpustakaan Digital.png
+    figma/portalinformasi/SIMAK 26.png
+    figma/portalinformasi/SPMB.png
+    figma/portalinformasi/kjp.png
+    figma/portalinformasi/pip.png
+    /srcfigmaAssets.ts
+
+### lsp (23)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/lsp/Alur LSP.png
+    figma/lsp/BLUD unit (1).png
+    figma/lsp/BLUD unit (2).png
+    figma/lsp/BLUD unit (3).png
+    figma/lsp/BLUD unit (4).png
+    figma/lsp/BLUD unit (5).png
+    figma/lsp/BLUD unit.png
+    figma/lsp/Hero Section.png
+    figma/lsp/Shape (1).png
+    figma/lsp/image 2 (2).png
+    figma/lsp/mdi_book-education.png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-kgs (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalspkgs/Button shortcut (8).png
+    figma/lsp/skemalspkgs/Foto kegiatan (1).png
+    figma/lsp/skemalspkgs/Foto kegiatan (2).png
+    figma/lsp/skemalspkgs/Foto kegiatan (3).png
+    figma/lsp/skemalspkgs/Foto kegiatan (4).png
+    figma/lsp/skemalspkgs/Foto kegiatan (5).png
+    figma/lsp/skemalspkgs/Foto kegiatan (6).png
+    figma/lsp/skemalspkgs/Foto kegiatan (7).png
+    figma/lsp/skemalspkgs/Foto kegiatan.png
+    figma/lsp/skemalspkgs/Hero Section (11).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-sija (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalspsija/Button shortcut (4).png
+    figma/lsp/skemalspsija/Foto kegiatan (1).png
+    figma/lsp/skemalspsija/Foto kegiatan (2).png
+    figma/lsp/skemalspsija/Foto kegiatan (3).png
+    figma/lsp/skemalspsija/Foto kegiatan (4).png
+    figma/lsp/skemalspsija/Foto kegiatan (5).png
+    figma/lsp/skemalspsija/Foto kegiatan (6).png
+    figma/lsp/skemalspsija/Foto kegiatan (7).png
+    figma/lsp/skemalspsija/Foto kegiatan (8).png
+    figma/lsp/skemalspsija/Hero Section (5).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-tek (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalsptek/Button shortcut (9).png
+    figma/lsp/skemalsptek/Foto kegiatan (1).png
+    figma/lsp/skemalsptek/Foto kegiatan (2).png
+    figma/lsp/skemalsptek/Foto kegiatan (3).png
+    figma/lsp/skemalsptek/Foto kegiatan (4).png
+    figma/lsp/skemalsptek/Foto kegiatan (5).png
+    figma/lsp/skemalsptek/Foto kegiatan (6).png
+    figma/lsp/skemalsptek/Foto kegiatan (7).png
+    figma/lsp/skemalsptek/Foto kegiatan.png
+    figma/lsp/skemalsptek/Hero Section (12).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-tflm (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalsptflm/Button shortcut (2).png
+    figma/lsp/skemalsptflm/Foto kegiatan (1).png
+    figma/lsp/skemalsptflm/Foto kegiatan (2).png
+    figma/lsp/skemalsptflm/Foto kegiatan (3).png
+    figma/lsp/skemalsptflm/Foto kegiatan (4).png
+    figma/lsp/skemalsptflm/Foto kegiatan (5).png
+    figma/lsp/skemalsptflm/Foto kegiatan (6).png
+    figma/lsp/skemalsptflm/Foto kegiatan (7).png
+    figma/lsp/skemalsptflm/Foto kegiatan (8).png
+    figma/lsp/skemalsptflm/Hero Section (2).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-titl (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalsptitl/Button shortcut (10).png
+    figma/lsp/skemalsptitl/Foto kegiatan (1).png
+    figma/lsp/skemalsptitl/Foto kegiatan (2).png
+    figma/lsp/skemalsptitl/Foto kegiatan (3).png
+    figma/lsp/skemalsptitl/Foto kegiatan (4).png
+    figma/lsp/skemalsptitl/Foto kegiatan (5).png
+    figma/lsp/skemalsptitl/Foto kegiatan (6).png
+    figma/lsp/skemalsptitl/Foto kegiatan (7).png
+    figma/lsp/skemalsptitl/Foto kegiatan (8).png
+    figma/lsp/skemalsptitl/Hero Section (13).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### lsp-tkr (20)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/lsp/skemalsptkr/Button shortcut (3).png
+    figma/lsp/skemalsptkr/Foto kegiatan (1).png
+    figma/lsp/skemalsptkr/Foto kegiatan (2).png
+    figma/lsp/skemalsptkr/Foto kegiatan (3).png
+    figma/lsp/skemalsptkr/Foto kegiatan (4).png
+    figma/lsp/skemalsptkr/Foto kegiatan (5).png
+    figma/lsp/skemalsptkr/Foto kegiatan (6).png
+    figma/lsp/skemalsptkr/Foto kegiatan (7).png
+    figma/lsp/skemalsptkr/Foto kegiatan (8).png
+    figma/lsp/skemalsptkr/Hero Section (3).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### major-kgs (29)
+    figma/KGS/Agung Lazuardi.png
+    figma/KGS/Andi Pratama.png
+    figma/KGS/Angelica Vero.png
+    figma/KGS/Button shortcut.png
+    figma/KGS/Dokumentasi Pembelajaranatas.png
+    figma/KGS/Dokumentasi Pembelajaranbawah.png
+    figma/KGS/Fajar Ramadhan.png
+    figma/KGS/Fathan Muyasar.png
+    figma/KGS/Hero Section.png
+    figma/KGS/Nabilla Pertiwi.png
+    figma/KGS/kompetensi.png
+    figma/KGS/mengenal.png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### major-sija (29)
+    figma/SIJA/Angelica Putri.png
+    figma/SIJA/Bagus Rahmansyah.png
+    figma/SIJA/Button shortcut (4).png
+    figma/SIJA/Dokumentasi Pembelajaran (10).png
+    figma/SIJA/Dokumentasi Pembelajaran (9).png
+    figma/SIJA/Hero Section (5).png
+    figma/SIJA/Marwan.png
+    figma/SIJA/Muhammad Fauzan.png
+    figma/SIJA/Nabilla Mallya.png
+    figma/SIJA/Raka Pratama.png
+    figma/SIJA/Roadmap Jurusan.png
+    figma/SIJA/image 3 (4).png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### major-tek (29)
+    figma/TEK/Abi Rafi.png
+    figma/TEK/Alyssa Bella.png
+    figma/TEK/Button shortcut.png
+    figma/TEK/Dinda Azzahra.png
+    figma/TEK/Dokumentasi Pembelajaran atas.png
+    figma/TEK/Dokumentasi Pembelajaran bawah.png
+    figma/TEK/Fajar Ramadhan.png
+    figma/TEK/Firmansyah.png
+    figma/TEK/Hero Section.png
+    figma/TEK/Hidayah Fadillah.png
+    figma/TEK/kompetensi.png
+    figma/TEK/mengenal.png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### major-tflm (29)
+    figma/TFLM/Abdusallam.png
+    figma/TFLM/Button shortcut (2).png
+    figma/TFLM/Dokumentasi Pembelajaran (5).png
+    figma/TFLM/Dokumentasi Pembelajaran (6).png
+    figma/TFLM/Frame 36434 (3).png
+    figma/TFLM/Hero Section (2).png
+    figma/TFLM/Nayla Safira.png
+    figma/TFLM/Raihan Nugroho.png
+    figma/TFLM/Raka Pratama.png
+    figma/TFLM/Riky Hamdan.png
+    figma/TFLM/Salsa Nurfatiha.png
+    figma/TFLM/image 3 (2).png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### major-titl (29)
+    figma/TITL/Assad El Ghanie.png
+    figma/TITL/Button shortcut (1).png
+    figma/TITL/Dokumentasi Pembelajaran (3).png
+    figma/TITL/Dokumentasi Pembelajaran (4).png
+    figma/TITL/Frame 36434 (2).png
+    figma/TITL/Hero Section (1).png
+    figma/TITL/Muhammad Akbar.png
+    figma/TITL/annisakuncoro.png
+    figma/TITL/dimasahmad.png
+    figma/TITL/image 3 (1).png
+    figma/TITL/liliputrikencana.png
+    figma/TITL/rakaaditya.png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### major-tkr (29)
+    figma/TKR/Button shortcut (3).png
+    figma/TKR/Dokumentasi Pembelajaran (7).png
+    figma/TKR/Dokumentasi Pembelajaran (8).png
+    figma/TKR/Dwi Bakti.png
+    figma/TKR/Eva Khuzaifah.png
+    figma/TKR/Frame 36434 (4).png
+    figma/TKR/Hero Section (3).png
+    figma/TKR/Kaesar Agung.png
+    figma/TKR/Putri Cantika.png
+    figma/TKR/Raka Kuncoro.png
+    figma/TKR/Rizky Aditya.png
+    figma/TKR/image 3 (3).png
+    figma/advantages/Arrowleft.png
+    figma/advantages/Arrowright.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/partners/azko.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### mars (23)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/decorations/Rectangle 93 (1).png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/mars/SEMANGATlogo.png
+    figma/mars/belakangvidmars.png
+    figma/mars/bolabolaheromarskecilkanan.png
+    figma/mars/bolabolaheromarskiri.png
+    figma/mars/buderliana.png
+    figma/mars/pak sutaryo.png
+    figma/profile/GARISBAWAHVISISEKOLAH.png
+    figma/profile/VISI SEKOLAHujung.png
+    figma/profile/icondisampingjudulvisimisi.png
+    figma/video-profile/video-profile-play-icon.svg
+    figma/video-profile/video-profile-play-ring.svg
+    figma/video-profile/video-profile-preview.png
+    /srcfigmaAssets.ts
+
+### news-detail (14)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/news/news-raw-01.png
+    figma/news/news-raw-03.png
+    figma/news/news-raw-04.png
+    figma/news/news-raw-07.png
+    figma/news/news-raw-09.png
+    /srcfigmaAssets.ts
+
+### news-list (15)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/news/news-raw-01.png
+    figma/news/news-raw-03.png
+    figma/news/news-raw-04.png
+    figma/news/news-raw-07.png
+    figma/news/news-raw-09.png
+    /srcfigmaAssets.ts
+
+### organisasi (24)
+    figma/Organisasi/Button shortcut (12).png
+    figma/Organisasi/Ekstrakurikuler (1).png
+    figma/Organisasi/Foto kegiatan (1).png
+    figma/Organisasi/Foto kegiatan (2).png
+    figma/Organisasi/Foto kegiatan (3).png
+    figma/Organisasi/Foto kegiatan (4).png
+    figma/Organisasi/Foto kegiatan (5).png
+    figma/Organisasi/Foto kegiatan (6).png
+    figma/Organisasi/Foto kegiatan (7).png
+    figma/Organisasi/Foto kegiatan (8).png
+    figma/Organisasi/hero.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/lsp/Shape (1).png
+    figma/majors/icon-section-badge.svg
+    /srcfigmaAssets.ts
+
+### organisasi-mpk (10)
+    figma/Organisasi/Struktur MPK/Strutur MPK.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    /srcfigmaAssets.ts
+
+### organisasi-osis (10)
+    figma/Organisasi/Struktur Osis/Strutur OSIS.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    /srcfigmaAssets.ts
+
+### partner-detail (26)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/mitra-industri/1.png
+    figma/mitra-industri/2.png
+    figma/mitra-industri/3.png
+    figma/mitra-industri/4.png
+    figma/mitra-industri/5.png
+    figma/mitra-industri/6.png
+    figma/mitra-industri/Shape.png
+    figma/mitra-industri/iconbuku.png
+    figma/partners/astra.png
+    figma/partners/azko.png
+    figma/partners/komatsu.png
+    figma/partners/microvision.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### partners (23)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/decorations/shapekananmitra.png
+    figma/decorations/shapekirimitra.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/mitra-industri/hero.png
+    figma/mitra-industri/image 2 (1).png
+    figma/partners/astra.png
+    figma/partners/azko.png
+    figma/partners/komatsu.png
+    figma/partners/microvision.png
+    figma/partners/panasonic.png
+    figma/partners/pln.png
+    figma/partners/toyota.jpeg
+    figma/partners/wika.png
+    /srcfigmaAssets.ts
+
+### prestasi (42)
+    figma/Prestasi/,,,.png
+    figma/Prestasi/.....png
+    figma/Prestasi/Card Prestasi (1).png
+    figma/Prestasi/Card Prestasi (10).png
+    figma/Prestasi/Card Prestasi (11).png
+    figma/Prestasi/Card Prestasi (12).png
+    figma/Prestasi/Card Prestasi (13).png
+    figma/Prestasi/Card Prestasi (2).png
+    figma/Prestasi/Card Prestasi (3).png
+    figma/Prestasi/Card Prestasi (4).png
+    figma/Prestasi/Card Prestasi (5).png
+    figma/Prestasi/Card Prestasi (6).png
+    figma/Prestasi/Card Prestasi (7).png
+    figma/Prestasi/Card Prestasi (8).png
+    figma/Prestasi/Card Prestasi (9).png
+    figma/Prestasi/Card Prestasi.png
+    figma/Prestasi/Group 1815.png
+    figma/Prestasi/a.png
+    figma/Prestasi/aa.png
+    figma/Prestasi/b.png
+    figma/Prestasi/bbbb.png
+    figma/Prestasi/c.png
+    figma/Prestasi/ccc.png
+    figma/Prestasi/dsa.png
+    figma/Prestasi/mmm.png
+    figma/Prestasi/nnn.png
+    figma/Prestasi/s.png
+    figma/Prestasi/v.png
+    figma/Prestasi/vvv.png
+    figma/Prestasi/xxx.png
+    figma/Prestasi/zzzz.png
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/programs/programs-svg-04.svg
+    /srcfigmaAssets.ts
+
+### profile (28)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/decorations/kanan.png
+    figma/decorations/kiri.png
+    figma/decorations/mengenal.png
+    figma/decorations/mengenalbesar.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/hero/mengenalsmkprofile.png
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/majors/icon-section-badge.svg
+    figma/profile/GARISBAWAHVISISEKOLAH.png
+    figma/profile/Mars.png
+    figma/profile/VISI SEKOLAHujung.png
+    figma/profile/icondisampingjudulvisimisi.png
+    figma/profile/motto.png
+    figma/profile/profile-hero-bg.png
+    figma/profile/profile-mars-bg.png
+    figma/profile/profile-motto-bg.png
+    figma/profile/profile-semboyan-bg.png
+    figma/profile/semboyan.png
+    figma/profile/timelinegaris.png
+    figma/video-profile/video-profile-play-icon.svg
+    /srcfigmaAssets.ts
+
+### struktur (35)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/majors/icon-section-badge.svg
+    figma/struktur & unit kerja/Ardiansyah Putra.png
+    figma/struktur & unit kerja/Bagus Setiawan.png
+    figma/struktur & unit kerja/Deni Kurniawan.png
+    figma/struktur & unit kerja/Rani Maharani.png
+    figma/struktur & unit kerja/bghero.png
+    figma/struktur & unit kerja/struktur-badge.svg
+    figma/struktur & unit kerja/struktur-guru-1.png
+    figma/struktur & unit kerja/struktur-guru-2.png
+    figma/struktur & unit kerja/struktur-guru-3.png
+    figma/struktur & unit kerja/struktur-guru-4.png
+    figma/struktur & unit kerja/struktur-guru-5.png
+    figma/struktur & unit kerja/struktur-guru-6.png
+    figma/struktur & unit kerja/struktur-guru-7.png
+    figma/struktur & unit kerja/struktur-guru-8.png
+    figma/struktur & unit kerja/struktur-kepsek.png
+    figma/struktur & unit kerja/struktur-tendik-1.png
+    figma/struktur & unit kerja/struktur-tendik-2.png
+    figma/struktur & unit kerja/struktur-tendik-3.png
+    figma/struktur & unit kerja/struktur-tendik-4.png
+    figma/struktur & unit kerja/struktur-wakasek-1.png
+    figma/struktur & unit kerja/struktur-wakasek-2.png
+    figma/struktur & unit kerja/struktur-wakasek-3.png
+    figma/struktur & unit kerja/struktur-wakasek-4.png
+    /srcfigmaAssets.ts
+
+### tenaga-kependidikan (14)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/struktur & unit kerja/struktur-badge.svg
+    figma/struktur & unit kerja/struktur-tendik-1.png
+    figma/struktur & unit kerja/struktur-tendik-2.png
+    figma/struktur & unit kerja/struktur-tendik-3.png
+    figma/struktur & unit kerja/struktur-tendik-4.png
+    /srcfigmaAssets.ts
+
+### tim-pendukung (14)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-chevron-down.svg
+    figma/struktur & unit kerja/Ardiansyah Putra.png
+    figma/struktur & unit kerja/Bagus Setiawan.png
+    figma/struktur & unit kerja/Deni Kurniawan.png
+    figma/struktur & unit kerja/Rani Maharani.png
+    figma/struktur & unit kerja/struktur-badge.svg
+    /srcfigmaAssets.ts
+
+### tour (35)
+    figma/ai-cta/ai-cta-raw-02.png
+    figma/branding/smkn26-logo.png
+    figma/footer/footer-svg-03.svg
+    figma/footer/footer-svg-04.svg
+    figma/footer/footer-svg-07.svg
+    figma/footer/footer-svg-08.svg
+    figma/footer/footer-svg-13.svg
+    figma/icons/icon-arrow-right.svg
+    figma/icons/icon-chevron-down.svg
+    figma/icons/secondary-arrow-right.svg
+    figma/majors/icon-section-badge.svg
+    panorama/heroschooltour.png
+    panorama/school_tour/Upscaled/RBTRA.jpg
+    panorama/school_tour/Upscaled/bengkel.jpg
+    panorama/school_tour/Upscaled/bengkel_kgs.jpg
+    panorama/school_tour/Upscaled/bengkel_sija.jpg
+    panorama/school_tour/Upscaled/bengkel_titl.jpg
+    panorama/school_tour/Upscaled/bengkel_tkr.jpg
+    panorama/school_tour/Upscaled/dalam_masjid.jpg
+    panorama/school_tour/Upscaled/depan_aula.jpg
+    panorama/school_tour/Upscaled/depan_lsp.jpg
+    panorama/school_tour/Upscaled/depan_masjid.jpg
+    panorama/school_tour/Upscaled/depan_tek.jpg
+    panorama/school_tour/Upscaled/gerbang.jpg
+    panorama/school_tour/Upscaled/jogging_track.jpg
+    panorama/school_tour/Upscaled/kantin.jpg
+    panorama/school_tour/Upscaled/lapangan.jpg
+    panorama/school_tour/Upscaled/pedestrian.jpg
+    panorama/school_tour/Upscaled/pedestrian_rbtra.jpg
+    panorama/school_tour/Upscaled/pendopo_kgs.jpg
+    panorama/school_tour/Upscaled/perpustakaan.jpg
+    panorama/school_tour/Upscaled/ruang_piket.jpg
+    panorama/school_tour/Upscaled/satpam.jpg
+    panorama/school_tour/Upscaled/toilet1.jpg
+    /srcfigmaAssets.ts

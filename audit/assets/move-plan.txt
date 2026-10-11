@@ -1,0 +1,194 @@
+== MOVE PLAN ==
+moves: 394, deletes(dups): 52
+
+TOP CATEGORY COUNTS:
+  home/achievements: 7
+  home/ai-cta: 1
+  home/blud: 6
+  home/icons: 1
+  home/majors: 8
+  home/news: 1
+  home/programs: 7
+  home/school: 1
+  home/shortcuts: 4
+  home/video-profile: 3
+  majors/KGSAssets: 3
+  majors/SIJAAssets: 2
+  majors/TEKAssets: 4
+  majors/TFLMAssets: 4
+  majors/TITLAssets: 3
+  majors/TKRAssets: 4
+  pages/bkk: 18
+  pages/blud: 51
+  pages/ekstrakurikuler: 2
+  pages/guru: 1
+  pages/lsp: 59
+  pages/majors: 40
+  pages/mars: 7
+  pages/mitra-industri: 5
+  pages/organisasi: 12
+  pages/portal-informasi: 5
+  pages/prestasi: 30
+  pages/profile: 13
+  pages/tour: 23
+  shared/advantages: 6
+  shared/branding: 1
+  shared/chatbot: 1
+  shared/footer: 5
+  shared/hero: 2
+  shared/icons: 10
+  shared/illustrations: 1
+  shared/lsp: 1
+  shared/majors: 2
+  shared/news: 5
+  shared/partners: 8
+  shared/profile: 3
+  shared/struktur: 22
+  shared/video-profile: 2
+
+MAJOR ASSETS:
+  figma/TITL/Button shortcut (1).png  ->  majors/TITLAssets/titl-shortcut.png
+  figma/TITL/Dokumentasi Pembelajaran (3).png  ->  majors/TITLAssets/titl-dokumentasi-3.png
+  figma/TITL/Dokumentasi Pembelajaran (4).png  ->  majors/TITLAssets/titl-dokumentasi-4.png
+  figma/SIJA/Button shortcut (4).png  ->  majors/SIJAAssets/sija-shortcut.png
+  figma/SIJA/Hero Section (5).png  ->  majors/SIJAAssets/sija-hero.png
+  figma/TKR/Dokumentasi Pembelajaran (7).png  ->  majors/TKRAssets/tkr-dokumentasi-7.png
+  figma/TKR/Dokumentasi Pembelajaran (8).png  ->  majors/TKRAssets/tkr-dokumentasi-8.png
+  figma/TKR/Hero Section (3).png  ->  majors/TKRAssets/tkr-hero.png
+  figma/KGS/Button shortcut.png  ->  majors/KGSAssets/kgs-shortcut.png
+  figma/KGS/mengenal.png  ->  majors/KGSAssets/kgs-mengenal.png
+  figma/TFLM/Dokumentasi Pembelajaran (5).png  ->  majors/TFLMAssets/tflm-dokumentasi-5.png
+  figma/TFLM/Dokumentasi Pembelajaran (6).png  ->  majors/TFLMAssets/tflm-dokumentasi-6.png
+  figma/TEK/Button shortcut.png  ->  majors/TEKAssets/tek-shortcut.png
+  figma/TEK/Dokumentasi Pembelajaran atas.png  ->  majors/TEKAssets/tek-dokumentasi-atas.png
+  figma/TEK/Dokumentasi Pembelajaran bawah.png  ->  majors/TEKAssets/tek-dokumentasi-bawah.png
+  figma/KGS/Hero Section.png  ->  majors/KGSAssets/kgs-hero.png
+  figma/TEK/Hero Section.png  ->  majors/TEKAssets/tek-hero.png
+  figma/TFLM/Button shortcut (2).png  ->  majors/TFLMAssets/tflm-shortcut.png
+  figma/TFLM/Hero Section (2).png  ->  majors/TFLMAssets/tflm-hero.png
+  figma/TKR/Button shortcut (3).png  ->  majors/TKRAssets/tkr-shortcut.png
+
+SHARED:
+  figma/advantages/advantage-blud.png  ->  shared/advantages/advantage-blud.png
+  figma/advantages/advantage-education.png  ->  shared/advantages/advantage-education.png
+  figma/advantages/advantage-inclusive.png  ->  shared/advantages/advantage-inclusive.png
+  figma/advantages/advantage-industry.png  ->  shared/advantages/advantage-industry.png
+  figma/advantages/advantage-interest.png  ->  shared/advantages/advantage-interest.png
+  figma/advantages/advantage-lsp.png  ->  shared/advantages/advantage-lsp.png
+  figma/advantages/Arrowleft.png  ->  shared/icons/arrow-left.png
+  figma/advantages/Arrowright.png  ->  shared/icons/arrow-right.png
+  figma/majors/icon-major-education.svg  ->  shared/icons/book-education.svg
+  figma/ai-cta/ai-cta-raw-02.png  ->  shared/chatbot/chatbot.png
+  figma/BKK/Button shortcut (13).png  ->  shared/icons/button-shortcut.png
+  figma/branding/smkn26-logo.png  ->  shared/branding/smkn26-logo.png
+  figma/footer/footer-svg-03.svg  ->  shared/footer/footer-whatsapp.svg
+  figma/footer/footer-svg-04.svg  ->  shared/footer/footer-email.svg
+  figma/footer/footer-svg-07.svg  ->  shared/footer/footer-instagram.svg
+  figma/footer/footer-svg-08.svg  ->  shared/footer/footer-youtube.svg
+  figma/footer/footer-svg-13.svg  ->  shared/footer/footer-address.svg
+  figma/hero/hero-school-building.png  ->  shared/hero/school-building.png
+  figma/hero/student-male.png  ->  shared/hero/student-male.png
+  figma/icons/icon-arrow-right.svg  ->  shared/icons/arrow-right.svg
+  figma/icons/icon-chevron-down.svg  ->  shared/icons/chevron-down.svg
+  figma/icons/icon-play-video.svg  ->  shared/icons/play-video.svg
+  figma/icons/secondary-arrow-right.svg  ->  shared/icons/secondary-arrow-right.svg
+  figma/KGS/Andi Pratama.png  ->  shared/majors/Andi Pratama.png
+  figma/SIJA/Marwan.png  ->  shared/majors/Marwan.png
+  figma/lsp/image 2 (2).png  ->  shared/illustrations/berkembang.png
+  figma/lsp/Shape (1).png  ->  shared/lsp/hover-shape.png
+  figma/programs/programs-svg-04.svg  ->  shared/icons/section-badge.svg
+  figma/majors/popover-pointer-left.svg  ->  shared/icons/popover-pointer.svg
+  figma/news/news-raw-01.png  ->  shared/news/news-raw-01.png
+  figma/news/news-raw-03.png  ->  shared/news/news-raw-03.png
+  figma/news/news-raw-04.png  ->  shared/news/news-raw-04.png
+  figma/news/news-raw-07.png  ->  shared/news/news-raw-07.png
+  figma/news/news-raw-09.png  ->  shared/news/news-raw-09.png
+  figma/partners/astra.png  ->  shared/partners/astra.png
+  figma/partners/azko.png  ->  shared/partners/azko.png
+  figma/partners/komatsu.png  ->  shared/partners/komatsu.png
+  figma/partners/microvision.png  ->  shared/partners/microvision.png
+  figma/partners/panasonic.png  ->  shared/partners/panasonic.png
+  figma/partners/pln.png  ->  shared/partners/pln.png
+  figma/partners/toyota.jpeg  ->  shared/partners/toyota.jpeg
+  figma/partners/wika.png  ->  shared/partners/wika.png
+  figma/profile/GARISBAWAHVISISEKOLAH.png  ->  shared/profile/visi-misi-garis.png
+  figma/profile/icondisampingjudulvisimisi.png  ->  shared/profile/visi-misi-icon.png
+  figma/profile/VISI SEKOLAHujung.png  ->  shared/profile/visi-ujung.png
+  figma/struktur & unit kerja/Ardiansyah Putra.png  ->  shared/struktur/Ardiansyah Putra.png
+  figma/struktur & unit kerja/Bagus Setiawan.png  ->  shared/struktur/Bagus Setiawan.png
+  figma/struktur & unit kerja/bghero.png  ->  shared/struktur/bghero.png
+  figma/struktur & unit kerja/Deni Kurniawan.png  ->  shared/struktur/Deni Kurniawan.png
+  figma/struktur & unit kerja/Rani Maharani.png  ->  shared/struktur/Rani Maharani.png
+  figma/struktur & unit kerja/struktur-guru-1.png  ->  shared/struktur/struktur-guru-1.png
+  figma/struktur & unit kerja/struktur-guru-2.png  ->  shared/struktur/struktur-guru-2.png
+  figma/struktur & unit kerja/struktur-guru-3.png  ->  shared/struktur/struktur-guru-3.png
+  figma/struktur & unit kerja/struktur-guru-4.png  ->  shared/struktur/struktur-guru-4.png
+  figma/struktur & unit kerja/struktur-guru-5.png  ->  shared/struktur/struktur-guru-5.png
+  figma/struktur & unit kerja/struktur-guru-6.png  ->  shared/struktur/struktur-guru-6.png
+  figma/struktur & unit kerja/struktur-guru-7.png  ->  shared/struktur/struktur-guru-7.png
+  figma/struktur & unit kerja/struktur-guru-8.png  ->  shared/struktur/struktur-guru-8.png
+  figma/struktur & unit kerja/struktur-kepsek.png  ->  shared/struktur/struktur-kepsek.png
+  figma/struktur & unit kerja/struktur-tendik-1.png  ->  shared/struktur/struktur-tendik-1.png
+  figma/struktur & unit kerja/struktur-tendik-2.png  ->  shared/struktur/struktur-tendik-2.png
+  figma/struktur & unit kerja/struktur-tendik-3.png  ->  shared/struktur/struktur-tendik-3.png
+  figma/struktur & unit kerja/struktur-tendik-4.png  ->  shared/struktur/struktur-tendik-4.png
+  figma/struktur & unit kerja/struktur-wakasek-1.png  ->  shared/struktur/struktur-wakasek-1.png
+  figma/struktur & unit kerja/struktur-wakasek-2.png  ->  shared/struktur/struktur-wakasek-2.png
+  figma/struktur & unit kerja/struktur-wakasek-3.png  ->  shared/struktur/struktur-wakasek-3.png
+  figma/struktur & unit kerja/struktur-wakasek-4.png  ->  shared/struktur/struktur-wakasek-4.png
+  figma/video-profile/video-profile-play-ring.svg  ->  shared/video-profile/video-profile-play-ring.svg
+  figma/video-profile/video-profile-preview.png  ->  shared/video-profile/video-profile-preview.png
+
+DELETED DUPES:
+  figma/advantages/icon-book-education-secondary.svg   (dup of shared/icons/book-education.svg)
+  figma/ekstrakulikuler/Button shortcut (11).png   (dup of shared/icons/button-shortcut.png)
+  figma/Organisasi/Button shortcut (12).png   (dup of shared/icons/button-shortcut.png)
+  figma/BLUD-E-MAN/Button shortcut (5).png   (dup of majors/TITLAssets/titl-shortcut.png)
+  figma/mitra-industri/3.png   (dup of majors/TITLAssets/titl-shortcut.png)
+  figma/BLUD-E-MAN/Dokumentasi Pembelajaran (3).png   (dup of majors/TITLAssets/titl-dokumentasi-3.png)
+  figma/BLUD-E-MAN/Dokumentasi Pembelajaran (4).png   (dup of majors/TITLAssets/titl-dokumentasi-4.png)
+  figma/BLUD-GadizVokasi/Button shortcut (4).png   (dup of majors/SIJAAssets/sija-shortcut.png)
+  figma/lsp/skemalspsija/Button shortcut (4).png   (dup of majors/SIJAAssets/sija-shortcut.png)
+  figma/mitra-industri/6.png   (dup of majors/SIJAAssets/sija-shortcut.png)
+  figma/BLUD-GadizVokasi/Hero Section (8).png   (dup of majors/SIJAAssets/sija-hero.png)
+  figma/lsp/skemalspsija/Hero Section (5).png   (dup of majors/SIJAAssets/sija-hero.png)
+  figma/BLUD-Garage26/Dokumentasi Pembelajaran (7).png   (dup of majors/TKRAssets/tkr-dokumentasi-7.png)
+  figma/BLUD-Garage26/Dokumentasi Pembelajaran (8).png   (dup of majors/TKRAssets/tkr-dokumentasi-8.png)
+  figma/BLUD-Garage26/Hero Section (7).png   (dup of majors/TKRAssets/tkr-hero.png)
+  figma/lsp/skemalsptkr/Hero Section (3).png   (dup of majors/TKRAssets/tkr-hero.png)
+  figma/BLUD-KGS/Button shortcut (4).png   (dup of majors/KGSAssets/kgs-shortcut.png)
+  figma/lsp/skemalspkgs/Button shortcut (8).png   (dup of majors/KGSAssets/kgs-shortcut.png)
+  figma/mitra-industri/1.png   (dup of majors/KGSAssets/kgs-shortcut.png)
+  figma/BLUD-KGS/image 3 (4).png   (dup of majors/KGSAssets/kgs-mengenal.png)
+  figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (5).png   (dup of majors/TFLMAssets/tflm-dokumentasi-5.png)
+  figma/BLUD-Manufaktur26/Dokumentasi Pembelajaran (6).png   (dup of majors/TFLMAssets/tflm-dokumentasi-6.png)
+  figma/BLUD-UPTECHNO/Button shortcut.png   (dup of majors/TEKAssets/tek-shortcut.png)
+  figma/mitra-industri/2.png   (dup of majors/TEKAssets/tek-shortcut.png)
+  figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (11).png   (dup of majors/TEKAssets/tek-dokumentasi-atas.png)
+  figma/BLUD-UPTECHNO/Dokumentasi Pembelajaran (12).png   (dup of majors/TEKAssets/tek-dokumentasi-bawah.png)
+  figma/majors/icon-arrow-right.svg   (dup of shared/icons/arrow-right.svg)
+  figma/video-profile/video-profile-play-icon.svg   (dup of shared/icons/play-video.svg)
+  figma/SIJA/Raka Pratama.png   (dup of shared/majors/Andi Pratama.png)
+  figma/TEK/Fajar Ramadhan.png   (dup of shared/majors/Andi Pratama.png)
+  figma/TFLM/Raka Pratama.png   (dup of shared/majors/Andi Pratama.png)
+  figma/TITL/Assad El Ghanie.png   (dup of shared/majors/Andi Pratama.png)
+  figma/TKR/Rizky Aditya.png   (dup of shared/majors/Andi Pratama.png)
+  figma/KGS/Fajar Ramadhan.png   (dup of shared/majors/Marwan.png)
+  figma/TEK/Abi Rafi.png   (dup of shared/majors/Marwan.png)
+  figma/TFLM/Abdusallam.png   (dup of shared/majors/Marwan.png)
+  figma/TITL/Muhammad Akbar.png   (dup of shared/majors/Marwan.png)
+  figma/TKR/Dwi Bakti.png   (dup of shared/majors/Marwan.png)
+  figma/lsp/skemalspkgs/Hero Section (11).png   (dup of majors/KGSAssets/kgs-hero.png)
+  figma/mitra-industri/image 2 (1).png   (dup of shared/illustrations/berkembang.png)
+  figma/lsp/skemalsptek/Hero Section (12).png   (dup of majors/TEKAssets/tek-hero.png)
+  figma/lsp/skemalsptflm/Button shortcut (2).png   (dup of majors/TFLMAssets/tflm-shortcut.png)
+  figma/mitra-industri/4.png   (dup of majors/TFLMAssets/tflm-shortcut.png)
+  figma/lsp/skemalsptflm/Foto kegiatan (4).png   (dup of pages/lsp/tflm/Foto kegiatan (1).png)
+  figma/lsp/skemalsptflm/Hero Section (2).png   (dup of majors/TFLMAssets/tflm-hero.png)
+  figma/lsp/skemalsptkr/Button shortcut (3).png   (dup of majors/TKRAssets/tkr-shortcut.png)
+  figma/mitra-industri/5.png   (dup of majors/TKRAssets/tkr-shortcut.png)
+  figma/majors/icon-section-badge.svg   (dup of shared/icons/section-badge.svg)
+  figma/struktur & unit kerja/struktur-badge.svg   (dup of shared/icons/section-badge.svg)
+  figma/video-profile/video-profile-badge-icon.svg   (dup of shared/icons/section-badge.svg)
+  figma/majors/popover-pointer-right.svg   (dup of shared/icons/popover-pointer.svg)
+  figma/Prestasi/xxx.png   (dup of pages/prestasi/ccc.png)

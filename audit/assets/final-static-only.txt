@@ -1,0 +1,26 @@
+     1.1 KB  /assets/figma/achievements/achievements-svg-13.svg
+     1.4 KB  /assets/figma/advantages/advantage-arrow.svg
+     1.4 KB  /assets/figma/advantages/advantage-carousel-left.svg
+     1.4 KB  /assets/figma/advantages/advantage-carousel-right.svg
+   777.3 KB  /assets/figma/ai-cta/ai-cta-raw-01.png
+     0.3 KB  /assets/figma/ai-cta/ai-cta-svg-02.svg
+     0.4 KB  /assets/figma/ai-cta/ai-cta-svg-10.svg
+     0.8 KB  /assets/figma/blud/blud-KGS-shape.svg
+     0.8 KB  /assets/figma/blud/blud-SIJA-shape.svg
+     0.8 KB  /assets/figma/blud/blud-svg-06.svg
+     0.8 KB  /assets/figma/blud/blud-svg-12.svg
+     0.8 KB  /assets/figma/blud/blud-svg-13.svg
+     0.7 KB  /assets/figma/blud/blud-svg-19.svg
+     0.8 KB  /assets/figma/blud/blud-TKR-shape.svg
+  3948.3 KB  /assets/figma/hero/hero-background.png
+     0.4 KB  /assets/figma/hero/hero-headline.svg
+   143.9 KB  /assets/figma/hero/student-female.png
+  1872.2 KB  /assets/figma/news/news-raw-02.png
+  2024.5 KB  /assets/figma/news/news-raw-05.png
+    21.0 KB  /assets/figma/partners/partner-panasonic.png
+    20.9 KB  /assets/figma/partners/partner-pln.png
+    19.7 KB  /assets/figma/partners/partner-wika.png
+   205.5 KB  /assets/figma/profile/profile-overview.png
+     1.2 KB  /assets/figma/struktur & unit kerja/struktur-arrow-right.svg
+     1.4 KB  /assets/figma/struktur & unit kerja/struktur-arrow.svg
+   438.0 KB  /assets/panorama/tampilanfigma.png

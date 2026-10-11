@@ -2,7 +2,7 @@ import { useState } from "react";
 import { usePublicChat } from "../../features/chat/ChatProvider";
 
 type ChatbotState = "idle" | "hover" | "active";
-const chatbotImage = "/assets/figma/ai-cta/ai-cta-raw-02.png";
+const chatbotImage = "/assets/shared/chatbot/chatbot.png";
 
 export function FloatingChatbot() {
   const { openChat } = usePublicChat();

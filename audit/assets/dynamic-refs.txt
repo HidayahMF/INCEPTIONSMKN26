@@ -1,0 +1,26 @@
+/assets/figma/${folder}/${name}  <- frontend/src/pages/BludServicePage.tsx:5
+/assets/figma/BKK/${name}  <- frontend/src/pages/BkkPage.tsx:7
+/assets/figma/BLUD-E-MAN/${name}  <- frontend/src/pages/EmanPage.tsx:4
+/assets/figma/BLUD-KGS/${name}  <- frontend/src/pages/KgStudioPage.tsx:4
+/assets/figma/BLUD-UPTECHNO/${name}  <- frontend/src/pages/UptechnoPage.tsx:4
+/assets/figma/KGS/${name}  <- frontend/src/pages/KgsPage.tsx:8
+/assets/figma/Organisasi/${name}  <- frontend/src/pages/OrganisasiSekolahPage.tsx:5
+/assets/figma/Prestasi/${name}  <- frontend/src/pages/PrestasiPage.tsx:4
+/assets/figma/SIJA/${name}  <- frontend/src/pages/SijaPage.tsx:8
+/assets/figma/TEK/${name}  <- frontend/src/pages/TekPage.tsx:8
+/assets/figma/TFLM/${name}  <- frontend/src/pages/TflmPage.tsx:8
+/assets/figma/TITL/${name}  <- frontend/src/pages/TitlPage.tsx:8
+/assets/figma/TKR/${name}  <- frontend/src/pages/TkrPage.tsx:8
+/assets/figma/ekstrakulikuler/${name}  <- frontend/src/pages/EkstrakurikulerPage.tsx:5
+/assets/figma/lsp/${name}  <- frontend/src/pages/LspPage.tsx:8
+/assets/figma/lsp/skemalspkgs/${name}  <- frontend/src/pages/LspKgsPage.tsx:4
+/assets/figma/lsp/skemalspsija/${name}  <- frontend/src/pages/LspSijaPage.tsx:4
+/assets/figma/lsp/skemalsptek/${name}  <- frontend/src/pages/LspTekPage.tsx:4
+/assets/figma/lsp/skemalsptflm/${name}  <- frontend/src/pages/LspTflmPage.tsx:4
+/assets/figma/lsp/skemalsptitl/${name}  <- frontend/src/pages/LspTitlPage.tsx:4
+/assets/figma/lsp/skemalsptkr/${name}  <- frontend/src/pages/LspTkrPage.tsx:4
+/assets/figma/mitra-industri/${index + 1}.png  <- frontend/src/pages/PartnerDetailPage.tsx:137
+/assets/figma/partners/${file}  <- frontend/src/components/public/IndustryPartnersMarquee.tsx:44
+/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}  <- frontend/src/App.tsx:127
+/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}  <- frontend/src/App.tsx:240
+/assets/panorama/school_tour/Upscaled/${file}.jpg  <- frontend/src/data/tourLocations.ts:10

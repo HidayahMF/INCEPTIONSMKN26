@@ -5,7 +5,14 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMarquee";
 
-const asset = (name: string) => `/assets/figma/KGS/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Andi Pratama.png": "/assets/shared/majors/person-a.png",
+  "Button shortcut.png": "/assets/majors/KGSAssets/kgs-shortcut.png",
+  "Fajar Ramadhan.png": "/assets/shared/majors/person-b.png",
+  "Hero Section.png": "/assets/majors/KGSAssets/kgs-hero.png",
+  "mengenal.png": "/assets/majors/KGSAssets/kgs-mengenal.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/kgs/${name}`;
 
 const competencies = [
   "Gambar Konstruksi",
@@ -53,7 +60,7 @@ const alumni = [
 function Label({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#D40009] shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
+      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
       {children}
     </span>
   );

@@ -1,8 +1,11 @@
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/Prestasi/${name}`;
-const achievementBadgeIcon = "/assets/figma/programs/programs-svg-04.svg";
+const ASSET_OVERRIDES: Record<string, string> = {
+  "xxx.png": "/assets/pages/prestasi/ccc.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/prestasi/${name}`;
+const achievementBadgeIcon = "/assets/shared/icons/section-badge.svg";
 
 const cards = [
   ",,,.png",
@@ -40,7 +43,7 @@ const cards = [
 function Badge({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+      <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
       {children}
     </span>
   );

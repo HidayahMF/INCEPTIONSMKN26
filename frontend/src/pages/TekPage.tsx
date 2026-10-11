@@ -5,7 +5,15 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMarquee";
 
-const asset = (name: string) => `/assets/figma/TEK/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Abi Rafi.png": "/assets/shared/majors/person-b.png",
+  "Button shortcut.png": "/assets/majors/TEKAssets/tek-shortcut.png",
+  "Dokumentasi Pembelajaran atas.png": "/assets/majors/TEKAssets/tek-dokumentasi-atas.png",
+  "Dokumentasi Pembelajaran bawah.png": "/assets/majors/TEKAssets/tek-dokumentasi-bawah.png",
+  "Fajar Ramadhan.png": "/assets/shared/majors/person-a.png",
+  "Hero Section.png": "/assets/majors/TEKAssets/tek-hero.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tek/${name}`;
 
 const competencies = [
   "Dasar Elektronika",
@@ -33,7 +41,7 @@ const alumni = [
 function Label({ children }: { children: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#004E9E] shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
+      <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
       {children}
     </span>
   );

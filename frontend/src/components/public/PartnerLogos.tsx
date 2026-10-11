@@ -90,14 +90,14 @@ export function PartnerIndustryPage() {
         aria-labelledby="partners-page-title"
       >
         <div className="pointer-events-none absolute inset-0 z-0 min-[1280px]:hidden">
-          <img className="absolute inset-0 size-full object-cover object-[center_bottom]" src="/assets/figma/mitra-industri/hero.png" alt="" aria-hidden="true" />
+          <img className="absolute inset-0 size-full object-cover object-[center_bottom]" src="/assets/pages/mitra-industri/hero.png" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(234,245,250,.94)_0%,rgba(234,245,250,.36)_34%,rgba(234,245,250,0)_55%)]" aria-hidden="true" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 top-0 z-0 hidden aspect-[1374/741] w-full min-[1280px]:block">
-          <img className="absolute inset-0 size-full object-cover object-bottom" src="/assets/figma/mitra-industri/hero.png" alt="" aria-hidden="true" />
+          <img className="absolute inset-0 size-full object-cover object-bottom" src="/assets/pages/mitra-industri/hero.png" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(234,245,250,.94)_0%,rgba(234,245,250,.36)_34%,rgba(234,245,250,0)_55%)]" aria-hidden="true" />
-          <img ref={shapeLeftRef} className="absolute left-[10.1%] top-[38.4%] w-[5.68%] max-w-none" src="/assets/figma/decorations/shapekirimitra.png" alt="" aria-hidden="true" />
-          <img ref={shapeRightRef} className="absolute left-[84.5%] top-[26.8%] w-[5.68%] max-w-none" src="/assets/figma/decorations/shapekananmitra.png" alt="" aria-hidden="true" />
+          <img ref={shapeLeftRef} className="absolute left-[10.1%] top-[38.4%] w-[5.68%] max-w-none" src="/assets/shared/decorations/shapekirimitra.png" alt="" aria-hidden="true" />
+          <img ref={shapeRightRef} className="absolute left-[84.5%] top-[26.8%] w-[5.68%] max-w-none" src="/assets/shared/decorations/shapekananmitra.png" alt="" aria-hidden="true" />
         </div>
         <div className="relative z-10 mx-auto flex w-full max-w-[1272px] flex-col items-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-primary shadow-[0_4px_16px_rgba(15,23,42,.08)]">
@@ -124,7 +124,7 @@ export function PartnerIndustryPage() {
 
       <div className="mx-auto w-full max-w-[1272px] px-4 sm:px-6 lg:px-0">
         <section className="grid items-center gap-10 pt-[125px] pb-16 sm:pt-[145px] sm:pb-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)]" aria-labelledby="partners-intro-title">
-           <img className="order-2 h-auto max-h-[360px] w-full object-contain lg:order-1" src="/assets/figma/mitra-industri/image 2 (1).png" alt="Siswa SMKN 26 melakukan praktik teknis" />
+           <img className="order-2 h-auto max-h-[360px] w-full object-contain lg:order-1" src="/assets/shared/illustrations/berkembang.png" alt="Siswa SMKN 26 melakukan praktik teknis" />
           <div className="order-1 lg:order-2">
             <h2 id="partners-intro-title" className="text-3xl font-bold leading-[1.25] sm:text-4xl sm:leading-[1.35]">Mitra Industri<br /><span className="text-primary">SMK Negeri 26 Jakarta</span></h2>
             <p className="mt-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">Membangun kolaborasi antara SMKN 26 Jakarta dan dunia industri untuk menghadirkan pembelajaran yang relevan, praktik nyata, serta kesiapan kerja bagi siswa.</p>

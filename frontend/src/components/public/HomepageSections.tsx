@@ -45,27 +45,27 @@ const achievementCards = [
   [
     "Tim Basket",
     "Juara 1 kategori student Ciara Student Orienteering 4 - Tingkat nasional",
-    "/assets/figma/achievements/achievements-raw-08.png",
+    "/assets/home/achievements/achievements-raw-08.png",
   ],
   [
     "Tim Futsal",
     "Juara 1 Kofesse Cup - Tingkat Provinsi",
-    "/assets/figma/achievements/achievements-raw-03.png",
+    "/assets/home/achievements/achievements-raw-03.png",
   ],
   [
     "Paskibra Swabhangun",
     "Harapan 3 | Juara Make Up 2 | Juara Utama 1 | Variasi Formasi Terbaik",
-    "/assets/figma/achievements/achievements-raw-01.png",
+    "/assets/home/achievements/achievements-raw-01.png",
   ],
   [
     "Tim Pramuka",
     "Juara Umum 3 Putra | Juara 2 Tari Tradisional Putra - Kwartir JakTim",
-    "/assets/figma/achievements/achievements-raw-04.png",
+    "/assets/home/achievements/achievements-raw-04.png",
   ],
   [
     "Tim Voli",
     "Juara 2 Galaxy Cup 2025 - Tingkat Wilayah",
-    "/assets/figma/achievements/achievements-raw-07.png",
+    "/assets/home/achievements/achievements-raw-07.png",
   ],
 ] as const;
 const newsCards = newsItems;
@@ -73,30 +73,30 @@ const programRightCards = [
   [
     "Lembaga Sertifikasi Profesi",
     "Validasi kompetensi, siapkan diri untuk dunia kerja.",
-    "/assets/figma/programs/programs-raw-07.png",
+    "/assets/home/programs/programs-raw-07.png",
     "/programs/lsp",
   ],
   [
     "OSIS & MPK",
     "Tempat belajar memimpin, berkolaborasi, dan berkontribusi.",
-    "/assets/figma/programs/programs-raw-10.png",
+    "/assets/home/programs/programs-raw-10.png",
     "/programs/organisasi",
   ],
   [
     "Bursa Kerja Khusus",
     "Menghubungkan kompetensi siswa dengan peluang kerja.",
-    "/assets/figma/programs/programs-raw-02.png",
+    "/assets/home/programs/programs-raw-02.png",
     "/programs/bkk",
   ],
 ] as const;
 const programPanels = [
-  "/assets/figma/programs/programs-raw-04.png",
-  "/assets/figma/programs/programs-raw-06.png",
-  "/assets/figma/programs/programs-raw-03.png",
+  "/assets/home/programs/programs-raw-04.png",
+  "/assets/home/programs/programs-raw-06.png",
+  "/assets/home/programs/programs-raw-03.png",
 ] as const;
-const programArrow = "/assets/figma/programs/programs-svg-01.svg";
-const programCtaArrow = "/assets/figma/icons/icon-arrow-right.svg";
-const programBadgeIcon = "/assets/figma/programs/programs-svg-04.svg";
+const programArrow = "/assets/home/programs/programs-svg-01.svg";
+const programCtaArrow = "/assets/shared/icons/arrow-right.svg";
+const programBadgeIcon = "/assets/shared/icons/section-badge.svg";
 
 export function HomepageSections({ onAskAi }: Props) {
   return (
@@ -532,7 +532,7 @@ function BludSection() {
   );
 }
 
-const achievementBadgeIcon = "/assets/figma/programs/programs-svg-04.svg";
+const achievementBadgeIcon = "/assets/shared/icons/section-badge.svg";
 
 function AchievementsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -698,27 +698,27 @@ function AchievementsSection() {
           [
             "100+",
             "Prestasi",
-            "/assets/figma/achievements/achievements-svg-12.svg",
+            "/assets/home/achievements/achievements-svg-12.svg",
           ],
           [
             "10",
             "Tingkat Internasional",
-            "/assets/figma/achievements/achievements-svg-03.svg",
+            "/assets/home/achievements/achievements-svg-03.svg",
           ],
           [
             "56",
             "Tingkat Nasional",
-            "/assets/figma/achievements/achievements-svg-03.svg",
+            "/assets/home/achievements/achievements-svg-03.svg",
           ],
           [
             "24",
             "Tingkat Provinsi",
-            "/assets/figma/achievements/achievements-svg-03.svg",
+            "/assets/home/achievements/achievements-svg-03.svg",
           ],
           [
             "30",
             "Tingkat Kota",
-            "/assets/figma/achievements/achievements-svg-03.svg",
+            "/assets/home/achievements/achievements-svg-03.svg",
           ],
         ].map(([value, label, icon], index) => (
           <div
@@ -749,8 +749,8 @@ function AchievementsSection() {
   );
 }
 
-const newsCategoryIcon = "/assets/figma/news/news-calendar.svg";
-const newsBadgeIcon = "/assets/figma/programs/programs-svg-04.svg";
+const newsCategoryIcon = "/assets/shared/news/news-calendar.svg";
+const newsBadgeIcon = "/assets/shared/icons/section-badge.svg";
 
 function NewsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -964,7 +964,7 @@ function AiCtaSection({ onAskAi }: Props) {
     >
       <div className="relative mx-auto h-[536px] w-[1437px] max-w-[calc(100vw-3px)] overflow-hidden max-md:h-auto max-md:w-full max-md:max-w-full max-md:px-5 max-md:flex max-md:flex-col max-md:items-center">
         <span data-aos="fade-down" className="ai-cta-badge absolute left-1/2 top-[78px] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] max-md:static max-md:mt-14 max-md:translate-x-0">
-          <img className="h-[17px] w-[13.6px]" src="/assets/figma/majors/icon-section-badge.svg" alt="" aria-hidden="true" />
+          <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
           TANYA PEMBANGUNAN.AI
         </span>
         <div className="ai-cta-copy absolute left-[106px] top-[103px] z-[1] w-[586px] max-md:static max-md:mt-8 max-md:w-full max-md:text-center">

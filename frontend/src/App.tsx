@@ -110,12 +110,12 @@ const informationPortals = [
 ] as const;
 
 const majorHeroImages: Record<string, string> = {
-  KGS: "/assets/figma/KGS/Hero%20Section.png",
-  TEK: "/assets/figma/TEK/Hero%20Section.png",
-  TITL: "/assets/figma/TITL/Hero%20Section%20(1).png",
-  TFLM: "/assets/figma/TFLM/Hero%20Section%20(2).png",
-  TKR: "/assets/figma/TKR/Hero%20Section%20(3).png",
-  SIJA: "/assets/figma/SIJA/Hero%20Section%20(5).png",
+  KGS: "/assets/majors/KGSAssets/kgs-hero.png",
+  TEK: "/assets/majors/TEKAssets/tek-hero.png",
+  TITL: "/assets/pages/majors/titl/Hero%20Section%20(1).png",
+  TFLM: "/assets/majors/TFLMAssets/tflm-hero.png",
+  TKR: "/assets/majors/TKRAssets/tkr-hero.png",
+  SIJA: "/assets/majors/SIJAAssets/sija-hero.png",
 };
 
 const searchableInformation = [
@@ -124,7 +124,7 @@ const searchableInformation = [
   ...majors.map((major) => ({ title: major.name, category: `Jurusan ${major.code}`, summary: major.description, href: major.href, image: majorHeroImages[major.id] })),
   ...advantages.map((advantage) => ({ title: advantage.title, category: "Keunggulan", summary: advantage.summary, href: `/advantages/${advantage.slug}`, image: advantage.image })),
   ...newsItems.map((news) => ({ title: news.title, category: news.category, summary: news.description, href: `/news/${news.slug}`, image: news.image })),
-  ...informationPortals.map((portal) => ({ title: portal.title, category: "Portal Informasi", summary: "Akses portal resmi yang digunakan untuk layanan dan informasi sekolah.", href: portal.href, image: `/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}`, external: true })),
+  ...informationPortals.map((portal) => ({ title: portal.title, category: "Portal Informasi", summary: "Akses portal resmi yang digunakan untuk layanan dan informasi sekolah.", href: portal.href, image: `/assets/pages/portal-informasi/${encodeURIComponent(portal.image)}`, external: true })),
 ];
 
 function EmptyState({
@@ -169,7 +169,7 @@ function PublicPage({
           <span className="section-badge inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
             <img
               className="h-[17px] w-[13.6px]"
-              src="/assets/figma/majors/icon-section-badge.svg"
+              src="/assets/shared/icons/section-badge.svg"
               alt=""
             />
             SMK NEGERI 26 JAKARTA
@@ -237,7 +237,7 @@ function PublicPage({
                 >
                   <img
                     className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    src={`/assets/figma/portalinformasi/${encodeURIComponent(portal.image)}`}
+                    src={`/assets/pages/portal-informasi/${encodeURIComponent(portal.image)}`}
                     alt={portal.title}
                   />
                   <h2 className="p-5 text-xl font-bold text-ink">{portal.title}</h2>

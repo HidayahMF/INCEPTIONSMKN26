@@ -1,0 +1,98 @@
+     0.8 KB  /assets/figma/achievements/achievements-play-circle.svg
+   159.9 KB  /assets/figma/achievements/achievements-raw-02.png
+   164.6 KB  /assets/figma/achievements/achievements-raw-05.png
+   157.7 KB  /assets/figma/achievements/achievements-raw-06.png
+     0.2 KB  /assets/figma/advantages/basil_arrow-right-solid.png
+    36.7 KB  /assets/figma/BKK/Alur BKK.png
+  3112.9 KB  /assets/figma/BKK/BKK.png
+  1040.1 KB  /assets/figma/BKK/Layanan BLUD.png
+    81.0 KB  /assets/figma/BKK/Screenshot 2026-10-06 195258.png
+    53.3 KB  /assets/figma/BKK/Screenshot 2026-10-06 195354.png
+  4154.5 KB  /assets/figma/BLUD-E-MAN/E - Man.png
+  4114.2 KB  /assets/figma/BLUD-GadizVokasi/GADIZ VOKASI.png
+  3891.6 KB  /assets/figma/BLUD-Garage26/Garage26.png
+  4216.2 KB  /assets/figma/BLUD-KGS/KGStudio.png
+  4191.6 KB  /assets/figma/BLUD-Manufaktur26/Manufaktur26.png
+  4125.0 KB  /assets/figma/BLUD-UPTECHNO/UPTECHNO.png
+  2228.9 KB  /assets/figma/ekstrakulikuler/Ekstrakurikuler.png
+     8.2 KB  /assets/figma/eyebrow/Property=KGS.png
+     8.4 KB  /assets/figma/eyebrow/Property=SIJA.png
+     8.5 KB  /assets/figma/eyebrow/Property=TEK.png
+     8.7 KB  /assets/figma/eyebrow/Property=TFLM.png
+     8.1 KB  /assets/figma/eyebrow/Property=TITL.png
+     8.3 KB  /assets/figma/eyebrow/Property=TKR.png
+    56.9 KB  /assets/figma/footer/footer-raw-02.png
+  1379.2 KB  /assets/figma/herosection/Frame 36449.png
+  1370.9 KB  /assets/figma/herosection/Frame 36450.png
+  1406.4 KB  /assets/figma/herosection/Frame 36452.png
+  1416.3 KB  /assets/figma/herosection/Frame 36453.png
+  1334.0 KB  /assets/figma/herosection/Hero Section (15).png
+  2575.7 KB  /assets/figma/herosection/Hero Section (16).png
+  1092.1 KB  /assets/figma/herosection/herokgs.png
+  1333.1 KB  /assets/figma/herosection/herolsp.png
+  1054.0 KB  /assets/figma/herosection/herosija.png
+  1104.8 KB  /assets/figma/herosection/herotek.png
+  1105.8 KB  /assets/figma/herosection/herotitl.png
+  1084.0 KB  /assets/figma/herosection/herotkr.png
+   655.7 KB  /assets/figma/herosection/Screenshot 2026-10-06 215343.png
+   187.8 KB  /assets/figma/KGS/Screenshot 2026-10-06 012606.png
+  5118.8 KB  /assets/figma/KGS/tampilanbenarfigma.png
+  3171.7 KB  /assets/figma/lsp/Lembaga Sertifikasi Profesi (LSP).png
+     0.4 KB  /assets/figma/lsp/Rectangle 93.png
+   138.1 KB  /assets/figma/lsp/Screenshot 2026-10-06 052406.png
+  2615.0 KB  /assets/figma/lsp/skemalspkgs/LSP KGS.png
+  2487.9 KB  /assets/figma/lsp/skemalspsija/LSP KGS (1).png
+  2603.2 KB  /assets/figma/lsp/skemalsptflm/LSP TFLM.png
+  2591.2 KB  /assets/figma/lsp/skemalsptitl/LSP TITL.png
+  2509.7 KB  /assets/figma/lsp/skemalsptkr/LSP TKR (1).png
+   753.2 KB  /assets/figma/mitra-industri/Detail Halaman Card Mitra Industri - Astro.png
+  8900.0 KB  /assets/figma/mitra-industri/figmamitraindustri.png
+   192.8 KB  /assets/figma/mitra-industri/Screenshot 2026-10-06 045601.png
+     1.4 KB  /assets/figma/news/news-svg-02.svg
+    43.2 KB  /assets/figma/partners/compnet.png
+    17.4 KB  /assets/figma/partners/mandiri.png
+    91.2 KB  /assets/figma/partners/partner-logo-04.png
+    43.2 KB  /assets/figma/partners/partner-logo-05.png
+    74.2 KB  /assets/figma/partners/partner-logo-07.jpeg
+     8.2 KB  /assets/figma/partners/partner-logo-09.png
+    17.4 KB  /assets/figma/partners/partner-logo-10.png
+    12.9 KB  /assets/figma/partners/partner-logo-12.png
+    14.5 KB  /assets/figma/partners/partner-logo-16.png
+   107.6 KB  /assets/figma/Prestasi/dd.png
+  4145.2 KB  /assets/figma/Prestasi/Prestasi SMKN 26 (1).png
+  1924.7 KB  /assets/figma/programs/programs-raw-01.png
+  2175.6 KB  /assets/figma/programs/programs-raw-05.png
+  4956.7 KB  /assets/figma/SIJA/Jurusan SIJA.png
+   107.9 KB  /assets/figma/SIJA/Screenshot 2026-10-06 013118.png
+   770.8 KB  /assets/figma/struktur & unit kerja/Screenshot 2026-10-06 043110.png
+   212.7 KB  /assets/figma/TEK/Screenshot 2026-10-06 012931.png
+  5119.7 KB  /assets/figma/TEK/tampilanfigmabenar.png
+   207.0 KB  /assets/figma/TFLM/Screenshot 2026-10-06 013036.png
+  5141.4 KB  /assets/figma/TFLM/tampilanfigmabenar.png
+   112.8 KB  /assets/figma/TITL/Screenshot 2026-10-06 013010.png
+  4336.0 KB  /assets/figma/TITL/tampilanfigmabenar.png
+   174.8 KB  /assets/figma/TKR/Screenshot 2026-10-06 013052.png
+  4742.5 KB  /assets/figma/TKR/tampilanbenarfigma.png
+    30.9 KB  /assets/panorama/school_tour/Screenshots/bengkel_kgs.jpg
+    35.2 KB  /assets/panorama/school_tour/Screenshots/bengkel_sija.jpg
+    32.1 KB  /assets/panorama/school_tour/Screenshots/bengkel_titl.jpg
+    28.4 KB  /assets/panorama/school_tour/Screenshots/bengkel_tkr.jpg
+    27.0 KB  /assets/panorama/school_tour/Screenshots/bengkel.jpg
+    19.7 KB  /assets/panorama/school_tour/Screenshots/dalam_masjid.jpg
+    35.3 KB  /assets/panorama/school_tour/Screenshots/depan_aula.jpg
+    26.9 KB  /assets/panorama/school_tour/Screenshots/depan_lsp.jpg
+    34.4 KB  /assets/panorama/school_tour/Screenshots/depan_masjid.jpg
+    39.9 KB  /assets/panorama/school_tour/Screenshots/depan_tek.jpg
+     0.2 KB  /assets/panorama/school_tour/Screenshots/desktop.ini
+    28.7 KB  /assets/panorama/school_tour/Screenshots/gerbang.jpg
+    45.9 KB  /assets/panorama/school_tour/Screenshots/jogging_track.jpg
+    38.9 KB  /assets/panorama/school_tour/Screenshots/kantin.jpg
+    24.2 KB  /assets/panorama/school_tour/Screenshots/lapangan.jpg
+    49.6 KB  /assets/panorama/school_tour/Screenshots/pedestrian_rbtra.jpg
+    48.4 KB  /assets/panorama/school_tour/Screenshots/pedestrian.jpg
+    45.1 KB  /assets/panorama/school_tour/Screenshots/pendopo_kgs.jpg
+    39.8 KB  /assets/panorama/school_tour/Screenshots/perpustakaan.jpg
+    50.5 KB  /assets/panorama/school_tour/Screenshots/RBTRA.jpg
+    26.4 KB  /assets/panorama/school_tour/Screenshots/ruang_piket.jpg
+    33.3 KB  /assets/panorama/school_tour/Screenshots/satpam.jpg
+    43.7 KB  /assets/panorama/school_tour/Screenshots/toilet1.jpg

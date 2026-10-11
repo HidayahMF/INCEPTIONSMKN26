@@ -5,12 +5,20 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
-const asset = (name: string) => `/assets/figma/TKR/${name}`;
+const ASSET_OVERRIDES: Record<string, string> = {
+  "Button shortcut (3).png": "/assets/majors/TKRAssets/tkr-shortcut.png",
+  "Dokumentasi Pembelajaran (7).png": "/assets/majors/TKRAssets/tkr-dokumentasi-7.png",
+  "Dokumentasi Pembelajaran (8).png": "/assets/majors/TKRAssets/tkr-dokumentasi-8.png",
+  "Dwi Bakti.png": "/assets/shared/majors/person-b.png",
+  "Hero Section (3).png": "/assets/majors/TKRAssets/tkr-hero.png",
+  "Rizky Aditya.png": "/assets/shared/majors/person-a.png",
+};
+const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tkr/${name}`;
 const competencies = ["Dasar Otomotif", "Perawatan Mesin", "Perbaikan Mesin", "Kelistrikan Kendaraan", "Sistem Pemindah Tenaga", "Sistem Sasis", "Diagnosis Kendaraan", "K3 & Budaya Kerja"];
 const achievements = [["Raka Kuncoro", "Juara 1 - Kompetisi Automotive Skill", "Raka Kuncoro.png"], ["Putri Cantika", "Juara 2 - Lomba Kompetensi Otomotif", "Putri Cantika.png"], ["Kaesar Agung", "Finalis - Automotive Technology", "Kaesar Agung.png"], ["Eva Khuzaifah", "Juara 3 - Kompetisi Teknik Kendaraan", "Eva Khuzaifah.png"]] as const;
 const alumni = [["Rizky Aditya", "Rizky Aditya.png", "TKR — Angkatan 50", "Automotive Technician", "Praktik di TKR membuat saya terbiasa menangani kendaraan secara langsung. Dari pemeriksaan sampai troubleshooting, pengalaman itu menjadi bekal penting ketika mulai bekerja di industri otomotif."], ["Dwi Bakti", "Dwi Bakti.png", "TKR — Angkatan 50", "Melanjutkan Pendidikan — Teknik Otomotif", "Di TKR saya belajar memahami kendaraan bukan hanya dari teori, tetapi juga dari praktik. Pengalaman tersebut membuat saya lebih percaya diri untuk melanjutkan pendidikan di bidang otomotif."]] as const;
 
-function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#575757] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/figma/majors/icon-section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>; }
+function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#575757] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>; }
 
 export function TkrPage() {
   const alumniTrackRef = useRef<HTMLDivElement>(null);
