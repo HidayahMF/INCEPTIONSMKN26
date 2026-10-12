@@ -100,7 +100,7 @@ export function SchoolAdvantages() {
         </button>
         <div
           ref={viewportRef}
-          className={`carousel h-[400px] min-w-0 overflow-hidden touch-none select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+          className={`carousel h-[400px] min-w-0 overflow-x-clip touch-none select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
           onPointerDown={startDrag}
           onPointerMove={drag}
           onPointerUp={endDrag}
@@ -116,7 +116,7 @@ export function SchoolAdvantages() {
           >
             {advantages.map((advantage) => (
               <a data-aos="fade-up" data-aos-delay={Math.min(advantage.slug.length * 20, 300)}
-                className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink no-underline transition-none hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] focus-visible:outline-2 focus-visible:outline-white"
+                className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink no-underline transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:outline-2 focus-visible:outline-white"
                 href={`/advantages/${advantage.slug}`}
                 key={advantage.slug}
                 onClick={(event) => {

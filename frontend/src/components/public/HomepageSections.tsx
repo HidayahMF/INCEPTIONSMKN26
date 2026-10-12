@@ -7,6 +7,7 @@ import {
 } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
 import { newsItems } from "../../data/news";
+import { useFloatShapes } from "../../lib/useFloatShapes";
 
 type Props = { onAskAi: () => void };
 const bludCards = [
@@ -116,9 +117,16 @@ function VideoProfileSection() {
     "https://www.youtube.com/watch?si=IP1NH2avF07GO1DZ&v=BAWRtymSpNg&feature=youtu.be";
   const ringRef = useRef<HTMLImageElement>(null);
   const pulseRef = useRef<HTMLSpanElement>(null);
+  const decorationLeftRef = useRef<HTMLImageElement>(null);
+  const decorationRightRef = useRef<HTMLImageElement>(null);
   const [playState, setPlayState] = useState<"idle" | "hover" | "pressed">(
     "idle",
   );
+
+  useFloatShapes([
+    { ref: decorationLeftRef, duration: 3200, distance: 18 },
+    { ref: decorationRightRef, duration: 3200, distance: -18 },
+  ]);
 
   useEffect(() => {
     const ring = ringRef.current;
@@ -183,13 +191,15 @@ function VideoProfileSection() {
       aria-labelledby="video-profile-title"
     >
       <img
+        ref={decorationLeftRef}
         className="pointer-events-none absolute left-[-73px] top-[92px] z-[2] block size-[245px] max-md:left-[-145px] max-md:top-[120px]"
         src={figmaAssets.videoProfile.decorationLeft}
         alt=""
         aria-hidden="true"
       />
       <img
-        className="pointer-events-none absolute left-[calc(50%+599px)] top-[415px] z-[2] block size-[180px] max-md:left-auto max-md:right-[-90px] max-md:top-[420px]"
+        ref={decorationRightRef}
+        className="pointer-events-none absolute right-[-55px] top-[415px] z-[2] block size-[180px] max-md:right-[-60px] max-md:top-[420px]"
         src={figmaAssets.videoProfile.decorationRight}
         alt=""
         aria-hidden="true"
@@ -363,7 +373,7 @@ function ProgramsSection() {
               />
             ))}
           </div>
-          <div className="program-feature-copy pt-0">
+          <div className="program-feature-copy pt-4">
             <h3 className="m-0 bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-2xl font-bold text-transparent">
               Ekstrakurikuler
             </h3>
@@ -395,7 +405,7 @@ function ProgramsSection() {
         <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5 max-md:grid-rows-none">
           {programRightCards.map(([title, description, image, href]) => (
             <article
-              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
+              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_300ms_ease-out,border-color_300ms_ease-out_150ms,box-shadow_300ms_ease-out_150ms] hover:-translate-y-0.5 hover:border-white hover:shadow-[0_8px_20px_rgba(15,23,42,.10),0_0_0_2C:\Users\hidayah\INCEPTIONSMKN26\artifactspx_#fff] focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:shadow-[0_8px_20px_rgba(15,23,42,.10),0_0_0_1px_#fff] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
               key={title}
             >
               <img

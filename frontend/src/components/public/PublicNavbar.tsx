@@ -95,7 +95,7 @@ export function PublicNavbar() {
   }
 
   return (
-    <header className="absolute left-4 right-4 top-5 z-40 flex h-20 w-auto max-w-none translate-x-0 items-center justify-between rounded-full bg-white px-4 py-2.5 shadow-[0_4px_8px_rgba(15,23,42,.08)] sm:px-6 md:left-1/2 md:right-auto md:w-[calc(100%_-_32px)] md:max-w-[1272px] md:-translate-x-1/2">
+    <header className="fixed left-4 right-4 top-5 z-40 flex h-20 w-auto max-w-none translate-x-0 items-center justify-between rounded-full bg-white px-4 py-2.5 shadow-[0_4px_8px_rgba(15,23,42,.08)] sm:px-6 md:left-1/2 md:right-auto md:w-[calc(100%_-_32px)] md:max-w-[1272px] md:-translate-x-1/2">
       <a
         className="flex items-center gap-2 p-1"
         href="/"
@@ -117,7 +117,7 @@ export function PublicNavbar() {
         {links.map((link) => (
           <div className="group relative" key={link.label}>
             <div
-              className={`flex items-center whitespace-nowrap rounded-xl text-lg font-medium transition-[color,font-size] duration-300 ease-out focus-within:outline-none motion-reduce:transition-none hover:text-[20px] ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink"}`}
+              className={`flex items-center whitespace-nowrap rounded-xl text-lg font-medium transition-colors duration-300 ease-out focus-within:outline-none motion-reduce:transition-none ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink hover:text-primary"}`}
               onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
               onFocus={() => setActiveLink(link.label)}
               onMouseEnter={() => setActiveLink(link.label)}
