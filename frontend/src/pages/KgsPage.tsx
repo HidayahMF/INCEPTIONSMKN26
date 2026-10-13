@@ -4,6 +4,7 @@ import { figmaAssets } from "../assets/figmaAssets";
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMarquee";
+import { MajorEyebrow } from "../components/public/MajorEyebrow";
 
 const ASSET_OVERRIDES: Record<string, string> = {
   "Andi Pratama.png": "/assets/shared/majors/person-a.png",
@@ -59,10 +60,10 @@ const alumni = [
 
 function Label({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#D40009] shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+    <MajorEyebrow code="KGS">
       <span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />
       {children}
-    </span>
+    </MajorEyebrow>
   );
 }
 
@@ -78,8 +79,8 @@ export function KgsPage() {
   return (
     <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
       <PublicNavbar />
-      <main>
-        <section className="relative isolate w-full overflow-hidden bg-[#d5c8cc]">
+      <main className="bg-[#F4F8FF]">
+        <section className="relative isolate w-full overflow-visible bg-[#d5c8cc]">
           <div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0">
             <img
               className="absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center"
@@ -87,11 +88,11 @@ export function KgsPage() {
               alt="Siswa Konstruksi Gedung dan Sanitasi SMKN 26 Jakarta"
             />
             <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
-              <div className="max-w-[700px] text-white">
+              <div className="max-w-[700px] text-white lg:max-w-[1100px]">
                 <div data-aos="fade-down">
                   <Label>JURUSAN KGS</Label>
                 </div>
-                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
+                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:whitespace-nowrap lg:text-[56px] xl:text-[60px]">
                   Konstruksi{" "}
                   <span className="text-[#FF3239]">Gedung &amp; Sanitasi</span>
                 </h1>
@@ -106,8 +107,10 @@ export function KgsPage() {
           </div>
         </section>
 
-        <section className="relative z-20 mx-auto -mt-8 w-[calc(100%-32px)] max-w-[1200px] overflow-hidden rounded-lg bg-[#D40009] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10">
-          <div className="grid grid-cols-2 sm:grid-cols-4">
+        <div className="bg-white">
+        <section className="relative z-[50] isolate mx-auto -mt-10 mb-8 w-[calc(100%-32px)] max-w-[1200px] rounded-2xl bg-white p-0.5 text-center text-white shadow-[0_10px_28px_rgba(15,23,42,.24)] sm:-mt-12">
+          <div className="overflow-hidden rounded-[14px] bg-[linear-gradient(105deg,#FF3239_0%,#F51D27_52%,#D40009_100%)]">
+            <div className="grid grid-cols-2 sm:grid-cols-4">
             {[
               ["4 Tahun", "Program Pendidikan"],
               ["8+", "Mitra Industri"],
@@ -117,19 +120,20 @@ export function KgsPage() {
               <div
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
-                className="border-r border-white/40 px-2 py-3 last:border-0 sm:py-4"
+                className="border-r border-dashed border-white/70 px-2 py-3 last:border-0 sm:py-4"
                 key={label}
               >
-                <strong className="block text-xl font-bold sm:text-2xl">
+                <strong className="block text-[32px] font-bold leading-8">
                   {value}
                 </strong>
-                <span className="text-[9px] sm:text-xs">{label}</span>
+                <span className="text-[16px] font-medium leading-4">{label}</span>
               </div>
             ))}
+            </div>
           </div>
         </section>
 
-        <section className="bg-white">
+        <section className="relative z-0 w-full bg-white shadow-[0_0_0_100vmax_#fff] [clip-path:inset(0_-100vmax)]">
           <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img
             data-aos="fade-right"
@@ -159,8 +163,9 @@ export function KgsPage() {
           </div>
           </div>
         </section>
+        </div>
 
-        <section className="px-6 py-14 sm:px-10 lg:py-20">
+        <section className="bg-[#F4F8FF] px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
             <div data-aos="fade-down">
               <Label>KOMPETENSI UTAMA</Label>
@@ -197,7 +202,7 @@ export function KgsPage() {
           </div>
         </section>
 
-        <section className="px-5 py-14 sm:px-10 lg:py-20">
+        <section className="bg-[#F4F8FF] px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
             <div data-aos="fade-down">
               <Label>ROADMAP PEMBELAJARAN</Label>
@@ -219,7 +224,7 @@ export function KgsPage() {
           </div>
         </section>
 
-        <section className="px-5 py-12 sm:px-10 lg:py-16">
+        <section className="bg-[#F4F8FF] px-5 py-12 sm:px-10 lg:py-16">
           <div className="mx-auto max-w-[1200px] text-center">
             <div data-aos="fade-down">
               <Label>KEGIATAN PEMBELAJARAN</Label>
@@ -251,7 +256,7 @@ export function KgsPage() {
           </div>
         </section>
 
-        <section className="px-6 py-14 sm:px-10 lg:py-20">
+        <section className="bg-[#F4F8FF] px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1140px] text-center">
             <div data-aos="fade-down">
               <Label>CIRI KHAS KGS</Label>
@@ -283,7 +288,7 @@ export function KgsPage() {
           </div>
         </section>
 
-        <section className="px-6 py-14 sm:px-10 lg:py-20">
+        <section className="bg-[#F4F8FF] px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1200px] text-center">
             <div data-aos="fade-down">
               <Label>PRESTASI SISWA</Label>

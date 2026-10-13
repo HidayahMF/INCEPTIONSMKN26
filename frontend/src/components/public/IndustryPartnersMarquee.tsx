@@ -26,7 +26,7 @@ export function IndustryPartnersMarquee({
   return (
     <section className="px-6 py-14 sm:px-10 lg:py-20">
       <div className="mx-auto max-w-[1140px] text-center">
-        <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[.04em] shadow-[0_2px_8px_rgba(15,23,42,.08)] ${labelClass || "bg-white text-primary"}`}>{labelClass && <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />}MITRA INDUSTRI</span>
+        <span className={`inline-flex items-center gap-2 rounded-full px-3 py-[5px] text-[14px] font-semibold uppercase leading-[21px] tracking-[0%] align-middle shadow-[0_2px_8px_rgba(15,23,42,.08)] ${labelClass || "bg-white text-primary"}`}>{labelClass && <span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden="true" />}MITRA INDUSTRI</span>
         <h2 className="mt-4 text-2xl font-bold sm:text-3xl">Terhubung dengan <span className={accent}>Dunia Industri</span></h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-muted">Kolaborasi dengan dunia industri memberikan kesempatan untuk mengenal lingkungan kerja secara lebih dekat dan mengembangkan kompetensi yang relevan dengan kebutuhan profesional.</p>
         <div className={`mx-auto mt-8 grid max-w-[800px] grid-cols-3 overflow-hidden rounded-lg text-white ${barClass}`}>

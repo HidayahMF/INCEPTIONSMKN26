@@ -12,7 +12,3 @@
   --color-muted: #5b6b8c;
   --color-surface: #ffffff;
 }
-
-.blud-hero-page > main > section:first-child h1 span {
-  color: white !important;
-}
