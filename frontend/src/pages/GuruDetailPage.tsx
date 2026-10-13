@@ -3,6 +3,9 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import type { StaffMember } from "../data/organization";
 
+const gradientText =
+  "bg-[linear-gradient(90deg,#006CDC,#0092FF)] bg-clip-text text-transparent";
+
 export type StaffCategory =
   | "normatif"
   | "kejuruan"
@@ -95,12 +98,14 @@ const categoryContent: Record<StaffCategory, CategoryContent> = {
 
 function DetailCard({ title, description, index = 0 }: { title: string; description: string; index?: number }) {
   return (
-    <article data-aos="fade-up" data-aos-delay={index * 90} className="min-h-[150px] rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_12px_rgba(15,23,42,.04)] sm:p-6">
-      <div className="grid size-10 place-items-center rounded-full bg-primary text-white">
-        <img alt="" className="size-5 brightness-0 invert" src={figmaAssets.majors.educationIcon} />
+    <article data-aos="fade-up" data-aos-delay={index * 90} className="flex h-[200px] w-full max-w-[400px] shrink-0 flex-col items-start gap-8 rounded-[24px] border-2 border-[#EAF5FA] bg-white p-[18px]">
+      <div className="grid size-[50px] shrink-0 place-items-center">
+        <img alt="" className="size-[50px] object-contain" src="/assets/pages/guru/bookicon.png" />
       </div>
-      <h3 className="mt-5 text-lg font-bold leading-6 text-primary">{title}</h3>
-      <p className="mt-2 text-xs leading-5 text-muted">{description}</p>
+      <div>
+        <h3 className="m-0 text-[24px] font-bold leading-[30px] text-primary">{title}</h3>
+        <p className="m-0 text-[12px] font-normal leading-[18px] text-[#0B1324]">{description}</p>
+      </div>
     </article>
   );
 }
@@ -113,6 +118,8 @@ export function GuruDetailPage({
   category: StaffCategory;
 }) {
   const content = categoryContent[category];
+  const [nameLead, ...nameRemainder] = teacher.name.split(" ");
+  const [sectionLead, ...sectionRemainder] = content.sectionTitle.split(" ");
   const isVicePrincipal = [
     "Muhafiz Dwi Azhari",
     "Slamet",
@@ -129,30 +136,35 @@ export function GuruDetailPage({
           <img
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute -top-2 z-0 hidden h-[301px] w-[155px] max-w-none select-none sm:block right-[calc((1180px-100vw)/2)]"
+            className="pointer-events-none absolute right-[calc((1180px-100vw)/2)] top-0 z-0 hidden h-[480px] w-auto max-w-none select-none sm:block lg:h-[560px]"
             draggable={false}
             src={figmaAssets.detailGuru.cornerCircles}
           />
-          <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-9">
+          <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[350px_minmax(0,1fr)] lg:gap-9">
             <img
               data-aos="fade-right"
               alt={`Foto ${teacher.name}`}
-              className="mx-auto aspect-[304.779/354] w-full max-w-[305px] rounded-[14px] object-cover object-top lg:w-[230px]"
+              className="h-[420px] w-full max-w-[350px] shrink-0 rounded-[24px] object-cover object-top"
               draggable={false}
               src={teacher.photo}
             />
             <div className="min-w-0 max-w-[700px]" data-aos="fade-left">
               <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-                <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{content.badge}
+                <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{isVicePrincipal ? teacher.role.toUpperCase() : content.badge}
               </span>
-              <h1 className="mt-2 text-3xl font-bold leading-9 text-primary sm:text-4xl">{teacher.name}</h1>
-              <p className="mt-2 max-w-[700px] text-sm leading-6 text-muted">
+              <h1 className="mt-6 text-3xl font-bold leading-9 sm:text-4xl">
+                <span className="text-[#006CDC]">{nameLead}</span>{" "}
+                {nameRemainder.length > 0 && (
+                  <span className="text-ink">{nameRemainder.join(" ")}</span>
+                )}
+              </h1>
+              <p className="mt-8 max-w-[700px] text-sm leading-6 text-muted">
                 {content.intro}
               </p>
-              <dl className="mt-5 grid max-w-[700px] grid-cols-1 gap-x-10 gap-y-4 text-xs sm:grid-cols-2">
+              <dl className="mt-6 grid max-w-[700px] grid-cols-1 gap-x-10 gap-y-4 text-xs sm:grid-cols-2">
                 {content.detailLabels.map((label, index) => (
                   <div key={label}>
-                    <dt className="font-bold leading-5 text-primary">{label}</dt>
+                    <dt className="bg-[linear-gradient(90deg,#006CDC_0%,#0092FF_100%)] bg-clip-text text-[20px] font-bold not-italic leading-[30px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">{label}</dt>
                     <dd className="mt-1 leading-5 text-muted">{index === 1 ? teacher.role : content.detailValues[index]}</dd>
                   </div>
                 ))}
@@ -161,18 +173,21 @@ export function GuruDetailPage({
           </div>
         </section>
         <section className="mx-auto mt-12 max-w-[1180px]">
-          <div className="mb-4 text-center sm:text-left">
+          <div className="mb-4 text-left">
             <div data-aos="fade-down">
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
+              <span className="flex w-fit items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] mx-auto">
                 <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />{content.sectionBadge}
               </span>
             </div>
-            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl">
-              {content.sectionTitle} <span className="text-primary">{content.sectionAccent}</span>
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-8 text-3xl font-bold leading-9 text-ink sm:text-4xl">
+              <span className="text-ink">{sectionLead}</span>{" "}
+              <span className={gradientText}>
+                {sectionRemainder.join(" ")} {content.sectionAccent}
+              </span>
             </h2>
-            <p data-aos="fade-up" data-aos-delay="180" className="mt-2 max-w-[760px] text-sm leading-6 text-muted">{content.sectionDescription}</p>
+              <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[760px] text-sm leading-6 text-muted">{content.sectionDescription}</p>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-5 md:grid-cols-3 md:gap-6">
             {content.cards.map(([title, description], index) => (
               <DetailCard description={description} index={index} key={title} title={title} />
             ))}

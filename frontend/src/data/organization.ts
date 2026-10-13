@@ -65,17 +65,17 @@ export const vicePrincipals: StaffMember[] = [
   {
     name: "Slamet",
     role: "Wakil Kepala Sekolah Bidang Akademik",
-    photo: figmaAssets.struktur.vicePrincipals[1],
+    photo: figmaAssets.struktur.vicePrincipals[3],
   },
   {
     name: "Dimas Ahmad",
     role: "Wakil Kepala Sekolah Bidang Hubungan Dunia Usaha & Dunia Industri",
-    photo: figmaAssets.struktur.vicePrincipals[2],
+    photo: figmaAssets.struktur.vicePrincipals[1],
   },
   {
     name: "Riky Hamdan",
     role: "Wakil Kepala Sekolah Bidang Sarana & Prasarana",
-    photo: figmaAssets.struktur.vicePrincipals[3],
+    photo: figmaAssets.struktur.vicePrincipals[2],
   },
 ];
 
@@ -100,6 +100,26 @@ export const normativeTeachers: StaffMember[] = [
     role: "Guru Pendidikan Pancasila",
     photo: figmaAssets.struktur.normativeTeachers[3],
   },
+  {
+    name: "Muhammad Reza Pratama",
+    role: "Guru Pendidikan Agama Islam",
+    photo: "/assets/shared/struktur/Muhammad Reza Pratama.png",
+  },
+  {
+    name: "Siti Nur Aisyah",
+    role: "Guru Bahasa Indonesia",
+    photo: "/assets/shared/struktur/Siti Nur Aisyah.png",
+  },
+  {
+    name: "Dimas Arya Saputra",
+    role: "Guru Matematika",
+    photo: "/assets/shared/struktur/Dimas Arya Saputra.png",
+  },
+  {
+    name: "Rangga Aditya",
+    role: "Guru Pendidikan Pancasila",
+    photo: "/assets/shared/struktur/Rangga Aditya.png",
+  },
 ];
 
 export const vocationalTeachers: StaffMember[] = [
@@ -122,6 +142,26 @@ export const vocationalTeachers: StaffMember[] = [
     name: "Fajar Nugraha",
     role: "Guru Kejuruan TFLM",
     photo: figmaAssets.struktur.vocationalTeachers[3],
+  },
+  {
+    name: "Siti Nur Aisyah",
+    role: "Guru Kejuruan KGS",
+    photo: "/assets/shared/struktur/Siti Nur AisyahKGS.png",
+  },
+  {
+    name: "Bella Lila",
+    role: "Guru Kejuruan TEK",
+    photo: "/assets/shared/struktur/Bella LilaTEK.png",
+  },
+  {
+    name: "Dimas Arya Saputra",
+    role: "Guru Kejuruan TKR",
+    photo: "/assets/shared/struktur/Dimas Arya SaputraTKR.png",
+  },
+  {
+    name: "Muhammad Reza",
+    role: "Guru Kejuruan TFLM",
+    photo: "/assets/shared/struktur/Muhammad RezaTFLM.png",
   },
 ];
 
@@ -146,6 +186,26 @@ export const educationStaff: StaffMember[] = [
     role: "Staf Sarana & Prasarana",
     photo: figmaAssets.struktur.educationStaff[3],
   },
+  {
+    name: "Ade Firmansyah",
+    role: "Staf Administrasi Keuangan",
+    photo: "/assets/shared/struktur/Ade FirmansyahStaf Administrasi Keuangan.png",
+  },
+  {
+    name: "Aditya Firmansyah",
+    role: "Staf Administrasi Akademik",
+    photo: "/assets/shared/struktur/Aditya FirmansyahStaf Administrasi Akademik.png",
+  },
+  {
+    name: "Nabila Khairunnisa",
+    role: "Staf Perpustakaan",
+    photo: "/assets/shared/struktur/Nabila KhairunnisaStaf Perpustakaan.png",
+  },
+  {
+    name: "Rizal Akabar",
+    role: "Teknisi & Laboran",
+    photo: "/assets/shared/struktur/Rizal AkabarTeknisi & Laboran.png",
+  },
 ];
 
 export const supportTeam: StaffMember[] = [
@@ -168,6 +228,26 @@ export const supportTeam: StaffMember[] = [
     name: "Deni Kurniawan",
     role: "Petugas Keamanan",
     photo: figmaAssets.struktur.supportTeam[3],
+  },
+  {
+    name: "Eko Prasetyo",
+    role: "Petugas Kebersihan",
+    photo: "/assets/shared/struktur/Eko PrasetyoPetugas Kebersihan.png",
+  },
+  {
+    name: "Lina Marline",
+    role: "Petugas Kebersihan",
+    photo: "/assets/shared/struktur/Lina MarlinePetugas Kebersihan.png",
+  },
+  {
+    name: "Sari Wulandari",
+    role: "Petugas Kebersihan",
+    photo: "/assets/shared/struktur/Sari WulandariPetugas Kebersihan.png",
+  },
+  {
+    name: "Wawan Supriyadi",
+    role: "Petugas Kebersihan",
+    photo: "/assets/shared/struktur/Wawan SupriyadiPetugas Kebersihan.png",
   },
 ];
 

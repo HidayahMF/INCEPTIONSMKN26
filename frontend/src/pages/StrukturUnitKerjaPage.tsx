@@ -123,11 +123,8 @@ function SectionAction({ href }: { href: string }) {
 
 function PrincipalSection() {
   return (
-    <section
-      aria-labelledby="principal-heading"
-      className="mx-auto w-full max-w-[1200px] px-6 md:px-10"
-    >
-      <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-12">
+    <section aria-labelledby="principal-heading" className="w-full bg-white px-6 py-12 md:px-10">
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 lg:flex-row lg:gap-12">
         <div data-aos="fade-right" className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-[24px] border-2 border-school-bg sm:h-[420px] lg:h-[420px] lg:w-[350px]">
           <img
             alt="Foto Kepala SMK Negeri 26 Jakarta"
@@ -171,7 +168,7 @@ function PrincipalSection() {
 
 function VicePrincipalSection() {
   return (
-    <section aria-labelledby="vice-principal-heading" className="w-full">
+    <section aria-labelledby="vice-principal-heading" className="w-full bg-[#F4F8FF]">
       <SectionHeading badge="WAKIL KEPALA SEKOLAH">
         <h2
           className="m-0 text-[24px] font-bold leading-[34px] text-ink lg:text-[32px] lg:leading-[48px]"
@@ -240,7 +237,7 @@ function TeacherDirectorySection() {
   const showVocational = filter !== "normatif";
 
   return (
-    <section aria-labelledby="teacher-directory-heading" className="w-full">
+    <section aria-labelledby="teacher-directory-heading" className="w-full bg-[#F4F8FF]">
       <SectionHeading badge="PENDIDIK SMK NEGERI 26 JAKARTA">
         <h2
           className="m-0 text-[24px] font-bold leading-[34px] text-ink lg:text-[32px] lg:leading-[48px]"
@@ -265,7 +262,7 @@ function TeacherDirectorySection() {
               lead="Guru"
               action={<SectionAction href="/guru-normatif-adaptif" />}
             />
-            <StaffGrid members={normativeTeachers} />
+            <StaffGrid members={normativeTeachers.slice(0, 4)} />
           </div>
         ) : null}
         {showVocational ? (
@@ -277,7 +274,7 @@ function TeacherDirectorySection() {
               lead="Guru"
               action={<SectionAction href="/guru-kejuruan" />}
             />
-            <StaffGrid members={vocationalTeachers} />
+            <StaffGrid members={vocationalTeachers.slice(0, 4)} />
           </div>
         ) : null}
       </div>
@@ -287,7 +284,7 @@ function TeacherDirectorySection() {
 
 function EducationStaffSection() {
   return (
-    <section aria-labelledby="education-staff-heading" className="w-full">
+    <section aria-labelledby="education-staff-heading" className="w-full bg-[#F4F8FF]">
       <SectionHeading badge="TENDIK SMK NEGERI 26 JAKARTA">
         <StaffHeading
           accent="Kependidikan"
@@ -298,7 +295,7 @@ function EducationStaffSection() {
         />
       </SectionHeading>
       <div className="mt-6">
-        <StaffGrid members={educationStaff} />
+        <StaffGrid members={educationStaff.slice(0, 4)} />
       </div>
     </section>
   );
@@ -306,7 +303,7 @@ function EducationStaffSection() {
 
 function SupportTeamSection() {
   return (
-    <section aria-labelledby="support-team-heading" className="w-full">
+    <section aria-labelledby="support-team-heading" className="w-full bg-[#F4F8FF]">
 <SectionHeading badge="TIM PENDUKUNG SMK NEGERI 26 JAKARTA">
         <StaffHeading
           accent="Pendukung Sekolah"
@@ -317,7 +314,7 @@ function SupportTeamSection() {
         />
       </SectionHeading>
       <div className="mt-6">
-        <StaffGrid members={supportTeam} />
+        <StaffGrid members={supportTeam.slice(0, 4)} />
       </div>
     </section>
   );
@@ -325,20 +322,20 @@ function SupportTeamSection() {
 
 function HeroSection() {
   return (
-    <section
-      aria-labelledby="organization-title"
-      className="relative isolate z-20 min-h-[865px] min-w-0 overflow-visible bg-[#eaf5ff] px-6 pt-[140px] md:min-h-[895px] md:px-10 md:pt-[140px]"
-    >
-      <img
-        alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full max-w-full object-cover object-top"
-        src={figmaAssets.struktur.heroBackground}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
-      />
-      <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
+    <>
+      <section aria-labelledby="organization-title" className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
+        <div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0">
+          <img
+            alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center"
+            src={figmaAssets.struktur.heroBackground}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
+          />
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[132px] text-center sm:px-7 sm:pt-[176px] lg:pt-[192px]">
+            <div className="flex max-w-[1100px] flex-col items-center">
         <div data-aos="fade-down">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
             <img alt="" className="h-[17px] w-[13.6px]" src={figmaAssets.struktur.badgeIcon} />
@@ -368,11 +365,11 @@ function HeroSection() {
             Lihat Daftar Guru
           </CtaLink>
         </div>
-      </div>
-      <div
-        className="absolute bottom-0 left-1/2 z-30 grid w-[min(1200px,calc(100%-32px))] -translate-x-1/2 translate-y-1/2 overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:grid-cols-5 max-sm:grid-cols-2"
-        id="organization-statistics"
-      >
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="relative z-20 mx-auto -mt-8 grid w-[min(1200px,calc(100%-32px))] overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10 sm:grid-cols-5 max-sm:grid-cols-2" id="organization-statistics">
         {statistics.map(([value, label], index) => (
           <div
             data-aos="fade-up"
@@ -385,7 +382,7 @@ function HeroSection() {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }
 
@@ -395,13 +392,15 @@ export function StrukturUnitKerjaPage() {
       <PublicNavbar />
       <main>
         <HeroSection />
-          <div className="flex flex-col gap-[56px] pb-[88px] pt-24 lg:gap-[88px]">
-          <PrincipalSection />
-          <VicePrincipalSection />
-          <TeacherDirectorySection />
-          <EducationStaffSection />
-          <SupportTeamSection />
-        </div>
+          <div className="bg-white pt-24">
+            <PrincipalSection />
+          </div>
+          <div className="flex flex-col gap-[56px] bg-[#F4F8FF] pb-[88px] pt-[56px] lg:gap-[88px] lg:pt-[88px]">
+            <VicePrincipalSection />
+            <TeacherDirectorySection />
+            <EducationStaffSection />
+            <SupportTeamSection />
+          </div>
       </main>
       <PublicFooter />
     </div>

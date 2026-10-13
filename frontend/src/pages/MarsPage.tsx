@@ -139,8 +139,10 @@ export function MarsPage() {
             />
             <a
               className="group absolute left-1/2 top-1/2 z-10 grid size-[122px] -translate-x-1/2 -translate-y-1/2 place-items-center"
-              href="#mars-lyrics"
-              aria-label="Buka lirik Mars SMKN 26"
+               href="https://youtu.be/RWlSIBiuvhQ?si=98SGRYP6SCkobghH"
+               target="_blank"
+               rel="noreferrer"
+               aria-label="Tonton MARS SMK Negeri 26 Jakarta di YouTube"
               onPointerEnter={() => setPlayState("hover")}
               onPointerLeave={() => setPlayState("idle")}
               onPointerDown={() => setPlayState("pressed")}

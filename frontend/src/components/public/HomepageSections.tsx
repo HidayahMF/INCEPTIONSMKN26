@@ -454,7 +454,7 @@ const bludCardTextWidth = [
 
 function BludSection() {
   return (
-    <section className="relative mt-[88px] w-full bg-white py-14">
+    <section className="relative mt-[88px] w-full bg-[#F4F8FF] py-14">
       <div
         className="blud-section relative mx-auto h-[629px] w-[min(1272px,100%-32px)] overflow-visible p-0 max-md:h-auto"
         aria-labelledby="blud-title"
@@ -515,10 +515,13 @@ function BludSection() {
               key={name}
             >
               <a
-                className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-visible rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
+                className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-hidden rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
                 href={href}
               >
-                <span className="blud-icon relative z-[1] grid size-[54px] place-items-center rounded-3xl bg-gradient-to-br from-primary-dark to-soft-blue">
+                <span className="pointer-events-none absolute right-[-126px] top-[-8px] z-0 size-[210px] rounded-full bg-gradient-to-br from-[#006cdc] to-[#009cff] opacity-0 transition-[right,opacity] duration-300 ease-out group-hover:right-[-118px] group-hover:opacity-100 group-focus-visible:right-[-118px] group-focus-visible:opacity-100" aria-hidden="true">
+                  <span className="absolute inset-[7px] rounded-full border border-white/80" />
+                </span>
+                <span className="blud-icon relative z-[1] grid size-[54px] shrink-0 aspect-square place-items-center rounded-full bg-gradient-to-br from-primary-dark to-soft-blue">
                   <img
                     className="size-[29.455px]"
                     src={figmaAssets.blud.icons[index]}
@@ -529,7 +532,7 @@ function BludSection() {
                   {name}
                 </h3>
                 <p
-                  className={`relative z-[1] m-0 text-xs leading-[18px] text-ink ${bludCardTextWidth[index]} min-[1600px]:text-base min-[1600px]:leading-6`}
+                  className={`relative z-[1] m-0 h-[36px] overflow-hidden text-[12px] font-normal leading-[18px] tracking-[0%] text-ink ${bludCardTextWidth[index]}`}
                 >
                   {description}
                 </p>
@@ -866,7 +869,7 @@ function NewsSection() {
                 }}
               >
                 <img
-                  className="absolute left-0 top-0 h-[176px] w-[396px] object-cover"
+                  className="absolute left-0 top-0 h-[176px] w-[396px] rounded-bl-[22px] object-cover"
                   src={card.image}
                   alt=""
                   draggable={false}
