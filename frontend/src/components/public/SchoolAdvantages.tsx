@@ -4,6 +4,15 @@ import { advantages } from "../../data/advantages";
 
 const CARD_STEP = 324;
 
+const advantageNavigation: Record<string, string> = {
+  "pendidikan-berkualitas": "/profile",
+  "pembelajaran-berbasis-industri": "/partners",
+  "teaching-factory": "/blud",
+  "sertifikasi-kompetensi": "/programs/lsp",
+  "pengalaman-karakter-dan-minat": "/programs/organisasi",
+  "lingkungan-belajar-inklusif": "/tour",
+};
+
 export function SchoolAdvantages() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -117,7 +126,7 @@ export function SchoolAdvantages() {
             {advantages.map((advantage) => (
               <a data-aos="fade-up" data-aos-delay={Math.min(advantage.slug.length * 20, 300)}
                 className="group relative flex h-[400px] w-[300px] shrink-0 flex-col justify-end overflow-hidden rounded-3xl bg-white p-[18px] text-ink no-underline transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:outline-2 focus-visible:outline-white"
-                href={`/advantages/${advantage.slug}`}
+                href={advantageNavigation[advantage.slug] ?? "/profile"}
                 key={advantage.slug}
                 onClick={(event) => {
                   if (dragged.current) {

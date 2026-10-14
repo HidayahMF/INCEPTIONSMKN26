@@ -30,6 +30,7 @@ import { KgStudioPage } from "./pages/KgStudioPage";
 import { UptechnoPage } from "./pages/UptechnoPage";
 import { EmanPage } from "./pages/EmanPage";
 import { BludServicePage } from "./pages/BludServicePage";
+import { BludPage } from "./pages/BludPage";
 import { HomepageSections } from "./components/public/HomepageSections";
 import { PublicFooter } from "./components/public/PublicFooter";
 import { ProfilePage } from "./pages/ProfilePage";
@@ -420,6 +421,7 @@ export function App() {
   if (path === "/majors/tflm") return <PublicExperience><TflmPage /></PublicExperience>;
   if (path === "/majors/tkr") return <PublicExperience><TkrPage /></PublicExperience>;
   if (path === "/majors/sija") return <PublicExperience><SijaPage /></PublicExperience>;
+  if (path === "/blud") return <PublicExperience><BludPage /></PublicExperience>;
   if (path === "/blud/kgstudio") return <PublicExperience><KgStudioPage /></PublicExperience>;
   if (path === "/blud/uptechno") return <PublicExperience><UptechnoPage /></PublicExperience>;
   if (path === "/blud/e-man") return <PublicExperience><EmanPage /></PublicExperience>;

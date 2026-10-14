@@ -405,7 +405,7 @@ function ProgramsSection() {
         <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5 max-md:grid-rows-none">
           {programRightCards.map(([title, description, image, href]) => (
             <article
-              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_300ms_ease-out,border-color_300ms_ease-out_150ms,box-shadow_300ms_ease-out_150ms] hover:-translate-y-0.5 hover:border-white hover:shadow-[0_8px_20px_rgba(15,23,42,.10),0_0_0_2C:\Users\hidayah\INCEPTIONSMKN26\artifactspx_#fff] focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:shadow-[0_8px_20px_rgba(15,23,42,.10),0_0_0_1px_#fff] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
+              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:shadow-[0_12px_28px_rgba(15,23,42,.16)] focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:shadow-[0_12px_28px_rgba(15,23,42,.16)] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
               key={title}
             >
               <img
@@ -486,12 +486,12 @@ function BludSection() {
             produksi dan layanan yang dikelola oleh SMK Negeri 26 Jakarta.
           </p>
           <a
-            className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] w-[236px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto max-md:static max-md:mt-2 max-md:w-full"
+             className="group blud-cta primary-button absolute right-0 bottom-2 inline-flex h-[41px] shrink-0 items-center justify-center gap-4 whitespace-nowrap rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none min-[1600px]:top-[135px] min-[1600px]:bottom-auto max-md:static max-md:mt-2 max-md:w-full"
             href="/blud/kgstudio"
           >
             Jelajahi BLUD{" "}
             <span
-              className="size-5 shrink-0 bg-white group-hover:bg-primary"
+               className="size-5 shrink-0 bg-white transition-colors group-hover:bg-primary"
               style={{
                 maskImage: `url(${programCtaArrow})`,
                 maskPosition: "center",
@@ -735,7 +735,7 @@ function AchievementsSection() {
           ],
         ].map(([value, label, icon], index) => (
           <div
-            className="relative grid grid-cols-[70px_1fr] items-center gap-x-3"
+            className="relative grid grid-cols-[70px_auto] items-center justify-center gap-x-3"
             key={label}
           >
             <span className="stat-icon row-span-2 grid size-[70px] place-items-center rounded-full bg-[linear-gradient(135deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] text-white">
@@ -859,7 +859,7 @@ function NewsSection() {
               key={card.title + card.date}
             >
               <a
-                className="news-card group relative box-border block h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-none hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]"
+                 className="news-card group relative box-border block h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box]"
                 href={`/news/${card.slug}`}
                 onClick={(event) => {
                   if (draggedRef.current) {

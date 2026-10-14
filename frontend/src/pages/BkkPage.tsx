@@ -176,7 +176,8 @@ export function BkkPage() {
             </a>
           </div></div></div>
         </section>
-        <section className="mx-auto grid max-w-[1100px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
+        <section className="bg-white px-6 py-14 sm:px-10 lg:py-20">
+          <div className="mx-auto grid max-w-[1100px] items-center gap-8 md:grid-cols-[.9fr_1.1fr]">
           <img
             data-aos="fade-right"
             className="mx-auto w-full max-w-[470px] object-contain"
@@ -195,6 +196,7 @@ export function BkkPage() {
               mendukung siswa dalam membangun pengalaman serta kesiapan memasuki
               dunia profesional.
             </p>
+          </div>
           </div>
         </section>
         <section className="bg-[#f3f7ff] px-5 py-14 sm:px-10 lg:py-[72px]">

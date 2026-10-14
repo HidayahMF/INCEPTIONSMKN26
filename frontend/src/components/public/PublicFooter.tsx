@@ -58,7 +58,7 @@ export function PublicFooter() {
     <footer className="box-border min-h-[626px] min-w-0 max-w-full overflow-x-clip bg-[linear-gradient(125deg,#95d8fd_0%,#4cbaf5_34.034%,#0092ff_100%)] pb-6 pt-12 text-white">
       <div className="mx-auto w-[min(1272px,100%-32px)]">
       <div className="relative flex flex-col items-center justify-center gap-6 min-[1272px]:grid min-[1272px]:h-11 min-[1272px]:grid-cols-[1fr_auto_1fr] min-[1272px]:items-end min-[1272px]:gap-8">
-        <h2 className="m-0 shrink-0 text-center text-xl font-bold leading-7 min-[1272px]:justify-self-start">
+        <h2 className="m-0 shrink-0 text-left text-xl font-bold leading-7 min-[1272px]:justify-self-start">
           Dapatkan Informasi
           <br />
           SMKN 26 Jakarta

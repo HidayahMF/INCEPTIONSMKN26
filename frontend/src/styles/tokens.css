@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Keep the document scrollable while hiding the browser scrollbar UI. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+body {
+  overflow-x: clip;
+}
+
 @theme {
   --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --color-primary: #0092ff;

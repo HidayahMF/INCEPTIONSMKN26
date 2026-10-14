@@ -62,7 +62,7 @@ export function PartnerLogos() {
       className="mt-[88px] overflow-hidden bg-[#F4F8FF] py-8"
       aria-labelledby="homepage-partners-title"
     >
-      <div className="mx-auto w-full max-w-[1272px] bg-white px-4 sm:px-6 lg:px-0">
+      <div className="mx-auto w-full max-w-[1272px] px-4 sm:px-6 lg:px-0">
         <h2 id="homepage-partners-title" className="text-center text-3xl font-bold leading-[54px] text-ink sm:text-4xl">
           <span className="text-primary-dark">100+ Mitra Industri</span> yang Berkolaborasi Bersama
         </h2>
