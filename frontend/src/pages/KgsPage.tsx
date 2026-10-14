@@ -12,6 +12,8 @@ const ASSET_OVERRIDES: Record<string, string> = {
   "Fajar Ramadhan.png": "/assets/shared/majors/person-b.png",
   "Hero Section.png": "/assets/majors/KGSAssets/kgs-hero.png",
   "mengenal.png": "/assets/majors/KGSAssets/kgs-mengenal.png",
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
 };
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/kgs/${name}`;
 
@@ -55,6 +57,20 @@ const alumni = [
     "KGS — Angkatan 49",
     "Bekerja di PT WIKA",
     "Pembelajaran dan praktik di KGS membuat saya lebih percaya diri menghadapi dunia kerja. Banyak pengalaman yang saya dapat dan bisa saya terapkan setelah lulus.",
+  ],
+  [
+    "Raden Tri Cahyo Bagas",
+    "Raden Tri Cahyo Bagas.png",
+    "KGS — Angkatan 50",
+    "Bekerja di PT WIKA",
+    "Menurut saya, pengalaman praktik selama di sekolah menjadi bekal yang sangat penting. Saya jadi lebih memahami bagaimana kompetensi yang dipelajari bisa diterapkan langsung di dunia kerja.",
+  ],
+  [
+    "Rana Hamidah",
+    "Rana Hamidah.png",
+    "KGS — Angkatan 49",
+    "Berkuliah di Universitas Gadjah Mada",
+    "KGS mengajarkan saya untuk terus belajar dan berani mencoba. Dari tugas praktik, sampai pengalaman di industri, semuanya membantu saya lebih siap menentukan langkah setelah sekolah.",
   ],
 ] as const;
 
@@ -334,8 +350,9 @@ export function KgsPage() {
         </section>
         <IndustryPartnersMarquee
           accent="text-[#D40009]"
-          barClass="bg-[#D40009]"
+          barClass="bg-[linear-gradient(90deg,#FF2632_0%,#C90012_100%)]"
           labelClass="bg-[#fdecec] text-[#D40009]"
+          variant="kgs"
           stats={[
             ["8+", "Mitra Industri"],
             ["12+", "Program Kolaborasi"],

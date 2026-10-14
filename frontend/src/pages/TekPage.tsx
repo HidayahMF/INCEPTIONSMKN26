@@ -318,8 +318,9 @@ export function TekPage() {
 
         <IndustryPartnersMarquee
           accent="text-[#004E9E]"
-          barClass="bg-[#004E9E]"
+          barClass="bg-[linear-gradient(90deg,#0A6FD1_0%,#003B7A_100%)]"
           labelClass="bg-[#e7f0fb] text-[#004E9E]"
+          variant="major"
           stats={[
             ["8+", "Mitra Industri"],
             ["12+", "Program Kolaborasi"],

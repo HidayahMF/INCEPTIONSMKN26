@@ -9,7 +9,6 @@ import {
   educationStaff,
   normativeTeachers,
   principal,
-  statistics,
   supportTeam,
   vicePrincipals,
   vocationalTeachers,
@@ -324,7 +323,7 @@ function HeroSection() {
   return (
     <>
       <section aria-labelledby="organization-title" className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
-        <div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0">
+        <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
           <img
             alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
             className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center"
@@ -334,7 +333,7 @@ function HeroSection() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
           />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[132px] text-center sm:px-7 sm:pt-[176px] lg:pt-[192px]">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
             <div className="flex max-w-[1100px] flex-col items-center">
         <div data-aos="fade-down">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
@@ -361,27 +360,14 @@ function HeroSection() {
           Jakarta.
         </p>
         <div data-aos="fade-up" data-aos-delay="260">
-          <CtaLink className="mt-4" href="#organization-statistics">
-            Lihat Daftar Guru
+          <CtaLink className="mt-4" href="#organization-content">
+            Jelajahi Guru SMKN 26
           </CtaLink>
         </div>
             </div>
           </div>
         </div>
       </section>
-      <div className="relative z-20 mx-auto -mt-8 grid w-[min(1200px,calc(100%-32px))] overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#4cbaf5,#0092ff_50%,#006cdc)] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10 sm:grid-cols-5 max-sm:grid-cols-2" id="organization-statistics">
-        {statistics.map(([value, label], index) => (
-          <div
-            data-aos="fade-up"
-            data-aos-delay={index * 80}
-            className="flex min-h-[90px] flex-col items-center justify-center border-r border-dashed border-white/80 px-2 py-3 text-center last:border-r-0 max-sm:nth-[odd]:border-r max-sm:nth-[-n+4]:border-b sm:last:border-r-0"
-            key={label}
-          >
-            <strong className="text-[34px] font-bold leading-10">{value}</strong>
-            <span className="mt-1 text-base leading-5 text-white/95">{label}</span>
-          </div>
-        ))}
-      </div>
     </>
   );
 }
@@ -392,7 +378,7 @@ export function StrukturUnitKerjaPage() {
       <PublicNavbar />
       <main>
         <HeroSection />
-          <div className="bg-white pt-24">
+          <div id="organization-content" className="bg-white pt-24">
             <PrincipalSection />
           </div>
           <div className="flex flex-col gap-[56px] bg-[#F4F8FF] pb-[88px] pt-[56px] lg:gap-[88px] lg:pt-[88px]">

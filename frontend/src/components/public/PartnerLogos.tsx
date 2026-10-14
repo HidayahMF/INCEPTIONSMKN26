@@ -86,16 +86,14 @@ export function PartnerIndustryPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#F4F8FF] pb-24 text-ink">
       <section
-        className="relative isolate flex h-[700px] items-start overflow-visible bg-[#EAF5FA] px-4 pt-[125px] text-center sm:px-6 sm:pt-[135px] min-[1280px]:h-[max(720px,53.93vw)] lg:px-0 lg:pt-[138px]"
+        className="relative isolate flex min-h-[680px] items-start overflow-hidden bg-[#EAF5FA] px-4 pt-[112px] text-center sm:min-h-[760px] sm:px-6 sm:pt-[126px] min-[1280px]:h-[56.95vw] min-[1280px]:min-h-[820px] lg:px-0 lg:pt-[138px]"
         aria-labelledby="partners-page-title"
       >
-        <div className="pointer-events-none absolute inset-0 z-0 min-[1280px]:hidden">
-          <img className="absolute inset-0 size-full object-cover object-[center_bottom]" src="/assets/pages/mitra-industri/hero.png" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(234,245,250,.94)_0%,rgba(234,245,250,.36)_34%,rgba(234,245,250,0)_55%)]" aria-hidden="true" />
+           <div className="pointer-events-none absolute inset-0 z-0 min-[1280px]:hidden">
+           <img className="absolute inset-0 size-full object-cover object-bottom" src="/assets/pages/mitra-industri/hero.png" alt="" aria-hidden="true" />
         </div>
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 hidden aspect-[1374/741] w-full min-[1280px]:block">
+         <div className="pointer-events-none absolute inset-x-0 top-0 z-0 hidden aspect-[1440/820] w-full min-[1280px]:block">
           <img className="absolute inset-0 size-full object-cover object-bottom" src="/assets/pages/mitra-industri/hero.png" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(234,245,250,.94)_0%,rgba(234,245,250,.36)_34%,rgba(234,245,250,0)_55%)]" aria-hidden="true" />
           <img ref={shapeLeftRef} className="absolute left-[10.1%] top-[38.4%] w-[5.68%] max-w-none" src="/assets/shared/decorations/shapekirimitra.png" alt="" aria-hidden="true" />
           <img ref={shapeRightRef} className="absolute left-[84.5%] top-[26.8%] w-[5.68%] max-w-none" src="/assets/shared/decorations/shapekananmitra.png" alt="" aria-hidden="true" />
         </div>
@@ -112,12 +110,13 @@ export function PartnerIndustryPage() {
           </p>
            <CtaLink data-aos="fade-up" data-aos-delay="260" className="mt-5" href="#partners-list-title">Jelajahi Mitra</CtaLink>
         </div>
-        <div className="absolute bottom-[-45px] left-1/2 z-20 grid w-[min(1080px,100%)] -translate-x-1/2 grid-cols-2 overflow-hidden rounded-[12px] bg-gradient-to-r from-primary-dark via-primary to-soft-blue text-white shadow-[0_8px_24px_rgba(15,23,42,.16)] sm:grid-cols-4 max-sm:bottom-[-62px]">
+          {/* Embedded statistics are part of the hero artwork. */}
+          <div className="hidden">
           {[["50+", "Mitra Industri"], ["6", "Kompetensi Keahlian"], ["6", "Bidang Kolaborasi"], ["24", "Program & Kegiatan"]].map(([value, label]) => (
             <div data-aos="fade-up" className="border-b border-r border-dashed border-white/70 px-3 py-4 last:border-r-0 sm:py-3" key={label}>
               <strong className="block text-2xl font-bold sm:text-3xl">{value}</strong>
               <span className="text-[11px] sm:text-xs">{label}</span>
-            </div>
+         </div>
           ))}
         </div>
       </section>

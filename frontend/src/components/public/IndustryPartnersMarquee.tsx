@@ -11,7 +11,9 @@ const partners = [
 export function IndustryPartnersMarquee({
   accent = "text-primary-dark",
   barClass = "bg-primary-dark",
+  statTextClass = "text-white",
   labelClass = "",
+  variant = "default",
   stats = [
     ["8+", "Mitra Industri"],
     ["12+", "Program Kolaborasi"],
@@ -20,20 +22,24 @@ export function IndustryPartnersMarquee({
 }: {
   accent?: string;
   barClass?: string;
+  statTextClass?: string;
   labelClass?: string;
+  variant?: "default" | "major" | "kgs";
   stats?: readonly (readonly [string, string])[];
 }) {
+  const isMajor = variant === "major" || variant === "kgs";
+
   return (
     <section className="px-6 py-14 sm:px-10 lg:py-20">
       <div className="mx-auto max-w-[1140px] text-center">
         <span className={`inline-flex items-center gap-2 rounded-full px-3 py-[5px] text-[14px] font-semibold uppercase leading-[21px] tracking-[0%] align-middle shadow-[0_2px_8px_rgba(15,23,42,.08)] ${labelClass || "bg-white text-primary"}`}>{labelClass && <span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden="true" />}MITRA INDUSTRI</span>
         <h2 className="mt-4 text-2xl font-bold sm:text-3xl">Terhubung dengan <span className={accent}>Dunia Industri</span></h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-muted">Kolaborasi dengan dunia industri memberikan kesempatan untuk mengenal lingkungan kerja secara lebih dekat dan mengembangkan kompetensi yang relevan dengan kebutuhan profesional.</p>
-        <div className={`mx-auto mt-8 grid max-w-[800px] grid-cols-3 overflow-hidden rounded-lg text-white ${barClass}`}>
+        <div className={`mx-auto mt-8 grid w-full max-w-[800px] grid-cols-3 overflow-hidden ${isMajor ? "h-[78px] rounded-[11px]" : "rounded-lg"} ${statTextClass} ${barClass}`}>
           {stats.map(([value, label]) => (
-            <div className="border-r border-dashed border-white/60 px-2 py-3 last:border-r-0 sm:py-4" key={label}>
-              <strong className="block text-lg font-bold sm:text-2xl">{value}</strong>
-              <span className="text-[8px] sm:text-[10px]">{label}</span>
+            <div className={`flex min-w-0 flex-col items-center justify-center border-r border-dashed border-white/60 px-2 last:border-r-0 ${isMajor ? "" : "py-3 sm:py-4"}`} key={label}>
+              <strong className={isMajor ? "block text-[32px] font-bold leading-none" : "block text-lg font-bold sm:text-2xl"}>{value}</strong>
+              <span className={isMajor ? "mt-2 text-center text-[14px] font-normal leading-none" : "text-[8px] sm:text-[10px]"}>{label}</span>
             </div>
           ))}
         </div>

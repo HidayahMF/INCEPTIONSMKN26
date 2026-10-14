@@ -53,14 +53,14 @@ export function LspPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
     <main>
-        <section className="relative isolate min-h-[620px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[700px] lg:min-h-[860px] lg:pt-32">
+        <section className="relative isolate aspect-[1440/820] min-h-[680px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-0 lg:pt-32">
           <img
             className="absolute inset-0 -z-10 size-full object-cover object-center lg:object-[center_bottom]"
             src={asset("Hero Section.png")}
             alt="Siswa LSP SMKN 26 Jakarta"
           />
-          <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.88)_0%,rgba(225,241,255,.08)_42%,rgba(0,108,220,.12)_100%)]" />
-          <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-[700px] sm:px-8 sm:pt-6 lg:min-h-[760px] lg:px-16 lg:pb-48 lg:pt-4">
+          <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.18)_0%,rgba(225,241,255,0)_42%,rgba(0,108,220,.04)_100%)]" />
+          <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-0 sm:px-8 sm:pt-6 lg:px-16 lg:pb-48 lg:pt-4">
             <div data-aos="fade-down">
               <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
             </div>
@@ -78,26 +78,6 @@ export function LspPage() {
               </CtaLink>
             </div>
           </div>
-        </section>
-        <section className="relative z-20 mx-auto -mt-8 grid w-[calc(100%-32px)] max-w-[1200px] grid-cols-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#48b9f0] via-[#0092ff] to-[#006cdc] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10 sm:grid-cols-4">
-          {[
-            ["6+", "Jurusan Bidang Keahlian"],
-            ["13+", "Skema Sertifikasi"],
-            ["500+", "Peserta Tersertifikasi"],
-            ["10+ Tahun", "Pengalaman"],
-          ].map(([value, label], index) => (
-            <div
-              data-aos="fade-up"
-              data-aos-delay={index * 80}
-              className="border-b border-r border-dashed border-white/70 px-2 py-3 sm:py-4"
-              key={label}
-            >
-              <strong className="block text-xl font-bold sm:text-2xl">
-                {value}
-              </strong>
-              <span className="text-[9px] sm:text-xs">{label}</span>
-            </div>
-          ))}
         </section>
         <section className="bg-white px-6 py-14 sm:px-10 lg:py-[72px]">
           <div className="mx-auto grid max-w-[1080px] items-center gap-8 md:grid-cols-[.92fr_1.08fr] md:gap-12 lg:gap-16">
