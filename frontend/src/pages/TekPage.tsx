@@ -15,7 +15,6 @@ const ASSET_OVERRIDES: Record<string, string> = {
   "Button shortcut.png": "/assets/majors/TEKAssets/tek-shortcut.png",
   "Dokumentasi Pembelajaran atas.png": "/assets/majors/TEKAssets/tek-dokumentasi-atas.png",
   "Dokumentasi Pembelajaran bawah.png": "/assets/majors/TEKAssets/tek-dokumentasi-bawah.png",
-  "Fajar Ramadhan.png": "/assets/shared/majors/person-a.png",
   "Hero Section.png": "/assets/majors/TEKAssets/tek-hero.png",
 };
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tek/${name}`;

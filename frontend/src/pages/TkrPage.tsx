@@ -9,13 +9,11 @@ const ASSET_OVERRIDES: Record<string, string> = {
   "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
   "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
   "Rizky Aditya.png": "/assets/shared/majors/person-a.png",
-  "Dwi Bakti.png": "/assets/shared/majors/person-b.png",
   "Button shortcut (3).png": "/assets/majors/TKRAssets/tkr-shortcut.png",
   "Dokumentasi Pembelajaran (7).png": "/assets/majors/TKRAssets/tkr-dokumentasi-7.png",
   "Dokumentasi Pembelajaran (8).png": "/assets/majors/TKRAssets/tkr-dokumentasi-8.png",
   "Dwi Bakti.png": "/assets/shared/majors/person-b.png",
   "Hero Section (3).png": "/assets/majors/TKRAssets/tkr-hero.png",
-  "Rizky Aditya.png": "/assets/shared/majors/person-a.png",
 };
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tkr/${name}`;
 const competencies = ["Dasar Otomotif", "Perawatan Mesin", "Perbaikan Mesin", "Kelistrikan Kendaraan", "Sistem Pemindah Tenaga", "Sistem Sasis", "Diagnosis Kendaraan", "K3 & Budaya Kerja"];

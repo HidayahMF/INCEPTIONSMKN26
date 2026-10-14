@@ -10,8 +10,6 @@ const ASSET_OVERRIDES: Record<string, string> = {
   "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
   "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
   "Assad El Ghanie.png": "/assets/shared/majors/person-a.png",
-  "Muhammad Akbar.png": "/assets/shared/majors/person-b.png",
-  "Assad El Ghanie.png": "/assets/shared/majors/person-a.png",
   "Button shortcut (1).png": "/assets/majors/TITLAssets/titl-shortcut.png",
   "Dokumentasi Pembelajaran (3).png": "/assets/majors/TITLAssets/titl-dokumentasi-3.png",
   "Dokumentasi Pembelajaran (4).png": "/assets/majors/TITLAssets/titl-dokumentasi-4.png",

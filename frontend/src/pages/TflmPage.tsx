@@ -10,12 +10,10 @@ const ASSET_OVERRIDES: Record<string, string> = {
   "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
   "Raka Pratama.png": "/assets/shared/majors/person-a.png",
   "Abdusallam.png": "/assets/shared/majors/person-b.png",
-  "Abdusallam.png": "/assets/shared/majors/person-b.png",
   "Button shortcut (2).png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
   "Dokumentasi Pembelajaran (5).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-5.png",
   "Dokumentasi Pembelajaran (6).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-6.png",
   "Hero Section (2).png": "/assets/majors/TFLMAssets/tflm-hero.png",
-  "Raka Pratama.png": "/assets/shared/majors/person-a.png",
 };
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tflm/${name}`;
 
