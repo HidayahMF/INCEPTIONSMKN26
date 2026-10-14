@@ -117,50 +117,33 @@ export function EkstrakurikulerPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
       <main>
-        <section className="relative isolate min-h-[620px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[700px] lg:min-h-[760px] lg:pt-32">
+        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
+          <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
           <img
-            className="absolute inset-0 -z-10 size-full object-cover object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center"
             src={asset("Hero Section.png")}
             alt="Kegiatan ekstrakurikuler SMKN 26 Jakarta"
           />
-          <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.84)_0%,rgba(225,241,255,.08)_42%,rgba(0,108,220,.12)_100%)]" />
-          <div aria-hidden="true" className="pointer-events-none absolute right-[9%] top-[30%] -z-[4] aspect-square w-[66px] rounded-full bg-gradient-to-br from-primary to-soft-blue" />
-          <div aria-hidden="true" className="pointer-events-none absolute left-[10%] top-[40%] -z-[4] aspect-square w-[76px] rounded-full bg-gradient-to-br from-primary to-soft-blue" />
-          <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-5 text-center sm:min-h-[700px] sm:px-8 sm:pt-9 lg:min-h-[760px] lg:px-16 lg:pt-12">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
+            <div className="flex max-w-[1100px] flex-col items-center">
             <div data-aos="fade-down">
-              <Label>EKSTRAKURIKULER</Label>
+              <Label>EKSTRAKURIKULER SMK NEGERI 26 JAKARTA</Label>
             </div>
-            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1100px] whitespace-nowrap text-[26px] font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-4xl lg:text-[52px]">
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1000px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]">
               Temukan Minat, <span className="text-primary">Kembangkan Potensi</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[940px] text-lg leading-[1.75] text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] lg:text-xl">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
               SMKN 26 Jakarta menyediakan berbagai kegiatan ekstrakurikuler
               sebagai ruang bagi siswa untuk mengembangkan minat, bakat,
               keterampilan, dan pengalaman di luar pembelajaran akademik.
             </p>
-            <CtaLink data-aos="fade-up" data-aos-delay="260" className="mt-5" href="#pilihan-ekstrakurikuler">
+            <CtaLink data-aos="fade-up" data-aos-delay="260" className="mt-4" href="#pilihan-ekstrakurikuler">
               Jelajahi Ekstrakurikuler
             </CtaLink>
-          </div>
-        </section>
-        <section className="relative z-20 mx-auto -mt-8 grid w-[calc(100%-32px)] max-w-[980px] grid-cols-3 overflow-hidden rounded-lg bg-gradient-to-r from-[#48b9f0] via-[#0092ff] to-[#006cdc] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10">
-          {[
-            ["20+", "Ekstrakurikuler"],
-            ["6", "Bidang Keahlian"],
-            ["1", "Komunitas Sekolah"],
-          ].map(([value, label], index) => (
-            <div
-              data-aos="fade-up"
-              data-aos-delay={index * 80}
-              className="border-r border-dashed border-white/70 px-2 py-3 last:border-r-0 sm:py-4"
-              key={label}
-            >
-              <strong className="block text-xl font-bold sm:text-2xl">
-                {value}
-              </strong>
-              <span className="text-[9px] sm:text-xs">{label}</span>
             </div>
-          ))}
+          </div>
+          </div>
         </section>
         <section className="mx-auto grid max-w-[1100px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img

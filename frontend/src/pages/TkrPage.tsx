@@ -6,6 +6,10 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
 const ASSET_OVERRIDES: Record<string, string> = {
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
+  "Rizky Aditya.png": "/assets/shared/majors/person-a.png",
+  "Dwi Bakti.png": "/assets/shared/majors/person-b.png",
   "Button shortcut (3).png": "/assets/majors/TKRAssets/tkr-shortcut.png",
   "Dokumentasi Pembelajaran (7).png": "/assets/majors/TKRAssets/tkr-dokumentasi-7.png",
   "Dokumentasi Pembelajaran (8).png": "/assets/majors/TKRAssets/tkr-dokumentasi-8.png",
@@ -16,7 +20,12 @@ const ASSET_OVERRIDES: Record<string, string> = {
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/tkr/${name}`;
 const competencies = ["Dasar Otomotif", "Perawatan Mesin", "Perbaikan Mesin", "Kelistrikan Kendaraan", "Sistem Pemindah Tenaga", "Sistem Sasis", "Diagnosis Kendaraan", "K3 & Budaya Kerja"];
 const achievements = [["Raka Kuncoro", "Juara 1 - Kompetisi Automotive Skill", "Raka Kuncoro.png"], ["Putri Cantika", "Juara 2 - Lomba Kompetensi Otomotif", "Putri Cantika.png"], ["Kaesar Agung", "Finalis - Automotive Technology", "Kaesar Agung.png"], ["Eva Khuzaifah", "Juara 3 - Kompetisi Teknik Kendaraan", "Eva Khuzaifah.png"]] as const;
-const alumni = [["Rizky Aditya", "Rizky Aditya.png", "TKR — Angkatan 50", "Automotive Technician", "Praktik di TKR membuat saya terbiasa menangani kendaraan secara langsung. Dari pemeriksaan sampai troubleshooting, pengalaman itu menjadi bekal penting ketika mulai bekerja di industri otomotif."], ["Dwi Bakti", "Dwi Bakti.png", "TKR — Angkatan 50", "Melanjutkan Pendidikan — Teknik Otomotif", "Di TKR saya belajar memahami kendaraan bukan hanya dari teori, tetapi juga dari praktik. Pengalaman tersebut membuat saya lebih percaya diri untuk melanjutkan pendidikan di bidang otomotif."]] as const;
+const alumni = [
+  ["Rizky Aditya", "Rizky Aditya.png", "TKR — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Pengalaman menangani kendaraan secara langsung di TKR membantu saya memahami materi teknik otomotif di perguruan tinggi."],
+  ["Dwi Bakti", "Dwi Bakti.png", "TKR — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "Kebiasaan bekerja teliti dan disiplin selama praktik TKR menjadi bekal penting untuk melanjutkan pendidikan."],
+  ["Bagus Ramadhan", "Raden Tri Cahyo Bagas.png", "TKR — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Praktik pemeriksaan, perawatan, dan perbaikan kendaraan di TKR menjadi bekal penting untuk melanjutkan pendidikan otomotif."],
+  ["Salsa Maharani", "Rana Hamidah.png", "TKR — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "TKR mengajarkan saya memahami kendaraan dari teori sampai praktik. Bekal itu membantu saya menjalani perkuliahan dengan lebih percaya diri."],
+] as const;
 
 function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-[#575757] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="h-[17px] w-[13.6px] bg-current [mask:url('/assets/shared/icons/section-badge.svg')_center/contain_no-repeat]" aria-hidden="true" />{children}</span>; }
 
@@ -37,3 +46,7 @@ export function TkrPage() {
     <section className="bg-[linear-gradient(90deg,#777777,#575757_50%,#333333)] px-6 py-14 text-center text-white sm:px-10 lg:py-16"><Label>ALUMNI TKR</Label><h2 data-aos="fade-up" className="mt-4 text-2xl font-bold sm:text-3xl">Dari TKR, Melangkah Lebih Jauh</h2><p data-aos="fade-up" data-aos-delay="130" className="mx-auto mt-3 max-w-xl text-sm text-white/90">Kompetensi yang diperoleh selama belajar menjadi bekal alumni untuk memasuki dunia industri otomotif, melanjutkan pendidikan, maupun mengembangkan karier di bidang kendaraan ringan.</p><div className="mx-auto mt-8 flex max-w-[1200px] items-center gap-3 sm:gap-5"><button type="button" onClick={() => scrollAlumni(-1)} aria-label="Alumni sebelumnya" className="group hidden size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,.2)] transition hover:bg-[#575757] md:grid"><img className="size-5 transition-[filter] group-hover:brightness-0 group-hover:invert" src={figmaAssets.advantages.arrowLeft} alt="" /></button><div ref={alumniTrackRef} className="flex min-w-0 flex-1 gap-5 overflow-x-auto pb-1 [scrollbar-width:none] [touch-action:pan-y] [&::-webkit-scrollbar]:hidden">{alumni.map(([name, photo, batch, work, quote], index) => <article data-aos="fade-up" data-aos-delay={index * 80} className="flex w-[85%] shrink-0 items-start gap-4 rounded-2xl bg-white p-4 text-left text-[#10182b] sm:gap-5 sm:p-5 md:w-[calc(50%-10px)]" key={name}><img className="size-28 shrink-0 rounded-xl object-cover sm:size-36" src={asset(photo)} alt={name} /><div className="min-w-0"><strong className="block text-base sm:text-lg">{name}</strong><span className="mt-1 block text-xs text-[#61708b] sm:text-sm">{batch}</span><strong className="mt-2 block text-xs text-[#575757] sm:text-sm">{work}</strong><p className="mt-2 text-xs leading-5 text-[#61708b] sm:text-sm">“{quote}”</p></div></article>)}</div><button type="button" onClick={() => scrollAlumni(1)} aria-label="Alumni berikutnya" className="group hidden size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,.2)] transition hover:bg-[#575757] md:grid"><img className="size-5 transition-[filter] group-hover:brightness-0 group-hover:invert" src={figmaAssets.advantages.arrowRight} alt="" /></button></div></section>
   </main><PublicFooter /></div>;
 }
+
+
+
+

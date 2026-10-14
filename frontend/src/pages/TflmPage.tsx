@@ -6,6 +6,10 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
 const ASSET_OVERRIDES: Record<string, string> = {
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
+  "Raka Pratama.png": "/assets/shared/majors/person-a.png",
+  "Abdusallam.png": "/assets/shared/majors/person-b.png",
   "Abdusallam.png": "/assets/shared/majors/person-b.png",
   "Button shortcut (2).png": "/assets/majors/TFLMAssets/tflm-shortcut.png",
   "Dokumentasi Pembelajaran (5).png": "/assets/majors/TFLMAssets/tflm-dokumentasi-5.png",
@@ -34,8 +38,10 @@ const achievements = [
 ] as const;
 
 const alumni = [
-  ["Raka Pratama", "Raka Pratama.png", "TFLM — Angkatan 50", "Bekerja sebagai Welder di Industri Manufaktur", "Selama belajar di TFLM, saya terbiasa bekerja dengan alat, material, dan mesin secara langsung. Pengalaman praktik membuat saya lebih percaya diri ketika menghadapi pekerjaan di dunia industri."],
-  ["Abdusallam", "Abdusallam.png", "TFLM — Angkatan 49", "Melanjutkan Pendidikan — Teknik Mesin", "TFLM mengajarkan saya untuk bekerja dengan teliti dan disiplin. Pengalaman membaca gambar teknik dan mengerjakan proyek praktik menjadi bekal yang sangat membantu ketika melanjutkan pendidikan."],
+  ["Raka Pratama", "Raka Pratama.png", "TFLM — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Pengalaman bekerja dengan alat, material, dan mesin selama di TFLM membantu saya memahami pembelajaran manufaktur di perguruan tinggi."],
+  ["Abdusallam", "Abdusallam.png", "TFLM — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "Kebiasaan membaca gambar teknik dan mengerjakan proyek praktik di TFLM menjadi bekal penting untuk melanjutkan pendidikan."],
+  ["Ilham Saputra", "Raden Tri Cahyo Bagas.png", "TFLM — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Praktik pengelasan, pemotongan, dan pengerjaan logam di TFLM menjadi bekal penting untuk melanjutkan pendidikan manufaktur."],
+  ["Putri Ananda", "Rana Hamidah.png", "TFLM — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "TFLM mengajarkan saya mengubah teori menjadi keterampilan nyata. Pengalaman praktik membantu saya lebih yakin menjalani perkuliahan."],
 ] as const;
 
  function Label({ children }: { children: string }) {
@@ -70,3 +76,4 @@ export function TflmPage() {
     <PublicFooter />
   </div>;
 }
+

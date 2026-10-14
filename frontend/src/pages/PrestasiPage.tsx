@@ -54,23 +54,23 @@ export function PrestasiPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
       <main>
-        <section className="relative isolate min-h-[620px] overflow-hidden bg-[#bfe2ff] pt-24 sm:min-h-[700px] lg:min-h-[760px] lg:pt-32">
+        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]"><div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
           <img
-            className="absolute inset-0 -z-10 size-full object-cover object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center"
             src={asset("Group 1815.png")}
             alt="Siswa SMKN 26 Jakarta meraih prestasi"
           />
-          <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.88)_0%,rgba(225,241,255,.06)_42%,rgba(0,108,220,.12)_100%)]" />
-          <div className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-5 text-center sm:min-h-[700px] sm:px-8 sm:pt-9 lg:min-h-[760px] lg:px-16 lg:pt-12">
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
             <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
               <img className="h-[17px] w-[13.6px]" src={achievementBadgeIcon} alt="" />
               PRESTASI SMK NEGERI 26 JAKARTA
             </span>
-            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[28px] font-bold leading-tight text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.2)] sm:text-4xl lg:text-[52px]">
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1100px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]">
               Prestasi Siswa{" "}
               <span className="text-primary">SMKN 26 Jakarta</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[760px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
               Kumpulan pencapaian dan keberhasilan siswa SMKN 26 Jakarta dalam
               berbagai bidang kompetisi, akademik, non-akademik, dan keahlian.
             </p>
@@ -82,28 +82,7 @@ export function PrestasiPage() {
             >
               Jelajahi Prestasi <span aria-hidden="true">→</span>
             </a>
-          </div>
-        </section>
-        <section className="relative z-20 mx-auto -mt-8 grid w-[calc(100%-32px)] max-w-[1200px] grid-cols-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#48b9f0] via-[#0092ff] to-[#006cdc] text-center text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] sm:-mt-10 sm:grid-cols-5">
-          {[
-            ["100+", "Prestasi"],
-            ["10", "Tingkat Internasional"],
-            ["56", "Tingkat Nasional"],
-            ["24", "Tingkat Provinsi"],
-            ["30", "Tingkat Kota"],
-          ].map(([value, label], index) => (
-            <div
-              data-aos="fade-up"
-              data-aos-delay={index * 80}
-              className="border-r border-dashed border-white/70 px-2 py-3 last:border-r-0 sm:py-4"
-              key={label}
-            >
-              <strong className="block text-xl font-bold sm:text-2xl">
-                {value}
-              </strong>
-              <span className="text-[9px] sm:text-xs">{label}</span>
-            </div>
-          ))}
+          </div></div></div>
         </section>
         <section id="galeri-prestasi" className="px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1200px] text-center">

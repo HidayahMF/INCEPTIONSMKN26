@@ -6,6 +6,10 @@ import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 
 const ASSET_OVERRIDES: Record<string, string> = {
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
+  "Andi Pratama.png": "/assets/shared/majors/person-a.png",
+  "Fajar Ramadhan.png": "/assets/shared/majors/person-b.png",
   "Button shortcut (4).png": "/assets/majors/SIJAAssets/sija-shortcut.png",
   "Hero Section (5).png": "/assets/majors/SIJAAssets/sija-hero.png",
   "Marwan.png": "/assets/shared/majors/person-b.png",
@@ -14,7 +18,12 @@ const ASSET_OVERRIDES: Record<string, string> = {
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/sija/${name}`;
 const competencies = ["Pemrograman", "Pengembangan Aplikasi", "Jaringan Komputer", "Sistem Informasi", "Basis Data", "Cloud & Infrastruktur", "Keamanan Sistem", "UI/UX Design"];
 const achievements = [["Muhammad Fauzan", "Juara 2 - Network & IT Competition", "Muhammad Fauzan.png"], ["Angelica Putri", "Juara 1 - Kompetisi Aplikasi Pelajar", "Angelica Putri.png"], ["Nabilla Mallya", "Finalis - Digital Innovation Competition", "Nabilla Mallya.png"], ["Bagus Rahmansyah", "Juara 3 - Web Development Competition", "Bagus Rahmansyah.png"]] as const;
-const alumni = [["Raka Aditya", "Raka Pratama.png", "SIJA — Angkatan 50", "Software Developer", "Selama belajar di SIJA, saya terbiasa membuat proyek dan menyelesaikan masalah secara langsung. Pengalaman tersebut menjadi bekal penting ketika mulai bekerja di bidang teknologi."], ["Marwan", "Marwan.png", "SIJA — Angkatan 49", "Network Engineer", "Praktik jaringan dan proyek selama di SIJA membuat saya lebih memahami bagaimana teknologi digunakan di dunia kerja. Saya jadi lebih percaya diri untuk mengembangkan karier di bidang IT."]] as const;
+const alumni = [
+  ["Andi Pratama", "Andi Pratama.png", "SIJA — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Pengalaman membuat aplikasi dan memecahkan masalah selama belajar di SIJA membantu saya mengikuti pembelajaran teknologi di perguruan tinggi."],
+  ["Fajar Ramadhan", "Fajar Ramadhan.png", "SIJA — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "Praktik jaringan dan kerja tim di SIJA membentuk kebiasaan belajar yang sangat membantu saya saat melanjutkan pendidikan di UGM."],
+  ["Dimas Pratama", "Raden Tri Cahyo Bagas.png", "SIJA — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Proyek aplikasi dan praktik jaringan selama di SIJA membantu saya memahami cara membangun solusi digital dan menjadi bekal melanjutkan pendidikan di bidang teknologi."],
+  ["Nabila Safitri", "Rana Hamidah.png", "SIJA — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "SIJA mengajarkan saya untuk terus belajar dan berani mencoba teknologi baru. Pengalaman proyek membuat saya lebih siap menjalani perkuliahan."],
+] as const;
 
 function Label({ children }: { children: string }) { return <span data-aos="fade-up" className="inline-flex items-center gap-2 rounded-full bg-[#FFF3E8] px-3 py-[5px] text-[14px] font-semibold leading-[21px] tracking-[0%] text-[#FF7700] shadow-[0_4px_16px_rgba(15,23,42,.08)]"><span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden="true" />{children}</span>; }
 
@@ -35,3 +44,7 @@ export function SijaPage() {
     <section className="bg-[linear-gradient(90deg,#ff9e49,#FF7700_50%,#c65300)] px-6 py-14 text-center text-white sm:px-10 lg:py-16"><Label>ALUMNI SIJA</Label><h2 data-aos="fade-up" className="mt-4 text-2xl font-bold sm:text-3xl">Dari SIJA, Melangkah Lebih Jauh</h2><p data-aos="fade-up" data-aos-delay="130" className="mx-auto mt-3 max-w-xl text-sm text-white/90">Kompetensi yang diperoleh selama belajar menjadi bekal alumni untuk memasuki dunia industri teknologi, melanjutkan pendidikan, maupun mengembangkan karier di bidang digital.</p><div className="mx-auto mt-8 flex max-w-[1200px] items-center gap-3 sm:gap-5"><button type="button" onClick={() => scrollAlumni(-1)} aria-label="Alumni sebelumnya" className="group hidden size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,.2)] transition hover:bg-[#FF7700] md:grid"><img className="size-5 transition-[filter] group-hover:brightness-0 group-hover:invert" src={figmaAssets.advantages.arrowLeft} alt="" /></button><div ref={alumniTrackRef} className="flex min-w-0 flex-1 gap-5 overflow-x-auto pb-1 [scrollbar-width:none] [touch-action:pan-y] [&::-webkit-scrollbar]:hidden">{alumni.map(([name, photo, batch, work, quote], index) => <article data-aos="fade-up" data-aos-delay={index * 80} className="flex w-[85%] shrink-0 items-start gap-4 rounded-2xl bg-white p-4 text-left text-[#10182b] sm:gap-5 sm:p-5 md:w-[calc(50%-10px)]" key={name}><img className="size-28 shrink-0 rounded-xl object-cover sm:size-36" src={asset(photo)} alt={name} /><div className="min-w-0"><strong className="block text-base sm:text-lg">{name}</strong><span className="mt-1 block text-xs text-[#61708b] sm:text-sm">{batch}</span><strong className="mt-2 block text-xs text-[#FF7700] sm:text-sm">{work}</strong><p className="mt-2 text-xs leading-5 text-[#61708b] sm:text-sm">“{quote}”</p></div></article>)}</div><button type="button" onClick={() => scrollAlumni(1)} aria-label="Alumni berikutnya" className="group hidden size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,.2)] transition hover:bg-[#FF7700] md:grid"><img className="size-5 transition-[filter] group-hover:brightness-0 group-hover:invert" src={figmaAssets.advantages.arrowRight} alt="" /></button></div></section>
   </main><PublicFooter /></div>;
 }
+
+
+
+

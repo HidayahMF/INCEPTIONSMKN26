@@ -7,6 +7,10 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 import { MajorEyebrow } from "../components/public/MajorEyebrow";
 
 const ASSET_OVERRIDES: Record<string, string> = {
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
+  "Assad El Ghanie.png": "/assets/shared/majors/person-a.png",
+  "Muhammad Akbar.png": "/assets/shared/majors/person-b.png",
   "Assad El Ghanie.png": "/assets/shared/majors/person-a.png",
   "Button shortcut (1).png": "/assets/majors/TITLAssets/titl-shortcut.png",
   "Dokumentasi Pembelajaran (3).png": "/assets/majors/TITLAssets/titl-dokumentasi-3.png",
@@ -16,7 +20,12 @@ const ASSET_OVERRIDES: Record<string, string> = {
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/majors/titl/${name}`;
 const competencies = ["Dasar Kelistrikan", "Instalasi Listrik", "Pengawatan", "Pengukuran Listrik", "Panel Listrik", "Sistem Tenaga Listrik", "Proteksi & Keselamatan", "Troubleshooting"];
 const achievements = [["Dimas Ahmad", "Finalis - Kompetisi Inovasi Energi", "dimasahmad.png"], ["Annisa Kuncoro", "Juara 2 - Kompetisi Kelistrikan", "annisakuncoro.png"], ["Lili Putri Kencana", "Juara 3 - Electrical Installation", "liliputrikencana.png"], ["Raka Aditya", "Juara 1 -  Listrik Installation", "rakaaditya.png"]] as const;
-const alumni = [["Assad El Ghanie", "Assad El Ghanie.png", "TITL — Angkatan 50", "Bekerja sebagai Teknisi Instalasi Listrik", "Selama belajar di TITL, saya terbiasa melakukan praktik instalasi, pengawatan, dan pengukuran secara langsung. Pengalaman tersebut membuat saya lebih siap ketika mulai bekerja di dunia industri."], ["Muhammad Akbar", "Muhammad Akbar.png", "TITL — Angkatan 49", "Melanjutkan Pendidikan — D4 Teknik Elektro", "TITL mengajarkan saya untuk tidak hanya memahami teori, tetapi juga terbiasa bekerja dengan teliti dan memperhatikan keselamatan. Kebiasaan itu sangat membantu saya melanjutkan pendidikan di bidang teknik."]] as const;
+const alumni = [
+  ["Assad El Ghanie", "Assad El Ghanie.png", "TITL — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Pengalaman praktik instalasi dan pengukuran di TITL membantu saya memahami materi teknik elektro di perguruan tinggi."],
+  ["Muhammad Akbar", "Muhammad Akbar.png", "TITL — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "Kebiasaan bekerja aman, teliti, dan disiplin selama praktik TITL menjadi bekal berharga untuk melanjutkan pendidikan."],
+  ["Arif Nugraha", "Raden Tri Cahyo Bagas.png", "TITL — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Praktik instalasi, pengawatan, dan pengukuran di TITL menjadi bekal penting untuk melanjutkan pendidikan kelistrikan."],
+  ["Maya Lestari", "Rana Hamidah.png", "TITL — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "TITL membiasakan saya memahami teori sekaligus mempraktikkannya. Pengalaman itu membantu saya lebih percaya diri berkuliah."],
+] as const;
 
 function Label({ children }: { children: string }) {
   return (
@@ -57,3 +66,7 @@ export function TitlPage() {
     </div>
   );
 }
+
+
+
+

@@ -7,6 +7,10 @@ import { IndustryPartnersMarquee } from "../components/public/IndustryPartnersMa
 import { MajorEyebrow } from "../components/public/MajorEyebrow";
 
 const ASSET_OVERRIDES: Record<string, string> = {
+  "Raden Tri Cahyo Bagas.png": "/assets/shared/majors/person-d.png",
+  "Rana Hamidah.png": "/assets/shared/majors/person-c.png",
+  "Andi Pratama.png": "/assets/shared/majors/person-a.png",
+  "Fajar Ramadhan.png": "/assets/shared/majors/person-b.png",
   "Abi Rafi.png": "/assets/shared/majors/person-b.png",
   "Button shortcut.png": "/assets/majors/TEKAssets/tek-shortcut.png",
   "Dokumentasi Pembelajaran atas.png": "/assets/majors/TEKAssets/tek-dokumentasi-atas.png",
@@ -35,8 +39,10 @@ const achievements = [
 ] as const;
 
 const alumni = [
-  ["Fajar Maulana", "Fajar Ramadhan.png", "TEK — Angkatan 50", "Bekerja sebagai Teknisi Elektronika", "Selama belajar di TEK, saya tidak hanya memahami teori, tetapi juga terbiasa praktik, menguji rangkaian, dan menyelesaikan masalah secara langsung. Pengalaman tersebut sangat membantu saya saat memasuki dunia kerja."],
-  ["Abi Rafi", "Abi Rafi.png", "TEK — Angkatan 49", "Bekerja sebagai Teknisi Elektronika", "Pembelajaran dan praktik di TEK membuat saya lebih percaya diri menghadapi dunia kerja. Banyak pengalaman yang saya dapatkan di sekolah bisa langsung saya terapkan setelah lulus."],
+  ["Andi Pratama", "Andi Pratama.png", "TEK — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Pengalaman menguji rangkaian dan bekerja dengan alat ukur di TEK membantu saya memahami materi elektronika di perguruan tinggi."],
+  ["Fajar Ramadhan", "Fajar Ramadhan.png", "TEK — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "Kebiasaan bekerja teliti dan menyelesaikan proyek selama di TEK menjadi bekal berharga untuk belajar di UGM."],
+  ["Rizal Firmansyah", "Raden Tri Cahyo Bagas.png", "TEK — Angkatan 50", "Berkuliah di Universitas Gadjah Mada", "Praktik merakit, menguji rangkaian, dan mencari solusi di TEK menjadi bekal penting untuk melanjutkan pendidikan elektronika."],
+  ["Aulia Rahma", "Rana Hamidah.png", "TEK — Angkatan 49", "Berkuliah di Universitas Gadjah Mada", "TEK mengajarkan saya berpikir logis dan teliti. Pengalaman praktik membuat saya lebih siap menjalani perkuliahan."],
 ] as const;
 
 function Label({ children }: { children: string }) {
@@ -294,7 +300,7 @@ export function TekPage() {
                   key={name}
                 >
                   <img
-                    className="aspect-[1.15] w-full object-cover"
+                    className="w-full object-cover"
                     src={asset(photo)}
                     alt={name}
                   />
@@ -402,3 +408,7 @@ export function TekPage() {
     </div>
   );
 }
+
+
+
+
