@@ -8,6 +8,7 @@ import {
 import { figmaAssets } from "../../assets/figmaAssets";
 import { newsItems } from "../../data/news";
 import { useFloatShapes } from "../../lib/useFloatShapes";
+import { NewsCard } from "./NewsCard";
 
 type Props = { onAskAi: () => void };
 const bludCards = [
@@ -514,10 +515,7 @@ function BludSection() {
               className="relative min-w-0"
               key={name}
             >
-              <a
-                className={`group blud-card blud-card-${index} ${[0, 2, 3, 4].includes(index) ? "has-hover-shadow" : ""} relative flex h-[200px] min-w-0 box-border flex-col justify-between overflow-hidden rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]`}
-                href={href}
-              >
+               <a href={href} className="group blud-card relative flex h-[200px] min-w-0 flex-col justify-between overflow-hidden rounded-3xl border-2 border-school-bg bg-white p-[18px] no-underline">
                 <span className="pointer-events-none absolute right-[-126px] top-[-8px] z-0 size-[210px] rounded-full bg-gradient-to-br from-[#006cdc] to-[#009cff] opacity-0 transition-[right,opacity] duration-300 ease-out group-hover:right-[-118px] group-hover:opacity-100 group-focus-visible:right-[-118px] group-focus-visible:opacity-100" aria-hidden="true">
                   <span className="absolute inset-[7px] rounded-full border border-white/80" />
                 </span>
@@ -769,7 +767,6 @@ function AchievementsSection() {
   );
 }
 
-const newsCategoryIcon = "/assets/shared/news/news-calendar.svg";
 const newsBadgeIcon = "/assets/shared/icons/section-badge.svg";
 
 function NewsSection() {
@@ -887,39 +884,17 @@ function NewsSection() {
               className="shrink-0"
               key={card.title + card.date}
             >
-              <a
-                 className="news-card group relative box-border block h-[300px] w-[400px] shrink-0 overflow-hidden rounded-xl border-2 border-school-bg bg-white no-underline transition-[border-width,border-color,box-shadow,transform] duration-300 ease-out hover:border-4 hover:border-transparent hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] hover:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box] focus-visible:border-4 focus-visible:border-transparent focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:[background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#006cdc,#0092ff,#4cbaf5)_border-box]"
-                href={`/news/${card.slug}`}
-                onClick={(event) => {
-                  if (draggedRef.current) {
-                    event.preventDefault();
-                    draggedRef.current = false;
-                  }
-                }}
-              >
-                <img
-                  className="absolute left-0 top-0 h-[176px] w-[396px] rounded-bl-[22px] object-cover"
-                  src={card.image}
-                  alt=""
-                  draggable={false}
-                />
-                <div className="absolute bottom-[18px] left-[18px] right-[18px] h-[83px] p-0">
-                  <span className="absolute -left-0.5 -top-[37px] inline-flex items-center gap-1.5 rounded-full [background:linear-gradient(90deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] py-[5px] pr-3 pl-2.5 text-sm font-medium text-white">
-                    <img
-                      className="h-[17px] w-[17px] shrink-0"
-                      src={newsCategoryIcon}
-                      alt=""
-                    />
-                    {card.category}
-                  </span>
-                  <h3 className="absolute left-0 top-0 m-0 bg-[linear-gradient(105deg,#006cdc,#0092ff_72%,#4cbaf5)] bg-clip-text text-2xl font-bold leading-[29px] text-transparent">
-                    {card.title}
-                  </h3>
-                  <time className="absolute bottom-[3px] left-0 m-0 block text-xs leading-[18px] text-muted">
-                    {card.date}
-                  </time>
-                </div>
-              </a>
+               <NewsCard
+                 news={card}
+                 variant="homepage"
+                 aosDelay={Math.min(index * 100, 400)}
+                 onClick={(event) => {
+                   if (draggedRef.current) {
+                     event.preventDefault();
+                     draggedRef.current = false;
+                   }
+                 }}
+               />
             </div>
           ))}
         </div>
@@ -1082,4 +1057,9 @@ function AiCtaSection({ onAskAi }: Props) {
     </section>
   );
 }
+
+
+
+
+
 

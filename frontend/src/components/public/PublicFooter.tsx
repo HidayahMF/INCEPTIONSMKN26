@@ -74,7 +74,7 @@ export function PublicFooter() {
             type="email"
           />
           <button
-            className="h-11 w-28 shrink-0 rounded-full border-0 bg-gradient-to-r from-primary-dark via-primary to-soft-blue font-medium text-white transition-[background,color] duration-300 hover:bg-white hover:bg-none hover:text-primary focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary"
+             className="mr-[-1px] h-11 w-28 shrink-0 rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue font-medium text-white transition-[background,color,border-color,box-shadow] duration-300 hover:border-[#CBD5E1] hover:bg-white hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
             type="submit"
           >
             Kirim
@@ -82,29 +82,29 @@ export function PublicFooter() {
         </form>
         <div className="flex gap-3 min-[1272px]:static min-[1272px]:justify-self-end">
           <a
-            className="grid size-[45px] place-items-center rounded-full bg-white"
+             className="group grid size-[45px] place-items-center rounded-full border border-transparent bg-white transition-[background,color,border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-primary-dark focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:bg-primary-dark"
             href="https://www.instagram.com/smkn.26jakarta/"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
           >
-            <img className="size-[22px]" src={footerIcon.instagram} alt="" />
+             <img className="size-[22px] transition-[filter] duration-300 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={footerIcon.instagram} alt="" />
           </a>
           <a
-            className="grid size-[45px] place-items-center rounded-full bg-white"
+             className="group grid size-[45px] place-items-center rounded-full border border-transparent bg-white transition-[background,color,border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-primary-dark focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:bg-primary-dark"
             href="https://www.youtube.com/@smkn26jakarta23"
             target="_blank"
             rel="noreferrer"
             aria-label="YouTube"
           >
-            <img className="size-[22px]" src={footerIcon.youtube} alt="" />
+             <img className="size-[22px] transition-[filter] duration-300 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={footerIcon.youtube} alt="" />
           </a>
           <a
-            className="grid size-[45px] place-items-center rounded-full bg-white"
+             className="group grid size-[45px] place-items-center rounded-full border border-transparent bg-white transition-[background,color,border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-primary-dark focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:bg-primary-dark"
             href="mailto:smkn26jkt@gmail.com"
             aria-label="Email"
           >
-            <img className="size-[22px]" src={footerIcon.email} alt="" />
+             <img className="size-[22px] transition-[filter] duration-300 group-hover:brightness-0 group-hover:invert group-focus-visible:brightness-0 group-focus-visible:invert" src={footerIcon.email} alt="" />
           </a>
         </div>
       </div>
@@ -134,30 +134,30 @@ export function PublicFooter() {
             masa depan.
           </p>
           <a
-            className="mt-3 flex items-start gap-2 text-xs leading-[18px] text-white/90 no-underline"
+             className="group mt-3 flex items-start gap-2 text-xs leading-[18px] text-white/90 no-underline transition-colors duration-300 hover:text-white"
             href="tel:+62214720310"
           >
             <img
-              className="size-[18px] shrink-0 object-contain"
+               className="size-[18px] shrink-0 object-contain brightness-0 invert transition-[filter,transform] duration-300 group-hover:scale-110 group-hover:[filter:brightness(0)_saturate(100%)_invert(43%)_sepia(97%)_saturate(1800%)_hue-rotate(185deg)_brightness(98%)_contrast(102%)]"
               src={footerIcon.whatsapp}
               alt=""
             />
             (021) 4720310
           </a>
           <a
-            className="mt-3 flex items-start gap-2 text-xs leading-[18px] text-white/90 no-underline"
+             className="group mt-3 flex items-start gap-2 text-xs leading-[18px] text-white/90 no-underline transition-colors duration-300 hover:text-white"
             href="mailto:smkn26jkt@gmail.com"
           >
             <img
-              className="size-[18px] shrink-0 object-contain brightness-0 invert"
+               className="size-[18px] shrink-0 object-contain brightness-0 invert transition-[filter,transform] duration-300 group-hover:scale-110 group-hover:[filter:brightness(0)_saturate(100%)_invert(43%)_sepia(97%)_saturate(1800%)_hue-rotate(185deg)_brightness(98%)_contrast(102%)]"
               src={footerIcon.email}
               alt=""
             />
             smkn26jkt@gmail.com
           </a>
-          <address className="mt-3 flex items-start gap-2 text-xs leading-[18px] not-italic text-white/90">
+           <address className="group mt-3 flex items-start gap-2 text-xs leading-[18px] not-italic text-white/90 transition-colors duration-300 hover:text-white">
             <img
-              className="size-[18px] shrink-0 object-contain"
+               className="size-[18px] shrink-0 object-contain brightness-0 invert transition-[filter,transform] duration-300 group-hover:scale-110 group-hover:[filter:brightness(0)_saturate(100%)_invert(43%)_sepia(97%)_saturate(1800%)_hue-rotate(185deg)_brightness(98%)_contrast(102%)]"
               src={footerIcon.address}
               alt=""
             />

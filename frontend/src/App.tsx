@@ -56,6 +56,7 @@ import { BkkPage } from "./pages/BkkPage";
 import { PrestasiPage } from "./pages/PrestasiPage";
 import { AdvantageDetailPage } from "./pages/AdvantageDetailPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
+import { NewsPage } from "./pages/NewsPage";
 import { PartnerDetailPage } from "./pages/PartnerDetailPage";
 import { newsItems } from "./data/news";
 import { majors } from "./data/majors";
@@ -394,6 +395,7 @@ export function App() {
   if (path.startsWith("/news/")) {
     return <PublicExperience><NewsDetailPage slug={path.slice("/news/".length)} /></PublicExperience>;
   }
+  if (path === "/news") return <PublicExperience><NewsPage /></PublicExperience>;
   if (path.startsWith("/partners/")) {
     return <PublicExperience><PartnerDetailPage slug={path.slice("/partners/".length)} /></PublicExperience>;
   }

@@ -1,11 +1,19 @@
 export const newsItems = [
   {
-    category: "Kegiatan",
+    category: "Kegiatan Sekolah",
     title: "Workshop Pengembangan Soft Skill Siswa",
     date: "28 September 2026",
     image: "/assets/shared/news/news-raw-03.png",
     slug: "workshop-pengembangan-soft-skill-siswa",
-    description: "Workshop ini menjadi ruang bagi siswa untuk mengembangkan komunikasi, kerja sama, kepercayaan diri, dan kesiapan menghadapi lingkungan belajar maupun dunia kerja.",
+    description: "Workshop pengembangan soft skill membantu siswa meningkatkan komunikasi, kerja sama, kepercayaan diri, dan kesiapan menghadapi dunia kerja.",
+  },
+  {
+    category: "Pengumuman",
+    title: "Informasi Terbaru untuk Warga Sekolah",
+    date: "05 September 2026",
+    image: "/assets/shared/news/news-raw-01.png",
+    slug: "informasi-terbaru-untuk-warga-sekolah",
+    description: "Informasi terbaru seputar kegiatan, pengumuman, dan berbagai kabar penting untuk seluruh warga SMK Negeri 26 Jakarta.",
   },
   {
     category: "Prestasi",
@@ -14,14 +22,6 @@ export const newsItems = [
     image: "/assets/shared/news/news-raw-04.png",
     slug: "siswa-smkn-26-raih-prestasi-di-lks",
     description: "Pencapaian di LKS menjadi bagian dari perjalanan siswa dalam menguji kompetensi, ketekunan, dan kemampuan menerapkan keterampilan sesuai bidang keahlian.",
-  },
-  {
-    category: "Kegiatan Sekolah",
-    title: "Workshop Pengembangan Soft Skill Siswa",
-    date: "18 September 2026",
-    image: "/assets/shared/news/news-raw-01.png",
-    slug: "workshop-soft-skill-kegiatan-sekolah",
-    description: "Kegiatan sekolah ini mendukung pembentukan karakter dan keterampilan interpersonal siswa melalui pengalaman belajar yang kolaboratif dan reflektif.",
   },
   {
     category: "Kemitraan & Kerja Sama",
@@ -38,5 +38,13 @@ export const newsItems = [
     image: "/assets/shared/news/news-raw-07.png",
     slug: "karya-inovatif-berbasis-teknologi",
     description: "Karya berbasis teknologi menjadi wadah bagi siswa untuk menggabungkan kreativitas, pemecahan masalah, dan kompetensi kejuruan menjadi solusi yang bernilai.",
+  },
+  {
+    category: "Alumni",
+    title: "Alumni Berprestasi, Inspirasi Generasi",
+    date: "26 Agustus 2026",
+    image: "/assets/shared/news/alumniberprestasi.png",
+    slug: "alumni-berprestasi-inspirasi-generasi",
+    description: "Kisah alumni berprestasi menjadi inspirasi bagi generasi SMK Negeri 26 Jakarta untuk terus berkembang, berkarya, dan meraih masa depan yang lebih baik.",
   },
 ] as const;

@@ -15,6 +15,18 @@ body {
   overflow-x: clip;
 }
 
+@keyframes detail-shape-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.detail-shape { animation: detail-shape-float 4s ease-in-out infinite; }
+.detail-shape-large { animation-delay: -1.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-shape { animation: none; }
+}
+
 @theme {
   --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --color-primary: #0092ff;
