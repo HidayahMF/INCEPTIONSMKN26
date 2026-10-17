@@ -28,6 +28,12 @@ const services = [
   ],
 ] as const;
 
+const bkkStats = [
+  ["20+", "Mitra Industri"],
+  ["4", "Layanan BKK"],
+  ["100+", "Peluang Kerja"],
+] as const;
+
 const steps = [
   [
     "01",
@@ -131,22 +137,22 @@ export function BkkPage() {
       <PublicNavbar />
       <main>
         <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
-          <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
+          <div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/820] md:min-h-0">
           <img
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[68%_center] md:object-center"
             src={asset("Group 1813.png")}
             alt="Siswa BKK SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-4 pt-[100px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
             <div data-aos="fade-down">
               <Badge>BURSA KERJA KHUSUS</Badge>
             </div>
-            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[1100px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]">
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[330px] text-[28px] font-bold leading-[1.12] tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] sm:max-w-[600px] sm:text-[38px] md:max-w-[1000px] md:text-[48px] md:leading-[58px]">
               Buka Jalan Menuju{" "}
               <span className="text-primary">Dunia Industri</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[330px] text-sm font-medium leading-5 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] sm:max-w-[700px] sm:text-base sm:leading-6 md:max-w-[1000px] md:text-[20px] md:leading-[30px]">
               BKK SMK Negeri 26 Jakarta menjadi jembatan antara siswa dan dunia
               kerja melalui informasi peluang PKL, rekrutmen, serta koneksi
               dengan mitra industri.
@@ -174,7 +180,20 @@ export function BkkPage() {
                 />
               </span>
             </a>
-          </div></div></div>
+           </div></div>
+           <div aria-label="Statistik BKK" className="absolute bottom-4 left-1/2 z-20 grid min-h-[82px] w-[calc(100%-32px)] -translate-x-1/2 grid-cols-3 overflow-hidden rounded-[12px] text-white md:bottom-[2.07%] md:h-[90px] md:min-h-0 md:w-[min(calc(100%-48px),1000px)] lg:bottom-[17px] lg:h-[90px] lg:w-[1000px] lg:origin-bottom lg:scale-[1.18]">
+             <img className="pointer-events-none absolute inset-0 z-0 size-full rounded-[12px] object-fill" src="/assets/pages/ekstrakurikuler/shapestatistik.png" alt="" aria-hidden="true" />
+             {bkkStats.map(([value, label], index) => (
+               <div key={label} className="relative z-10 flex min-h-[40px] min-w-0 flex-col items-center justify-center px-1">
+                 <div className="text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                   <strong className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]">{value}</strong>
+                   <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">{label}</span>
+                 </div>
+                 {index < bkkStats.length - 1 && <span className="pointer-events-none absolute right-0 top-0 z-20 h-full border-r-2 border-dashed border-white/90" data-aos="fade-up" data-aos-delay={index * 100 + 50} aria-hidden="true" />}
+               </div>
+             ))}
+           </div>
+         </div>
         </section>
         <section className="bg-white px-6 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto grid max-w-[1100px] items-center gap-8 md:grid-cols-[.9fr_1.1fr]">

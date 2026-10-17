@@ -120,6 +120,14 @@ function SectionAction({ href }: { href: string }) {
   );
 }
 
+const heroStats = [
+  ["6", "Jurusan"],
+  ["20+", "Guru Kejuruan"],
+  ["40+", "Guru Normatif"],
+  ["29+", "Tenaga Kependidikan"],
+  ["4", "Bidang Wakasek"],
+] as const;
+
 function PrincipalSection() {
   return (
     <section aria-labelledby="principal-heading" className="w-full bg-white px-6 py-12 md:px-10">
@@ -323,17 +331,17 @@ function HeroSection() {
   return (
     <>
       <section aria-labelledby="organization-title" className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
-        <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
+        <div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/822] md:min-h-[620px] lg:min-h-0">
           <img
             alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[65%_center] md:object-[78%_center] lg:object-center"
             src={figmaAssets.struktur.heroBackground}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10"
+            className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/5"
           />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-3 pt-[100px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
             <div className="flex max-w-[1100px] flex-col items-center">
         <div data-aos="fade-down">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">
@@ -344,7 +352,7 @@ function HeroSection() {
         <h1
           data-aos="fade-up"
           data-aos-delay="100"
-          className="mt-4 max-w-[1000px] text-[32px] font-bold leading-10 tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] md:text-[48px] md:leading-[58px]"
+          className="mt-4 max-w-[330px] text-[28px] font-bold leading-[1.12] tracking-[-.02em] text-white drop-shadow-[0_3px_3px_rgba(15,23,42,.14)] sm:max-w-[600px] sm:text-[38px] md:max-w-[1000px] md:text-[48px] md:leading-[58px]"
           id="organization-title"
         >
           <span>Di Balik </span>
@@ -354,17 +362,53 @@ function HeroSection() {
           <br />
           Ada Tim yang Membangun Bersama
         </h1>
-        <p data-aos="fade-up" data-aos-delay="180" className="mt-3 max-w-[1000px] text-base font-medium leading-6 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] md:text-[20px] md:leading-[30px]">
+        <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[330px] text-sm font-medium leading-5 text-white drop-shadow-[0_2px_3px_rgba(15,23,42,.2)] sm:max-w-[700px] sm:text-base sm:leading-6 md:mt-3 md:max-w-[1000px] md:text-[20px] md:leading-[30px]">
           Kenali para pendidik dan tenaga kependidikan yang berperan dalam mendukung
           proses pembelajaran, pengembangan kompetensi, serta layanan di SMK Negeri 26
           Jakarta.
         </p>
         <div data-aos="fade-up" data-aos-delay="260">
-          <CtaLink className="mt-4" href="#organization-content">
+          <CtaLink className="mt-5" href="#organization-content">
             Jelajahi Guru SMKN 26
           </CtaLink>
         </div>
             </div>
+          </div>
+          <div
+            aria-label="Statistik SMK Negeri 26 Jakarta"
+            className="absolute bottom-4 left-1/2 z-20 grid min-h-[82px] w-[calc(100%-32px)] -translate-x-1/2 grid-cols-6 overflow-hidden rounded-[12px] text-white md:bottom-[2.07%] md:aspect-auto md:min-h-0 md:h-auto md:w-[calc(100%-48px)] md:grid-cols-5 lg:bottom-[17px] lg:h-[90px] lg:w-[1200px] lg:origin-bottom lg:scale-[1.18]"
+          >
+            <img
+              className="pointer-events-none absolute inset-0 z-0 size-full rounded-[12px] object-fill"
+              src="/assets/shared/struktur/shapestatisktik.png"
+              alt=""
+              aria-hidden="true"
+            />
+            {heroStats.map(([value, label], index) => (
+              <div
+                key={label}
+                className={`relative z-10 col-span-2 flex min-h-[40px] min-w-0 flex-col items-center justify-center px-0.5 md:col-span-1 md:h-full md:min-h-0 md:px-1 ${index === 3 ? "col-start-2 md:col-start-auto" : index === 4 ? "col-start-4 md:col-start-auto" : ""}`}
+              >
+                <div className="relative z-10 text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <strong className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]">
+                    {value}
+                  </strong>
+                  <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">
+                    {label}
+                  </span>
+                </div>
+                {(index < heroStats.length - 1) && (
+                  <img
+                    className={`pointer-events-none absolute right-0 top-0 z-20 h-full w-[2px] object-fill ${index === 2 ? "hidden md:block" : ""} ${index === 4 ? "hidden" : ""}`}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100 + 50}
+                    src="/assets/shared/struktur/garispemisah.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

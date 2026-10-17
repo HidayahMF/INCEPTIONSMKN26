@@ -37,6 +37,12 @@ const mission = [
   "Mengembangkan manajemen dan tata kelola LSP.",
   "Mengembangkan system informasi.",
 ] as const;
+const lspStats = [
+  ["6+", "Jurusan Bidang Keahlian"],
+  ["13+", "Skema Sertifikasi"],
+  ["500+", "Peserta Tersertifikasi"],
+  ["10+ Tahun", "Pengalaman"],
+] as const;
 
 function Label({
   children,
@@ -53,21 +59,21 @@ export function LspPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
     <main>
-        <section className="relative isolate aspect-[1440/820] min-h-[680px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-0 lg:pt-32">
+        <section className="relative isolate min-h-[720px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[760px] md:aspect-[1440/820] md:min-h-0 lg:pt-32">
           <img
-            className="absolute inset-0 -z-10 size-full object-cover object-center lg:object-[center_bottom]"
+            className="absolute inset-0 -z-10 size-full object-cover object-[center_bottom] sm:object-[58%_bottom] md:object-center lg:object-[center_bottom]"
             src={asset("Hero Section.png")}
             alt="Siswa LSP SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.18)_0%,rgba(225,241,255,0)_42%,rgba(0,108,220,.04)_100%)]" />
-          <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-5 pb-36 pt-4 text-center sm:min-h-0 sm:px-8 sm:pt-6 lg:px-16 lg:pb-48 lg:pt-4">
+           <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-4 pb-36 pt-4 text-center sm:min-h-0 sm:px-8 sm:pt-6 lg:px-16 lg:pb-48 lg:pt-4">
             <div data-aos="fade-down">
               <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
             </div>
-            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[800px] text-4xl font-bold leading-[1.08] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:text-5xl lg:text-[54px]">
+             <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[330px] text-[30px] font-bold leading-[1.12] text-white drop-shadow-[0_3px_6px_rgba(15,23,42,.18)] sm:max-w-[600px] sm:text-5xl lg:max-w-[800px] lg:text-[54px]">
               Lembaga Sertifikasi <span className="text-primary">Profesi</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[790px] text-sm leading-6 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:text-base sm:leading-7">
+             <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[330px] text-sm leading-5 text-white drop-shadow-[0_2px_4px_rgba(15,23,42,.2)] sm:max-w-[700px] sm:text-base sm:leading-7 lg:max-w-[790px] lg:leading-7">
               Lembaga Sertifikasi Profesi (LSP) SMKN 26 Jakarta hadir sebagai
               bagian dari proses pengakuan kompetensi siswa melalui sertifikasi
               profesi yang sesuai dengan bidang keahliannya.
@@ -77,6 +83,17 @@ export function LspPage() {
                 Lihat Skema Sertifikasi
               </CtaLink>
             </div>
+          </div>
+          <div aria-label="Statistik LSP SMKN 26 Jakarta" className="absolute bottom-4 left-1/2 z-20 grid min-h-[90px] w-[calc(100%-32px)] -translate-x-1/2 grid-cols-2 overflow-hidden rounded-[12px] border-2 border-white bg-gradient-to-r from-[#43B8F5] via-[#0092FF] to-[#006CDC] text-white sm:min-h-[96px] md:bottom-[2.07%] md:h-[90px] md:min-h-0 md:w-[min(calc(100%-48px),1200px)] md:grid-cols-4 lg:bottom-[17px] lg:h-[90px] lg:w-[1200px] lg:origin-bottom lg:scale-[1.18]">
+            {lspStats.map(([value, label], index) => (
+              <div key={label} className="relative flex min-h-[40px] min-w-0 flex-col items-center justify-center px-1">
+                <div className="relative z-10 text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <strong className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]">{value}</strong>
+                  <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">{label}</span>
+                </div>
+                {index < lspStats.length - 1 && <span className="pointer-events-none absolute right-0 top-0 z-20 h-full border-r-2 border-dashed border-white/90" data-aos="fade-up" data-aos-delay={index * 100 + 50} aria-hidden="true" />}
+              </div>
+            ))}
           </div>
         </section>
         <section className="bg-white px-6 py-14 sm:px-10 lg:py-[72px]">

@@ -39,6 +39,13 @@ const cards = [
   "Card Prestasi (12).png",
   "Card Prestasi (13).png",
 ] as const;
+const achievementStats = [
+  ["100+", "Prestasi"],
+  ["10", "Tingkat Internasional"],
+  ["56", "Tingkat Nasional"],
+  ["24", "Tingkat Provinsi"],
+  ["30", "Tingkat Kota"],
+] as const;
 
 function Badge({ children }: { children: string }) {
   return (
@@ -54,9 +61,9 @@ export function PrestasiPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
       <main>
-        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]"><div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
+        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]"><div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/822] md:min-h-0">
           <img
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[68%_center] md:object-center"
             src={asset("Group 1815.png")}
             alt="Siswa SMKN 26 Jakarta meraih prestasi"
           />
@@ -82,7 +89,19 @@ export function PrestasiPage() {
             >
               Jelajahi Prestasi <span aria-hidden="true">→</span>
             </a>
-          </div></div></div>
+          </div></div>
+          <div aria-label="Statistik prestasi siswa" className="absolute bottom-4 left-1/2 z-20 grid min-h-[82px] w-[calc(100%-32px)] -translate-x-1/2 grid-cols-6 overflow-hidden rounded-[12px] border-2 border-white bg-gradient-to-r from-[#43B8F5] via-[#0092FF] to-[#006CDC] text-white md:bottom-[2.07%] md:h-[90px] md:min-h-0 md:w-[min(calc(100%-48px),1200px)] md:grid-cols-5 lg:bottom-[17px] lg:h-[90px] lg:w-[1200px] lg:origin-bottom lg:scale-[1.18]">
+            {achievementStats.map(([value, label], index) => (
+              <div key={label} className={`relative z-10 col-span-2 flex min-h-[40px] min-w-0 flex-col items-center justify-center px-0.5 md:col-span-1 md:h-full md:min-h-0 md:px-1 ${index === 3 ? "col-start-2 md:col-start-auto" : index === 4 ? "col-start-4 md:col-start-auto" : ""}`}>
+                <div className="relative z-10 text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <strong className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]">{value}</strong>
+                  <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">{label}</span>
+                </div>
+                {index < achievementStats.length - 1 && <span className={`pointer-events-none absolute right-0 top-0 z-20 h-full border-r-2 border-dashed border-white/90 ${index === 2 ? "hidden md:block" : ""}`} data-aos="fade-up" data-aos-delay={index * 100 + 50} aria-hidden="true" />}
+              </div>
+            ))}
+          </div>
+        </div>
         </section>
         <section id="galeri-prestasi" className="px-5 py-14 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-[1200px] text-center">

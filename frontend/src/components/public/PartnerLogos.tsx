@@ -40,6 +40,13 @@ const partnerDetails = [
   ["Astra Otoparts", "astra", "Kolaborasi di bidang komponen otomotif dan manufaktur untuk memperkuat pengalaman pembelajaran siswa melalui praktik kerja."],
 ] as const;
 
+const partnerStats = [
+  ["50+", "Mitra Industri"],
+  ["6", "Kompetensi Keahlian"],
+  ["6", "Bidang Kolaborasi"],
+  ["24", "Program & Kegiatan"],
+] as const;
+
 function DetailPartnerCard({ name, keyName, description, index }: { name: string; keyName: string; description: string; index: number }) {
   const partner = partners.find((item) => item.key === keyName);
   if (!partner) return null;
@@ -111,11 +118,21 @@ export function PartnerIndustryPage() {
            <CtaLink data-aos="fade-up" data-aos-delay="260" className="mt-5" href="#partners-list-title">Jelajahi Mitra</CtaLink>
         </div>
           {/* Embedded statistics are part of the hero artwork. */}
-          <div className="hidden">
-          {[["50+", "Mitra Industri"], ["6", "Kompetensi Keahlian"], ["6", "Bidang Kolaborasi"], ["24", "Program & Kegiatan"]].map(([value, label]) => (
-            <div data-aos="fade-up" className="border-b border-r border-dashed border-white/70 px-3 py-4 last:border-r-0 sm:py-3" key={label}>
-              <strong className="block text-2xl font-bold sm:text-3xl">{value}</strong>
-              <span className="text-[11px] sm:text-xs">{label}</span>
+           <div className="absolute bottom-4 left-1/2 z-20 grid min-h-[82px] w-[calc(100%-32px)] -translate-x-1/2 grid-cols-2 overflow-hidden rounded-[12px] border-2 border-white bg-gradient-to-r from-[#43B8F5] via-[#0092FF] to-[#006CDC] text-white md:bottom-[2.07%] md:h-[90px] md:w-[calc(100%-48px)] md:grid-cols-4 lg:bottom-[17px] lg:h-[90px] lg:w-[1200px] lg:origin-bottom lg:scale-[1.18]">
+           {partnerStats.map(([value, label], index) => (
+             <div className="relative flex min-h-[40px] flex-col items-center justify-center px-1" key={label}>
+                 <div className="relative z-10 text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                   <strong className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]">{value}</strong>
+                   <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">{label}</span>
+                 </div>
+                 {index < partnerStats.length - 1 && (
+                   <span
+                     className="pointer-events-none absolute right-0 top-0 z-20 h-full border-r-2 border-dashed border-white/90"
+                     data-aos="fade-up"
+                     data-aos-delay={index * 100 + 50}
+                     aria-hidden="true"
+                   />
+                 )}
          </div>
           ))}
         </div>
@@ -154,3 +171,5 @@ export function PartnerIndustryPage() {
     </main>
   );
 }
+
+

@@ -657,7 +657,7 @@ function AchievementsSection() {
         >
           {achievementCards.map(([title, description, src]) => (
             <article
-              className={`group achievement-card relative h-[296px] w-[237px] shrink-0 overflow-hidden rounded-[10.9px] border-2 border-white bg-ink transition-none max-[1271.98px]:[scroll-snap-align:start] ${isDragging ? " pointer-events-none" : ""}`}
+              className={`group/achievement achievement-card relative h-[296px] w-[237px] shrink-0 overflow-hidden rounded-[10.9px] border-2 border-white bg-ink transition-none max-[1271.98px]:[scroll-snap-align:start] ${isDragging ? " pointer-events-none" : ""}`}
               tabIndex={0}
               key={src}
             >
@@ -668,10 +668,10 @@ function AchievementsSection() {
                 draggable={false}
               />
               <div
-                className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100"
+                 className="pointer-events-none absolute left-0 right-0 top-[79px] h-[217px] bg-gradient-to-b from-transparent to-[#000059] opacity-0 transition-opacity duration-300 ease-out group-hover/achievement:opacity-100 group-focus-within/achievement:opacity-100"
                 aria-hidden="true"
               />
-              <div className="achievement-card-content pointer-events-none absolute bottom-[14px] left-4 right-0 z-[1] flex w-[216px] [transform:translateY(12px)] flex-col items-start justify-end opacity-0 shadow-[0_4px_7px_rgba(0,0,0,.1)] transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:[transform:translateY(0)] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:[transform:translateY(0)] group-focus-within:opacity-100">
+               <div className="achievement-card-content pointer-events-none absolute bottom-[14px] left-4 right-0 z-[1] flex w-[216px] [transform:translateY(12px)] flex-col items-start justify-end opacity-0 shadow-[0_4px_7px_rgba(0,0,0,.1)] transition-[opacity,transform] duration-300 ease-out group-hover/achievement:pointer-events-auto group-hover/achievement:[transform:translateY(0)] group-hover/achievement:opacity-100 group-focus-within/achievement:pointer-events-auto group-focus-within/achievement:[transform:translateY(0)] group-focus-within/achievement:opacity-100">
                 <h3 className="text-[20px] font-bold leading-[24.2px] text-white">
                   {title}
                 </h3>
@@ -679,15 +679,22 @@ function AchievementsSection() {
                   {description}
                 </p>
                 <a
-                  className="group inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-medium leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
+                  className="group/achievement-button inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[13px] font-medium leading-[18px] text-primary no-underline shadow-[0_4px_15px_rgba(15,23,42,.08)] transition-[background-color,background-image,color,box-shadow] duration-300 ease-out [-webkit-user-drag:none] hover:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] hover:text-white focus-visible:bg-[linear-gradient(105deg,#006cdc,#0092ff,#4cbaf5)] focus-visible:text-white"
                   href="/achievements"
                 >
                   Lihat Detail{" "}
-                  <img
-                    className="size-[18px] object-contain"
-                    src={figmaAssets.secondaryButton.arrowRight}
-                    alt=""
-                  />
+                  <span className="relative inline-flex size-[18px] shrink-0" aria-hidden="true">
+                    <img
+                      className="absolute inset-0 size-[18px] object-contain opacity-100 transition-opacity duration-300 group-hover/achievement-button:opacity-0 group-focus-visible/achievement-button:opacity-0"
+                      src="/assets/shared/icons/secondary-arrow-right.svg"
+                      alt=""
+                    />
+                    <img
+                      className="absolute inset-0 size-[18px] object-contain opacity-0 transition-opacity duration-300 group-hover/achievement-button:opacity-100 group-focus-visible/achievement-button:opacity-100"
+                      src="/assets/shared/icons/arrow-right.svg"
+                      alt=""
+                    />
+                  </span>
                 </a>
               </div>
             </article>
@@ -841,6 +848,28 @@ function NewsSection() {
           </span>
         </h2>
       </div>
+      <a
+        data-aos="fade-left"
+        data-aos-delay="180"
+        href="/news"
+        className="group absolute right-0 top-[112px] inline-flex h-[41px] items-center justify-center gap-4 whitespace-nowrap rounded-full bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-5 py-[13px] text-sm font-bold text-white shadow-[0_4px_8px_rgba(15,23,42,.08)] transition-[background,color,border-color,box-shadow,transform] duration-300 ease-out hover:border hover:border-slate-300 hover:bg-slate-100 hover:bg-none hover:text-primary hover:shadow-none focus-visible:border focus-visible:border-slate-300 focus-visible:bg-slate-100 focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none motion-reduce:transition-none max-md:static max-md:mx-auto max-md:mt-5 max-md:flex max-md:w-fit"
+      >
+        Lihat Semua
+        <span
+          className="size-5 shrink-0 bg-white transition-colors group-hover:bg-primary group-focus-visible:bg-primary"
+          style={{
+            maskImage: `url(${programCtaArrow})`,
+            maskPosition: "center",
+            maskRepeat: "no-repeat",
+            maskSize: "contain",
+            WebkitMaskImage: `url(${programCtaArrow})`,
+            WebkitMaskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "contain",
+          }}
+          aria-hidden="true"
+        />
+      </a>
       <div className="max-md:relative">
       <div className="news-viewport absolute left-1/2 top-[195.02px] h-[300px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden max-md:static max-md:mt-6 max-md:w-full max-md:translate-x-0">
         <div
@@ -1053,3 +1082,4 @@ function AiCtaSection({ onAskAi }: Props) {
     </section>
   );
 }
+
