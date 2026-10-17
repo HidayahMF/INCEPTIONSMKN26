@@ -115,18 +115,23 @@ export function PublicNavbar() {
       </a>
       <nav className="hidden items-center min-[1272px]:flex" aria-label="Navigasi utama">
         {links.map((link) => (
-          <div className="group relative" key={link.label}>
+          <div
+            className="relative"
+            key={link.label}
+            onMouseEnter={() => setActiveLink(link.label)}
+            onMouseLeave={() => setActiveLink((value) => (value === link.label ? null : value))}
+            onFocus={() => setActiveLink(link.label)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setActiveLink((value) => (value === link.label ? null : value));
+              }
+            }}
+          >
             <div
               className={`flex items-center whitespace-nowrap rounded-xl text-lg font-medium transition-colors duration-300 ease-out focus-within:outline-none motion-reduce:transition-none ${activeLink === link.label ? (link.dropdown ? "bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent" : "text-primary") : "text-ink hover:text-primary"}`}
-              onBlur={() => setActiveLink((value) => (value === link.label ? null : value))}
-              onFocus={() => setActiveLink(link.label)}
-              onMouseEnter={() => setActiveLink(link.label)}
-              onMouseLeave={() => {
-                if (!link.children) setActiveLink((value) => (value === link.label ? null : value));
-              }}
 >
               {dropdownOnlyLabels.has(link.label) ? (
-                <button className="rounded-xl border-0 bg-transparent px-4 py-4 font-inherit text-inherit focus-visible:outline-none" type="button">
+                  <button className="rounded-xl border-0 bg-transparent px-4 py-4 font-inherit text-inherit focus-visible:outline-none" type="button" aria-expanded={activeLink === link.label}>
                   {link.label}
                 </button>
               ) : (
@@ -155,8 +160,8 @@ export function PublicNavbar() {
               )}
             </div>
             {link.children && (
-              <div className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 translate-y-1 opacity-0 transition-[opacity,transform,visibility] duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                <div className="mt-1 grid gap-1 rounded-2xl border border-school-bg bg-white p-2 text-sm font-medium text-muted shadow-xl">
+              <div className={`absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-1 transition-[opacity,transform,visibility] duration-200 ${activeLink === link.label ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0"}`}>
+                <div className="grid gap-1 rounded-2xl border border-school-bg bg-white p-2 text-sm font-medium text-muted shadow-xl">
                   {link.children.map((child) => (
                     <a className="rounded-xl px-3 py-2.5 hover:bg-light-blue hover:text-primary" href={child.href} key={child.href} target={child.external ? "_blank" : undefined} rel={child.external ? "noreferrer" : undefined}>
                       {child.label}

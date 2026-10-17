@@ -8,6 +8,7 @@ export type FloatShape = {
 
 export function useFloatShapes(shapes: FloatShape[]) {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const animations = shapes
       .map(({ ref, duration, distance }) => {
         const element = ref.current;

@@ -81,9 +81,10 @@ export function TekPage() {
                 <div data-aos="fade-down">
                   <Label>JURUSAN TEK</Label>
                 </div>
-                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:whitespace-nowrap lg:text-[56px] xl:text-[60px]">
-                  Teknik{" "}
-                  <span className="text-[#0876E7]">Elektronika &amp; Komunikasi</span>
+                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[680px] text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
+                  Teknik <span className="text-[#0876E7]">Elektronika</span>
+                  <br />
+                  <span className="text-[#0876E7]">&amp; Komunikasi</span>
                 </h1>
                 <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">
                   Membekali siswa dengan keterampilan elektronika, komunikasi, dan
@@ -133,7 +134,9 @@ export function TekPage() {
               Mengenal
               <br />
               <span className="text-[#004E9E]">
-                Teknik Elektronika &amp; Komunikasi
+                Teknik Elektronika
+                <br />
+                &amp; Komunikasi
               </span>
             </h2>
             <p className="mt-4 text-sm leading-6 text-[#61708b] sm:text-base">

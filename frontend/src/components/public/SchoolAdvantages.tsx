@@ -5,9 +5,9 @@ import { advantages } from "../../data/advantages";
 const CARD_STEP = 324;
 
 const advantageNavigation: Record<string, string> = {
-  "pendidikan-berkualitas": "/profile",
+  "pendidikan-berkualitas": "/majors/kgs",
   "pembelajaran-berbasis-industri": "/partners",
-  "teaching-factory": "/blud",
+  "teaching-factory": "/blud/kgstudio",
   "sertifikasi-kompetensi": "/programs/lsp",
   "pengalaman-karakter-dan-minat": "/programs/organisasi",
   "lingkungan-belajar-inklusif": "/tour",
