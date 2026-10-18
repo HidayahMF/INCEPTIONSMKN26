@@ -64,17 +64,21 @@ function HighlightCard({
   title,
   description,
   icon,
+  singleLine = false,
 }: {
   title: string;
   description: string;
   icon: string;
+  singleLine?: boolean;
 }) {
   return (
     <div className="flex min-h-[68px] items-center gap-3 rounded-2xl border border-[#dcecf9] bg-white px-3 py-2.5 sm:px-4">
-      <img className="size-10 shrink-0 object-contain" src={`${base}${icon}`} alt="" />
+      <img className="size-11 shrink-0 object-contain" src={`${base}${icon}`} alt="" />
       <div className="min-w-0">
-        <strong className="block text-base font-bold leading-5 text-[#078cf0] sm:text-lg">{title}</strong>
-        <p className="mt-1 text-xs leading-4 text-[#15213a] sm:text-sm">{description}</p>
+        <strong className="block text-xl font-bold leading-6 text-[#078cf0]">{title}</strong>
+        <p className={`mt-1 text-sm font-normal leading-5 text-[#15213a] ${singleLine ? "whitespace-nowrap" : ""}`}>
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -88,11 +92,11 @@ export function BkkOpportunityDetailPage() {
         <section className="relative overflow-hidden bg-[#f1f6ff] px-5 pb-10 pt-[122px] sm:px-10 md:min-h-[351px] md:pb-14">
           <div className="relative z-10 mx-auto grid max-w-[1180px] items-start gap-7 md:grid-cols-[320px_1fr] lg:gap-8">
             <img
-              className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[70px] md:h-[230px] md:w-[320px]"
+              className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[55px] md:h-[230px] md:w-[320px]"
               src={`${base}mayora/mayora.png`}
               alt="Gedung PT Mayora Indah Tbk."
             />
-            <div className="max-w-[700px] md:mt-8">
+            <div className="max-w-[700px] md:mt-4">
               <SectionBadge>INFORMASI PELUANG</SectionBadge>
               <h1 className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] sm:text-4xl">
                 Program PKL Produksi
@@ -120,7 +124,7 @@ export function BkkOpportunityDetailPage() {
               </div>
             </div>
           </div>
-          <span className="detail-shape absolute right-[16%] top-[195px] size-15 rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff]" aria-hidden="true" />
+          <span className="detail-shape absolute right-[16%] top-[177px] size-15 rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff]" aria-hidden="true" />
           <span className="detail-shape detail-shape-large absolute right-[8%] bottom-10 size-[130px] rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff]" aria-hidden="true" />
         </section>
 
@@ -138,7 +142,13 @@ export function BkkOpportunityDetailPage() {
             </p>
             <div className="mt-4 grid max-w-[560px] gap-3 sm:grid-cols-2">
               {companyHighlights.map(([title, description, icon]) => (
-                <HighlightCard description={description} icon={icon} key={title} title={title} />
+                <HighlightCard
+                  description={description}
+                  icon={icon}
+                  key={title}
+                  singleLine={title === "Produk Utama" || title === "Skala Industri"}
+                  title={title}
+                />
               ))}
             </div>
           </div>
@@ -158,16 +168,32 @@ export function BkkOpportunityDetailPage() {
                 ))}
               </dl>
             </div>
-            <div className="mt-4 rounded-2xl bg-[#eef6ff] p-4">
-              <h3 className="flex items-center gap-2 text-sm font-bold text-[#078cf0]">
-                <img className="size-7 object-contain" src={`${base}siapmelamanicon.png`} alt="" />
-                Siap Melamar?
-              </h3>
-              <p className="mt-1 text-[9px] leading-4 text-[#15213a]">
-                Pastikan kamu telah membaca informasi peluang dan memenuhi persyaratan sebelum mengajukan lamaran.
-              </p>
-              <button className="mt-3 w-full rounded-full bg-gradient-to-r from-[#39aef2] to-[#007ce9] py-2 text-[10px] font-bold text-white" disabled>
-                Pendaftaran belum tersedia
+            <div className="mt-4 rounded-[24px] bg-[#f3f7ff] p-5 sm:p-6">
+              <div className="flex items-start gap-3">
+                <img className="size-12 shrink-0 object-contain" src={`${base}siapmelamanicon.png`} alt="" />
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold leading-5 text-[#078cf0]">Siap Melamar?</h3>
+                  <p className="mt-1 text-[10px] font-normal leading-4 text-[#15213a]">
+                    Pastikan kamu telah membaca informasi peluang dan memenuhi persyaratan sebelum mengajukan lamaran.
+                  </p>
+                </div>
+              </div>
+              <button className="group mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#39aef2] to-[#007ce9] py-3 text-xs font-semibold text-white shadow-[0_3px_7px_rgba(0,124,233,.25)] transition-[background,color,box-shadow] duration-300 hover:bg-white hover:bg-none hover:text-[#007ce9] hover:shadow-none" disabled>
+                Daftar / Lamar Sekarang
+                <span
+                  className="size-4 bg-current"
+                  style={{
+                    maskImage: `url(${base}majesticons_open.png)`,
+                    maskPosition: "center",
+                    maskRepeat: "no-repeat",
+                    maskSize: "contain",
+                    WebkitMaskImage: `url(${base}majesticons_open.png)`,
+                    WebkitMaskPosition: "center",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskSize: "contain",
+                  }}
+                  aria-hidden="true"
+                />
               </button>
             </div>
           </aside>
