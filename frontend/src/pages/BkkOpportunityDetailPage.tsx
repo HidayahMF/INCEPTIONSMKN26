@@ -45,14 +45,12 @@ const opportunityInfo = [
   ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
 ] as const;
 
-function Checks({ items }: { items: readonly string[] }) {
+function Checks({ items, compact = false }: { items: readonly string[]; compact?: boolean }) {
   return (
     <ul className="mt-4 grid gap-3">
       {items.map((item) => (
-        <li className="flex items-start gap-2 text-sm leading-5 text-[#15213a]" key={item}>
-          <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[#078cf0] text-xs font-bold text-white">
-            ✓
-          </span>
+        <li className={`flex items-center gap-2 font-normal text-[#15213a] ${compact ? "whitespace-nowrap text-xs leading-5" : "text-base leading-6"}`} key={item}>
+          <img className={`${compact ? "size-7" : "size-8"} shrink-0 object-contain`} src={`${base}checklisticon.png`} alt="" aria-hidden="true" />
           {item}
         </li>
       ))}
@@ -155,22 +153,22 @@ export function BkkOpportunityDetailPage() {
 
           <aside>
             <div className="overflow-hidden rounded-2xl border border-[#dcecf7]">
-              <h3 className="bg-gradient-to-r from-primary-dark to-primary p-3 text-center text-sm font-bold text-white">
+              <h3 className="flex h-[44px] items-center justify-center bg-gradient-to-r from-primary-dark to-primary px-3 text-xs font-bold text-white">
                 Informasi Peluang
               </h3>
-              <dl className="divide-y divide-[#e8f0f8] p-2 text-xs">
+              <dl className="divide-y divide-[#e8f0f8] p-1 text-xs">
                 {opportunityInfo.map(([label, value, icon]) => (
-                  <div className="flex items-center gap-2 px-3 py-3" key={label}>
-                    <img className="size-5 shrink-0 object-contain" src={icon.startsWith("/") ? icon : `${base}${icon}`} alt="" aria-hidden="true" />
-                    <dt className="min-w-0 flex-1 text-[#53698e]">{label}</dt>
-                    <dd className="max-w-[155px] text-right font-medium leading-3 text-[#15213a]">{value}</dd>
+                  <div className="flex min-h-[42px] items-center gap-2 px-2 py-2" key={label}>
+                    <img className="size-[18px] shrink-0 object-contain" src={icon.startsWith("/") ? icon : `${base}${icon}`} alt="" aria-hidden="true" />
+                    <dt className="min-w-0 flex-1 leading-4 text-[#53698e]">{label}</dt>
+                    <dd className="max-w-[155px] text-right font-medium leading-4 text-[#15213a]">{value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
-            <div className="mt-4 rounded-[24px] bg-[#f3f7ff] p-5 sm:p-6">
-              <div className="flex items-start gap-3">
-                <img className="size-12 shrink-0 object-contain" src={`${base}siapmelamanicon.png`} alt="" />
+            <div className="mt-3 h-auto rounded-[24px] bg-[#f3f7ff] p-4">
+              <div className="flex items-start gap-2">
+                <img className="size-10 shrink-0 object-contain" src={`${base}siapmelamanicon.png`} alt="" />
                 <div className="min-w-0">
                   <h3 className="text-base font-bold leading-5 text-[#078cf0]">Siap Melamar?</h3>
                   <p className="mt-1 text-[10px] font-normal leading-4 text-[#15213a]">
@@ -178,7 +176,7 @@ export function BkkOpportunityDetailPage() {
                   </p>
                 </div>
               </div>
-              <button className="group mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#39aef2] to-[#007ce9] py-3 text-xs font-semibold text-white shadow-[0_3px_7px_rgba(0,124,233,.25)] transition-[background,color,box-shadow] duration-300 hover:bg-white hover:bg-none hover:text-[#007ce9] hover:shadow-none" disabled>
+              <button className="group mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#39aef2] to-[#007ce9] py-2 text-xs font-semibold text-white shadow-[0_3px_7px_rgba(0,124,233,.25)] transition-[background,color,box-shadow] duration-300 hover:bg-white hover:bg-none hover:text-[#007ce9] hover:shadow-none" disabled>
                 Daftar / Lamar Sekarang
                 <span
                   className="size-4 bg-current"
@@ -199,24 +197,26 @@ export function BkkOpportunityDetailPage() {
           </aside>
         </section>
 
-        <section className="mx-auto grid max-w-[1180px] gap-12 px-5 pb-16 sm:px-10 lg:grid-cols-[1fr_390px]">
+        <section className="mx-auto grid items-stretch max-w-[1180px] gap-12 px-5 pb-8 sm:px-10 lg:grid-cols-[1fr_390px]">
           <div>
             <SectionBadge>DESKRIPSI PEKERJAAN</SectionBadge>
-            <h2 className="mt-5 text-3xl font-bold">
+            <h2 className="mt-5 text-4xl font-bold">
               Tentang <span className="text-[#078cf0]">Posisi Produksi</span>
             </h2>
             <p className="mt-3 leading-6 text-[#607292]">
               Program PKL ini memperkenalkan siswa pada alur produksi, penggunaan mesin, proses pengemasan, serta pentingnya menjaga kualitas dan kebersihan produk.
             </p>
-            <div className="mt-6 rounded-2xl bg-[#edf5ff] p-6">
-              <h3 className="text-xl font-bold">Ruang Lingkup Pekerjaan</h3>
-              <Checks items={checklist} />
+            <div className="mt-6 max-w-[430px] rounded-2xl bg-[#edf5ff] p-5">
+              <h3 className="text-xl font-bold leading-6">Ruang Lingkup Pekerjaan</h3>
+              <Checks compact items={checklist} />
             </div>
           </div>
-          <img className="h-[320px] w-full rounded-2xl object-cover" src={`${base}mayora/mayorapict.png`} alt="Pekerja produksi PT Mayora Indah Tbk." />
+          <div className="relative h-[320px] min-h-0 w-full overflow-hidden rounded-2xl lg:h-full">
+            <img className="absolute inset-0 size-full object-cover" src={`${base}mayora/mayorapict.png`} alt="Pekerja produksi PT Mayora Indah Tbk." />
+          </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-10">
+        <section className="bg-white px-5 pt-8 pb-16 sm:px-10">
           <div className="mx-auto max-w-[1180px] text-center">
             <SectionBadge>PERSYARATAN</SectionBadge>
             <h2 className="mt-5 text-3xl font-bold">
