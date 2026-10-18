@@ -236,7 +236,7 @@ export function BkkPage() {
                 <article
                   data-aos="fade-up"
                   data-aos-delay={index * 80}
-                  className="flex min-h-[112px] items-start gap-4 rounded-[20px] bg-white px-4 py-4 text-left sm:px-5 sm:py-5"
+                  className="flex min-h-[112px] items-start gap-4 rounded-[20px] bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,23,42,.04)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] sm:px-5 sm:py-5"
                   key={title}
                 >
                   <img
@@ -328,7 +328,7 @@ export function BkkPage() {
                   <article
                     data-aos="fade-up"
                     data-aos-delay={Math.min(index * 60, 300)}
-                    className="overflow-hidden rounded-[22px] border border-[#dce8f3] bg-white text-left shadow-[0_4px_12px_rgba(15,23,42,.08)]"
+                    className="overflow-hidden rounded-[22px] border border-[#dce8f3] bg-white text-left shadow-[0_4px_12px_rgba(15,23,42,.08)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)]"
                     key={company}
                   >
                     <img

@@ -68,6 +68,8 @@ export function SchoolOverview({ pages, loading }: SchoolOverviewProps) {
             <div className="relative z-10 mt-6 flex h-auto w-full flex-wrap items-center justify-center gap-x-4 gap-y-3 rounded-[14px] bg-gradient-to-br from-primary-dark via-primary to-soft-blue px-4 py-4 text-white shadow-lg md:absolute md:left-px md:top-[213px] md:mt-0 md:h-[90px] md:w-[680px] md:flex-nowrap md:justify-between md:gap-x-0 md:px-5 md:py-0">
             {shownStats.map(([value, label], index) => (
               <div
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
                 className="flex min-w-0 items-center gap-2 sm:gap-4"
                 key={label}
               >

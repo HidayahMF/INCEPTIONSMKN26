@@ -48,8 +48,8 @@ const opportunityInfo = [
 function Checks({ items, compact = false }: { items: readonly string[]; compact?: boolean }) {
   return (
     <ul className="mt-4 grid gap-3">
-      {items.map((item) => (
-        <li className={`flex items-center gap-2 font-normal text-[#15213a] ${compact ? "whitespace-nowrap text-xs leading-5" : "text-base leading-6"}`} key={item}>
+      {items.map((item, index) => (
+        <li data-aos="fade-up" data-aos-delay={Math.min(index * 60, 240)} className={`flex items-center gap-2 font-normal text-[#15213a] ${compact ? "whitespace-nowrap text-xs leading-5" : "text-base leading-6"}`} key={item}>
           <img className={`${compact ? "size-7" : "size-8"} shrink-0 object-contain`} src={`${base}checklisticon.png`} alt="" aria-hidden="true" />
           {item}
         </li>
@@ -63,14 +63,16 @@ function HighlightCard({
   description,
   icon,
   singleLine = false,
+  aosDelay = 0,
 }: {
   title: string;
   description: string;
   icon: string;
   singleLine?: boolean;
+  aosDelay?: number;
 }) {
   return (
-    <div className="flex min-h-[68px] items-center gap-3 rounded-2xl border border-[#dcecf9] bg-white px-3 py-2.5 sm:px-4">
+    <div data-aos="fade-up" data-aos-delay={aosDelay} className="flex h-[84px] items-center gap-3 rounded-2xl border border-[#dcecf9] bg-white px-3 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,.04)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] sm:px-4">
       <img className="size-11 shrink-0 object-contain" src={`${base}${icon}`} alt="" />
       <div className="min-w-0">
         <strong className="block text-xl font-bold leading-6 text-[#078cf0]">{title}</strong>
@@ -89,30 +91,31 @@ export function BkkOpportunityDetailPage() {
       <main>
         <section className="relative overflow-hidden bg-[#f1f6ff] px-5 pb-10 pt-[122px] sm:px-10 md:min-h-[351px] md:pb-14">
           <div className="relative z-10 mx-auto grid max-w-[1180px] items-start gap-7 md:grid-cols-[320px_1fr] lg:gap-8">
-            <img
-              className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[55px] md:h-[230px] md:w-[320px]"
+              <img
+                data-aos="fade-right"
+                className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[55px] md:h-[230px] md:w-[320px]"
               src={`${base}mayora/mayora.png`}
               alt="Gedung PT Mayora Indah Tbk."
             />
-            <div className="max-w-[700px] md:mt-4">
-              <SectionBadge>INFORMASI PELUANG</SectionBadge>
-              <h1 className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] sm:text-4xl">
+             <div className="max-w-[700px] md:mt-4">
+               <div data-aos="fade-down"><SectionBadge>INFORMASI PELUANG</SectionBadge></div>
+               <h1 data-aos="fade-up" data-aos-delay="100" className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] sm:text-4xl">
                 Program PKL Produksi
               </h1>
-              <h2 className="mt-1 text-lg font-semibold sm:text-xl">PT Mayora Indah Tbk.</h2>
-              <p className="mt-1 max-w-[650px] text-sm leading-5 text-[#596d92] sm:text-base sm:leading-6">
+               <h2 data-aos="fade-up" data-aos-delay="140" className="mt-1 text-lg font-semibold sm:text-xl">PT Mayora Indah Tbk.</h2>
+               <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[650px] text-sm leading-5 text-[#596d92] sm:text-base sm:leading-6">
                 Perusahaan yang bergerak di bidang industri makanan dan minuman dengan proses produksi,
                 pengemasan, serta pengendalian kualitas produk.
               </p>
-              <div className="mt-5 flex flex-wrap gap-x-12 gap-y-3">
-                <div className="flex items-center gap-2">
+               <div className="mt-5 flex flex-wrap gap-x-12 gap-y-3">
+                 <div data-aos="fade-up" data-aos-delay="240" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}posisiicon.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Industri</small>
                     <strong className="text-xl font-bold text-[#078cf0]">Makanan &amp; Minuman</strong>
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                 <div data-aos="fade-up" data-aos-delay="300" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}boxicons_location-filled.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Lokasi</small>
@@ -128,19 +131,20 @@ export function BkkOpportunityDetailPage() {
 
         <section className="mx-auto grid w-[min(1170px,calc(100%-32px))] gap-12 py-10 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1.15fr)]">
           <div>
-            <SectionBadge>TENTANG PERUSAHAAN</SectionBadge>
-            <h2 className="mt-5 text-[26px] font-bold leading-tight sm:text-3xl">
+             <div data-aos="fade-down"><SectionBadge>TENTANG PERUSAHAAN</SectionBadge></div>
+             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[26px] font-bold leading-tight sm:text-3xl">
               Sekilas <span className="text-[#078cf0]">PT Mayora Indah Tbk.</span>
             </h2>
-            <p className="mt-2 max-w-[690px] text-sm leading-6 text-[#607292] sm:text-base">
+             <p data-aos="fade-up" data-aos-delay="180" className="mt-2 max-w-[690px] text-sm leading-6 text-[#607292] sm:text-base">
               PT Mayora Indah Tbk. merupakan perusahaan industri makanan dan minuman yang menjalankan berbagai
               proses manufaktur, mulai dari pengolahan bahan hingga pengemasan produk. Perusahaan ini menjadi salah
               satu bagian dari industri yang membutuhkan tenaga kerja dengan kompetensi teknis, ketelitian, dan
               kedisiplinan.
             </p>
             <div className="mt-4 grid max-w-[560px] gap-3 sm:grid-cols-2">
-              {companyHighlights.map(([title, description, icon]) => (
+              {companyHighlights.map(([title, description, icon], index) => (
                 <HighlightCard
+                  aosDelay={index * 80}
                   description={description}
                   icon={icon}
                   key={title}
@@ -152,13 +156,13 @@ export function BkkOpportunityDetailPage() {
           </div>
 
           <aside>
-            <div className="overflow-hidden rounded-2xl border border-[#dcecf7]">
-              <h3 className="flex h-[44px] items-center justify-center bg-gradient-to-r from-primary-dark to-primary px-3 text-xs font-bold text-white">
+             <div data-aos="fade-left" className="overflow-hidden rounded-2xl border border-[#dcecf7]">
+               <h3 className="flex h-[44px] items-center justify-center bg-gradient-to-r from-primary-dark to-primary px-3 text-xs font-bold text-white">
                 Informasi Peluang
               </h3>
               <dl className="divide-y divide-[#e8f0f8] p-1 text-xs">
-                {opportunityInfo.map(([label, value, icon]) => (
-                  <div className="flex min-h-[42px] items-center gap-2 px-2 py-2" key={label}>
+                 {opportunityInfo.map(([label, value, icon], index) => (
+                   <div data-aos="fade-left" data-aos-delay={Math.min(index * 60, 240)} className="flex min-h-[42px] items-center gap-2 px-2 py-2" key={label}>
                     <img className="size-[18px] shrink-0 object-contain" src={icon.startsWith("/") ? icon : `${base}${icon}`} alt="" aria-hidden="true" />
                     <dt className="min-w-0 flex-1 leading-4 text-[#53698e]">{label}</dt>
                     <dd className="max-w-[155px] text-right font-medium leading-4 text-[#15213a]">{value}</dd>
@@ -166,7 +170,7 @@ export function BkkOpportunityDetailPage() {
                 ))}
               </dl>
             </div>
-            <div className="mt-3 h-auto rounded-[24px] bg-[#f3f7ff] p-4">
+             <div data-aos="fade-left" data-aos-delay="180" className="mt-3 h-auto rounded-[24px] bg-[#f3f7ff] p-4">
               <div className="flex items-start gap-2">
                 <img className="size-10 shrink-0 object-contain" src={`${base}siapmelamanicon.png`} alt="" />
                 <div className="min-w-0">
@@ -199,38 +203,38 @@ export function BkkOpportunityDetailPage() {
 
         <section className="mx-auto grid items-stretch max-w-[1180px] gap-12 px-5 pb-8 sm:px-10 lg:grid-cols-[1fr_390px]">
           <div>
-            <SectionBadge>DESKRIPSI PEKERJAAN</SectionBadge>
-            <h2 className="mt-5 text-4xl font-bold">
+             <div data-aos="fade-down"><SectionBadge>DESKRIPSI PEKERJAAN</SectionBadge></div>
+             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-4xl font-bold">
               Tentang <span className="text-[#078cf0]">Posisi Produksi</span>
             </h2>
-            <p className="mt-3 leading-6 text-[#607292]">
+             <p data-aos="fade-up" data-aos-delay="180" className="mt-3 leading-6 text-[#607292]">
               Program PKL ini memperkenalkan siswa pada alur produksi, penggunaan mesin, proses pengemasan, serta pentingnya menjaga kualitas dan kebersihan produk.
             </p>
-            <div className="mt-6 max-w-[430px] rounded-2xl bg-[#edf5ff] p-5">
+             <div data-aos="fade-up" data-aos-delay="240" className="mt-6 max-w-[430px] rounded-2xl bg-[#edf5ff] p-5">
               <h3 className="text-xl font-bold leading-6">Ruang Lingkup Pekerjaan</h3>
               <Checks compact items={checklist} />
             </div>
           </div>
-          <div className="relative h-[320px] min-h-0 w-full overflow-hidden rounded-2xl lg:h-full">
-            <img className="absolute inset-0 size-full object-cover" src={`${base}mayora/mayorapict.png`} alt="Pekerja produksi PT Mayora Indah Tbk." />
+           <div data-aos="fade-left" className="relative h-[320px] min-h-0 w-full overflow-hidden rounded-2xl lg:h-full">
+             <img className="absolute inset-0 size-full object-cover" src={`${base}mayora/mayorapict.png`} alt="Pekerja produksi PT Mayora Indah Tbk." />
           </div>
         </section>
 
         <section className="bg-white px-5 pt-8 pb-16 sm:px-10">
           <div className="mx-auto max-w-[1180px] text-center">
-            <SectionBadge>PERSYARATAN</SectionBadge>
-            <h2 className="mt-5 text-3xl font-bold">
+             <div data-aos="fade-down"><SectionBadge>PERSYARATAN</SectionBadge></div>
+             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-3xl font-bold">
               Kualifikasi <span className="text-[#078cf0]">dan Dokumen</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-[650px] text-[#607292]">
+             <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-[650px] text-[#607292]">
               Persyaratan berikut merupakan gambaran umum. Kualifikasi akhir harus mengikuti pengumuman resmi perusahaan.
             </p>
             <div className="mt-7 grid gap-4 text-left md:grid-cols-2">
-              <div className="rounded-2xl bg-[#edf5ff] p-6">
+               <div data-aos="fade-right" data-aos-delay="240" className="rounded-2xl bg-[#edf5ff] p-6">
                 <h3 className="text-xl font-bold">Kualifikasi Peserta</h3>
                 <Checks items={qualifications} />
               </div>
-              <div className="rounded-2xl bg-[#edf5ff] p-6">
+               <div data-aos="fade-left" data-aos-delay="240" className="rounded-2xl bg-[#edf5ff] p-6">
                 <h3 className="text-xl font-bold">Dokumen yang Perlu Disiapkan</h3>
                 <Checks items={documents} />
               </div>

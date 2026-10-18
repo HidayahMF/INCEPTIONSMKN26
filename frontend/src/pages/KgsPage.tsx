@@ -93,9 +93,7 @@ export function KgsPage() {
             />
             <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
               <div className="max-w-[700px] text-white lg:max-w-[1100px]">
-                <div data-aos="fade-down">
-                  <Label>JURUSAN KGS</Label>
-                </div>
+                <Label>JURUSAN KGS</Label>
                 <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-[34px] font-bold leading-[1.08] sm:text-5xl lg:whitespace-nowrap lg:text-[56px] xl:text-[60px]">
                   Konstruksi{" "}
                   <span className="text-[#FF3239]">Gedung &amp; Sanitasi</span>

@@ -66,7 +66,7 @@ export function LspPage() {
             alt="Siswa LSP SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.18)_0%,rgba(225,241,255,0)_42%,rgba(0,108,220,.04)_100%)]" />
-           <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-4 pb-36 pt-4 text-center sm:min-h-0 sm:px-8 sm:pt-6 lg:px-16 lg:pb-48 lg:pt-4">
+            <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-4 pb-36 text-center sm:min-h-0 sm:px-8 lg:px-16 lg:pb-48">
             <div data-aos="fade-down">
               <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
             </div>

@@ -1,7 +1,7 @@
 import { figmaAssets } from "../../assets/figmaAssets";
 
 const columns = [
-  ["Tentang Kami", ["Profil Sekolah", "Struktur & Unit Kerja", "School Tour", "Mitra Industri"]],
+  ["Tentang Kami", ["Profil Sekolah", "Struktur & Unit Kerja", "Mars SMKN 26", "School Tour", "Mitra Industri"]],
   ["Jurusan", ["Konstruksi Gedung & Sanitasi", "Teknik Elektronika & Komunikasi", "Teknik Instalasi Tenaga Listrik", "Teknik Fabrikasi Logam & Manufaktur", "Teknik Kendaraan Ringan", "Sistem Informasi, Jaringan & Aplikasi"]],
   ["Program", ["LSP", "Organisasi Sekolah", "Ekstrakurikuler", "BKK"]],
   ["BLUD", ["KGStudio", "UPTECHNO", "E-MAN", "Manufaktur26", "Garage26", "GADIZ VOKASI"]],
@@ -27,6 +27,7 @@ function linkHref(title: string, link: string) {
   const routes: Record<string, string> = {
     "Tentang Kami:Profil Sekolah": "/profile",
     "Tentang Kami:Struktur & Unit Kerja": "/struktur-unit-kerja",
+    "Tentang Kami:Mars SMKN 26": "/mars",
     "Tentang Kami:School Tour": "/tour",
     "Tentang Kami:Mitra Industri": "/partners",
     "Jurusan:Konstruksi Gedung & Sanitasi": "/majors/kgs",

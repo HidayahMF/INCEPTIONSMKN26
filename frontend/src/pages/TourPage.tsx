@@ -56,8 +56,8 @@ export function TourPage() {
             <img ref={leftCircleRef} aria-hidden="true" className="tour-shape-left pointer-events-none absolute left-[8%] top-[47%] size-16 object-contain opacity-90 sm:size-20" src="/assets/pages/tour/tour-shape-left.png" alt="" />
             <img ref={rightCircleRef} aria-hidden="true" className="tour-shape-right pointer-events-none absolute right-[10%] top-[26%] size-10 object-contain opacity-90 sm:size-14" src="/assets/pages/tour/tour-shape-right.png" alt="" />
             <div className="relative z-10 flex size-full min-h-[678px] translate-y-7 flex-col items-center justify-center px-5 pb-8 text-center text-white sm:min-h-[calc(100svh-3px)]">
-              <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-primary shadow-[0_4px_16px_rgba(15,23,42,.14)] sm:text-xs">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-soft-blue" />
+              <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+                <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
                 SCHOOL TOUR
               </span>
               <h1 data-aos="fade-up" data-aos-delay="100" className="mt-5 max-w-[760px] text-[32px] font-bold leading-[1.12] tracking-[-0.03em] sm:text-[40px] md:text-[40px]" id="tour-title">
@@ -84,7 +84,8 @@ export function TourPage() {
 
         <section id="tour-visual" className="mx-auto max-w-[1272px] px-6 pb-16 pt-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
           <div className="text-center">
-            <span data-aos="fade-down" className="inline-flex rounded-full bg-[#f6fbff] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
+            <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+              <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
               23 LOKASI PANORAMA
             </span>
             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl" id="tour-locations-title">
@@ -115,8 +116,8 @@ export function TourPage() {
         <section className="relative overflow-hidden px-6 py-16 text-center sm:px-10 sm:py-24">
           <div ref={aboutLeftShapeRef} aria-hidden="true" className="pointer-events-none absolute left-8 top-20 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue [will-change:transform] sm:left-16 sm:size-10" />
           <div ref={aboutRightShapeRef} aria-hidden="true" className="pointer-events-none absolute right-8 top-14 size-7 rounded-full bg-gradient-to-br from-primary to-soft-blue [will-change:transform] sm:right-16 sm:size-10" />
-           <span data-aos="fade-down" className="relative inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
-             <img className="h-[17px] w-[13.6px]" src="/assets/shared/icons/section-badge.svg" alt="" aria-hidden="true" />
+           <span data-aos="fade-down" className="relative inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
+             <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
              TENTANG SMK NEGERI 26 JAKARTA
           </span>
           <h2 data-aos="fade-up" data-aos-delay="100" className="relative mx-auto mt-4 max-w-[760px] text-[28px] font-bold leading-9 text-ink sm:text-[38px] sm:leading-[48px]">

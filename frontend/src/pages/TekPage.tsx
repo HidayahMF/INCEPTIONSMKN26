@@ -78,9 +78,7 @@ export function TekPage() {
             />
             <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
               <div className="max-w-[700px] text-white lg:max-w-[1100px]">
-                <div data-aos="fade-down">
-                  <Label>JURUSAN TEK</Label>
-                </div>
+                <Label>JURUSAN TEK</Label>
                 <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[680px] text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
                   Teknik <span className="text-[#0876E7]">Elektronika</span>
                   <br />
