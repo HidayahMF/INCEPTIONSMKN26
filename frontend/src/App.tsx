@@ -55,6 +55,7 @@ import { EkstrakurikulerPage } from "./pages/EkstrakurikulerPage";
 import { OrganisasiSekolahPage } from "./pages/OrganisasiSekolahPage";
 import { StrukturOrganisasiPage } from "./pages/StrukturOrganisasiPage";
 import { BkkPage } from "./pages/BkkPage";
+import { BkkOpportunityDetailPage } from "./pages/BkkOpportunityDetailPage";
 import { PrestasiPage } from "./pages/PrestasiPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { NewsWorkshopDocumentationPage } from "./pages/NewsWorkshopDocumentationPage";
@@ -405,6 +406,7 @@ export function App() {
   if (path === "/programs/lsp/tkr") return <PublicExperience><LspTkrPage /></PublicExperience>;
   if (path === "/programs/ekstrakurikuler") return <PublicExperience><EkstrakurikulerPage /></PublicExperience>;
   if (path === "/programs/bkk") return <PublicExperience><BkkPage /></PublicExperience>;
+  if (path === "/information/bkk/mayora-program-pkl-produksi") return <PublicExperience><BkkOpportunityDetailPage /></PublicExperience>;
   if (path === "/achievements") return <PublicExperience><PrestasiPage /></PublicExperience>;
   if (path === "/programs/organisasi") return <PublicExperience><OrganisasiSekolahPage /></PublicExperience>;
   if (path === "/programs/organisasi/osis") return <PublicExperience><StrukturOrganisasiPage type="osis" /></PublicExperience>;

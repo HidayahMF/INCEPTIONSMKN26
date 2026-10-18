@@ -395,7 +395,7 @@ export function BkkPage() {
                       </div>
                       <a
                         className="mt-4 block rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue py-2.5 text-center text-xs font-bold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none focus-visible:outline-2 focus-visible:outline-primary motion-reduce:transition-none"
-                        href="#kontak"
+                         href={company === "PT Mayora Indah Tbk" ? "/information/bkk/mayora-program-pkl-produksi" : "#kontak"}
                       >
                         Lihat Detail <span aria-hidden="true">→</span>
                       </a>
