@@ -61,14 +61,14 @@ export function PrestasiPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
       <main>
-        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]"><div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/822] md:min-h-0">
+        <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]"><div className="relative mx-auto min-h-[700px] w-full max-md:min-h-[820px] md:aspect-[1440/822] md:min-h-0">
           <img
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[68%_center] md:object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] max-md:inset-x-0 max-md:bottom-auto max-md:top-10 max-md:h-[calc(100%+2.5rem)] max-md:object-[center_bottom] sm:object-[68%_center] md:object-center"
             src={asset("Group 1815.png")}
             alt="Siswa SMKN 26 Jakarta meraih prestasi"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] max-md:pt-[128px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
             <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f6fbff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)]">
               <img className="h-[17px] w-[13.6px]" src={achievementBadgeIcon} alt="" />
               PRESTASI SMK NEGERI 26 JAKARTA

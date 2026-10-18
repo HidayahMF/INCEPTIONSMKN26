@@ -124,14 +124,14 @@ export function EkstrakurikulerPage() {
       <PublicNavbar />
       <main>
         <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
-          <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full sm:min-h-[620px] lg:min-h-0">
+          <div className="relative mx-auto aspect-[1440/820] min-h-[560px] w-full max-md:min-h-[820px] sm:min-h-[620px] lg:min-h-0">
           <img
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-center max-md:inset-x-0 max-md:bottom-auto max-md:top-10 max-md:h-[calc(100%+2.5rem)] max-md:object-[center_bottom]"
             src={asset("Hero Section.png")}
             alt="Kegiatan ekstrakurikuler SMKN 26 Jakarta"
           />
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-5 pt-[96px] max-md:pt-[128px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
             <div className="flex max-w-[1100px] flex-col items-center">
             <div data-aos="fade-down">
               <Label>EKSTRAKURIKULER SMK NEGERI 26 JAKARTA</Label>

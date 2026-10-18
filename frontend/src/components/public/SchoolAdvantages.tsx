@@ -92,9 +92,10 @@ export function SchoolAdvantages() {
          Apa yang Membuat SMK Negeri 26 Jakarta Berbeda?
       </h2>
       </div>
-         <div className="relative mt-8 md:absolute md:inset-0 md:mt-0"><div className="advantages-carousel relative left-auto top-auto mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] grid-cols-1 items-center md:absolute md:left-1/2 md:top-[181px] md:-translate-x-1/2 md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
-        <button
-             className="group advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+         <div className="relative mt-8 md:absolute md:inset-0 md:mt-0"><div data-aos="fade-up" data-aos-delay="200" className="advantages-carousel relative left-auto top-auto mx-auto grid h-[400px] w-[calc(100%-32px)] max-w-[1400px] grid-cols-1 items-center md:absolute md:left-1/2 md:top-[181px] md:-translate-x-1/2 md:grid-cols-[48px_minmax(0,1272px)_48px] md:gap-x-4 md:px-4">
+         <button
+              className="group advantages-control absolute left-0 top-1/2 z-20 grid size-10 -translate-y-1/2 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:static md:size-12 md:translate-y-0"
+              type="button"
           onClick={() => move(-1)}
           disabled={translate >= bounds.max}
           aria-label="Keunggulan sebelumnya"
@@ -171,8 +172,8 @@ export function SchoolAdvantages() {
             ))}
         </div>
         </div>
-        <button
-             className="group advantages-control z-20 hidden size-12 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:grid"
+         <button
+              className="group advantages-control absolute right-0 top-1/2 z-20 grid size-10 -translate-y-1/2 select-none place-items-center rounded-full bg-white shadow-lg transition-none hover:bg-primary focus-visible:bg-primary hover:shadow-[0_4px_16px_rgba(15,23,42,.08)] disabled:cursor-not-allowed disabled:opacity-40 md:static md:size-12 md:translate-y-0"
           onClick={() => move(1)}
           disabled={translate <= bounds.min}
           aria-label="Keunggulan berikutnya"

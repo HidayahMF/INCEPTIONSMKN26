@@ -23,12 +23,12 @@ function TeacherCard({ teacher }: { teacher: StaffMember }) {
     >
       <img
         alt=""
-        className="pointer-events-none absolute left-[-2.3px] top-[-1.52px] aspect-[304.779/354] w-[calc(100%+4.6px)] max-w-none select-none object-cover"
+        className="pointer-events-none absolute left-[-2.3px] top-[-1.52px] aspect-[304.779/354] w-[calc(100%+4.6px)] max-w-none select-none object-cover max-md:h-[330px] max-md:aspect-auto"
         draggable={false}
         src={teacher.photo}
       />
-      <div className="relative flex min-h-[66px] w-full flex-col gap-1 text-left">
-        <h2 className={`${gradientText} text-[18px] font-bold leading-[30px] lg:text-[20px]`}>
+      <div className="relative flex min-h-[66px] w-full flex-col gap-1 text-left max-md:min-h-[80px] max-md:justify-center max-md:rounded-t-xl max-md:bg-white max-md:px-1 max-md:pt-2">
+        <h2 className={`${gradientText} text-[18px] font-bold leading-[30px] lg:text-[20px] max-md:break-words`}>
           {teacher.name}
         </h2>
         <p className="w-full text-sm leading-[16px] text-ink">{teacher.role}</p>

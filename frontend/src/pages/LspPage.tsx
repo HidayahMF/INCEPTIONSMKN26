@@ -44,6 +44,13 @@ const lspStats = [
   ["10+ Tahun", "Pengalaman"],
 ] as const;
 
+const certificationSteps = [
+  ["01", "Persiapan", "Siswa mempersiapkan diri dengan memahami kompetensi dan persyaratan yang dibutuhkan sebelum mengikuti uji sertifikasi."],
+  ["02", "Uji Kompetensi", "Siswa menunjukkan pengetahuan dan keterampilan sesuai bidang keahlian melalui tugas atau praktik yang diujikan."],
+  ["03", "Asesmen", "Kompetensi siswa dinilai oleh asesor berdasarkan standar dan kriteria yang telah ditetapkan."],
+  ["04", "Hasil Sertifikasi", "Siswa memperoleh hasil asesmen sebagai bukti pengakuan atas kompetensi yang telah dicapai."],
+] as const;
+
 function Label({
   children,
 }: {
@@ -59,14 +66,14 @@ export function LspPage() {
     <div className="min-h-screen overflow-x-clip bg-[#f3f7ff] text-[#10182b]">
       <PublicNavbar />
     <main>
-        <section className="relative isolate min-h-[720px] overflow-hidden bg-[#b9d9f5] pt-24 sm:min-h-[760px] md:aspect-[1440/820] md:min-h-0 lg:pt-32">
+        <section className="relative isolate min-h-[720px] overflow-hidden bg-[#b9d9f5] pt-24 max-md:min-h-[820px] max-md:pt-0 sm:min-h-[760px] md:aspect-[1440/820] md:min-h-0 lg:pt-32">
           <img
-            className="absolute inset-0 -z-10 size-full object-cover object-[center_bottom] sm:object-[58%_bottom] md:object-center lg:object-[center_bottom]"
+            className="absolute inset-0 -z-10 size-full object-cover object-[center_bottom] max-md:inset-x-0 max-md:bottom-auto max-md:top-10 max-md:h-[calc(100%+2.5rem)] max-md:object-[center_bottom] sm:object-[58%_bottom] md:object-center lg:object-[center_bottom]"
             src={asset("Hero Section.png")}
             alt="Siswa LSP SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(225,241,255,.18)_0%,rgba(225,241,255,0)_42%,rgba(0,108,220,.04)_100%)]" />
-            <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-4 pb-36 text-center sm:min-h-0 sm:px-8 lg:px-16 lg:pb-48">
+            <div className="relative z-10 mx-auto flex size-full min-h-[620px] w-full max-w-[1272px] flex-col items-center px-4 pb-36 text-center max-md:min-h-[720px] max-md:pt-[128px] sm:min-h-0 sm:px-8 lg:px-16 lg:pb-48">
             <div data-aos="fade-down">
               <Label>LEMBAGA SERTIFIKASI PROFESI (LSP)</Label>
             </div>
@@ -186,17 +193,17 @@ export function LspPage() {
         </section>
         <section
           id="skema-sertifikasi"
-          className="px-5 py-14 sm:px-10 lg:py-20"
+          className="px-5 py-14 max-md:px-4 max-md:pb-32 sm:px-10 lg:py-20"
         >
           <div className="mx-auto max-w-[1140px] text-center">
             <div data-aos="fade-down">
               <Label>SKEMA SERTIFIKASI</Label>
             </div>
-            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-2xl font-bold sm:text-3xl">
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mx-auto mt-4 max-w-[340px] text-2xl font-bold leading-[1.2] sm:max-w-none sm:text-3xl">
               Pilih Skema, Buktikan{" "}
               <span className="text-primary">Kompetensi!</span>
             </h2>
-            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#61708b]">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[340px] text-sm leading-6 text-[#61708b] sm:mt-3 sm:max-w-2xl">
               Skema sertifikasi menjadi bagian penting dalam proses pengakuan
               kompetensi siswa sesuai dengan bidang keahlian yang dipelajari.
             </p>
@@ -235,10 +242,25 @@ export function LspPage() {
             </p>
             <img
               data-aos="zoom-in"
-              className="mx-auto mt-8 w-full max-w-[1272px] object-contain"
+              className="mx-auto mt-12 hidden w-[calc(100%-16px)] max-w-[1272px] object-contain sm:mt-8 sm:block sm:w-full"
               src={asset("Alur LSP.png")}
               alt="Alur uji sertifikasi kompetensi LSP"
             />
+            <div className="mx-auto mt-10 grid max-w-[340px] gap-8 text-left sm:hidden">
+              {certificationSteps.map(([step, title, description], index) => (
+                <article data-aos="fade-up" data-aos-delay={index * 80} key={step}>
+                  <strong className="block text-2xl font-bold leading-9 text-primary">
+                    {step}
+                  </strong>
+                  <h3 className="mt-1 text-2xl font-bold leading-9 text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-[21px] text-muted">
+                    {description}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>

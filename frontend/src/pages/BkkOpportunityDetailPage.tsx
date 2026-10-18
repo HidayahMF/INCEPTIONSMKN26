@@ -352,11 +352,11 @@ function HighlightCard({
   aosDelay?: number;
 }) {
   return (
-    <div data-aos="fade-up" data-aos-delay={aosDelay} className="flex h-[84px] items-center gap-3 rounded-2xl border border-[#dcecf9] bg-white px-3 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,.04)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] sm:px-4">
+    <div data-aos="fade-up" data-aos-delay={aosDelay} className="flex h-[84px] items-center gap-3 rounded-2xl border border-[#dcecf9] bg-white px-3 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,.04)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] max-md:h-auto max-md:min-h-[84px] sm:px-4">
       <img className="size-11 shrink-0 object-contain" src={`${base}${icon}`} alt="" />
       <div className="min-w-0">
         <strong className="block text-xl font-bold leading-6 text-[#078cf0]">{title}</strong>
-        <p className={`mt-1 text-sm font-normal leading-5 text-[#15213a] ${singleLine ? "whitespace-nowrap" : ""}`}>
+        <p className={`mt-1 text-sm font-normal leading-5 text-[#15213a] ${singleLine ? "sm:whitespace-nowrap" : ""}`}>
           {description}
         </p>
       </div>
@@ -381,43 +381,43 @@ export function BkkOpportunityDetailPage({ opportunity: selectedOpportunity = ma
     <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
       <PublicNavbar />
       <main>
-        <section className="relative overflow-hidden bg-[#f1f6ff] px-5 pb-10 pt-[122px] sm:px-10 md:min-h-[351px] md:pb-14">
-          <div className="relative z-10 mx-auto grid max-w-[1180px] items-start gap-7 md:grid-cols-[320px_1fr] lg:gap-8">
+        <section className="relative overflow-hidden bg-[#f1f6ff] px-5 pb-10 pt-[122px] max-md:pt-[128px] sm:px-10 md:min-h-[351px] md:pb-14">
+          <div className="relative z-10 mx-auto grid max-w-[1180px] items-start gap-7 max-md:gap-10 md:grid-cols-[320px_1fr] lg:gap-8">
               <img
                 data-aos="fade-right"
-                className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[55px] md:h-[230px] md:w-[320px]"
+                className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm max-md:h-[200px] md:mt-[55px] md:h-[230px] md:w-[320px]"
               src={opportunity.heroImage}
               alt={opportunity.heroImageAlt}
             />
-             <div className="max-w-[700px] md:mt-4">
+             <div className="max-w-[700px] max-md:max-w-none md:mt-4">
                <div data-aos="fade-down"><SectionBadge>INFORMASI PELUANG</SectionBadge></div>
-               <h1 data-aos="fade-up" data-aos-delay="100" className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] sm:text-4xl">
+                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] max-md:text-[25px] sm:text-4xl">
                  {opportunity.title}
               </h1>
                 <h2 data-aos="fade-up" data-aos-delay="140" className="mt-1 text-lg font-semibold sm:text-xl">{opportunity.company}</h2>
-               <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[650px] text-sm leading-5 text-[#596d92] sm:text-base sm:leading-6">
+                <p data-aos="fade-up" data-aos-delay="180" className="mt-2 max-w-[650px] text-sm leading-5 text-[#596d92] sm:text-base sm:leading-6">
                  {opportunity.heroDescription}
               </p>
-               <div className="mt-5 flex flex-wrap gap-x-12 gap-y-3">
+                <div className="mt-6 flex flex-wrap gap-x-12 gap-y-4 max-md:flex-col max-md:gap-3">
                  <div data-aos="fade-up" data-aos-delay="240" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}posisiicon.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Industri</small>
-                    <strong className="text-xl font-bold text-[#078cf0]">{opportunity.industry}</strong>
+                    <strong className="text-xl font-bold text-[#078cf0] max-md:text-base">{opportunity.industry}</strong>
                   </span>
                 </div>
                  <div data-aos="fade-up" data-aos-delay="300" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}boxicons_location-filled.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Lokasi</small>
-                    <strong className="text-xl font-bold text-[#078cf0]">{opportunity.location}</strong>
+                    <strong className="text-xl font-bold text-[#078cf0] max-md:text-base">{opportunity.location}</strong>
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <span className="detail-shape absolute right-[16%] top-[177px] size-15 rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff]" aria-hidden="true" />
-          <span className="detail-shape detail-shape-large absolute right-[8%] bottom-10 size-[130px] rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff]" aria-hidden="true" />
+          <span className="detail-shape absolute right-[16%] top-[177px] size-15 rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff] max-md:hidden" aria-hidden="true" />
+          <span className="detail-shape detail-shape-large absolute right-[8%] bottom-10 size-[130px] rounded-full bg-gradient-to-r from-[#007ce9] to-[#b8eaff] max-md:hidden" aria-hidden="true" />
         </section>
 
         <section className="mx-auto grid w-[min(1170px,calc(100%-32px))] gap-12 py-10 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1.15fr)]">

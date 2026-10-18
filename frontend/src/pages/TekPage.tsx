@@ -70,21 +70,21 @@ export function TekPage() {
       <PublicNavbar />
       <main className="bg-[#F4F8FF]">
         <section className="relative isolate w-full overflow-hidden bg-[#9cb3cb]">
-          <div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full sm:min-h-[580px] lg:min-h-0">
+          <div className="relative mx-auto aspect-[1440/650] min-h-[540px] w-full max-md:min-h-[650px] sm:min-h-[580px] lg:min-h-0">
             <img
-              className="absolute inset-0 z-0 size-full object-cover object-[68%_center] sm:object-[78%_center] lg:object-center"
+              className="absolute inset-0 z-0 size-full object-cover object-[68%_center] max-md:object-[72%_center] sm:object-[78%_center] lg:object-center"
               src={asset("Hero Section.png")}
               alt="Siswa Teknik Elektronika dan Komunikasi SMKN 26 Jakarta"
             />
-            <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
+            <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start pl-5 pr-4 pt-[132px] max-md:pt-[150px] sm:pl-7 sm:pr-6 sm:pt-[176px] lg:pt-[192px]">
               <div className="max-w-[700px] text-white lg:max-w-[1100px]">
                 <Label>JURUSAN TEK</Label>
-                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[680px] text-[34px] font-bold leading-[1.08] sm:text-5xl lg:text-[56px] xl:text-[60px]">
+                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-4 max-w-[680px] text-[34px] font-bold leading-[1.08] max-md:text-[30px] max-md:leading-[1.12] sm:text-5xl lg:text-[56px] xl:text-[60px]">
                   Teknik <span className="text-[#0876E7]">Elektronika</span>
                   <br />
                   <span className="text-[#0876E7]">&amp; Komunikasi</span>
                 </h1>
-                <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 sm:text-base sm:leading-6">
+                <p data-aos="fade-up" data-aos-delay="180" className="mt-4 max-w-[700px] text-sm leading-5 text-white/90 max-md:max-w-[300px] max-md:leading-6 sm:text-base sm:leading-6">
                   Membekali siswa dengan keterampilan elektronika, komunikasi, dan
                   teknologi melalui pembelajaran berbasis praktik serta proyek nyata.
                 </p>
@@ -109,10 +109,10 @@ export function TekPage() {
                 className="border-r border-dashed border-white/70 px-2 py-3 last:border-0 sm:py-4"
                 key={label}
               >
-                <strong className="block text-[32px] font-bold leading-8">
+                <strong className="block text-[32px] font-bold leading-8 max-md:text-[25px] max-md:leading-7">
                   {value}
                 </strong>
-                <span className="text-[16px] font-medium leading-4">{label}</span>
+                <span className="text-[16px] font-medium leading-4 max-md:text-[11px] max-md:leading-4">{label}</span>
               </div>
             ))}
             </div>
@@ -120,7 +120,7 @@ export function TekPage() {
         </section>
 
         <section className="w-full bg-white">
-          <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
+          <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-14 max-md:gap-10 max-md:px-5 max-md:py-12 sm:px-10 md:grid-cols-[.9fr_1.1fr] lg:py-20">
           <img
             data-aos="fade-right"
             className="mx-auto w-full max-w-[470px] object-contain"
@@ -167,21 +167,21 @@ export function TekPage() {
               melalui pembelajaran teori, praktik, proyek, serta pemecahan masalah
               yang diterapkan secara langsung.
             </p>
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-4 max-md:gap-3 lg:grid-cols-4">
               {competencies.map((item, index) => (
                 <div
                   data-aos="zoom-in"
                   data-aos-delay={Math.min(index * 60, 360)}
-                  className="flex items-center gap-3 rounded-2xl bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,23,42,.05)] sm:px-5"
+                  className="flex min-h-[78px] items-center gap-2 rounded-2xl bg-white px-3 py-3 text-left shadow-[0_4px_16px_rgba(15,23,42,.05)] max-md:gap-2 sm:px-5"
                   key={item}
                 >
                   <img
-                    className="size-10 shrink-0 rounded-full sm:size-11"
+                    className="size-9 shrink-0 rounded-full sm:size-11"
                     src={asset("Button shortcut.png")}
                     alt=""
                     aria-hidden="true"
                   />
-                  <span className="text-sm font-medium leading-tight sm:text-base">
+                  <span className="text-xs font-medium leading-tight sm:text-base">
                     {item}
                   </span>
                 </div>
@@ -206,7 +206,7 @@ export function TekPage() {
             </p>
             <img
               data-aos="zoom-in"
-              className="mx-auto mt-8 w-full max-w-[1140px] object-contain"
+              className="mx-auto mt-8 w-full max-w-[1140px] object-contain max-md:rounded-xl"
               src={asset("kompetensi.png")}
               alt="Roadmap pembelajaran TEK dari kelas X hingga kelas XII"
             />
@@ -361,16 +361,16 @@ export function TekPage() {
             </button>
             <div
               ref={alumniTrackRef}
-              className="flex min-w-0 flex-1 gap-5 overflow-x-auto pb-1 [scrollbar-width:none] [touch-action:pan-y] [&::-webkit-scrollbar]:hidden"
+              className="flex min-w-0 flex-1 snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-1 [scrollbar-width:none] [touch-action:pan-x] [&::-webkit-scrollbar]:hidden"
             >
               {alumni.map(([name, photo, batch, work, quote]) => (
                 <article
                   data-aos="fade-up"
-                  className="flex w-[85%] shrink-0 items-start gap-4 rounded-2xl bg-white p-4 text-left text-[#10182b] sm:gap-5 sm:p-5 md:w-[calc(50%-10px)]"
+                  className="flex w-[88%] shrink-0 snap-start items-start gap-3 rounded-2xl bg-white p-3 text-left text-[#10182b] max-md:min-h-[190px] sm:gap-5 sm:p-5 md:w-[calc(50%-10px)]"
                   key={name}
                 >
                   <img
-                    className="size-28 shrink-0 rounded-xl object-cover sm:size-36"
+                    className="size-24 shrink-0 rounded-xl object-cover sm:size-36"
                     src={asset(photo)}
                     alt={name}
                   />

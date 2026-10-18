@@ -93,7 +93,7 @@ export function PartnerIndustryPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#F4F8FF] pb-24 text-ink">
       <section
-        className="relative isolate flex min-h-[680px] items-start overflow-hidden bg-[#EAF5FA] px-4 pt-[112px] text-center sm:min-h-[760px] sm:px-6 sm:pt-[126px] min-[1280px]:h-[56.95vw] min-[1280px]:min-h-[820px] lg:px-0 lg:pt-[138px]"
+        className="relative isolate flex min-h-[680px] items-start overflow-hidden bg-[#EAF5FA] px-4 pt-[112px] text-center max-md:min-h-[780px] sm:min-h-[760px] sm:px-6 sm:pt-[126px] min-[1280px]:h-[56.95vw] min-[1280px]:min-h-[820px] lg:px-0 lg:pt-[138px]"
         aria-labelledby="partners-page-title"
       >
            <div className="pointer-events-none absolute inset-0 z-0 min-[1280px]:hidden">

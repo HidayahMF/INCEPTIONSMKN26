@@ -406,7 +406,20 @@ function ProgramsSection() {
         <div data-aos="fade-up" data-aos-delay="200" className="program-cards grid grid-rows-[repeat(3,140px)] gap-5 max-md:grid-rows-none">
           {programRightCards.map(([title, description, image, href]) => (
             <article
-              className="program-card relative flex h-[140px] w-[580px] items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:shadow-[0_12px_28px_rgba(15,23,42,.16)] focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:shadow-[0_12px_28px_rgba(15,23,42,.16)] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
+              className="program-card relative flex h-[140px] w-[580px] cursor-pointer items-center gap-6 overflow-hidden rounded-3xl border-2 border-school-bg bg-white transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:shadow-[0_12px_28px_rgba(15,23,42,.16)] focus-visible:-translate-y-0.5 focus-visible:border-white focus-visible:shadow-[0_12px_28px_rgba(15,23,42,.16)] max-md:h-auto max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-0"
+              onClick={(event) => {
+                if (!(event.target instanceof Element) || !event.target.closest("a")) {
+                  window.location.href = href;
+                }
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  window.location.href = href;
+                }
+              }}
+              role="link"
+              tabIndex={0}
               key={title}
             >
               <img
@@ -740,7 +753,7 @@ function AchievementsSection() {
           ],
         ].map(([value, label, icon], index) => (
           <div
-            className="relative grid grid-cols-[70px_auto] items-center justify-center gap-x-3"
+            className="relative grid grid-cols-[70px_auto] items-center justify-center gap-x-3 max-md:mx-auto max-md:w-[250px] max-md:justify-start"
             key={label}
           >
             <span className="stat-icon row-span-2 grid size-[70px] place-items-center rounded-full bg-[linear-gradient(135deg,#4cbaf5_0%,#0092ff_50%,#006cdc_100%)] text-white">

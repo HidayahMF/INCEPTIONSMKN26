@@ -42,13 +42,13 @@ function StaffCard({ member, index = 0 }: { member: StaffMember; index?: number 
     >
       <img
         alt=""
-        className="pointer-events-none absolute left-[-2.3px] top-[-1.52px] aspect-[304.779/354] w-[calc(100%+4.6px)] max-w-none select-none object-cover"
+        className="pointer-events-none absolute left-[-2.3px] top-[-1.52px] aspect-[304.779/354] w-[calc(100%+4.6px)] max-w-none select-none object-cover max-md:h-[330px] max-md:aspect-auto"
         draggable={false}
         src={member.photo}
       />
-      <div className="relative flex min-h-[66px] w-full flex-col gap-1">
+      <div className="relative flex min-h-[66px] w-full flex-col gap-1 max-md:z-10 max-md:min-h-[80px] max-md:justify-center max-md:rounded-t-xl max-md:bg-white max-md:px-1 max-md:pt-2">
         <h3
-          className={`${gradientText} text-[18px] font-bold leading-[30px] lg:text-[20px]`}
+          className={`${gradientText} text-[18px] font-bold leading-[30px] lg:text-[20px] max-md:break-words`}
         >
           {member.name}
         </h3>
@@ -334,14 +334,14 @@ function HeroSection() {
         <div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/822] md:min-h-[620px] lg:min-h-0">
           <img
             alt="Gedung SMK Negeri 26 Jakarta dan tenaga pendidik"
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[65%_center] md:object-[78%_center] lg:object-center"
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[58%_center] max-md:inset-x-0 max-md:bottom-auto max-md:top-10 max-md:h-[calc(100%+2.5rem)] sm:object-[65%_center] md:object-[78%_center] lg:object-center"
             src={figmaAssets.struktur.heroBackground}
           />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/5"
           />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-3 pt-[100px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-3 pt-[128px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]">
             <div className="flex max-w-[1100px] flex-col items-center">
         <div data-aos="fade-down">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.12)]">

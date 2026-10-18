@@ -86,7 +86,7 @@ export function MarsPage() {
       <PublicNavbar />
       <main>
         <section
-          className="relative h-[830px] overflow-hidden bg-[#F4F8FF] text-ink max-md:h-[650px]"
+          className="relative h-[830px] overflow-hidden bg-[#F4F8FF] text-ink max-md:h-[720px]"
           aria-labelledby="mars-title"
         >
           <img
@@ -103,7 +103,7 @@ export function MarsPage() {
             alt=""
             aria-hidden="true"
           />
-          <div className="absolute left-1/2 top-[112px] z-[7] flex w-[872px] max-w-[calc(100%-32px)] -translate-x-1/2 flex-col items-center text-center max-md:top-[96px]">
+          <div className="absolute left-1/2 top-[112px] z-[7] flex w-[872px] max-w-[calc(100%-32px)] -translate-x-1/2 flex-col items-center text-center max-md:top-[128px]">
             <div data-aos="fade-down">
               <MarsBadge>IDENTITAS SEKOLAH</MarsBadge>
             </div>
@@ -111,7 +111,7 @@ export function MarsPage() {
               data-aos="fade-up"
               data-aos-delay="100"
               id="mars-title"
-              className="my-[24px] mb-[10px] text-[36px] font-bold leading-[54px] max-md:mt-[18px] max-md:text-[30px] max-md:leading-[42px]"
+              className="my-[24px] mb-[10px] text-[36px] font-bold leading-[54px] max-md:mt-[18px] max-md:text-[28px] max-md:leading-[38px]"
             >
               <span className="text-primary-dark">MARS</span> SMK Negeri 26
               Jakarta
@@ -127,7 +127,7 @@ export function MarsPage() {
             alt=""
             aria-hidden="true"
           />
-          <div data-aos="zoom-in" data-aos-delay="260" className="absolute left-1/2 top-[300px] z-[5] box-border h-[450px] w-[900px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_12px_40px_rgba(15,23,42,.12)] max-[1271px]:w-[calc(100%-48px)] max-md:top-[230px] max-md:h-[280px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
+          <div data-aos="zoom-in" data-aos-delay="260" className="absolute left-1/2 top-[300px] z-[5] box-border h-[450px] w-[900px] -translate-x-1/2 overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_12px_40px_rgba(15,23,42,.12)] max-[1271px]:w-[calc(100%-48px)] max-md:top-[370px] max-md:h-[270px] max-md:w-[calc(100%-32px)] max-md:rounded-[20px] max-md:border-[8px]">
             <img
               className="block size-full object-cover object-center"
               src={figmaAssets.videoProfile.preview}
@@ -138,7 +138,7 @@ export function MarsPage() {
               aria-hidden="true"
             />
             <a
-              className="group absolute left-1/2 top-1/2 z-10 grid size-[122px] -translate-x-1/2 -translate-y-1/2 place-items-center"
+              className="group absolute left-1/2 top-1/2 z-10 grid size-[122px] -translate-x-1/2 -translate-y-1/2 scale-[.78] place-items-center max-md:scale-[.68]"
                href="https://youtu.be/RWlSIBiuvhQ?si=98SGRYP6SCkobghH"
                target="_blank"
                rel="noreferrer"
@@ -178,17 +178,17 @@ export function MarsPage() {
           </div>
         </section>
 
-        <section className="min-h-[500px] bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24">
+        <section className="min-h-[500px] bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24 max-md:px-4 max-md:py-14">
           <div className="mx-auto max-w-[1272px] text-center">
             <div data-aos="fade-down">
               <MarsBadge>TENTANG MARS</MarsBadge>
             </div>
-            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px] max-md:text-[28px] max-md:leading-9">
               <span className="text-ink">Derap Langkah</span>{" "}
               <span className="text-primary-dark">Cita Bersama</span>
             </h2>
 
-            <div data-aos="zoom-in" className="relative mx-auto mt-12 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
+            <div data-aos="zoom-in" className="relative mx-auto mt-10 h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12 max-md:h-auto max-md:min-h-[285px] max-md:rounded-2xl max-md:p-6">
               <img
                 className="pointer-events-none absolute right-[-18%] top-0 h-full w-auto max-w-[58%] object-contain opacity-60 md:right-0 md:max-w-none md:opacity-100"
                 src="/assets/shared/profile/visi-ujung.png"
@@ -206,14 +206,14 @@ export function MarsPage() {
                   TENTANG MARS
                 </span>
               </div>
-              <p className="relative z-10 mt-5 max-w-[927px] text-lg font-bold leading-[30px] ">
+              <p className="relative z-10 mt-5 max-w-[927px] text-lg font-bold leading-[30px] max-md:max-w-[calc(100%-8px)] max-md:text-base max-md:leading-7">
                 Mars SMK Negeri 26 Jakarta merupakan bagian dari identitas
                 sekolah yang mencerminkan semangat belajar, bekerja, dan
                 membangun. Lagu ini menjadi salah satu representasi semangat dan
                 kebanggaan keluarga besar SMK Negeri 26 Jakarta.
               </p>
               <img
-                className="absolute bottom-6 left-12 h-[5px] w-[64px] object-fill"
+                className="absolute bottom-6 left-12 h-[5px] w-[64px] object-fill max-md:bottom-5 max-md:left-6"
                 src="/assets/shared/profile/visi-misi-garis.png"
                 alt=""
                 aria-hidden="true"
@@ -230,17 +230,17 @@ export function MarsPage() {
             <div data-aos="fade-down">
               <MarsBadge>LIRIK MARS</MarsBadge>
             </div>
-            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px]">
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[32px] font-bold leading-[48px] max-md:text-[28px] max-md:leading-9">
               <span className="text-primary-dark">Lirik Mars</span>{" "}
               <span className="text-ink">SMK Negeri 26 Jakarta</span>
             </h2>
-            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[900px] text-lg leading-[30px] text-muted">
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-4 max-w-[900px] text-lg leading-[30px] text-muted max-md:text-base max-md:leading-7">
               Derap langkah cita bersama, menjadi pengingat semangat untuk terus
               belajar, bekerja, dan membangun.
             </p>
             <div className="mx-auto mt-10 grid max-w-[1272px] gap-8 text-left md:grid-cols-2 md:gap-9">
-              <div data-aos="fade-right" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
-                <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
+              <div data-aos="fade-right" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10 max-md:rounded-2xl max-md:p-5">
+                <p className="whitespace-pre-line text-lg font-medium leading-[27px] text-ink max-md:text-base max-md:leading-7">
                   {`Derap Langkah Cita Bersama
 Belajar bekerja membangun bangsa
 
@@ -260,11 +260,11 @@ Janji kami di gerbang hati
 Demi sekolah yang kucintai`}
                 </p>
               </div>
-              <div data-aos="fade-left" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10">
+              <div data-aos="fade-left" className="rounded-[28px] bg-white p-8 shadow-[0_4px_16px_rgba(15,23,42,.08)] md:p-10 max-md:rounded-2xl max-md:p-5">
                 <span className="inline-flex rounded-full bg-primary-dark px-5 py-2 text-base font-bold text-white">
                   Reff:
                 </span>
-                <p className="mt-5 whitespace-pre-line text-lg font-medium leading-[27px] text-ink">
+                <p className="mt-5 whitespace-pre-line text-lg font-medium leading-[27px] text-ink max-md:text-base max-md:leading-7">
                   {`Ayo ayo giat belajar
 Ayo ayo semangat bekerja
 
@@ -300,16 +300,16 @@ Pasti SMK Negeri 26 jayalah terus`}
                 <article
                   data-aos="fade-up"
                   data-aos-delay={index * 120}
-                  className="group relative flex flex-col items-center rounded-[28px] bg-white px-8 py-6 text-center shadow-[0_8px_24px_rgba(15,23,42,.08)] md:min-h-[156px] md:flex-row md:items-center md:py-0 md:pl-[208px] md:pr-6 md:text-left"
+                  className="group relative flex flex-col items-center rounded-[28px] bg-white px-8 py-6 text-center shadow-[0_8px_24px_rgba(15,23,42,.08)] md:min-h-[156px] md:flex-row md:items-center md:py-0 md:pl-[208px] md:pr-6 md:text-left max-md:rounded-2xl max-md:px-5 max-md:py-5"
                   key={name}
                 >
                   <img
-                    className="size-[140px] rounded-full object-cover object-top transition-transform duration-300 ease-out group-hover:scale-[1.03] md:absolute md:left-0 md:top-1/2 md:size-[172px] md:-translate-y-1/2"
+                    className="size-[140px] rounded-full object-cover object-top transition-transform duration-300 ease-out group-hover:scale-[1.03] md:absolute md:left-0 md:top-1/2 md:size-[172px] md:-translate-y-1/2 max-md:size-[120px]"
                     src={image}
                     alt={name}
                   />
                   <div className="mt-4 md:mt-0">
-                    <h3 className="text-2xl font-bold leading-9 text-primary-dark">
+                    <h3 className="text-2xl font-bold leading-9 text-primary-dark max-md:text-xl max-md:leading-7">
                       {name}
                     </h3>
                     <img
@@ -318,7 +318,7 @@ Pasti SMK Negeri 26 jayalah terus`}
                       alt=""
                       aria-hidden="true"
                     />
-                    <p className="mt-3 text-base leading-6 text-muted">
+                    <p className="mt-3 text-base leading-6 text-muted max-md:text-sm max-md:leading-5">
                       Pencipta MARS SMK Negeri 26 Jakarta
                     </p>
                   </div>
@@ -373,17 +373,17 @@ Pasti SMK Negeri 26 jayalah terus`}
                   : [description];
                 return (
                   <article
-                    className="min-h-[248px] rounded-[28px] border-2 border-[#e2f1fb] bg-white px-7 py-5 shadow-[0_2px_8px_rgba(15,23,42,.02)] transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)]"
+                    className="min-h-[248px] rounded-[28px] border-2 border-[#e2f1fb] bg-white px-7 py-5 shadow-[0_2px_8px_rgba(15,23,42,.02)] transition-[box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,.22)] focus-visible:-translate-y-0.5 focus-visible:shadow-[0_14px_34px_rgba(15,23,42,.22)] max-md:min-h-0 max-md:rounded-2xl max-md:px-5 max-md:py-5"
                     key={String(title)}
                   >
                     <div className="flex items-center gap-6">
                       <img
-                        className="size-[68px] shrink-0 object-contain"
+                        className="size-[68px] shrink-0 object-contain max-md:size-14"
                         src="/assets/pages/mars/SEMANGATlogo.png"
                         alt=""
                         aria-hidden="true"
                       />
-                      <h3 className="text-[30px] font-bold leading-9 text-primary-dark">
+                      <h3 className="text-[30px] font-bold leading-9 text-primary-dark max-md:text-[25px] max-md:leading-8">
                         {String(title)}
                       </h3>
                     </div>

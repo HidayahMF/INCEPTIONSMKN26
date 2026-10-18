@@ -97,7 +97,7 @@ function ProfilePage() {
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main>
-        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[660px] max-md:overflow-hidden max-md:pt-[126px] md:px-16">
+        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[660px] max-md:overflow-hidden max-md:pt-[150px] md:px-16">
           <div className="pointer-events-none absolute left-0 top-[clamp(72px,5vw,110px)] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-auto max-md:bottom-[6px] max-md:w-[150%] max-md:aspect-[1440/433] max-md:max-w-none max-md:-translate-x-1/2">
             <img
               className="absolute inset-0 size-full object-contain object-top max-md:object-cover max-md:object-bottom"
@@ -120,7 +120,7 @@ function ProfilePage() {
             />
           </div>
           <div className="relative z-10 mx-auto w-full max-w-[1025px] text-center">
-            <div data-aos="fade-down">
+            <div className="max-md:mt-5" data-aos="fade-down">
               <ProfileBadge>PROFIL SMK NEGERI 26 JAKARTA</ProfileBadge>
             </div>
             <h1 data-aos="fade-up" data-aos-delay="100" className="mt-6 text-[32px] font-bold leading-[42px] tracking-[-.02em] sm:text-4xl sm:leading-[54px] md:text-[48px] md:leading-[72px]">
@@ -242,7 +242,7 @@ function ProfilePage() {
             </p>
             <div data-aos="zoom-in" className="relative mx-auto mt-12 h-auto min-[1291px]:h-[219px] max-w-[1272px] overflow-hidden rounded-3xl bg-white p-8 text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] md:p-12">
               <img
-                className="pointer-events-none absolute right-0 top-0 w-auto max-w-none object-contain h-[100px] min-[768px]:h-[180px] min-[1291px]:h-full max-lg:opacity-70"
+                 className="pointer-events-none absolute right-0 top-0 w-auto max-w-none object-contain h-[100px] min-[768px]:h-[180px] min-[1291px]:h-full max-lg:opacity-70"
                 src="/assets/shared/profile/visi-ujung.png"
                 alt=""
                 aria-hidden="true"

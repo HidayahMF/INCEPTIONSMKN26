@@ -147,14 +147,14 @@ export function BkkPage() {
       <PublicNavbar />
       <main>
         <section className="relative isolate w-full overflow-hidden bg-[#eaf5ff]">
-          <div className="relative mx-auto min-h-[700px] w-full md:aspect-[1440/820] md:min-h-0">
+          <div className="relative mx-auto min-h-[700px] w-full max-md:min-h-[820px] md:aspect-[1440/820] md:min-h-0">
           <img
-            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] sm:object-[68%_center] md:object-center"
+            className="pointer-events-none absolute inset-0 z-0 size-full object-cover object-[58%_center] max-md:inset-x-0 max-md:bottom-auto max-md:top-10 max-md:h-[calc(100%+2.5rem)] max-md:object-[center_bottom] sm:object-[68%_center] md:object-center"
             src={asset("Group 1813.png")}
             alt="Siswa BKK SMKN 26 Jakarta"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#eaf5ff]/0 via-[#eaf5ff]/0 to-[#eaf5ff]/10" />
-          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-4 pt-[100px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
+          <div className="relative z-10 mx-auto flex h-full w-[calc(100%-32px)] max-w-[1272px] items-start justify-center px-4 pt-[100px] max-md:pt-[128px] text-center sm:px-7 sm:pt-[112px] lg:pt-[124px]"><div className="flex max-w-[1100px] flex-col items-center">
             <div data-aos="fade-down">
               <Badge>BURSA KERJA KHUSUS</Badge>
             </div>

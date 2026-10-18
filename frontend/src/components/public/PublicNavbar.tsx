@@ -13,10 +13,6 @@ const dropdownOnlyLabels = new Set([
   "Portal Informasi",
 ]);
 
-// Sections whose landing page still exists — only these get a "Lihat semua" entry
-// in the mobile menu.
-const sectionLandingPages = new Set(["Tentang kami", "Portal Informasi"]);
-
 const links: NavLink[] = [
   { label: "Beranda", href: "/" },
   {
@@ -237,11 +233,6 @@ export function PublicNavbar() {
                   </button>
                   {isExpanded && (
                     <div className="grid gap-1 pb-1" id={panelId}>
-                      {sectionLandingPages.has(link.label) && (
-                        <a className="rounded-xl px-3 py-2.5 text-xs font-bold text-primary hover:bg-light-blue" href={link.href} onClick={closeMobileMenu}>
-                          Lihat semua {link.label}
-                        </a>
-                      )}
                       {link.children?.map((child) => (
                         <a className="rounded-xl px-4 py-2.5 text-xs text-muted hover:bg-light-blue hover:text-primary" href={child.href} key={child.href} target={child.external ? "_blank" : undefined} rel={child.external ? "noreferrer" : undefined} onClick={closeMobileMenu}>
                           {child.label}
