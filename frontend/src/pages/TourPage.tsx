@@ -86,7 +86,7 @@ export function TourPage() {
           <div className="text-center">
             <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
               <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
-              23 LOKASI PANORAMA
+              22 LOKASI PANORAMA
             </span>
             <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl" id="tour-locations-title">
               Jelajahi Setiap Sudut Sekolah
