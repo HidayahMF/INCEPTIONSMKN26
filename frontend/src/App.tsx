@@ -406,7 +406,12 @@ export function App() {
   if (path === "/programs/lsp/tkr") return <PublicExperience><LspTkrPage /></PublicExperience>;
   if (path === "/programs/ekstrakurikuler") return <PublicExperience><EkstrakurikulerPage /></PublicExperience>;
   if (path === "/programs/bkk") return <PublicExperience><BkkPage /></PublicExperience>;
-  if (path === "/information/bkk/mayora-program-pkl-produksi") return <PublicExperience><BkkOpportunityDetailPage /></PublicExperience>;
+   if (path === "/information/bkk/mayora-program-pkl-produksi") return <PublicExperience><BkkOpportunityDetailPage /></PublicExperience>;
+   if (path === "/information/bkk/astra-program-pkl-teknik-otomotif") return <PublicExperience><BkkOpportunityDetailPage opportunity="astra" /></PublicExperience>;
+   if (path === "/information/bkk/azko-program-pkl-retail-operations") return <PublicExperience><BkkOpportunityDetailPage opportunity="azko" /></PublicExperience>;
+   if (path === "/information/bkk/goto-program-pkl-it-support") return <PublicExperience><BkkOpportunityDetailPage opportunity="goto" /></PublicExperience>;
+   if (path === "/information/bkk/telkom-program-pkl-cs-support") return <PublicExperience><BkkOpportunityDetailPage opportunity="telkom" /></PublicExperience>;
+   if (path === "/information/bkk/yamaha-operator-produksi") return <PublicExperience><BkkOpportunityDetailPage opportunity="yamaha" /></PublicExperience>;
   if (path === "/achievements") return <PublicExperience><PrestasiPage /></PublicExperience>;
   if (path === "/programs/organisasi") return <PublicExperience><OrganisasiSekolahPage /></PublicExperience>;
   if (path === "/programs/organisasi/osis") return <PublicExperience><StrukturOrganisasiPage type="osis" /></PublicExperience>;

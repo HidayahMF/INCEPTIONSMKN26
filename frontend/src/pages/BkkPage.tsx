@@ -9,6 +9,16 @@ const ASSET_OVERRIDES: Record<string, string> = {
 };
 const asset = (name: string) => ASSET_OVERRIDES[name] ?? `/assets/pages/bkk/${name}`;
 
+const opportunityRoute = (company: string) => {
+  if (company === "PT Mayora Indah Tbk") return "/information/bkk/mayora-program-pkl-produksi";
+  if (company === "PT Astra International Tbk") return "/information/bkk/astra-program-pkl-teknik-otomotif";
+  if (company === "PT AZKO") return "/information/bkk/azko-program-pkl-retail-operations";
+  if (company === "PT GoTo Gojek Tokopedia Tbk") return "/information/bkk/goto-program-pkl-it-support";
+  if (company === "PT Telkom Indonesia") return "/information/bkk/telkom-program-pkl-cs-support";
+  if (company === "PT Yamaha Indonesia Motor") return "/information/bkk/yamaha-operator-produksi";
+  return undefined;
+};
+
 const services = [
   [
     "Informasi Peluang",
@@ -106,7 +116,7 @@ const opportunities = [
     "Karawang, Jawa Barat",
     "Mulai Januari 2026",
     "Deadline: 5 Januari 2026",
-    "Frame 36448 (4).png",
+    "Rectangle 89 (12).png",
     "yamaha.png",
   ],
   [
@@ -117,7 +127,7 @@ const opportunities = [
     "Jakarta Selatan",
     "Mulai Februari 2026",
     "Deadline: 15 Januari 2026",
-    "Rectangle 89 (12).png",
+    "Frame 36448 (4).png",
     "telkom.png",
   ],
 ] as const;
@@ -324,11 +334,25 @@ export function BkkPage() {
                     logo,
                   ],
                   index,
-                ) => (
+                ) => {
+                  const detailRoute = opportunityRoute(company);
+
+                  return (
                   <article
                     data-aos="fade-up"
                     data-aos-delay={Math.min(index * 60, 300)}
-                    className="overflow-hidden rounded-[22px] border border-[#dce8f3] bg-white text-left shadow-[0_4px_12px_rgba(15,23,42,.08)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)]"
+                    className={`overflow-hidden rounded-[22px] border border-[#dce8f3] bg-white text-left shadow-[0_4px_12px_rgba(15,23,42,.08)] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] ${detailRoute ? "cursor-pointer" : ""}`}
+                    onClick={() => {
+                      if (detailRoute) window.location.href = detailRoute;
+                    }}
+                    onKeyDown={(event) => {
+                      if (detailRoute && (event.key === "Enter" || event.key === " ")) {
+                        event.preventDefault();
+                        window.location.href = detailRoute;
+                      }
+                    }}
+                    role={detailRoute ? "link" : undefined}
+                    tabIndex={detailRoute ? 0 : undefined}
                     key={company}
                   >
                     <img
@@ -395,13 +419,14 @@ export function BkkPage() {
                       </div>
                       <a
                         className="mt-4 block rounded-full border border-white/35 bg-gradient-to-br from-primary-dark via-primary to-soft-blue py-2.5 text-center text-xs font-bold text-white shadow-lg transition-[background,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-[#F1F5F9] hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-[#F1F5F9] focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none focus-visible:outline-2 focus-visible:outline-primary motion-reduce:transition-none"
-                         href={company === "PT Mayora Indah Tbk" ? "/information/bkk/mayora-program-pkl-produksi" : "#kontak"}
+                          href={detailRoute ?? "#kontak"}
                       >
                         Lihat Detail <span aria-hidden="true">→</span>
                       </a>
                     </div>
                   </article>
-                ),
+                  );
+                },
               )}
             </div>
           </div>

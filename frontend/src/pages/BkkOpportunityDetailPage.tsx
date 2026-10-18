@@ -5,51 +5,331 @@ import { SectionBadge } from "../components/public/SectionBadge";
 const base = "/assets/pages/bkk/";
 const newsDetailAssets = "/assets/pages/berita/isiberita/";
 
-const checklist = [
-  "Mengenal alur proses produksi.",
-  "Memahami fungsi mesin dan peralatan produksi.",
-  "Mengamati proses pengemasan produk.",
-  "Mempelajari pemeriksaan kualitas hasil produksi.",
-  "Menerapkan prosedur kebersihan dan keselamatan kerja.",
-];
+type BkkOpportunity = {
+  heroImage: string;
+  heroImageAlt: string;
+  title: string;
+  company: string;
+  heroDescription: string;
+  industry: string;
+  location: string;
+  companyDescription: string;
+  companyHighlights: readonly (readonly [string, string, string])[];
+  opportunityInfo: readonly (readonly [string, string, string])[];
+  position: string;
+  positionDescription: string;
+  positionImage: string;
+  positionImageAlt: string;
+  checklist: readonly string[];
+  qualifications: readonly string[];
+  documents: readonly string[];
+};
 
-const qualifications = [
-  "Siswa jurusan yang sesuai dengan kebutuhan program.",
-  "Memiliki ketertarikan pada proses produksi.",
-  "Teliti, disiplin, dan mampu bekerja sama.",
-  "Mematuhi standar kebersihan dan keselamatan kerja.",
-  "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
-];
+const mayoraOpportunity: BkkOpportunity = {
+  heroImage: `${base}mayora/mayora.png`,
+  heroImageAlt: "Gedung PT Mayora Indah Tbk.",
+  title: "Program PKL Produksi",
+  company: "PT Mayora Indah Tbk.",
+  heroDescription: "Perusahaan yang bergerak di bidang industri makanan dan minuman dengan proses produksi, pengemasan, serta pengendalian kualitas produk.",
+  industry: "Makanan & Minuman",
+  location: "Tangerang, Banten",
+  companyDescription: "PT Mayora Indah Tbk. merupakan perusahaan industri makanan dan minuman yang menjalankan berbagai proses manufaktur, mulai dari pengolahan bahan hingga pengemasan produk. Perusahaan ini menjadi salah satu bagian dari industri yang membutuhkan tenaga kerja dengan kompetensi teknis, ketelitian, dan kedisiplinan.",
+  companyHighlights: [
+    ["Produk Utama", "Makanan dan Minuman", "produkutamaicon.png"],
+    ["Lokasi Pabrik", "Tangerang, Banten", "lokasiicon.png"],
+    ["Skala Industri", "Nasional & Internasional", "skalaicon.png"],
+    ["Bidang Usaha", "Industri Makanan & Minuman", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
+    ["Posisi", "Produksi", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Teknik Pemesinan (TPM)", "jurusanicon.png"],
+    ["Lokasi", "Tangerang, Banten", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – April 2026", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "Produksi",
+  positionDescription: "Program PKL ini memperkenalkan siswa pada alur produksi, penggunaan mesin, proses pengemasan, serta pentingnya menjaga kualitas dan kebersihan produk.",
+  positionImage: `${base}mayora/mayorapict.png`,
+  positionImageAlt: "Pekerja produksi PT Mayora Indah Tbk.",
+  checklist: [
+    "Mengenal alur proses produksi.",
+    "Memahami fungsi mesin dan peralatan produksi.",
+    "Mengamati proses pengemasan produk.",
+    "Mempelajari pemeriksaan kualitas hasil produksi.",
+    "Menerapkan prosedur kebersihan dan keselamatan kerja.",
+  ],
+  qualifications: [
+    "Siswa jurusan yang sesuai dengan kebutuhan program.",
+    "Memiliki ketertarikan pada proses produksi.",
+    "Teliti, disiplin, dan mampu bekerja sama.",
+    "Mematuhi standar kebersihan dan keselamatan kerja.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Surat pengantar sekolah.",
+    "Fotokopi kartu pelajar.",
+    "Rapor atau transkrip nilai jika diperlukan.",
+    "Dokumen pendukung sesuai ketentuan perusahaan.",
+  ],
+};
 
-const documents = [
-  "Curriculum Vitae (CV).",
-  "Surat pengantar sekolah.",
-  "Fotokopi kartu pelajar.",
-  "Rapor atau transkrip nilai jika diperlukan.",
-  "Dokumen pendukung sesuai ketentuan perusahaan.",
-];
+const yamahaOpportunity: BkkOpportunity = {
+  heroImage: `${base}yamaha/gedungyamaha.png`,
+  heroImageAlt: "Gedung PT Yamaha Indonesia Motor MFG.",
+  title: "Operator Produksi",
+  company: "PT Yamaha Indonesia Motor MFG",
+  heroDescription: "Perusahaan manufaktur otomotif terkemuka di Indonesia yang memproduksi sepeda motor berkualitas untuk pasar global.",
+  industry: "Otomotif & Manufaktur",
+  location: "Karawang, Jawa Barat",
+  companyDescription: "PT Yamaha Indonesia Motor Mfg. merupakan perusahaan manufaktur otomotif yang bergerak di bidang produksi sepeda motor dan komponennya. Perusahaan ini menjadi salah satu bagian dari industri yang membutuhkan tenaga kerja dengan kompetensi teknis, ketelitian, dan kedisiplinan.",
+  companyHighlights: [
+    ["Produk Utama", "Sepeda Motor", "produkutamaicon.png"],
+    ["Lokasi Pabrik", "Karawang, Jawa Barat", "lokasiicon.png"],
+    ["Skala Industri", "Nasional & Global", "skalaicon.png"],
+    ["Bidang Usaha", "Otomotif & Manufaktur", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Rekrutmen", `${newsDetailAssets}berita.png`],
+    ["Posisi", "Operator Produksi", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Teknik Pemesinan (TPM), Teknik Kendaraan Ringan (TKR)", "jurusanicon.png"],
+    ["Lokasi", "Karawang, Jawa Barat", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – April 2026", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "Operator Produksi",
+  positionDescription: "PT Yamaha Indonesia Motor Mfg. merupakan perusahaan manufaktur otomotif yang bergerak di bidang produksi sepeda motor dan komponennya. Perusahaan ini menjadi salah satu bagian dari industri yang membutuhkan tenaga kerja dengan kompetensi teknis, ketelitian, dan kedisiplinan.",
+  positionImage: `${base}yamaha/tentangoperator.png`,
+  positionImageAlt: "Operator produksi PT Yamaha Indonesia Motor MFG.",
+  checklist: [
+    "Mengoperasikan mesin dan peralatan produksi sesuai instruksi kerja.",
+    "Melaksanakan proses produksi berdasarkan standar operasional.",
+    "Memastikan kualitas produk sesuai ketentuan.",
+    "Menjaga kebersihan dan keselamatan area kerja.",
+    "Bekerja sama dengan tim untuk mencapai target produksi.",
+  ],
+  qualifications: [
+    "Siswa atau lulusan yang memenuhi kriteria rekrutmen.",
+    "Memiliki kedisiplinan dan tanggung jawab.",
+    "Mampu bekerja secara teliti dan mengikuti instruksi.",
+    "Mampu bekerja sama dalam tim.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Fotokopi ijazah atau transkrip nilai, jika dipersyaratkan.",
+    "Fotokopi KTP atau kartu identitas.",
+    "Pas foto terbaru.",
+    "Dokumen pendukung lain sesuai ketentuan perusahaan.",
+  ],
+};
 
-const companyHighlights = [
-  ["Produk Utama", "Makanan dan Minuman", "produkutamaicon.png"],
-  ["Lokasi Pabrik", "Tangerang, Banten", "lokasiicon.png"],
-  ["Skala Industri", "Nasional & Internasional", "skalaicon.png"],
-  ["Bidang Usaha", "Industri Makanan & Minuman", "Button shortcut (4).png"],
-] as const;
+const astraOpportunity: BkkOpportunity = {
+  heroImage: `${base}astra/gedungastra.png`,
+  heroImageAlt: "Gedung PT Astra International Tbk.",
+  title: "Program PKL Teknik Otomotif",
+  company: "PT Astra International Tbk.",
+  heroDescription: "Perusahaan yang bergerak di bidang otomotif dan berbagai sektor industri, dengan ekosistem bisnis yang luas di Indonesia.",
+  industry: "Otomotif & Manufaktur",
+  location: "Jakarta Utara",
+  companyDescription: "PT Astra International Tbk. merupakan perusahaan yang bergerak di berbagai bidang usaha, termasuk otomotif, jasa keuangan, dan layanan pendukung industri.",
+  companyHighlights: [
+    ["Produk Utama", "Kendaraan dan layanan otomotif", "produkutamaicon.png"],
+    ["Lokasi Kantor", "Jakarta Utara", "lokasiicon.png"],
+    ["Skala Industri", "Nasional & Global", "skalaicon.png"],
+    ["Bidang Usaha", "Otomotif & Manufaktur", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
+    ["Posisi", "Teknik Otomotif", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Teknik Kendaraan Ringan (TKR)", "jurusanicon.png"],
+    ["Lokasi", "Jakarta Utara", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – Januari 2027", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "Teknik Otomotif",
+  positionDescription: "Program PKL ini memberikan pengalaman praktik kepada siswa untuk mengenal proses perawatan kendaraan, penggunaan peralatan kerja, serta penerapan standar keselamatan di lingkungan industri.",
+  positionImage: `${base}astra/tentangposisi.png`,
+  positionImageAlt: "Siswa melakukan praktik teknik otomotif.",
+  checklist: [
+    "Mengenal prosedur pemeriksaan dan perawatan kendaraan.",
+    "Membantu pekerjaan teknis sesuai arahan pembimbing.",
+    "Mengidentifikasi komponen dan sistem kendaraan.",
+    "Menerapkan standar keselamatan kerja.",
+    "Mengembangkan ketelitian dan kedisiplinan.",
+  ],
+  qualifications: [
+    "Siswa jurusan Teknik Kendaraan Ringan (TKR).",
+    "Memiliki minat di bidang otomotif.",
+    "Teliti, disiplin, dan bertanggung jawab.",
+    "Bersedia mengikuti arahan pembimbing.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Surat pengantar sekolah.",
+    "Fotokopi kartu pelajar.",
+    "Rapor atau transkrip nilai jika diperlukan.",
+    "Dokumen pendukung sesuai ketentuan perusahaan.",
+  ],
+};
 
-const opportunityInfo = [
-  ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
-  ["Posisi", "Produksi", "posisiicon.png"],
-  ["Jurusan yang Dibutuhkan", "Teknik Pemesinan (TPM)", "jurusanicon.png"],
-  ["Lokasi", "Tangerang, Banten", "boxicons_location-filled.png"],
-  ["Periode", "Januari 2026 – April 2026", "lets-icons_date-fill.png"],
-  ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
-] as const;
+const azkoOpportunity: BkkOpportunity = {
+  heroImage: `${base}azko/Foto Detail BKK (4).png`,
+  heroImageAlt: "Gedung AZKO.",
+  title: "Program PKL Retail Operations",
+  company: "PT AZKO",
+  heroDescription: "Perusahaan ritel yang menyediakan berbagai produk kebutuhan rumah tangga dan solusi gaya hidup melalui kegiatan operasional toko.",
+  industry: "Retail & Home Living",
+  location: "Jakarta Utara",
+  companyDescription: "AZKO bergerak di bidang ritel perlengkapan rumah dan gaya hidup. Aktivitas operasionalnya mencakup pengelolaan produk, pelayanan pelanggan, penataan barang, dan pengelolaan persediaan toko.",
+  companyHighlights: [
+    ["Produk Utama", "Perlengkapan rumah dan gaya hidup", "produkutamaicon.png"],
+    ["Lokasi Toko", "Jakarta Utara", "lokasiicon.png"],
+    ["Skala Industri", "Ritel", "skalaicon.png"],
+    ["Bidang Usaha", "Retail & Home Living", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
+    ["Posisi", "Retail Operations", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Semua Jurusan", "jurusanicon.png"],
+    ["Lokasi", "Jakarta Utara", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – Oktober 2026", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "Retail Operations",
+  positionDescription: "Program PKL ini memperkenalkan siswa pada kegiatan operasional toko, mulai dari penataan produk hingga pelayanan pelanggan, sekaligus mengembangkan keterampilan komunikasi dan administrasi.",
+  positionImage: `${base}azko/Pict Posisi Pekerjaan (1).png`,
+  positionImageAlt: "Pekerja AZKO menata produk di toko.",
+  checklist: [
+    "Membantu penataan dan pengelompokan produk.",
+    "Mengenal pengelolaan stok barang.",
+    "Membantu penyampaian informasi produk kepada pelanggan.",
+    "Memahami prosedur operasional toko.",
+    "Mengembangkan kemampuan komunikasi dan pelayanan.",
+  ],
+  qualifications: [
+    "Siswa dari jurusan yang sesuai dengan program.",
+    "Memiliki komunikasi yang baik.",
+    "Ramah, teliti, dan bertanggung jawab.",
+    "Mampu bekerja sama dalam tim.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Surat pengantar sekolah.",
+    "Fotokopi kartu pelajar.",
+    "Rapor atau transkrip nilai jika diperlukan.",
+    "Dokumen pendukung sesuai ketentuan perusahaan.",
+  ],
+};
+
+const gotoOpportunity: BkkOpportunity = {
+  heroImage: `${base}goto/Foto Detail BKK (5).png`,
+  heroImageAlt: "Gedung GoTo Gojek Tokopedia Tbk.",
+  title: "Program PKL IT Support",
+  company: "PT GoTo Gojek Tokopedia Tbk.",
+  heroDescription: "Perusahaan dalam ekosistem teknologi digital yang menghadirkan berbagai layanan berbasis teknologi dan membutuhkan dukungan sistem serta perangkat IT.",
+  industry: "Teknologi Digital",
+  location: "Jakarta Selatan",
+  companyDescription: "PT GoTo Gojek Tokopedia Tbk. bergerak dalam ekosistem layanan teknologi informasi berperan dalam mendukung operasional sistem, perangkat, dan layanan digital perusahaan.",
+  companyHighlights: [
+    ["Produk Utama", "Layanan dan ekosistem digital", "produkutamaicon.png"],
+    ["Lokasi Kantor", "Jakarta Selatan", "lokasiicon.png"],
+    ["Skala Industri", "Nasional", "skalaicon.png"],
+    ["Bidang Usaha", "Teknologi Digital", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
+    ["Posisi", "IT Support", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Rekayasa Perangkat Lunak (RPL)", "jurusanicon.png"],
+    ["Lokasi", "Jakarta Selatan", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – Juni 2026", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "IT Support",
+  positionDescription: "Posisi IT Support berfokus pada dukungan teknis untuk membantu memastikan perangkat dan sistem teknologi dapat digunakan dengan baik. Peserta dapat mengenal identifikasi masalah, pemeriksaan perangkat, serta dokumentasi kendala teknis.",
+  positionImage: `${base}goto/Pict Posisi Pekerjaan (2).png`,
+  positionImageAlt: "Peserta melakukan pekerjaan IT Support.",
+  checklist: [
+    "Membantu pemeriksaan perangkat komputer.",
+    "Mengenal proses identifikasi kendala teknis.",
+    "Membantu instalasi dan konfigurasi perangkat sesuai arahan.",
+    "Mencatat dan mendokumentasikan masalah teknis.",
+    "Memahami prosedur keamanan dan pemeliharaan perangkat.",
+  ],
+  qualifications: [
+    "Siswa jurusan RPL atau TJKT.",
+    "Memahami dasar perangkat komputer dan sistem operasi.",
+    "Memiliki kemampuan pemecahan masalah.",
+    "Teliti, komunikatif, dan bertanggung jawab.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Surat pengantar sekolah.",
+    "Fotokopi kartu pelajar.",
+    "Rapor atau transkrip nilai jika diperlukan.",
+    "Dokumen pendukung sesuai ketentuan perusahaan.",
+  ],
+};
+
+const telkomOpportunity: BkkOpportunity = {
+  heroImage: `${base}telkom/Foto Detail BKK (6).png`,
+  heroImageAlt: "Gedung PT Telkom Indonesia (Persero) Tbk.",
+  title: "Program PKL CS Support",
+  company: "PT Telkom Indonesia (Persero) Tbk.",
+  heroDescription: "Perusahaan yang bergerak di bidang telekomunikasi dan teknologi informasi, termasuk layanan konektivitas, infrastruktur jaringan, dan solusi digital.",
+  industry: "Telekomunikasi & Teknologi",
+  location: "Jakarta Selatan",
+  companyDescription: "PT Telkom Indonesia (Persero) Tbk. merupakan perusahaan telekomunikasi yang menyediakan layanan konektivitas dan berbagai solusi teknologi informasi untuk masyarakat maupun bisnis.",
+  companyHighlights: [
+    ["Produk Utama", "Layanan telekomunikasi dan digital", "produkutamaicon.png"],
+    ["Lokasi Kantor", "Jakarta Selatan", "lokasiicon.png"],
+    ["Skala Industri", "Nasional", "skalaicon.png"],
+    ["Bidang Usaha", "Telekomunikasi & Teknologi", "Button shortcut (4).png"],
+  ],
+  opportunityInfo: [
+    ["Jenis Peluang", "Program PKL", `${newsDetailAssets}berita.png`],
+    ["Posisi", "IT Support", "posisiicon.png"],
+    ["Jurusan yang Dibutuhkan", "Semua Jurusan", "jurusanicon.png"],
+    ["Lokasi", "Jakarta Selatan", "boxicons_location-filled.png"],
+    ["Periode", "Januari 2026 – Februari 2027", "lets-icons_date-fill.png"],
+    ["Batas Pendaftaran", "5 Januari 2026", "mingcute_time-fill.png"],
+  ],
+  position: "CS Support",
+  positionDescription: "Posisi Customer Service Support berfokus pada pemberian informasi, penanganan pertanyaan, serta dukungan kebutuhan pelanggan. Peserta dapat mengembangkan keterampilan komunikasi, administrasi, dan pemahaman layanan telekomunikasi.",
+  positionImage: `${base}telkom/Pict Posisi Pekerjaan (3).png`,
+  positionImageAlt: "Petugas Customer Service Support PT Telkom Indonesia.",
+  checklist: [
+    "Membantu memberikan informasi terkait layanan.",
+    "Mencatat pertanyaan dan kendala pelanggan.",
+    "Membantu proses administrasi layanan.",
+    "Mempelajari prosedur penanganan keluhan.",
+    "Mengembangkan komunikasi profesional dan orientasi pelayanan.",
+  ],
+  qualifications: [
+    "Siswa dari jurusan yang sesuai dengan program.",
+    "Memiliki komunikasi lisan dan tulisan yang baik.",
+    "Mampu bekerja sama dan melayani dengan ramah.",
+    "Teliti dalam pencatatan informasi.",
+    "Bersedia mengikuti ketentuan dan proses seleksi perusahaan.",
+  ],
+  documents: [
+    "Curriculum Vitae (CV).",
+    "Surat pengantar sekolah.",
+    "Fotokopi kartu pelajar.",
+    "Rapor atau transkrip nilai jika diperlukan.",
+    "Dokumen pendukung sesuai ketentuan perusahaan.",
+  ],
+};
 
 function Checks({ items, compact = false }: { items: readonly string[]; compact?: boolean }) {
   return (
     <ul className="mt-4 grid gap-3">
       {items.map((item, index) => (
-        <li data-aos="fade-up" data-aos-delay={Math.min(index * 60, 240)} className={`flex items-center gap-2 font-normal text-[#15213a] ${compact ? "whitespace-nowrap text-xs leading-5" : "text-base leading-6"}`} key={item}>
+        <li data-aos="fade-up" data-aos-delay={Math.min(index * 60, 240)} className={`flex items-center gap-2 font-normal text-[#15213a] ${compact ? "whitespace-nowrap text-[11px] leading-5" : "text-base leading-6"}`} key={item}>
           <img className={`${compact ? "size-7" : "size-8"} shrink-0 object-contain`} src={`${base}checklisticon.png`} alt="" aria-hidden="true" />
           {item}
         </li>
@@ -84,7 +364,19 @@ function HighlightCard({
   );
 }
 
-export function BkkOpportunityDetailPage() {
+export function BkkOpportunityDetailPage({ opportunity: selectedOpportunity = mayoraOpportunity }: { opportunity?: BkkOpportunity | "astra" | "azko" | "goto" | "telkom" | "yamaha" }) {
+  const opportunity = selectedOpportunity === "astra"
+    ? astraOpportunity
+    : selectedOpportunity === "azko"
+      ? azkoOpportunity
+      : selectedOpportunity === "goto"
+        ? gotoOpportunity
+        : selectedOpportunity === "telkom"
+          ? telkomOpportunity
+    : selectedOpportunity === "yamaha"
+      ? yamahaOpportunity
+      : selectedOpportunity;
+
   return (
     <div className="min-h-screen overflow-x-clip bg-white text-[#10182b]">
       <PublicNavbar />
@@ -94,32 +386,31 @@ export function BkkOpportunityDetailPage() {
               <img
                 data-aos="fade-right"
                 className="h-[220px] w-full rounded-[18px] border border-white/70 object-cover shadow-sm md:mt-[55px] md:h-[230px] md:w-[320px]"
-              src={`${base}mayora/mayora.png`}
-              alt="Gedung PT Mayora Indah Tbk."
+              src={opportunity.heroImage}
+              alt={opportunity.heroImageAlt}
             />
              <div className="max-w-[700px] md:mt-4">
                <div data-aos="fade-down"><SectionBadge>INFORMASI PELUANG</SectionBadge></div>
                <h1 data-aos="fade-up" data-aos-delay="100" className="mt-3 text-[27px] font-bold leading-tight tracking-[-.02em] sm:text-4xl">
-                Program PKL Produksi
+                 {opportunity.title}
               </h1>
-               <h2 data-aos="fade-up" data-aos-delay="140" className="mt-1 text-lg font-semibold sm:text-xl">PT Mayora Indah Tbk.</h2>
+                <h2 data-aos="fade-up" data-aos-delay="140" className="mt-1 text-lg font-semibold sm:text-xl">{opportunity.company}</h2>
                <p data-aos="fade-up" data-aos-delay="180" className="mt-1 max-w-[650px] text-sm leading-5 text-[#596d92] sm:text-base sm:leading-6">
-                Perusahaan yang bergerak di bidang industri makanan dan minuman dengan proses produksi,
-                pengemasan, serta pengendalian kualitas produk.
+                 {opportunity.heroDescription}
               </p>
                <div className="mt-5 flex flex-wrap gap-x-12 gap-y-3">
                  <div data-aos="fade-up" data-aos-delay="240" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}posisiicon.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Industri</small>
-                    <strong className="text-xl font-bold text-[#078cf0]">Makanan &amp; Minuman</strong>
+                    <strong className="text-xl font-bold text-[#078cf0]">{opportunity.industry}</strong>
                   </span>
                 </div>
                  <div data-aos="fade-up" data-aos-delay="300" className="flex items-center gap-2">
                   <img className="size-[38px] object-contain" src={`${base}boxicons_location-filled.png`} alt="" />
                   <span>
                     <small className="block text-sm font-normal text-[#71819d]">Lokasi</small>
-                    <strong className="text-xl font-bold text-[#078cf0]">Tangerang, Banten</strong>
+                    <strong className="text-xl font-bold text-[#078cf0]">{opportunity.location}</strong>
                   </span>
                 </div>
               </div>
@@ -133,22 +424,19 @@ export function BkkOpportunityDetailPage() {
           <div>
              <div data-aos="fade-down"><SectionBadge>TENTANG PERUSAHAAN</SectionBadge></div>
              <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-[26px] font-bold leading-tight sm:text-3xl">
-              Sekilas <span className="text-[#078cf0]">PT Mayora Indah Tbk.</span>
+               Sekilas <span className="text-[#078cf0]">{opportunity.company}</span>
             </h2>
              <p data-aos="fade-up" data-aos-delay="180" className="mt-2 max-w-[690px] text-sm leading-6 text-[#607292] sm:text-base">
-              PT Mayora Indah Tbk. merupakan perusahaan industri makanan dan minuman yang menjalankan berbagai
-              proses manufaktur, mulai dari pengolahan bahan hingga pengemasan produk. Perusahaan ini menjadi salah
-              satu bagian dari industri yang membutuhkan tenaga kerja dengan kompetensi teknis, ketelitian, dan
-              kedisiplinan.
+               {opportunity.companyDescription}
             </p>
             <div className="mt-4 grid max-w-[560px] gap-3 sm:grid-cols-2">
-              {companyHighlights.map(([title, description, icon], index) => (
+               {opportunity.companyHighlights.map(([title, description, icon], index) => (
                 <HighlightCard
                   aosDelay={index * 80}
                   description={description}
                   icon={icon}
                   key={title}
-                  singleLine={title === "Produk Utama" || title === "Skala Industri"}
+                  singleLine={title === "Skala Industri"}
                   title={title}
                 />
               ))}
@@ -161,7 +449,7 @@ export function BkkOpportunityDetailPage() {
                 Informasi Peluang
               </h3>
               <dl className="divide-y divide-[#e8f0f8] p-1 text-xs">
-                 {opportunityInfo.map(([label, value, icon], index) => (
+                  {opportunity.opportunityInfo.map(([label, value, icon], index) => (
                    <div data-aos="fade-left" data-aos-delay={Math.min(index * 60, 240)} className="flex min-h-[42px] items-center gap-2 px-2 py-2" key={label}>
                     <img className="size-[18px] shrink-0 object-contain" src={icon.startsWith("/") ? icon : `${base}${icon}`} alt="" aria-hidden="true" />
                     <dt className="min-w-0 flex-1 leading-4 text-[#53698e]">{label}</dt>
@@ -205,18 +493,18 @@ export function BkkOpportunityDetailPage() {
           <div>
              <div data-aos="fade-down"><SectionBadge>DESKRIPSI PEKERJAAN</SectionBadge></div>
              <h2 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-4xl font-bold">
-              Tentang <span className="text-[#078cf0]">Posisi Produksi</span>
+               Tentang <span className="text-[#078cf0]">Posisi {opportunity.position}</span>
             </h2>
              <p data-aos="fade-up" data-aos-delay="180" className="mt-3 leading-6 text-[#607292]">
-              Program PKL ini memperkenalkan siswa pada alur produksi, penggunaan mesin, proses pengemasan, serta pentingnya menjaga kualitas dan kebersihan produk.
+               {opportunity.positionDescription}
             </p>
-             <div data-aos="fade-up" data-aos-delay="240" className="mt-6 max-w-[430px] rounded-2xl bg-[#edf5ff] p-5">
+              <div data-aos="fade-up" data-aos-delay="240" className="mt-6 max-w-[430px] rounded-2xl bg-[#edf5ff] p-5">
               <h3 className="text-xl font-bold leading-6">Ruang Lingkup Pekerjaan</h3>
-              <Checks compact items={checklist} />
+               <Checks compact items={opportunity.checklist} />
             </div>
           </div>
            <div data-aos="fade-left" className="relative h-[320px] min-h-0 w-full overflow-hidden rounded-2xl lg:h-full">
-             <img className="absolute inset-0 size-full object-cover" src={`${base}mayora/mayorapict.png`} alt="Pekerja produksi PT Mayora Indah Tbk." />
+              <img className="absolute inset-0 size-full object-cover" src={opportunity.positionImage} alt={opportunity.positionImageAlt} />
           </div>
         </section>
 
@@ -232,11 +520,11 @@ export function BkkOpportunityDetailPage() {
             <div className="mt-7 grid gap-4 text-left md:grid-cols-2">
                <div data-aos="fade-right" data-aos-delay="240" className="rounded-2xl bg-[#edf5ff] p-6">
                 <h3 className="text-xl font-bold">Kualifikasi Peserta</h3>
-                <Checks items={qualifications} />
+                 <Checks items={opportunity.qualifications} />
               </div>
                <div data-aos="fade-left" data-aos-delay="240" className="rounded-2xl bg-[#edf5ff] p-6">
                 <h3 className="text-xl font-bold">Dokumen yang Perlu Disiapkan</h3>
-                <Checks items={documents} />
+                 <Checks items={opportunity.documents} />
               </div>
             </div>
           </div>
