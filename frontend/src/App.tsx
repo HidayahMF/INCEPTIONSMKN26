@@ -12,12 +12,15 @@ import { LapanganTourPage } from "./pages/LapanganTourPage";
 import { AuthProvider } from "./features/auth/AuthProvider";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { TeacherClassesPage, TeacherClassDetailPage } from "./pages/TeacherClassesPage";
+import { TeacherCompetenciesPage } from "./pages/TeacherCompetenciesPage";
 import { StudentPklPage } from "./pages/StudentPklPage";
 import { StudentPklDetailPage } from "./pages/StudentPklDetailPage";
 import { StudentLostFoundPage } from "./pages/StudentLostFoundPage";
 import { StudentLostFoundReportPage } from "./pages/StudentLostFoundReportPage";
 import { StudentLostFoundDetailPage } from "./pages/StudentLostFoundDetailPage";
 import { StudentPortfolioPage, StudentPortfolioProjectDetailPage, StudentPortfolioAchievementDetailPage, StudentPortfolioProjectFormPage, StudentPortfolioAchievementFormPage } from "./pages/StudentPortfolioPage";
+import { ProfileRoutePage } from "./pages/TeacherProfilePage";
 import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
 import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
 import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
@@ -448,10 +451,15 @@ export function App() {
   const isPklDetail = path.startsWith("/dashboard/pkl/");
   const isPortfolioProjectDetail = path.startsWith("/dashboard/portfolio/projects/");
   const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new";
-  if (!["/login", "/dashboard", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail) return <LegacyApp />;
+   const isTeacherClassDetail = path.startsWith("/dashboard/teacher/classes/");
+    if (!["/login", "/dashboard", "/dashboard/profile", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/dashboard/teacher/classes", "/dashboard/teacher/competencies", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail && !isTeacherClassDetail) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}
-    {path === "/dashboard" && <DashboardPage />}
+     {path === "/dashboard" && <DashboardPage />}
+     {path === "/dashboard/teacher/classes" && <TeacherClassesPage />}
+     {isTeacherClassDetail && <TeacherClassDetailPage />}
+     {path === "/dashboard/teacher/competencies" && <TeacherCompetenciesPage />}
+     {path === "/dashboard/profile" && <ProfileRoutePage />}
     {path === "/dashboard/pkl" && <StudentPklPage />}
     {isPklDetail && <StudentPklDetailPage />}
     {path === "/dashboard/portfolio" && <StudentPortfolioPage />}

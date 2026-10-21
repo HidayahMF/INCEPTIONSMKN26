@@ -16,6 +16,7 @@ import {
 } from "../components/student/StudentDashboardSections";
 import { PortalLayout } from "../layouts/PortalLayout";
 import { Link } from "../routes/compat";
+import { TeacherDashboardPage } from "./TeacherDashboardPage";
 
 export function DashboardPage() {
   const { me, hasPermission } = useAuth();
@@ -26,7 +27,7 @@ export function DashboardPage() {
     if (isStudent) getLearningSummary().then(setLearning).catch(() => setLearning(null));
   }, [isStudent]);
 
-  return <RequireAuth>{isStudent ? <StudentDashboard me={me} learning={learning} /> : <StaffDashboard me={me} hasPermission={hasPermission} />}</RequireAuth>;
+  return <RequireAuth>{isStudent ? <StudentDashboard me={me} learning={learning} /> : me?.profile.account_type === "TEACHER" ? <TeacherDashboardPage /> : <StaffDashboard me={me} hasPermission={hasPermission} />}</RequireAuth>;
 }
 
 function StudentDashboard({ me, learning }: { me: ReturnType<typeof useAuth>["me"]; learning: LearningSummary | null }) {

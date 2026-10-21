@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { api } from '../../lib/api';
 import type { Me } from '../../types/auth';
+import { clearTeacherLearningCache } from '../learning/teacher.utils';
 
 type AuthContextValue = {
   me: Me | null;
@@ -13,7 +14,7 @@ type AuthContextValue = {
 };
 
 const permissions: Record<string, string[]> = {
-  ADMIN: ['admin:manage'], CONTENT_EDITOR: ['content:manage'], SUBJECT_TEACHER: ['grades:manage'],
+  ADMIN: ['admin:manage', 'grades:manage'], CONTENT_EDITOR: ['content:manage'], SUBJECT_TEACHER: ['grades:manage'],
 };
 const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -27,7 +28,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const value = useMemo<AuthContextValue>(() => {
     const roles = me?.roles || [];
     const hasRole = (role: string) => roles.some((item) => item.role_code === role);
-    return { me, loading, isAuthenticated: Boolean(me), hasRole, hasPermission: (permission) => permission === 'student:learning' ? me?.profile.account_type === 'STUDENT' : roles.some((role) => permissions[role.role_code]?.includes(permission)), logout: async () => { await api('/api/auth/logout', { method: 'POST' }); setMe(null); }, refresh };
+    return { me, loading, isAuthenticated: Boolean(me), hasRole, hasPermission: (permission) => permission === 'student:learning' ? me?.profile.account_type === 'STUDENT' : roles.some((role) => permissions[role.role_code]?.includes(permission)), logout: async () => { await api('/api/auth/logout', { method: 'POST' }); clearTeacherLearningCache(); setMe(null); }, refresh };
   }, [me, loading]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
