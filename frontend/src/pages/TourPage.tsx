@@ -82,31 +82,34 @@ export function TourPage() {
         </section>
 
 
-        <section id="tour-visual" className="mx-auto max-w-[1272px] px-6 pb-16 pt-16 sm:px-10 lg:px-0" aria-labelledby="tour-locations-title">
+        <section id="tour-visual" className="mx-auto max-w-[1272px] px-6 pb-20 pt-14 sm:px-10 sm:pt-16 lg:px-0" aria-labelledby="tour-locations-title">
           <div className="text-center">
-            <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-sm font-medium text-soft-blue shadow-sm">
-              <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
-              22 LOKASI PANORAMA
+            <span data-aos="fade-down" className="inline-flex items-center gap-1 rounded-full bg-[#f5faff] px-3 py-[5px] text-[11px] font-semibold text-soft-blue shadow-[0_4px_16px_rgba(15,23,42,.08)] sm:text-xs">
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-soft-blue ring-1 ring-primary/25" />
+              SCHOOL TOUR 360°
             </span>
-            <h2 data-aos="fade-up" data-aos-delay="100" className="mt-4 text-3xl font-bold leading-9 text-ink sm:text-4xl" id="tour-locations-title">
-              Jelajahi Setiap Sudut Sekolah
+            <h2 data-aos="fade-up" data-aos-delay="100" className="mx-auto mt-4 max-w-[760px] text-[28px] font-bold leading-9 text-ink sm:text-[38px] sm:leading-[48px]" id="tour-locations-title">
+              Jelajahi Setiap <span className="bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent">Sudut Sekolah</span>
             </h2>
-            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted sm:text-base">
-              Pilih lokasi untuk membuka pengalaman panorama interaktif.
+            <p data-aos="fade-up" data-aos-delay="180" className="mx-auto mt-2 max-w-[640px] text-sm leading-6 text-muted sm:text-base sm:leading-7">
+              Pilih lokasi untuk mengenal lebih dekat lingkungan, fasilitas, dan ruang aktivitas SMKN 26 Jakarta melalui panorama interaktif.
             </p>
           </div>
           <div data-aos="fade-up" className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tourLocations.map((location, index) => (
               <a
-                className="group overflow-hidden rounded-2xl border border-[#dce8f5] bg-white shadow-[0_4px_12px_rgba(15,23,42,.06)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] focus-visible:outline-2 focus-visible:outline-primary"
+                className="group overflow-hidden rounded-2xl border border-[#dce8f5] bg-white shadow-[0_4px_12px_rgba(15,23,42,.06)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(15,23,42,.12)] focus-visible:outline-2 focus-visible:outline-primary"
                 href={location.href}
                 key={location.id}
               >
-                <img alt={location.name} className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105" src={location.image} />
-                <div className="p-4">
-                  <span className="text-[10px] font-bold text-primary">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-1 text-base font-bold text-ink">{location.name}</h3>
-                  <span className="mt-3 inline-flex text-xs font-medium text-primary">Buka Panorama →</span>
+                <img alt={location.name} className="h-[132px] w-full object-cover transition-transform duration-300 group-hover:scale-105" src={location.image} />
+                <div className="p-3.5">
+                  <h3 className="font-[Inter,sans-serif] text-[17px] font-semibold leading-[22px] text-ink">{String(index + 1).padStart(2, "0")} — {location.name}</h3>
+                  <p className="mt-1 min-h-[32px] font-[Inter,sans-serif] text-[11px] font-normal leading-4 text-muted">Area {location.name} yang menjadi bagian dari lingkungan dan aktivitas sekolah.</p>
+                  <span className="mt-2 inline-flex items-center gap-1 font-[Inter,sans-serif] text-[11px] font-normal leading-4 text-primary">
+                    Jelajahi Panorama
+                    <img className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5" src={figmaAssets.secondaryButton.arrowRight} alt="" aria-hidden="true" />
+                  </span>
                 </div>
               </a>
             ))}
@@ -120,7 +123,7 @@ export function TourPage() {
              <span aria-hidden="true" className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
              TENTANG SMK NEGERI 26 JAKARTA
           </span>
-          <h2 data-aos="fade-up" data-aos-delay="100" className="relative mx-auto mt-4 max-w-[760px] text-[28px] font-bold leading-9 text-ink sm:text-[38px] sm:leading-[48px]">
+           <h2 data-aos="fade-up" data-aos-delay="100" className="relative mx-auto mt-4 max-w-[760px] text-[28px] font-bold leading-9 text-ink sm:max-w-none sm:whitespace-nowrap sm:text-[clamp(24px,4.4vw,38px)] sm:leading-[48px]">
             Kenali Lebih Dekat <span className="bg-gradient-to-r from-primary-dark to-primary bg-clip-text text-transparent">SMK Negeri 26 Jakarta</span>
           </h2>
           <p data-aos="fade-up" data-aos-delay="180" className="relative mx-auto mt-3 max-w-[640px] text-sm leading-6 text-muted sm:text-base sm:leading-7">

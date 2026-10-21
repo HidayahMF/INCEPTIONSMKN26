@@ -38,4 +38,22 @@ body {
   --color-ink: #0b1324;
   --color-muted: #5b6b8c;
   --color-surface: #ffffff;
+  --animate-chatbot-float: chatbot-float 3s ease-in-out infinite;
+  --animate-chatbot-greeting-in: chatbot-greeting-in 300ms ease-out both;
+  --animate-chatbot-greeting-out: chatbot-greeting-out 200ms ease-in both;
+
+  @keyframes chatbot-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes chatbot-greeting-in {
+    from { opacity: 0; transform: translateY(8px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes chatbot-greeting-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(5px) scale(.98); }
+  }
 }

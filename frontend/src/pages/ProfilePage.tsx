@@ -97,8 +97,9 @@ function ProfilePage() {
     <div className="min-h-screen min-w-0 max-w-full overflow-x-clip bg-[#F4F8FF] text-ink">
       <PublicNavbar />
       <main>
-        <section className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[660px] max-md:overflow-hidden max-md:pt-[150px] md:px-16">
-          <div className="pointer-events-none absolute left-0 top-[clamp(72px,5vw,110px)] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-auto max-md:bottom-[6px] max-md:w-[150%] max-md:aspect-[1440/433] max-md:max-w-none max-md:-translate-x-1/2">
+        <div className="relative z-20">
+        <section data-profile-hero="true" className="relative isolate flex h-[626px] items-start overflow-visible bg-[#F4F8FF] px-6 pt-[146px] text-ink min-[1280px]:h-[max(626px,52.57vw)] max-md:h-[660px] max-md:overflow-hidden max-md:pt-[150px] md:px-16">
+          <div className="pointer-events-none absolute left-0 top-[30px] z-0 aspect-[1440/757] w-full max-md:left-1/2 max-md:top-auto max-md:bottom-[6px] max-md:w-[150%] max-md:aspect-[1440/433] max-md:max-w-none max-md:-translate-x-1/2">
             <img
               className="absolute inset-0 size-full object-contain object-top max-md:object-cover max-md:object-bottom"
               src="/assets/pages/profile/profile-hero-bg.png"
@@ -138,8 +139,14 @@ function ProfilePage() {
           </div>
         </section>
 
-        <section className="relative z-20 mx-auto -mt-[105px] h-[205px] w-[min(1272px,100%-32px)] max-md:mt-4 max-md:h-auto">
-          <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 overflow-hidden rounded-[12px] bg-gradient-to-r from-primary-dark via-primary to-soft-blue text-white shadow-[0_8px_24px_rgba(15,23,42,.16)] sm:grid-cols-3 md:grid-cols-5 max-md:relative">
+        <section data-profile-statistics="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 mx-auto h-[90px] w-[min(1200px,calc(100%-32px))]">
+          <div className="pointer-events-auto grid min-h-[90px] translate-y-[calc(50%+32px)] grid-cols-6 overflow-hidden rounded-[12px] text-white shadow-[0_8px_24px_rgba(15,23,42,.18)] md:grid-cols-5">
+            <img
+              className="pointer-events-none absolute inset-0 z-0 size-full rounded-[12px] object-fill"
+              src="/assets/shared/struktur/shapestatisktik.png"
+              alt=""
+              aria-hidden="true"
+            />
             {[
               ["6", "Jurusan"],
               ["1750+", "Siswa Aktif"],
@@ -150,23 +157,27 @@ function ProfilePage() {
               <div
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
-                className={`flex h-[90px] flex-col items-center justify-center border-r border-white/60 px-3 text-center last:border-r-0 max-md:h-auto max-md:min-h-[68px] max-md:border-b max-md:border-white/70 max-md:nth-[2n]:border-r-0 ${index === 4 ? "max-md:col-span-2 max-md:border-b-0" : ""}`}
+                className={`relative z-10 col-span-2 flex min-h-[40px] min-w-0 flex-col items-center justify-center border-r border-dashed border-white/80 px-0.5 text-center md:col-span-1 md:h-full md:min-h-0 md:px-1 ${index === 3 ? "col-start-2 md:col-start-auto" : index === 4 ? "col-start-4 md:col-start-auto" : ""}`}
                 key={label}
               >
                 <strong
-                  className={`${index === 0 ? "text-[36px] leading-[44px] max-md:text-[26px] max-md:leading-[31px]" : "text-[32px] leading-[39px] max-md:text-[24px] max-md:leading-[29px]"} font-bold`}
+                  className="block text-[18px] font-bold leading-none sm:text-[36px] sm:leading-[43px]"
                 >
                   {value}
                 </strong>
-                <span className="mt-1 text-base font-medium leading-[19px] text-white/90 max-md:mt-0.5 max-md:text-[11px] max-md:leading-4">
+                <span className="mt-1 block text-[9px] leading-3 sm:text-base sm:font-medium sm:leading-6">
                   {label}
                 </span>
+                {index < 4 && (
+                  <span className="pointer-events-none absolute right-0 top-0 z-20 h-full w-px border-r border-dashed border-white/80" aria-hidden="true" />
+                )}
               </div>
             ))}
           </div>
         </section>
+        </div>
 
-        <section className="w-full bg-white py-16 md:py-[40px] max-md:mt-8">
+        <section data-profile-overview="true" className="relative z-0 w-full bg-white pb-16 pt-[110px] md:pb-[40px] md:pt-[90px]">
           <div className="mx-auto grid min-h-[549px] min-w-0 w-full max-w-[1272px] px-6 lg:grid-cols-[minmax(0,538px)_minmax(0,1fr)] lg:items-center lg:gap-[68px] lg:px-0">
             <div className="relative mx-auto h-auto w-full max-w-[538px]" data-aos="fade-right">
               <img

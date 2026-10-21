@@ -70,10 +70,10 @@ export function LoginPage() {
               <button disabled={busy} className="mt-1 flex h-11 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#39b4f3] to-[#0079e7] text-sm font-bold text-white shadow-[0_7px_16px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60">{busy ? "Memeriksa..." : "Masuk ke Portal"}<span aria-hidden="true">→</span></button>
               {error && <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
             </form>
-            <div data-aos="fade-up" data-aos-delay="280" className="mt-7 flex items-center gap-3 text-center text-xs text-[#53617a] sm:mt-8 sm:gap-4 sm:text-sm"><span className="h-px flex-1 bg-[#aab7c8]" />Atau coba akses demo<span className="h-px flex-1 bg-[#aab7c8]" /></div>
-            <div className="mt-5 grid gap-3 sm:mt-7 sm:grid-cols-2 sm:gap-4">
+            {import.meta.env.DEV && <div data-aos="fade-up" data-aos-delay="280" className="mt-7 flex items-center gap-3 text-center text-xs text-[#53617a] sm:mt-8 sm:gap-4 sm:text-sm"><span className="h-px flex-1 bg-[#aab7c8]" />Atau coba akses demo<span className="h-px flex-1 bg-[#aab7c8]" /></div>}
+            {import.meta.env.DEV && <div className="mt-5 grid gap-3 sm:mt-7 sm:grid-cols-2 sm:gap-4">
               {devAccounts.map((account, index) => <button data-aos="zoom-in" data-aos-delay={340 + index * 80} key={account.identifier} type="button" disabled={busy} onClick={() => void quickLogin(account.identifier)} className="flex min-h-[76px] items-center gap-3 rounded-2xl border border-[#dcecf7] p-3 text-left transition hover:border-primary hover:shadow-md disabled:opacity-60"><img className="size-12 shrink-0 rounded-xl object-contain sm:size-14" src={account.image} alt="" /><span className="min-w-0"><small className="block text-xs text-[#61708b]">Akun Demo</small><strong className="block text-base leading-5 text-[#10182b] sm:text-lg">{account.role}</strong><small className="block text-xs font-semibold leading-4 text-primary">{account.access}</small></span></button>)}
-            </div>
+            </div>}
           </div>
         </section>
       </div>

@@ -53,20 +53,20 @@ export function PanoramaViewer({ panorama, locationName = "lokasi sekolah" }: Pa
   }, [panorama]);
 
   return (
-    <div className="relative mx-auto block aspect-[2/1] w-full min-w-0 max-w-[600px] overflow-hidden rounded-3xl border-2 border-light-blue bg-white p-2 shadow-[0_4px_16px_rgba(15,23,42,.12)] sm:max-w-[600px]">
+    <div className="relative mx-auto block aspect-[2/1] w-full min-w-0 max-w-[1000px] overflow-hidden rounded-[24px] border-[12px] border-white bg-white shadow-[0_10px_28px_rgba(15,23,42,.14)] sm:rounded-[26px] sm:border-[12px]">
       <div
         ref={containerRef}
-        className={`relative block size-full min-w-0 max-w-full overflow-hidden rounded-[18px] ${ready ? "opacity-100" : "opacity-0"}`}
+        className={`relative block size-full min-w-0 max-w-full overflow-hidden rounded-[14px] ${ready ? "opacity-100" : "opacity-0"}`}
       />
       {!error && (
         <img
-          className={`absolute inset-2 size-[calc(100%-1rem)] rounded-[18px] object-contain transition-opacity ${ready ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          className={`absolute inset-3 size-[calc(100%-1.5rem)] rounded-[14px] object-contain transition-opacity ${ready ? "pointer-events-none opacity-0" : "opacity-100"}`}
           src={panorama}
           alt={`Panorama ${locationName}`}
         />
       )}
       {error && (
-        <div className="absolute inset-2 grid place-items-center rounded-[18px] bg-[#f3f8ff] px-6 text-center">
+        <div className="absolute inset-3 grid place-items-center rounded-[14px] bg-[#f3f8ff] px-6 text-center">
           <div>
             <strong className="block text-lg text-ink">Panorama belum tersedia</strong>
             <p className="mt-2 text-sm leading-6 text-muted">{error} Asset panorama untuk lokasi ini belum tersedia atau tidak dapat dibaca.</p>
