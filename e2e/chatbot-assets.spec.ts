@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 test('floating chatbot uses extracted states responsively and opens the existing chat', async ({ page }) => {
-  for (const viewport of [{ width: 1440, name: '1440' }, { width: 390, name: '390' }]) {
-    await page.setViewportSize({ width: viewport.width, height: 844 });
+  for (const viewport of [{ width: 1440, height: 900, name: '1440' }, { width: 390, height: 844, name: '390' }]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto('/');
     const button = page.getByRole('button', { name: 'Buka Pembangunan.AI' });
     await expect(button).toBeVisible();
@@ -16,7 +16,7 @@ test('floating chatbot uses extracted states responsively and opens the existing
     expect(Number.parseFloat(style.width)).toBe(viewport.width === 1440 ? 120 : 72);
     expect(Number.parseFloat(style.height)).toBe(viewport.width === 1440 ? 120 : 72);
     expect(style.image).toContain('/assets/shared/chatbot/Chat%20bot%20Ai.png');
-    const floatWrapper = button.locator('span.animate-chatbot-float');
+    const floatWrapper = button.locator('span[class*="animate-chatbot-float"]');
     await expect(floatWrapper).toHaveClass(/animate-chatbot-float/);
     expect(bounds?.x).toBeGreaterThan(0);
     const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth }));
@@ -28,6 +28,7 @@ test('floating chatbot uses extracted states responsively and opens the existing
     await expect(page.getByRole('tooltip', { name: 'Ada yang bisa aku bantu?' })).toHaveCSS('opacity', '0');
     await button.click();
     await expect(page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Buka Pembangunan.AI' })).toHaveCount(0);
     await page.screenshot({ path: `artifacts/floating-chatbot-${viewport.name}.png`, fullPage: true });
   }
 });

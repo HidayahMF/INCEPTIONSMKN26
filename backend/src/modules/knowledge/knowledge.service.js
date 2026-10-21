@@ -5,6 +5,21 @@ const allowedMime = 'application/pdf';
 export function chunkText(text, size = 1200) { const clean = String(text || '').replace(/\s+/g, ' ').trim(); const chunks = []; for (let i = 0; i < clean.length; i += size) chunks.push(clean.slice(i, i + size)); return chunks.filter(Boolean); }
 export function validatePdf(file) { if (!file || file.mimetype !== allowedMime || file.size > MAX_PDF_BYTES) throw new Error('File harus berupa PDF maksimal 10 MB.'); return file; }
 const retrievalStopWords = new Set(['apa', 'apakah', 'ada', 'dan', 'atau', 'yang', 'di', 'ke', 'dari', 'untuk', 'dengan', 'ini', 'itu', 'bisa', 'saja', 'cara', 'mana', 'pada', 'the']);
+const genericRetrievalTerms = new Set(['sekolah', 'informasi', 'program', 'siswa', 'kerja', 'resmi', 'terbaru', 'halaman', 'tentang', 'ingin', 'mau', 'tolong', 'jelaskan']);
+const acronymTerms = new Set(['sija', 'pkl', 'lsp', 'bkk', 'spmb', 'ppdb', 'kgs', 'tek', 'titl', 'tflm', 'tkr', 'dudi']);
+const retrievalSynonyms = new Map([
+  ['sija', ['sistem', 'informasi', 'jaringan', 'aplikasi']],
+  ['sistem', ['sija']],
+  ['pkl', ['praktik', 'lapangan', 'dudi']],
+  ['praktik', ['pkl']],
+  ['lsp', ['lembaga', 'sertifikasi', 'profesi']],
+  ['bkk', ['bursa', 'khusus']],
+  ['ekskul', ['ekstrakurikuler']],
+  ['spmb', ['penerimaan', 'murid', 'baru']],
+  ['ppdb', ['spmb', 'penerimaan', 'murid', 'baru']],
+  ['prospek', ['karier', 'pekerjaan']],
+  ['siswa', ['peserta', 'didik']],
+]);
 // Indonesian attaches clitics to words ("ekstrakurikuler" + "-nya"), which breaks
 // keyword lookup. Strip one trailing clitic only when a usable stem remains.
 function stripClitic(word) {
@@ -15,6 +30,36 @@ export function tokenize(message) {
   const words = String(message || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').split(/\s+/).filter((word) => word.length >= 3 && !retrievalStopWords.has(word));
   const expanded = words.map(stripClitic);
   return [...new Set([...words, ...expanded])].slice(0, 12);
+}
+
+function retrievalTerms(message) {
+  const base = tokenize(message);
+  const expanded = base.flatMap((term) => retrievalSynonyms.get(term) || []);
+  return [...new Set([...base, ...expanded])].slice(0, 20);
+}
+
+function termWeight(term) {
+  if (genericRetrievalTerms.has(term)) return 0.35;
+  if (acronymTerms.has(term)) return 4;
+  return Math.min(3, 1 + term.length / 8);
+}
+
+function scoreKnowledgeChunk(row, originalTerms, terms, phrases) {
+  const content = String(row.content || '').toLowerCase();
+  const source = `${row.source_page || ''} ${row.knowledge_documents?.knowledge_sources?.title || ''}`.toLowerCase();
+  const searchable = `${content} ${source}`;
+  let score = 0;
+  let matched = 0;
+  for (const term of terms) {
+    const boundary = new RegExp(`(?:^|[^\\p{L}\\p{N}])${term.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}(?=$|[^\\p{L}\\p{N}])`, 'iu');
+    if (boundary.test(searchable)) {
+      const relatedToOriginal = originalTerms.some((original) => original === term || (retrievalSynonyms.get(original) || []).includes(term));
+      score += termWeight(term) * (source.includes(term) ? 1.35 : 1) * (relatedToOriginal && !originalTerms.includes(term) ? 1.15 : 1);
+      if (relatedToOriginal) matched += 1;
+    }
+  }
+  for (const phrase of phrases) if (phrase.length > 1 && searchable.includes(phrase)) score += 4;
+  return { score, matched };
 }
 
 export async function listKnowledge() { const { data, error } = await getAdminClient().from('knowledge_documents').select('id,source_id,source_type,source_ref,visibility,status,version,mime_type,byte_size,approved_at,created_at,knowledge_sources(title,source_url,source_page)').order('created_at', { ascending: false }); if (error) throw error; return data || []; }
@@ -39,10 +84,44 @@ export async function createPdfSource(file, { title, sourceUrl, userId }) {
 export async function setKnowledgeStatus(id, status, userId) { if (!['DRAFT', 'APPROVED', 'REJECTED'].includes(status)) throw new Error('Status knowledge tidak valid.'); const values = { status, visibility: status === 'APPROVED' ? 'PUBLIC' : 'PRIVATE', approved_at: status === 'APPROVED' ? new Date().toISOString() : null, approved_by: status === 'APPROVED' ? userId : null }; const { data, error } = await getAdminClient().from('knowledge_documents').update(values).eq('id', id).select().single(); if (error) throw error; return data; }
 
 export async function retrieveApproved(message, limit = 5) {
-  const terms = tokenize(message); if (!terms.length) return [];
+  const originalTerms = tokenize(message); if (!originalTerms.length) return [];
+  const terms = retrievalTerms(message);
+  const phrases = [
+    String(message || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim(),
+    originalTerms.filter((term) => !genericRetrievalTerms.has(term)).join(' '),
+  ].filter((phrase) => phrase.split(' ').length > 1 && phrase.length > 5);
   const client = getAdminClient(); const results = new Map();
   for (const term of terms) { const { data, error } = await client.from('knowledge_chunks').select('id,content,source_page,source_url,document_id,knowledge_documents!inner(status,visibility,knowledge_sources(title,source_url,source_page))').eq('knowledge_documents.status', 'APPROVED').eq('knowledge_documents.visibility', 'PUBLIC').ilike('content', `%${term}%`).limit(30); if (error) throw error; for (const row of data || []) results.set(row.id, { ...row, score: (results.get(row.id)?.score || 0) + 1 }); }
-  return [...results.values()].sort((a, b) => b.score - a.score).slice(0, limit);
+  const scored = [...results.values()].map((row) => {
+    const relevance = scoreKnowledgeChunk(row, originalTerms, terms, phrases);
+    // Internal FAQ records may still help answer a question, but a matching
+    // approved public document should win so the response can carry a real
+    // public citation instead of silently losing its source after filtering.
+    const suppressed = isSuppressedPublicSource(row.source_page, row.knowledge_documents?.knowledge_sources?.title);
+    const publicStatisticsBoost = !suppressed && originalTerms.includes('siswa') && /peserta\s+didik/.test(String(row.content || '').toLowerCase()) ? 1.8 : 1;
+    return { ...row, score: suppressed ? relevance.score * 0.65 : relevance.score * publicStatisticsBoost, matchedTerms: relevance.matched };
+  }).filter((row) => row.score >= 2 && (row.matchedTerms >= 1 || row.score >= 5));
+  return scored.sort((a, b) => b.score - a.score).slice(0, Math.min(limit, 5));
+}
+
+export function contextualizeQuestion(message, history = []) {
+  const current = String(message || '').trim();
+  const priorUserTerms = history
+    .filter((item) => item?.role === 'user')
+    .slice(-3)
+    .flatMap((item) => tokenize(item.content))
+    .filter((term) => !genericRetrievalTerms.has(term));
+  const currentTerms = new Set(tokenize(current));
+  const contextTerms = [...new Set(priorUserTerms)].filter((term) => !currentTerms.has(term)).slice(-8);
+  return contextTerms.length ? `${current} ${contextTerms.join(' ')}` : current;
+}
+
+export function normalizeChatHistory(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((item) => item && (item.role === 'user' || item.role === 'assistant') && typeof item.content === 'string' && item.content.trim())
+    .slice(-8)
+    .map((item) => ({ role: item.role, content: item.content.trim().slice(0, 1000) }));
 }
 
 // Per-chunk topics appended by the seeder as "<file>::<topic>". Each topic maps
@@ -157,7 +236,7 @@ export function publicPathForKnowledgeSource(sourcePage, section) {
     const folderPaths = {
       '01-profil-sekolah': '/profile',
       '02-jurusan': '/majors',
-       '03-akademik': null,
+       '03-akademik': '/profile',
       '04-kesiswaan': '/programs/ekstrakurikuler',
       '05-karier': '/programs/bkk',
       '06-lsp': '/programs/lsp',
@@ -173,6 +252,6 @@ export function publicPathForKnowledgeSource(sourcePage, section) {
   if (/^(profil|identitas|sejarah|akreditasi)-/.test(page)) return '/profile';
   if (/^jurusan-/.test(page)) return '/majors';
   if (/^(program|blud)-/.test(page)) return page.startsWith('blud-') ? '/blud' : null;
-  if (page === 'statistik-tahun-ajaran-2025-2026') return '/';
+  if (page === 'statistik-tahun-ajaran-2025-2026') return '/profile';
   return null;
 }

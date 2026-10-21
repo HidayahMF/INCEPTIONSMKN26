@@ -10,8 +10,8 @@ import { getAuthClient } from './lib/supabase.js';
 import { authenticate } from './middleware/auth.js';
 import { authorize } from './middleware/authorize.js';
 import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './modules/content/content.service.js';
-import { createPdfSource, createTextSource, isSuppressedPublicSource, listKnowledge, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
-import { answerFromApprovedFaq, answerFromGemini, answerFromKnownIntent, safeUnavailable } from './modules/knowledge/gemini.service.js';
+import { contextualizeQuestion, createPdfSource, createTextSource, isSuppressedPublicSource, listKnowledge, normalizeChatHistory, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
+import { answerFromApprovedFaq, answerFromContextualFollowUp, answerFromGemini, answerFromKnownIntent, safeUnavailable } from './modules/knowledge/gemini.service.js';
 import { learningRouter } from './modules/learning/learning.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
@@ -78,18 +78,36 @@ app.post('/api/admin/knowledge/text', authenticate, authorize('content:manage'),
 app.post('/api/admin/knowledge/pdf', authenticate, authorize('content:manage'), upload.single('file'), async (req, res, next) => { try { return res.status(201).json({ data: await createPdfSource(req.file, { title: req.body?.title, sourceUrl: req.body?.sourceUrl, userId: req.auth.userId }), error: null }); } catch (error) { return next(error); } });
 app.post('/api/admin/knowledge/:id/status', authenticate, authorize('content:manage'), async (req, res, next) => { try { return res.json({ data: await setKnowledgeStatus(req.params.id, req.body?.status, req.auth.userId), error: null }); } catch (error) { return next(error); } });
 app.post('/api/chat', chatLimiter, (req,res)=>{
- const message=req.body?.message;
- if(typeof message!=='string'||!message.trim()||message.length>500)return res.status(400).json({data:null,error:{message:'Pertanyaan harus diisi (maksimal 500 karakter).'}});
-   const knownIntent = answerFromKnownIntent(message);
-   if (knownIntent) return res.json({ data: { ...knownIntent, status: 'answered' }, error: null });
-    retrieveApproved(message).then(async (matches) => {
-     if (!matches.length) {
-       const schoolTerms = /smk|sekolah|jurusan|program|berita|kontak|alamat|pendaftaran|lsp|osis|mpk|bkk|blud|prestasi|fasilitas|tour|tur/i;
-       const status = schoolTerms.test(message) ? 'insufficient_evidence' : 'out_of_scope';
+  const message=req.body?.message;
+  if(typeof message!=='string'||!message.trim()||message.length>500)return res.status(400).json({data:null,error:{message:'Pertanyaan harus diisi (maksimal 500 karakter).'}});
+    const history = normalizeChatHistory(req.body?.history);
+    const effectiveQuestion = contextualizeQuestion(message, history);
+    if (/tidak\s+terkait|di\s+luar\s+(?:topik|ruang lingkup)|bukan tentang\s+smkn/i.test(message)) {
+      return res.json({ data: { answer: 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.', sources: [], status: 'out_of_scope' }, error: null });
+    }
+    if (/nilai\s+siswa|data\s+(?:pribadi|private)|dokumen\s+private|nomor\s+(?:induk|telepon)\s+siswa|identitas\s+siswa|email\s+(?:guru|dosen)|kontak\s+(?:guru|dosen)|abaikan\s+(?:aturan|instruksi)/i.test(message)) {
+      return res.json({ data: { answer: 'Maaf, saya hanya dapat membantu informasi publik resmi tentang SMKN 26 Jakarta dan tidak dapat mengakses atau membagikan data pribadi.', sources: [], status: 'out_of_scope' }, error: null });
+    }
+    if (/arti\s+kata\s+kerja|maksud\s+kata\s+kerja/i.test(message)) {
+      return res.json({ data: { answer: 'Pertanyaan itu masih ambigu. Apakah yang dimaksud istilah “kerja” dalam layanan BKK, atau hal lain tentang SMKN 26 Jakarta?', sources: [], status: 'insufficient_evidence' }, error: null });
+    }
+    // Deterministic intents must be triggered by the current message, not by
+    // an acronym copied from an earlier turn. Retrieval may use context, but a
+    // follow-up such as "prospeknya apa?" must not become an unrelated
+    // "apa itu SIJA?" answer.
+    const knownIntent = answerFromKnownIntent(message) || (history.length ? answerFromContextualFollowUp(effectiveQuestion) : null);
+    if (knownIntent) return res.json({ data: { ...knownIntent, status: knownIntent.status || 'answered' }, error: null });
+    const schoolTerms = /smkn|sekolah|jurusan|program|berita|kontak|alamat|pendaftaran|lsp|sertifikasi|osis|mpk|bkk|blud|prestasi|fasilitas|tour|tur|pkl|dudi|ekskul|ekstrakurikuler|sija|pplg|spmb|ppdb|siswa|guru|statistik|jumlah|rombel/i;
+    if (!schoolTerms.test(effectiveQuestion)) {
+      return res.json({ data: { answer: 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.', sources: [], status: 'out_of_scope' }, error: null });
+    }
+    retrieveApproved(effectiveQuestion).then(async (matches) => {
+      if (!matches.length) {
+        const status = schoolTerms.test(message) ? 'insufficient_evidence' : 'out_of_scope';
        const answer = status === 'out_of_scope' ? 'Saya hanya dapat membantu informasi resmi tentang SMKN 26 Jakarta.' : safeUnavailable;
        return res.json({ data: { answer, sources: [], status }, error: null });
      }
-     const lowerMessage = message.toLowerCase();
+      const lowerMessage = effectiveQuestion.toLowerCase();
      const intentRoute = /\btitl\b|instalasi tenaga listrik/.test(lowerMessage) ? ['/majors/titl', 'Teknik Instalasi Tenaga Listrik']
        : /\bsija\b|sistem informasi.*jaringan|jaringan.*aplikasi/.test(lowerMessage) ? ['/majors/sija', 'Sistem Informasi, Jaringan, dan Aplikasi']
        : /\btflm\b|fabrikasi logam/.test(lowerMessage) ? ['/majors/tflm', 'Teknik Fabrikasi Logam dan Manufaktur']
@@ -102,11 +120,10 @@ app.post('/api/chat', chatLimiter, (req,res)=>{
         : matches
           .filter((item) => !isSuppressedPublicSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title))
           .map((item) => ({ title: publicTitleForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.title), url: publicPathForKnowledgeSource(item.source_page, item.knowledge_documents?.knowledge_sources?.source_page), page: null })))
-        .filter((source, index, all) => source.url
-          && !['/information', '/programs', '/contact'].includes(source.url)
-          && all.findIndex((candidate) => candidate.url === source.url) === index)
+         .filter((source, index, all) => !['/information', '/programs'].includes(source.url)
+           && all.findIndex((candidate) => (candidate.url || `title:${candidate.title}`) === (source.url || `title:${source.title}`)) === index)
         .filter((source) => {
-          const text = message.toLowerCase();
+           const text = effectiveQuestion.toLowerCase();
           if (/lokasi|alamat|nama resmi|npsn|negeri|akreditasi|motto|sejarah|berdiri|diresmikan|dulu nama/.test(text)) return source.url === '/profile';
           if (/telepon|email|kontak/.test(text)) return source.url === '/contact';
           if (/\bkgs\b|konstruksi gedung|\btek\b|elektronika dan komunikasi|\btitl\b|instalasi tenaga listrik|\btflm\b|fabrikasi logam|\bsija\b|sistem informasi|\btkr\b|kendaraan ringan/.test(text)) return /^\/majors(?:\/|$)/.test(source.url);
@@ -118,15 +135,19 @@ app.post('/api/chat', chatLimiter, (req,res)=>{
           return true;
         });
       if (!process.env.GEMINI_API_KEY) {
-         const faqAnswer = answerFromApprovedFaq(matches, message);
+         const faqAnswer = answerFromApprovedFaq(matches, effectiveQuestion);
         if (faqAnswer) return res.json({ data: { answer: faqAnswer, sources, status: 'answered' }, error: null });
-        return res.json({ data: { answer: safeUnavailable, sources, status: 'insufficient_evidence' }, error: null });
+         return res.json({ data: { answer: safeUnavailable, sources: [], status: 'insufficient_evidence' }, error: null });
       }
-     return answerFromGemini(message, matches)
-       .then((answer) => res.json({ data: { answer, sources, status: 'answered' }, error: null }))
+      return answerFromGemini(message, matches, history)
+        .then((answer) => {
+          const unsupported = /^(?:halo!\s*)?(?:aku|saya) belum menemukan informasi itu|^maaf,? informasi tersebut belum tersedia/i.test(answer.trim());
+          const outOfScope = /hanya dapat membantu|seputar (?:informasi resmi )?smkn 26/i.test(answer) && !/smkn 26.*(?:memiliki|beralamat|adalah)/i.test(answer);
+          return res.json({ data: { answer, sources: unsupported || outOfScope ? [] : sources, status: outOfScope ? 'out_of_scope' : unsupported ? 'insufficient_evidence' : 'answered' }, error: null });
+        })
        .catch(() => {
-         const faqAnswer = answerFromApprovedFaq(matches, message);
-         return res.json({ data: { answer: faqAnswer || safeUnavailable, sources: faqAnswer ? sources : [], status: faqAnswer ? 'answered' : 'insufficient_evidence' }, error: null });
+          const faqAnswer = answerFromApprovedFaq(matches, effectiveQuestion);
+          return res.json({ data: { answer: faqAnswer || safeUnavailable, sources: faqAnswer ? sources : [], status: faqAnswer ? 'answered' : 'provider_unavailable' }, error: null });
        });
    }).catch(() => res.json({ data: { answer: safeUnavailable, sources: [], status: 'insufficient_evidence' }, error: null }));
  });

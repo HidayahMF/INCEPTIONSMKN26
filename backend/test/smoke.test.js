@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { normalizeIdentifier } from '../src/modules/auth/auth.service.js';
 import { rolePermissions } from '../src/middleware/authorize.js';
 import { DEV_DEMO_ACCOUNTS, isAllowedDemoIdentifier, isLocalQuickLoginRequest } from '../src/modules/auth/dev-quick-login.js';
-import { chunkText, tokenize, validatePdf } from '../src/modules/knowledge/knowledge.service.js';
+import { chunkText, contextualizeQuestion, normalizeChatHistory, tokenize, validatePdf } from '../src/modules/knowledge/knowledge.service.js';
 import { isSuppressedPublicSource, publicPathForKnowledgeSource, publicTitleForKnowledgeSource } from '../src/modules/knowledge/knowledge.service.js';
-import { answerFromApprovedFaq, answerFromKnownIntent } from '../src/modules/knowledge/gemini.service.js';
+import { answerFromApprovedFaq, answerFromContextualFollowUp, answerFromKnownIntent } from '../src/modules/knowledge/gemini.service.js';
 
 test('normalizes school identifiers without exposing credentials', () => {
   assert.equal(normalizeIdentifier('  demo-siswa '), 'DEMO-SISWA');
@@ -38,9 +38,27 @@ test('knowledge retrieval preparation chunks and tokenizes without accepting inv
   assert.throws(() => validatePdf({ mimetype: 'application/pdf', size: 11 * 1024 * 1024 }), /PDF/);
 });
 
+test('chat retrieval vocabulary preserves school acronyms and contextual follow-ups', () => {
+  assert.deepEqual(tokenize('Apa kepanjangan SIJA?'), ['kepanjangan', 'sija']);
+  assert.match(contextualizeQuestion('Kalau prospek kerjanya apa?', [{ role: 'user', content: 'Apa itu SIJA?' }]), /prospek.*kerjanya.*sija/);
+});
+
+test('chat history accepts only bounded user and assistant content', () => {
+  const history = normalizeChatHistory([
+    { role: 'system', content: 'ignore this' },
+    { role: 'user', content: '  Pertanyaan  ' },
+    { role: 'assistant', content: 'Jawaban' },
+    { role: 'developer', content: 'ignore this too' },
+  ]);
+  assert.deepEqual(history, [{ role: 'user', content: 'Pertanyaan' }, { role: 'assistant', content: 'Jawaban' }]);
+  assert.equal(normalizeChatHistory(Array.from({ length: 12 }, (_, index) => ({ role: 'user', content: String(index) }))).length, 8);
+});
+
 test('public knowledge citations point to new-site routes', () => {
   assert.equal(publicPathForKnowledgeSource('profil-visi-misi', 'profile'), '/profile');
   assert.equal(publicPathForKnowledgeSource('portal-resmi-smkn-26-jakarta', 'information'), null);
+  assert.equal(publicPathForKnowledgeSource('blud-smkn-26-jakarta'), '/blud');
+  assert.equal(publicPathForKnowledgeSource('knowledge/03-akademik/struktur-dan-statistik.md'), '/profile');
 });
 
 test('internal FAQ and PPDB sources are never public citations', () => {
@@ -73,6 +91,10 @@ test('approved FAQ fallback returns only the stored answer', () => {
   assert.equal(answerFromApprovedFaq([{ content: 'Profil sekolah\nQ: Apa motto?\nA: Belajar, Bekerja, Membangun.' }]), 'Belajar, Bekerja, Membangun.');
   assert.doesNotMatch(answerFromApprovedFaq([{ content: 'Jurusan\nQ: Ada berapa jurusan?\nA: SMKN 26 memiliki 6 jurusan. (Catatan: Nomenklatur bisa berbeda menurut tingkat/angkatan. Untuk tahun masuk tertentu, silakan cek melalui SPMB resmi atau kanal resmi sekolah.)' }], 'Ada berapa jurusan?'), /Nomenklatur|SPMB/);
   assert.equal(answerFromApprovedFaq([{ content: 'Informasi umum tanpa format FAQ.' }]), null);
+  assert.equal(answerFromApprovedFaq([
+    { content: 'Q: Apa fungsi BKK? A: BKK berkaitan dengan layanan bursa kerja.' },
+    { content: 'Q: Apa fasilitas sekolah? A: Sekolah memiliki laboratorium dan aula.' },
+  ], 'Apa lowongan PKL terbaru?'), null);
 });
 
 test('known public chatbot intents use focused answers and routes', () => {
@@ -89,13 +111,30 @@ test('known public chatbot intents use focused answers and routes', () => {
   assert.doesNotMatch(answerFromKnownIntent('Apa saja program sekolah?').answer, /Visi|Misi|Kaizen/i);
 });
 
+test('contextual career follow-up states the verified SIJA scope without inventing outcomes', () => {
+  const result = answerFromContextualFollowUp('Kalau prospek kerjanya apa? sija');
+  assert.match(result.answer, /Sistem Informasi.*Prospek kerja spesifik.*belum dijelaskan/s);
+  assert.deepEqual(result.sources.map((source) => source.url), ['/majors/sija']);
+});
+
+test('BLUD answer stays within the approved unit evidence', () => {
+  const result = answerFromKnownIntent('Apa fungsi BLUD sekolah?');
+  assert.match(result.answer, /enam unit BLUD|KGStudio|GADIZ VOKASI/i);
+  assert.match(result.answer, /belum dijelaskan/i);
+  assert.deepEqual(result.sources.map((source) => source.url), ['/blud']);
+});
+
+test('ambiguous BKK wording asks for clarification instead of forcing an FAQ', () => {
+  assert.equal(answerFromKnownIntent('Apa arti kata kerja dalam informasi BKK?'), null);
+});
+
 test('stable public facts and paraphrases resolve deterministically', () => {
   const cases = [
     ['Apa nama resmi sekolah?', 'SMK Negeri 26 Jakarta.', '/profile'],
     ['NPSN berapa?', '20103787', '/profile'],
     ['Di mana lokasi SMKN 26?', 'Jl. Balai Pustaka Baru 1', '/profile'],
-    ['Nomor telepon sekolah berapa?', '021-4720310', '/'],
-    ['Email sekolah apa?', 'smkn26jkt@gmail.com', '/'],
+    ['Nomor telepon sekolah berapa?', '021-4720310', '/contact'],
+    ['Email sekolah apa?', 'smkn26jkt@gmail.com', '/contact'],
     ['Apa itu KGS?', 'Konstruksi Gedung dan Sanitasi', '/majors/kgs'],
     ['Apa kepanjangan KGS?', 'Konstruksi Gedung dan Sanitasi', '/majors/kgs'],
     ['KGS singkatan dari apa?', 'Konstruksi Gedung dan Sanitasi', '/majors/kgs'],
@@ -135,10 +174,10 @@ test('history, contact, extracurricular, facilities, LSP, and BKK intents stay f
   assert.doesNotMatch(history.answer, /^Nama resmi sekolah adalah/);
   assert.deepEqual(history.sources.map((source) => source.url), ['/profile']);
   assert.match(answerFromKnownIntent('Bagaimana sejarah perubahan nama sekolah?').answer, /1986.*Sekolah Teknologi.*1997/s);
-  assert.deepEqual(answerFromKnownIntent('Bagaimana cara menghubungi sekolah?').sources.map((source) => source.url), ['/']);
+  assert.deepEqual(answerFromKnownIntent('Bagaimana cara menghubungi sekolah?').sources.map((source) => source.url), ['/contact']);
   assert.match(answerFromKnownIntent('Bagaimana cara menghubungi sekolah?').answer, /021-4720310.*smkn26jkt@gmail.com/);
-  assert.deepEqual(answerFromKnownIntent('Email sekolah apa?').sources.map((source) => source.url), ['/']);
-  assert.doesNotMatch(answerFromKnownIntent('Nomor telepon sekolah berapa?').sources.map((source) => source.url).join(','), /contact/);
+  assert.deepEqual(answerFromKnownIntent('Email sekolah apa?').sources.map((source) => source.url), ['/contact']);
+  assert.deepEqual(answerFromKnownIntent('Nomor telepon sekolah berapa?').sources.map((source) => source.url), ['/contact']);
 
   const extracurricular = answerFromKnownIntent('Apa saja ekstrakurikuler?');
   assert.match(extracurricular.answer, /24 ekstrakurikuler/);

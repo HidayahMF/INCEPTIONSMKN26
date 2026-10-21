@@ -12,6 +12,7 @@ test.describe('Public Pembangunan.AI chat room', () => {
     await page.getByRole('button', { name: 'Buka Pembangunan.AI' }).click();
     const room = page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' });
     await expect(room).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Buka Pembangunan.AI' })).toHaveCount(0);
     await expect(room.getByText('Halo! Saya siap membantu.')).toBeVisible();
     await page.screenshot({ path: 'artifacts/chat-room-empty-1440.png', fullPage: true });
 
@@ -30,6 +31,7 @@ test.describe('Public Pembangunan.AI chat room', () => {
 
     await page.keyboard.press('Escape');
     await expect(room).toBeHidden();
+    await expect(page.getByRole('button', { name: 'Buka Pembangunan.AI' })).toBeVisible();
   });
 
   test('shortcut opens the same room on Tour and mobile chat fits without overflow', async ({ page }) => {
@@ -48,5 +50,38 @@ test.describe('Public Pembangunan.AI chat room', () => {
     await page.goto('/');
     await page.getByRole('button', { name: 'Pembangunan.AI', exact: true }).click();
     await expect(page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' })).toBeVisible();
+  });
+
+  test('preserves context across reopen and offers retry after a failed request', async ({ page }) => {
+    let requests = 0;
+    await page.route('**/api/chat', async (route) => {
+      requests += 1;
+      if (requests === 1) {
+        await route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ data: null, error: { message: 'Layanan sedang sibuk.' } }) });
+        return;
+      }
+      const body = JSON.parse(route.request().postData() || '{}');
+      const answer = requests === 2 ? 'Jawaban awal.' : body.history?.length ? 'Konteks SIJA tetap dipahami.' : 'Jawaban awal.';
+      await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ data: { answer, status: 'answered', sources: [{ title: 'SIJA', url: '/majors/sija' }] }, error: null }) });
+    });
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Buka Pembangunan.AI' }).click();
+    const room = page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' });
+    const composer = room.getByRole('textbox', { name: 'Pertanyaan untuk Pembangunan.AI' });
+    await composer.fill('Apa itu SIJA?');
+    await composer.press('Enter');
+    await expect(room.getByRole('button', { name: 'Coba lagi' })).toBeVisible();
+    await room.getByRole('button', { name: 'Coba lagi' }).click();
+    await expect(room.getByText('Jawaban awal.')).toBeVisible();
+    await room.getByRole('button', { name: 'Tutup Pembangunan.AI' }).click();
+    await expect(room).toBeHidden();
+    await page.getByRole('button', { name: 'Buka Pembangunan.AI' }).click();
+    await expect(room.getByText('Jawaban awal.')).toBeVisible();
+    await composer.fill('Kalau prospek kerjanya apa?');
+    await composer.press('Enter');
+    await expect(room.getByText('Konteks SIJA tetap dipahami.')).toBeVisible();
+    const requestBodies = await page.evaluate(() => window.performance.getEntriesByType('resource').length);
+    expect(requestBodies).toBeGreaterThan(0);
   });
 });

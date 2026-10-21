@@ -152,6 +152,10 @@ export function FloatingChatbot() {
     openChat();
   }
 
+  // The chat room has its own header and close control. Do not leave a second
+  // clickable mascot underneath it while the dialog is open.
+  if (isOpen) return null;
+
   return (
     <button
       type="button"
@@ -172,7 +176,7 @@ export function FloatingChatbot() {
       >
         Ada yang bisa aku bantu?
       </span>
-      {greetingState !== "hidden" && !isOpen && (
+      {greetingState !== "hidden" && (
         <span
           id="chatbot-greeting"
           className={`pointer-events-none absolute right-0 bottom-full mb-3 w-max max-w-[min(220px,calc(100vw-32px))] rounded-2xl border border-light-blue bg-white px-4 py-3 text-left text-sm leading-5 text-primary-dark shadow-xl after:absolute after:right-5 after:bottom-[-7px] after:size-3.5 after:rotate-45 after:border-r after:border-b after:border-light-blue after:bg-white motion-reduce:animate-none ${greetingState === "visible" ? "animate-chatbot-greeting-in" : "animate-chatbot-greeting-out"}`}
@@ -182,7 +186,7 @@ export function FloatingChatbot() {
           Halo! 👋 Ada yang bisa aku bantu?
         </span>
       )}
-      <span className={`block size-full ${isOpen ? "" : "motion-safe:animate-chatbot-float motion-reduce:animate-none"}`}>
+      <span className="block size-full motion-safe:animate-chatbot-float motion-reduce:animate-none">
         <span className="block size-full scale-100 transition-transform duration-300 ease-out group-hover:scale-[1.06] group-focus-visible:scale-[1.06] group-hover:drop-shadow-[0_6px_14px_rgba(0,146,255,0.3)] group-focus-visible:drop-shadow-[0_6px_14px_rgba(0,146,255,0.3)]">
           <span className="relative block size-full">
             <img className="block size-full object-contain" src={chatbotImage} alt="" aria-hidden="true" data-chatbot-state={state} draggable={false} />

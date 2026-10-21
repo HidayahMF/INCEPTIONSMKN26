@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { api } from "../../lib/api";
 import { usePublicChat } from "./ChatProvider";
-import type { ChatMessage, ChatResponse, ChatSource } from "./chat.types";
+import type { ChatHistoryMessage, ChatMessage, ChatResponse, ChatSource } from "./chat.types";
 
 const chatbotImage = "/assets/shared/chatbot/Chat%20bot%20Ai.png";
 
@@ -20,6 +20,7 @@ export function PublicChatRoom() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const sendingRef = useRef(false);
   const composerRef = useRef<HTMLTextAreaElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
 
@@ -43,18 +44,28 @@ export function PublicChatRoom() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [closeChat, isOpen]);
 
-  async function sendQuestion(value = question) {
+  async function sendQuestion(value = question, addUserMessage = true) {
     const current = value.trim();
-    if (!current || busy || current.length > 500) return;
+    if (!current || busy || sendingRef.current || current.length > 500) return;
+    sendingRef.current = true;
     setQuestion(""); setError(""); setBusy(true);
-    setMessages((items) => [...items, { id: messageId(), role: "user", text: current }]);
+    const history: ChatHistoryMessage[] = messages
+      .filter((item) => item.status !== "error")
+      .slice(-8)
+      .map((item) => ({ role: item.role, content: item.text.slice(0, 1000) }));
+    if (addUserMessage) setMessages((items) => [...items, { id: messageId(), role: "user", text: current }]);
     try {
-      const result = await api<ChatResponse>("/api/chat", { method: "POST", body: JSON.stringify({ message: current }) });
+      const result = await api<ChatResponse>("/api/chat", { method: "POST", body: JSON.stringify({ message: current, history }) });
       setMessages((items) => [...items, { id: messageId(), role: "assistant", text: result.answer, status: result.status, sources: result.sources }]);
     } catch (caught) {
       const status = (caught as { status?: number }).status;
-      setMessages((items) => [...items, { id: messageId(), role: "assistant", text: status === 503 ? "Layanan Pembangunan.AI sedang sibuk. Silakan coba lagi." : "Maaf, pertanyaan belum dapat diproses. Silakan coba lagi.", status: "error", sources: [] }]);
-    } finally { setBusy(false); }
+      setMessages((items) => [...items, { id: messageId(), role: "assistant", text: status === 503 ? "Layanan Pembangunan.AI sedang sibuk. Silakan coba lagi." : "Maaf, pertanyaan belum dapat diproses. Silakan coba lagi.", status: "error", sources: [], retryQuestion: current }]);
+    } finally { sendingRef.current = false; setBusy(false); }
+  }
+
+  function retryMessage(message: ChatMessage) {
+    setMessages((items) => items.filter((item) => item.id !== message.id));
+    void sendQuestion(message.retryQuestion || "", false);
   }
 
   function submit(event: FormEvent) { event.preventDefault(); void sendQuestion(); }
@@ -66,7 +77,7 @@ export function PublicChatRoom() {
       <header className="flex items-center justify-between gap-4 border-b border-school-bg bg-gradient-to-br from-white to-[#f6fbff] p-3 pr-4"><div className="flex min-w-0 items-center gap-2.5"><img className="size-12 shrink-0 object-contain" src={chatbotImage} alt="" /><div className="grid min-w-0 gap-[3px]"><strong className="text-base text-ink">Pembangunan.AI</strong><span className="truncate text-[11px] text-muted">Asisten informasi SMKN 26 Jakarta</span></div></div><button type="button" className="grid size-9 shrink-0 place-items-center rounded-full border-0 bg-school-bg text-2xl leading-none text-primary-dark hover:bg-light-blue focus-visible:outline-2 focus-visible:outline-primary" aria-label="Tutup Pembangunan.AI" onClick={close}>×</button></header>
      <div className="flex min-h-0 flex-1 flex-col gap-3.5 overflow-y-auto px-4 py-5" ref={historyRef} aria-live="polite">
        {!messages.length && <div className="flex min-h-full flex-col items-center justify-center text-center"><img className="size-28 object-contain" src={chatbotImage} alt="" /><h2 className="mt-3 text-xl font-bold text-ink">Halo! Saya siap membantu.</h2><p className="my-2 max-w-[280px] text-[13px] leading-[1.6] text-muted">Saya menjawab berdasarkan sumber sekolah yang telah disetujui.</p><div className="flex flex-wrap justify-center gap-2">{suggestedQuestions.map((suggestion) => <button className="rounded-full border border-light-blue bg-[#f6fbff] px-[11px] py-2 text-xs font-medium text-primary-dark hover:border-primary hover:bg-school-bg" type="button" key={suggestion} onClick={() => void sendQuestion(suggestion)}>{suggestion}</button>)}</div></div>}
-       {messages.map((message) => <ChatBubble key={message.id} message={message} />)}
+        {messages.map((message) => <ChatBubble key={message.id} message={message} onRetry={message.status === "error" ? () => retryMessage(message) : undefined} />)}
        {busy && <div className="flex max-w-[92%] items-end gap-2 self-start"><span className="size-7 shrink-0"><img className="size-full object-contain" src={chatbotImage} alt="" /></span><div className="flex gap-1 rounded-[18px_18px_18px_5px] border border-light-blue bg-school-bg p-[15px]" aria-label="Mencari informasi resmi"><i className="size-1.5 animate-pulse rounded-full bg-primary" /><i className="size-1.5 animate-pulse rounded-full bg-primary [animation-delay:150ms]" /><i className="size-1.5 animate-pulse rounded-full bg-primary [animation-delay:300ms]" /></div></div>}
      </div>
      {error && <p className="mx-4 mb-2 rounded-xl bg-[#fff4df] px-3 py-2 text-xs text-[#856000]">{error}</p>}
@@ -74,10 +85,10 @@ export function PublicChatRoom() {
    </aside>;
 }
 
-function ChatBubble({ message }: { message: ChatMessage }) {
+function ChatBubble({ message, onRetry }: { message: ChatMessage; onRetry?: () => void }) {
   const sources: ChatSource[] = message.sources || [];
   return <div className={`flex max-w-[92%] items-end gap-2 ${message.role === "user" ? "self-end" : "self-start"}`}>
      {message.role === "assistant" && <span className="size-7 shrink-0"><img className="size-full object-contain" src={chatbotImage} alt="" /></span>}
-    <div className={`rounded-[18px_18px_18px_5px] border border-light-blue bg-school-bg px-[13px] py-[11px] text-[13px] leading-[1.55] text-ink ${message.role === "user" ? "rounded-[18px_18px_5px_18px] border-0 bg-gradient-to-br from-primary-dark to-primary text-white" : ""}`}><p className="m-0 whitespace-pre-wrap">{message.text}</p>{message.status === "insufficient_evidence" && <small className="mt-2 block text-[11px] text-muted">Informasi ini belum tersedia pada sumber resmi yang disetujui.</small>}{sources.length > 0 && <div className="mt-2 grid gap-1 border-t border-primary/15 pt-2"><strong className="text-[11px] text-primary-dark">Sumber</strong>{sources.map((source, index) => { const href = source.url || source.page; return href ? <a className="text-[11px] text-primary-dark hover:underline" key={`${source.title}-${index}`} href={href} target={source.url ? "_blank" : undefined} rel={source.url ? "noreferrer" : undefined}>↗ {source.title}</a> : <span className="text-[11px]" key={`${source.title}-${index}`}>↗ {source.title}</span>; })}</div>}</div>
+     <div className={`rounded-[18px_18px_18px_5px] border border-light-blue bg-school-bg px-[13px] py-[11px] text-[13px] leading-[1.55] text-ink ${message.role === "user" ? "rounded-[18px_18px_5px_18px] border-0 bg-gradient-to-br from-primary-dark to-primary text-white" : ""}`}><p className="m-0 whitespace-pre-wrap">{message.text}</p>{message.status === "insufficient_evidence" && <small className="mt-2 block text-[11px] text-muted">Informasi ini belum tersedia pada sumber resmi yang disetujui.</small>}{message.status === "provider_unavailable" && <small className="mt-2 block text-[11px] text-muted">Layanan AI sedang tidak tersedia. Jawaban belum dapat diverifikasi.</small>}{message.status === "error" && onRetry && <button type="button" className="mt-2 rounded-full border border-light-blue bg-white px-3 py-1 text-[11px] font-semibold text-primary-dark hover:bg-[#f6fbff]" onClick={onRetry}>Coba lagi</button>}{sources.length > 0 && <div className="mt-2 grid gap-1 border-t border-primary/15 pt-2"><strong className="text-[11px] text-primary-dark">Sumber</strong>{sources.map((source, index) => { const href = source.url || source.page; return href ? <a className="text-[11px] text-primary-dark hover:underline" key={`${source.title}-${index}`} href={href} target={source.url ? "_blank" : undefined} rel={source.url ? "noreferrer" : undefined}>↗ {source.title}</a> : <span className="text-[11px]" key={`${source.title}-${index}`}>↗ {source.title}</span>; })}</div>}</div>
   </div>;
 }
