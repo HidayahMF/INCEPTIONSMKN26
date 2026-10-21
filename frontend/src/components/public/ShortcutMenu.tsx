@@ -48,14 +48,14 @@ export function ShortcutMenu({ onAskAi }: ShortcutMenuProps) {
         <button
           className={`group relative block h-auto aspect-[280/148] w-full md:h-[148px] md:aspect-auto min-w-0 box-border overflow-hidden rounded-3xl border-2 border-school-bg bg-white [transition:transform_30000ms_ease-in,opacity_300ms_ease-out,box-shadow_300ms_ease-out,border_300ms_ease-out] focus-visible:outline-none motion-reduce:transform-none motion-reduce:transition-none ${activeShortcut === null || activeShortcut === 3 ? "z-[1] opacity-100" : "z-0 opacity-50"} ${activeShortcut === 3 ? "z-10 -translate-y-1 border-4 border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(135deg,#4cbaf5,#0092ff,#006cdc)_border-box]" : ""}`}
           onClick={onAskAi}
-          aria-label="Tanya AI"
+          aria-label="Pembangunan.AI"
           onFocus={() => setActiveShortcut(3)}
           onMouseEnter={() => setActiveShortcut(3)}
         >
           <img
             className="absolute inset-0 size-full object-cover"
             src={figmaAssets.shortcuts.aiChat}
-            alt="Tanya AI"
+            alt="Pembangunan.AI"
           />
         </button>
       </div>

@@ -309,11 +309,11 @@ export function KgsPage() {
                 <article
                   data-aos="fade-up"
                   data-aos-delay={index * 80}
-                  className="overflow-hidden rounded-[20px] bg-white text-left shadow-[0_4px_16px_rgba(15,23,42,.06)] max-md:rounded-2xl"
+                  className="overflow-hidden rounded-[20px] bg-white text-left shadow-[0_4px_16px_rgba(15,23,42,.06)]"
                   key={name}
                 >
                   <img
-                    className="aspect-[4/3] w-full object-cover max-md:aspect-[1.18/1]"
+                    className="w-full object-cover"
                     src={asset(photo)}
                     alt={name}
                   />

@@ -41,7 +41,7 @@ test.describe("homepage Figma interaction contracts", () => {
       page.getByRole("link", { name: "SPMB" }),
       page.getByRole("link", { name: "Perpustakaan" }),
       page.getByRole("link", { name: "KJP & PIP" }),
-      page.getByRole("button", { name: "Tanya AI", exact: true }),
+      page.getByRole("button", { name: "Pembangunan.AI", exact: true }),
     ];
     const quickAccess = page.locator("section.relative.z-30").first();
     const quickBox = await quickAccess.boundingBox();
@@ -53,7 +53,7 @@ test.describe("homepage Figma interaction contracts", () => {
     const defaultCardBoxes = await Promise.all(cards.map((card) => card.boundingBox()));
     expect(defaultCardBoxes.map((box) => Math.round(box!.x - quickBox!.x))).toEqual([0, 304, 608, 912]);
     expect(defaultCardBoxes.map((box) => Math.round(box!.y - quickBox!.y))).toEqual([1, 0, 0, 0]);
-    const chatbotBox = await page.getByRole("button", { name: "Buka Tanya AI" }).boundingBox();
+    const chatbotBox = await page.getByRole("button", { name: "Buka Pembangunan.AI" }).boundingBox();
     expect(chatbotBox).toBeTruthy();
     expect(chatbotBox!.x).toBeCloseTo(1292, 0);
     expect(chatbotBox!.y).toBeCloseTo(816, 0);
@@ -173,8 +173,8 @@ test.describe("homepage Figma interaction contracts", () => {
     await expect(page.locator(".footer-top-social a").first()).toHaveCSS("border-color", "rgb(226, 232, 240)");
     await footerInput.hover();
     await expect(footerInput).toHaveCSS("border-color", "rgb(0, 108, 220)");
-    await page.getByRole("button", { name: "Buka Tanya AI" }).hover();
-     await expect(page.getByRole("button", { name: "Buka Tanya AI" }).locator("img")).toHaveAttribute("src", /ai-cta-raw-02\.png/);
+    await page.getByRole("button", { name: "Buka Pembangunan.AI" }).hover();
+     await expect(page.getByRole("button", { name: "Buka Pembangunan.AI" }).locator("img")).toHaveAttribute("src", /ai-cta-raw-02\.png/);
 
     await page.locator(".ai-cta").scrollIntoViewIfNeeded();
     await page.waitForTimeout(1100);

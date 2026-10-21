@@ -12,7 +12,7 @@ export function FloatingChatbot() {
     <button
       type="button"
       className="floating-chatbot fixed right-4 bottom-4 z-50 size-[72px] cursor-pointer border-0 bg-transparent p-0 md:right-7 md:bottom-16 md:size-[120px] focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
-      aria-label="Buka Tanya AI"
+      aria-label="Buka Pembangunan.AI"
       onClick={openChat}
       onPointerEnter={() => setState("hover")}
       onPointerLeave={() => setState("idle")}

@@ -133,8 +133,8 @@ test.describe("public homepage parity smoke", () => {
   test("CTA opens the existing public chat and mobile stays usable", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
-    await page.getByRole("button", { name: /Tanya AI/ }).last().click();
-    await expect(page.getByRole("dialog", { name: /Tanya AI SMKN 26 Jakarta/ })).toBeVisible();
+    await page.getByRole("button", { name: /Pembangunan\.AI/ }).last().click();
+    await expect(page.getByRole("dialog", { name: /Pembangunan\.AI SMKN 26 Jakarta/ })).toBeVisible();
     const metrics = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth }));
     expect(metrics.scrollWidth).toBe(metrics.clientWidth);
   });

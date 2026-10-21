@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('Public Tanya AI chat room', () => {
+test.describe('Public Pembangunan.AI chat room', () => {
   test('floating mascot opens, sends a question, renders sources, and closes with Escape', async ({ page }) => {
     let requestBody = '';
     await page.route('**/api/chat', async (route) => {
@@ -9,13 +9,13 @@ test.describe('Public Tanya AI chat room', () => {
       await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ data: { answer: 'SMKN 26 memiliki informasi resmi yang sudah disetujui.', status: 'answered', sources: [{ title: 'Profil SMKN 26 Jakarta', url: '/profile' }] }, error: null }) });
     });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Buka Tanya AI' }).click();
-    const room = page.getByRole('dialog', { name: 'Tanya AI SMKN 26 Jakarta' });
+    await page.getByRole('button', { name: 'Buka Pembangunan.AI' }).click();
+    const room = page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' });
     await expect(room).toBeVisible();
     await expect(room.getByText('Halo! Saya siap membantu.')).toBeVisible();
     await page.screenshot({ path: 'artifacts/chat-room-empty-1440.png', fullPage: true });
 
-    const composer = room.getByRole('textbox', { name: 'Pertanyaan untuk Tanya AI' });
+    const composer = room.getByRole('textbox', { name: 'Pertanyaan untuk Pembangunan.AI' });
     await composer.fill('Apa saja jurusan di SMKN 26?');
     const responsePromise = page.waitForResponse((response) => response.url().endsWith('/api/chat') && response.request().method() === 'POST');
     await composer.press('Enter');
@@ -35,18 +35,18 @@ test.describe('Public Tanya AI chat room', () => {
   test('shortcut opens the same room on Tour and mobile chat fits without overflow', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/tour');
-    await expect(page.getByRole('button', { name: 'Buka Tanya AI' })).toBeVisible();
-    await page.getByRole('button', { name: 'Buka Tanya AI' }).click();
-    const room = page.getByRole('dialog', { name: 'Tanya AI SMKN 26 Jakarta' });
+    await expect(page.getByRole('button', { name: 'Buka Pembangunan.AI' })).toBeVisible();
+    await page.getByRole('button', { name: 'Buka Pembangunan.AI' }).click();
+    const room = page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' });
     await expect(room).toBeVisible();
     const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth }));
     expect(dimensions.scrollWidth).toBe(dimensions.clientWidth);
     await page.screenshot({ path: 'artifacts/chat-room-390.png', fullPage: true });
-    await page.getByRole('button', { name: 'Tutup Tanya AI' }).click();
+    await page.getByRole('button', { name: 'Tutup Pembangunan.AI' }).click();
     await expect(room).toBeHidden();
 
     await page.goto('/');
-    await page.getByRole('button', { name: 'Tanya AI', exact: true }).click();
-    await expect(page.getByRole('dialog', { name: 'Tanya AI SMKN 26 Jakarta' })).toBeVisible();
+    await page.getByRole('button', { name: 'Pembangunan.AI', exact: true }).click();
+    await expect(page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' })).toBeVisible();
   });
 });

@@ -4,7 +4,7 @@ test('floating chatbot uses extracted states responsively and opens the existing
   for (const viewport of [{ width: 1440, name: '1440' }, { width: 390, name: '390' }]) {
     await page.setViewportSize({ width: viewport.width, height: 844 });
     await page.goto('/');
-    const button = page.getByRole('button', { name: 'Buka Tanya AI' });
+    const button = page.getByRole('button', { name: 'Buka Pembangunan.AI' });
     await expect(button).toBeVisible();
     const bounds = await button.boundingBox();
     const style = await button.evaluate((element) => {
@@ -22,7 +22,7 @@ test('floating chatbot uses extracted states responsively and opens the existing
     await button.hover();
     await expect(button.locator('img')).toHaveAttribute('src', /ai-cta-raw-02\.png/);
     await button.click();
-    await expect(page.getByRole('dialog', { name: 'Tanya AI SMKN 26 Jakarta' })).toBeVisible();
+    await expect(page.getByRole('dialog', { name: 'Pembangunan.AI SMKN 26 Jakarta' })).toBeVisible();
     await page.screenshot({ path: `artifacts/floating-chatbot-${viewport.name}.png`, fullPage: true });
   }
 });
