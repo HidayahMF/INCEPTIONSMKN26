@@ -12,6 +12,11 @@ import { LapanganTourPage } from "./pages/LapanganTourPage";
 import { AuthProvider } from "./features/auth/AuthProvider";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { StudentPklPage } from "./pages/StudentPklPage";
+import { StudentPklDetailPage } from "./pages/StudentPklDetailPage";
+import { StudentLostFoundPage } from "./pages/StudentLostFoundPage";
+import { StudentLostFoundReportPage } from "./pages/StudentLostFoundReportPage";
+import { StudentLostFoundDetailPage } from "./pages/StudentLostFoundDetailPage";
 import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
 import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
 import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
@@ -438,10 +443,17 @@ export function App() {
   if (path === "/tim-pendukung-sekolah") return <PublicExperience><TimPendukungSekolahPage /></PublicExperience>;
   if (path === "/partners") return <PublicExperience><div className="min-h-screen bg-white"><PublicNavbar /><PartnerIndustryPage /><PublicFooter /></div></PublicExperience>;
   if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/achievements", "/news", "/information"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
-  if (!["/login", "/dashboard", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path)) return <LegacyApp />;
+  const isLostFoundDetail = path.startsWith("/dashboard/lost-found/") && path !== "/dashboard/lost-found/report";
+  const isPklDetail = path.startsWith("/dashboard/pkl/");
+  if (!["/login", "/dashboard", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}
     {path === "/dashboard" && <DashboardPage />}
+    {path === "/dashboard/pkl" && <StudentPklPage />}
+    {isPklDetail && <StudentPklDetailPage />}
+    {path === "/dashboard/lost-found" && <StudentLostFoundPage />}
+    {path === "/dashboard/lost-found/report" && <StudentLostFoundReportPage />}
+    {isLostFoundDetail && <StudentLostFoundDetailPage />}
     {path === "/dashboard/learning" && <LearningRecommendationPage />}
     {path === "/dashboard/grades" && <TeacherGradesPage />}
     {path === "/admin/knowledge" && <AdminKnowledgePage />}

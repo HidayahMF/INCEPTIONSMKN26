@@ -178,7 +178,7 @@ export function MarsPage() {
           </div>
         </section>
 
-        <section className="min-h-[500px] bg-[#F4F8FF] px-6 py-20 md:px-10 md:py-24 max-md:px-4 max-md:py-14">
+        <section className="bg-[#F4F8FF] px-6 py-14 md:px-10 md:py-16 max-md:px-4">
           <div className="mx-auto max-w-[1272px] text-center">
             <div data-aos="fade-down">
               <MarsBadge>TENTANG MARS</MarsBadge>
@@ -224,7 +224,7 @@ export function MarsPage() {
 
         <section
           id="mars-lyrics"
-          className="mx-auto min-h-[696px] w-[min(1272px,100%-32px)] py-20 md:py-24"
+          className="mx-auto w-[min(1272px,100%-32px)] py-14 md:py-16"
         >
           <div className="text-center">
             <div data-aos="fade-down">
@@ -278,7 +278,7 @@ Pasti SMK Negeri 26 jayalah terus`}
           </div>
         </section>
 
-        <section className="min-h-[575px] bg-white px-6 py-20 md:px-10 md:py-24">
+        <section className="bg-white px-6 py-14 md:px-10 md:py-16">
           <div className="mx-auto max-w-[1272px] text-center">
             <div data-aos="fade-down">
               <MarsBadge>PENCIPTA MARS</MarsBadge>
@@ -328,7 +328,7 @@ Pasti SMK Negeri 26 jayalah terus`}
           </div>
         </section>
 
-        <section className="min-h-[578px] bg-[#F4F8FF] px-6 py-14 text-ink md:px-10 md:py-16">
+        <section className="bg-[#F4F8FF] px-6 py-14 text-ink md:px-10 md:py-16">
           <div className="mx-auto max-w-[1272px] text-center">
             <div data-aos="fade-down">
               <MarsBadge>SEMANGAT YANG KAMI BAWA</MarsBadge>
