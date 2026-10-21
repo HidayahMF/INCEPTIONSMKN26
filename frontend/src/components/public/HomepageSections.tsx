@@ -837,7 +837,7 @@ function NewsSection() {
 
   return (
     <section
-      className="news-section relative mx-auto mt-[88px] h-[495px] w-[min(1272px,100%-32px)] pt-0 max-md:h-auto"
+       className="news-section relative mx-auto mt-[88px] h-[527px] w-[min(1272px,100%-32px)] pt-0 max-md:h-auto"
       aria-labelledby="news-title"
     >
       <div className="section-intro mx-auto w-[min(872px,100%)] text-center">
@@ -881,9 +881,9 @@ function NewsSection() {
         />
       </a>
       <div className="max-md:relative">
-      <div className="news-viewport absolute left-1/2 top-[195.02px] h-[300px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden max-md:static max-md:mt-6 max-md:w-full max-md:translate-x-0">
-        <div
-          className={`news-track flex h-[300px] cursor-grab select-none gap-6 overflow-x-auto overflow-y-hidden [scrollbar-width:none] ${isDragging ? "is-dragging cursor-grabbing" : ""}${isScrolling ? " is-scrolling pointer-events-none" : ""}`}
+       <div className="news-viewport absolute left-1/2 top-[195.02px] h-[332px] w-[1272px] max-w-full -translate-x-1/2 overflow-hidden max-md:static max-md:mt-6 max-md:h-[332px] max-md:w-full max-md:translate-x-0">
+         <div
+           className={`news-track flex h-[332px] cursor-grab select-none gap-6 overflow-x-auto overflow-y-hidden py-4 [scrollbar-width:none] ${isDragging ? "is-dragging cursor-grabbing" : ""}${isScrolling ? " is-scrolling pointer-events-none" : ""}`}
           ref={trackRef}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
