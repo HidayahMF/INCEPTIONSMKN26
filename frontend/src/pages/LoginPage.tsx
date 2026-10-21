@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { api } from "../lib/api";
 import { useAuth } from "../features/auth/AuthProvider";
-import { useNavigate } from "../routes/compat";
+import { Navigate, useNavigate } from "../routes/compat";
 import { useFloatShapes } from "../lib/useFloatShapes";
 
 const devAccounts = [
@@ -10,7 +10,7 @@ const devAccounts = [
 ];
 
 export function LoginPage() {
-  const { isAuthenticated, refresh } = useAuth();
+  const { isAuthenticated, loading, refresh } = useAuth();
   const navigate = useNavigate();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,8 @@ export function LoginPage() {
     { ref: rightShape, duration: 4300, distance: -16 },
   ]);
 
-  useEffect(() => { if (isAuthenticated) navigate("/dashboard", true); }, [isAuthenticated, navigate]);
+  if (loading) return <LoginSessionLoading />;
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
 
   async function finishLogin() { await refresh(); navigate("/dashboard", true); }
   async function submit(event: FormEvent) {
@@ -79,4 +80,8 @@ export function LoginPage() {
       </div>
     </main>
   );
+}
+
+function LoginSessionLoading() {
+  return <main className="flex min-h-screen items-center justify-center bg-[#eaf7fc] px-5" role="status" aria-live="polite"><div className="flex items-center gap-3 rounded-2xl border border-[#d7e6f3] bg-white px-5 py-4 text-[12px] text-muted shadow-[0_12px_30px_rgba(20,77,125,.1)]"><span className="size-4 animate-spin rounded-full border-2 border-[#b8ddf5] border-t-primary" aria-hidden="true" />Memeriksa sesi masuk...</div></main>;
 }

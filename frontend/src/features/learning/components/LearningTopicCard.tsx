@@ -14,9 +14,9 @@ const statusStyles: Record<TopicRecommendation['status'], string> = {
   NOT_ENOUGH_DATA: 'bg-[#f1f4f8] text-[#66748c]',
 };
 
-type LearningTopicRowProps = { topic: TopicRecommendation; onPractice?: () => void; busy?: boolean };
+type LearningTopicCardProps = { topic: TopicRecommendation; onPractice?: () => void; busy?: boolean };
 
-export function LearningTopicRow({ topic, onPractice, busy = false }: LearningTopicRowProps) {
+export function LearningTopicCard({ topic, onPractice, busy = false }: LearningTopicCardProps) {
   const hasScore = topic.averageScore !== null;
   const score = hasScore ? Math.max(0, Math.min(100, topic.averageScore || 0)) : 0;
   const target = topic.targetScore === null ? null : Math.max(0, Math.min(100, topic.targetScore));

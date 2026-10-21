@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { figmaAssets } from "../../assets/figmaAssets";
 import { majors } from "../../data/majors";
+import { Link } from "../../routes/compat";
 
 type NavChild = { label: string; href: string; external?: boolean };
 type NavLink = { label: string; href: string; dropdown?: boolean; children?: NavChild[] };
@@ -170,12 +171,12 @@ export function PublicNavbar() {
         ))}
       </nav>
       <div className="flex items-center gap-2">
-        <a
+        <Link
           className="rounded-full border border-transparent bg-primary px-8 py-2.5 text-sm font-medium text-white transition-[background,color,border-color,box-shadow] duration-300 ease-out focus-visible:outline-2 focus-visible:outline-primary hover:border-slate-300 hover:bg-white hover:bg-none hover:text-primary hover:shadow-none"
-          href="/login"
+          to="/login"
         >
           Login
-        </a>
+        </Link>
         <div className="relative min-[1272px]:hidden" ref={mobileMenuRef}>
           <button
             className="grid size-10 cursor-pointer place-items-center rounded-full bg-light-blue text-primary-dark focus-visible:outline-2 focus-visible:outline-primary"

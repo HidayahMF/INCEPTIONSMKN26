@@ -9,7 +9,6 @@ import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
 import { PartnerIndustryPage, PartnerLogos } from "./components/public/PartnerLogos";
 import { TourPage } from "./pages/TourPage";
 import { LapanganTourPage } from "./pages/LapanganTourPage";
-import { AuthProvider } from "./features/auth/AuthProvider";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { TeacherClassesPage, TeacherClassDetailPage } from "./pages/TeacherClassesPage";
@@ -453,7 +452,7 @@ export function App() {
   const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new";
    const isTeacherClassDetail = path.startsWith("/dashboard/teacher/classes/");
     if (!["/login", "/dashboard", "/dashboard/profile", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/dashboard/teacher/classes", "/dashboard/teacher/competencies", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail && !isTeacherClassDetail) return <LegacyApp />;
-  return <AuthProvider>
+   return <>
     {path === "/login" && <LoginPage />}
      {path === "/dashboard" && <DashboardPage />}
      {path === "/dashboard/teacher/classes" && <TeacherClassesPage />}
@@ -473,5 +472,5 @@ export function App() {
     {path === "/dashboard/learning" && <LearningRecommendationPage />}
     {path === "/dashboard/grades" && <TeacherGradesPage />}
     {path === "/admin/knowledge" && <AdminKnowledgePage />}
-  </AuthProvider>;
+   </>;
 }
