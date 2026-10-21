@@ -17,6 +17,7 @@ import { StudentPklDetailPage } from "./pages/StudentPklDetailPage";
 import { StudentLostFoundPage } from "./pages/StudentLostFoundPage";
 import { StudentLostFoundReportPage } from "./pages/StudentLostFoundReportPage";
 import { StudentLostFoundDetailPage } from "./pages/StudentLostFoundDetailPage";
+import { StudentPortfolioPage, StudentPortfolioProjectDetailPage, StudentPortfolioAchievementDetailPage, StudentPortfolioProjectFormPage, StudentPortfolioAchievementFormPage } from "./pages/StudentPortfolioPage";
 import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
 import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
 import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
@@ -445,12 +446,19 @@ export function App() {
   if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/achievements", "/news", "/information"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   const isLostFoundDetail = path.startsWith("/dashboard/lost-found/") && path !== "/dashboard/lost-found/report";
   const isPklDetail = path.startsWith("/dashboard/pkl/");
-  if (!["/login", "/dashboard", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail) return <LegacyApp />;
+  const isPortfolioProjectDetail = path.startsWith("/dashboard/portfolio/projects/");
+  const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new";
+  if (!["/login", "/dashboard", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail) return <LegacyApp />;
   return <AuthProvider>
     {path === "/login" && <LoginPage />}
     {path === "/dashboard" && <DashboardPage />}
     {path === "/dashboard/pkl" && <StudentPklPage />}
     {isPklDetail && <StudentPklDetailPage />}
+    {path === "/dashboard/portfolio" && <StudentPortfolioPage />}
+    {path === "/dashboard/portfolio/new" && <StudentPortfolioProjectFormPage />}
+    {path === "/dashboard/portfolio/achievements/new" && <StudentPortfolioAchievementFormPage />}
+    {isPortfolioProjectDetail && <StudentPortfolioProjectDetailPage />}
+    {isPortfolioAchievementDetail && <StudentPortfolioAchievementDetailPage />}
     {path === "/dashboard/lost-found" && <StudentLostFoundPage />}
     {path === "/dashboard/lost-found/report" && <StudentLostFoundReportPage />}
     {isLostFoundDetail && <StudentLostFoundDetailPage />}

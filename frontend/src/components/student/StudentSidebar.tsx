@@ -12,7 +12,7 @@ type MenuItem = { label: string; icon: string; href?: string };
 const menuItems: MenuItem[] = [
   { label: "Beranda", href: "/dashboard", icon: "/assets/pages/siswapages/beranda.png" },
   { label: "BKK & PKL", href: "/dashboard/pkl", icon: "/assets/pages/siswapages/bkkdanpkl.png" },
-  { label: "Portofolio & Prestasi", icon: "/assets/pages/siswapages/portofolioprestasi.png" },
+  { label: "Portofolio & Prestasi", href: "/dashboard/portfolio", icon: "/assets/pages/siswapages/portofolioprestasi.png" },
   { label: "Lost & Found", href: "/dashboard/lost-found", icon: "/assets/pages/siswapages/lostandfoundsidebar.png" },
   { label: "Aspirasi Kelas", icon: "/assets/pages/siswapages/aspirasikelas.png" },
   { label: "Pembelajaran", href: "/dashboard/learning", icon: "/assets/pages/siswapages/pembelajaran.png" },
@@ -38,7 +38,7 @@ export function StudentSidebar({ me, onClose, onUnavailable }: StudentSidebarPro
       <p className="mt-9 text-[10px] font-bold uppercase tracking-[.08em] text-white/90">Portal internal · Siswa</p>
       <nav className="mt-2 grid gap-1.5" aria-label="Navigasi portal siswa">
         {menuItems.map((item) => {
-          const active = item.href ? item.label === "Lost & Found" ? location.pathname.startsWith("/dashboard/lost-found") : item.label === "BKK & PKL" ? location.pathname.startsWith("/dashboard/pkl") : location.pathname === item.href : false;
+          const active = item.href ? item.label === "Lost & Found" ? location.pathname.startsWith("/dashboard/lost-found") : item.label === "BKK & PKL" ? location.pathname.startsWith("/dashboard/pkl") : item.label === "Portofolio & Prestasi" ? location.pathname.startsWith("/dashboard/portfolio") : location.pathname === item.href : false;
           const content = (
             <>
               <img className="size-6 shrink-0 object-contain brightness-0 invert" src={item.icon} alt="" aria-hidden="true" />

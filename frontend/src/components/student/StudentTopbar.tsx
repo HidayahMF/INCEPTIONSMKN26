@@ -8,7 +8,7 @@ const searchableItems = [
   { label: "Beranda", href: "/dashboard" },
   { label: "Pembelajaran", href: "/dashboard/learning" },
   { label: "BKK & PKL" },
-  { label: "Portofolio & Prestasi" },
+  { label: "Portofolio & Prestasi", href: "/dashboard/portfolio" },
   { label: "Lost & Found", href: "/dashboard/lost-found" },
   { label: "Aspirasi Kelas" },
   { label: "Kantin Digital" },

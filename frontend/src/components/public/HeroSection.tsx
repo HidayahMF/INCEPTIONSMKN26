@@ -33,9 +33,12 @@ export function HeroSection({ onAskAi: _onAskAi }: HeroSectionProps) {
           <span className="size-2 rounded-full bg-soft-blue ring-1 ring-primary/25" />
            SMK NEGERI 26 JAKARTA
         </span>
-        <h1 data-aos="fade-up" data-aos-delay="100" className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
-          Belajar, Bekerja, Membangun!
-        </h1>
+         <h1 data-aos="fade-up" data-aos-delay="100" className="mt-1 text-[38px] font-bold leading-[52px] drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:mt-0 md:whitespace-nowrap md:text-[clamp(46px,4.45vw,64px)] md:leading-[1.5]">
+           Belajar, Bekerja, {""}
+           <span className="bg-gradient-to-r from-soft-blue via-primary to-primary-dark bg-clip-text text-transparent">
+             Membangun!
+           </span>
+         </h1>
         <p data-aos="fade-up" data-aos-delay="180" className="w-full max-w-[681px] text-sm font-medium leading-6 drop-shadow-[0_4px_8px_rgba(0,0,0,.1)] md:text-xl md:leading-[30px]">
           Membentuk generasi yang kompeten, berkarakter, dan siap memasuki dunia
           kerja untuk masa depan yang lebih baik.
