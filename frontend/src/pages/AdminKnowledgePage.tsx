@@ -1,8 +1,9 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { PortalLayout } from "../layouts/PortalLayout";
 import { RequirePermission } from "../features/auth/RequireAuth";
-import { api } from "../lib/api";
+import { api, getCachedApi } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 type KnowledgeItem = {
   id: string;
   status: string;
@@ -10,7 +11,8 @@ type KnowledgeItem = {
   knowledge_sources?: { title?: string };
 };
 export function AdminKnowledgePage() {
-  const [items, setItems] = useState<KnowledgeItem[]>([]);
+  const { addToast } = useToast();
+  const [items, setItems] = useState<KnowledgeItem[]>(() => getCachedApi<KnowledgeItem[]>("/api/admin/knowledge") || []);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [status, setStatus] = useState("");
@@ -42,8 +44,10 @@ export function AdminKnowledgePage() {
       setTitle("");
       setBody("");
       setStatus("Sumber disimpan sebagai DRAFT.");
+      addToast({ variant: "success", title: "Sumber Knowledge Base berhasil disimpan", description: "Sumber tersimpan sebagai draft." });
       await reload();
     } catch (e) {
+      addToast({ variant: "error", title: "Sumber Knowledge Base gagal disimpan", description: e instanceof Error ? e.message : "Gagal menyimpan sumber.", duration: null });
       setStatus(e instanceof Error ? e.message : "Gagal menyimpan sumber.");
     }
   }
@@ -56,8 +60,10 @@ export function AdminKnowledgePage() {
     try {
       await api("/api/admin/knowledge/pdf", { method: "POST", body: form });
       setStatus("PDF diproses sebagai DRAFT.");
+      addToast({ variant: "success", title: "PDF berhasil diunggah", description: "Dokumen diproses sebagai draft." });
       await reload();
     } catch (e) {
+      addToast({ variant: "error", title: "PDF gagal diunggah", description: e instanceof Error ? e.message : "Gagal memproses PDF.", duration: null });
       setStatus(e instanceof Error ? e.message : "Gagal memproses PDF.");
     }
   }
@@ -69,7 +75,11 @@ export function AdminKnowledgePage() {
         body: JSON.stringify({ status: nextStatus }),
       });
       await reload();
+      setPendingStatus(null);
+      addToast({ variant: "success", title: nextStatus === "APPROVED" ? "Sumber berhasil dipublikasikan" : "Publikasi sumber berhasil ditarik" });
     } catch (e) {
+      setPendingStatus(null);
+      addToast({ variant: "error", title: "Status sumber gagal diubah", description: e instanceof Error ? e.message : "Status gagal diubah.", duration: null });
       setStatus(e instanceof Error ? e.message : "Status gagal diubah.");
     } finally {
       setBusy(false);

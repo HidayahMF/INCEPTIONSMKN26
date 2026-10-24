@@ -21,6 +21,8 @@ import type {
 } from "../components/student/pkl/pkl.types";
 import type { PklTab } from "../components/student/pkl/pkl.types";
 import { ActionModal } from "../components/shared/ActionModal";
+import { getCachedApi } from "../lib/api";
+import { useToast } from "../components/shared/ToastProvider";
 
 export function StudentPklPage() {
   const { me } = useAuth();
@@ -40,14 +42,15 @@ export function StudentPklPage() {
 }
 
 function StudentPklContent() {
+  const { addToast } = useToast();
   const { me } = useAuth();
   const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
-  const [opportunities, setOpportunities] = useState<PklOpportunity[]>([]);
-  const [applications, setApplications] = useState<PklApplication[]>([]);
-  const [portfolios, setPortfolios] = useState<PortfolioProject[]>([]);
+  const [opportunities, setOpportunities] = useState<PklOpportunity[]>(() => getCachedApi<PklOpportunity[]>("/api/student/pkl/vacancies") || []);
+  const [applications, setApplications] = useState<PklApplication[]>(() => getCachedApi<PklApplication[]>("/api/student/pkl/applications") || []);
+  const [portfolios, setPortfolios] = useState<PortfolioProject[]>(() => getCachedApi<PortfolioProject[]>("/api/student/portfolio") || []);
   const [selected, setSelected] = useState<PklOpportunity | null>(null);
   const [notice, setNotice] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !getCachedApi("/api/student/pkl/vacancies") && !getCachedApi("/api/student/pkl/applications") && !getCachedApi("/api/student/portfolio"));
   useEffect(() => {
     Promise.all([
       getPklVacancies(),
@@ -237,6 +240,7 @@ function StudentPklContent() {
           onClose={() => setSelected(null)}
           onApplied={(message) => {
             setNotice(message);
+            addToast({ variant: "success", title: "Lamaran PKL berhasil dikirim", description: "Lamaran masuk ke review BKK." });
             setSelected(null);
             void getPklApplications().then(setApplications);
           }}
@@ -290,11 +294,15 @@ function ApplyDialog({
   onClose: () => void;
   onApplied: (message: string) => void;
 }) {
+  const { addToast } = useToast();
   const [portfolioId, setPortfolioId] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  useEffect(() => {
+    if (file) addToast({ variant: "info", title: "File siap diunggah", description: `${file.name} akan disimpan bersama lamaran saat dikirim.` });
+  }, [addToast, file]);
   async function submit() {
     if (!portfolioId || !file) {
       setError("Pilih portofolio terverifikasi dan lampirkan CV PDF.");
@@ -309,8 +317,11 @@ function ApplyDialog({
       await applyPkl(opportunity.id, portfolioId, file);
       onApplied("Lamaran PKL berhasil dikirim.");
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Lamaran gagal dikirim.";
+      setConfirmOpen(false);
+      addToast({ variant: "error", title: "Lamaran PKL gagal dikirim", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Lamaran gagal dikirim.",
+        message,
       );
     } finally {
       setBusy(false);
@@ -318,11 +329,11 @@ function ApplyDialog({
     }
   }
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center bg-ink/35 p-4">
+    <div className="portal-modal-backdrop fixed inset-0 z-[110] grid place-items-center bg-ink/35 p-4">
       <section
         role="dialog"
         aria-modal="true"
-        className="w-full max-w-lg rounded-2xl bg-white p-5 shadow-2xl"
+        className="portal-modal-panel max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl"
       >
         <h2 className="text-[18px] font-bold text-ink">
           Lamar {opportunity.program}

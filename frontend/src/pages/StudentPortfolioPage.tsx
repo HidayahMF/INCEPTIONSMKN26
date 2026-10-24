@@ -11,11 +11,10 @@ import { Link, usePathname } from "../routes/compat";
 import { RequireAuth } from "../features/auth/RequireAuth";
 import { useAuth } from "../features/auth/AuthProvider";
 import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
+import { getCachedApi } from "../lib/api";
+import type { ApiError } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
-import {
-  demoPortfolioProjects,
-  demoStudentAchievements,
-} from "../components/student/portfolio/portfolio.data";
+import { useToast } from "../components/shared/ToastProvider";
 import type {
   PortfolioProject,
   StudentAchievement,
@@ -31,12 +30,16 @@ import {
   statusLabel,
   submitAchievement,
   submitPortfolio,
+  getAchievement,
+  getPortfolioProject,
+  getSignedPortfolioFile,
   uploadPortfolioFile,
 } from "../components/student/portfolio/portfolio.api";
 
 type PortfolioTab = "projects" | "achievements" | "pkl";
+type UploadStatus = "ready" | "uploading" | "uploaded" | "failed";
+type UploadItem = { id: string; file: File; previewUrl: string; status: UploadStatus };
 const portfolioIcon = "/assets/pages/siswapages/portofolioprestasi.png";
-const achievementImage = "/assets/pages/siswapages/finalis.png";
 const workIcon = "/assets/pages/portofoliodanprestasi/total-karya.png";
 const inputClass =
   "h-11 w-full rounded-xl border border-[#cbd9ea] bg-white px-3 text-[12px] text-ink outline-none transition placeholder:text-[#9aaac2] focus:border-primary focus:ring-2 focus:ring-[#d7edff]";
@@ -55,17 +58,20 @@ export function StudentPortfolioPage() {
 }
 
 function StudentPortfolioContent() {
-  const { me } = useAuth();
-  const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
   const [tab, setTab] = useState<PortfolioTab>("projects");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("all");
   const [year, setYear] = useState("all");
-  const [projects, setProjects] = useState<PortfolioProject[]>([]);
-  const [achievements, setAchievements] = useState<StudentAchievement[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<PortfolioProject[]>(() => getCachedApi<PortfolioProject[]>("/api/student/portfolio") || []);
+  const [achievements, setAchievements] = useState<StudentAchievement[]>(() => getCachedApi<StudentAchievement[]>("/api/student/achievements") || []);
+  const [loading, setLoading] = useState(() => !getCachedApi("/api/student/portfolio") && !getCachedApi("/api/student/achievements"));
   const [loadError, setLoadError] = useState("");
+  async function refreshPortfolio() {
+    const [nextProjects, nextAchievements] = await Promise.all([getPortfolioProjects(), getAchievements()]);
+    setProjects(nextProjects);
+    setAchievements(nextAchievements);
+  }
   useEffect(() => {
     let active = true;
     Promise.all([getPortfolioProjects(), getAchievements()])
@@ -138,11 +144,6 @@ function StudentPortfolioContent() {
               <h1 className="break-words text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">
                 Portofolio &amp; Prestasi
               </h1>
-              {isDemo && (
-                <span className="rounded-full bg-[#fff7df] px-3 py-1 text-[10px] font-semibold text-[#b77a00]">
-                  Data contoh
-                </span>
-              )}
             </div>
             <p className="mt-2 max-w-2xl text-[13px] leading-6 text-muted">
               Kelola karya, dokumentasikan pencapaian, dan tunjukkan
@@ -222,12 +223,12 @@ function StudentPortfolioContent() {
                 onStatus={setStatus}
                 onYear={setYear}
               />
-              {tab === "projects" ? (
-                <ProjectGrid projects={filteredProjects} isDemo={isDemo} />
-              ) : (
-                <AchievementGrid
-                  achievements={filteredAchievements}
-                  isDemo={isDemo}
+                {tab === "projects" ? (
+                 <ProjectGrid projects={filteredProjects} onChanged={refreshPortfolio} />
+               ) : (
+                 <AchievementGrid
+                   achievements={filteredAchievements}
+                   onChanged={refreshPortfolio}
                 />
               )}
             </>
@@ -387,7 +388,7 @@ function FilterBar({
         onChange={onStatus}
         options={
           tab === "projects"
-            ? ["DRAFT", "PUBLISHED"]
+            ? ["DRAFT", "SUBMITTED", "VERIFIED", "REJECTED"]
             : ["DRAFT", "PENDING", "VERIFIED", "REJECTED"]
         }
         placeholder="Semua status"
@@ -434,19 +435,17 @@ function SelectFilter({
 
 function ProjectGrid({
   projects,
-  isDemo,
+  onChanged,
 }: {
   projects: PortfolioProject[];
-  isDemo: boolean;
+  onChanged: () => Promise<void>;
 }) {
   if (!projects.length)
     return (
       <EmptyPortfolio
         title="Belum ada karya yang sesuai"
         copy={
-          isDemo
-            ? "Coba ubah pencarian atau filter untuk melihat karya lainnya."
-            : "Karya dan proyekmu akan tampil di sini setelah ditambahkan."
+          "Karya dan proyekmu akan tampil di sini setelah ditambahkan."
         }
         action="Tambah Portofolio"
         to="/dashboard/portfolio/new"
@@ -460,23 +459,48 @@ function ProjectGrid({
       className="grid min-w-0 gap-5 md:grid-cols-2 xl:grid-cols-3"
     >
       {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+        <ProjectCard key={project.id} project={project} onChanged={onChanged} />
       ))}
     </section>
   );
 }
 
-function ProjectCard({ project }: { project: PortfolioProject }) {
-  const image = project.thumbnail || portfolioIcon;
+function ProjectCard({ project, onChanged }: { project: PortfolioProject; onChanged: () => Promise<void> }) {
   const [pending, setPending] = useState<"submit" | "delete" | null>(null);
   const [busy, setBusy] = useState(false);
+  const [coverUrl, setCoverUrl] = useState("");
+  const { addToast } = useToast();
+  useEffect(() => {
+    const file = project.files?.[0];
+    if (!file) {
+      setCoverUrl("");
+      return;
+    }
+    let active = true;
+    getSignedPortfolioFile("portfolio", file.id).then((result) => {
+      if (active) setCoverUrl(result.url);
+    }).catch(() => {
+      if (active) setCoverUrl("");
+    });
+    return () => { active = false; };
+  }, [project.files]);
   async function confirmAction() {
     if (!pending) return;
     setBusy(true);
     try {
-      if (pending === "submit") await submitPortfolio(project.id);
-      else await removePortfolio(project.id);
-      window.location.reload();
+      const action = pending;
+      if (pending === "submit") {
+        await submitPortfolio(project.id);
+      } else {
+        await removePortfolio(project.id);
+      }
+      await onChanged();
+      setPending(null);
+      addToast(action === "submit"
+        ? { variant: "success", title: "Karya berhasil dikirim", description: "Portofolio masuk ke proses verifikasi." }
+        : { variant: "success", title: "Karya berhasil dihapus", description: "Karya telah dihapus dari portofolio." });
+    } catch (reason) {
+      addToast({ variant: "error", title: pending === "submit" ? "Karya gagal dikirim" : "Karya gagal dihapus", description: reason instanceof Error ? reason.message : "Permintaan gagal diproses.", duration: null });
     } finally {
       setBusy(false);
     }
@@ -487,7 +511,7 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
         <div className="relative h-40 overflow-hidden bg-[#eef6fc]">
           <img
             className="size-full object-cover transition duration-500 group-hover:scale-[1.03]"
-            src={image}
+             src={coverUrl || portfolioIcon}
             alt={`Dokumentasi ${project.title}`}
           />
           <span className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-[#64748b]">
@@ -571,19 +595,17 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
 
 function AchievementGrid({
   achievements,
-  isDemo,
+  onChanged,
 }: {
   achievements: StudentAchievement[];
-  isDemo: boolean;
+  onChanged: () => Promise<void>;
 }) {
   if (!achievements.length)
     return (
       <EmptyPortfolio
         title="Belum ada prestasi yang sesuai"
         copy={
-          isDemo
-            ? "Coba ubah pencarian atau filter untuk melihat prestasi lainnya."
-            : "Prestasi dan sertifikatmu akan tampil di sini setelah ditambahkan."
+          "Prestasi dan sertifikatmu akan tampil di sini setelah ditambahkan."
         }
         action="Tambah Prestasi"
         to="/dashboard/portfolio/achievements/new"
@@ -597,23 +619,49 @@ function AchievementGrid({
       className="grid min-w-0 gap-5 md:grid-cols-2"
     >
       {achievements.map((achievement) => (
-        <AchievementCard key={achievement.id} achievement={achievement} />
+        <AchievementCard key={achievement.id} achievement={achievement} onChanged={onChanged} />
       ))}
     </section>
   );
 }
 
-function AchievementCard({ achievement }: { achievement: StudentAchievement }) {
+function AchievementCard({ achievement, onChanged }: { achievement: StudentAchievement; onChanged: () => Promise<void> }) {
   const status = achievement.verificationStatus;
   const [pending, setPending] = useState<"submit" | "delete" | null>(null);
   const [busy, setBusy] = useState(false);
+  const [coverUrl, setCoverUrl] = useState("");
+  const { addToast } = useToast();
+  useEffect(() => {
+    const file = achievement.files?.[0];
+    if (!file) {
+      setCoverUrl("");
+      return;
+    }
+    let active = true;
+    getSignedPortfolioFile("achievement", file.id).then((result) => {
+      if (active) setCoverUrl(result.url);
+    }).catch(() => {
+      if (active) setCoverUrl("");
+    });
+    return () => { active = false; };
+  }, [achievement.files]);
   async function confirmAction() {
     if (!pending) return;
     setBusy(true);
     try {
-      if (pending === "submit") await submitAchievement(achievement.id);
-      else await removeAchievement(achievement.id);
-      window.location.reload();
+      const action = pending;
+      if (pending === "submit") {
+        await submitAchievement(achievement.id);
+      } else {
+        await removeAchievement(achievement.id);
+      }
+      await onChanged();
+      setPending(null);
+      addToast(action === "submit"
+        ? { variant: "success", title: "Prestasi berhasil dikirim", description: "Pengajuan prestasi sedang menunggu verifikasi." }
+        : { variant: "success", title: "Data prestasi berhasil dihapus" });
+    } catch (reason) {
+      addToast({ variant: "error", title: pending === "submit" ? "Prestasi gagal dikirim" : "Prestasi gagal dihapus", description: reason instanceof Error ? reason.message : "Permintaan gagal diproses.", duration: null });
     } finally {
       setBusy(false);
     }
@@ -623,7 +671,7 @@ function AchievementCard({ achievement }: { achievement: StudentAchievement }) {
       <article className="flex min-w-0 gap-4 rounded-2xl border border-[#e1e9f4] bg-white p-4 shadow-[0_2px_8px_rgba(25,63,112,.02)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(25,63,112,.08)]">
         <img
           className="size-24 shrink-0 rounded-xl bg-[#eef6fc] object-cover"
-          src={achievement.image || achievementImage}
+             src={coverUrl || portfolioIcon}
           alt={`Dokumentasi ${achievement.title}`}
         />
         <div className="min-w-0 flex-1">
@@ -782,7 +830,7 @@ function PklPortfolioDraft({
                 key={project.id}
                 checked={selectedProjects.includes(project.id)}
                 onChange={() => toggle(project.id, "project")}
-                image={project.thumbnail}
+                image={portfolioIcon}
                 title={project.title}
                 copy={`${project.category} · ${project.date}`}
               />
@@ -797,7 +845,7 @@ function PklPortfolioDraft({
               key={achievement.id}
               checked={selectedAchievements.includes(achievement.id)}
               onChange={() => toggle(achievement.id, "achievement")}
-              image={achievement.image || achievementImage}
+               image={achievement.image || portfolioIcon}
               title={achievement.title}
               copy={`${achievement.type} · ${achievement.date}`}
             />
@@ -916,294 +964,378 @@ export function StudentPortfolioProjectDetailPage() {
 }
 
 function PortfolioProjectDetailContent() {
-  const { me } = useAuth();
   const pathname = usePathname();
   const id = decodeURIComponent(
     pathname.slice("/dashboard/portfolio/projects/".length),
   );
-  const project = me?.profile.school_identifier?.startsWith("DEMO-")
-    ? demoPortfolioProjects.find((item) => item.id === id)
-    : undefined;
-  if (!project)
-    return (
-      <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Karya">
-        <PortfolioNotFound type="karya" />
-      </StudentPortalLayout>
-    );
-  return <ImprovedProjectDetail project={project} />;
-}
+  const [project, setProject] = useState<PortfolioProject | null>(null);
+  const [fileUrls, setFileUrls] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<ApiError | null>(null);
 
-function ImprovedProjectDetail({ project }: { project: PortfolioProject }) {
-  const documentationImages = project.documentationImages?.length
-    ? project.documentationImages
-    : [project.thumbnail || portfolioIcon];
-  const isPublished = project.status === "PUBLISHED";
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
+    setProject(null);
+    setFileUrls({});
+    getPortfolioProject(id)
+      .then(async (next) => {
+        if (!active) return;
+        setProject(next);
+        const signedFiles = await Promise.all(
+          (next.files || []).map(async (file) => {
+            try {
+              const signed = await getSignedPortfolioFile("portfolio", file.id);
+              return [file.id, signed.url] as const;
+            } catch {
+              // Keep the record visible when an individual private image fails.
+              return null;
+            }
+          }),
+        );
+        if (active) {
+          setFileUrls(Object.fromEntries(signedFiles.filter(Boolean) as [string, string][]));
+        }
+      })
+      .catch((reason) => {
+        if (active) setError(reason as ApiError);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [id]);
+
   return (
     <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Karya">
-      <div className="grid min-w-0 gap-5">
-        <Link
-          to="/dashboard/portfolio"
-          className="inline-flex w-fit items-center gap-2 text-[12px] font-semibold text-primary transition hover:text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-        >
-          <span aria-hidden="true" className="text-lg leading-none">
-            ←
-          </span>
-          Kembali ke Portofolio
-        </Link>
-        <header>
-          <h1 className="text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">
-            Detail Karya
-          </h1>
-          <p className="mt-2 text-[13px] text-muted">
-            Informasi lengkap yang tersimpan pada portofolio siswa.
-          </p>
-        </header>
-        <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_280px]">
-          <main className="grid min-w-0 gap-6">
-            <section className="overflow-hidden rounded-2xl border border-[#dce8f5] bg-white shadow-[0_4px_16px_rgba(25,63,112,.04)]">
-              <div className="relative h-[230px] overflow-hidden bg-[#eef6fc] sm:h-[310px]">
-                <img
-                  className="size-full object-cover"
-                  src={project.thumbnail}
-                  alt={`Dokumentasi ${project.title}`}
-                />
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#071c3c]/70 to-transparent" />
-                <span className="absolute bottom-4 left-5 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-semibold text-primary sm:left-6">
-                  {project.category}
-                </span>
-              </div>
-              <div className="p-5 sm:p-7">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <h2 className="break-words text-[25px] font-bold leading-tight tracking-[-.025em] text-ink sm:text-[29px]">
-                      {project.title}
-                    </h2>
-                    <p className="mt-3 max-w-2xl text-[13px] leading-6 text-[#607296]">
-                      {project.summary}
-                    </p>
-                  </div>
-                  <ProjectStatus status={project.status} />
-                </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-lg border border-[#cfe6f8] bg-[#f5fbff] px-3 py-1.5 text-[11px] font-medium text-primary"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </section>
-            <ProjectSection title="Tujuan Proyek" text={project.purpose} />
-            {project.background && (
-              <ProjectSection
-                title="Latar Belakang / Masalah"
-                text={project.background}
-              />
-            )}
-            <ProjectListSection
-              title="Fitur / Pekerjaan yang Dikerjakan"
-              items={project.features || []}
-            />
-            <ProjectSection title="Peran Siswa" text={project.role} />
-            <ProjectListSection
-              title="Hasil / Output"
-              items={project.outputs || []}
-            />
-            <ProjectListSection
-              title="Teknologi & Tools"
-              items={project.skills}
-              compact
-            />
-            <DocumentationSection
-              images={documentationImages}
-              title={project.title}
-            />
-            {project.lessonsLearned && (
-              <ProjectSection
-                title="Catatan / Pembelajaran"
-                text={project.lessonsLearned}
-                tone="blue"
-              />
-            )}
-          </main>
-          <aside className="grid h-fit gap-5 xl:sticky xl:top-24">
-            <DetailInfo title="Status Publikasi">
-              <ProjectStatus status={project.status} />
-              <p className="mt-3 text-[11px] leading-5 text-muted">
-                {isPublished
-                  ? "Karya ini berstatus dipublikasikan pada portofolio demo."
-                  : "Karya ini masih berupa draf dan belum ditampilkan sebagai karya publik."}
-              </p>
-            </DetailInfo>
-            <DetailInfo title="Informasi Karya">
-              <MetaLine label="Tanggal dibuat" value={project.date} />
-              <MetaLine label="Kategori" value={project.category} />
-              <MetaLine label="Jenis karya" value="Proyek pembelajaran siswa" />
-              <MetaLine
-                label="Teknologi utama"
-                value={project.skills[0] || "Belum dicantumkan"}
-              />
-            </DetailInfo>
-            <DetailInfo title="Tautan">
-              <div className="grid gap-3">
-                {project.github ? (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[12px] font-semibold text-primary hover:text-primary-dark"
-                  >
-                    Buka GitHub <span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <p className="text-[12px] leading-5 text-muted">
-                    Link GitHub belum ditambahkan.
-                  </p>
-                )}
-                {project.demoUrl ? (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[12px] font-semibold text-primary hover:text-primary-dark"
-                  >
-                    Buka demo <span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <p className="text-[12px] leading-5 text-muted">
-                    Link demo belum ditambahkan.
-                  </p>
-                )}
-              </div>
-            </DetailInfo>
-            <DetailInfo title="Kesiapan PKL">
-              <span
-                className={`inline-flex rounded-full px-3 py-1.5 text-[10px] font-semibold ${isPublished ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#fff7df] text-[#a66b00]"}`}
-              >
-                {isPublished
-                  ? "Siap ditampilkan"
-                  : "Perlu dokumentasi tambahan"}
-              </span>
-              <p className="mt-3 text-[11px] leading-5 text-muted">
-                {isPublished
-                  ? "Status ini menunjukkan karya sudah memiliki ringkasan dan dokumentasi pada portofolio demo."
-                  : "Lengkapi dokumentasi dan tinjau kembali isi karya sebelum digunakan untuk persiapan PKL."}
-              </p>
-            </DetailInfo>
-          </aside>
-        </div>
-        <footer className="pb-1 text-[11px] text-muted">
-          SMK Negeri 26 Jakarta · Portal Internal Siswa
-        </footer>
-      </div>
+      {loading ? (
+        <PortfolioDetailLoading />
+      ) : project ? (
+        <ImprovedProjectDetail project={project} fileUrls={fileUrls} />
+      ) : (
+        <PortfolioNotFound type="karya" error={error} />
+      )}
     </StudentPortalLayout>
   );
 }
 
+function ImprovedProjectDetail({
+  project,
+  fileUrls,
+}: {
+  project: PortfolioProject;
+  fileUrls: Record<string, string>;
+}) {
+  const { addToast } = useToast();
+  const [status, setStatus] = useState(project.status);
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const files = project.files || [];
+  const coverFile = files[0];
+  const additionalFiles = files.slice(1);
+  const canChange = status === "DRAFT" || status === "REJECTED";
+
+  useEffect(() => {
+    setStatus(project.status);
+  }, [project.status]);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightbox]);
+
+  async function submitForReview() {
+    setSubmitting(true);
+    try {
+      await submitPortfolio(project.id);
+      setStatus("SUBMITTED");
+      setSubmitOpen(false);
+      addToast({
+        variant: "success",
+        title: "Karya berhasil dikirim",
+        description: "Portofolio masuk ke proses verifikasi.",
+      });
+    } catch (reason) {
+      addToast({
+        variant: "error",
+        title: "Karya gagal dikirim",
+        description: reason instanceof Error ? reason.message : "Permintaan gagal diproses.",
+        duration: null,
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <div className="grid min-w-0 gap-7">
+      <Link
+        to="/dashboard/portfolio"
+        className="inline-flex w-fit items-center gap-2 text-[12px] font-semibold text-primary transition hover:text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <span aria-hidden="true" className="text-lg leading-none">←</span>
+        Kembali ke Portofolio
+      </Link>
+      <header className="grid min-w-0 gap-4">
+        <div className="flex min-w-0 flex-wrap items-start justify-between gap-4">
+          <div className="min-w-0 max-w-3xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[.14em] text-primary">
+              Detail karya
+            </p>
+            <h1 className="mt-2 break-words text-[30px] font-bold leading-tight tracking-[-.035em] text-ink sm:text-[38px]">
+              {project.title}
+            </h1>
+            <p className="mt-3 max-w-2xl text-[14px] leading-7 text-[#607296]">
+              {project.summary}
+            </p>
+          </div>
+          <ProjectStatus status={status} />
+        </div>
+        <div className="flex min-w-0 flex-wrap items-center gap-3">
+          <span className="rounded-full bg-[#eaf6ff] px-3 py-1.5 text-[11px] font-semibold text-primary">
+            {project.category}
+          </span>
+          {canChange && (
+            <div className="flex flex-wrap gap-2 sm:ml-auto">
+              <Link
+                to={`/dashboard/portfolio/projects/${project.id}/edit`}
+                className="inline-flex min-h-10 items-center justify-center rounded-xl border border-[#b9dafa] bg-white px-4 text-[12px] font-semibold text-primary transition hover:bg-[#edf7ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                Edit Karya
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSubmitOpen(true)}
+                className="inline-flex min-h-10 items-center justify-center rounded-xl bg-primary px-4 text-[12px] font-semibold text-white transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                Kirim untuk Verifikasi
+              </button>
+            </div>
+          )}
+        </div>
+      </header>
+
+      <section className="overflow-hidden rounded-2xl border border-[#e1e9f4] bg-white shadow-[0_8px_24px_rgba(25,63,112,.05)]">
+        <PortfolioImage
+          src={coverFile ? fileUrls[coverFile.id] : undefined}
+          alt={`Cover dokumentasi ${project.title}`}
+          className="aspect-[16/9] max-h-[420px] min-h-[220px] w-full"
+          onPreview={(src, alt) => setLightbox({ src, alt })}
+        />
+      </section>
+
+      <div className="grid min-w-0 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
+        <main className="min-w-0">
+          <article className="rounded-2xl border border-[#e1e9f4] bg-white px-5 py-2 shadow-[0_4px_16px_rgba(25,63,112,.035)] sm:px-8">
+            <EditorialSection title="Tentang Proyek / Tujuan">
+              <p>{project.description}</p>
+              {project.purpose && <p><strong>Tujuan:</strong> {project.purpose}</p>}
+              {project.background && <p><strong>Latar belakang:</strong> {project.background}</p>}
+            </EditorialSection>
+            {project.features?.length ? (
+              <EditorialListSection title="Fitur & Implementasi" items={project.features} />
+            ) : null}
+            {project.role && <EditorialSection title="Peran dan Kontribusi Siswa"><p>{project.role}</p></EditorialSection>}
+            {project.outputs?.length ? (
+              <EditorialListSection title="Hasil / Output" items={project.outputs} />
+            ) : null}
+            {project.skills.length ? (
+              <EditorialSection title="Teknologi yang Digunakan">
+                <div className="flex flex-wrap gap-2">
+                  {project.skills.map((skill) => (
+                    <span key={skill} className="rounded-lg bg-[#edf7ff] px-3 py-1.5 text-[11px] font-medium text-primary">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </EditorialSection>
+            ) : null}
+            {project.lessonsLearned && (
+              <EditorialSection title="Catatan / Pembelajaran"><p>{project.lessonsLearned}</p></EditorialSection>
+            )}
+            {additionalFiles.length > 0 && (
+              <EditorialSection title="Dokumentasi Tambahan" last>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {additionalFiles.map((file) => (
+                    <PortfolioImage
+                      key={file.id}
+                      src={fileUrls[file.id]}
+                      alt={`Dokumentasi tambahan ${project.title}`}
+                      className="aspect-[4/3] w-full rounded-xl border border-[#e1e9f4]"
+                      onPreview={(src, alt) => setLightbox({ src, alt })}
+                    />
+                  ))}
+                </div>
+              </EditorialSection>
+            )}
+          </article>
+        </main>
+
+        <aside className="min-w-0 xl:sticky xl:top-24">
+          <section className="rounded-2xl border border-[#e1e9f4] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.035)]">
+            <h2 className="text-[15px] font-bold text-ink">Informasi Proyek</h2>
+            <div className="mt-4">
+              <MetaLine label="Jenis karya" value="Proyek pembelajaran siswa" />
+              <MetaLine label="Tanggal dibuat" value={project.date} />
+              <MetaLine label="Kategori" value={project.category} />
+              {project.github && <ProjectLink href={project.github} label="Buka GitHub" />}
+              {project.demoUrl && <ProjectLink href={project.demoUrl} label="Buka demo" />}
+            </div>
+            {canChange && (
+              <p className="mt-4 border-t border-[#e7edf5] pt-4 text-[11px] leading-5 text-[#607296]">
+                {status === "REJECTED"
+                  ? "Perbaiki catatan reviewer sebelum mengirim ulang karya."
+                  : "Tinjau kembali isi dan dokumentasi sebelum mengirim karya."}
+                {project.reviewerNote && <><br /><strong className="text-ink">Catatan reviewer:</strong> {project.reviewerNote}</>}
+              </p>
+            )}
+            {!canChange && project.reviewerNote && (
+              <p className="mt-4 border-t border-[#e7edf5] pt-4 text-[11px] leading-5 text-[#607296]">
+                <strong className="text-ink">Catatan reviewer:</strong> {project.reviewerNote}
+              </p>
+            )}
+          </section>
+        </aside>
+      </div>
+      <footer className="pb-1 text-[11px] text-muted">SMK Negeri 26 Jakarta · Portal Internal Siswa</footer>
+      {lightbox && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0b1d33]/80 p-4" role="dialog" aria-modal="true" aria-label="Pratinjau gambar" onMouseDown={(event) => { if (event.target === event.currentTarget) setLightbox(null); }}>
+          <div className="relative max-h-[92vh] max-w-6xl rounded-2xl bg-white p-2 shadow-2xl">
+            <img src={lightbox.src} alt={lightbox.alt} className="max-h-[86vh] max-w-full rounded-xl object-contain" />
+            <button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 inline-flex size-9 items-center justify-center rounded-full bg-white/95 text-lg font-semibold text-ink shadow" aria-label="Tutup pratinjau">×</button>
+            <p className="px-2 pb-1 pt-2 text-[11px] text-muted">Tekan Escape untuk menutup</p>
+          </div>
+        </div>
+      )}
+      <ActionModal
+        open={submitOpen}
+        variant="save"
+        title="Kirim karya untuk verifikasi?"
+        description="Karya akan masuk ke antrean verifikasi petugas sekolah dan tidak dapat diedit sampai ditinjau."
+        confirmLabel="Kirim Karya"
+        busy={submitting}
+        onClose={() => {
+          if (!submitting) setSubmitOpen(false);
+        }}
+        onConfirm={submitForReview}
+      />
+    </div>
+  );
+}
+
 function ProjectStatus({ status }: { status: PortfolioProject["status"] }) {
+  const tone = status === "VERIFIED"
+    ? "bg-[#dcf7e8] text-[#16834a]"
+    : status === "SUBMITTED"
+      ? "bg-[#fff7df] text-[#a66b00]"
+      : status === "REJECTED"
+        ? "bg-[#fff0f1] text-[#b42332]"
+        : "bg-[#f1f5f9] text-[#64748b]";
   return (
     <span
-      className={`inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-semibold ${status === "PUBLISHED" ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#f1f5f9] text-[#64748b]"}`}
+      className={`inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-semibold ${tone}`}
     >
       <span className="size-1.5 rounded-full bg-current" />
-      {status === "PUBLISHED" ? "Dipublikasikan" : "Draf"}
+      {statusLabel(status)}
     </span>
   );
 }
-function ProjectSection({
+
+function EditorialSection({
   title,
-  text,
-  tone = "white",
+  children,
+  last = false,
 }: {
   title: string;
-  text: string;
-  tone?: "white" | "blue";
+  children: ReactNode;
+  last?: boolean;
 }) {
   return (
-    <section
-      className={`rounded-2xl border border-[#dce8f5] p-5 sm:p-6 ${tone === "blue" ? "bg-[#f5fbff]" : "bg-white"}`}
-    >
-      <h2 className="text-[16px] font-bold text-ink">{title}</h2>
-      <p className="mt-3 max-w-3xl text-[13px] leading-6 text-[#607296]">
-        {text}
-      </p>
+    <section className={`py-6 sm:py-7 ${last ? "" : "border-b border-[#e7edf5]"}`}>
+      <h2 className="text-[17px] font-bold tracking-[-.01em] text-ink">{title}</h2>
+      <div className="mt-3 max-w-3xl space-y-3 text-[13px] leading-7 text-[#607296]">{children}</div>
     </section>
   );
 }
-function ProjectListSection({
+function EditorialListSection({
   title,
   items,
-  compact = false,
 }: {
   title: string;
   items: string[];
-  compact?: boolean;
 }) {
   return (
-    <section className="rounded-2xl border border-[#dce8f5] bg-white p-5 sm:p-6">
-      <h2 className="text-[16px] font-bold text-ink">{title}</h2>
-      {items.length ? (
-        <div
-          className={`mt-4 grid gap-3 ${compact ? "sm:grid-cols-2" : "md:grid-cols-2"}`}
-        >
-          {items.map((item, index) => (
-            <div
-              key={item}
-              className="flex min-w-0 gap-3 rounded-xl border border-[#e1e9f4] bg-[#f8fbff] p-3.5"
-            >
-              <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-[#e8f5ff] text-[10px] font-bold text-primary">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="text-[12px] leading-5 text-[#52658a]">
-                {item}
-              </span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="mt-3 text-[12px] text-muted">
-          Belum ada informasi yang dicantumkan.
-        </p>
-      )}
+    <section className="border-b border-[#e7edf5] py-6 sm:py-7">
+      <h2 className="text-[17px] font-bold tracking-[-.01em] text-ink">{title}</h2>
+      <ul className="mt-3 grid gap-2 pl-5 text-[13px] leading-7 text-[#607296] marker:text-primary">
+        {items.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}
+      </ul>
     </section>
   );
 }
-function DocumentationSection({
-  images,
-  title,
+function PortfolioImage({
+  src,
+  alt,
+  className,
+  fit = "contain",
+  onPreview,
 }: {
-  images: string[];
-  title: string;
+  src?: string;
+  alt: string;
+  className: string;
+  fit?: "contain" | "cover";
+  onPreview?: (src: string, alt: string) => void;
 }) {
+  const [failed, setFailed] = useState(!src);
+  const [loaded, setLoaded] = useState(!src);
+  useEffect(() => {
+    setFailed(!src);
+    setLoaded(!src);
+  }, [src]);
+  const imageSrc = failed ? portfolioIcon : src;
+  const image = (
+    <img
+      src={imageSrc}
+      alt={alt}
+      className={`size-full object-${fit} ${fit === "contain" ? "p-3" : ""}`}
+      onLoad={() => setLoaded(true)}
+      onError={() => {
+        setFailed(true);
+        setLoaded(true);
+      }}
+    />
+  );
   return (
-    <section className="rounded-2xl border border-[#dce8f5] bg-white p-5 sm:p-6">
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <h2 className="text-[16px] font-bold text-ink">Dokumentasi Karya</h2>
-          <p className="mt-1 text-[11px] text-muted">
-            Visual yang tersimpan pada record karya ini.
-          </p>
-        </div>
-        <span className="rounded-full bg-[#edf7ff] px-3 py-1 text-[10px] font-semibold text-primary">
-          {images.length} gambar
-        </span>
-      </div>
-      <div
-        className={`mt-5 grid gap-3 ${images.length > 1 ? "sm:grid-cols-2" : ""}`}
-      >
-        {images.map((image) => (
-          <img
-            key={image}
-            className="max-h-[360px] w-full rounded-xl border border-[#e1e9f4] bg-[#eef6fc] object-cover"
-            src={image}
-            alt={`Dokumentasi ${title}`}
-          />
-        ))}
-      </div>
-    </section>
+    <div className={`relative overflow-hidden bg-[#eef6fc] ${className}`}>
+      {!loaded && <span className="absolute inset-0 animate-pulse bg-[#e8f2fc]" aria-hidden="true" />}
+      {src && !failed && onPreview ? (
+        <button type="button" onClick={() => onPreview(src, alt)} className="block size-full cursor-zoom-in text-left" aria-label={`Buka pratinjau ${alt}`}>
+          {image}
+        </button>
+      ) : src && !failed ? (
+        <a href={src} target="_blank" rel="noreferrer" aria-label={`Buka pratinjau ${alt}`} className="block size-full">
+          {image}
+        </a>
+      ) : image}
+    </div>
+  );
+}
+
+function ProjectLink({ href, label }: { href: string; label: string }) {
+  return (
+    <p className="border-b border-[#e7edf5] py-2.5 last:border-0">
+      <a href={href} target="_blank" rel="noreferrer" className="text-[12px] font-semibold text-primary hover:text-primary-dark">
+        {label} <span aria-hidden="true">↗</span>
+      </a>
+    </p>
   );
 }
 
@@ -1221,141 +1353,155 @@ export function StudentPortfolioAchievementDetailPage() {
 }
 
 function PortfolioAchievementDetailContent() {
-  const { me } = useAuth();
   const pathname = usePathname();
   const id = decodeURIComponent(
     pathname.slice("/dashboard/portfolio/achievements/".length),
   );
-  const achievement = me?.profile.school_identifier?.startsWith("DEMO-")
-    ? demoStudentAchievements.find((item) => item.id === id)
-    : undefined;
-  if (!achievement)
-    return (
-      <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Prestasi">
-        <PortfolioNotFound type="prestasi" />
-      </StudentPortalLayout>
-    );
+  const [achievement, setAchievement] = useState<StudentAchievement | null>(null);
+  const [fileUrls, setFileUrls] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<ApiError | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
+    setAchievement(null);
+    setFileUrls({});
+    getAchievement(id)
+      .then(async (next) => {
+        if (!active) return;
+        setAchievement(next);
+        const signedFiles = await Promise.all(
+          (next.files || []).map(async (file) => {
+            try {
+              const signed = await getSignedPortfolioFile("achievement", file.id);
+              return [file.id, signed.url] as const;
+            } catch {
+              return null;
+            }
+          }),
+        );
+        if (active) {
+          setFileUrls(Object.fromEntries(signedFiles.filter(Boolean) as [string, string][]));
+        }
+      })
+      .catch((reason) => {
+        if (active) setError(reason as ApiError);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [id]);
+
+  if (loading) {
+    return <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Prestasi"><PortfolioDetailLoading /></StudentPortalLayout>;
+  }
+  if (!achievement) {
+    return <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Prestasi"><PortfolioNotFound type="prestasi" error={error} /></StudentPortalLayout>;
+  }
+  return <AchievementDetailContent achievement={achievement} fileUrls={fileUrls} />;
+}
+
+function AchievementDetailContent({
+  achievement,
+  fileUrls,
+}: {
+  achievement: StudentAchievement;
+  fileUrls: Record<string, string>;
+}) {
+  const { addToast } = useToast();
+  const [status, setStatus] = useState(achievement.verificationStatus);
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const files = achievement.files || [];
+  const coverFile = files[0];
+  const additionalFiles = files.slice(1);
+  const canChange = status === "DRAFT" || status === "REJECTED";
+
+  useEffect(() => {
+    setStatus(achievement.verificationStatus);
+  }, [achievement.verificationStatus]);
+
+  async function submitForReview() {
+    setSubmitting(true);
+    try {
+      await submitAchievement(achievement.id);
+      setStatus("SUBMITTED");
+      setSubmitOpen(false);
+      addToast({
+        variant: "success",
+        title: "Prestasi berhasil dikirim",
+        description: "Pengajuan prestasi sedang menunggu verifikasi.",
+      });
+    } catch (reason) {
+      addToast({
+        variant: "error",
+        title: "Prestasi gagal dikirim",
+        description: reason instanceof Error ? reason.message : "Permintaan gagal diproses.",
+        duration: null,
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <StudentPortalLayout breadcrumb="Portofolio & Prestasi / Detail Prestasi">
-      <DetailShell
-        back="/dashboard/portfolio"
-        backLabel="Kembali ke Portofolio"
-        title="Detail Prestasi"
-      >
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <main className="grid min-w-0 gap-6 rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.04)] sm:p-6">
-            <section className="grid gap-5 sm:grid-cols-[220px_minmax(0,1fr)]">
-              <img
-                className="aspect-square w-full rounded-2xl bg-[#eef6fc] object-cover"
-                src={achievement.image || achievementImage}
-                alt={`Dokumentasi ${achievement.title}`}
-              />
-              <div>
-                <span className="text-[10px] font-semibold uppercase tracking-wide text-primary">
-                  {achievement.type}
-                </span>
-                <h2 className="mt-3 break-words text-[24px] font-bold leading-tight text-ink">
-                  {achievement.title}
-                </h2>
-                <p className="mt-3 text-[13px] leading-6 text-[#607296]">
-                  {achievement.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-md bg-[#edf7ff] px-2.5 py-1.5 text-[10px] font-medium text-primary">
-                    {achievement.level}
-                  </span>
-                  <span className="rounded-md bg-[#f3f6fb] px-2.5 py-1.5 text-[10px] font-medium text-[#607296]">
-                    {achievement.rank}
-                  </span>
-                </div>
+      <div className="grid min-w-0 gap-7">
+        <Link to="/dashboard/portfolio" className="inline-flex w-fit items-center gap-2 text-[12px] font-semibold text-primary hover:text-primary-dark">
+          <span aria-hidden="true" className="text-lg leading-none">←</span>
+          Kembali ke Portofolio
+        </Link>
+        <header className="grid min-w-0 gap-4">
+          <div className="flex min-w-0 flex-wrap items-start justify-between gap-4">
+            <div className="min-w-0 max-w-3xl">
+              <p className="text-[11px] font-semibold uppercase tracking-[.14em] text-primary">Detail prestasi</p>
+              <h1 className="mt-2 break-words text-[30px] font-bold leading-tight tracking-[-.035em] text-ink sm:text-[38px]">{achievement.title}</h1>
+              <p className="mt-3 max-w-2xl text-[14px] leading-7 text-[#607296]">{achievement.description}</p>
+            </div>
+            <StatusBadge status={status} />
+          </div>
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="rounded-full bg-[#eaf6ff] px-3 py-1.5 text-[11px] font-semibold text-primary">{achievement.type}</span>
+            <span className="rounded-full bg-[#f3f6fb] px-3 py-1.5 text-[11px] font-medium text-[#607296]">{achievement.level}</span>
+            {canChange && (
+              <div className="flex flex-wrap gap-2 sm:ml-auto">
+                <Link to={`/dashboard/portfolio/achievements/${achievement.id}/edit`} className="inline-flex min-h-10 items-center justify-center rounded-xl border border-[#b9dafa] bg-white px-4 text-[12px] font-semibold text-primary hover:bg-[#edf7ff]">Edit Prestasi</Link>
+                <button type="button" onClick={() => setSubmitOpen(true)} className="inline-flex min-h-10 items-center justify-center rounded-xl bg-primary px-4 text-[12px] font-semibold text-white hover:bg-primary-dark">Kirim untuk Verifikasi</button>
               </div>
-            </section>
-            <DetailBlock
-              title="Kompetisi atau Kegiatan"
-              text={achievement.competition}
-            />
-            <DetailBlock title="Penyelenggara" text={achievement.organizer} />
+            )}
+          </div>
+        </header>
+        <section className="overflow-hidden rounded-2xl border border-[#e1e9f4] bg-white shadow-[0_8px_24px_rgba(25,63,112,.05)]">
+          <PortfolioImage src={coverFile ? fileUrls[coverFile.id] : achievement.image} alt={`Dokumentasi ${achievement.title}`} className="aspect-[16/9] max-h-[420px] min-h-[220px] w-full" />
+        </section>
+        <div className="grid min-w-0 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
+          <main className="min-w-0">
+            <article className="rounded-2xl border border-[#e1e9f4] bg-white px-5 py-2 shadow-[0_4px_16px_rgba(25,63,112,.035)] sm:px-8">
+              <EditorialSection title="Kompetisi atau Kegiatan"><p>{achievement.competition}</p></EditorialSection>
+              <EditorialSection title="Penyelenggara"><p>{achievement.organizer}</p></EditorialSection>
+              {additionalFiles.length > 0 && <EditorialSection title="Dokumentasi Tambahan" last><div className="grid gap-3 sm:grid-cols-2">{additionalFiles.map((file) => <PortfolioImage key={file.id} src={fileUrls[file.id]} alt={`Dokumentasi tambahan ${achievement.title}`} className="aspect-[4/3] w-full rounded-xl border border-[#e1e9f4]" />)}</div></EditorialSection>}
+            </article>
           </main>
-          <aside className="grid h-fit gap-5 xl:sticky xl:top-24">
-            <DetailInfo title="Status Verifikasi">
-              <StatusBadge status={achievement.verificationStatus} />
-              <p className="mt-3 text-[11px] leading-5 text-muted">
-                Badge verifikasi hanya dapat diberikan oleh petugas sekolah,
-                bukan diubah oleh siswa.
-              </p>
-            </DetailInfo>
-            <DetailInfo title="Informasi Pencapaian">
-              <MetaLine label="Tingkat" value={achievement.level} />
-              <MetaLine label="Peringkat" value={achievement.rank} />
-              <MetaLine label="Tanggal" value={achievement.date} />
-            </DetailInfo>
+          <aside className="min-w-0 xl:sticky xl:top-24">
+            <section className="rounded-2xl border border-[#e1e9f4] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.035)]">
+              <h2 className="text-[15px] font-bold text-ink">Informasi Pencapaian</h2>
+              <div className="mt-4"><MetaLine label="Jenis prestasi" value={achievement.type} /><MetaLine label="Tingkat" value={achievement.level} /><MetaLine label="Peringkat" value={achievement.rank} /><MetaLine label="Tanggal" value={achievement.date} /></div>
+              {achievement.verificationNote && <p className="mt-4 border-t border-[#e7edf5] pt-4 text-[11px] leading-5 text-[#607296]"><strong className="text-ink">Catatan verifikasi:</strong> {achievement.verificationNote}</p>}
+            </section>
           </aside>
         </div>
-      </DetailShell>
+        <footer className="pb-1 text-[11px] text-muted">SMK Negeri 26 Jakarta · Portal Internal Siswa</footer>
+        <ActionModal open={submitOpen} variant="save" title="Kirim prestasi untuk verifikasi?" description="Prestasi akan masuk ke antrean verifikasi petugas sekolah dan tidak dapat diedit sampai ditinjau." confirmLabel="Kirim Prestasi" busy={submitting} onClose={() => { if (!submitting) setSubmitOpen(false); }} onConfirm={submitForReview} />
+      </div>
     </StudentPortalLayout>
   );
 }
 
-function DetailShell({
-  back,
-  backLabel,
-  title,
-  children,
-}: {
-  back: string;
-  backLabel: string;
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="grid min-w-0 gap-5">
-      <Link
-        to={back}
-        className="inline-flex w-fit items-center gap-2 text-[12px] font-semibold text-primary hover:text-primary-dark"
-      >
-        <span aria-hidden="true" className="text-lg leading-none">
-          ←
-        </span>
-        {backLabel}
-      </Link>
-      <header>
-        <h1 className="text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">
-          {title}
-        </h1>
-        <p className="mt-2 text-[13px] text-muted">
-          Informasi lengkap yang tersimpan pada portofolio siswa.
-        </p>
-      </header>
-      {children}
-      <footer className="pb-1 text-[11px] text-muted">
-        SMK Negeri 26 Jakarta · Portal Internal Siswa
-      </footer>
-    </div>
-  );
-}
-
-function DetailBlock({ title, text }: { title: string; text: string }) {
-  return (
-    <section className="rounded-xl border border-[#dce8f5] bg-[#f5fbff] p-5">
-      <h2 className="text-[14px] font-bold text-ink">{title}</h2>
-      <p className="mt-3 text-[12px] leading-6 text-[#607296]">{text}</p>
-    </section>
-  );
-}
-function DetailInfo({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <section className="rounded-2xl border border-[#dce8f5] bg-white p-5">
-      <h2 className="text-[15px] font-bold text-ink">{title}</h2>
-      <div className="mt-4 text-[12px] text-[#607296]">{children}</div>
-    </section>
-  );
-}
 function MetaLine({ label, value }: { label: string; value: string }) {
   return (
     <p className="border-b border-[#e7edf5] py-2.5 last:border-0">
@@ -1368,14 +1514,26 @@ function MetaLine({ label, value }: { label: string; value: string }) {
     </p>
   );
 }
-function PortfolioNotFound({ type }: { type: "karya" | "prestasi" }) {
+function PortfolioDetailLoading() {
+  return <div className="grid gap-5" aria-label="Memuat detail portofolio"><div className="h-5 w-40 animate-pulse rounded bg-white" /><div className="h-12 w-64 animate-pulse rounded bg-white" /><div className="h-[420px] animate-pulse rounded-2xl bg-white" /></div>;
+}
+
+function PortfolioNotFound({ type, error }: { type: "karya" | "prestasi"; error?: ApiError | null }) {
+  const status = error?.status;
+  const message = status === 401
+    ? "Sesi akun sudah berakhir. Silakan masuk kembali."
+    : status === 403
+      ? "Akun ini tidak memiliki akses ke data tersebut."
+      : status === 404
+        ? "Data tidak ditemukan atau bukan milik akun ini."
+        : error?.message || "Data tidak tersedia atau belum dapat diakses oleh akun ini.";
   return (
     <section className="rounded-2xl border border-dashed border-[#cbd8e8] bg-white px-5 py-16 text-center">
       <h1 className="text-xl font-bold text-ink">
         Detail {type} tidak ditemukan
       </h1>
       <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted">
-        Data tidak tersedia atau belum dapat diakses oleh akun ini.
+        {message}
       </p>
       <Link
         to="/dashboard/portfolio"
@@ -1412,50 +1570,63 @@ function StudentPortfolioFormPage({
 }
 
 function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
+  const { addToast } = useToast();
   const [notice, setNotice] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState("");
+  const [uploads, setUploads] = useState<UploadItem[]>([]);
+  const uploadUrls = useRef(new Set<string>());
   const [saveOpen, setSaveOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  useEffect(() => {
-    if (!file) {
-      setPreview("");
-      return;
-    }
-    const url = URL.createObjectURL(file);
-    setPreview(url);
-    return () => URL.revokeObjectURL(url);
-  }, [file]);
+  useEffect(() => () => {
+    uploadUrls.current.forEach((url) => URL.revokeObjectURL(url));
+  }, []);
   const project = kind === "project";
+  const splitList = (value: FormDataEntryValue | null) => String(value || "").split(/\r?\n|,/).map((item) => item.trim()).filter(Boolean);
   const onFile = (event: ChangeEvent<HTMLInputElement>) => {
-    const next = event.target.files?.[0] || null;
+    const selected = Array.from(event.target.files || []);
     event.target.value = "";
-    if (!next) return;
-    if (!/image\/(jpeg|png|webp)/i.test(next.type)) {
+    if (!selected.length) return;
+    const invalid = selected.find((file) => !/image\/(jpeg|png|webp)/i.test(file.type));
+    if (invalid) {
       setErrors((current) => ({
         ...current,
         file: "File harus JPG, PNG, atau WebP.",
       }));
       return;
     }
-    if (next.size > 5 * 1024 * 1024) {
+    const oversized = selected.find((file) => file.size > 4 * 1024 * 1024);
+    if (oversized) {
       setErrors((current) => ({
         ...current,
-        file: "Ukuran file maksimal 5 MB.",
+        file: "Ukuran file maksimal 4 MB agar kompatibel dengan serverless upload.",
       }));
       return;
     }
-    setFile(next);
+    if (uploads.length + selected.length > 6) {
+      setErrors((current) => ({ ...current, file: "Maksimal 6 gambar per karya." }));
+      return;
+    }
+    const next = selected.map((file) => {
+      const previewUrl = URL.createObjectURL(file);
+      uploadUrls.current.add(previewUrl);
+      return {
+      id: `${file.name}-${file.lastModified}-${crypto.randomUUID()}`,
+      file,
+      previewUrl,
+      status: "ready" as const,
+      };
+    });
+    setUploads((current) => [...current, ...next]);
     setErrors((current) => ({ ...current, file: "" }));
+    addToast({ variant: "info", title: "File siap diunggah", description: `${selected.length} file akan disimpan ke server saat draf dikonfirmasi.` });
   };
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const next: Record<string, string> = {};
     const required = project
-      ? ["title", "category", "description", "skills", "role", "date"]
+      ? ["title", "category", "summary", "description", "role", "date"]
       : [
           "title",
           "type",
@@ -1470,14 +1641,13 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
       if (!String(form.get(key) || "").trim())
         next[key] = "Kolom ini wajib diisi.";
     });
-    if (!file) next.file = "Dokumentasi wajib diunggah.";
     setErrors(next);
-    if (Object.keys(next).length || !file) return;
+    if (Object.keys(next).length) return;
     setSaveOpen(true);
   };
   const saveDraft = async () => {
     const form = formRef.current ? new FormData(formRef.current) : null;
-    if (!form || !file) return;
+    if (!form) return;
     setSaving(true);
     setNotice("Menyimpan...");
     try {
@@ -1485,18 +1655,15 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
         ? await createPortfolio({
             title: String(form.get("title")),
             category: String(form.get("category")),
-            summary: String(form.get("description")),
-            description: String(form.get("description")),
-            skills: String(form.get("skills"))
-              .split(",")
-              .map((item) => item.trim())
-              .filter(Boolean),
-            role: String(form.get("role")),
-            purpose: String(form.get("purpose") || ""),
-            background: String(form.get("background") || ""),
-            features: [],
-            outputs: [],
-            lessonsLearned: String(form.get("lessonsLearned") || ""),
+             summary: String(form.get("summary")),
+             description: String(form.get("description")),
+             skills: splitList(form.get("skills")),
+             role: String(form.get("role")),
+             purpose: String(form.get("purpose") || ""),
+             background: String(form.get("background") || ""),
+             features: splitList(form.get("features")),
+             outputs: splitList(form.get("outputs")),
+             lessonsLearned: String(form.get("lessonsLearned") || ""),
             github: String(form.get("github") || ""),
             demoUrl: String(form.get("demoUrl") || ""),
             date: String(form.get("date")),
@@ -1512,19 +1679,31 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
             description: String(form.get("description")),
             evidence: "",
           });
-      await uploadPortfolioFile(
-        project ? "portfolio" : "achievement",
-        created.id,
-        file,
-      );
-      setNotice(
-        `${project ? "Karya" : "Prestasi"} tersimpan sebagai draf. Kamu dapat mengirimkannya untuk verifikasi dari halaman portofolio.`,
-      );
+      setNotice(uploads.length ? `Mengunggah 0/${uploads.length} gambar...` : "Menyelesaikan penyimpanan...");
+      for (let index = 0; index < uploads.length; index += 1) {
+        const item = uploads[index];
+        setUploads((current) => current.map((upload) => upload.id === item.id ? { ...upload, status: "uploading" } : upload));
+        try {
+          await uploadPortfolioFile(project ? "portfolio" : "achievement", created.id, item.file);
+          setUploads((current) => current.map((upload) => upload.id === item.id ? { ...upload, status: "uploaded" } : upload));
+          setNotice(`Mengunggah ${index + 1}/${uploads.length} gambar...`);
+        } catch (reason) {
+          setUploads((current) => current.map((upload) => upload.id === item.id ? { ...upload, status: "failed" } : upload));
+          throw reason;
+        }
+      }
       setSaveOpen(false);
+      addToast({
+        variant: "success",
+        title: project ? "Draf berhasil disimpan" : "Prestasi berhasil disimpan",
+        description: project ? `${uploads.length ? `${uploads.length} gambar berhasil diunggah. ` : ""}Karya bisa dilanjutkan atau dikirim untuk verifikasi.` : `${uploads.length ? `${uploads.length} gambar berhasil diunggah. ` : ""}Prestasi siap dikirim untuk verifikasi.`,
+      });
+      setNotice("");
     } catch (reason) {
-      setNotice(
-        reason instanceof Error ? reason.message : "Data gagal disimpan.",
-      );
+      const message = reason instanceof Error ? reason.message : "Data gagal disimpan.";
+      setNotice(message);
+      setSaveOpen(false);
+      addToast({ variant: "error", title: project ? "Draf gagal disimpan" : "Prestasi gagal disimpan", description: message, duration: null });
     } finally {
       setSaving(false);
     }
@@ -1644,19 +1823,7 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
                   placeholder="Nama penyelenggara"
                 />
               </FormField>
-            )}
-            {project && (
-              <FormField id="status" label="Status karya">
-                <select
-                  name="status"
-                  id="status"
-                  className={`${inputClass} appearance-none`}
-                >
-                  <option value="DRAFT">Draf</option>
-                  <option value="PUBLISHED">Publikasikan</option>
-                </select>
-              </FormField>
-            )}
+              )}
             {!project && (
               <>
                 <FormField
@@ -1689,9 +1856,14 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
               <input name="date" id="date" type="date" className={inputClass} />
             </FormField>
             <div className="sm:col-span-2">
+              {project && <FormField id="summary" label="Ringkasan" error={errors.summary}>
+                <textarea name="summary" id="summary" className={`${inputClass} h-20 resize-y py-3`} placeholder="Ringkasan singkat yang tampil pada daftar dan bagian atas detail karya." />
+              </FormField>}
+            </div>
+            <div className="sm:col-span-2">
               <FormField
                 id="description"
-                label="Deskripsi"
+                label={project ? "Deskripsi proyek" : "Deskripsi"}
                 error={errors.description}
               >
                 <textarea
@@ -1702,6 +1874,29 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
                 />
               </FormField>
             </div>
+            {project && (
+              <>
+                <div className="sm:col-span-2 mt-2 rounded-xl border border-[#dce8f5] bg-[#f8fbff] p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-primary">Detail proyek</p>
+                  <p className="mt-1 text-[11px] leading-5 text-muted">Bagian ini opsional. Isi hanya informasi yang benar-benar ingin ditampilkan pada detail karya.</p>
+                </div>
+                <FormField id="purpose" label="Tujuan proyek · opsional">
+                  <textarea name="purpose" id="purpose" className={`${inputClass} h-24 resize-y py-3`} placeholder="Apa tujuan proyek ini dibuat?" />
+                </FormField>
+                <FormField id="background" label="Latar belakang · opsional">
+                  <textarea name="background" id="background" className={`${inputClass} h-24 resize-y py-3`} placeholder="Kebutuhan atau konteks yang melatarbelakangi proyek." />
+                </FormField>
+                <FormField id="features" label="Fitur / implementasi · opsional">
+                  <textarea name="features" id="features" className={`${inputClass} h-28 resize-y py-3`} placeholder="Satu item per baris, atau pisahkan dengan koma." />
+                </FormField>
+                <FormField id="outputs" label="Hasil / output · opsional">
+                  <textarea name="outputs" id="outputs" className={`${inputClass} h-28 resize-y py-3`} placeholder="Satu hasil per baris, atau pisahkan dengan koma." />
+                </FormField>
+                <FormField id="lessonsLearned" label="Catatan pembelajaran · opsional">
+                  <textarea name="lessonsLearned" id="lessonsLearned" className={`${inputClass} h-24 resize-y py-3`} placeholder="Apa yang dipelajari dari proyek ini?" />
+                </FormField>
+              </>
+            )}
             {project && (
               <>
                 <FormField id="github" label="Link GitHub (opsional)">
@@ -1746,43 +1941,41 @@ function PortfolioFormContent({ kind }: { kind: "project" | "achievement" }) {
                   <strong className="mt-2 text-[12px] font-semibold text-primary">
                     Unggah file
                   </strong>
-                  <span className="mt-1 text-[10px] text-muted">
-                    JPG, PNG, atau WebP · Maksimal 5 MB
+                    <span className="mt-1 text-[10px] text-muted">
+                     JPG, PNG, atau WebP · Maksimal 4 MB per file · Maksimal 6 gambar
                   </span>
                   <input
                     id="file"
                     type="file"
+                    multiple={project}
                     accept="image/jpeg,image/png,image/webp"
                     onChange={onFile}
                     className="sr-only"
                   />
                 </label>
-                {preview && (
-                  <div className="mt-3 flex items-center gap-3 rounded-xl border border-[#d7e9f8] bg-[#f7fcff] p-3">
-                    <img
-                      className="size-16 rounded-lg object-cover"
-                      src={preview}
-                      alt="Pratinjau file"
-                    />
-                    <span className="min-w-0 truncate text-[11px] text-muted">
-                      {file?.name}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setFile(null)}
-                      className="ml-auto text-[11px] font-semibold text-[#d62929]"
-                    >
-                      Hapus
-                    </button>
-                  </div>
-                )}
+                  {uploads.length > 0 && (
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                       {uploads.map((upload, index) => (
+                          <div key={upload.id} className="flex min-w-0 items-center gap-3 rounded-xl border border-[#d7e9f8] bg-[#f7fcff] p-3">
+                            <img className="size-16 shrink-0 rounded-lg object-cover" src={upload.previewUrl} alt={`Pratinjau ${upload.file.name}`} />
+                            <div className="min-w-0 flex-1">
+                              <p className="truncate text-[11px] text-muted">{upload.file.name}</p>
+                              <p className={`mt-1 text-[10px] ${upload.status === "failed" ? "text-[#b42332]" : upload.status === "uploaded" ? "text-[#16834a]" : "text-primary"}`}>
+                                {upload.status === "ready" ? "Siap diunggah" : upload.status === "uploading" ? "Mengunggah..." : upload.status === "uploaded" ? "Berhasil diunggah" : "Gagal diunggah"}
+                              </p>
+                            </div>
+                             {upload.status === "ready" && <div className="flex shrink-0 gap-1"><button type="button" disabled={index === 0} onClick={() => setUploads((current) => { const next = [...current]; [next[index - 1], next[index]] = [next[index], next[index - 1]]; return next; })} className="rounded border border-[#b9dafa] px-2 py-1 text-[10px] text-primary disabled:opacity-40" aria-label="Pindah ke atas">↑</button><button type="button" disabled={index === uploads.length - 1} onClick={() => setUploads((current) => { const next = [...current]; [next[index], next[index + 1]] = [next[index + 1], next[index]]; return next; })} className="rounded border border-[#b9dafa] px-2 py-1 text-[10px] text-primary disabled:opacity-40" aria-label="Pindah ke bawah">↓</button><button type="button" onClick={() => setUploads((current) => current.filter((item) => item.id !== upload.id))} className="text-[11px] font-semibold text-[#d62929]">Hapus</button></div>}
+                          </div>
+                      ))}
+                    </div>
+                  )}
               </FormField>
             </div>
           </div>
           <div className="flex flex-col gap-4 border-t border-[#e7edf5] pt-5 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-xl text-[11px] leading-5 text-muted">
               {project
-                ? "Data hanya akan menjadi draf lokal sampai backend tersedia."
+                ? "Data akan disimpan ke server sebagai draf. Kamu dapat mengirimkannya untuk verifikasi setelah disimpan."
                 : "Prestasi akan berstatus menunggu verifikasi dan tidak dapat diberi badge terverifikasi oleh siswa."}
             </p>
             <button

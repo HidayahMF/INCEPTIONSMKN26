@@ -2,16 +2,18 @@
 
 Deployment uses Vercel Git Integration. There is no GitHub Actions Vercel CLI workflow and no Vercel deployment secret is required in GitHub.
 
-The flow is:
+The frontend and backend projects are deployed independently. A backend deployment does not require changing or redeploying the Public Website.
+
+The intended flow is:
 
 ```text
-git push origin main
+approved release branch or main
         ↓
 GitHub main
         ↓
 Vercel Git Integration
         ↓
-Frontend and backend production deployments
+only the Vercel project connected to that branch/root
 ```
 
 ## Frontend Project
@@ -72,10 +74,12 @@ Never commit `.env` files or expose backend secrets through Vite.
 
 ## Automatic Deployment Test
 
-After both Vercel projects are connected, push a documentation-only commit:
+After the backend project is configured, verify a deployment from an approved commit/branch in the backend project's Vercel dashboard. Do not deploy uncommitted local changes. If the frontend is already deployed, its existing rewrite points to the backend URL and does not need a frontend code change.
+
+For a later approved release, push the selected release branch or `main`:
 
 ```bash
-git push origin main
+git push origin <approved-release-branch>
 ```
 
-Vercel should create one production deployment for each project. Verify the deployment commit in the Vercel dashboard before calling automatic deployment verified.
+Only the Vercel project connected to that branch should create the deployment. Verify the deployment commit in the Vercel dashboard before calling automatic deployment verified. Roll back by opening the last known-good deployment in the backend project and choosing **Promote to Production**; do not roll back or redeploy the frontend unless it was independently changed.

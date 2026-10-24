@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "../routes/compat";
 import { useAuth } from "../features/auth/AuthProvider";
 import { getActiveRolePresentation } from "../features/auth/rolePresentation";
+import { PortalShellHost, usePortalShellHost } from "./PortalShellContext";
 
 type PortalLayoutProps = { children: ReactNode; breadcrumb?: string };
 type PortalLink = { label: string; href: string; icon: string; permission?: string };
@@ -18,6 +19,7 @@ const links: PortalLink[] = [
 ];
 
 export function PortalLayout({ children, breadcrumb = "Beranda" }: PortalLayoutProps) {
+  const hosted = usePortalShellHost();
   const { me, hasPermission, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -28,15 +30,17 @@ export function PortalLayout({ children, breadcrumb = "Beranda" }: PortalLayoutP
     return !link.permission || hasPermission(link.permission);
   });
 
+  if (hosted) return <>{children}</>;
+
   async function signOut() {
     await logout();
     navigate("/login", true);
   }
 
-  return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f3f7fd] text-ink">
+  const shell = (
+    <div className="portal-shell min-h-screen overflow-x-hidden bg-[#f3f7fd] text-ink">
       <div className={`fixed inset-y-0 left-0 z-50 transition-transform duration-300 lg:block ${open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
-        <aside className="flex h-dvh max-h-dvh min-h-0 w-[247px] shrink-0 flex-col overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-gradient-to-b from-[#0788ed] via-[#0789ec] to-[#0677dc] px-5 py-7 text-white">
+        <aside className="portal-sidebar flex h-dvh max-h-dvh min-h-0 shrink-0 flex-col overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-gradient-to-b from-[#0788ed] via-[#0789ec] to-[#0677dc] px-5 py-7 text-white">
           <Link to="/dashboard" onClick={() => setOpen(false)} className="flex items-center gap-2.5">
             <img className="size-[51px] shrink-0 object-contain" src="/assets/shared/branding/smkn26-logo.png" alt="" />
             <span className="min-w-0 text-[13px] font-bold leading-[15px] tracking-[-.02em]">SMK NEGERI 26<br />JAKARTA<small className="mt-1 block text-[7px] font-normal italic leading-3 text-white/80">Belajar, Bekerja, Membangun</small></span>
@@ -48,20 +52,17 @@ export function PortalLayout({ children, breadcrumb = "Beranda" }: PortalLayoutP
               return <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-[13px] font-medium transition ${active ? "bg-white/20 text-white shadow-[0_4px_12px_rgba(0,40,120,.12)]" : "text-white/95 hover:bg-white/10"}`}><PortalIcon name={link.icon} /><span className="min-w-0 flex-1 truncate">{link.label}</span>{active && <span className="h-5 w-1 rounded-full bg-white" aria-hidden="true" />}</Link>;
             })}
           </nav>
-          <div className="mt-7 rounded-xl bg-white px-4 py-4 text-ink shadow-[0_8px_18px_rgba(0,42,115,.12)]">
-            <div className="flex items-center gap-2"><img className="size-9 rounded-lg object-contain" src={rolePresentation.assetPath} alt="" /><div className="min-w-0"><p className="text-[10px] font-medium uppercase tracking-[.08em] text-muted">Akun aktif</p><p className="mt-1 truncate text-[15px] font-bold text-primary">{me?.profile.display_name || "Akun sekolah"}</p></div></div>
-            <p className="mt-2 text-[11px] leading-5 text-muted">{rolePresentation.displayLabel} · {me?.profile.school_identifier || "Identitas akun tersedia setelah sesi aktif."}</p>
-          </div>
           <Link to="/" onClick={() => setOpen(false)} className="group mt-auto flex min-h-11 w-full shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent bg-white px-3 text-[12px] font-semibold text-primary shadow-[0_4px_12px_rgba(0,42,115,.12)] transition hover:border-white hover:bg-primary hover:text-white focus-visible:outline-none"><img className="size-4 shrink-0 object-contain transition-[filter] group-hover:brightness-0 group-hover:invert" src="/assets/pages/siswapages/majesticons_open%20(1).png" alt="" aria-hidden="true" />Kembali ke situs publik</Link>
         </aside>
       </div>
       {open && <button type="button" aria-label="Tutup navigasi" className="fixed inset-0 z-40 bg-ink/30 lg:hidden" onClick={() => setOpen(false)} />}
-      <div className="min-h-screen lg:pl-[247px]">
+      <div className="portal-main-offset min-h-screen">
         <PortalTopbar me={me} rolePresentation={rolePresentation} breadcrumb={breadcrumb} onOpenMenu={() => setOpen(true)} onLogout={signOut} />
         <main className="mx-auto w-full max-w-[1400px] px-5 py-7 sm:px-8 lg:px-8 lg:py-8">{children}</main>
       </div>
     </div>
   );
+  return <PortalShellHost>{shell}</PortalShellHost>;
 }
 
 function PortalTopbar({ me, rolePresentation, breadcrumb, onOpenMenu, onLogout }: { me: ReturnType<typeof useAuth>["me"]; rolePresentation: ReturnType<typeof getActiveRolePresentation>; breadcrumb: string; onOpenMenu: () => void; onLogout: () => Promise<void> }) {

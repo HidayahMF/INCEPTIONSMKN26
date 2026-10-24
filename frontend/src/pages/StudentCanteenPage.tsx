@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
 import { api } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 type Product = {
   id: string;
   merchant_id: string;
@@ -25,6 +26,7 @@ const money = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 export function StudentCanteenPage() {
+  const { addToast } = useToast();
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [cart, setCart] = useState<Record<string, number>>({});
@@ -38,8 +40,12 @@ export function StudentCanteenPage() {
   const [busy, setBusy] = useState(false);
   async function load() {
     try {
-      setProducts(await api<Product[]>("/api/student/canteen/products"));
-      setOrders(await api<Order[]>("/api/student/canteen/orders"));
+      const [nextProducts, nextOrders] = await Promise.all([
+        api<Product[]>("/api/student/canteen/products"),
+        api<Order[]>("/api/student/canteen/orders"),
+      ]);
+      setProducts(nextProducts);
+      setOrders(nextOrders);
     } catch (reason) {
       setError(
         reason instanceof Error ? reason.message : "Kantin gagal dimuat.",
@@ -80,10 +86,15 @@ export function StudentCanteenPage() {
       setNotice(
         "Pre-order berhasil dibuat. Pembayaran dilakukan saat pengambilan.",
       );
+      setPendingOrder(null);
+      addToast({ variant: "success", title: "Pesanan kantin berhasil dibuat", description: "Pembayaran dilakukan saat pengambilan." });
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Pre-order gagal dibuat.";
+      setPendingOrder(null);
+      addToast({ variant: "error", title: "Pesanan kantin gagal dibuat", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Pre-order gagal dibuat.",
+        message,
       );
     } finally {
       setBusy(false);

@@ -18,6 +18,7 @@
     "preflight:canteen": "node scripts/preflight-canteen.js",
     "preflight:management": "node scripts/preflight-management.js",
     "test:portfolio:integration": "node scripts/test-portfolio-integration.js",
+    "prepare:portfolio-demo": "node scripts/prepare-portfolio-demo.js",
     "test:pkl:integration": "node scripts/test-pkl-integration.js",
     "test:lostfound:integration": "node scripts/test-lostfound-integration.js",
     "test:aspirations:integration": "node scripts/test-aspirations-integration.js",

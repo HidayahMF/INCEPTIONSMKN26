@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { PortalLayout } from "../layouts/PortalLayout";
 import { RequirePermission } from "../features/auth/RequireAuth";
-import { api } from "../lib/api";
+import { api, getCachedApi } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 
 type Summary = {
   users: { active: number };
@@ -112,10 +113,11 @@ export function AdminManagementPage() {
   );
 }
 function Content() {
-  const [summary, setSummary] = useState<Summary | null>(null);
-  const [monitor, setMonitor] = useState<Monitoring | null>(null);
-  const [users, setUsers] = useState<User[]>([]);
-  const [audits, setAudits] = useState<Audit[]>([]);
+  const { addToast } = useToast();
+  const [summary, setSummary] = useState<Summary | null>(() => getCachedApi<Summary>("/api/admin/management/summary") || null);
+  const [monitor, setMonitor] = useState<Monitoring | null>(() => getCachedApi<Monitoring>("/api/admin/management/monitoring") || null);
+  const [users, setUsers] = useState<User[]>(() => getCachedApi<{ items: User[] }>("/api/admin/management/users?pageSize=50")?.items || []);
+  const [audits, setAudits] = useState<Audit[]>(() => getCachedApi<{ items: Audit[] }>("/api/admin/management/audit?pageSize=20")?.items || []);
   const [tab, setTab] = useState<"overview" | "users" | "audit">("overview");
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
@@ -170,10 +172,15 @@ function Content() {
         method: "PATCH",
         body: JSON.stringify({ active: !user.is_active }),
       });
+      setPendingUser(null);
+      addToast({ variant: "success", title: "Status akun berhasil diperbarui", description: `${user.display_name} sekarang ${user.is_active ? "nonaktif" : "aktif"}.` });
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Status akun gagal diubah.";
+      setPendingUser(null);
+      addToast({ variant: "error", title: "Status akun gagal diubah", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Status akun gagal diubah.",
+        message,
       );
     } finally {
       setBusy(false);
@@ -259,6 +266,8 @@ function Content() {
         setNotice(
           `Role ${roleForm.roleCode} berhasil ditambahkan atau dipulihkan.`,
         );
+        setPendingRole(null);
+        addToast({ variant: "success", title: "Role berhasil ditambahkan", description: `${roleForm.roleCode} telah diberikan kepada ${pendingRole.user.display_name}.` });
       } else if (pendingRole.role) {
         await api(`/api/admin/management/roles/${pendingRole.role.id}/status`, {
           method: "PATCH",
@@ -267,13 +276,16 @@ function Content() {
         setNotice(
           `Role ${pendingRole.role.role_code} berhasil ${pendingRole.active ? "dipulihkan" : "dicabut"}.`,
         );
+        setPendingRole(null);
+        addToast({ variant: "success", title: pendingRole.active ? "Role berhasil dipulihkan" : "Role berhasil dicabut", description: pendingRole.role.role_code });
       }
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Perubahan role gagal disimpan.";
+      setPendingRole(null);
+      addToast({ variant: "error", title: "Perubahan role gagal disimpan", description: message, duration: null });
       setError(
-        reason instanceof Error
-          ? reason.message
-          : "Perubahan role gagal disimpan.",
+        message,
       );
     } finally {
       setBusy(false);

@@ -4,6 +4,7 @@ import { TeacherPortalLayout } from "../layouts/TeacherPortalLayout";
 import { api } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
 import { TextInputDialog } from "../components/shared/TextInputDialog";
+import { useToast } from "../components/shared/ToastProvider";
 type Item = {
   id: string;
   classLabel: string;
@@ -21,6 +22,7 @@ export function TeacherAspirationsPage() {
   );
 }
 function Content() {
+  const { addToast } = useToast();
   const [items, setItems] = useState<Item[]>([]);
   const [error, setError] = useState("");
   const [input, setInput] = useState<{ id: string; status: string } | null>(
@@ -51,10 +53,17 @@ function Content() {
         method: "POST",
         body: JSON.stringify({ status, message }),
       });
+      setConfirm(null);
+      setInput(null);
+      addToast({ variant: "success", title: "Respons aspirasi berhasil disimpan", description: "Status aspirasi telah diperbarui." });
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Respons gagal disimpan.";
+      setConfirm(null);
+      setInput(null);
+      addToast({ variant: "error", title: "Respons aspirasi gagal disimpan", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Respons gagal disimpan.",
+        message,
       );
     } finally {
       setBusy(false);

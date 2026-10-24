@@ -13,6 +13,7 @@ import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
 import type { LostFoundType } from "../components/student/lostfound/lostfound.types";
 import { createLostFoundItem } from "../components/student/lostfound/lostfound.api";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 
 type ReportValues = {
   type: LostFoundType;
@@ -80,6 +81,7 @@ export function StudentLostFoundReportPage() {
 }
 
 function StudentLostFoundReportContent() {
+  const { addToast } = useToast();
   const { me } = useAuth();
   const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
   const [values, setValues] = useState<ReportValues>(initialValues);
@@ -170,11 +172,16 @@ function StudentLostFoundReportContent() {
         photo: values.photo,
       });
       setNotice("Laporan berhasil dikirim dan menunggu verifikasi petugas.");
+      setConfirmOpen(false);
+      addToast({ variant: "success", title: "Laporan barang berhasil dibuat", description: "Laporan menunggu verifikasi petugas." });
       setValues(initialValues());
       setConfirmOpen(false);
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Laporan gagal dikirim.";
+      setConfirmOpen(false);
+      addToast({ variant: "error", title: "Laporan barang gagal dibuat", description: message, duration: null });
       setNotice(
-        reason instanceof Error ? reason.message : "Laporan gagal dikirim.",
+        message,
       );
     } finally {
       setBusy(false);

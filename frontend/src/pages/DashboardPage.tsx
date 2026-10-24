@@ -18,15 +18,16 @@ import { PortalLayout } from "../layouts/PortalLayout";
 import { Link, Navigate } from "../routes/compat";
 import { TeacherDashboardPage } from "./TeacherDashboardPage";
 import { getActiveRolePresentation } from "../features/auth/rolePresentation";
+import { getCachedApi } from "../lib/api";
 
 export function DashboardPage() {
   const { me, hasPermission } = useAuth();
-  const [learning, setLearning] = useState<LearningSummary | null>(null);
+  const [learning, setLearning] = useState<LearningSummary | null>(() => getCachedApi<LearningSummary>("/api/student/learning") || null);
   const isStudentAccount = me?.profile.account_type === "STUDENT";
   const isStudentPortal = isStudentAccount && !["aspirations:review", "portfolio:review", "pkl:manage", "lost_found:manage", "merchant:manage", "content:manage", "admin:manage"].some((permission) => hasPermission(permission));
 
   useEffect(() => {
-    if (isStudentPortal) getLearningSummary().then(setLearning).catch(() => setLearning(null));
+    if (isStudentPortal) getLearningSummary().then(setLearning).catch(() => undefined);
   }, [isStudentPortal]);
 
   return <RequireAuth>{isStudentPortal ? <StudentDashboard me={me} learning={learning} /> : hasPermission("admin:manage") ? <Navigate to="/admin/management" replace /> : me?.profile.account_type === "TEACHER" && hasPermission("grades:manage") ? <TeacherDashboardPage /> : <StaffDashboard me={me} hasPermission={hasPermission} />}</RequireAuth>;
@@ -67,7 +68,7 @@ function StaffDashboard({ me, hasPermission }: { me: ReturnType<typeof useAuth>[
     hasPermission("aspirations:review") && { to: "/dashboard/teacher/aspirations", eyebrow: "Suara siswa", title: "Aspirasi Kelas", copy: "Tinjau dan tindak lanjuti aspirasi yang masuk." },
     hasPermission("merchant:manage") && { to: "/dashboard/teacher/canteen", eyebrow: "Operasional", title: "Kantin Digital", copy: "Kelola produk dan pesanan merchant yang ditugaskan." },
   ].filter(Boolean) as Array<{ to: string; eyebrow: string; title: string; copy: string }>;
-  return <PortalLayout breadcrumb="Beranda"><div className="grid min-w-0 gap-6"><header className="flex min-w-0 flex-col justify-between gap-5 lg:flex-row lg:items-end"><div><p className="text-[11px] font-semibold uppercase tracking-[.12em] text-primary">{rolePresentation.portalContextLabel}</p><h1 className="mt-2 break-words text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">Selamat datang, {me?.profile.display_name || "Akun sekolah"}</h1><p className="mt-2 max-w-2xl text-[13px] leading-6 text-muted">Akses modul sesuai peran dan penugasan akun Anda.</p></div><div className="flex w-fit items-center gap-3 rounded-2xl border border-[#dce8f5] bg-white p-3"><img className="size-11 rounded-xl object-contain" src={rolePresentation.assetPath} alt="" /><div><p className="text-[10px] font-medium uppercase tracking-[.12em] text-muted">Role aktif</p><p className="mt-1 text-[13px] font-bold text-primary-dark">{rolePresentation.displayLabel}</p></div></div></header><div className="grid gap-4 md:grid-cols-2">{cards.map((card) => <StaffCard key={card.to} {...card} />)}</div>{cards.length === 0 && <p className="rounded-2xl border border-dashed border-[#cbd9e8] bg-white p-6 text-[13px] text-muted">Belum ada modul yang ditugaskan untuk akun ini.</p>}</div></PortalLayout>;
+  return <PortalLayout breadcrumb="Beranda"><div className="grid min-w-0 gap-6"><header className="flex min-w-0 flex-col gap-2"><p className="text-[11px] font-semibold uppercase tracking-[.12em] text-primary">{rolePresentation.portalContextLabel}</p><h1 className="break-words text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">Selamat datang, {me?.profile.display_name || "Akun sekolah"}</h1><p className="max-w-2xl text-[13px] leading-6 text-muted">Akses modul sesuai peran dan penugasan akun Anda.</p></header><div className="grid gap-4 md:grid-cols-2">{cards.map((card) => <StaffCard key={card.to} {...card} />)}</div>{cards.length === 0 && <p className="rounded-2xl border border-dashed border-[#cbd9e8] bg-white p-6 text-[13px] text-muted">Belum ada modul yang ditugaskan untuk akun ini.</p>}</div></PortalLayout>;
 }
 
 function StaffCard({ to, eyebrow, title, copy }: { to: string; eyebrow: string; title: string; copy: string }) {

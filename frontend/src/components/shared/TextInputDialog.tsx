@@ -58,7 +58,7 @@ export function TextInputDialog({
   if (!open) return null;
   return (
     <div
-      className="fixed inset-0 z-[100] grid place-items-center bg-[#07152b]/55 p-4"
+      className="portal-modal-backdrop fixed inset-0 z-[130] grid place-items-center bg-[#07152b]/55 p-4"
       role="presentation"
     >
       <div
@@ -67,7 +67,7 @@ export function TextInputDialog({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="w-full max-w-[390px] rounded-[20px] bg-white p-7 shadow-[0_24px_70px_rgba(7,35,72,.24)]"
+        className="portal-modal-panel max-h-[calc(100dvh-2rem)] w-full max-w-[390px] overflow-y-auto rounded-[20px] bg-white p-7 shadow-[0_24px_70px_rgba(7,35,72,.24)]"
       >
         <h2
           id={titleId}

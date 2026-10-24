@@ -3,13 +3,25 @@ import { RequirePermission } from "../features/auth/RequireAuth";
 import { api } from "../lib/api";
 import { TeacherPortalLayout } from "../layouts/TeacherPortalLayout";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 
 type ReviewItem = {
   id: string;
   title: string;
   category?: string;
   competition?: string;
+  summary?: string;
   description: string;
+  role?: string;
+  purpose?: string;
+  background?: string;
+  features?: string[];
+  outputs?: string[];
+  skills?: string[];
+  lessonsLearned?: string;
+  github?: string;
+  demoUrl?: string;
+  files?: { id: string; name: string; mimeType: string; size: number; createdAt: string }[];
   date: string;
 };
 
@@ -22,6 +34,7 @@ export function TeacherPortfolioReviewPage() {
 }
 
 function TeacherPortfolioReviewContent() {
+  const { addToast } = useToast();
   const [tab, setTab] = useState<"portfolio" | "achievement">("portfolio");
   const [items, setItems] = useState<ReviewItem[]>([]);
   const [error, setError] = useState("");
@@ -30,6 +43,7 @@ function TeacherPortfolioReviewContent() {
   const [rejecting, setRejecting] = useState<ReviewItem | null>(null);
   const [rejectNote, setRejectNote] = useState("");
   const [verifying, setVerifying] = useState<ReviewItem | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   async function load() {
     try {
@@ -66,11 +80,17 @@ function TeacherPortfolioReviewContent() {
         `${item.title} ${decision === "VERIFIED" ? "diverifikasi" : "dikembalikan untuk revisi"}.`,
       );
       setRejecting(null);
+      setVerifying(null);
+      addToast({ variant: "success", title: decision === "VERIFIED" ? "Pengajuan berhasil diverifikasi" : "Pengajuan dikembalikan untuk revisi", description: item.title });
       setRejectNote("");
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Review gagal disimpan.";
+      setRejecting(null);
+      setVerifying(null);
+      addToast({ variant: "error", title: "Review gagal disimpan", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Review gagal disimpan.",
+        message,
       );
     } finally {
       setBusy("");
@@ -154,7 +174,14 @@ function TeacherPortfolioReviewContent() {
                       {item.date}
                     </td>
                     <td className="px-5 py-4">
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setExpanded((current) => current === item.id ? null : item.id)}
+                          className="rounded-lg border border-[#b9dafa] px-3 py-2 text-[11px] font-semibold text-primary"
+                        >
+                          {expanded === item.id ? "Tutup detail" : "Lihat detail"}
+                        </button>
                         <button
                           disabled={busy === item.id}
                           type="button"
@@ -175,6 +202,25 @@ function TeacherPortfolioReviewContent() {
                           Tolak
                         </button>
                       </div>
+                      {expanded === item.id && (
+                        <div className="mt-4 grid gap-3 rounded-xl border border-[#e1e9f4] bg-[#f8fbff] p-4 text-[11px] leading-5 text-muted sm:col-span-4">
+                          {tab === "portfolio" ? (
+                            <>
+                              {item.summary && <ReviewDetail label="Ringkasan" value={item.summary} />}
+                              <ReviewDetail label="Deskripsi" value={item.description} />
+                              {item.role && <ReviewDetail label="Peran siswa" value={item.role} />}
+                              {item.purpose && <ReviewDetail label="Tujuan" value={item.purpose} />}
+                              {item.background && <ReviewDetail label="Latar belakang" value={item.background} />}
+                              {item.features?.length ? <ReviewList label="Fitur / implementasi" items={item.features} /> : null}
+                              {item.outputs?.length ? <ReviewList label="Hasil / output" items={item.outputs} /> : null}
+                              {item.skills?.length ? <ReviewList label="Teknologi / keahlian" items={item.skills} /> : null}
+                              {item.lessonsLearned && <ReviewDetail label="Pembelajaran" value={item.lessonsLearned} />}
+                              {(item.github || item.demoUrl) && <ReviewDetail label="Tautan" value={[item.github, item.demoUrl].filter(Boolean).join(" · ")} />}
+                            </>
+                          ) : <ReviewDetail label="Deskripsi" value={item.description} />}
+                          {item.files?.length ? <ReviewList label="Dokumentasi" items={item.files.map((file) => `${file.name} (${file.mimeType})`)} /> : <ReviewDetail label="Dokumentasi" value="Tidak ada file yang dikirim." />}
+                        </div>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -193,14 +239,14 @@ function TeacherPortfolioReviewContent() {
         )}
         {rejecting && (
           <div
-            className="fixed inset-0 z-50 grid place-items-center bg-ink/35 p-4"
+            className="portal-modal-backdrop fixed inset-0 z-[110] grid place-items-center bg-ink/35 p-4"
             role="presentation"
           >
             <section
               role="dialog"
               aria-modal="true"
               aria-labelledby="reject-title"
-              className="w-full max-w-md rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-2xl"
+              className="portal-modal-panel max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-2xl"
             >
               <h2 id="reject-title" className="text-[17px] font-bold text-ink">
                 Kembalikan untuk revisi
@@ -259,4 +305,12 @@ function TeacherPortfolioReviewContent() {
       </div>
     </TeacherPortalLayout>
   );
+}
+
+function ReviewDetail({ label, value }: { label: string; value: string }) {
+  return <p><strong className="text-ink">{label}:</strong> {value}</p>;
+}
+
+function ReviewList({ label, items }: { label: string; items: string[] }) {
+  return <div><strong className="text-ink">{label}:</strong><ul className="mt-1 list-disc pl-5">{items.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}</ul></div>;
 }

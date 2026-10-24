@@ -21,6 +21,16 @@ import { canteenRouter } from './modules/canteen/canteen.routes.js';
 import { managementRouter } from './modules/management/management.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
+app.use((req, res, next) => {
+  const started = process.hrtime.bigint();
+  res.on('finish', () => {
+    const duration = Number(process.hrtime.bigint() - started) / 1e6;
+    if (process.env.NODE_ENV !== 'test' && duration >= 500) {
+      console.warn(`[slow-api] ${req.method} ${req.originalUrl} ${res.statusCode} ${duration.toFixed(0)}ms`);
+    }
+  });
+  next();
+});
 app.use(helmet());
 app.use(cors({ origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173', credentials: true }));
 app.use(express.json({limit:'16kb'}));

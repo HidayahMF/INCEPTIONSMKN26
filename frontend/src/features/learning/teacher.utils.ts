@@ -10,6 +10,16 @@ let assignmentsRequest: Promise<Assignment[]> | null = null;
 const assignmentCache = new Map<string, LoadedTeacherAssignment>();
 const assignmentRequests = new Map<string, Promise<LoadedTeacherAssignment>>();
 
+export function hasCachedTeacherAssignments() {
+  return Boolean(assignmentsCache);
+}
+
+export function getCachedTeacherWorkspace(): LoadedTeacherAssignment[];
+export function getCachedTeacherWorkspace(assignmentId: string): LoadedTeacherAssignment | undefined;
+export function getCachedTeacherWorkspace(assignmentId?: string) {
+  return assignmentId ? assignmentCache.get(assignmentId) : [...assignmentCache.values()];
+}
+
 export function getCachedTeacherAssignments() {
   if (assignmentsCache) return Promise.resolve(assignmentsCache);
   if (!assignmentsRequest) {
@@ -19,6 +29,10 @@ export function getCachedTeacherAssignments() {
     }).finally(() => { assignmentsRequest = null; });
   }
   return assignmentsRequest;
+}
+
+export function getCachedTeacherAssignmentsSnapshot() {
+  return assignmentsCache || [];
 }
 
 export async function loadTeacherAssignment(assignment: Assignment): Promise<LoadedTeacherAssignment> {

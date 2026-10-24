@@ -3,6 +3,7 @@ import { RequirePermission } from "../features/auth/RequireAuth";
 import { api } from "../lib/api";
 import { TeacherPortalLayout } from "../layouts/TeacherPortalLayout";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 type Item = {
   id: string;
   name: string;
@@ -27,6 +28,7 @@ export function TeacherLostFoundReviewPage() {
   );
 }
 function Content() {
+  const { addToast } = useToast();
   const [items, setItems] = useState<Item[]>([]);
   const [claims, setClaims] = useState<Claim[]>([]);
   const [notice, setNotice] = useState("");
@@ -60,10 +62,15 @@ function Content() {
         body: body ? JSON.stringify(body) : undefined,
       });
       setNotice("Perubahan berhasil disimpan.");
+      setPending(null);
+      addToast({ variant: "success", title: "Perubahan Lost & Found berhasil disimpan", description: "Status dan riwayat laporan telah diperbarui." });
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Perubahan gagal disimpan.";
+      setPending(null);
+      addToast({ variant: "error", title: "Perubahan Lost & Found gagal", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Perubahan gagal disimpan.",
+        message,
       );
     } finally {
       setBusy(false);

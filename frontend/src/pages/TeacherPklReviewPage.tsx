@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { RequirePermission } from "../features/auth/RequireAuth";
 import { api } from "../lib/api";
 import { TeacherPortalLayout } from "../layouts/TeacherPortalLayout";
+import { useToast } from "../components/shared/ToastProvider";
 
 type Vacancy = {
   id: string;
@@ -28,6 +29,7 @@ export function TeacherPklReviewPage() {
   );
 }
 function Content() {
+  const { addToast } = useToast();
   const [vacancies, setVacancies] = useState<Vacancy[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
   const [notice, setNotice] = useState("");
@@ -64,11 +66,14 @@ function Content() {
         body: JSON.stringify(payload),
       });
       setNotice("Lowongan tersimpan sebagai draf.");
+      addToast({ variant: "success", title: "Lowongan berhasil disimpan", description: "Lowongan tersimpan sebagai draf." });
       event.currentTarget.reset();
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Lowongan gagal disimpan.";
+      addToast({ variant: "error", title: "Lowongan gagal disimpan", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Lowongan gagal disimpan.",
+        message,
       );
     }
   }
@@ -78,9 +83,12 @@ function Content() {
         method: "POST",
       });
       setNotice("Lowongan dipublikasikan.");
+      addToast({ variant: "success", title: "Lowongan berhasil dipublikasikan" });
       await load();
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Publikasi gagal.");
+      const message = reason instanceof Error ? reason.message : "Publikasi gagal.";
+      addToast({ variant: "error", title: "Publikasi lowongan gagal", description: message, duration: null });
+      setError(message);
     }
   }
   async function status(id: string, next: string) {
@@ -93,10 +101,13 @@ function Content() {
         }),
       });
       setNotice("Status lamaran diperbarui.");
+      addToast({ variant: "success", title: "Status lamaran berhasil diperbarui" });
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Status gagal diperbarui.";
+      addToast({ variant: "error", title: "Status lamaran gagal diperbarui", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Status gagal diperbarui.",
+        message,
       );
     }
   }

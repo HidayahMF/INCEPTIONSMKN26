@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 import { PublicNavbar } from "./components/public/PublicNavbar";
 import { figmaAssets } from "./assets/figmaAssets";
 import { CtaLink } from "./components/public/CtaLink";
@@ -7,33 +7,42 @@ import { ShortcutMenu } from "./components/public/ShortcutMenu";
 import { SchoolOverview } from "./components/public/SchoolOverview";
 import { SchoolAdvantages } from "./components/public/SchoolAdvantages";
 import { PartnerIndustryPage, PartnerLogos } from "./components/public/PartnerLogos";
-import { TourPage } from "./pages/TourPage";
-import { LapanganTourPage } from "./pages/LapanganTourPage";
-import { LoginPage } from "./pages/LoginPage";
-import { DashboardPage } from "./pages/DashboardPage";
-import { TeacherClassesPage, TeacherClassDetailPage } from "./pages/TeacherClassesPage";
-import { TeacherCompetenciesPage } from "./pages/TeacherCompetenciesPage";
-import { StudentPklPage } from "./pages/StudentPklPage";
-import { StudentPklDetailPage } from "./pages/StudentPklDetailPage";
-import { StudentLostFoundPage } from "./pages/StudentLostFoundPage";
-import { StudentLostFoundReportPage } from "./pages/StudentLostFoundReportPage";
-import { StudentLostFoundDetailPage } from "./pages/StudentLostFoundDetailPage";
-import { StudentPortfolioPage, StudentPortfolioProjectDetailPage, StudentPortfolioAchievementDetailPage, StudentPortfolioProjectFormPage, StudentPortfolioAchievementFormPage } from "./pages/StudentPortfolioPage";
-import { StudentPortfolioEditPage } from "./pages/StudentPortfolioEditPage";
-import { ProfileRoutePage } from "./pages/TeacherProfilePage";
-import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
-import { AdminManagementPage } from "./pages/AdminManagementPage";
-import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
-import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
-import { TeacherPortfolioReviewPage } from "./pages/TeacherPortfolioReviewPage";
-import { TeacherPklReviewPage } from "./pages/TeacherPklReviewPage";
-import { TeacherLostFoundReviewPage } from "./pages/TeacherLostFoundReviewPage";
-import { StudentAspirationsPage } from "./pages/StudentAspirationsPage";
-import { TeacherAspirationsPage } from "./pages/TeacherAspirationsPage";
-import { StudentCanteenPage } from "./pages/StudentCanteenPage";
-import { TeacherCanteenPage } from "./pages/TeacherCanteenPage";
+const TourPage = lazy(() => import("./pages/TourPage").then((module) => ({ default: module.TourPage })));
+const LapanganTourPage = lazy(() => import("./pages/LapanganTourPage").then((module) => ({ default: module.LapanganTourPage })));
+const LoginPage = lazy(() => import("./pages/LoginPage").then((module) => ({ default: module.LoginPage })));
+const DashboardPage = lazy(() => import("./pages/DashboardPage").then((module) => ({ default: module.DashboardPage })));
+const TeacherClassesPage = lazy(() => import("./pages/TeacherClassesPage").then((module) => ({ default: module.TeacherClassesPage })));
+const TeacherClassDetailPage = lazy(() => import("./pages/TeacherClassesPage").then((module) => ({ default: module.TeacherClassDetailPage })));
+const TeacherCompetenciesPage = lazy(() => import("./pages/TeacherCompetenciesPage").then((module) => ({ default: module.TeacherCompetenciesPage })));
+const StudentPklPage = lazy(() => import("./pages/StudentPklPage").then((module) => ({ default: module.StudentPklPage })));
+const StudentPklDetailPage = lazy(() => import("./pages/StudentPklDetailPage").then((module) => ({ default: module.StudentPklDetailPage })));
+const StudentLostFoundPage = lazy(() => import("./pages/StudentLostFoundPage").then((module) => ({ default: module.StudentLostFoundPage })));
+const StudentLostFoundReportPage = lazy(() => import("./pages/StudentLostFoundReportPage").then((module) => ({ default: module.StudentLostFoundReportPage })));
+const StudentLostFoundDetailPage = lazy(() => import("./pages/StudentLostFoundDetailPage").then((module) => ({ default: module.StudentLostFoundDetailPage })));
+const StudentPortfolioPage = lazy(() => import("./pages/StudentPortfolioPage").then((module) => ({ default: module.StudentPortfolioPage })));
+const StudentPortfolioProjectDetailPage = lazy(() => import("./pages/StudentPortfolioPage").then((module) => ({ default: module.StudentPortfolioProjectDetailPage })));
+const StudentPortfolioAchievementDetailPage = lazy(() => import("./pages/StudentPortfolioPage").then((module) => ({ default: module.StudentPortfolioAchievementDetailPage })));
+const StudentPortfolioProjectFormPage = lazy(() => import("./pages/StudentPortfolioPage").then((module) => ({ default: module.StudentPortfolioProjectFormPage })));
+const StudentPortfolioAchievementFormPage = lazy(() => import("./pages/StudentPortfolioPage").then((module) => ({ default: module.StudentPortfolioAchievementFormPage })));
+const StudentPortfolioEditPage = lazy(() => import("./pages/StudentPortfolioEditPage").then((module) => ({ default: module.StudentPortfolioEditPage })));
+const ProfileRoutePage = lazy(() => import("./pages/TeacherProfilePage").then((module) => ({ default: module.ProfileRoutePage })));
+const AdminKnowledgePage = lazy(() => import("./pages/AdminKnowledgePage").then((module) => ({ default: module.AdminKnowledgePage })));
+const AdminManagementPage = lazy(() => import("./pages/AdminManagementPage").then((module) => ({ default: module.AdminManagementPage })));
+const LearningRecommendationPage = lazy(() => import("./features/learning/pages/LearningRecommendationPage").then((module) => ({ default: module.LearningRecommendationPage })));
+const TeacherGradesPage = lazy(() => import("./features/learning/pages/TeacherGradesPage").then((module) => ({ default: module.TeacherGradesPage })));
+const TeacherPortfolioReviewPage = lazy(() => import("./pages/TeacherPortfolioReviewPage").then((module) => ({ default: module.TeacherPortfolioReviewPage })));
+const TeacherPklReviewPage = lazy(() => import("./pages/TeacherPklReviewPage").then((module) => ({ default: module.TeacherPklReviewPage })));
+const TeacherLostFoundReviewPage = lazy(() => import("./pages/TeacherLostFoundReviewPage").then((module) => ({ default: module.TeacherLostFoundReviewPage })));
+const StudentAspirationsPage = lazy(() => import("./pages/StudentAspirationsPage").then((module) => ({ default: module.StudentAspirationsPage })));
+const TeacherAspirationsPage = lazy(() => import("./pages/TeacherAspirationsPage").then((module) => ({ default: module.TeacherAspirationsPage })));
+const StudentCanteenPage = lazy(() => import("./pages/StudentCanteenPage").then((module) => ({ default: module.StudentCanteenPage })));
+const TeacherCanteenPage = lazy(() => import("./pages/TeacherCanteenPage").then((module) => ({ default: module.TeacherCanteenPage })));
 import { usePathname } from "./routes/compat";
 import { api } from "./lib/api";
+import { useAuth } from "./features/auth/AuthProvider";
+import { StudentPortalLayout } from "./layouts/StudentPortalLayout";
+import { TeacherPortalLayout } from "./layouts/TeacherPortalLayout";
+import { PortalLayout } from "./layouts/PortalLayout";
 import { FloatingChatbot } from "./components/public/FloatingChatbot";
 import { PublicChatProvider } from "./features/chat/ChatProvider";
 import { PublicChatRoom } from "./features/chat/PublicChatRoom";
@@ -345,6 +354,60 @@ function PublicExperience({ children }: { children: ReactNode }) {
   return <PublicChatProvider><AOSInitializer /><div className="min-w-0 max-w-full overflow-x-clip">{children}</div><FloatingChatbot /><PublicChatRoom /></PublicChatProvider>;
 }
 
+function RouteLoading() {
+  return <main className="min-h-[50vh] bg-[#f3f7fd] p-8" aria-live="polite"><div className="mx-auto max-w-5xl animate-pulse rounded-2xl border border-[#dce8f5] bg-white p-8"><div className="h-7 w-1/3 rounded bg-[#e8f1fb]" /><div className="mt-4 h-4 w-2/3 rounded bg-[#edf4fb]" /><div className="mt-8 h-48 rounded-xl bg-[#f3f7fd]" /></div></main>;
+}
+
+function PortalContentSkeleton() {
+  return <div className="grid min-h-[calc(100vh-144px)] min-w-0 content-start gap-6" aria-live="polite" aria-label="Menyiapkan halaman">
+    <div className="animate-pulse rounded-2xl border border-[#dce8f5] bg-white p-6">
+      <div className="h-7 w-2/5 rounded bg-[#e8f1fb]" />
+      <div className="mt-4 h-4 w-3/5 rounded bg-[#edf4fb]" />
+    </div>
+    <div className="grid gap-4 md:grid-cols-2">
+      <div className="h-40 animate-pulse rounded-2xl bg-white" />
+      <div className="h-40 animate-pulse rounded-2xl bg-white" />
+    </div>
+    <div className="h-56 animate-pulse rounded-2xl bg-white" />
+  </div>;
+}
+
+function portalBreadcrumb(path: string) {
+  if (path.startsWith("/admin/management")) return "Admin Dashboard";
+  if (path.startsWith("/admin/knowledge")) return "Knowledge Base";
+  if (path.startsWith("/dashboard/teacher/classes")) return "Kelas & Mata Pelajaran";
+  if (path === "/dashboard/grades") return "Input Nilai";
+  if (path.startsWith("/dashboard/teacher/competencies")) return "Rekap Kompetensi";
+  if (path.startsWith("/dashboard/teacher/portfolio-review")) return "Review Portofolio & Prestasi";
+  if (path.startsWith("/dashboard/teacher/pkl")) return "BKK & PKL";
+  if (path.startsWith("/dashboard/teacher/lost-found")) return "Lost & Found";
+  if (path.startsWith("/dashboard/teacher/aspirations")) return "Aspirasi Kelas";
+  if (path.startsWith("/dashboard/teacher/canteen")) return "Kantin Digital";
+  if (path.startsWith("/dashboard/portfolio")) return "Portofolio & Prestasi";
+  if (path.startsWith("/dashboard/pkl")) return "PKL & Lamaran";
+  if (path.startsWith("/dashboard/lost-found")) return "Lost & Found";
+  if (path.startsWith("/dashboard/aspirations")) return "Aspirasi Kelas";
+  if (path.startsWith("/dashboard/canteen")) return "Kantin Digital";
+  if (path.startsWith("/dashboard/learning")) return "Pembelajaran";
+  if (path.startsWith("/dashboard/profile")) return "Profil Saya";
+  return "Beranda";
+}
+
+function PortalRouteBoundary({ path, children }: { path: string; children: ReactNode }) {
+  const { me, loading, hasPermission } = useAuth();
+  const isPortalPath = path.startsWith("/dashboard") || path.startsWith("/admin");
+  if (!isPortalPath) return <Suspense fallback={<RouteLoading />}>{children}</Suspense>;
+
+  if (loading || !me) return <Suspense fallback={<RouteLoading />}>{children}</Suspense>;
+
+  const studentRoute = ["/dashboard/portfolio", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/aspirations", "/dashboard/canteen", "/dashboard/learning"].some((prefix) => path === prefix || path.startsWith(`${prefix}/`)) || ((path === "/dashboard" || path === "/dashboard/profile") && me.profile.account_type === "STUDENT");
+  const teacherRoute = path === "/dashboard/grades" || path.startsWith("/dashboard/teacher/") || ((path === "/dashboard" || path === "/dashboard/profile") && me.profile.account_type === "TEACHER" && hasPermission("grades:manage"));
+  const content = <Suspense fallback={<PortalContentSkeleton />}>{children}</Suspense>;
+  if (studentRoute && me.profile.account_type === "STUDENT") return <StudentPortalLayout breadcrumb={portalBreadcrumb(path)}>{content}</StudentPortalLayout>;
+  if (teacherRoute && (me.profile.account_type === "TEACHER" || hasPermission("grades:manage"))) return <TeacherPortalLayout breadcrumb={portalBreadcrumb(path)}>{content}</TeacherPortalLayout>;
+  return <PortalLayout breadcrumb={portalBreadcrumb(path)}>{content}</PortalLayout>;
+}
+
 export function LegacyApp() {
   const path = window.location.pathname;
   if (path === "/") return <Home />;
@@ -382,7 +445,18 @@ export function LegacyApp() {
 }
 
 export function App() {
+  return <Suspense fallback={<RouteLoading />}><AppContent /></Suspense>;
+}
+
+function AppContent() {
   const path = usePathname();
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    const mark = `smkn26-route-content:${path}`;
+    performance.mark(mark);
+    const navigation = performance.getEntriesByName('smkn26-route-navigation-start').at(-1);
+    if (navigation) console.debug(`[navigation] ${path} click→content ${(performance.now() - navigation.startTime).toFixed(0)}ms`);
+  }, [path]);
   if (path.startsWith("/guru/")) {
     const slug = decodeURIComponent(path.slice("/guru/".length));
     const groups: [StaffCategory, StaffMember[]][] = [
@@ -460,10 +534,10 @@ export function App() {
    const isPortfolioProjectEdit = path.startsWith("/dashboard/portfolio/projects/") && path.endsWith("/edit");
    const isPortfolioAchievementEdit = path.startsWith("/dashboard/portfolio/achievements/") && path.endsWith("/edit");
    const isPortfolioProjectDetail = path.startsWith("/dashboard/portfolio/projects/") && !isPortfolioProjectEdit;
-  const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new";
+   const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new" && !isPortfolioAchievementEdit;
    const isTeacherClassDetail = path.startsWith("/dashboard/teacher/classes/");
      if (!["/login", "/dashboard", "/dashboard/profile", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/aspirations", "/dashboard/canteen", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/dashboard/teacher/classes", "/dashboard/teacher/competencies", "/dashboard/teacher/portfolio-review", "/dashboard/teacher/pkl", "/dashboard/teacher/lost-found", "/dashboard/teacher/aspirations", "/dashboard/teacher/canteen", "/admin/knowledge", "/admin/management"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail && !isPortfolioProjectEdit && !isPortfolioAchievementEdit && !isTeacherClassDetail) return <LegacyApp />;
-   return <>
+      return <PortalRouteBoundary path={path}>
     {path === "/login" && <LoginPage />}
      {path === "/dashboard" && <DashboardPage />}
      {path === "/dashboard/teacher/classes" && <TeacherClassesPage />}
@@ -493,5 +567,5 @@ export function App() {
     {path === "/dashboard/grades" && <TeacherGradesPage />}
      {path === "/admin/knowledge" && <AdminKnowledgePage />}
      {path === "/admin/management" && <AdminManagementPage />}
-   </>;
+      </PortalRouteBoundary>;
 }

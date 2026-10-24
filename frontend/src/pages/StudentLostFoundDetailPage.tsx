@@ -9,6 +9,7 @@ import type { LostFoundItem } from "../components/student/lostfound/lostfound.ty
 import { LostFoundGallery } from "../components/student/lostfound/LostFoundGallery";
 import { LostFoundStatusPanel } from "../components/student/lostfound/LostFoundStatusPanel";
 import { LostFoundTimeline } from "../components/student/lostfound/LostFoundTimeline";
+import { useToast } from "../components/shared/ToastProvider";
 
 export function StudentLostFoundDetailPage() {
   const { me } = useAuth();
@@ -17,11 +18,12 @@ export function StudentLostFoundDetailPage() {
 }
 
 function StudentLostFoundDetailContent() {
+  const { addToast } = useToast();
   const { me } = useAuth();
   const pathname = usePathname();
   const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
   const itemId = decodeURIComponent(pathname.slice("/dashboard/lost-found/".length));
-  const [item, setItem] = useState<LostFoundItem | undefined>(() => isDemo ? demoLostFoundItems.find((candidate) => candidate.id === itemId) : undefined); const [claim, setClaim] = useState(""); const [notice, setNotice] = useState("");
+  const [item, setItem] = useState<LostFoundItem | undefined>(() => isDemo ? demoLostFoundItems.find((candidate) => candidate.id === itemId) : undefined); const [claim, setClaim] = useState(""); const [notice, setNotice] = useState(""); const [claimBusy, setClaimBusy] = useState(false);
   useEffect(() => { if (!isDemo) getLostFoundItem(itemId).then(setItem).catch(() => setItem(undefined)); }, [isDemo, itemId]);
 
   if (!item) return <StudentPortalLayout breadcrumb="Lost & Found / Detail Barang"><NotFound /></StudentPortalLayout>;
@@ -31,7 +33,23 @@ function StudentLostFoundDetailContent() {
   const typeClass = item.type === "LOST" ? "bg-[#fff0f0] text-[#ef3030]" : "bg-[#edf6ff] text-primary";
   const verified = item.status === "VERIFIED";
 
-  return <StudentPortalLayout breadcrumb="Lost & Found / Detail Barang">
+   const submitClaim = async () => {
+     if (claimBusy || !claim.trim()) return;
+     setClaimBusy(true);
+     try {
+       await claimLostFoundItem(item.id, claim);
+       setNotice("Klaim berhasil diajukan.");
+       addToast({ variant: "success", title: "Klaim berhasil diajukan", description: "Klaim akan ditinjau oleh petugas." });
+     } catch (reason) {
+       const message = reason instanceof Error ? reason.message : "Klaim gagal diajukan.";
+       setNotice(message);
+       addToast({ variant: "error", title: "Klaim gagal diajukan", description: message, duration: null });
+     } finally {
+       setClaimBusy(false);
+     }
+   };
+
+   return <StudentPortalLayout breadcrumb="Lost & Found / Detail Barang">
     <div className="grid min-w-0 gap-5">
       <Link to="/dashboard/lost-found" className="inline-flex w-fit items-center gap-2 text-[12px] font-medium text-primary transition hover:text-primary-dark focus-visible:rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"><span aria-hidden="true" className="text-lg leading-none">←</span> Kembali ke Lost &amp; Found</Link>
       <header><h1 className="text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">Detail Barang</h1><p className="mt-2 text-[13px] text-[#607296]">Informasi lengkap mengenai barang yang dilaporkan.</p></header>
@@ -44,7 +62,7 @@ function StudentLostFoundDetailContent() {
           </section>
           <section className="rounded-xl border border-[#dce8f5] bg-white p-4 sm:p-5"><h2 className="text-[14px] font-bold text-ink">Informasi Tambahan</h2><p className="mt-3 text-[12px] leading-5 text-[#607296]">{item.additionalInfo || "Tidak ada keterangan tambahan yang dicantumkan."}</p></section>
            {item.history?.length ? <LostFoundTimeline history={item.history} /> : <section className="rounded-xl border border-[#dce8f5] bg-white p-4 sm:p-5"><h2 className="text-[14px] font-bold text-ink">Riwayat Laporan</h2><p className="mt-3 text-[12px] text-[#607296]">Riwayat laporan belum tersedia.</p></section>}
-           {item.status === "VERIFIED" && !item.isMine && <section className="rounded-xl border border-[#dce8f5] bg-white p-4"><h2 className="text-[14px] font-bold text-ink">Klaim kepemilikan</h2><textarea value={claim} onChange={(event) => setClaim(event.target.value)} className="mt-3 min-h-24 w-full rounded-xl border border-[#cbd9ea] p-3 text-[12px]" placeholder="Jelaskan ciri kepemilikan barang ini." /><button type="button" onClick={() => void claimLostFoundItem(item.id, claim).then(() => setNotice("Klaim berhasil diajukan.")).catch((reason) => setNotice(reason instanceof Error ? reason.message : "Klaim gagal diajukan."))} className="mt-3 rounded-xl bg-primary px-4 py-2.5 text-[12px] font-semibold text-white">Ajukan Klaim</button>{notice && <p role="status" className="mt-3 text-[11px] text-muted">{notice}</p>}</section>}
+            {item.status === "VERIFIED" && !item.isMine && <section className="rounded-xl border border-[#dce8f5] bg-white p-4"><h2 className="text-[14px] font-bold text-ink">Klaim kepemilikan</h2><textarea value={claim} onChange={(event) => setClaim(event.target.value)} className="mt-3 min-h-24 w-full rounded-xl border border-[#cbd9ea] p-3 text-[12px]" placeholder="Jelaskan ciri kepemilikan barang ini." /><button type="button" disabled={claimBusy} onClick={() => void submitClaim()} className="mt-3 rounded-xl bg-primary px-4 py-2.5 text-[12px] font-semibold text-white disabled:opacity-50">{claimBusy ? "Mengirim..." : "Ajukan Klaim"}</button>{notice && <p role="status" className="mt-3 text-[11px] text-muted">{notice}</p>}</section>}
         </main>
         <LostFoundStatusPanel item={item} />
       </div>

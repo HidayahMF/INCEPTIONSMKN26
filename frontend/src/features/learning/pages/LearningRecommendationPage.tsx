@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { RequirePermission } from '../../auth/RequireAuth';
 import { StudentPortalLayout } from '../../../layouts/StudentPortalLayout';
 import { generatePractice, getLearningSummary } from '../learning.api';
@@ -8,6 +8,8 @@ import { LearningPracticePanel, type PracticeState } from '../components/Learnin
 import { LearningPriorities } from '../components/LearningPriorities';
 import { LearningSubjectCard } from '../components/LearningSubjectCard';
 import { LearningSummaryCards } from '../components/LearningSummaryCards';
+import { getCachedApi } from '../../../lib/api';
+import { useToast } from '../../../components/shared/ToastProvider';
 
 const statusOptions: { value: 'ALL' | RecommendationStatus; label: string }[] = [
   { value: 'ALL', label: 'Semua status' },
@@ -18,9 +20,11 @@ const statusOptions: { value: 'ALL' | RecommendationStatus; label: string }[] = 
 ];
 
 export function LearningRecommendationPage() {
-  const [data, setData] = useState<LearningSummary | null>(null);
+  const { addToast } = useToast();
+  const [data, setData] = useState<LearningSummary | null>(() => getCachedApi<LearningSummary>('/api/student/learning') || null);
+  const hasData = useRef(Boolean(data));
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !getCachedApi('/api/student/learning'));
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<'ALL' | RecommendationStatus>('ALL');
   const [subjectId, setSubjectId] = useState('ALL');
@@ -28,12 +32,13 @@ export function LearningRecommendationPage() {
   const [busyTopicId, setBusyTopicId] = useState('');
 
   const loadLearning = useCallback(async () => {
-    setLoading(true);
+    setLoading(!hasData.current);
     setError('');
     try {
-      setData(await getLearningSummary());
+      const next = await getLearningSummary();
+      hasData.current = true;
+      setData(next);
     } catch (reason) {
-      setData(null);
       setError(reason instanceof Error ? reason.message : 'Rekomendasi pembelajaran gagal dimuat.');
     } finally {
       setLoading(false);
@@ -49,8 +54,11 @@ export function LearningRecommendationPage() {
     try {
       const result = await generatePractice(topic.topicId);
       setPractice({ topic, generated: result.generated, explanation: result.explanation, questions: result.questions });
+      addToast({ variant: "success", title: "Latihan berhasil dibuat", description: `Latihan untuk topik ${topic.topicName} siap digunakan.` });
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : 'Latihan tidak tersedia.');
+      const message = reason instanceof Error ? reason.message : 'Latihan tidak tersedia.';
+      setError(message);
+      addToast({ variant: "error", title: "Latihan gagal dibuat", description: message, duration: null });
     } finally {
       setBusyTopicId('');
     }
@@ -86,7 +94,7 @@ export function LearningRecommendationPage() {
 
       {error && <div role="alert" className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#f2c9ce] bg-[#fff3f4] p-4 text-[12px] text-[#b42332]"><span>{error}</span><button type="button" onClick={() => void loadLearning()} className="rounded-lg border border-[#e6aab1] px-3 py-2 font-semibold hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b42332]">Coba lagi</button></div>}
       {loading && <LearningLoadingState />}
-      {!loading && data && <>
+      {data && <>
         <LearningSummaryCards summary={data.summary} />
         {!data.subjects.length ? <LearningEmptyState /> : <>
           <LearningPriorities topics={data.weakTopics} busyTopicId={busyTopicId} onPractice={(topic) => void openPractice(topic)} />

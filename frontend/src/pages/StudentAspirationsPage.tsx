@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
 import { api } from "../lib/api";
 import { ActionModal } from "../components/shared/ActionModal";
+import { useToast } from "../components/shared/ToastProvider";
 type Cycle = { id: string; name: string; opens_at: string; closes_at: string };
 type SchoolClass = { id: string; code: string };
 type Aspiration = {
@@ -26,6 +27,7 @@ const categories = [
   ["OTHER", "Lainnya"],
 ];
 export function StudentAspirationsPage() {
+  const { addToast } = useToast();
   const [classes, setClasses] = useState<SchoolClass[]>([]);
   const [cycles, setCycles] = useState<Cycle[]>([]);
   const [items, setItems] = useState<Aspiration[]>([]);
@@ -42,9 +44,12 @@ export function StudentAspirationsPage() {
   const [busy, setBusy] = useState(false);
   async function load() {
     try {
-      const context = await api<{ classes: SchoolClass[]; cycles: Cycle[] }>(
-        "/api/student/aspirations/context",
-      );
+      const [context, nextItems] = await Promise.all([
+        api<{ classes: SchoolClass[]; cycles: Cycle[] }>(
+          "/api/student/aspirations/context",
+        ),
+        api<Aspiration[]> ("/api/student/aspirations"),
+      ]);
       setClasses(context.classes);
       setCycles(context.cycles);
       setForm((current) => ({
@@ -52,7 +57,7 @@ export function StudentAspirationsPage() {
         classId: current.classId || context.classes[0]?.id || "",
         cycleId: current.cycleId || context.cycles[0]?.id || "",
       }));
-      setItems(await api<Aspiration[]>("/api/student/aspirations"));
+      setItems(nextItems);
     } catch (reason) {
       setError(
         reason instanceof Error ? reason.message : "Aspirasi gagal dimuat.",
@@ -62,7 +67,7 @@ export function StudentAspirationsPage() {
   useEffect(() => {
     void load();
   }, []);
-  function submit(event: React.FormEvent) {
+function submit(event: React.FormEvent) {
     event.preventDefault();
     setConfirmOpen(true);
   }
@@ -74,11 +79,16 @@ export function StudentAspirationsPage() {
         body: JSON.stringify(form),
       });
       setNotice("Aspirasi kelas berhasil dikirim ke MPK.");
+      setConfirmOpen(false);
+      addToast({ variant: "success", title: "Aspirasi berhasil dikirim", description: "Aspirasi kelas telah dikirim ke MPK." });
       setForm((current) => ({ ...current, title: "", content: "" }));
       await load();
     } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "Aspirasi gagal dikirim.";
+      setConfirmOpen(false);
+      addToast({ variant: "error", title: "Aspirasi gagal dikirim", description: message, duration: null });
       setError(
-        reason instanceof Error ? reason.message : "Aspirasi gagal dikirim.",
+        message,
       );
     } finally {
       setBusy(false);

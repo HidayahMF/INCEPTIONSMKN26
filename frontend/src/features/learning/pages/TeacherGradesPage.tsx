@@ -22,10 +22,12 @@ import type {
 import { TeacherPortalLayout } from "../../../layouts/TeacherPortalLayout";
 import {
   getCachedTeacherAssignments,
+  getCachedTeacherAssignmentsSnapshot,
   invalidateTeacherAssignment,
   loadTeacherAssignment,
 } from "../teacher.utils";
 import { ActionModal } from "../../../components/shared/ActionModal";
+import { useToast } from "../../../components/shared/ToastProvider";
 
 type Status = { tone: "success" | "error" | "info"; message: string } | null;
 
@@ -44,8 +46,13 @@ export function TeacherGradesPage() {
 }
 
 function TeacherGradesContent() {
-  const [assignments, setAssignments] = useState<Assignment[]>([]);
-  const [assignmentId, setAssignmentId] = useState("");
+  const { addToast } = useToast();
+  const [assignments, setAssignments] = useState<Assignment[]>(() => getCachedTeacherAssignmentsSnapshot());
+  const [assignmentId, setAssignmentId] = useState(() => {
+    const requested = new URLSearchParams(window.location.search).get("assignment");
+    const cached = getCachedTeacherAssignmentsSnapshot();
+    return cached.find((item) => item.id === requested)?.id || cached[0]?.id || "";
+  });
   const [students, setStudents] = useState<StudentRow[]>([]);
   const [topics, setTopics] = useState<Topic[]>([]);
   const [assessments, setAssessments] = useState<Assessment[]>([]);
@@ -58,7 +65,7 @@ function TeacherGradesContent() {
   const [scores, setScores] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>(null);
   const [busy, setBusy] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => getCachedTeacherAssignmentsSnapshot().length === 0);
   const [loadingAssignment, setLoadingAssignment] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [discardOpen, setDiscardOpen] = useState(false);
@@ -251,13 +258,13 @@ function TeacherGradesContent() {
         tone: "success",
         message: "Nilai berhasil disimpan. Data assessment telah diperbarui.",
       });
+      addToast({ variant: "success", title: "Nilai berhasil disimpan", description: "Data assessment telah diperbarui." });
     } catch (reason) {
+      const message = getErrorMessage(reason, "Nilai gagal disimpan. Perubahan lokal dipertahankan.");
+      addToast({ variant: "error", title: "Nilai gagal disimpan", description: message, duration: null });
       setStatus({
         tone: "error",
-        message: getErrorMessage(
-          reason,
-          "Nilai gagal disimpan. Perubahan lokal dipertahankan.",
-        ),
+        message,
       });
     } finally {
       setBusy(false);

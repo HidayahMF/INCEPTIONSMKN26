@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { lazy, Suspense, useRef } from "react";
 
 import { figmaAssets } from "../assets/figmaAssets";
-import { PanoramaViewer } from "../components/tour/PanoramaViewer";
+const PanoramaViewer = lazy(() => import("../components/tour/PanoramaViewer").then((module) => ({ default: module.PanoramaViewer })));
 import { PublicFooter } from "../components/public/PublicFooter";
 import { PublicNavbar } from "../components/public/PublicNavbar";
 import { tourLocations, type TourLocation } from "../data/tourLocations";
@@ -51,7 +51,9 @@ export function LapanganTourPage({ location = tourLocations[0] }: { location?: T
           <div data-aos="zoom-in" data-aos-delay="220" className="relative mx-auto mt-7 flex min-h-[430px] max-w-[1272px] flex-col items-center sm:mt-9 sm:min-h-[700px]">
             <img aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[145px] z-0 h-auto w-[min(1272px,calc(100vw-24px))] max-w-none -translate-x-1/2 object-contain sm:top-[220px] sm:w-[min(1272px,calc(100vw-32px))]" src="/assets/pages/tour/Shape.png" alt="" />
             <div className="relative z-10 flex w-full flex-col items-center">
-              <PanoramaViewer locationName={location.name} panorama={location.image} />
+              <Suspense fallback={<div className="grid aspect-[2/1] w-full max-w-[1000px] place-items-center rounded-[24px] border-[12px] border-white bg-[#edf4fb] text-sm text-muted shadow-[0_10px_28px_rgba(15,23,42,.14)]">Menyiapkan panorama…</div>}>
+                <PanoramaViewer locationName={location.name} panorama={location.image} />
+              </Suspense>
               <p className="mt-4 inline-flex w-fit items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary shadow-[0_4px_16px_rgba(15,23,42,.1)]">
                 <img className="size-5 shrink-0 object-contain" src="/assets/pages/tour/bi_hand-index-fill.png" alt="" aria-hidden="true" />
                 Geser untuk melihat area sekitar.

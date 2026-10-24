@@ -8,7 +8,7 @@ Authenticated student CRUD and teacher/reviewer verification for portfolio proje
 
 - Private Supabase buckets: `portfolio-private` and `achievement-private`.
 - Allowed images: `image/jpeg`, `image/png`, `image/webp`.
-- Maximum upload size: 5 MiB per file.
+- Maximum upload size: 4 MiB per file for the Vercel-compatible internal portal. This leaves multipart request overhead below Vercel's approximately 4.5 MB Function request limit.
 - Storage keys are generated server-side from record UUIDs.
 - Frontend receives short-lived signed URLs only after ownership or reviewer authorization.
 

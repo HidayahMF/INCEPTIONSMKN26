@@ -92,13 +92,15 @@ export async function getStudentLearningSummary(userId) {
   if (assessmentsResult.error) throw assessmentsResult.error;
   const assessments = assessmentsResult.data || [];
   const assessmentIds = assessments.map((item) => item.id);
-  const scoresResult = assessmentIds.length ? await client.from('student_scores').select('id,assessment_id,score,notes').eq('student_id', userId).in('assessment_id', assessmentIds) : { data: [], error: null };
-  if (scoresResult.error) throw scoresResult.error;
-  const topicIds = [...new Set(assessments.map((item) => item.topic_id))];
-  const topicsResult = topicIds.length ? await client.from('learning_topics').select('id,subject_id,code,name,description,grade_level,sort_order').in('id', topicIds) : { data: [], error: null };
-  if (topicsResult.error) throw topicsResult.error;
-  const resourcesResult = topicIds.length ? await client.from('learning_resources').select('id,topic_id,title,description,resource_type,url,is_approved').in('topic_id', topicIds).eq('is_approved', true) : { data: [], error: null };
-  if (resourcesResult.error) throw resourcesResult.error;
+   const topicIds = [...new Set(assessments.map((item) => item.topic_id))];
+   const [scoresResult, topicsResult, resourcesResult] = await Promise.all([
+     assessmentIds.length ? client.from('student_scores').select('id,assessment_id,score,notes').eq('student_id', userId).in('assessment_id', assessmentIds) : Promise.resolve({ data: [], error: null }),
+     topicIds.length ? client.from('learning_topics').select('id,subject_id,code,name,description,grade_level,sort_order').in('id', topicIds) : Promise.resolve({ data: [], error: null }),
+     topicIds.length ? client.from('learning_resources').select('id,topic_id,title,description,resource_type,url,is_approved').in('topic_id', topicIds).eq('is_approved', true) : Promise.resolve({ data: [], error: null }),
+   ]);
+   if (scoresResult.error) throw scoresResult.error;
+   if (topicsResult.error) throw topicsResult.error;
+   if (resourcesResult.error) throw resourcesResult.error;
   const subjects = assignments.reduce((result, assignment) => {
     if (!result.has(assignment.subject_id)) result.set(assignment.subject_id, { id: assignment.subject_id, code: assignment.subjects.code, name: assignment.subjects.name, topics: [] });
     return result;

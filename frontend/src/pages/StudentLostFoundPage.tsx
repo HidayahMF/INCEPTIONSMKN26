@@ -10,6 +10,7 @@ import { LostFoundTabs } from "../components/student/lostfound/LostFoundTabs";
 import { demoLostFoundItems } from "../components/student/lostfound/lostfound.data";
 import { getLostFoundItems } from "../components/student/lostfound/lostfound.api";
 import type { LostFoundItem, LostFoundTab } from "../components/student/lostfound/lostfound.types";
+import { getCachedApi } from "../lib/api";
 
 export function StudentLostFoundPage() {
   const { me } = useAuth();
@@ -20,8 +21,8 @@ export function StudentLostFoundPage() {
 function StudentLostFoundContent() {
   const { me } = useAuth();
   const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
-  const [items, setItems] = useState<LostFoundItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<LostFoundItem[]>(() => getCachedApi<LostFoundItem[]>("/api/student/lost-found") || []);
+  const [loading, setLoading] = useState(() => !getCachedApi("/api/student/lost-found"));
   const [error, setError] = useState("");
   useEffect(() => { getLostFoundItems().then((next) => setItems(next.length ? next : (isDemo ? demoLostFoundItems : []))).catch((reason) => setError(reason instanceof Error ? reason.message : "Lost & Found gagal dimuat.")).finally(() => setLoading(false)); }, [isDemo]);
   const [tab, setTab] = useState<LostFoundTab>("all");
