@@ -31,12 +31,12 @@ Keep `frontend/vercel.json`. It rewrites `/api/*` to the backend project and sen
 
 ## Backend Project
 
-Configure the Vercel project `inceptionsmkn-26-backend`:
+Configure the Vercel project `inceptionsmkn-26-backend-two`:
 
 - Repository: `HidayahMF/INCEPTIONSMKN26`
 - Production branch: `main`
 - Root directory: `backend`
-- Production domain: `https://inceptionsmkn-26-backend.vercel.app`
+- Production domain: `https://inceptionsmkn-26-backend-two.vercel.app`
 
 Keep `backend/vercel.json`. Its serverless entry point is `backend/api/index.js` using `@vercel/node`.
 
@@ -49,7 +49,7 @@ Vercel Git Integration is configured in the Vercel dashboard, not in this reposi
 3. In **Settings → General**, set the root directory to `frontend`.
 4. Repeat for the backend project with root directory `backend`.
 5. Confirm both projects use the same repository and `main` branch.
-6. Configure runtime environment variables in the backend Vercel project.
+6. Configure runtime environment variables in the backend Vercel project `inceptionsmkn-26-backend-two`.
 
 Do not create `VERCEL_TOKEN`, `VERCEL_ORG_ID`, or project ID GitHub secrets for this deployment model.
 
@@ -74,7 +74,7 @@ Never commit `.env` files or expose backend secrets through Vite.
 
 ## Automatic Deployment Test
 
-After the backend project is configured, verify a deployment from an approved commit/branch in the backend project's Vercel dashboard. Do not deploy uncommitted local changes. If the frontend is already deployed, its existing rewrite points to the backend URL and does not need a frontend code change.
+After the backend project is configured, verify a deployment from an approved commit/branch in the backend project's Vercel dashboard. Do not deploy uncommitted local changes. The frontend rewrite must point to `https://inceptionsmkn-26-backend-two.vercel.app` and the frontend must be redeployed after this repository change is pushed.
 
 For a later approved release, push the selected release branch or `main`:
 
