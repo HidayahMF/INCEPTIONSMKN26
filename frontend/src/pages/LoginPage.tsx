@@ -29,12 +29,19 @@ export function LoginPage() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [showAllRoles, setShowAllRoles] = useState(false);
+  const [focusPasswordAfterDemo, setFocusPasswordAfterDemo] = useState(false);
   const leftShape = useRef<HTMLImageElement>(null);
   const rightShape = useRef<HTMLImageElement>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
   useFloatShapes([
     { ref: leftShape, duration: 3600, distance: 14 },
     { ref: rightShape, duration: 4300, distance: -16 },
   ]);
+  useEffect(() => {
+    if (!focusPasswordAfterDemo || showAllRoles) return;
+    passwordInput.current?.focus();
+    setFocusPasswordAfterDemo(false);
+  }, [focusPasswordAfterDemo, showAllRoles]);
 
   if (loading) return <LoginSessionLoading />;
   if (isAuthenticated) return <AuthenticatedLoginState me={me} onLogout={logout} onContinue={() => navigate("/dashboard", true)} />;
@@ -47,7 +54,18 @@ export function LoginPage() {
       await finishLogin();
     } catch (e) { setError(e instanceof Error ? e.message : "Login gagal."); } finally { setBusy(false); }
   }
+  function selectDemoAccount(account: string) {
+    setIdentifier(account);
+    setPassword("");
+    setError("");
+    setShowAllRoles(false);
+    setFocusPasswordAfterDemo(true);
+  }
   async function quickLogin(account: string) {
+    if (!import.meta.env.DEV) {
+      selectDemoAccount(account);
+      return;
+    }
     setBusy(true); setError("");
     try { await api("/api/dev/login-as", { method: "POST", body: JSON.stringify({ identifier: account }) }); await finishLogin(); }
     catch (e) { setError(e instanceof Error ? e.message : "Quick login gagal."); } finally { setBusy(false); }
@@ -76,7 +94,7 @@ export function LoginPage() {
                 <input className="h-11 rounded-xl border border-[#cbd7e7] px-4 text-sm text-ink outline-none transition placeholder:text-[#9aaac0] focus:border-primary focus:ring-4 focus:ring-primary/10" value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="Masukkan NIS, NIP, atau username" autoComplete="username" required />
               </label>
               <label className="grid gap-2 text-sm text-[#53698e]">Password
-                <div className="relative"><input className="h-11 w-full rounded-xl border border-[#cbd7e7] px-4 pr-12 text-sm text-ink outline-none transition placeholder:text-[#9aaac0] focus:border-primary focus:ring-4 focus:ring-primary/10" type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Masukkan password" autoComplete="current-password" required /><button type="button" aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"} className="absolute right-3 top-1/2 size-6 -translate-y-1/2 p-1" onClick={() => setShowPassword((value) => !value)}><img className="size-full object-contain" src="/assets/pages/LoginPage/iconmatapassword.png" alt="" /></button></div>
+                <div className="relative"><input ref={passwordInput} className="h-11 w-full rounded-xl border border-[#cbd7e7] px-4 pr-12 text-sm text-ink outline-none transition placeholder:text-[#9aaac0] focus:border-primary focus:ring-4 focus:ring-primary/10" type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Masukkan password" autoComplete="current-password" required /><button type="button" aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"} className="absolute right-3 top-1/2 size-6 -translate-y-1/2 p-1" onClick={() => setShowPassword((value) => !value)}><img className="size-full object-contain" src="/assets/pages/LoginPage/iconmatapassword.png" alt="" /></button></div>
               </label>
               <div className="flex items-center justify-between text-xs text-[#53698e]"><label className="flex items-center gap-3"><input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} className="size-5 rounded border-[#cbd7e7] text-primary focus:ring-primary" />Ingat Saya</label><a className="text-primary hover:underline" href="#lupa-password">Lupa Password</a></div>
               <button disabled={busy} className="mt-1 flex h-11 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#39b4f3] to-[#0079e7] text-sm font-bold text-white shadow-[0_7px_16px_rgba(0,146,255,.2)] transition hover:-translate-y-0.5 disabled:opacity-60">{busy ? "Memeriksa..." : "Masuk ke Portal"}<span aria-hidden="true">→</span></button>
