@@ -1,0 +1,15 @@
+import { Router } from 'express';
+import { authenticate } from '../../middleware/auth.js';
+import { authorize } from '../../middleware/authorize.js';
+import { ManagementError, assignRole, listAudit, listScopeResources, listUsers, monitoring, setRoleStatus, setUserStatus, summary } from './management.service.js';
+export const managementRouter = Router();
+const handle = (fn) => async (req, res, next) => { try { return res.json({ data: await fn(req), error: null }); } catch (error) { if (error instanceof ManagementError) return res.status(error.status).json({ data: null, error: { message: error.message } }); return next(error); } };
+managementRouter.use('/admin/management', authenticate, authorize('admin:manage'));
+managementRouter.get('/admin/management/summary', handle(() => summary()));
+managementRouter.get('/admin/management/monitoring', handle(() => monitoring()));
+managementRouter.get('/admin/management/users', handle((req) => listUsers(req.query)));
+managementRouter.get('/admin/management/scope-resources', handle((req) => listScopeResources(req.query)));
+managementRouter.patch('/admin/management/users/:id/status', handle((req) => setUserStatus(req.auth.userId, req.params.id, req.body?.active === true)));
+managementRouter.post('/admin/management/users/:id/roles', handle((req) => assignRole(req.auth.userId, req.params.id, req.body || {})));
+managementRouter.patch('/admin/management/roles/:id/status', handle((req) => setRoleStatus(req.auth.userId, req.params.id, req.body?.active === true)));
+managementRouter.get('/admin/management/audit', handle((req) => listAudit(req.query)));

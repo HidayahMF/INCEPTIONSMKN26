@@ -1,0 +1,18 @@
+import { Router } from 'express';
+import multer from 'multer';
+import { authenticate } from '../../middleware/auth.js';
+import { authorize } from '../../middleware/authorize.js';
+import { PklError, createApplication, createVacancy, listApplications, listReviewerVacancies, listStudentApplications, listVacancies, publishVacancy, reviewApplication, signedCv } from './pkl.service.js';
+export const pklRouter = Router();
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024, files: 1 } });
+const handle = (handler) => async (req, res, next) => { try { return res.json({ data: await handler(req), error: null }); } catch (error) { if (error instanceof PklError) return res.status(error.status).json({ data: null, error: { message: error.message } }); if (error?.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ data: null, error: { message: 'Ukuran CV maksimal 5 MB.' } }); return next(error); } };
+const studentOnly = (handler) => handle((req) => { if (req.auth.profile?.account_type !== 'STUDENT') throw new PklError(403, 'Fitur ini hanya tersedia untuk siswa.'); return handler(req); });
+pklRouter.get('/student/pkl/vacancies', authenticate, studentOnly(() => listVacancies()));
+pklRouter.get('/student/pkl/applications', authenticate, studentOnly((req) => listStudentApplications(req.auth.userId)));
+pklRouter.post('/student/pkl/applications', authenticate, upload.single('cv'), studentOnly((req) => createApplication(req.auth.userId, req.body || {}, req.file)));
+pklRouter.get('/files/cv/:id', authenticate, handle((req) => signedCv(req.auth.userId, req.params.id)));
+pklRouter.get('/reviewer/pkl/vacancies', authenticate, authorize('pkl:manage'), handle(() => listReviewerVacancies()));
+pklRouter.post('/reviewer/pkl/vacancies', authenticate, authorize('pkl:manage'), handle((req) => createVacancy(req.auth.userId, req.body || {})));
+pklRouter.post('/reviewer/pkl/vacancies/:id/publish', authenticate, authorize('pkl:manage'), handle((req) => publishVacancy(req.params.id)));
+pklRouter.get('/reviewer/pkl/applications', authenticate, authorize('pkl:manage'), handle(() => listApplications()));
+pklRouter.post('/reviewer/pkl/applications/:id/status', authenticate, authorize('pkl:manage'), handle((req) => reviewApplication(req.auth.userId, req.params.id, req.body?.status, req.body?.note)));

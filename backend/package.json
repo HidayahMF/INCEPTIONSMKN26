@@ -1,1 +1,45 @@
-{"name":"@smkn26/backend","private":true,"version":"0.1.0","type":"module","engines":{"node":"22.x"},"scripts":{"dev":"node --watch src/server.js","start":"node src/server.js","check":"node --check src/app.js && node --check src/server.js && node --check api/index.js","test":"node --test test/*.test.js","test:gemini":"node scripts/test-gemini.js","provision:demo":"node scripts/provision-demo-accounts.js","seed:learning-demo":"node scripts/seed-learning-demo.js","import:official":"node scripts/import-official-content.js","seed:smkn26-faq":"node scripts/seed-smkn26-faq.js","seed:smkn26-faq:approved":"node scripts/seed-smkn26-faq.js --approve","seed:knowledge":"node scripts/seed-knowledge-directory.js","seed:knowledge:approved":"node scripts/seed-knowledge-directory.js --approve"},"dependencies":{"@supabase/supabase-js":"^2.57.0","cookie-parser":"^1.4.7","cors":"^2.8.5","dotenv":"^16.4.5","express":"^4.21.0","express-rate-limit":"^7.5.0","helmet":"^8.0.0","multer":"^2.4.0","pdf-parse":"^2.4.5"}}
+{
+  "name": "@smkn26/backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "check": "node --check src/app.js && node --check src/server.js && node --check api/index.js",
+    "test": "node --test test/*.test.js",
+    "preflight:portfolio": "node scripts/preflight-portfolio.js",
+    "preflight:pkl": "node scripts/preflight-pkl.js",
+    "preflight:lostfound": "node scripts/preflight-lostfound.js",
+    "preflight:aspirations": "node scripts/preflight-aspirations.js",
+    "preflight:canteen": "node scripts/preflight-canteen.js",
+    "preflight:management": "node scripts/preflight-management.js",
+    "test:portfolio:integration": "node scripts/test-portfolio-integration.js",
+    "test:pkl:integration": "node scripts/test-pkl-integration.js",
+    "test:lostfound:integration": "node scripts/test-lostfound-integration.js",
+    "test:aspirations:integration": "node scripts/test-aspirations-integration.js",
+    "test:canteen:integration": "node scripts/test-canteen-integration.js",
+    "test:management:integration": "node scripts/test-management-integration.js",
+    "test:gemini": "node scripts/test-gemini.js",
+    "provision:demo": "node scripts/provision-demo-accounts.js",
+    "seed:learning-demo": "node scripts/seed-learning-demo.js",
+    "import:official": "node scripts/import-official-content.js",
+    "seed:smkn26-faq": "node scripts/seed-smkn26-faq.js",
+    "seed:smkn26-faq:approved": "node scripts/seed-smkn26-faq.js --approve",
+    "seed:knowledge": "node scripts/seed-knowledge-directory.js",
+    "seed:knowledge:approved": "node scripts/seed-knowledge-directory.js --approve"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5"
+  }
+}

@@ -1,0 +1,14 @@
+import { Router } from 'express';
+import { authenticate } from '../../middleware/auth.js';
+import { authorize } from '../../middleware/authorize.js';
+import { AspirationsError, createAspiration, createCycle, getContext, getMine, listCycles, listMine, listReview, updateAspiration } from './aspirations.service.js';
+export const aspirationsRouter = Router();
+const handle = (handler) => async (req, res, next) => { try { return res.json({ data: await handler(req), error: null }); } catch (error) { if (error instanceof AspirationsError) return res.status(error.status).json({ data: null, error: { message: error.message } }); return next(error); } };
+aspirationsRouter.get('/student/aspirations/cycles', authenticate, authorize('aspirations:submit'), handle(() => listCycles()));
+aspirationsRouter.get('/student/aspirations/context', authenticate, authorize('aspirations:submit'), handle((req) => getContext(req.auth.userId)));
+aspirationsRouter.get('/student/aspirations', authenticate, authorize('aspirations:submit'), handle((req) => listMine(req.auth.userId)));
+aspirationsRouter.get('/student/aspirations/:id', authenticate, authorize('aspirations:submit'), handle((req) => getMine(req.auth.userId, req.params.id)));
+aspirationsRouter.post('/student/aspirations', authenticate, authorize('aspirations:submit'), handle((req) => createAspiration(req.auth.userId, req.body || {})));
+aspirationsRouter.get('/reviewer/aspirations', authenticate, authorize('aspirations:review'), handle(() => listReview()));
+aspirationsRouter.post('/reviewer/aspirations/:id/update', authenticate, authorize('aspirations:review'), handle((req) => updateAspiration(req.auth.userId, req.params.id, req.body?.status, req.body?.message)));
+aspirationsRouter.post('/admin/aspiration-cycles', authenticate, authorize('admin:manage'), handle((req) => createCycle(req.auth.userId, req.body || {})));

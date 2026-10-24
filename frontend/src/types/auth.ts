@@ -10,6 +10,9 @@ export type Role = {
   role_code: string;
   scope_type: string;
   scope_id: string | null;
+  is_active?: boolean;
+  valid_from?: string | null;
+  valid_until?: string | null;
 };
 
 export type Me = { profile: Profile; roles: Role[] };

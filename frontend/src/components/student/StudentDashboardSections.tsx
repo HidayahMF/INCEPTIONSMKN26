@@ -3,50 +3,527 @@ import type { LearningSummary } from "../../features/learning/learning.types";
 
 type PreviewState = { isDemo: boolean };
 
-const cardClass = "min-w-0 rounded-2xl border border-[#e1e9f4] bg-white p-5 shadow-[0_2px_8px_rgba(25,63,112,.02)] sm:p-5";
-const actionClass = "group inline-flex items-center gap-1 text-primary transition-transform duration-200 hover:scale-105 focus-visible:rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
-const arrow = <span aria-hidden="true" className="shrink-0 text-base">→</span>;
+const cardClass =
+  "min-w-0 rounded-2xl border border-[#e1e9f4] bg-white p-5 shadow-[0_2px_8px_rgba(25,63,112,.02)] sm:p-5";
+const actionClass =
+  "group inline-flex items-center gap-1 text-primary transition-transform duration-200 hover:scale-105 focus-visible:rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+const arrow = (
+  <span aria-hidden="true" className="shrink-0 text-base">
+    →
+  </span>
+);
 
-function EmptyState({ children = "Belum ada data untuk ditampilkan." }: { children?: string }) {
+function EmptyState({
+  children = "Belum ada data untuk ditampilkan.",
+}: {
+  children?: string;
+}) {
   return <p className="py-5 text-sm text-muted">{children}</p>;
 }
 
 export function NextActionCard({ preview }: { preview: PreviewState }) {
-  if (!preview.isDemo) return <section className={cardClass}><p className="text-[11px] font-bold uppercase tracking-[.08em] text-primary">LANGKAH BERIKUTNYA</p><h2 className="mt-2 text-lg font-bold text-ink">Belum ada langkah berikutnya</h2><p className="mt-1 text-sm text-muted">Tugas dan pengingat personal akan tampil di sini saat tersedia.</p></section>;
-  return <section className={`${cardClass} flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between`}><div className="min-w-0"><p className="text-[11px] font-bold uppercase tracking-[.08em] text-primary">LANGKAH BERIKUTNYA · PKL</p><h2 className="mt-2 break-words text-[18px] font-bold text-ink">Lengkapi portofolio untuk memperkuat lamaran PKL</h2><p className="mt-1 break-words text-[13px] text-muted">Tambahkan proyek SIJA dan sertifikat pendukung agar profil PKL lebih lengkap.</p></div><div className="flex min-w-0 flex-wrap items-center gap-5 lg:shrink-0 lg:gap-8"><div><strong className="block text-[24px] font-bold text-ink">1 tindakan</strong><span className="text-[11px] text-[#e39b00]">Batas 2 hari lagi</span></div><button type="button" onClick={() => window.alert("Fitur pengelolaan berkas segera hadir.")} className="rounded-full border border-transparent bg-gradient-to-r from-[#43baf5] to-[#007ce9] px-5 py-3 text-[13px] font-semibold text-white shadow-[0_5px_12px_rgba(0,126,233,.18)] transition-[background-color,background-image,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-white hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none">Lengkapi berkas</button></div></section>;
+  if (!preview.isDemo)
+    return (
+      <section className={cardClass}>
+        <p className="text-[11px] font-bold uppercase tracking-[.08em] text-primary">
+          LANGKAH BERIKUTNYA
+        </p>
+        <h2 className="mt-2 text-lg font-bold text-ink">
+          Belum ada langkah berikutnya
+        </h2>
+        <p className="mt-1 text-sm text-muted">
+          Tugas dan pengingat personal akan tampil di sini saat tersedia.
+        </p>
+      </section>
+    );
+  return (
+    <section
+      className={`${cardClass} flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between`}
+    >
+      <div className="min-w-0">
+        <p className="text-[11px] font-bold uppercase tracking-[.08em] text-primary">
+          LANGKAH BERIKUTNYA · PKL
+        </p>
+        <h2 className="mt-2 break-words text-[18px] font-bold text-ink">
+          Lengkapi portofolio untuk memperkuat lamaran PKL
+        </h2>
+        <p className="mt-1 break-words text-[13px] text-muted">
+          Tambahkan proyek SIJA dan sertifikat pendukung agar profil PKL lebih
+          lengkap.
+        </p>
+      </div>
+      <div className="flex min-w-0 flex-wrap items-center gap-5 lg:shrink-0 lg:gap-8">
+        <div>
+          <strong className="block text-[24px] font-bold text-ink">
+            1 tindakan
+          </strong>
+          <span className="text-[11px] text-[#e39b00]">Batas 2 hari lagi</span>
+        </div>
+        <Link
+          to="/dashboard/portfolio"
+          className="rounded-full border border-transparent bg-gradient-to-r from-[#43baf5] to-[#007ce9] px-5 py-3 text-[13px] font-semibold text-white shadow-[0_5px_12px_rgba(0,126,233,.18)] transition-[background-color,background-image,color,border-color,box-shadow] duration-300 ease-out hover:border-[#CBD5E1] hover:bg-white hover:bg-none hover:text-primary hover:shadow-none focus-visible:border-[#CBD5E1] focus-visible:bg-white focus-visible:bg-none focus-visible:text-primary focus-visible:shadow-none"
+        >
+          Lengkapi berkas
+        </Link>
+      </div>
+    </section>
+  );
 }
 
 export function PklApplicationsCard({ preview }: { preview: PreviewState }) {
-  const applications = preview.isDemo ? [
-    ["PT Teknologi Edukasi Nusantara", "IT Support · Jakarta Timur", "17 Okt 2026", "Perlu Berkas", "Lengkapi"],
-    ["CV Digital Solusi Indonesia", "Network Intern · Jakarta Selatan", "15 Okt 2026", "Ditinjau", "Lihat"],
-    ["PT Aplikasi Nusantara Solusi", "Junior System Admin · Jakarta Pusat", "12 Okt 2026", "Wawancara", "Lihat"],
-  ] : [];
-  return <section className={cardClass}><div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><h2 className="text-[18px] font-bold text-ink">Status lamaran PKL</h2><p className="mt-3 break-words text-[13px] text-muted"><strong className="text-ink">{preview.isDemo ? "3 lamaran aktif" : "Belum ada lamaran"}</strong>{preview.isDemo && " · 1 perlu dilengkapi · 1 undangan wawancara"}</p></div><button type="button" onClick={() => window.alert("Modul BKK & PKL segera hadir.")} className={`${actionClass} shrink-0 text-[12px] font-medium`}>Semua lamaran {arrow}</button></div>{applications.length ? <div className="mt-4 min-w-0 overflow-x-auto"><table className="w-full min-w-[680px] border-collapse text-left text-[12px]"><thead><tr className="bg-[#f2f6fc] text-[10px] font-semibold uppercase text-muted"><th className="rounded-l-lg px-3 py-3">Perusahaan / Posisi</th><th className="px-3 py-3">Dikirim</th><th className="px-3 py-3">Status</th><th className="rounded-r-lg px-3 py-3 text-right">Aksi</th></tr></thead><tbody>{applications.map(([company, role, date, status, action]) => <tr key={company} className="border-b border-[#e1e9f4] last:border-0"><td className="px-3 py-3"><strong className="block font-semibold text-ink">{company}</strong><span className="mt-1 block text-[11px] text-muted">{role}</span></td><td className="whitespace-nowrap px-3 py-3 text-muted">{date}</td><td className="px-3 py-3"><span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold ${status === "Perlu Berkas" ? "bg-[#fff0bf] text-[#d28a00]" : "bg-[#edf6ff] text-primary"}`}>{status}</span></td><td className="group px-3 py-3 text-right font-medium"><span className={actionClass}>{action} {arrow}</span></td></tr>)}</tbody></table><p className="mt-3 break-words text-[12px] text-muted">Wawancara terdekat: 22 Okt, 09.00 WIB · PT Aplikasi Nusantara Solusi</p></div> : <EmptyState />}</section>;
+  const applications = preview.isDemo
+    ? [
+        [
+          "PT Teknologi Edukasi Nusantara",
+          "IT Support · Jakarta Timur",
+          "17 Okt 2026",
+          "Perlu Berkas",
+          "Lengkapi",
+        ],
+        [
+          "CV Digital Solusi Indonesia",
+          "Network Intern · Jakarta Selatan",
+          "15 Okt 2026",
+          "Ditinjau",
+          "Lihat",
+        ],
+        [
+          "PT Aplikasi Nusantara Solusi",
+          "Junior System Admin · Jakarta Pusat",
+          "12 Okt 2026",
+          "Wawancara",
+          "Lihat",
+        ],
+      ]
+    : [];
+  return (
+    <section className={cardClass}>
+      <div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h2 className="text-[18px] font-bold text-ink">Status lamaran PKL</h2>
+          <p className="mt-3 break-words text-[13px] text-muted">
+            <strong className="text-ink">
+              {preview.isDemo ? "3 lamaran aktif" : "Belum ada lamaran"}
+            </strong>
+            {preview.isDemo && " · 1 perlu dilengkapi · 1 undangan wawancara"}
+          </p>
+        </div>
+        <Link
+          to="/dashboard/pkl"
+          className={`${actionClass} shrink-0 text-[12px] font-medium`}
+        >
+          Semua lamaran {arrow}
+        </Link>
+      </div>
+      {applications.length ? (
+        <div className="mt-4 min-w-0 overflow-x-auto">
+          <table className="w-full min-w-[680px] border-collapse text-left text-[12px]">
+            <thead>
+              <tr className="bg-[#f2f6fc] text-[10px] font-semibold uppercase text-muted">
+                <th className="rounded-l-lg px-3 py-3">Perusahaan / Posisi</th>
+                <th className="px-3 py-3">Dikirim</th>
+                <th className="px-3 py-3">Status</th>
+                <th className="rounded-r-lg px-3 py-3 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {applications.map(([company, role, date, status, action]) => (
+                <tr
+                  key={company}
+                  className="border-b border-[#e1e9f4] last:border-0"
+                >
+                  <td className="px-3 py-3">
+                    <strong className="block font-semibold text-ink">
+                      {company}
+                    </strong>
+                    <span className="mt-1 block text-[11px] text-muted">
+                      {role}
+                    </span>
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3 text-muted">
+                    {date}
+                  </td>
+                  <td className="px-3 py-3">
+                    <span
+                      className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold ${status === "Perlu Berkas" ? "bg-[#fff0bf] text-[#d28a00]" : "bg-[#edf6ff] text-primary"}`}
+                    >
+                      {status}
+                    </span>
+                  </td>
+                  <td className="group px-3 py-3 text-right font-medium">
+                    <span className={actionClass}>
+                      {action} {arrow}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="mt-3 break-words text-[12px] text-muted">
+            Wawancara terdekat: 22 Okt, 09.00 WIB · PT Aplikasi Nusantara Solusi
+          </p>
+        </div>
+      ) : (
+        <EmptyState />
+      )}
+    </section>
+  );
 }
 
 export function PortfolioCard({ preview }: { preview: PreviewState }) {
-  const items = preview.isDemo ? [["Simulasi jaringan kantor dengan VLAN", "Proyek SIJA · Diperbarui 17 Okt 2026", "Dipublikasikan", "/assets/pages/siswapages/Simbol karya.png"], ["Finalis LKS IT Network Systems", "Prestasi tingkat kota · Sertifikat diunggah 18 Okt", "Verifikasi", "/assets/pages/siswapages/finalis.png"]] : [];
-  return <section className={cardClass}><div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><h2 className="text-[18px] font-bold text-ink">Portofolio &amp; prestasi</h2><p className="mt-3 break-words text-[13px] text-muted"><strong className="text-ink">{preview.isDemo ? "4 karya · 2 prestasi" : "Belum ada karya"}</strong>{preview.isDemo && " · Tampilkan kemampuanmu untuk persiapan PKL"}</p></div><Link to="/dashboard/portfolio" className={`${actionClass} shrink-0 text-[12px] font-medium`}>Kelola karya {arrow}</Link></div>{items.length ? <div className="mt-4">{items.map(([title, copy, status, icon]) => <div key={title} className="group flex min-w-0 items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"><img className="size-10 shrink-0 rounded-lg bg-[#f0f6ff] p-2 object-contain" src={icon} alt="" /><div className="min-w-0 flex-1"><strong className="block break-words text-[12px] font-semibold text-ink sm:truncate">{title}</strong><span className="mt-1 block break-words text-[11px] text-muted sm:truncate">{copy}</span></div><span className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold sm:inline-flex ${status === "Dipublikasikan" ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#edf6ff] text-primary"}`}>{status}</span><span className={actionClass}>{arrow}</span></div>)}</div> : <EmptyState />}</section>;
+  const items = preview.isDemo
+    ? [
+        [
+          "Simulasi jaringan kantor dengan VLAN",
+          "Proyek SIJA · Diperbarui 17 Okt 2026",
+          "Dipublikasikan",
+          "/assets/pages/siswapages/Simbol karya.png",
+        ],
+        [
+          "Finalis LKS IT Network Systems",
+          "Prestasi tingkat kota · Sertifikat diunggah 18 Okt",
+          "Verifikasi",
+          "/assets/pages/siswapages/finalis.png",
+        ],
+      ]
+    : [];
+  return (
+    <section className={cardClass}>
+      <div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h2 className="text-[18px] font-bold text-ink">
+            Portofolio &amp; prestasi
+          </h2>
+          <p className="mt-3 break-words text-[13px] text-muted">
+            <strong className="text-ink">
+              {preview.isDemo ? "4 karya · 2 prestasi" : "Belum ada karya"}
+            </strong>
+            {preview.isDemo && " · Tampilkan kemampuanmu untuk persiapan PKL"}
+          </p>
+        </div>
+        <Link
+          to="/dashboard/portfolio"
+          className={`${actionClass} shrink-0 text-[12px] font-medium`}
+        >
+          Kelola karya {arrow}
+        </Link>
+      </div>
+      {items.length ? (
+        <div className="mt-4">
+          {items.map(([title, copy, status, icon]) => (
+            <div
+              key={title}
+              className="group flex min-w-0 items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"
+            >
+              <img
+                className="size-10 shrink-0 rounded-lg bg-[#f0f6ff] p-2 object-contain"
+                src={icon}
+                alt=""
+              />
+              <div className="min-w-0 flex-1">
+                <strong className="block break-words text-[12px] font-semibold text-ink sm:truncate">
+                  {title}
+                </strong>
+                <span className="mt-1 block break-words text-[11px] text-muted sm:truncate">
+                  {copy}
+                </span>
+              </div>
+              <span
+                className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold sm:inline-flex ${status === "Dipublikasikan" ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#edf6ff] text-primary"}`}
+              >
+                {status}
+              </span>
+              <span className={actionClass}>{arrow}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
+    </section>
+  );
 }
 
 export function AspirationsCard({ preview }: { preview: PreviewState }) {
-  return <section className={cardClass}><div className="flex items-start justify-between"><h2 className="text-[18px] font-bold text-ink">Aspirasi saya</h2><button type="button" onClick={() => window.alert("Modul aspirasi segera hadir.")} className={`${actionClass} text-[12px] font-medium`}>Semua {arrow}</button></div>{preview.isDemo ? <><div className="mt-5 flex items-center justify-between text-[11px] text-muted"><span>ASP-026 · 16 Okt 2026</span><span className="rounded-full bg-[#edf6ff] px-3 py-1 font-semibold text-primary">Ditanggapi</span></div><h3 className="mt-5 text-[13px] font-bold text-ink">Penambahan stopkontak di lab SIJA</h3><p className="mt-4 text-[12px] leading-5 text-muted">“Usulan diteruskan ke tim sarana untuk ditinjau.”</p><div className="mt-6 flex items-center justify-between text-[12px] text-muted"><span>2 aspirasi diajukan</span><button type="button" onClick={() => window.alert("Modul aspirasi segera hadir.")} className={`${actionClass} font-semibold`}>Tulis aspirasi</button></div></> : <EmptyState>Tidak ada aspirasi yang tersedia.</EmptyState>}</section>;
+  return (
+    <section className={cardClass}>
+      <div className="flex items-start justify-between">
+        <h2 className="text-[18px] font-bold text-ink">Aspirasi saya</h2>
+        <Link
+          to="/dashboard/aspirations"
+          className={`${actionClass} text-[12px] font-medium`}
+        >
+          Semua {arrow}
+        </Link>
+      </div>
+      {preview.isDemo ? (
+        <>
+          <div className="mt-5 flex items-center justify-between text-[11px] text-muted">
+            <span>ASP-026 · 16 Okt 2026</span>
+            <span className="rounded-full bg-[#edf6ff] px-3 py-1 font-semibold text-primary">
+              Ditanggapi
+            </span>
+          </div>
+          <h3 className="mt-5 text-[13px] font-bold text-ink">
+            Penambahan stopkontak di lab SIJA
+          </h3>
+          <p className="mt-4 text-[12px] leading-5 text-muted">
+            “Usulan diteruskan ke tim sarana untuk ditinjau.”
+          </p>
+          <div className="mt-6 flex items-center justify-between text-[12px] text-muted">
+            <span>2 aspirasi diajukan</span>
+            <Link
+              to="/dashboard/aspirations"
+              className={`${actionClass} font-semibold`}
+            >
+              Tulis aspirasi
+            </Link>
+          </div>
+        </>
+      ) : (
+        <EmptyState>Tidak ada aspirasi yang tersedia.</EmptyState>
+      )}
+    </section>
+  );
 }
 
 export function LostFoundCard({ preview }: { preview: PreviewState }) {
-  const items = preview.isDemo ? [["Flashdisk hitam 32 GB", "Ditemukan · Lab SIJA · 19 Okt", "Belum Diambil"], ["Botol minum stainless", "Ditemukan · Perpustakaan · 18 Okt", "Sudah Diambil"]] : [];
-  return <section className={cardClass}><div className="flex items-start justify-between"><div><h2 className="text-[18px] font-bold text-ink">Lost &amp; Found</h2><p className="mt-3 text-[13px] text-muted">Barang terbaru di lingkungan sekolah</p></div><button type="button" onClick={() => window.alert("Modul Lost & Found segera hadir.")} className={`${actionClass} text-[12px] font-medium`}>Lihat semua {arrow}</button></div>{items.length ? <div className="mt-4">{items.map(([title, copy, status]) => <div key={title} className="flex items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"><img className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain" src="/assets/pages/siswapages/lostandfound.png" alt="" /><div className="min-w-0 flex-1"><strong className="block text-[12px] font-semibold text-ink">{title}</strong><span className="mt-1 block text-[11px] text-muted">{copy}</span></div><span className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold ${status === "Sudah Diambil" ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#edf6ff] text-primary"}`}>{status}</span></div>)}</div> : <EmptyState />}{preview.isDemo && <div className="mt-3 flex items-center justify-between border-t border-[#e1e9f4] pt-3 text-[12px] text-muted"><span>Laporan saya: 1 pencarian aktif</span><button type="button" onClick={() => window.alert("Modul Lost & Found segera hadir.")} className={`${actionClass} font-medium`}>Laporkan barang {arrow}</button></div>}</section>;
+  const items = preview.isDemo
+    ? [
+        [
+          "Flashdisk hitam 32 GB",
+          "Ditemukan · Lab SIJA · 19 Okt",
+          "Belum Diambil",
+        ],
+        [
+          "Botol minum stainless",
+          "Ditemukan · Perpustakaan · 18 Okt",
+          "Sudah Diambil",
+        ],
+      ]
+    : [];
+  return (
+    <section className={cardClass}>
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="text-[18px] font-bold text-ink">Lost &amp; Found</h2>
+          <p className="mt-3 text-[13px] text-muted">
+            Barang terbaru di lingkungan sekolah
+          </p>
+        </div>
+        <Link
+          to="/dashboard/lost-found"
+          className={`${actionClass} text-[12px] font-medium`}
+        >
+          Lihat semua {arrow}
+        </Link>
+      </div>
+      {items.length ? (
+        <div className="mt-4">
+          {items.map(([title, copy, status]) => (
+            <div
+              key={title}
+              className="flex items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"
+            >
+              <img
+                className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain"
+                src="/assets/pages/siswapages/lostandfound.png"
+                alt=""
+              />
+              <div className="min-w-0 flex-1">
+                <strong className="block text-[12px] font-semibold text-ink">
+                  {title}
+                </strong>
+                <span className="mt-1 block text-[11px] text-muted">
+                  {copy}
+                </span>
+              </div>
+              <span
+                className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold ${status === "Sudah Diambil" ? "bg-[#dcf7e8] text-[#20aa65]" : "bg-[#edf6ff] text-primary"}`}
+              >
+                {status}
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
+      {preview.isDemo && (
+        <div className="mt-3 flex items-center justify-between border-t border-[#e1e9f4] pt-3 text-[12px] text-muted">
+          <span>Laporan saya: 1 pencarian aktif</span>
+          <Link
+            to="/dashboard/lost-found/report"
+            className={`${actionClass} font-medium`}
+          >
+            Laporkan barang {arrow}
+          </Link>
+        </div>
+      )}
+    </section>
+  );
 }
 
-export function LearningCard({ preview, learning }: { preview: PreviewState; learning: LearningSummary | null }) {
+export function LearningCard({
+  preview,
+  learning,
+}: {
+  preview: PreviewState;
+  learning: LearningSummary | null;
+}) {
   const apiTopics = learning?.weakTopics?.slice(0, 2) || [];
-  return <section className={cardClass}><div className="flex items-start justify-between"><div><h2 className="text-[18px] font-bold text-ink">Rekomendasi pembelajaran</h2><p className="mt-3 text-[13px] text-muted">Pilihan materi untuk kompetensi dan persiapan kariermu</p></div><Link to="/dashboard/learning" className={`${actionClass} text-[12px] font-medium`}>Jelajahi {arrow}</Link></div>{apiTopics.length ? <div className="mt-4">{apiTopics.map((topic) => <Link to="/dashboard/learning" key={topic.topicId} className="group flex items-center gap-3 border-b border-[#e1e9f4] py-3"><img className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain" src="/assets/pages/siswapages/rekomendasipembelajaran.png" alt="" /><div className="min-w-0 flex-1"><span className="block text-[10px] font-semibold text-primary">{topic.subjectName}</span><strong className="mt-1 block text-[12px] text-ink">{topic.topicName}</strong><span className="mt-1 block text-[11px] text-muted">Materi dan sumber belajar yang disetujui</span></div><span className={actionClass}>{arrow}</span></Link>)}</div> : preview.isDemo ? <div className="mt-4"><LearningRow category="Sesuai kompetensi SIJA" title="Dasar keamanan jaringan" copy="Modul SIJA · 25 menit · Pemula" /><LearningRow category="Persiapan PKL" title="Menyusun CV untuk lamaran PKL" copy="Panduan karier · 15 menit · Praktis" /></div> : <EmptyState>Belum ada rekomendasi pembelajaran.</EmptyState>}</section>;
+  return (
+    <section className={cardClass}>
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="text-[18px] font-bold text-ink">
+            Rekomendasi pembelajaran
+          </h2>
+          <p className="mt-3 text-[13px] text-muted">
+            Pilihan materi untuk kompetensi dan persiapan kariermu
+          </p>
+        </div>
+        <Link
+          to="/dashboard/learning"
+          className={`${actionClass} text-[12px] font-medium`}
+        >
+          Jelajahi {arrow}
+        </Link>
+      </div>
+      {apiTopics.length ? (
+        <div className="mt-4">
+          {apiTopics.map((topic) => (
+            <Link
+              to="/dashboard/learning"
+              key={topic.topicId}
+              className="group flex items-center gap-3 border-b border-[#e1e9f4] py-3"
+            >
+              <img
+                className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain"
+                src="/assets/pages/siswapages/rekomendasipembelajaran.png"
+                alt=""
+              />
+              <div className="min-w-0 flex-1">
+                <span className="block text-[10px] font-semibold text-primary">
+                  {topic.subjectName}
+                </span>
+                <strong className="mt-1 block text-[12px] text-ink">
+                  {topic.topicName}
+                </strong>
+                <span className="mt-1 block text-[11px] text-muted">
+                  Materi dan sumber belajar yang disetujui
+                </span>
+              </div>
+              <span className={actionClass}>{arrow}</span>
+            </Link>
+          ))}
+        </div>
+      ) : preview.isDemo ? (
+        <div className="mt-4">
+          <LearningRow
+            category="Sesuai kompetensi SIJA"
+            title="Dasar keamanan jaringan"
+            copy="Modul SIJA · 25 menit · Pemula"
+          />
+          <LearningRow
+            category="Persiapan PKL"
+            title="Menyusun CV untuk lamaran PKL"
+            copy="Panduan karier · 15 menit · Praktis"
+          />
+        </div>
+      ) : (
+        <EmptyState>Belum ada rekomendasi pembelajaran.</EmptyState>
+      )}
+    </section>
+  );
 }
 
-function LearningRow({ category, title, copy }: { category: string; title: string; copy: string }) { return <Link to="/dashboard/learning" className="group flex items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"><img className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain" src="/assets/pages/siswapages/rekomendasipembelajaran.png" alt="" /><div className="min-w-0 flex-1"><span className="block text-[10px] font-semibold text-primary">{category}</span><strong className="mt-1 block text-[12px] text-ink">{title}</strong><span className="mt-1 block text-[11px] text-muted">{copy}</span></div><span className={actionClass}>{arrow}</span></Link>; }
+function LearningRow({
+  category,
+  title,
+  copy,
+}: {
+  category: string;
+  title: string;
+  copy: string;
+}) {
+  return (
+    <Link
+      to="/dashboard/learning"
+      className="group flex items-center gap-3 border-b border-[#e1e9f4] py-3 last:border-0"
+    >
+      <img
+        className="size-10 rounded-lg bg-[#f0f6ff] p-2 object-contain"
+        src="/assets/pages/siswapages/rekomendasipembelajaran.png"
+        alt=""
+      />
+      <div className="min-w-0 flex-1">
+        <span className="block text-[10px] font-semibold text-primary">
+          {category}
+        </span>
+        <strong className="mt-1 block text-[12px] text-ink">{title}</strong>
+        <span className="mt-1 block text-[11px] text-muted">{copy}</span>
+      </div>
+      <span className={actionClass}>{arrow}</span>
+    </Link>
+  );
+}
 
 export function RecentActivityCard({ preview }: { preview: PreviewState }) {
-  const activities = preview.isDemo ? [["Undangan wawancara PKL", "PT Aplikasi Nusantara Solusi", "19 Okt · 08.30"], ["Prestasi menunggu verifikasi", "Sertifikat LKS IT Network", "18 Okt · 14.20"], ["Aspirasi mendapat tanggapan", "Penambahan stopkontak di lab SIJA", "18 Okt · 10.15"]] : [];
-  return <section className={cardClass}><div className="flex items-start justify-between"><div><h2 className="text-[18px] font-bold text-ink">Aktivitas terbaru</h2><p className="mt-3 text-[13px] text-muted">Pembaruan dari layanan yang kamu gunakan</p></div><button type="button" onClick={() => window.alert("Riwayat aktivitas segera hadir.")} className={`${actionClass} text-[12px] font-medium`}>Riwayat {arrow}</button></div>{activities.length ? <div className="mt-5 grid gap-5 md:grid-cols-3">{activities.map(([title, copy, date]) => <div key={title} className="relative pl-5"><span className="absolute left-0 top-1.5 size-2 rounded-full bg-primary" aria-hidden="true" /><strong className="block text-[12px] font-semibold text-ink">{title}</strong><span className="mt-1 block text-[11px] text-muted">{copy}</span><time className="mt-1 block text-[11px] text-muted">{date}</time></div>)}</div> : <EmptyState>Belum ada aktivitas terbaru.</EmptyState>}</section>;
+  const activities = preview.isDemo
+    ? [
+        [
+          "Undangan wawancara PKL",
+          "PT Aplikasi Nusantara Solusi",
+          "19 Okt · 08.30",
+        ],
+        [
+          "Prestasi menunggu verifikasi",
+          "Sertifikat LKS IT Network",
+          "18 Okt · 14.20",
+        ],
+        [
+          "Aspirasi mendapat tanggapan",
+          "Penambahan stopkontak di lab SIJA",
+          "18 Okt · 10.15",
+        ],
+      ]
+    : [];
+  return (
+    <section className={cardClass}>
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="text-[18px] font-bold text-ink">Aktivitas terbaru</h2>
+          <p className="mt-3 text-[13px] text-muted">
+            Pembaruan dari layanan yang kamu gunakan
+          </p>
+        </div>
+        <span
+          className="inline-flex cursor-not-allowed items-center gap-1 text-[12px] font-medium text-muted"
+          aria-label="Riwayat aktivitas belum tersedia"
+        >
+          Riwayat <span className="text-[10px]">Belum tersedia</span>
+        </span>
+      </div>
+      {activities.length ? (
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          {activities.map(([title, copy, date]) => (
+            <div key={title} className="relative pl-5">
+              <span
+                className="absolute left-0 top-1.5 size-2 rounded-full bg-primary"
+                aria-hidden="true"
+              />
+              <strong className="block text-[12px] font-semibold text-ink">
+                {title}
+              </strong>
+              <span className="mt-1 block text-[11px] text-muted">{copy}</span>
+              <time className="mt-1 block text-[11px] text-muted">{date}</time>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <EmptyState>Belum ada aktivitas terbaru.</EmptyState>
+      )}
+    </section>
+  );
 }

@@ -15,19 +15,21 @@ import {
   RecentActivityCard,
 } from "../components/student/StudentDashboardSections";
 import { PortalLayout } from "../layouts/PortalLayout";
-import { Link } from "../routes/compat";
+import { Link, Navigate } from "../routes/compat";
 import { TeacherDashboardPage } from "./TeacherDashboardPage";
+import { getActiveRolePresentation } from "../features/auth/rolePresentation";
 
 export function DashboardPage() {
   const { me, hasPermission } = useAuth();
   const [learning, setLearning] = useState<LearningSummary | null>(null);
-  const isStudent = me?.profile.account_type === "STUDENT";
+  const isStudentAccount = me?.profile.account_type === "STUDENT";
+  const isStudentPortal = isStudentAccount && !["aspirations:review", "portfolio:review", "pkl:manage", "lost_found:manage", "merchant:manage", "content:manage", "admin:manage"].some((permission) => hasPermission(permission));
 
   useEffect(() => {
-    if (isStudent) getLearningSummary().then(setLearning).catch(() => setLearning(null));
-  }, [isStudent]);
+    if (isStudentPortal) getLearningSummary().then(setLearning).catch(() => setLearning(null));
+  }, [isStudentPortal]);
 
-  return <RequireAuth>{isStudent ? <StudentDashboard me={me} learning={learning} /> : me?.profile.account_type === "TEACHER" ? <TeacherDashboardPage /> : <StaffDashboard me={me} hasPermission={hasPermission} />}</RequireAuth>;
+  return <RequireAuth>{isStudentPortal ? <StudentDashboard me={me} learning={learning} /> : hasPermission("admin:manage") ? <Navigate to="/admin/management" replace /> : me?.profile.account_type === "TEACHER" && hasPermission("grades:manage") ? <TeacherDashboardPage /> : <StaffDashboard me={me} hasPermission={hasPermission} />}</RequireAuth>;
 }
 
 function StudentDashboard({ me, learning }: { me: ReturnType<typeof useAuth>["me"]; learning: LearningSummary | null }) {
@@ -55,9 +57,19 @@ function StudentDashboard({ me, learning }: { me: ReturnType<typeof useAuth>["me
 }
 
 function StaffDashboard({ me, hasPermission }: { me: ReturnType<typeof useAuth>["me"]; hasPermission: (permission: string) => boolean }) {
-  return <PortalLayout><div className="portal-intro"><div><p className="text-sm font-medium text-primary">Ruang kerja internal</p><h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Selamat datang, {me?.profile.display_name}</h1><p className="mt-3 max-w-2xl text-base leading-7 text-muted">Akses pembelajaran dan tugas sekolah yang ditugaskan untuk akun Anda.</p></div><div className="hidden rounded-2xl bg-white/80 p-4 sm:block"><p className="text-xs font-medium uppercase tracking-[.12em] text-muted">Akun aktif</p><p className="mt-2 text-lg font-bold text-primary-dark">{me?.profile.account_type}</p></div></div><div className="mt-8 grid gap-5 md:grid-cols-2">{hasPermission("grades:manage") && <StaffCard to="/dashboard/grades" eyebrow="Kompetensi siswa" title="Input Nilai" copy="Kelola assessment hanya pada kelas dan mata pelajaran yang ditugaskan." />}{hasPermission("content:manage") && <StaffCard to="/admin/knowledge" eyebrow="Konten publik" title="Knowledge Base" copy="Tinjau sumber informasi sebelum digunakan chatbot publik." />}</div></PortalLayout>;
+  const rolePresentation = getActiveRolePresentation(me);
+  const cards = [
+    hasPermission("grades:manage") && { to: "/dashboard/grades", eyebrow: "Kompetensi siswa", title: "Input Nilai", copy: "Kelola assessment hanya pada kelas dan mata pelajaran yang ditugaskan." },
+    hasPermission("content:manage") && { to: "/admin/knowledge", eyebrow: "Konten publik", title: "Knowledge Base", copy: "Tinjau sumber informasi sebelum digunakan chatbot publik." },
+    hasPermission("portfolio:review") && { to: "/dashboard/teacher/portfolio-review", eyebrow: "Bukti kompetensi", title: "Review Portofolio", copy: "Tinjau karya dan prestasi siswa sesuai kewenangan Anda." },
+    hasPermission("pkl:manage") && { to: "/dashboard/teacher/pkl", eyebrow: "Dunia industri", title: "BKK & PKL", copy: "Kelola lowongan dan tinjau proses lamaran siswa." },
+    hasPermission("lost_found:manage") && { to: "/dashboard/teacher/lost-found", eyebrow: "Layanan siswa", title: "Lost & Found", copy: "Verifikasi laporan dan proses klaim barang siswa." },
+    hasPermission("aspirations:review") && { to: "/dashboard/teacher/aspirations", eyebrow: "Suara siswa", title: "Aspirasi Kelas", copy: "Tinjau dan tindak lanjuti aspirasi yang masuk." },
+    hasPermission("merchant:manage") && { to: "/dashboard/teacher/canteen", eyebrow: "Operasional", title: "Kantin Digital", copy: "Kelola produk dan pesanan merchant yang ditugaskan." },
+  ].filter(Boolean) as Array<{ to: string; eyebrow: string; title: string; copy: string }>;
+  return <PortalLayout breadcrumb="Beranda"><div className="grid min-w-0 gap-6"><header className="flex min-w-0 flex-col justify-between gap-5 lg:flex-row lg:items-end"><div><p className="text-[11px] font-semibold uppercase tracking-[.12em] text-primary">{rolePresentation.portalContextLabel}</p><h1 className="mt-2 break-words text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">Selamat datang, {me?.profile.display_name || "Akun sekolah"}</h1><p className="mt-2 max-w-2xl text-[13px] leading-6 text-muted">Akses modul sesuai peran dan penugasan akun Anda.</p></div><div className="flex w-fit items-center gap-3 rounded-2xl border border-[#dce8f5] bg-white p-3"><img className="size-11 rounded-xl object-contain" src={rolePresentation.assetPath} alt="" /><div><p className="text-[10px] font-medium uppercase tracking-[.12em] text-muted">Role aktif</p><p className="mt-1 text-[13px] font-bold text-primary-dark">{rolePresentation.displayLabel}</p></div></div></header><div className="grid gap-4 md:grid-cols-2">{cards.map((card) => <StaffCard key={card.to} {...card} />)}</div>{cards.length === 0 && <p className="rounded-2xl border border-dashed border-[#cbd9e8] bg-white p-6 text-[13px] text-muted">Belum ada modul yang ditugaskan untuk akun ini.</p>}</div></PortalLayout>;
 }
 
 function StaffCard({ to, eyebrow, title, copy }: { to: string; eyebrow: string; title: string; copy: string }) {
-  return <Link to={to} className="group relative overflow-hidden rounded-[24px] border border-light-blue bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,.05)] transition hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(15,23,42,.1)]"><p className="relative text-sm font-medium text-primary">{eyebrow}</p><h2 className="relative mt-8 text-2xl font-bold text-ink">{title}</h2><p className="relative mt-2 max-w-sm text-sm leading-6 text-muted">{copy}</p><span className="relative mt-6 inline-flex text-sm font-bold text-primary">Buka modul <span className="ml-2 transition group-hover:translate-x-1">→</span></span></Link>;
+  return <Link to={to} className="group relative overflow-hidden rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.04)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(25,63,112,.08)]"><p className="relative text-[11px] font-semibold uppercase tracking-[.08em] text-primary">{eyebrow}</p><h2 className="relative mt-4 text-[19px] font-bold text-ink">{title}</h2><p className="relative mt-2 max-w-sm text-[12px] leading-5 text-muted">{copy}</p><span className="relative mt-5 inline-flex text-[12px] font-bold text-primary">Buka modul <span className="ml-2 transition group-hover:translate-x-1">→</span></span></Link>;
 }

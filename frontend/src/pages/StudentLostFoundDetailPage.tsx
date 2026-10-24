@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Link, usePathname } from "../routes/compat";
 import { RequireAuth } from "../features/auth/RequireAuth";
 import { useAuth } from "../features/auth/AuthProvider";
 import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
 import { demoLostFoundItems } from "../components/student/lostfound/lostfound.data";
+import { claimLostFoundItem, getLostFoundItem } from "../components/student/lostfound/lostfound.api";
 import type { LostFoundItem } from "../components/student/lostfound/lostfound.types";
 import { LostFoundGallery } from "../components/student/lostfound/LostFoundGallery";
 import { LostFoundStatusPanel } from "../components/student/lostfound/LostFoundStatusPanel";
@@ -20,7 +21,8 @@ function StudentLostFoundDetailContent() {
   const pathname = usePathname();
   const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
   const itemId = decodeURIComponent(pathname.slice("/dashboard/lost-found/".length));
-  const item = useMemo<LostFoundItem | undefined>(() => isDemo ? demoLostFoundItems.find((candidate) => candidate.id === itemId) : undefined, [isDemo, itemId]);
+  const [item, setItem] = useState<LostFoundItem | undefined>(() => isDemo ? demoLostFoundItems.find((candidate) => candidate.id === itemId) : undefined); const [claim, setClaim] = useState(""); const [notice, setNotice] = useState("");
+  useEffect(() => { if (!isDemo) getLostFoundItem(itemId).then(setItem).catch(() => setItem(undefined)); }, [isDemo, itemId]);
 
   if (!item) return <StudentPortalLayout breadcrumb="Lost & Found / Detail Barang"><NotFound /></StudentPortalLayout>;
 
@@ -34,14 +36,15 @@ function StudentLostFoundDetailContent() {
       <Link to="/dashboard/lost-found" className="inline-flex w-fit items-center gap-2 text-[12px] font-medium text-primary transition hover:text-primary-dark focus-visible:rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"><span aria-hidden="true" className="text-lg leading-none">←</span> Kembali ke Lost &amp; Found</Link>
       <header><h1 className="text-[28px] font-bold tracking-[-.03em] text-ink sm:text-[30px]">Detail Barang</h1><p className="mt-2 text-[13px] text-[#607296]">Informasi lengkap mengenai barang yang dilaporkan.</p></header>
 
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
         <main className="grid min-w-0 gap-6 rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.04)] sm:p-6">
           <section className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(260px,.98fr)]">
             <LostFoundGallery name={item.name} images={gallery} />
             <div className="min-w-0"><div className="flex flex-wrap gap-2"><span className={`inline-flex rounded-full px-3 py-1.5 text-[10px] font-semibold ${typeClass}`}><span className="mr-1.5 size-1.5 self-center rounded-full bg-current" />{typeLabel}</span><span className={`inline-flex rounded-full px-3 py-1.5 text-[10px] font-semibold ${verified ? "bg-[#dcf7e8] text-[#20aa65]" : item.status === "PENDING" ? "bg-[#fff0bf] text-[#df9700]" : "bg-[#e4f0ff] text-primary"}`}><span className="mr-1.5 size-1.5 self-center rounded-full bg-current" />{verified ? "Terverifikasi" : item.status === "PENDING" ? "Menunggu Verifikasi" : "Sudah Diambil"}</span></div><h2 className="mt-4 break-words text-[21px] font-bold text-ink">{item.name}</h2><div className="mt-3 grid gap-2 text-[11px] text-[#607296]"><MetaRow icon="location" text={item.location} /><MetaRow icon="calendar" text={`Dilaporkan ${item.reportedAt}`} /></div><section className="mt-4 rounded-2xl border border-[#d7e9f8] bg-[#f5fbff] p-4"><h3 className="text-[13px] font-bold text-ink">Deskripsi dan Ciri Khusus</h3><p className="mt-3 text-[12px] leading-5 text-[#607296]">{item.description}</p></section></div>
           </section>
           <section className="rounded-xl border border-[#dce8f5] bg-white p-4 sm:p-5"><h2 className="text-[14px] font-bold text-ink">Informasi Tambahan</h2><p className="mt-3 text-[12px] leading-5 text-[#607296]">{item.additionalInfo || "Tidak ada keterangan tambahan yang dicantumkan."}</p></section>
-          {item.history?.length ? <LostFoundTimeline history={item.history} /> : <section className="rounded-xl border border-[#dce8f5] bg-white p-4 sm:p-5"><h2 className="text-[14px] font-bold text-ink">Riwayat Laporan</h2><p className="mt-3 text-[12px] text-[#607296]">Riwayat laporan belum tersedia.</p></section>}
+           {item.history?.length ? <LostFoundTimeline history={item.history} /> : <section className="rounded-xl border border-[#dce8f5] bg-white p-4 sm:p-5"><h2 className="text-[14px] font-bold text-ink">Riwayat Laporan</h2><p className="mt-3 text-[12px] text-[#607296]">Riwayat laporan belum tersedia.</p></section>}
+           {item.status === "VERIFIED" && !item.isMine && <section className="rounded-xl border border-[#dce8f5] bg-white p-4"><h2 className="text-[14px] font-bold text-ink">Klaim kepemilikan</h2><textarea value={claim} onChange={(event) => setClaim(event.target.value)} className="mt-3 min-h-24 w-full rounded-xl border border-[#cbd9ea] p-3 text-[12px]" placeholder="Jelaskan ciri kepemilikan barang ini." /><button type="button" onClick={() => void claimLostFoundItem(item.id, claim).then(() => setNotice("Klaim berhasil diajukan.")).catch((reason) => setNotice(reason instanceof Error ? reason.message : "Klaim gagal diajukan."))} className="mt-3 rounded-xl bg-primary px-4 py-2.5 text-[12px] font-semibold text-white">Ajukan Klaim</button>{notice && <p role="status" className="mt-3 text-[11px] text-muted">{notice}</p>}</section>}
         </main>
         <LostFoundStatusPanel item={item} />
       </div>

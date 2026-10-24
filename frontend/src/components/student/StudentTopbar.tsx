@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "../../routes/compat";
 import { useAuth } from "../../features/auth/AuthProvider";
 import type { Me } from "../../types/auth";
+import { getActiveRolePresentation } from "../../features/auth/rolePresentation";
 
 type StudentTopbarProps = { me: Me | null; onOpenMenu: () => void; onUnavailable: (label: string) => void; breadcrumb?: string };
 
@@ -23,7 +24,7 @@ export function StudentTopbar({ me, onOpenMenu, onUnavailable, breadcrumb = "Ber
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const profileMenuRef = useRef<HTMLDivElement>(null);
-  const isDemo = Boolean(me?.profile.school_identifier?.startsWith("DEMO-"));
+  const rolePresentation = getActiveRolePresentation(me);
   const results = query.trim() ? searchableItems.filter((item) => item.label.toLowerCase().includes(query.toLowerCase())).slice(0, 5) : [];
 
   useEffect(() => {
@@ -93,12 +94,12 @@ export function StudentTopbar({ me, onOpenMenu, onUnavailable, breadcrumb = "Ber
         </button>
         <div ref={profileMenuRef} className="relative">
            <button type="button" aria-label="Buka menu akun siswa" aria-haspopup="menu" aria-expanded={isProfileMenuOpen} onClick={() => { setLogoutError(""); setIsProfileMenuOpen((open) => !open); }} className="group flex h-11 items-center gap-2 rounded-xl border border-[#dce4ee] bg-[#f8fafc] px-2.5 text-left transition hover:border-[#b9dafa] hover:bg-[#f1f8ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:min-w-[180px]">
-            <img className="size-8 rounded-full object-cover" src={isDemo ? "/assets/pages/LoginPage/rolesiswa.png" : "/assets/shared/branding/smkn26-logo.png"} alt="" />
-            <span className="hidden min-w-0 flex-1 sm:block"><strong className="block truncate text-[12px] font-semibold text-ink">{me?.profile.display_name || "Siswa"}</strong><span className="block truncate text-[10px] text-muted">{isDemo ? "Siswa · XII SIJA 2" : "Siswa"}</span></span>
+             <img className="size-8 rounded-full object-cover" src={rolePresentation.assetPath} alt="" />
+              <span className="hidden min-w-0 flex-1 sm:block"><strong className="block truncate text-[12px] font-semibold text-ink">{me?.profile.display_name || "Akun sekolah"}</strong><span className="block truncate text-[10px] text-muted">{rolePresentation.displayLabel}</span></span>
              <ChevronIcon open={isProfileMenuOpen} />
           </button>
           {isProfileMenuOpen && <div role="menu" aria-label="Menu akun siswa" className="absolute right-0 top-[calc(100%+10px)] z-[70] w-[min(270px,calc(100vw-32px))] overflow-hidden rounded-2xl border border-[#d7e6f3] bg-white p-2 shadow-[0_18px_40px_rgba(20,47,90,.16)]">
-            <div className="flex items-center gap-3 rounded-xl bg-[#f7fbff] px-3 py-3"><img className="size-10 rounded-full object-cover" src={isDemo ? "/assets/pages/LoginPage/rolesiswa.png" : "/assets/shared/branding/smkn26-logo.png"} alt="" /><span className="min-w-0"><strong className="block truncate text-[12px] font-semibold text-ink">{me?.profile.display_name || "Siswa"}</strong><span className="mt-0.5 block truncate text-[10px] text-muted">{isDemo ? "Siswa · XII SIJA 2" : "Siswa"}</span></span></div>
+              <div className="flex items-center gap-3 rounded-xl bg-[#f7fbff] px-3 py-3"><img className="size-10 rounded-full object-cover" src={rolePresentation.assetPath} alt="" /><span className="min-w-0"><strong className="block truncate text-[12px] font-semibold text-ink">{me?.profile.display_name || "Akun sekolah"}</strong><span className="mt-0.5 block truncate text-[10px] text-muted">{rolePresentation.displayLabel}</span></span></div>
             <div className="my-2 h-px bg-[#e7edf5]" />
             <Link role="menuitem" to="/dashboard/profile" onClick={() => setIsProfileMenuOpen(false)} className="flex min-h-10 items-center gap-3 rounded-xl px-3 text-[12px] font-semibold text-ink transition hover:bg-[#edf7ff] hover:text-primary focus-visible:bg-[#edf7ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><UserIcon />Lihat Profil</Link>
             <button role="menuitem" type="button" disabled={isLoggingOut} onClick={() => void handleLogout()} className="flex min-h-10 w-full items-center gap-3 rounded-xl px-3 text-left text-[12px] font-semibold text-[#c93b48] transition hover:bg-[#fff1f2] focus-visible:bg-[#fff1f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e46b76] disabled:cursor-wait disabled:opacity-60"><LogoutIcon />{isLoggingOut ? "Keluar..." : "Keluar Akun"}</button>

@@ -33,4 +33,10 @@ test('public API routes do not require a session while learning APIs do', async 
 
   const teacher = await request('/api/teacher/learning/assignments');
   assert.equal(teacher.status, 401);
+
+  const portfolio = await request('/api/student/portfolio');
+  assert.equal(portfolio.status, 401);
+
+  const review = await request('/api/reviewer/portfolio');
+  assert.equal(review.status, 401);
 });

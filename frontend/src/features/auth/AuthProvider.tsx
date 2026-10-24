@@ -14,7 +14,7 @@ type AuthContextValue = {
 };
 
 const permissions: Record<string, string[]> = {
-  ADMIN: ['admin:manage', 'grades:manage'], CONTENT_EDITOR: ['content:manage'], SUBJECT_TEACHER: ['grades:manage'],
+  ADMIN: ['admin:manage', 'portfolio:review', 'aspirations:submit', 'aspirations:review'], CLASS_REP: ['aspirations:submit'], MPK_OFFICER: ['aspirations:review'], CANTEEN_VENDOR: ['merchant:manage'], COOP_OPERATOR: ['merchant:manage'], CONTENT_EDITOR: ['content:manage'], SUBJECT_TEACHER: ['grades:manage'], BK_STAFF: ['lost_found:manage'], ACHIEVEMENT_VERIFIER: ['achievements:verify', 'portfolio:review'], BKK_OFFICER: ['pkl:manage'], HEAD_OF_DEPARTMENT: ['portfolio:review', 'pkl:manage'],
 };
 const AuthContext = createContext<AuthContextValue | null>(null);
 

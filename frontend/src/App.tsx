@@ -19,10 +19,19 @@ import { StudentLostFoundPage } from "./pages/StudentLostFoundPage";
 import { StudentLostFoundReportPage } from "./pages/StudentLostFoundReportPage";
 import { StudentLostFoundDetailPage } from "./pages/StudentLostFoundDetailPage";
 import { StudentPortfolioPage, StudentPortfolioProjectDetailPage, StudentPortfolioAchievementDetailPage, StudentPortfolioProjectFormPage, StudentPortfolioAchievementFormPage } from "./pages/StudentPortfolioPage";
+import { StudentPortfolioEditPage } from "./pages/StudentPortfolioEditPage";
 import { ProfileRoutePage } from "./pages/TeacherProfilePage";
 import { AdminKnowledgePage } from "./pages/AdminKnowledgePage";
+import { AdminManagementPage } from "./pages/AdminManagementPage";
 import { LearningRecommendationPage } from "./features/learning/pages/LearningRecommendationPage";
 import { TeacherGradesPage } from "./features/learning/pages/TeacherGradesPage";
+import { TeacherPortfolioReviewPage } from "./pages/TeacherPortfolioReviewPage";
+import { TeacherPklReviewPage } from "./pages/TeacherPklReviewPage";
+import { TeacherLostFoundReviewPage } from "./pages/TeacherLostFoundReviewPage";
+import { StudentAspirationsPage } from "./pages/StudentAspirationsPage";
+import { TeacherAspirationsPage } from "./pages/TeacherAspirationsPage";
+import { StudentCanteenPage } from "./pages/StudentCanteenPage";
+import { TeacherCanteenPage } from "./pages/TeacherCanteenPage";
 import { usePathname } from "./routes/compat";
 import { api } from "./lib/api";
 import { FloatingChatbot } from "./components/public/FloatingChatbot";
@@ -448,29 +457,41 @@ export function App() {
   if (path === "/" || path === "/tour" || path === "/tour/lapangan" || ["/profile", "/achievements", "/news", "/information"].includes(path)) return <PublicExperience><LegacyApp /></PublicExperience>;
   const isLostFoundDetail = path.startsWith("/dashboard/lost-found/") && path !== "/dashboard/lost-found/report";
   const isPklDetail = path.startsWith("/dashboard/pkl/");
-  const isPortfolioProjectDetail = path.startsWith("/dashboard/portfolio/projects/");
+   const isPortfolioProjectEdit = path.startsWith("/dashboard/portfolio/projects/") && path.endsWith("/edit");
+   const isPortfolioAchievementEdit = path.startsWith("/dashboard/portfolio/achievements/") && path.endsWith("/edit");
+   const isPortfolioProjectDetail = path.startsWith("/dashboard/portfolio/projects/") && !isPortfolioProjectEdit;
   const isPortfolioAchievementDetail = path.startsWith("/dashboard/portfolio/achievements/") && path !== "/dashboard/portfolio/achievements/new";
    const isTeacherClassDetail = path.startsWith("/dashboard/teacher/classes/");
-    if (!["/login", "/dashboard", "/dashboard/profile", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/dashboard/teacher/classes", "/dashboard/teacher/competencies", "/admin/knowledge"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail && !isTeacherClassDetail) return <LegacyApp />;
+     if (!["/login", "/dashboard", "/dashboard/profile", "/dashboard/pkl", "/dashboard/lost-found", "/dashboard/lost-found/report", "/dashboard/aspirations", "/dashboard/canteen", "/dashboard/portfolio", "/dashboard/portfolio/new", "/dashboard/portfolio/achievements/new", "/dashboard/learning", "/dashboard/grades", "/dashboard/teacher/classes", "/dashboard/teacher/competencies", "/dashboard/teacher/portfolio-review", "/dashboard/teacher/pkl", "/dashboard/teacher/lost-found", "/dashboard/teacher/aspirations", "/dashboard/teacher/canteen", "/admin/knowledge", "/admin/management"].includes(path) && !isLostFoundDetail && !isPklDetail && !isPortfolioProjectDetail && !isPortfolioAchievementDetail && !isPortfolioProjectEdit && !isPortfolioAchievementEdit && !isTeacherClassDetail) return <LegacyApp />;
    return <>
     {path === "/login" && <LoginPage />}
      {path === "/dashboard" && <DashboardPage />}
      {path === "/dashboard/teacher/classes" && <TeacherClassesPage />}
      {isTeacherClassDetail && <TeacherClassDetailPage />}
      {path === "/dashboard/teacher/competencies" && <TeacherCompetenciesPage />}
+     {path === "/dashboard/teacher/portfolio-review" && <TeacherPortfolioReviewPage />}
+     {path === "/dashboard/teacher/pkl" && <TeacherPklReviewPage />}
+     {path === "/dashboard/teacher/lost-found" && <TeacherLostFoundReviewPage />}
+     {path === "/dashboard/teacher/aspirations" && <TeacherAspirationsPage />}
+     {path === "/dashboard/teacher/canteen" && <TeacherCanteenPage />}
      {path === "/dashboard/profile" && <ProfileRoutePage />}
     {path === "/dashboard/pkl" && <StudentPklPage />}
     {isPklDetail && <StudentPklDetailPage />}
-    {path === "/dashboard/portfolio" && <StudentPortfolioPage />}
+     {path === "/dashboard/portfolio" && <StudentPortfolioPage />}
+     {isPortfolioProjectEdit && <StudentPortfolioEditPage kind="project" />}
+     {isPortfolioAchievementEdit && <StudentPortfolioEditPage kind="achievement" />}
     {path === "/dashboard/portfolio/new" && <StudentPortfolioProjectFormPage />}
     {path === "/dashboard/portfolio/achievements/new" && <StudentPortfolioAchievementFormPage />}
     {isPortfolioProjectDetail && <StudentPortfolioProjectDetailPage />}
     {isPortfolioAchievementDetail && <StudentPortfolioAchievementDetailPage />}
     {path === "/dashboard/lost-found" && <StudentLostFoundPage />}
-    {path === "/dashboard/lost-found/report" && <StudentLostFoundReportPage />}
+     {path === "/dashboard/lost-found/report" && <StudentLostFoundReportPage />}
+     {path === "/dashboard/aspirations" && <StudentAspirationsPage />}
+     {path === "/dashboard/canteen" && <StudentCanteenPage />}
     {isLostFoundDetail && <StudentLostFoundDetailPage />}
     {path === "/dashboard/learning" && <LearningRecommendationPage />}
     {path === "/dashboard/grades" && <TeacherGradesPage />}
-    {path === "/admin/knowledge" && <AdminKnowledgePage />}
+     {path === "/admin/knowledge" && <AdminKnowledgePage />}
+     {path === "/admin/management" && <AdminManagementPage />}
    </>;
 }

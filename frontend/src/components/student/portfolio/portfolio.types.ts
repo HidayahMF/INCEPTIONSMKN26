@@ -1,5 +1,5 @@
-export type PortfolioStatus = "DRAFT" | "PUBLISHED";
-export type VerificationStatus = "DRAFT" | "PENDING" | "VERIFIED" | "REJECTED";
+export type PortfolioStatus = "DRAFT" | "SUBMITTED" | "VERIFIED" | "REJECTED" | "PUBLISHED";
+export type VerificationStatus = "DRAFT" | "PENDING" | "SUBMITTED" | "VERIFIED" | "REJECTED";
 
 export type PortfolioProject = {
   id: string;
@@ -10,7 +10,7 @@ export type PortfolioProject = {
   skills: string[];
   date: string;
   status: PortfolioStatus;
-  thumbnail: string;
+  thumbnail?: string;
   purpose: string;
   role: string;
   background?: string;
@@ -18,6 +18,9 @@ export type PortfolioProject = {
   outputs?: string[];
   lessonsLearned?: string;
   documentationImages?: string[];
+  reviewerNote?: string;
+  isPublic?: boolean;
+  files?: { id: string; name: string; mimeType: string; size: number; createdAt: string }[];
   github?: string;
   demoUrl?: string;
 };
@@ -36,4 +39,5 @@ export type StudentAchievement = {
   image?: string;
   verificationStatus: VerificationStatus;
   verificationNote?: string;
+  files?: { id: string; name: string; mimeType: string; size: number; createdAt: string }[];
 };

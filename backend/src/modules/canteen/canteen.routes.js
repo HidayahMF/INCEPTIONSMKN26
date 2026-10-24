@@ -1,0 +1,14 @@
+import { Router } from 'express';
+import { authenticate } from '../../middleware/auth.js';
+import { authorize } from '../../middleware/authorize.js';
+import { CanteenError, createProduct, listMerchants, listMerchantOrders, listProducts, listStudentOrders, placeOrder, updateOrder, updateProduct } from './canteen.service.js';
+export const canteenRouter = Router();
+const handle = (fn) => async (req, res, next) => { try { return res.json({ data: await fn(req), error: null }); } catch (e) { if (e instanceof CanteenError) return res.status(e.status).json({ data: null, error: { message: e.message } }); return next(e); } };
+canteenRouter.get('/student/canteen/products', authenticate, handle(() => listProducts()));
+canteenRouter.get('/student/canteen/orders', authenticate, handle((req) => listStudentOrders(req.auth.userId)));
+canteenRouter.post('/student/canteen/orders', authenticate, handle((req) => placeOrder(req.auth.userId, req.body || {})));
+canteenRouter.get('/merchant/canteen', authenticate, authorize('merchant:manage'), handle((req) => listMerchants(req.auth.userId)));
+canteenRouter.post('/merchant/canteen/products', authenticate, authorize('merchant:manage'), handle((req) => createProduct(req.auth.userId, req.body || {})));
+canteenRouter.put('/merchant/canteen/products/:id', authenticate, authorize('merchant:manage'), handle((req) => updateProduct(req.auth.userId, req.params.id, req.body || {})));
+canteenRouter.get('/merchant/canteen/:merchantId/orders', authenticate, authorize('merchant:manage'), handle((req) => listMerchantOrders(req.auth.userId, req.params.merchantId)));
+canteenRouter.post('/merchant/canteen/orders/:id/status', authenticate, authorize('merchant:manage'), handle((req) => updateOrder(req.auth.userId, req.params.id, req.body?.status)));

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "../routes/compat";
 import { RequireAuth } from "../features/auth/RequireAuth";
 import { useAuth } from "../features/auth/AuthProvider";
 import { StudentPortalLayout } from "../layouts/StudentPortalLayout";
+import { getActiveRolePresentation } from "../features/auth/rolePresentation";
 
 export function StudentProfilePage() {
   const { me } = useAuth();
@@ -18,8 +19,9 @@ function StudentProfileContent() {
 
   const isDemo = me.profile.school_identifier.startsWith("DEMO-");
   const displayName = me.profile.display_name || "Siswa";
-  const roleLabel = accountTypeLabel(me.profile.account_type);
-  const avatar = isDemo ? "/assets/pages/LoginPage/rolesiswa.png" : "/assets/shared/branding/smkn26-logo.png";
+  const rolePresentation = getActiveRolePresentation(me);
+  const roleLabel = rolePresentation.displayLabel;
+  const avatar = rolePresentation.assetPath;
   const academic = isDemo ? {
     school: "SMK Negeri 26 Jakarta",
     className: "XII SIJA 2",
@@ -47,7 +49,7 @@ function StudentProfileContent() {
       <section className="relative overflow-hidden rounded-2xl border border-[#d7e7f4] bg-white p-5 shadow-[0_4px_16px_rgba(25,63,112,.04)] sm:p-7"><div aria-hidden="true" className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#eef8ff] to-transparent" /><div className="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center"><img className="size-[92px] shrink-0 rounded-2xl border-4 border-white bg-[#edf7ff] object-cover shadow-[0_5px_16px_rgba(0,126,233,.14)]" src={avatar} alt={`Avatar ${displayName}`} /><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h2 className="break-words text-[24px] font-bold tracking-[-.025em] text-ink sm:text-[27px]">{displayName}</h2><span className="rounded-full bg-[#e8f5ff] px-3 py-1 text-[10px] font-semibold text-primary">{roleLabel}</span></div><p className="mt-2 text-[12px] text-muted">{academic?.className || "Informasi kelas belum tersedia."}</p><div className="mt-4 flex flex-wrap gap-2 text-[10px] text-[#607296]"><span className="rounded-lg border border-[#dce8f5] bg-white px-3 py-1.5">Portal Internal Siswa</span>{isDemo && <span className="rounded-lg border border-[#f1d99b] bg-[#fff9e9] px-3 py-1.5 text-[#9a6b0b]">Data contoh</span>}</div></div></div></section>
       <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1.7fr)_minmax(280px,1fr)]">
         <main className="grid min-w-0 gap-6">
-          <InfoCard title="Informasi Pribadi" description="Informasi identitas yang terhubung dengan akun portal sekolah."><InfoRow label="Nama Lengkap" value={displayName} /><InfoRow label="Nomor Identitas Sekolah" value={me.profile.school_identifier || "Belum tersedia"} /><InfoRow label="Jenis Akun" value={roleLabel} /></InfoCard>
+           <InfoCard title="Informasi Pribadi" description="Informasi identitas yang terhubung dengan akun portal sekolah."><InfoRow label="Nama Lengkap" value={displayName} /><InfoRow label="Nomor Identitas Sekolah" value={me.profile.school_identifier || "Belum tersedia"} /><InfoRow label="Jenis Akun" value={accountTypeLabel(me.profile.account_type)} /><InfoRow label="Role Aktif" value={roleLabel} /></InfoCard>
           <InfoCard title="Informasi Akademik" description={academic ? "Informasi akademik yang tersimpan untuk akun demo ini." : "Data akademik belum disediakan oleh API akun ini."}>{academic ? <><InfoRow label="Sekolah" value={academic.school} /><InfoRow label="Kelas" value={academic.className} /><InfoRow label="Program Keahlian" value={academic.program} /><InfoRow label="Tahun Ajaran" value={academic.year} /></> : <EmptyAcademicState />}</InfoCard>
         </main>
         <aside className="grid h-fit gap-6">
@@ -63,7 +65,7 @@ function StudentProfileContent() {
 function InfoCard({ title, description, children }: { title: string; description?: string; children: React.ReactNode }) { return <section className="min-w-0 rounded-2xl border border-[#dce8f5] bg-white p-5 shadow-[0_2px_8px_rgba(25,63,112,.02)] sm:p-6"><h2 className="text-[16px] font-bold text-ink">{title}</h2>{description && <p className="mt-1.5 text-[11px] leading-5 text-muted">{description}</p>}<div className={description ? "mt-4" : "mt-5"}>{children}</div></section>; }
 function InfoRow({ label, value }: { label: string; value: string }) { return <div className="border-b border-[#e7edf5] py-3 last:border-0 first:pt-0 last:pb-0"><span className="block text-[10px] uppercase tracking-wide text-[#8492aa]">{label}</span><strong className="mt-1 block break-words text-[12px] leading-5 text-ink">{value}</strong></div>; }
 function EmptyAcademicState() { return <div className="rounded-xl border border-dashed border-[#cbd9e8] bg-[#f8fbff] p-4"><p className="text-[12px] font-semibold text-ink">Belum ada informasi akademik</p><p className="mt-1 text-[11px] leading-5 text-muted">Kelas, program keahlian, dan tahun ajaran akan tampil setelah tersedia dari sumber data akun.</p></div>; }
-function accountTypeLabel(accountType: string) { return accountType === "STUDENT" ? "Siswa" : accountType || "Akun portal"; }
+function accountTypeLabel(accountType: string) { return accountType === "STUDENT" ? "Siswa" : accountType === "TEACHER" ? "Guru" : accountType || "Akun portal"; }
 function CheckIcon() { return <svg className="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 12.5 4 4L18.5 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>; }
 function LogoutIcon() { return <svg className="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5H6.8A1.8 1.8 0 0 0 5 6.8v10.4A1.8 1.8 0 0 0 6.8 19H14M13 12h7m0 0-3-3m3 3-3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>; }
 function StudentOnlyMessage() { return <main className="min-h-screen bg-school-bg p-8 text-muted">Halaman ini hanya tersedia untuk akun siswa.</main>; }

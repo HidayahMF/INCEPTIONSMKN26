@@ -13,6 +13,12 @@ import { listPublishedPages, listPagesForEditor, savePage, deletePage } from './
 import { contextualizeQuestion, createPdfSource, createTextSource, isSuppressedPublicSource, listKnowledge, normalizeChatHistory, publicPathForKnowledgeSource, publicTitleForKnowledgeSource, retrieveApproved, setKnowledgeStatus } from './modules/knowledge/knowledge.service.js';
 import { answerFromApprovedFaq, answerFromContextualFollowUp, answerFromGemini, answerFromKnownIntent, safeUnavailable } from './modules/knowledge/gemini.service.js';
 import { learningRouter } from './modules/learning/learning.routes.js';
+import { portfolioRouter } from './modules/portfolio/portfolio.routes.js';
+import { pklRouter } from './modules/pkl/pkl.routes.js';
+import { lostFoundRouter } from './modules/lostfound/lostfound.routes.js';
+import { aspirationsRouter } from './modules/aspirations/aspirations.routes.js';
+import { canteenRouter } from './modules/canteen/canteen.routes.js';
+import { managementRouter } from './modules/management/management.routes.js';
 export const app = express();
 if (process.env.VERCEL) app.set('trust proxy', 1);
 app.use(helmet());
@@ -67,6 +73,12 @@ app.get('/api/me/permissions', authenticate, async (req, res, next) => {
   try { const me = await getMe(req.auth.userId); return res.json({ data: { roles: me.roles }, error: null }); } catch (error) { return next(error); }
 });
 app.use('/api', learningRouter);
+app.use('/api', pklRouter);
+app.use('/api', lostFoundRouter);
+app.use('/api', aspirationsRouter);
+app.use('/api', canteenRouter);
+app.use('/api', managementRouter);
+app.use('/api', portfolioRouter);
 app.get('/api/public/pages', async (req, res, next) => { try { return res.json({ data: await listPublishedPages(req.query.section), error: null }); } catch (error) { return next(error); } });
 app.get('/api/public/pages/:slug', async (req, res, next) => { try { const pages = await listPublishedPages(); const page = pages.find((item) => item.slug === req.params.slug); if (!page) return res.status(404).json({ data: null, error: { message: 'Konten tidak ditemukan.' } }); return res.json({ data: page, error: null }); } catch (error) { return next(error); } });
 app.get('/api/admin/pages', authenticate, authorize('content:manage'), async (_req, res, next) => { try { return res.json({ data: await listPagesForEditor(), error: null }); } catch (error) { return next(error); } });

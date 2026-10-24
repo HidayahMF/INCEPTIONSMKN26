@@ -1,0 +1,149 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Consolas;}}
+\viewkind4\uc1
+\paperw11906\paperh16838\margl1134\margr1134\margt1134\margb1134
+\fs22
+\pard\qc\b\fs32 LAPORAN PERBANDINGAN PROPOSAL DAN IMPLEMENTASI\par
+\pard\qc\b\fs28 WEBSITE TERPADU SMKN 26 JAKARTA\par
+\pard\qc\b0\fs22 Status fitur berdasarkan proposal dan kode existing\par
+\pard\qc\fs20 Tim #MendapatHidayah | Inception 2026\par
+\par
+\pard\b\fs26 1. Ringkasan Eksekutif\par
+\pard\b0\fs22 Berdasarkan pemeriksaan terhadap proposal dan repository INCEPTIONSMKN26, Public Layer website sudah memiliki implementasi yang cukup lengkap. Halaman profil sekolah, jurusan, BLUD, LSP, ekstrakurikuler, mitra industri, berita, prestasi, portal informasi, School Tour, autentikasi, AI Assistant, dan learning sudah tersedia dalam kode.\par
+\par
+Namun, sebagian besar Service Layer masih berada pada tahap prototype UI atau demo. Fitur yang paling belum selesai adalah penyimpanan data dan alur operasional BKK/PKL, portofolio, prestasi digital, Lost & Found, Aspirasi Kelas, dan Kantin Digital. Management Layer juga baru memiliki fondasi autentikasi, permission, content API, dan Knowledge Base, belum menjadi Admin Dashboard lengkap sesuai proposal.\par
+\par
+\pard\b\fs26 2. Kesimpulan Utama\par
+\pard\b0\fs22 Status keseluruhan implementasi saat ini:\par
+\pard\li360\bullet Public Layer: mayoritas sudah berjalan.\par
+\pard\li360\bullet AI Assistant/Pembangunan.AI: sudah berjalan dengan knowledge base dan sumber resmi.\par
+\pard\li360\bullet Learning: sudah berjalan untuk rekomendasi berbasis nilai guru dan latihan AI.\par
+\pard\li360\bullet Service Layer: sebagian besar masih prototype UI, demo, atau belum tersambung ke backend produksi.\par
+\pard\li360\bullet Management Layer: baru fondasi awal, belum mencakup dashboard admin, user management, audit log, dan statistik operasional.\par
+\pard\li0\par
+\pard\b\fs26 3. Fitur yang Sudah Berjalan\par
+\pard\b0\fs22 Berikut fitur yang memiliki halaman atau implementasi nyata di repository:\par
+\pard\li360\bullet Beranda dan informasi sekolah.\par
+\pard\li360\bullet Profil, visi-misi, sejarah, Mars, struktur dan unit kerja.\par
+\pard\li360\bullet Guru normatif/adaptif, guru kejuruan, tenaga kependidikan, dan tim pendukung.\par
+\pard\li360\bullet School Tour 360 derajat dan detail lokasi fasilitas.\par
+\pard\li360\bullet Enam jurusan: KGS, TEK, TITL, TFLM, TKR, dan SIJA.\par
+\pard\li360\bullet LSP dan halaman skema sertifikasi per jurusan.\par
+\pard\li360\bullet Ekstrakurikuler, organisasi sekolah, OSIS, dan MPK.\par
+\pard\li360\bullet Direktori dan detail mitra industri.\par
+\pard\li360\bullet BLUD: KGStudio, Garage26, Manufaktur26, E-MAN, UPTECHNO, dan GADIZ Vokasi.\par
+\pard\li360\bullet Prestasi publik dengan filter.\par
+\pard\li360\bullet Berita dan detail berita.\par
+\pard\li360\bullet Portal SIMAK26/LMS, Perpus26, SPMB, KJP, dan PIP.\par
+\pard\li360\bullet Login, session, autentikasi, role, dan permission dasar.\par
+\pard\li360\bullet Knowledge Base admin untuk sumber AI.\par
+\pard\li360\bullet Chatbot Pembangunan.AI dengan retrieval sumber yang disetujui.\par
+\pard\li360\bullet Dashboard learning siswa dan input nilai guru.\par
+\pard\li360\bullet Rekomendasi topik berdasarkan assessment serta latihan AI.\par
+\pard\li0\par
+\pard\b\fs26 4. Fitur Parsial atau Masih Demo\par
+\pard\b0\fs22 4.1 BKK dan PKL\par
+\pard\li360\bullet Sudah ada daftar peluang, filter, detail perusahaan, dan tab lamaran.\par
+\pard\li360\bullet Belum ada API lowongan atau API lamaran PKL.\par
+\pard\li360\bullet Siswa belum dapat mengirim lamaran, CV, atau portofolio.\par
+\pard\li360\bullet Guru belum dapat membuat lowongan, melihat pelamar, atau mengubah status seleksi.\par
+\pard\li360\bullet Tombol pendaftaran masih disabled dengan keterangan pendaftaran belum tersedia.\par
+\pard\li0\par
+\pard\fs22 4.2 Digital Portfolio dan Digital Achievement\par
+\pard\li360\bullet Sudah ada daftar, detail, filter, ringkasan, dan form tambah karya/prestasi.\par
+\pard\li360\bullet Data demo berasal dari demoPortfolioProjects dan demoStudentAchievements.\par
+\pard\li360\bullet Form baru melakukan validasi lokal dan belum menyimpan data ke server.\par
+\pard\li360\bullet Belum ada upload storage, database portofolio, verifikasi guru, dan publikasi prestasi.\par
+\pard\li0\par
+\pard\fs22 4.3 Lost & Found\par
+\pard\li360\bullet Sudah ada daftar, filter, detail, status, riwayat demo, dan form laporan.\par
+\pard\li360\bullet Form laporan belum mengirim data karena API Lost & Found belum tersedia.\par
+\pard\li360\bullet Foto belum tersimpan ke storage.\par
+\pard\li360\bullet Guru BK belum memiliki halaman verifikasi dan pencatatan serah terima.\par
+\pard\li0\par
+\pard\fs22 4.4 Learning/Rekomendasi Pengembangan Pelajaran\par
+\pard\li360\bullet Sudah paling dekat dengan konsep proposal.\par
+\pard\li360\bullet Siswa dapat melihat mata pelajaran, topik, status penguasaan, prioritas, sumber belajar, dan latihan AI.\par
+\pard\li360\bullet Guru dapat membuat assessment dan memasukkan nilai.\par
+\pard\li360\bullet Belum ada grafik perkembangan, riwayat latihan, feedback personal guru, notifikasi, dan UI admin untuk mengelola topik/sumber belajar.\par
+\pard\li0\par
+\pard\b\fs26 5. Fitur yang Belum Tersedia\par
+\pard\b0\fs22 5.1 Aspirasi Kelas ke MPK\par
+\pard\li360\bullet Menu dan preview demo sudah ada.\par
+\pard\li360\bullet Belum ada halaman form aspirasi.\par
+\pard\li360\bullet Belum ada API, database, review MPK, pengelompokan, dan tanggapan aspirasi.\par
+\pard\li0\par
+\pard\fs22 5.2 Kantin Digital\par
+\pard\li360\bullet Menu sidebar dan role pedagang/koperasi sudah ada.\par
+\pard\li360\bullet Belum ada halaman menu, stok, keranjang, pre-order, pembayaran, status pesanan, dashboard pedagang, penghasilan, dan ulasan.\par
+\pard\li0\par
+\pard\fs22 5.3 Dashboard Admin Lengkap\par
+\pard\li360\bullet Belum ada overview statistik pengguna, pengunjung, PKL, portofolio, prestasi, Lost & Found, dan aspirasi.\par
+\pard\li360\bullet Belum ada UI manajemen pengguna, role, permission, dan status akun.\par
+\pard\li360\bullet Belum ada audit log.\par
+\pard\li360\bullet Content API dasar dan Knowledge Base sudah ada, tetapi belum menjadi CMS lengkap untuk semua konten proposal.\par
+\pard\li0\par
+\pard\fs22 5.4 Dashboard Role Pendukung\par
+\pard\li360\bullet Dashboard Guru untuk BKK, pelamar, verifikasi portofolio/prestasi, dan berita belum lengkap.\par
+\pard\li360\bullet Dashboard Guru BK untuk Lost & Found belum tersedia.\par
+\pard\li360\bullet Dashboard koperasi belum tersedia.\par
+\pard\li360\bullet Dashboard pedagang kantin belum tersedia.\par
+\pard\li0\par
+\pard\fs22 5.5 Fitur Lanjutan\par
+\pard\li360\bullet Notifikasi sistem belum tersedia.\par
+\pard\li360\bullet Payment Kantin Digital belum tersedia.\par
+\pard\li360\bullet PWA belum tersedia.\par
+\pard\li360\bullet Bilingual belum tersedia.\par
+\pard\li360\bullet Analytics lanjutan belum tersedia.\par
+\pard\li0\par
+\pard\b\fs26 6. Matriks Status Singkat\par
+\pard\b0\fs22\tab Modul\tab Status aktual\par
+\pard\li360\tab Public website\tab Berjalan\par
+\pard\li360\tab School Tour 360\tab Berjalan, sebagian asset perlu dipastikan tersedia\par
+\pard\li360\tab Pembangunan.AI\tab Berjalan\par
+\pard\li360\tab Login dan RBAC\tab Fondasi berjalan\par
+\pard\li360\tab Learning\tab Berjalan untuk scope Phase 1\par
+\pard\li360\tab BKK dan PKL\tab UI demo, backend dan lamaran belum tersedia\par
+\pard\li360\tab Portfolio dan prestasi digital\tab UI demo, persistence dan verifikasi belum tersedia\par
+\pard\li360\tab Lost & Found\tab UI demo, API dan alur BK belum tersedia\par
+\pard\li360\tab Aspirasi kelas\tab Belum tersedia\par
+\pard\li360\tab Kantin digital\tab Belum tersedia\par
+\pard\li360\tab Payment kantin\tab Belum tersedia\par
+\pard\li360\tab Dashboard admin lengkap\tab Belum tersedia\par
+\pard\li360\tab Notifikasi dan audit log\tab Belum tersedia\par
+\pard\li0\par
+\pard\b\fs26 7. Prioritas Pengembangan\par
+\pard\b0\fs22 Prioritas 1 - Membuat Service Layer benar-benar berjalan:\par
+\pard\li360\bullet Bangun database dan API portofolio serta prestasi.\par
+\pard\li360\bullet Tambahkan upload file ke Supabase Storage.\par
+\pard\li360\bullet Bangun API Lost & Found dan alur verifikasi BK.\par
+\pard\li360\bullet Bangun API lowongan, lamaran, CV, dan status PKL.\par
+\pard\li360\bullet Buat API verifikasi portofolio dan prestasi oleh guru.\par
+\pard\li0\par
+\pard\fs22 Prioritas 2 - Dashboard role:\par
+\pard\li360\bullet Dashboard guru untuk lowongan dan pelamar.\par
+\pard\li360\bullet Dashboard verifikasi portofolio/prestasi.\par
+\pard\li360\bullet Dashboard BK untuk Lost & Found.\par
+\pard\li360\bullet Halaman aspirasi ketua kelas dan review MPK.\par
+\pard\li360\bullet Dashboard kantin dan koperasi.\par
+\pard\li0\par
+\pard\fs22 Prioritas 3 - Tata kelola dan fitur lanjutan:\par
+\pard\li360\bullet Admin user management, role management, dan audit log.\par
+\pard\li360\bullet Notifikasi terpusat.\par
+\pard\li360\bullet Payment Kantin Digital.\par
+\pard\li360\bullet PWA, bilingual, dan analytics lanjutan.\par
+\pard\li0\par
+\pard\b\fs26 8. Referensi Kode\par
+\pard\b0\f1\fs19\tab Route utama: frontend/src/App.tsx\par
+\pard\f1\fs19\tab PKL: frontend/src/pages/StudentPklPage.tsx\par
+\pard\f1\fs19\tab Portfolio: frontend/src/pages/StudentPortfolioPage.tsx\par
+\pard\f1\fs19\tab Lost & Found: frontend/src/pages/StudentLostFoundReportPage.tsx\par
+\pard\f1\fs19\tab Learning: frontend/src/features/learning/pages/LearningRecommendationPage.tsx\par
+\pard\f1\fs19\tab Learning API: backend/src/modules/learning/learning.routes.js\par
+\pard\f1\fs19\tab Backend route: backend/src/app.js\par
+\pard\f1\fs19\tab Permission: backend/src/middleware/authorize.js\par
+\pard\f1\fs19\tab Dokumentasi API learning: docs/API_SPEC.md\par
+\pard\f1\fs19\tab Roadmap learning: docs/ROADMAP.md\par
+\pard\f0\fs22\par
+\pard\qc\i Dokumen ini dibuat berdasarkan pemeriksaan source code existing dan isi proposal yang diberikan.\par
+}
